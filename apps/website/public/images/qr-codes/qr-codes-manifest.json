@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T21:23:55.340Z",
+  "generatedAt": "2026-07-29T14:20:02.538Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "apps/website/public/images/qr-codes",
   "folders": [
@@ -54,8 +54,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com",
       "description": "MH Construction Homepage",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "homepage",
@@ -65,8 +65,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com",
       "description": "MH Construction Homepage",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "about",
@@ -76,8 +76,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/about",
       "description": "About Us",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "about",
@@ -87,8 +87,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/about",
       "description": "About Us",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "services",
@@ -98,8 +98,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/#services",
       "description": "Our Services",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "services",
@@ -109,8 +109,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/#services",
       "description": "Our Services",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "projects",
@@ -120,8 +120,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/projects",
       "description": "Our Projects",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "projects",
@@ -131,8 +131,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/projects",
       "description": "Our Projects",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team",
@@ -142,8 +142,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team",
       "description": "Our Team",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team",
@@ -153,8 +153,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team",
       "description": "Our Team",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "careers",
@@ -164,8 +164,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/careers",
       "description": "Careers",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "careers",
@@ -175,8 +175,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/careers",
       "description": "Careers",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "contact",
@@ -186,8 +186,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/contact",
       "description": "Contact Us",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "contact",
@@ -197,8 +197,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/contact",
       "description": "Contact Us",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "allies",
@@ -208,8 +208,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/allies",
       "description": "Allies",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "allies",
@@ -219,8 +219,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/allies",
       "description": "Allies",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "veterans",
@@ -230,8 +230,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/veterans",
       "description": "Veteran-Owned Construction",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "veterans",
@@ -241,8 +241,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/veterans",
       "description": "Veteran-Owned Construction",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "faq",
@@ -252,8 +252,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/faq",
       "description": "FAQ",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "faq",
@@ -263,8 +263,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/faq",
       "description": "FAQ",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "testimonials",
@@ -274,8 +274,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/testimonials",
       "description": "Testimonials",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "testimonials",
@@ -285,8 +285,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/testimonials",
       "description": "Testimonials",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "public-sector",
@@ -296,8 +296,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/public-sector",
       "description": "Public Sector Services",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "public-sector",
@@ -307,8 +307,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/public-sector",
       "description": "Public Sector Services",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "resources",
@@ -318,8 +318,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources",
       "description": "Resources",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "resources",
@@ -329,8 +329,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources",
       "description": "Resources",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-manual",
@@ -340,8 +340,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-manual",
@@ -351,8 +351,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "accessibility",
@@ -362,8 +362,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/accessibility",
       "description": "Accessibility Statement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "accessibility",
@@ -373,8 +373,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/accessibility",
       "description": "Accessibility Statement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-program",
@@ -384,8 +384,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-program",
@@ -395,8 +395,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-incident-report",
@@ -406,8 +406,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/safety/incident-report",
       "description": "Safety Incident Report Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-incident-report",
@@ -417,8 +417,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/safety/incident-report",
       "description": "Safety Incident Report Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-intake",
@@ -428,8 +428,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/safety/intake",
       "description": "Safety Intake Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-intake",
@@ -439,8 +439,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/safety/intake",
       "description": "Safety Intake Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "hub",
@@ -450,8 +450,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/hub",
       "description": "Employee Hub",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "hub",
@@ -461,8 +461,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/hub",
       "description": "Employee Hub",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "employee-handbook",
@@ -472,8 +472,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/employee-handbook",
       "description": "Employee Handbook",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "employee-handbook",
@@ -483,8 +483,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/employee-handbook",
       "description": "Employee Handbook",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "phone",
@@ -494,8 +494,8 @@
       "variant": "color",
       "url": "tel:+15093086489",
       "description": "Call Us: (509) 308-6489",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "phone",
@@ -505,8 +505,8 @@
       "variant": "bw",
       "url": "tel:+15093086489",
       "description": "Call Us: (509) 308-6489",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "email",
@@ -516,8 +516,8 @@
       "variant": "color",
       "url": "mailto:office@mhc-gc.com",
       "description": "Email: office@mhc-gc.com",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "email",
@@ -527,8 +527,8 @@
       "variant": "bw",
       "url": "mailto:office@mhc-gc.com",
       "description": "Email: office@mhc-gc.com",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "linkedin",
@@ -538,8 +538,8 @@
       "variant": "color",
       "url": "https://www.linkedin.com/company/mh-construction-general-contractor/",
       "description": "LinkedIn Profile",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "linkedin",
@@ -549,8 +549,8 @@
       "variant": "bw",
       "url": "https://www.linkedin.com/company/mh-construction-general-contractor/",
       "description": "LinkedIn Profile",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "facebook",
@@ -560,8 +560,8 @@
       "variant": "color",
       "url": "https://www.facebook.com/profile.php?id=61575511773974",
       "description": "Facebook Page",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "facebook",
@@ -571,8 +571,8 @@
       "variant": "bw",
       "url": "https://www.facebook.com/profile.php?id=61575511773974",
       "description": "Facebook Page",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "instagram",
@@ -582,8 +582,8 @@
       "variant": "color",
       "url": "https://www.instagram.com/mh_construction_inc/reels/",
       "description": "Instagram Profile",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "instagram",
@@ -593,8 +593,8 @@
       "variant": "bw",
       "url": "https://www.instagram.com/mh_construction_inc/reels/",
       "description": "Instagram Profile",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "youtube",
@@ -604,8 +604,8 @@
       "variant": "color",
       "url": "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
       "description": "YouTube Channel",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "youtube",
@@ -615,8 +615,8 @@
       "variant": "bw",
       "url": "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
       "description": "YouTube Channel",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "twitter",
@@ -626,8 +626,8 @@
       "variant": "color",
       "url": "https://x.com/mhc_gc",
       "description": "X (Twitter) Profile",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "twitter",
@@ -637,8 +637,8 @@
       "variant": "bw",
       "url": "https://x.com/mhc_gc",
       "description": "X (Twitter) Profile",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "location",
@@ -648,8 +648,8 @@
       "variant": "color",
       "url": "https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301",
       "description": "Our Location",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "location",
@@ -659,8 +659,8 @@
       "variant": "bw",
       "url": "https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301",
       "description": "Our Location",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-dashboard",
@@ -670,8 +670,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Hub (Employee Operations)",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-dashboard",
@@ -681,8 +681,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Hub (Employee Operations)",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "cdn-booth-entry",
@@ -692,8 +692,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/cool-desert-nights#booth-entry",
       "description": "Cool Desert Nights 2026 — Booth Entry Wizard",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "cdn-booth-entry",
@@ -703,8 +703,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/cool-desert-nights#booth-entry",
       "description": "Cool Desert Nights 2026 — Booth Entry Wizard",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-01",
@@ -714,8 +714,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01",
       "description": "Safety Manual Section 01: injury free workplace plan",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-01",
@@ -725,8 +725,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01",
       "description": "Safety Manual Section 01: injury free workplace plan",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-02",
@@ -736,8 +736,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02",
       "description": "Safety Manual Section 02: drug free work place",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-02",
@@ -747,8 +747,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02",
       "description": "Safety Manual Section 02: drug free work place",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-03",
@@ -758,8 +758,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03",
       "description": "Safety Manual Section 03: program policy and requirements",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-03",
@@ -769,8 +769,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03",
       "description": "Safety Manual Section 03: program policy and requirements",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-04",
@@ -780,8 +780,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04",
       "description": "Safety Manual Section 04: safety and health orientation",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-04",
@@ -791,8 +791,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04",
       "description": "Safety Manual Section 04: safety and health orientation",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-05",
@@ -802,8 +802,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05",
       "description": "Safety Manual Section 05: pre job safety planning",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-05",
@@ -813,8 +813,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05",
       "description": "Safety Manual Section 05: pre job safety planning",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-06",
@@ -824,8 +824,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06",
       "description": "Safety Manual Section 06: emergency response",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-06",
@@ -835,8 +835,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06",
       "description": "Safety Manual Section 06: emergency response",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-07",
@@ -846,8 +846,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07",
       "description": "Safety Manual Section 07: safety bulletin boards",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-07",
@@ -857,8 +857,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07",
       "description": "Safety Manual Section 07: safety bulletin boards",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-08",
@@ -868,8 +868,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08",
       "description": "Safety Manual Section 08: event reporting of incidents accidents and near misses",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-08",
@@ -879,8 +879,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08",
       "description": "Safety Manual Section 08: event reporting of incidents accidents and near misses",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-09",
@@ -890,8 +890,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09",
       "description": "Safety Manual Section 09: safety and health meetings inspections",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-09",
@@ -901,8 +901,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09",
       "description": "Safety Manual Section 09: safety and health meetings inspections",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-10",
@@ -912,8 +912,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10",
       "description": "Safety Manual Section 10: personal protective equipment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-10",
@@ -923,8 +923,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10",
       "description": "Safety Manual Section 10: personal protective equipment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-11",
@@ -934,8 +934,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
       "description": "Safety Manual Section 11: Fall Protection",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-11",
@@ -945,8 +945,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
       "description": "Safety Manual Section 11: Fall Protection",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-12",
@@ -956,8 +956,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12",
       "description": "Safety Manual Section 12: flammable and combustible liquids",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-12",
@@ -967,8 +967,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12",
       "description": "Safety Manual Section 12: flammable and combustible liquids",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-13",
@@ -978,8 +978,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13",
       "description": "Safety Manual Section 13: fire prevention",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-13",
@@ -989,8 +989,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13",
       "description": "Safety Manual Section 13: fire prevention",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-14",
@@ -1000,8 +1000,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14",
       "description": "Safety Manual Section 14: welding cutting and heating operations",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-14",
@@ -1011,8 +1011,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14",
       "description": "Safety Manual Section 14: welding cutting and heating operations",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-15",
@@ -1022,8 +1022,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15",
       "description": "Safety Manual Section 15: lock and tag",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-15",
@@ -1033,8 +1033,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15",
       "description": "Safety Manual Section 15: lock and tag",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-16",
@@ -1044,8 +1044,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16",
       "description": "Safety Manual Section 16: confined space entry",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-16",
@@ -1055,8 +1055,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16",
       "description": "Safety Manual Section 16: confined space entry",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-17",
@@ -1066,8 +1066,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17",
       "description": "Safety Manual Section 17: use and care of ladders",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-17",
@@ -1077,8 +1077,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17",
       "description": "Safety Manual Section 17: use and care of ladders",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-18",
@@ -1088,8 +1088,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18",
       "description": "Safety Manual Section 18: motor vehicle safety program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-18",
@@ -1099,8 +1099,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18",
       "description": "Safety Manual Section 18: motor vehicle safety program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-19",
@@ -1110,8 +1110,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19",
       "description": "Safety Manual Section 19: equipment maintenance and inspection",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-19",
@@ -1121,8 +1121,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19",
       "description": "Safety Manual Section 19: equipment maintenance and inspection",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-20",
@@ -1132,8 +1132,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20",
       "description": "Safety Manual Section 20: aerial lifts and elevating work platforms",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-20",
@@ -1143,8 +1143,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20",
       "description": "Safety Manual Section 20: aerial lifts and elevating work platforms",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-21",
@@ -1154,8 +1154,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21",
       "description": "Safety Manual Section 21: crane suspended work platforms",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-21",
@@ -1165,8 +1165,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21",
       "description": "Safety Manual Section 21: crane suspended work platforms",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-22",
@@ -1176,8 +1176,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22",
       "description": "Safety Manual Section 22: use and handling of scaffolds",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-22",
@@ -1187,8 +1187,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22",
       "description": "Safety Manual Section 22: use and handling of scaffolds",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-23",
@@ -1198,8 +1198,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23",
       "description": "Safety Manual Section 23: industrial hygiene program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-23",
@@ -1209,8 +1209,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23",
       "description": "Safety Manual Section 23: industrial hygiene program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-24",
@@ -1220,8 +1220,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24",
       "description": "Safety Manual Section 24: contractor hazard communication program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-24",
@@ -1231,8 +1231,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24",
       "description": "Safety Manual Section 24: contractor hazard communication program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-25",
@@ -1242,8 +1242,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25",
       "description": "Safety Manual Section 25: heat related illness prevention",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-25",
@@ -1253,8 +1253,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25",
       "description": "Safety Manual Section 25: heat related illness prevention",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-26",
@@ -1264,8 +1264,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26",
       "description": "Safety Manual Section 26: excavation trenching and shoring",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-26",
@@ -1275,8 +1275,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26",
       "description": "Safety Manual Section 26: excavation trenching and shoring",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-27",
@@ -1286,8 +1286,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27",
       "description": "Safety Manual Section 27: construction equipment modifications and fabrication",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-27",
@@ -1297,8 +1297,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27",
       "description": "Safety Manual Section 27: construction equipment modifications and fabrication",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-28",
@@ -1308,8 +1308,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28",
       "description": "Safety Manual Section 28: housekeeping",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-28",
@@ -1319,8 +1319,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28",
       "description": "Safety Manual Section 28: housekeeping",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-29",
@@ -1330,8 +1330,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29",
       "description": "Safety Manual Section 29: electrical safety",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-29",
@@ -1341,8 +1341,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29",
       "description": "Safety Manual Section 29: electrical safety",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-30",
@@ -1352,8 +1352,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30",
       "description": "Safety Manual Section 30: signs signals and barricades",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-30",
@@ -1363,8 +1363,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30",
       "description": "Safety Manual Section 30: signs signals and barricades",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-31",
@@ -1374,8 +1374,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31",
       "description": "Safety Manual Section 31: miscellaneous construction requirements",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-31",
@@ -1385,8 +1385,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31",
       "description": "Safety Manual Section 31: miscellaneous construction requirements",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-32",
@@ -1396,8 +1396,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32",
       "description": "Safety Manual Section 32: respiratory protection",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-32",
@@ -1407,8 +1407,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32",
       "description": "Safety Manual Section 32: respiratory protection",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-33",
@@ -1418,8 +1418,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33",
       "description": "Safety Manual Section 33: floor openings open sided surfaces and ramps",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-33",
@@ -1429,8 +1429,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33",
       "description": "Safety Manual Section 33: floor openings open sided surfaces and ramps",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-34",
@@ -1440,8 +1440,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34",
       "description": "Safety Manual Section 34: compressed gas compressed air",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-34",
@@ -1451,8 +1451,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34",
       "description": "Safety Manual Section 34: compressed gas compressed air",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-35",
@@ -1462,8 +1462,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35",
       "description": "Safety Manual Section 35: rigging",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-35",
@@ -1473,8 +1473,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35",
       "description": "Safety Manual Section 35: rigging",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-36",
@@ -1484,8 +1484,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36",
       "description": "Safety Manual Section 36: hand and portable power tools",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-36",
@@ -1495,8 +1495,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36",
       "description": "Safety Manual Section 36: hand and portable power tools",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-37",
@@ -1506,8 +1506,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37",
       "description": "Safety Manual Section 37: concrete and masonry construction",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-37",
@@ -1517,8 +1517,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37",
       "description": "Safety Manual Section 37: concrete and masonry construction",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-38",
@@ -1528,8 +1528,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38",
       "description": "Safety Manual Section 38: commercial drivers drug and prevention program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-38",
@@ -1539,8 +1539,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38",
       "description": "Safety Manual Section 38: commercial drivers drug and prevention program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-39",
@@ -1550,8 +1550,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39",
       "description": "Safety Manual Section 39: silica",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-39",
@@ -1561,8 +1561,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39",
       "description": "Safety Manual Section 39: silica",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-40",
@@ -1572,8 +1572,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40",
       "description": "Safety Manual Section 40: forklift powered industrial truck safety",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-40",
@@ -1583,8 +1583,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40",
       "description": "Safety Manual Section 40: forklift powered industrial truck safety",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-41",
@@ -1594,8 +1594,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41",
       "description": "Safety Manual Section 41: distracted driving and fleet safety policy",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-41",
@@ -1605,8 +1605,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41",
       "description": "Safety Manual Section 41: distracted driving and fleet safety policy",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-42",
@@ -1616,8 +1616,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42",
       "description": "Safety Manual Section 42: cold weather and winter operations safety",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-42",
@@ -1627,8 +1627,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42",
       "description": "Safety Manual Section 42: cold weather and winter operations safety",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-43",
@@ -1638,8 +1638,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43",
       "description": "Safety Manual Section 43: general waste management",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-43",
@@ -1649,8 +1649,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43",
       "description": "Safety Manual Section 43: general waste management",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-44",
@@ -1660,8 +1660,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44",
       "description": "Safety Manual Section 44: struck by and caught in between hazard prevention",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-44",
@@ -1671,8 +1671,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44",
       "description": "Safety Manual Section 44: struck by and caught in between hazard prevention",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-45",
@@ -1682,8 +1682,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45",
       "description": "Safety Manual Section 45: miscellaneous safety requirements",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-45",
@@ -1693,8 +1693,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45",
       "description": "Safety Manual Section 45: miscellaneous safety requirements",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-46",
@@ -1704,8 +1704,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46",
       "description": "Safety Manual Section 46: subcontractor management plan",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-46",
@@ -1715,8 +1715,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46",
       "description": "Safety Manual Section 46: subcontractor management plan",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-47",
@@ -1726,8 +1726,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47",
       "description": "Safety Manual Section 47: insurance requirements contractual risk transfer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-47",
@@ -1737,8 +1737,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47",
       "description": "Safety Manual Section 47: insurance requirements contractual risk transfer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-48",
@@ -1748,8 +1748,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48",
       "description": "Safety Manual Section 48: emergency response plan",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-48",
@@ -1759,8 +1759,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48",
       "description": "Safety Manual Section 48: emergency response plan",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-49",
@@ -1770,8 +1770,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49",
       "description": "Safety Manual Section 49: incident investigation root cause analysis",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-49",
@@ -1781,8 +1781,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49",
       "description": "Safety Manual Section 49: incident investigation root cause analysis",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-50",
@@ -1792,8 +1792,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50",
       "description": "Safety Manual Section 50: return to work program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-50",
@@ -1803,8 +1803,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50",
       "description": "Safety Manual Section 50: return to work program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-51",
@@ -1814,8 +1814,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-51",
       "description": "Safety Manual Section 51: Leading Indicators & Safety Performance Metrics",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-51",
@@ -1825,8 +1825,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-51",
       "description": "Safety Manual Section 51: Leading Indicators & Safety Performance Metrics",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-52",
@@ -1836,8 +1836,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-52",
       "description": "Safety Manual Section 52: Safety Culture Assessment & Continuous Improvement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-52",
@@ -1847,8 +1847,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-52",
       "description": "Safety Manual Section 52: Safety Culture Assessment & Continuous Improvement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-53",
@@ -1858,8 +1858,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-53",
       "description": "Safety Manual Section 53: Management of Change (MOC)",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-53",
@@ -1869,8 +1869,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-53",
       "description": "Safety Manual Section 53: Management of Change (MOC)",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-54",
@@ -1880,8 +1880,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-54",
       "description": "Safety Manual Section 54: Fatigue Risk Management",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-54",
@@ -1891,8 +1891,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-54",
       "description": "Safety Manual Section 54: Fatigue Risk Management",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-55",
@@ -1902,8 +1902,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-55",
       "description": "Safety Manual Section 55: Mental Health & Workforce Wellbeing",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-55",
@@ -1913,8 +1913,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-55",
       "description": "Safety Manual Section 55: Mental Health & Workforce Wellbeing",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-56",
@@ -1924,8 +1924,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-56",
       "description": "Safety Manual Section 56: Near-Miss Reporting & Analysis",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-56",
@@ -1935,8 +1935,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-56",
       "description": "Safety Manual Section 56: Near-Miss Reporting & Analysis",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-57",
@@ -1946,8 +1946,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-57",
       "description": "Safety Manual Section 57: Contractor Prequalification & Safety Data Management",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-57",
@@ -1957,8 +1957,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-57",
       "description": "Safety Manual Section 57: Contractor Prequalification & Safety Data Management",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-58",
@@ -1968,8 +1968,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-58",
       "description": "Safety Manual Section 58: Safety Technology & Digital Tools",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-58",
@@ -1979,8 +1979,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-58",
       "description": "Safety Manual Section 58: Safety Technology & Digital Tools",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-59",
@@ -1990,8 +1990,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-59",
       "description": "Safety Manual Section 59: Stop Work Authority (SWA) Program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-section-59",
@@ -2001,8 +2001,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-59",
       "description": "Safety Manual Section 59: Stop Work Authority (SWA) Program",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-form",
@@ -2012,8 +2012,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-01-injury-free-workplace-plan-acknowledgment",
       "description": "Safety Form: Injury Free Workplace Plan Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "safety-form",
@@ -2023,8 +2023,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-mish-01-injury-free-workplace-plan-acknowledgment",
       "description": "Safety Form: Injury Free Workplace Plan Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ge-purchase-approval-general-expense",
@@ -2034,8 +2034,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ge-purchase-approval-general-expense.pdf",
       "description": "Employee Handbook Form: Purchase Approval General Expense",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ge-purchase-approval-general-expense",
@@ -2045,8 +2045,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ge-purchase-approval-general-expense.pdf",
       "description": "Employee Handbook Form: Purchase Approval General Expense",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-cv-company-vehicle-acknowledgement",
@@ -2056,8 +2056,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf",
       "description": "Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-cv-company-vehicle-acknowledgement",
@@ -2067,8 +2067,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf",
       "description": "Employee Handbook Form: Company Vehicle Policies and Procedures Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ra-handbook-receipt-acknowledgment",
@@ -2078,8 +2078,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ra-handbook-receipt-acknowledgment.pdf",
       "description": "Employee Handbook Form: Employee Handbook Receipt Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ra-handbook-receipt-acknowledgment",
@@ -2089,8 +2089,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ra-handbook-receipt-acknowledgment.pdf",
       "description": "Employee Handbook Form: Employee Handbook Receipt Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-sp-safety-policy-acknowledgement",
@@ -2100,8 +2100,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-sp-safety-policy-acknowledgement.pdf",
       "description": "Employee Handbook Form: Employee Safety Policy Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-sp-safety-policy-acknowledgement",
@@ -2111,8 +2111,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-sp-safety-policy-acknowledgement.pdf",
       "description": "Employee Handbook Form: Employee Safety Policy Acknowledgment",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-wh-work-from-home-agreement",
@@ -2122,8 +2122,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-wh-work-from-home-agreement.pdf",
       "description": "Employee Handbook Form: Temporary Remote Work Application/Agreement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-wh-work-from-home-agreement",
@@ -2133,8 +2133,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-wh-work-from-home-agreement.pdf",
       "description": "Employee Handbook Form: Temporary Remote Work Application/Agreement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ce-computer-electronics-use-agreement",
@@ -2144,8 +2144,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ce-computer-electronics-use-agreement.pdf",
       "description": "Employee Handbook Form: Computer and Electronics Use Agreement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ce-computer-electronics-use-agreement",
@@ -2155,8 +2155,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ce-computer-electronics-use-agreement.pdf",
       "description": "Employee Handbook Form: Computer and Electronics Use Agreement",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ep-employee-photo-release-form",
@@ -2166,8 +2166,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ep-employee-photo-release-form.pdf",
       "description": "Employee Handbook Form: Employee Photo Release Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-ep-employee-photo-release-form",
@@ -2177,8 +2177,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ep-employee-photo-release-form.pdf",
       "description": "Employee Handbook Form: Employee Photo Release Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-cp-client-photo-release-form",
@@ -2188,8 +2188,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf",
       "description": "Employee Handbook Form: Client Photo Release Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "handbook-form-handbook-cp-client-photo-release-form",
@@ -2199,8 +2199,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-cp-client-photo-release-form.pdf",
       "description": "Employee Handbook Form: Client Photo Release Form",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-gator",
@@ -2210,8 +2210,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#gator",
       "description": "GATOR - Chief Moral Officer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-gator",
@@ -2221,8 +2221,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#gator",
       "description": "GATOR - Chief Moral Officer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-arnold-garcia",
@@ -2232,8 +2232,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#arnold-garcia",
       "description": "Arnold Garcia - Chief Operations Officer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-arnold-garcia",
@@ -2243,8 +2243,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#arnold-garcia",
       "description": "Arnold Garcia - Chief Operations Officer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-ben-woodall",
@@ -2254,8 +2254,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#ben-woodall",
       "description": "Ben Woodall - Project Manager",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-ben-woodall",
@@ -2265,8 +2265,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#ben-woodall",
       "description": "Ben Woodall - Project Manager",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-beth",
@@ -2276,8 +2276,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#beth",
       "description": "Beth - Administrative Coordinator",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-beth",
@@ -2287,8 +2287,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#beth",
       "description": "Beth - Administrative Coordinator",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-derek-parks",
@@ -2298,8 +2298,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#derek-parks",
       "description": "Derek Parks - Superintendent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-derek-parks",
@@ -2309,8 +2309,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#derek-parks",
       "description": "Derek Parks - Superintendent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-jennifer-tene",
@@ -2320,8 +2320,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#jennifer-tene",
       "description": "Jennifer Tene - Project Engineer / Admin Assistant",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-jennifer-tene",
@@ -2331,8 +2331,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#jennifer-tene",
       "description": "Jennifer Tene - Project Engineer / Admin Assistant",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-jeremy-thamert",
@@ -2342,8 +2342,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-jeremy-thamert",
@@ -2353,8 +2353,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-kim-thamert",
@@ -2364,8 +2364,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#kim-thamert",
       "description": "Kim Thamert - HR Director",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-kim-thamert",
@@ -2375,8 +2375,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#kim-thamert",
       "description": "Kim Thamert - HR Director",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-lisa-kandle",
@@ -2386,8 +2386,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#lisa-kandle",
       "description": "Lisa Kandle - Project Engineer / Marketing Agent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-lisa-kandle",
@@ -2397,8 +2397,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#lisa-kandle",
       "description": "Lisa Kandle - Project Engineer / Marketing Agent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-matt-ramsey",
@@ -2408,8 +2408,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#matt-ramsey",
       "description": "Matt Ramsey - Chief Marketing Officer & Safety Officer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-matt-ramsey",
@@ -2419,8 +2419,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#matt-ramsey",
       "description": "Matt Ramsey - Chief Marketing Officer & Safety Officer",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-porter-cline",
@@ -2430,8 +2430,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#porter-cline",
       "description": "Porter Cline - Superintendent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-porter-cline",
@@ -2441,8 +2441,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#porter-cline",
       "description": "Porter Cline - Superintendent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-reagan-massey",
@@ -2452,8 +2452,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#reagan-massey",
       "description": "Reagan Massey - Chief Superintendent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-reagan-massey",
@@ -2463,8 +2463,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#reagan-massey",
       "description": "Reagan Massey - Chief Superintendent",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-todd-schoeff",
@@ -2474,8 +2474,8 @@
       "variant": "color",
       "url": "https://www.mhc-gc.com/team#todd-schoeff",
       "description": "Todd Schoeff - Lead Estimator",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     },
     {
       "name": "team-todd-schoeff",
@@ -2485,8 +2485,8 @@
       "variant": "bw",
       "url": "https://www.mhc-gc.com/team#todd-schoeff",
       "description": "Todd Schoeff - Lead Estimator",
-      "success": true,
-      "error": null
+      "success": false,
+      "error": "TextEncoder is not defined"
     }
   ]
 }
