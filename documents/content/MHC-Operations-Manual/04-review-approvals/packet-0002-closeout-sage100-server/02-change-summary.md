@@ -3,26 +3,23 @@
 ## Scope of new content
 
 1. Project Execution and Closeout SOP
-
-- Added mandatory closeout package components:
-  - O&M documents
-  - Performance warranty
-  - Manufacturer warranty
-  - As-builts (subcontractor and MHC)
-  - Equipment training records
-- Added mandatory Procore digital sign-off gate before external release.
+   - Added mandatory closeout package components:
+     - O&M documents
+     - Performance warranty
+     - Manufacturer warranty
+     - As-builts (subcontractor and MHC)
+     - Equipment training records
+   - Added mandatory Procore digital sign-off gate before external release.
 
 2. SAGE100 Operations SOP
-
-- Added full module control scope (GL, AP, AR, Job Cost, Payroll, Purchasing, Inventory).
-- Added posting, reconciliation, and monthly-control packet requirements.
-- Added CPCO input for estimate-to-actual pattern review.
+   - Added full module control scope (GL, AP, AR, Job Cost, Payroll, Purchasing, Inventory).
+   - Added posting, reconciliation, and monthly-control packet requirements.
+   - Added CPCO input for estimate-to-actual pattern review.
 
 3. Internal Server Operations SOP
-
-- Added internal-only continuity scope.
-- Added backup cadence, recovery-testing cadence, and RPO/RTO baseline.
-- Added IT primary ownership and command escalation route.
+   - Added internal-only continuity scope.
+   - Added backup cadence, recovery-testing cadence, and RPO/RTO baseline.
+   - Added IT primary ownership and command escalation route.
 
 ## Why these changes were made
 

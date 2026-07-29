@@ -809,10 +809,10 @@ Priority: complete before Phase 2. These tasks directly address findings from th
 - Safety Snapshot gallery section (§6c) as a live social proof feed
 - Structured data (`LocalBusiness` + `ImageObject` schema) for each credential badge
 
-3. ☐ Create `public/images/safety/snapshots/` folder and add first 3 Safety Snapshots with Superintendent verification on file
-4. ☐ Add `public/documents/subcontractors/` folder with Subcontractor Matrix and COI/AIE templates
-5. ☐ Activate n8n MVR Review alert workflow (§7d) and test with one employee record
-6. ☐ Activate n8n COI Expiration flag workflow (§7d) and verify against current Subcontractor Matrix
+1. ☐ Create `public/images/safety/snapshots/` folder and add first 3 Safety Snapshots with Superintendent verification on file
+2. ☐ Add `public/documents/subcontractors/` folder with Subcontractor Matrix and COI/AIE templates
+3. ☐ Activate n8n MVR Review alert workflow (§7d) and test with one employee record
+4. ☐ Activate n8n COI Expiration flag workflow (§7d) and verify against current Subcontractor Matrix
 
 ### Phase 2 — Testimonial Photos
 

@@ -101,7 +101,7 @@ export function SpecialtyServiceCard(
                 <span className="text-xs font-medium">
                   {isEs
                     ? "Toque para revisar el ajuste"
-                    : "Tap to review the fit"}
+                    : "Click to view details"}
                 </span>
               </div>
             </div>

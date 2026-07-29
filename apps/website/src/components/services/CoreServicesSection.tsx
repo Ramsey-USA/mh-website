@@ -148,7 +148,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                   >
                     {currentService.title}
                   </h2>
-                  <p className="text-white/90 text-sm sm:text-base font-semibold drop-shadow-md">
+                  <p className="text-white/90 text-sm sm:text-base font-semibold drop-shadow-md font-body">
                     {currentService.subtitle}
                   </p>
                 </div>
@@ -176,7 +176,7 @@ export function CoreServicesSection(props: Readonly<CoreServicesSectionProps>) {
                     : "What this means for your project"}
                 </h3>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed font-body">
                 {isEs
                   ? "Este alcance funciona mejor cuando el proyecto ya tiene claridad sobre el alcance, los hitos principales y las decisiones tempranas que necesitan soporte de campo."
                   : "This scope works best when the project already has clarity around scope, key milestones, and early decisions that need field support."}

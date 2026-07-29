@@ -76,7 +76,7 @@ export function ServiceCard(props: Readonly<ServiceCardProps>) {
               <p className="font-subheading font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
                 {isEs ? "Ajuste de proyecto" : "Project fit"}
               </p>
-              <p className="mt-1 leading-relaxed">
+              <p className="mt-1 leading-relaxed font-body">
                 {isEs
                   ? "Claridad de alcance, coordinación temprana y seguimiento responsable desde el inicio."
                   : "Clear scope, early coordination, and accountable follow-through from day one."}

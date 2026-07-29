@@ -43,26 +43,13 @@ Date:
 Chair:
 Attendees:
 
-Mission objectives reviewed:
--
-
-Safety and compliance decisions:
--
-
-Project control decisions:
--
-
-Change-order decisions:
--
-
-Escalations to XO or CO:
--
+- Mission objectives reviewed: None
+- Safety and compliance decisions: None
+- Project control decisions: None
+- Change-order decisions: None
+- Escalations to XO or CO: None
 
 Actions:
 
 - Owner | Action | Due date
--
-
-## 5. Follow-Through Rule
-
-Open actions from previous week must be reviewed first in the next Monday meeting before new discretionary items are accepted.
+- None
