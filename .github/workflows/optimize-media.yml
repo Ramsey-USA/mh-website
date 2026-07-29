@@ -79,11 +79,16 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # Add all optimized files
-          git add apps/website/public/images/**/*.webp || true
-          git add apps/website/public/videos/**/*.webm || true
-          git add apps/website/public/videos/**/*.mp4 || true
-          git add apps/website/public/videos/**/poster-*.jpg || true
+          # Reliably stage generated media files without relying on globstar.
+          find apps/website/public/images apps/website/public/videos \
+            -type f \( -name "*.webp" -o -name "*.avif" -o -name "*.webm" -o -name "*.mp4" -o -name "poster-*.jpg" \) \
+            -print0 | xargs -0r git add --
+
+          # If nothing was staged, avoid failing this step.
+          if git diff --cached --quiet; then
+            echo "ℹ️ No staged optimization artifacts to commit"
+            exit 0
+          fi
 
           # Create detailed commit message
           OPTIMIZED_COUNT=$(git diff --cached --numstat | wc -l)
