@@ -231,7 +231,7 @@ describe("generateJeremyPersonSchema()", () => {
     const schema = generateJeremyPersonSchema();
 
     expect(schema["@type"]).toBe("Person");
-    expect(schema.name).toBe("Jeremy Thamert");
+    expect(schema.name).toBe("Jeremy Gale Thamert");
     expect(schema.url).toContain("/jeremy-thamert");
     expect((schema.image as any)["@type"]).toBe("ImageObject");
     expect((schema.image as any).url).toContain(
