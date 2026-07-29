@@ -46,6 +46,12 @@ const JEREMY_AUTHORITY_STRIP_FILE = path.join(
   "JeremyAuthorityLinksStrip.tsx",
 );
 
+const JEREMY_NAME_VARIANTS = [
+  "Jeremy Gale Thamert",
+  "Jeremy G. Thamert",
+  "Jeremy Thamert",
+];
+
 const REQUIRED_AUTHORITY_STRIP_PAGES = [
   path.join(ROOT, "src", "app", "services", "page.tsx"),
   path.join(ROOT, "src", "app", "projects", "ProjectsPageClient.tsx"),
@@ -145,6 +151,13 @@ function main() {
       "Root layout must import and use generateJeremyPersonSchema in StructuredData.",
     );
   }
+  for (const variant of JEREMY_NAME_VARIANTS) {
+    if (!layoutSource.includes(variant)) {
+      errors.push(
+        `Root layout metadata must include Jeremy variant '${variant}' in keywords or description.`,
+      );
+    }
+  }
 
   const seoMetaSource = fs.readFileSync(SEO_META_FILE, "utf8");
   if (!seoMetaSource.includes("export function generateJeremyPersonSchema()")) {
@@ -154,6 +167,13 @@ function main() {
     errors.push(
       "Jeremy person schema id '/jeremy-thamert#person' must be present in SeoMeta.",
     );
+  }
+  for (const variant of JEREMY_NAME_VARIANTS) {
+    if (!seoMetaSource.includes(variant)) {
+      errors.push(
+        `SeoMeta must include Jeremy variant '${variant}' in the Jeremy person schema.`,
+      );
+    }
   }
 
   if (!fs.existsSync(JEREMY_AUTHORITY_STRIP_FILE)) {

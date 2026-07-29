@@ -27,6 +27,20 @@ const GEO_METADATA_FILE = path.join(
   "geo-metadata.ts",
 );
 
+const SEO_META_FILE = path.join(
+  ROOT,
+  "src",
+  "components",
+  "seo",
+  "SeoMeta.tsx",
+);
+
+const JEREMY_NAME_VARIANTS = [
+  "Jeremy Gale Thamert",
+  "Jeremy G. Thamert",
+  "Jeremy Thamert",
+];
+
 const JEREMY_REGEX = /Jeremy\s+Thamert|Jeremy/i;
 
 // Focus on high-impact indexable marketing pages and explicitly avoid legal/compliance over-optimization.
@@ -71,10 +85,12 @@ function extractFunctionBlock(source, functionName) {
 }
 
 function checkRootLayoutSource(layoutSource, errors) {
-  if (!layoutSource.includes("Jeremy Thamert")) {
-    errors.push(
-      "Root layout metadata must include 'Jeremy Thamert' to preserve sitewide inherited relevance.",
-    );
+  for (const variant of JEREMY_NAME_VARIANTS) {
+    if (!layoutSource.includes(variant)) {
+      errors.push(
+        `Root layout metadata must include '${variant}' to preserve sitewide inherited relevance.`,
+      );
+    }
   }
 
   if (!layoutSource.includes("keywords:")) {
@@ -153,15 +169,35 @@ function main() {
         "geo-metadata.ts must define PAGEHUB_JEREMY_AUTHORITY_KEYWORDS for sitewide Jeremy query reinforcement.",
       );
     }
-    if (!geoMetadataSource.includes("Jeremy Gale Thamert")) {
-      errors.push(
-        "PAGEHUB_JEREMY_AUTHORITY_KEYWORDS must include the legal-name variant 'Jeremy Gale Thamert'.",
-      );
+    for (const variant of JEREMY_NAME_VARIANTS) {
+      if (!geoMetadataSource.includes(variant)) {
+        errors.push(
+          `PAGEHUB_JEREMY_AUTHORITY_KEYWORDS must include the Jeremy variant '${variant}'.`,
+        );
+      }
     }
     if (!geoMetadataSource.includes("mhc-gc.com Jeremy Thamert")) {
       errors.push(
         "PAGEHUB_JEREMY_AUTHORITY_KEYWORDS must include the authority query phrase 'mhc-gc.com Jeremy Thamert'.",
       );
+    }
+  }
+
+  if (!fs.existsSync(SEO_META_FILE)) {
+    errors.push(
+      `Missing SEO meta file: ${path.relative(ROOT, SEO_META_FILE)}.`,
+    );
+  } else {
+    const seoMetaSource = fs.readFileSync(SEO_META_FILE, "utf8");
+    if (!seoMetaSource.includes("generateJeremyPersonSchema()")) {
+      errors.push("SeoMeta.tsx must export generateJeremyPersonSchema().");
+    }
+    for (const variant of JEREMY_NAME_VARIANTS) {
+      if (!seoMetaSource.includes(variant)) {
+        errors.push(
+          `generateJeremyPersonSchema() must include Jeremy variant '${variant}' in name or alternateName.`,
+        );
+      }
     }
   }
 

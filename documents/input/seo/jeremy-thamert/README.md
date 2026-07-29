@@ -8,6 +8,8 @@ Place new Jeremy source material here so it can be reviewed and integrated into 
 - News or story links about Jeremy or MH leadership
 - PDFs, DOCX, or notes with source URLs
 - Any citation details (issuer, date, credential ID when available)
+- Name-variant notes that support the approved Jeremy SEO trio: `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert`
+- References that reinforce the shared `Words from the General` ribbon and route-level leadership coverage across the public site
 
 ## Suggested file naming
 

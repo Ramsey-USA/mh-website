@@ -16,10 +16,12 @@ import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
 const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
-const jeremySeoTitle = buildDualSeoTitle("team", "Jeremy Thamert Profile");
+const jeremySeoName = "Jeremy Gale Thamert";
+const jeremyAltNames = ["Jeremy G. Thamert", "Jeremy Thamert"];
+const jeremyShortName = "Jeremy Thamert";
+const jeremySeoTitle = buildDualSeoTitle("team", `${jeremySeoName} Profile`);
 const jeremyPageSlogan = MH_SLOGANS.heroByRoute.team;
-const jeremySeoDescription =
-  "Jeremy Thamert is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID, with verified public records, credential references, and independent stories.";
+const jeremySeoDescription = `${jeremySeoName} is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID, with verified public records, credential references, and independent stories.`;
 
 type ReferenceLink = {
   label: string;
@@ -48,13 +50,13 @@ export const metadata: Metadata = withGeoMetadata({
   title: jeremySeoTitle,
   description: jeremySeoDescription,
   keywords: [
-    "Jeremy Thamert",
-    "Jeremy Gale Thamert",
-    "Jeremy Thamert MH Construction",
-    "Jeremy Thamert Owner and President",
-    "Jeremy Thamert veteran construction leader",
-    "Jeremy Thamert verified leadership profile",
-    "Jeremy Thamert Washington L&I contractor record",
+    jeremySeoName,
+    jeremyShortName,
+    `${jeremySeoName} MH Construction`,
+    `${jeremySeoName} Owner and President`,
+    `${jeremySeoName} veteran construction leader`,
+    `${jeremySeoName} verified leadership profile`,
+    `${jeremySeoName} Washington L&I contractor record`,
     "MH Construction leadership",
     "MH Construction team",
     "veteran-owned construction leadership",
@@ -70,21 +72,21 @@ export const metadata: Metadata = withGeoMetadata({
   },
   openGraph: {
     title: jeremySeoTitle,
-    description: `${jeremyPageSlogan} Jeremy Thamert leads MH Construction with disciplined planning, direct communication, and accountable delivery from Pasco, WA.`,
+    description: `${jeremyPageSlogan} ${jeremySeoName} leads MH Construction with disciplined planning, direct communication, and accountable delivery from Pasco, WA.`,
     url: canonicalUrl,
     images: [
       {
         url: jeremyProfile.avatar,
         width: 1200,
         height: 630,
-        alt: "Jeremy Thamert, Owner and President at MH Construction",
+        alt: `${jeremySeoName}, Owner and President at MH Construction`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: jeremySeoTitle,
-    description: `${jeremyPageSlogan} Army veteran Jeremy Thamert leads MH Construction with relationship-first standards in WA, OR, and ID.`,
+    description: `${jeremyPageSlogan} Army veteran ${jeremySeoName} leads MH Construction with relationship-first standards in WA, OR, and ID.`,
     images: [jeremyProfile.avatar],
   },
 });
@@ -93,8 +95,8 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${canonicalUrl}#person`,
-  name: "Jeremy Thamert",
-  alternateName: "Jeremy Gale Thamert",
+  name: jeremySeoName,
+  alternateName: [jeremyShortName, ...jeremyAltNames],
   jobTitle: "Owner & President",
   description: jeremyProfile.bio,
   image: `https://www.mhc-gc.com${jeremyProfile.avatar}`,
@@ -146,9 +148,8 @@ const profilePageSchema = {
   "@type": "ProfilePage",
   "@id": `${canonicalUrl}#profile`,
   url: canonicalUrl,
-  name: "Jeremy Thamert | Owner & President | MH Construction",
-  description:
-    "Leadership profile for Jeremy Thamert, Owner & President of MH Construction.",
+  name: `${jeremySeoName} | Owner & President | MH Construction`,
+  description: `Leadership profile for ${jeremySeoName}, Owner & President of MH Construction.`,
   mainEntity: {
     "@id": `${canonicalUrl}#person`,
   },
@@ -176,7 +177,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 3,
-      name: "Jeremy Thamert",
+      name: jeremySeoName,
       item: canonicalUrl,
     },
   ],
@@ -259,7 +260,7 @@ export default async function JeremyThamertPage() {
   return (
     <>
       <PageTrackingClient
-        pageName={isEs ? "Perfil Jeremy Thamert" : "Jeremy Thamert"}
+        pageName={isEs ? "Perfil Jeremy Gale Thamert" : jeremySeoName}
       />
       <script
         type="application/ld+json"
@@ -281,7 +282,7 @@ export default async function JeremyThamertPage() {
                 {isEs ? "Perfil de Liderazgo" : "Leadership Profile"}
               </p>
               <h1 className="text-3xl font-black leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">
-                Jeremy Thamert
+                {jeremySeoName}
               </h1>
               {jeremyStamp ? (
                 <div className="mt-3">
@@ -304,9 +305,10 @@ export default async function JeremyThamertPage() {
               </p>
               <p className="font-body mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
                 Veteran-owned since {COMPANY_INFO.details.veteranOwnedSince} in
-                Pasco, WA, this leadership profile documents Jeremy&apos;s role
-                in maintaining clear communication, disciplined execution, and
-                long-term client trust across Washington, Oregon, and Idaho.
+                Pasco, WA, this leadership profile documents {jeremySeoName}
+                &apos;s role in maintaining clear communication, disciplined
+                execution, and long-term client trust across Washington, Oregon,
+                and Idaho.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -343,7 +345,7 @@ export default async function JeremyThamertPage() {
               <div className="overflow-hidden rounded-2xl border border-brand-secondary/40 bg-white shadow-2xl dark:bg-gray-900">
                 <Image
                   src={jeremyProfile.avatar}
-                  alt="Jeremy Thamert, Owner and President at MH Construction"
+                  alt={`${jeremySeoName}, Owner and President at MH Construction`}
                   width={800}
                   height={1000}
                   className="h-auto w-full object-cover"
@@ -369,7 +371,7 @@ export default async function JeremyThamertPage() {
           items={[
             { label: "Home", href: "/" },
             { label: "Team", href: "/team" },
-            { label: "Jeremy Thamert" },
+            { label: jeremySeoName },
           ]}
         />
 
@@ -418,11 +420,11 @@ export default async function JeremyThamertPage() {
                   Leadership Focus
                 </h2>
                 <p className="font-body mt-4 text-base leading-relaxed text-gray-700 dark:text-gray-200">
-                  Jeremy Thamert leads MH Construction with a relationship-first
-                  model that keeps project teams aligned from kickoff through
-                  closeout. His role is to maintain clear owner communication,
-                  enforce safety and quality standards, and keep commitments
-                  measurable throughout delivery.
+                  {jeremySeoName} leads MH Construction with a
+                  relationship-first model that keeps project teams aligned from
+                  kickoff through closeout. His role is to maintain clear owner
+                  communication, enforce safety and quality standards, and keep
+                  commitments measurable throughout delivery.
                 </p>
                 <ul className="mt-6 space-y-3 text-gray-700 dark:text-gray-200">
                   {jeremyProfile.careerHighlights.map((highlight) => (

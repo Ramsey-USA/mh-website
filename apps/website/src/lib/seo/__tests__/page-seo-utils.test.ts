@@ -86,7 +86,11 @@ function expectJeremyQuoteSchema(
         creator: expect.objectContaining({
           "@type": "Person",
           "@id": "https://www.mhc-gc.com/jeremy-thamert#person",
-          name: "Jeremy Thamert",
+          name: "Jeremy Gale Thamert",
+          alternateName: expect.arrayContaining([
+            "Jeremy G. Thamert",
+            "Jeremy Thamert",
+          ]),
         }),
       }),
     ]),
@@ -190,14 +194,16 @@ describe("page seo utils", () => {
     expect(mockGetJeremyRibbon).toHaveBeenCalledWith("projects");
     expect(homepage.keywords).toEqual(
       expect.arrayContaining([
-        "Jeremy Thamert home quote",
-        "Jeremy Thamert leadership message home",
+        "Jeremy Gale Thamert home quote",
+        "Jeremy G. Thamert leadership message home",
+        "Jeremy Thamert quote Quote for home route proving leadership continuity",
       ]),
     );
     expect(projects.keywords).toEqual(
       expect.arrayContaining([
-        "Jeremy Thamert projects quote",
-        "Jeremy Thamert leadership message projects",
+        "Jeremy Gale Thamert projects quote",
+        "Jeremy G. Thamert leadership message projects",
+        "Jeremy Thamert quote Quote for projects route proving leadership continuity",
       ]),
     );
   });

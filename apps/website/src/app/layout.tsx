@@ -94,6 +94,8 @@ export const metadata: Metadata = withGeoMetadata({
   description:
     "MH Construction, led by Owner & President Jeremy Thamert, partners with owners, facilities teams, and public agencies to plan and deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho.",
   keywords: [
+    "Jeremy Gale Thamert",
+    "Jeremy G. Thamert",
     "Jeremy Thamert",
     "Jeremy Thamert MH Construction",
     "Jeremy Thamert Owner and President",

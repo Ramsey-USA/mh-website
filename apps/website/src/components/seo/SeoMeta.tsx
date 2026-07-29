@@ -343,13 +343,18 @@ export function generateJeremyPersonSchema() {
   const jeremyCredentialAndMembershipLinks = Array.from(
     new Set([...credentialLinks, ...membershipLinks].map((link) => link.url)),
   );
+  const jeremyNameVariants = [
+    "Jeremy Gale Thamert",
+    "Jeremy G. Thamert",
+    "Jeremy Thamert",
+  ];
 
   return {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
-    name: "Jeremy Thamert",
-    alternateName: "Jeremy Gale Thamert",
+    name: "Jeremy Gale Thamert",
+    alternateName: jeremyNameVariants,
     givenName: "Jeremy",
     familyName: "Thamert",
     jobTitle: "Owner & President",
@@ -358,7 +363,7 @@ export function generateJeremyPersonSchema() {
       "@type": "ImageObject",
       "@id": `${defaultSEO.siteUrl}/images/team/jeremy-thamert.webp#image`,
       url: `${defaultSEO.siteUrl}/images/team/jeremy-thamert.webp`,
-      caption: "Jeremy Thamert, Owner & President of MH Construction",
+      caption: "Jeremy Gale Thamert, Owner & President of MH Construction",
       representativeOfPage: true,
       creator: {
         "@id": `${defaultSEO.siteUrl}/#organization`,
@@ -370,7 +375,7 @@ export function generateJeremyPersonSchema() {
       name: defaultSEO.siteName,
     },
     description:
-      "Jeremy Thamert is Owner & President of MH Construction, leading relationship-first project delivery across Washington, Oregon, and Idaho with verified public records, credential references, and independent stories.",
+      "Jeremy Gale Thamert is Owner & President of MH Construction, leading relationship-first project delivery across Washington, Oregon, and Idaho with verified public records, credential references, and independent stories.",
     knowsAbout: [
       "Construction Operations",
       "Project Delivery",

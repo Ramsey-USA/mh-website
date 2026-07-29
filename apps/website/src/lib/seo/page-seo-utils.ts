@@ -43,16 +43,27 @@ const triCityRegionalChamberClaimKeyword = getApprovedClaimOrFallback({
   fallback: "Tri-City Regional Chamber member",
 });
 
-const JEREMY_SEO_SIGNAL_KEYWORDS = [
-  "Jeremy Thamert",
+const JEREMY_NAME_VARIANTS = [
   "Jeremy Gale Thamert",
-  "Jeremy Thamert MH Construction",
-  "Jeremy Thamert Owner & President",
-  "Jeremy Thamert construction leadership",
-  "Jeremy Thamert verified leadership profile",
-  "Jeremy Thamert Washington L&I contractor record",
-  "Jeremy Thamert veteran-owned construction leadership",
-  "Jeremy Thamert Pacific Northwest construction",
+  "Jeremy G. Thamert",
+  "Jeremy Thamert",
+] as const;
+
+const JEREMY_SEO_SIGNAL_KEYWORDS = [
+  ...JEREMY_NAME_VARIANTS,
+  ...JEREMY_NAME_VARIANTS.map((name) => `${name} MH Construction`),
+  ...JEREMY_NAME_VARIANTS.map((name) => `${name} Owner & President`),
+  ...JEREMY_NAME_VARIANTS.map((name) => `${name} construction leadership`),
+  ...JEREMY_NAME_VARIANTS.map((name) => `${name} verified leadership profile`),
+  ...JEREMY_NAME_VARIANTS.map(
+    (name) => `${name} Washington L&I contractor record`,
+  ),
+  ...JEREMY_NAME_VARIANTS.map(
+    (name) => `${name} veteran-owned construction leadership`,
+  ),
+  ...JEREMY_NAME_VARIANTS.map(
+    (name) => `${name} Pacific Northwest construction`,
+  ),
 ];
 
 function getJeremyQuoteSearchSignals(routeKey: string): string[] {
@@ -64,9 +75,11 @@ function getJeremyQuoteSearchSignals(routeKey: string): string[] {
   const teaser = normalizedQuote.split(" ").slice(0, 12).join(" ");
 
   return [
-    `Jeremy Thamert ${routeKey} quote`,
-    `Jeremy Thamert leadership message ${routeKey}`,
-    `Jeremy Thamert quote ${teaser}`,
+    ...JEREMY_NAME_VARIANTS.flatMap((name) => [
+      `${name} ${routeKey} quote`,
+      `${name} leadership message ${routeKey}`,
+      `${name} quote ${teaser}`,
+    ]),
   ];
 }
 
@@ -94,7 +107,8 @@ function buildJeremyQuoteSchema(routeKey: string, pageUrl: string) {
     creator: {
       "@type": "Person",
       "@id": `${enhancedSEO.siteUrl}/jeremy-thamert#person`,
-      name: "Jeremy Thamert",
+      name: "Jeremy Gale Thamert",
+      alternateName: JEREMY_NAME_VARIANTS,
       jobTitle: "Owner & President",
       url: `${enhancedSEO.siteUrl}/jeremy-thamert`,
     },

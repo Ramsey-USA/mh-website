@@ -267,7 +267,7 @@ const STATIC_ROUTES: CanonicalRouteManifestEntry[] = [
   {
     path: "/jeremy-thamert",
     section: "trust",
-    label: { en: "Jeremy Thamert", es: "Jeremy Thamert" },
+    label: { en: "Jeremy Gale Thamert", es: "Jeremy Gale Thamert" },
     changeFrequency: "monthly",
     priority: 0.9,
     lastModified: LAST_MODIFIED.static,

@@ -23,7 +23,7 @@ or documentation that can affect MH brand consistency.
 1. **Primary language pattern:** Surface-aware order is preserved: general copy/docs can render MH brand term first with industry clarifier, while SEO metadata remains construction-first.
 1. **Regulatory protection:** OSHA/WISHA terms stay unchanged in MISH docs, safety forms, and compliance communications.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
-1. **SEO naming:** Labels and titles stay plain-language and canonical.
+1. **SEO naming:** Labels and titles stay plain-language and canonical. For Jeremy authority content, keep the approved trio `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert` aligned with the shared `Words from the General` ribbon strategy.
 1. **Document chip parity:** For print/document artifacts, program/chapter/form identifier pillboxes use the canonical `1.5pt` corner radius consistently across safety-manual and employee-handbook templates.
 1. **TOC association parity:** Print TOCs preserve chapter-to-form pairing (chapter left, associated forms right), continuation pages keep page-1 spacing, TOC row spacing remains locked at `0.1in`, safety/handbook footer structures match (no legacy footer labels), and handbook TOC does not render empty continuation pages.
 1. **Spine metadata parity:** Safety and handbook spines keep identical metadata-stack structure and spacing with `.spine-logo-wrap { gap: 0; }` and `.spine-meta { padding-top: 0.1in; gap: 0.1in; }`.

@@ -18,13 +18,26 @@ const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
 ];
 
 const PAGEHUB_JEREMY_AUTHORITY_KEYWORDS = [
-  "Jeremy Thamert",
   "Jeremy Gale Thamert",
+  "Jeremy G. Thamert",
+  "Jeremy Thamert",
+  "Jeremy Gale Thamert MH Construction",
+  "Jeremy G. Thamert MH Construction",
   "Jeremy Thamert MH Construction",
+  "Jeremy Gale Thamert Owner and President",
+  "Jeremy G. Thamert Owner and President",
   "Jeremy Thamert Owner and President",
+  "Jeremy Gale Thamert leadership",
+  "Jeremy G. Thamert leadership",
   "Jeremy Thamert leadership",
+  "Jeremy Gale Thamert verified leadership profile",
+  "Jeremy G. Thamert verified leadership profile",
   "Jeremy Thamert verified leadership profile",
+  "Jeremy Gale Thamert Washington L&I contractor record",
+  "Jeremy G. Thamert Washington L&I contractor record",
   "Jeremy Thamert Washington L&I contractor record",
+  "mhc-gc.com Jeremy Gale Thamert",
+  "mhc-gc.com Jeremy G. Thamert",
   "mhc-gc.com Jeremy Thamert",
 ];
 
