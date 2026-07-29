@@ -2,6 +2,10 @@ name: Setup Workspace
 description: Checkout repository, setup pnpm and Node.js, then install dependencies.
 
 inputs:
+  skip-checkout:
+    description: Skip checkout when the workflow already performed actions/checkout.
+    required: false
+    default: "false"
   fetch-depth:
     description: Git history depth passed to actions/checkout.
     required: false
@@ -27,13 +31,13 @@ runs:
   using: composite
   steps:
     - name: Checkout repository (default token)
-      if: ${{ inputs.checkout-token == '' }}
+      if: ${{ inputs.skip-checkout != 'true' && inputs.checkout-token == '' }}
       uses: actions/checkout@v5
       with:
         fetch-depth: ${{ inputs.fetch-depth }}
 
     - name: Checkout repository (custom token)
-      if: ${{ inputs.checkout-token != '' }}
+      if: ${{ inputs.skip-checkout != 'true' && inputs.checkout-token != '' }}
       uses: actions/checkout@v5
       with:
         fetch-depth: ${{ inputs.fetch-depth }}

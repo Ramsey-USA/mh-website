@@ -24,6 +24,7 @@ jobs:
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
         with:
+          skip-checkout: "true"
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Run strict dependency security check

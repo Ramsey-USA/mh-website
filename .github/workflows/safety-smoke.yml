@@ -52,6 +52,7 @@ jobs:
       - name: Setup workflow runtime
         uses: ./.github/actions/setup-node-workflow
         with:
+          skip-checkout: "true"
           node-version: "22"
 
       - name: Wait for production endpoint readiness
@@ -107,6 +108,7 @@ jobs:
       - name: Setup workflow runtime
         uses: ./.github/actions/setup-node-workflow
         with:
+          skip-checkout: "true"
           node-version: "22"
 
       - name: Wait for production endpoint readiness

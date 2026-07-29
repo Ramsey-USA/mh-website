@@ -27,6 +27,7 @@ jobs:
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
         with:
+          skip-checkout: "true"
           fetch-depth: "0"
           checkout-token: ${{ secrets.GITHUB_TOKEN }}
           node-version: "22"
@@ -73,7 +74,7 @@ jobs:
           fi
 
       - name: Commit optimized media
-        if: steps.verify-changes.outputs.changes == 'true'
+        if: steps.verify-changes.outputs.changes == 'true' && github.event_name == 'push'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -100,7 +101,7 @@ jobs:
           [skip ci]"
 
       - name: Push changes
-        if: steps.verify-changes.outputs.changes == 'true'
+        if: steps.verify-changes.outputs.changes == 'true' && github.event_name == 'push'
         uses: ad-m/github-push-action@v1.3.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

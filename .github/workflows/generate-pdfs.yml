@@ -39,6 +39,7 @@ jobs:
       - name: Setup workspace
         uses: ./.github/actions/setup-workspace
         with:
+          skip-checkout: "true"
           fetch-depth: "0"
           node-version: ${{ env.NODE_VERSION }}
 
