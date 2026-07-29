@@ -560,7 +560,7 @@ const MARKETING_GUIDE_SECTION_DRAFTS_DIR = join(
 );
 const OPERATIONS_MANUAL_SECTION_DRAFTS_DIR = join(
   DOCS_DIR,
-  "content/MHC-Operations-Manual/02-section-drafts",
+  "content/mhc-operations-manual-drafts/02-section-drafts",
 );
 const SAFETY_LETTERHEAD_TEMPLATE_PATH = join(
   DOCS_DIR,

@@ -10,7 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const SOURCE_DIR = join(
   ROOT,
-  "documents/content/MHC-Operations-Manual/02-section-drafts",
+  "documents/content/mhc-operations-manual-drafts/02-section-drafts",
 );
 const OUTPUT_DIR = join(
   ROOT,
@@ -269,7 +269,7 @@ async function main() {
       totalPages: 0,
       source: "markdown-html-fragments",
       sourceDirectory:
-        "documents/content/MHC-Operations-Manual/02-section-drafts",
+        "documents/content/mhc-operations-manual-drafts/02-section-drafts",
       manualFamily: "operations",
       separateFrom: "employee-handbook",
       formsManifest: "documents/forms/forms-manifest.json",

@@ -10,7 +10,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
-const MANUAL_DIR = join(DOCS_DIR, "content", "MHC-Operations-Manual");
+const MANUAL_DIR = join(DOCS_DIR, "content", "mhc-operations-manual-drafts");
 const DRAFTS_DIR = join(MANUAL_DIR, "02-section-drafts");
 const APPENDICES_DIR = join(MANUAL_DIR, "03-forms-appendices");
 const OUTPUT_DIR = join(DOCS_DIR, "generated-pdfs");

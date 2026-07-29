@@ -12,12 +12,12 @@
     "website": "https://www.mhc-gc.com",
     "totalPages": 0,
     "source": "markdown-html-fragments",
-    "sourceDirectory": "documents/content/MHC-Operations-Manual/02-section-drafts",
+    "sourceDirectory": "documents/content/mhc-operations-manual-drafts/02-section-drafts",
     "manualFamily": "operations",
     "separateFrom": "employee-handbook",
     "formsManifest": "documents/forms/forms-manifest.json",
     "formsPolicy": "operations-owned",
-    "extractedAt": "2026-07-29T20:37:26.918Z"
+    "extractedAt": "2026-07-29T22:33:10.052Z"
   },
   "sections": [
     {
