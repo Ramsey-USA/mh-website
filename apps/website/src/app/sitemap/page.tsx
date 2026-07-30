@@ -9,8 +9,6 @@ import {
 import { getServerLocale } from "@/lib/i18n/locale.server";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("sitemapPage.metadata");
-
   return {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.sitemap.seoName, PAGE_TERMINOLOGY.sitemap.mhBrandName)} | MH Construction`,
     description:

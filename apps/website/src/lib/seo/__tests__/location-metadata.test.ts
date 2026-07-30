@@ -13,9 +13,11 @@ describe("buildLocationFaqSchema", () => {
     const schema = buildLocationFaqSchema(location, "https://www.mhc-gc.com");
 
     expect(schema["@type"]).toBe("FAQPage");
-    expect(schema.mainEntity).toHaveLength(3);
-    expect(schema.mainEntity[0].name).toContain("Pasco");
-    expect(schema.mainEntity[1].name).toContain("Pasco");
-    expect(schema.mainEntity[2].name).toContain("Pasco");
+    const mainEntity = schema.mainEntity ?? [];
+
+    expect(mainEntity).toHaveLength(3);
+    expect(mainEntity[0]?.name ?? "").toContain("Pasco");
+    expect(mainEntity[1]?.name ?? "").toContain("Pasco");
+    expect(mainEntity[2]?.name ?? "").toContain("Pasco");
   });
 });
