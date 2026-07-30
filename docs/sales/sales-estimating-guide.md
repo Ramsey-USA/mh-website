@@ -1,7 +1,7 @@
 # Sales/Estimating Guide
 
 **Category:** Sales / Estimating - Strategy
-**Last Updated:** July 29, 2026
+**Last Updated:** July 30, 2026
 **Version:** 1.0.0
 **Status:** ✅ Active
 
@@ -21,19 +21,34 @@ Sales and estimating also coordinate relationship handoffs to the CEO, COO, and 
 
 The guide is intentionally direct and operational. It should read like a field manual for disciplined estimating rather than a loose list of sales tips.
 
-## Table of Contents
+## Table of Contents (Chapters and Sections)
 
-1. [Canonical Strategy Sources](#1-canonical-strategy-sources)
-2. [Strategy Spine](#2-strategy-spine)
-3. [Opportunity Qualification](#3-opportunity-qualification)
-4. [Estimate Development Standard](#4-estimate-development-standard)
-5. [Stakeholder Relationship Plan](#5-stakeholder-relationship-plan)
-6. [Proposal and Follow-Up Workflow](#6-proposal-and-follow-up-workflow)
-7. [Guardrails](#7-guardrails)
-8. [Success Measures](#8-success-measures)
-9. [Deployment and Review](#9-deployment-and-review)
+Chapter-divider standard for this guide:
 
-## 1. Canonical Strategy Sources
+- Each chapter starts with a chapter tab/divider page.
+- Each chapter tab/divider page doubles as a dual-signature page with one signature by the owner and one by the designated officer.
+
+1. [Chapter 1: Canonical Strategy Sources (Associated forms: N/A - forms policy none)](#chapter-1-canonical-strategy-sources)
+2. [Chapter 2: Strategy Spine (Associated forms: N/A - forms policy none)](#chapter-2-strategy-spine)
+3. [Chapter 3: Opportunity Qualification (Associated forms: N/A - forms policy none)](#chapter-3-opportunity-qualification)
+4. [Section 3.1: Qualification Questions](#section-31-qualification-questions)
+5. [Section 3.2: Qualify or Decline](#section-32-qualify-or-decline)
+6. [Chapter 4: Estimate Development Standard (Associated forms: N/A - forms policy none)](#chapter-4-estimate-development-standard)
+7. [Section 4.1: Scope Discipline](#section-41-scope-discipline)
+8. [Section 4.2: Pricing Discipline](#section-42-pricing-discipline)
+9. [Section 4.3: Quality Check](#section-43-quality-check)
+10. [Chapter 5: Stakeholder Relationship Plan (Associated forms: N/A - forms policy none)](#chapter-5-stakeholder-relationship-plan)
+11. [Section 5.1: Core Stakeholder Groups](#section-51-core-stakeholder-groups)
+12. [Section 5.2: Relationship Standards](#section-52-relationship-standards)
+13. [Chapter 6: Proposal and Follow-Up Workflow (Associated forms: N/A - forms policy none)](#chapter-6-proposal-and-follow-up-workflow)
+14. [Section 6.1: Pre-Proposal](#section-61-pre-proposal)
+15. [Section 6.2: Submission](#section-62-submission)
+16. [Section 6.3: Post-Submission](#section-63-post-submission)
+17. [Chapter 7: Guardrails (Associated forms: N/A - forms policy none)](#chapter-7-guardrails)
+18. [Chapter 8: Success Measures (Associated forms: N/A - forms policy none)](#chapter-8-success-measures)
+19. [Chapter 9: Deployment and Review (Associated forms: N/A - forms policy none)](#chapter-9-deployment-and-review)
+
+## Chapter 1: Canonical Strategy Sources
 
 | Source                                                                                | What It Controls                                             | Use It For                                                          |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
@@ -43,7 +58,7 @@ The guide is intentionally direct and operational. It should read like a field m
 | [Dual Terminology Standard](../branding/strategy/dual-terminology-standard.md)        | Enterprise naming rules for outside audiences                | Stakeholder-facing terms, role labels, and naming consistency       |
 | [Universal Page Flow Standard](../technical/patterns/universal-page-flow-standard.md) | Lead-path page structure                                     | Proposal and sales-page sequencing that moves from trust to action  |
 
-## 2. Strategy Spine
+## Chapter 2: Strategy Spine
 
 The sales and estimating strategy follows five stages:
 
@@ -55,9 +70,9 @@ The sales and estimating strategy follows five stages:
 
 This strategy is not just about winning work. It is about winning the right work with a scope that can actually be delivered without damaging trust.
 
-## 3. Opportunity Qualification
+## Chapter 3: Opportunity Qualification
 
-### Qualification Questions
+### Section 3.1: Qualification Questions
 
 - Who is the actual decision-maker, and who is influencing the decision?
 - Is the client already working with architects, engineers, bankers, or city officials who will shape the scope?
@@ -65,7 +80,7 @@ This strategy is not just about winning work. It is about winning the right work
 - Does the project have enough definition to support a credible estimate?
 - Are there known risk points that require early clarification before pricing?
 
-### Qualify or Decline
+### Section 3.2: Qualify or Decline
 
 Pursue the opportunity when:
 
@@ -81,23 +96,23 @@ Decline or defer the opportunity when:
 - The relationship depends on promises that cannot be validated.
 - The pursuit would pull estimating time away from better-fit work.
 
-## 4. Estimate Development Standard
+## Chapter 4: Estimate Development Standard
 
-### Scope Discipline
+### Section 4.1: Scope Discipline
 
 - Define inclusions and exclusions before the first draft is shared.
 - Separate hard scope, assumed scope, alternates, and allowances.
 - Flag missing drawings, unclear specs, or unresolved coordination items.
 - Tie every material cost or labor assumption to a visible project condition.
 
-### Pricing Discipline
+### Section 4.2: Pricing Discipline
 
 - Use real project conditions, not optimism, to set the number.
 - Protect margin by documenting the logic behind labor, materials, equipment, and subcontractor coverage.
 - Note contingency decisions clearly so leadership can explain the number later.
 - Never hide risk inside a polished proposal.
 
-### Quality Check
+### Section 4.3: Quality Check
 
 Before any estimate goes out, confirm:
 
@@ -106,11 +121,11 @@ Before any estimate goes out, confirm:
 3. Exceptions, clarifications, and alternates are easy to find.
 4. The proposal language is aligned with MH brand standards and service framing.
 
-## 5. Stakeholder Relationship Plan
+## Chapter 5: Stakeholder Relationship Plan
 
 Sales and estimating should build durable trust with the people who shape the project before it reaches the field.
 
-### Core Stakeholder Groups
+### Section 5.1: Core Stakeholder Groups
 
 - Client decision-makers and project sponsors.
 - Bankers and financing partners.
@@ -119,7 +134,7 @@ Sales and estimating should build durable trust with the people who shape the pr
 - Engineers, inspectors, and other technical reviewers.
 - Trade partners who influence price, availability, and sequencing.
 
-### Relationship Standards
+### Section 5.2: Relationship Standards
 
 - Keep communication responsive, calm, and fact-based.
 - Use the same scope language across emails, meetings, and proposals.
@@ -128,23 +143,23 @@ Sales and estimating should build durable trust with the people who shape the pr
 - Coordinate relationship handoffs to the CEO, COO, and Marketing team when the opportunity needs broader leadership or messaging alignment.
 - Extend that handoff through operations, project management, and support functions so the full team carries the same relationship posture.
 
-## 6. Proposal and Follow-Up Workflow
+## Chapter 6: Proposal and Follow-Up Workflow
 
-### Pre-Proposal
+### Section 6.1: Pre-Proposal
 
 1. Confirm the due date, submission format, and review path.
 2. Gather the current documents, addenda, and stakeholder notes.
 3. Align the estimate lead, leadership review, and any specialty inputs.
 4. Document open questions before the proposal is finalized.
 
-### Submission
+### Section 6.2: Submission
 
 1. Deliver the estimate cleanly and on time.
 2. Use plain language that helps the recipient understand value and risk.
 3. Include the clarifications needed to keep the number honest.
 4. Keep follow-up professional, short, and responsive.
 
-### Post-Submission
+### Section 6.3: Post-Submission
 
 1. Record the outcome and the reason for it.
 2. Capture lessons that improve the next estimate.
@@ -152,7 +167,7 @@ Sales and estimating should build durable trust with the people who shape the pr
 4. Hand the project to operations with the same scope discipline used to win it.
 5. When the opportunity requires leadership or messaging continuity, route the relationship through the CEO, COO, and Marketing team so the handoff stays coordinated across the rest of the organization.
 
-## 7. Guardrails
+## Chapter 7: Guardrails
 
 - Do not blur marketing promises into estimating commitments.
 - Do not provide a number without enough project definition to support it.
@@ -161,7 +176,7 @@ Sales and estimating should build durable trust with the people who shape the pr
 - Preserve MH naming, trust references, and veteran-owned factual framing.
 - Align any lead-path page, proposal cover, or estimating asset with canonical brand standards.
 
-## 8. Success Measures
+## Chapter 8: Success Measures
 
 Track the strategy at three levels:
 
@@ -172,7 +187,7 @@ Track the strategy at three levels:
 | Stakeholder trust  | Bankers, architects, city officials, and clients get timely, credible responses |
 | Handoff quality    | Awarded work moves to operations without scope confusion                        |
 
-## 9. Deployment and Review
+## Chapter 9: Deployment and Review
 
 Before using a new sales or estimating run, confirm the following:
 

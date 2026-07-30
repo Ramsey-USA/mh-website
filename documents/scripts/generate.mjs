@@ -554,6 +554,10 @@ const CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH = join(
   CANONICAL_DOCS_DIR,
   "manuals/employee-handbook-toc.html",
 );
+const CANONICAL_OPERATIONS_TOC_TEMPLATE_PATH = join(
+  CANONICAL_DOCS_DIR,
+  "manuals/operations-manual-toc.html",
+);
 const MARKETING_GUIDE_SECTION_DRAFTS_DIR = join(
   DOCS_DIR,
   "content/mhc-marketing-strategy-guide-2026/sections",
@@ -707,9 +711,53 @@ const ACTIVE_MANUAL_DIGITAL_URL = isEmployeeHandbook
         ? `${SITE_URL}/docs/marketing/marketing-strategy-guide-toc.pdf`
         : `${SITE_URL}/resources/safety-manual/contents`;
 
-function resolveManualTemplateName(suffix) {
+function normalizeQrSlugPart(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function buildSectionQrTargetUrl(sectionLike) {
+  const numeric = Number(
+    typeof sectionLike === "object" ? sectionLike?.number : sectionLike,
+  );
+  const numberStr = String(Number.isFinite(numeric) ? numeric : 0).padStart(
+    2,
+    "0",
+  );
+  const slug = normalizeQrSlugPart(
+    typeof sectionLike === "object" ? sectionLike?.slug : "",
+  );
+
+  if (numberStr === "00") {
+    return ACTIVE_MANUAL_DIGITAL_URL;
+  }
+
+  if (isEmployeeHandbook) {
+    return `${ACTIVE_MANUAL_DIGITAL_URL}#section-${numberStr}`;
+  }
+
+  if (isOperationsManual || isMarketingStrategyGuide) {
+    const chapterFile = `${numberStr}-${slug || `section-${numberStr}`}.pdf`;
+    const manualPrefix = isOperationsManual ? "operations" : "marketing";
+    return `${SITE_URL}/docs/${manualPrefix}/sections/${chapterFile}`;
+  }
+
+  if (isSalesEstimatingGuide) {
+    const chapterFile = `${numberStr}-${slug || `section-${numberStr}`}.pdf`;
+    return `${SITE_URL}/docs/sales/sections/${chapterFile}`;
+  }
+
+  return (
+    clusterUrlForSection(Number.isFinite(numeric) ? numeric : 0) ||
+    `${SITE_URL}/resources/safety-manual/contents`
+  );
+}
+
+export function resolveManualTemplateName(suffix) {
   if (isMarketingStrategyGuide) {
-    return `employee-handbook-${suffix}.html`;
+    return `operations-manual-${suffix}.html`;
   }
   return `${ACTIVE_MANUAL}-${suffix}.html`;
 }
@@ -730,11 +778,15 @@ function adaptMarketingStrategyGuideTemplate(html) {
   const guidePluralLabel = isSalesEstimatingGuide
     ? "Sales/estimating guide"
     : "Marketing strategy guide";
+  const guideCapsToken = isSalesEstimatingGuide ? "SALES" : "MARKETING";
 
   return html
     .replaceAll("Employee Handbook", guideLabel)
+    .replaceAll("Employee handbook", guideLabel)
     .replaceAll("Handbook", "Guide")
-    .replaceAll("HANDBOOK", "MARKETING")
+    .replaceAll("HANDBOOK", guideCapsToken)
+    .replaceAll("Operations Manual", guideLabel)
+    .replaceAll("operations manual", guideLabel)
     .replaceAll("Chapter", "Section")
     .replaceAll("chapter", "section")
     .replaceAll("Scan for latest handbook", "Scan for latest guide")
@@ -1188,6 +1240,24 @@ function applyBrandTokens(html) {
     out = out.replaceAll(token, value);
   }
   return out;
+}
+
+function assertNoUnresolvedQrTemplateTokens(html, contextLabel) {
+  const unresolvedQrTokens = Array.from(
+    new Set(
+      (
+        String(html).match(
+          /\{\{(?:QR_[A-Z0-9_]+|BRAND_QR_DASHBOARD|FORM_QR_DATA_URL|FORM_QR_LINK_URL)\}\}/g,
+        ) || []
+      ).map((token) => token.trim()),
+    ),
+  );
+
+  if (unresolvedQrTokens.length > 0) {
+    throw new Error(
+      `${contextLabel}: unresolved QR template token(s): ${unresolvedQrTokens.join(", ")}`,
+    );
+  }
 }
 
 function normalizePdfTypography(html) {
@@ -1945,8 +2015,8 @@ function buildClusterAlignedHtml(
 
   const showClusterHeading = options.showClusterHeading !== false;
   const showColumnHeaders = options.showColumnHeaders !== false;
-  const docColumnLabel = String(options.docColumnLabel || "Chapter Documents");
-  const formColumnLabel = String(options.formColumnLabel || "Required Forms");
+  const docColumnLabel = String(options.docColumnLabel || "Chapters");
+  const formColumnLabel = String(options.formColumnLabel || "Associated Forms");
 
   const rows = nums
     .map((n) => {
@@ -1992,8 +2062,8 @@ function buildClusterAlignedHtml(
 }
 
 function buildTocColumnHeaderHtml(options = {}) {
-  const docColumnLabel = String(options.docColumnLabel || "Program Documents");
-  const formColumnLabel = String(options.formColumnLabel || "Controlled Forms");
+  const docColumnLabel = String(options.docColumnLabel || "Chapters");
+  const formColumnLabel = String(options.formColumnLabel || "Associated Forms");
   return (
     `<div class="toc-row-head">` +
     `<div class="toc-row-head-left">${escapeHtml(docColumnLabel)}</div>` +
@@ -2052,6 +2122,42 @@ function findTocClusterNameForSection(sectionNum) {
 }
 
 function splitTocNumsByFlow(presentNums, formsMap = null, options = {}) {
+  const explicitPageRanges = Array.isArray(options.pageRanges)
+    ? options.pageRanges.filter(
+        (range) =>
+          Array.isArray(range) &&
+          range.length >= 2 &&
+          Number.isFinite(range[0]) &&
+          Number.isFinite(range[1]),
+      )
+    : null;
+
+  if (explicitPageRanges && explicitPageRanges.length > 0) {
+    const pages = explicitPageRanges.map(() => new Set());
+    const sortedNums = [...presentNums].sort((a, b) => a - b);
+
+    for (const n of sortedNums) {
+      for (
+        let pageIndex = 0;
+        pageIndex < explicitPageRanges.length;
+        pageIndex += 1
+      ) {
+        const [start, end] = explicitPageRanges[pageIndex];
+        if (n >= start && n <= end) {
+          pages[pageIndex].add(n);
+          break;
+        }
+      }
+    }
+
+    return {
+      page1: pages[0] || new Set(),
+      page2: pages[1] || new Set(),
+      page3: pages[2] || new Set(),
+      extraPages: pages.slice(3).filter((page) => page.size > 0),
+    };
+  }
+
   const page1Max = Number.isFinite(options.page1Max)
     ? options.page1Max
     : TOC_PAGE_1_MAX;
@@ -2114,6 +2220,38 @@ function splitTocNumsByFlow(presentNums, formsMap = null, options = {}) {
   const extraPages = continuationPages.slice(1).filter((page) => page.size > 0);
 
   return { page1, page2, page3, extraPages };
+}
+
+function buildTocPageRangesByCount(
+  presentNums,
+  firstPageCount = 9,
+  nextPageCounts = [13, 13],
+  continuationCount = 12,
+) {
+  const sortedNums = [...presentNums].sort((a, b) => a - b);
+  if (sortedNums.length === 0) return [];
+
+  const ranges = [];
+  let index = 0;
+
+  const pushRange = (count) => {
+    if (!(count > 0) || index >= sortedNums.length) return;
+    const endIndex = Math.min(index + count - 1, sortedNums.length - 1);
+    const start = sortedNums[index];
+    const end = sortedNums[endIndex];
+    ranges.push([start, end]);
+    index = endIndex + 1;
+  };
+
+  pushRange(firstPageCount);
+  for (const count of nextPageCounts) {
+    pushRange(count);
+  }
+  while (index < sortedNums.length) {
+    pushRange(continuationCount);
+  }
+
+  return ranges;
 }
 
 function buildTocContinuationPageHtml(
@@ -4996,6 +5134,7 @@ async function generateCover() {
   if (isMarketingStrategyGuide) {
     html = adaptMarketingStrategyGuideTemplate(html);
   }
+  assertNoUnresolvedQrTemplateTokens(html, `${ACTIVE_MANUAL} cover`);
   const coverFileName = `${ACTIVE_MANUAL}-cover.pdf`;
   const pdfPath = join(OUTPUT_DIR, coverFileName);
   await renderHtmlToPdf(
@@ -5021,6 +5160,7 @@ async function renderSafetyLetterheadPdf(pdfPath) {
     : `https://${BRAND.website}`;
   const qrWebsite = await buildQrDataUrl(websiteUrl);
   const html = applyBrandTokens(raw).replace("{{QR_WEBSITE}}", qrWebsite);
+  assertNoUnresolvedQrTemplateTokens(html, "letterhead");
   // Page-1 chrome is absolutely positioned to the full Letter sheet, so
   // PDF margins must be 0; CSS owns all spacing. If the body overflows,
   // it paginates onto plain follow-on pages with the signature pushed
@@ -5951,8 +6091,9 @@ async function generateToc() {
   await ensureDir(OUTPUT_DIR);
   await ensureDir(CANONICAL_OUTPUT_DIR);
 
-  const tocTemplatePath =
-    isHandbookFamily || isMarketingStrategyGuide
+  const tocTemplatePath = isOperationsManual
+    ? CANONICAL_OPERATIONS_TOC_TEMPLATE_PATH
+    : isHandbookFamily || isMarketingStrategyGuide
       ? CANONICAL_HANDBOOK_TOC_TEMPLATE_PATH
       : CANONICAL_TOC_TEMPLATE_PATH;
   const tocOutputFileName = `${ACTIVE_MANUAL}-toc.pdf`;
@@ -5967,21 +6108,23 @@ async function generateToc() {
               : "CH",
           calloutSet: new Set(),
           docColumnLabel: isSalesEstimatingGuide
-            ? "Sales/Estimating Guide Sections"
+            ? "Sales/Estimating Guide Chapters"
             : isMarketingStrategyGuide
-              ? "Guide Sections"
-              : "Chapter Documents",
+              ? "Marketing Guide Chapters"
+              : isOperationsManual
+                ? "Operations Manual Chapters"
+                : "Employee Handbook Chapters",
           formColumnLabel: isSalesEstimatingGuide
-            ? "Associated Notes"
+            ? "Associated Forms (N/A - Forms Policy None)"
             : isMarketingStrategyGuide
-              ? "Associated Notes"
+              ? "Associated Forms (N/A - Forms Policy None)"
               : "Associated Forms",
         }
       : {
           codePrefix: "MISH",
           calloutSet: TOC_CALLOUT_ITEMS,
-          docColumnLabel: "Program Documents",
-          formColumnLabel: "Controlled Forms",
+          docColumnLabel: "MISH Chapters",
+          formColumnLabel: "Associated Forms",
         };
 
   // ── 1. Resolve section titles ───────────────────────────────────────────
@@ -6103,10 +6246,12 @@ async function generateToc() {
     const chapterNums = [...nums].sort((a, b) => a - b);
     return buildClusterAlignedHtml(
       isSalesEstimatingGuide
-        ? "Sales/Estimating Guide Sections"
+        ? "Sales/Estimating Guide Chapters"
         : isMarketingStrategyGuide
-          ? "Marketing Guide Sections"
-          : "Employee Handbook Chapters",
+          ? "Marketing Guide Chapters"
+          : isOperationsManual
+            ? "Operations Manual Chapters"
+            : "Employee Handbook Chapters",
       chapterNums,
       titleMap,
       formsMap,
@@ -6114,12 +6259,41 @@ async function generateToc() {
     );
   };
 
+  const tocFlowOptions = isMarketingStrategyGuide
+    ? {
+        includeClusterHeadings: true,
+        pageRanges: buildTocPageRangesByCount(presentNums, 9, [13, 13], 12),
+      }
+    : isHandbookFamily
+      ? {
+          includeClusterHeadings: true,
+          pageRanges: isOperationsManual
+            ? [
+                [1, 7],
+                [8, 14],
+              ]
+            : isEmployeeHandbook
+              ? [
+                  [1, 7],
+                  [8, 9],
+                ]
+              : buildTocPageRangesByCount(presentNums, 9, [13, 13], 12),
+        }
+      : {
+          includeClusterHeadings: false,
+          pageRanges: [
+            [1, 9],
+            [10, 22],
+            [23, 35],
+            [36, 47],
+            [48, 59],
+          ],
+        };
+
   const { page1, page2, page3, extraPages } = splitTocNumsByFlow(
     presentNums,
     formsMap,
-    isHandbookFamily || isMarketingStrategyGuide
-      ? { page1Max: HANDBOOK_TOC_PAGE_1_MAX, includeClusterHeadings: true }
-      : { includeClusterHeadings: false },
+    tocFlowOptions,
   );
 
   const tocPage1Html = buildPageClustersHtml(page1);
@@ -7878,38 +8052,69 @@ async function generateTabs() {
     html = adaptMarketingStrategyGuideTemplate(html);
   }
 
-  // Keep tab headers aligned with canonical manifest section titles.
+  let manifestMaxSectionNumber = 59;
+  let manifestSectionByNumber = new Map();
   if (existsSync(MANIFEST)) {
     try {
       const { sections = [] } = JSON.parse(await readFile(MANIFEST, "utf-8"));
-      const titleMap = new Map(
+      manifestSectionByNumber = new Map(
         sections
-          .map((section) => [
-            Number(section.number),
-            normalizeManualSectionTitle(String(section.title || "").trim()),
-          ])
-          .filter(
-            ([number, title]) =>
-              Number.isFinite(number) && number > 0 && title.length > 0,
-          ),
+          .map((section) => {
+            const number = Number(section.number);
+            return [
+              number,
+              {
+                number,
+                slug: normalizeQrSlugPart(section.slug || section.title || ""),
+                title: normalizeManualSectionTitle(
+                  String(section.title || "").trim(),
+                ),
+              },
+            ];
+          })
+          .filter(([number]) => Number.isFinite(number) && number > 0),
       );
-
-      for (let n = 1; n <= MISH_MAX_SECTION; n++) {
-        const canonicalTitle = titleMap.get(n);
-        if (!canonicalTitle) continue;
-        const nn = String(n).padStart(2, "0");
-        const sectionBlockPattern = new RegExp(
-          `(<!--\\s*Section\\s*${nn}\\s*-->[\\s\\S]*?<div class="tab-section-title">)([\\s\\S]*?)(</div>)`,
-          "i",
-        );
-        html = html.replace(
-          sectionBlockPattern,
-          `$1${escapeHtml(canonicalTitle)}$3`,
-        );
+      const manifestNumbers = Array.from(manifestSectionByNumber.keys());
+      if (manifestNumbers.length > 0) {
+        manifestMaxSectionNumber = Math.max(...manifestNumbers);
       }
     } catch (err) {
       console.warn(
-        `  ⚠  Could not synchronize ${ACTIVE_MANUAL} tab section titles from manifest: ${err.message}`,
+        `  ⚠  Could not read ${ACTIVE_MANUAL} manifest for QR tab mapping: ${err.message}`,
+      );
+    }
+  }
+
+  const expectedTabMax =
+    isHandbookFamily || isMarketingStrategyGuide
+      ? manifestMaxSectionNumber
+      : 59;
+  const missingTabTokens = [];
+  for (let n = 0; n <= expectedTabMax; n++) {
+    const token = `{{QR_TAB_${String(n).padStart(2, "0")}}}`;
+    if (!html.includes(token)) {
+      missingTabTokens.push(token);
+    }
+  }
+  if (missingTabTokens.length > 0) {
+    throw new Error(
+      `${ACTIVE_MANUAL} tabs: missing QR tab placeholder(s): ${missingTabTokens.join(", ")}`,
+    );
+  }
+
+  // Keep tab headers aligned with canonical manifest section titles.
+  if (manifestSectionByNumber.size > 0) {
+    for (let n = 1; n <= MISH_MAX_SECTION; n++) {
+      const canonicalTitle = manifestSectionByNumber.get(n)?.title;
+      if (!canonicalTitle) continue;
+      const nn = String(n).padStart(2, "0");
+      const sectionBlockPattern = new RegExp(
+        `(<!--\\s*Section\\s*${nn}\\s*-->[\\s\\S]*?<div class="tab-section-title">)([\\s\\S]*?)(</div>)`,
+        "i",
+      );
+      html = html.replace(
+        sectionBlockPattern,
+        `$1${escapeHtml(canonicalTitle)}$3`,
       );
     }
   }
@@ -7926,18 +8131,14 @@ async function generateTabs() {
     const token = `{{QR_TAB_${nn}}}`;
     if (!html.includes(token)) continue;
 
-    let sectionUrl;
-    if (isHandbookFamily || isMarketingStrategyGuide) {
-      sectionUrl = ACTIVE_MANUAL_DIGITAL_URL;
-    } else {
-      // Tab 00 → standalone Table of Contents page.
-      // Tabs 01–59 → cluster page anchored to that section's MISH id.
-      sectionUrl =
-        n === 0
-          ? `${SITE_URL}/resources/safety-manual/contents`
-          : clusterUrlForSection(n) ||
-            `${SITE_URL}/resources/safety-manual/contents`;
-    }
+    const sectionMeta =
+      n === 0
+        ? { number: 0, slug: "contents" }
+        : manifestSectionByNumber.get(n) || {
+            number: n,
+            slug: `section-${nn}`,
+          };
+    const sectionUrl = buildSectionQrTargetUrl(sectionMeta);
 
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
     html = html.replaceAll(token, qrDataUrl);
@@ -7945,6 +8146,7 @@ async function generateTabs() {
 
   // ── Apply remaining brand tokens ─────────────────────────────────────────
   html = applyBrandTokens(html);
+  assertNoUnresolvedQrTemplateTokens(html, `${ACTIVE_MANUAL} tabs`);
 
   const tabsFileName = `${ACTIVE_MANUAL}-tabs.pdf`;
   const pdfPath = join(OUTPUT_DIR, tabsFileName);
@@ -8301,12 +8503,7 @@ async function generateSections(filter = null) {
   for (const section of targets) {
     // Generate branded QR code pointing to the section's cluster anchor card
     // so the printed PDF matches the website's deep-link layout.
-    const sectionUrl = isEmployeeHandbook
-      ? `${ACTIVE_MANUAL_DIGITAL_URL}#section-${section.numberStr}`
-      : isHandbookFamily || isMarketingStrategyGuide
-        ? ACTIVE_MANUAL_DIGITAL_URL
-        : clusterUrlForSection(Number(section.number)) ||
-          `${SITE_URL}/resources/safety-manual/contents`;
+    const sectionUrl = buildSectionQrTargetUrl(section);
     const qrDataUrl = await buildQrDataUrl(sectionUrl);
 
     let sectionSource =
@@ -8409,6 +8606,10 @@ async function generateSections(filter = null) {
         .replaceAll("{{TOTAL_SECTIONS}}", String(sections.length))
         .replaceAll("{{QR_CODE_DATA_URL}}", qrDataUrl)
         .replaceAll("{{SECTION_URL}}", escapeHtml(sectionUrl)),
+    );
+    assertNoUnresolvedQrTemplateTokens(
+      html,
+      `${ACTIVE_MANUAL} section ${section.numberStr}`,
     );
 
     // Post-process: 3-Hour Rule callout, Addendum A table, form page breaks
@@ -11023,12 +11224,18 @@ async function main() {
   }
 }
 
-try {
-  await main();
-} catch (err) {
-  console.error("\n❌ Fatal error:", err);
-  if (_browser) _browser.close();
-  _pdfRenderPage = undefined;
-  _browser = undefined;
-  process.exit(1);
+const isExecutedDirectly =
+  typeof process.argv[1] === "string" &&
+  import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (isExecutedDirectly) {
+  try {
+    await main();
+  } catch (err) {
+    console.error("\n❌ Fatal error:", err);
+    if (_browser) _browser.close();
+    _pdfRenderPage = undefined;
+    _browser = undefined;
+    process.exit(1);
+  }
 }

@@ -516,10 +516,7 @@ function buildTeamQRCodes(teamData) {
     )
     .map((member) => ({
       name: `team-${member.slug}`,
-      url:
-        member.slug === "jeremy-thamert"
-          ? `${BASE_URL}/jeremy-thamert`
-          : `${BASE_URL}/team#${member.slug}`,
+      url: `${BASE_URL}/team#${member.slug}`,
       description: `${member.name} - ${member.role || "Team Member"}`,
       label: String(member.name || "TEAM MEMBER").toUpperCase(),
       folder: "team",

@@ -23,8 +23,16 @@ RESTRICTED_URL_PATHS=(
   "/docs/operations/operations-manual-complete.pdf"
   "/docs/marketing/marketing-strategy-guide-toc.pdf"
   "/docs/marketing/marketing-strategy-guide-complete.pdf"
+  "/docs/marketing/marketing-strategy-guide-cover.pdf"
+  "/docs/marketing/marketing-strategy-guide-spine.pdf"
+  "/docs/marketing/marketing-strategy-guide-tabs.pdf"
+  "/docs/marketing/marketing-strategy-guide-digital.pdf"
   "/docs/sales/sales-estimating-guide-toc.pdf"
   "/docs/sales/sales-estimating-guide-complete.pdf"
+  "/docs/sales/sales-estimating-guide-cover.pdf"
+  "/docs/sales/sales-estimating-guide-spine.pdf"
+  "/docs/sales/sales-estimating-guide-tabs.pdf"
+  "/docs/sales/sales-estimating-guide-digital.pdf"
 )
 
 check_url() {

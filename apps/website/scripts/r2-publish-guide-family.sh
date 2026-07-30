@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# Upload a generated manual family (cover/spine/tabs/toc/complete/digital) to FILE_ASSETS R2.
-# Usage: bash scripts/r2-publish-manual-family.sh <manual-slug> <r2-prefix>
-# Example: bash scripts/r2-publish-manual-family.sh operations-manual docs/operations
+# Upload a generated guide family (cover/spine/tabs/toc/complete/digital) to FILE_ASSETS R2.
+# Usage: bash scripts/r2-publish-guide-family.sh <guide-slug> <r2-prefix>
+# Example: bash scripts/r2-publish-guide-family.sh marketing-strategy-guide docs/marketing
 set -euo pipefail
 
 source "$(dirname "${BASH_SOURCE[0]}")/lib/load-cloudflare-r2-env.sh"
 require_cloudflare_r2_env
 
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <manual-slug> <r2-prefix>"
-  echo "Example: $0 operations-manual docs/operations"
+  echo "Usage: $0 <guide-slug> <r2-prefix>"
+  echo "Example: $0 marketing-strategy-guide docs/marketing"
   exit 1
 fi
 
-MANUAL_SLUG="$1"
+GUIDE_SLUG="$1"
 R2_PREFIX="$2"
 ROOT="$(git rev-parse --show-toplevel)"
 BUCKET="mh-construction-assets"
@@ -21,24 +21,24 @@ OUTPUT_DIR="$ROOT/documents/generated-pdfs"
 SECTIONS_DIR="$OUTPUT_DIR/sections"
 
 FILES=(
-  "$MANUAL_SLUG-complete.pdf"
-  "$MANUAL_SLUG-digital.pdf"
-  "$MANUAL_SLUG-cover.pdf"
-  "$MANUAL_SLUG-spine.pdf"
-  "$MANUAL_SLUG-tabs.pdf"
-  "$MANUAL_SLUG-toc.pdf"
+  "$GUIDE_SLUG-complete.pdf"
+  "$GUIDE_SLUG-digital.pdf"
+  "$GUIDE_SLUG-cover.pdf"
+  "$GUIDE_SLUG-spine.pdf"
+  "$GUIDE_SLUG-tabs.pdf"
+  "$GUIDE_SLUG-toc.pdf"
 )
 
 for file_name in "${FILES[@]}"; do
   source_path="$OUTPUT_DIR/$file_name"
   if [ ! -f "$source_path" ]; then
     echo "❌ Missing generated PDF: $source_path"
-    echo "   Run docs:all (or docs:generate + docs:merge for this manual) first."
+    echo "   Run docs:all (or docs:generate + docs:merge for this guide) first."
     exit 1
   fi
 done
 
-echo "📤 Uploading $MANUAL_SLUG assets to R2 ($R2_PREFIX/)"
+echo "📤 Uploading $GUIDE_SLUG guide assets to R2 ($R2_PREFIX/)"
 for file_name in "${FILES[@]}"; do
   source_path="$OUTPUT_DIR/$file_name"
   key="$R2_PREFIX/$file_name"
@@ -63,9 +63,9 @@ if [ -d "$SECTIONS_DIR" ]; then
   done
 else
   echo "⚠️  No sections directory found at $SECTIONS_DIR."
-  echo "   Run docs:generate for $MANUAL_SLUG before publishing if chapter QR links are required."
+  echo "   Run docs:generate for $GUIDE_SLUG before publishing if chapter QR links are required."
 fi
 
-echo "✅ $MANUAL_SLUG assets published to R2."
+echo "✅ $GUIDE_SLUG guide assets published to R2."
 echo "   Bucket: $BUCKET"
 echo "   Prefix: $R2_PREFIX/"

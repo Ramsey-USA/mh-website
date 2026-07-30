@@ -42,6 +42,7 @@
   "active": true,
   "slug": "beth",
   "email": "office@mhc-gc.com",
+  "qrCode": "/images/qr-codes/team/qr-team-beth-color.png",
   "skills": {
     "leadership": 68,
     "technical": 72,

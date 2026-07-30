@@ -41,8 +41,8 @@
         --type-form-entry: 8.1pt;
         --toc-body-left: 1.15in;
         --toc-body-right: 1.05in;
-        --toc-body-top: 3.16in;
-        --toc-body-bottom: 2.02in;
+        --toc-body-top: 3.34in;
+        --toc-body-bottom: 1.84in;
       }
 
       *,
@@ -142,7 +142,7 @@
       /* ── Page Header ─────────────────────────────────────── */
       .toc-header {
         position: absolute;
-        top: 0.95in;
+        top: 0.82in;
         left: 0.92in;
         right: 0.9in;
         text-align: center;
@@ -254,8 +254,8 @@
         left: var(--toc-body-left);
         right: var(--toc-body-right);
         bottom: var(--toc-body-bottom);
-        margin-top: 0.65in;
-        padding-top: 0.12in;
+        margin-top: 0.24in;
+        padding-top: 0.08in;
         overflow: hidden;
       }
 
@@ -285,7 +285,7 @@
       }
 
       .toc-page:not(.toc-page--cont) .toc-body {
-        margin-top: 0.42in;
+        margin-top: 0.58in;
       }
 
       .toc-page:not(.toc-page--cont) .toc-row-head {
@@ -313,10 +313,14 @@
         margin-top: 0.05in;
       }
 
+      .toc-page--cont .toc-content {
+        padding-top: 1.42in;
+      }
+
       .cluster-rows {
         display: flex;
         flex-direction: column;
-        gap: 1pt;
+        gap: 0;
       }
 
       .toc-row-head {
@@ -348,11 +352,13 @@
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 0.16in;
         align-items: start;
+        border-top: 0.35pt solid var(--brand-secondary);
+        padding: 0.06in 0;
       }
 
       .toc-row + .toc-row {
-        border-top: 0.35pt solid #e5ddd2;
-        padding-top: 0.1in;
+        margin-top: 0.06in;
+        padding-top: 0.06in;
       }
 
       .toc-page--cont .toc-row + .toc-row {
@@ -825,10 +831,11 @@
             MH Construction Industrial Safety &amp; Health (MISH) Program Index
           </div>
           <h1 class="toc-title">
-            MH Construction Industrial Safety &amp; Health (MISH) Program Table of Contents
+            MHC Industrial Safety &amp; Health (MISH) Program<br />
+            Table of Contents
           </h1>
           <p class="toc-subtitle">
-            MH Branded Accident Prevention Plan (APP) Developed from Dean's Gold Standard Guidelines
+            MHC Branded Accident Prevention Program (APP)
           </p>
         </header>
 
@@ -903,61 +910,6 @@
         </header>
 
         <main class="toc-body">{{TOC_CLUSTERS_PAGE_2_HTML}}</main>
-
-        <section class="toc-feature-stage" aria-label="MH core values, team photo, and owner statement">
-          <div class="toc-feature-body">
-            <section class="toc-values-card" aria-label="MH Construction core values">
-              <p class="toc-values-title">Our Core Values</p>
-              <div class="toc-values-grid">
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Honesty</span>
-                  <span class="toc-value-line">Transparent Communication Always</span>
-                </p>
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Integrity</span>
-                  <span class="toc-value-line">Doing What's Right, Every Time</span>
-                </p>
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Professionalism</span>
-                  <span class="toc-value-line">Excellence in Every Interaction</span>
-                </p>
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Thoroughness</span>
-                  <span class="toc-value-line">Attention to Detail in Everything We Do</span>
-                </p>
-              </div>
-            </section>
-
-            <img
-              class="toc-team-photo"
-              src="{{BRAND_TEAM_GROUP_PHOTO}}"
-              alt="MH Construction team group photo"
-            />
-
-            <section class="toc-insight" aria-label="Owner statement and licensed service states">
-              <div class="toc-insight-top">
-                <div class="toc-insight-copy">
-                  <p class="toc-insight-label">Word from the General</p>
-                  <p class="toc-insight-quote">
-                    "To every new employee joining MH Construction, welcome. We expect you to work with
-                    discipline, communicate with respect, and take pride in doing the small things right
-                    every day because those habits protect your crew and protect our reputation. Ask
-                    questions early, watch out for one another, and hold your work to a standard you would
-                    stand behind in front of your family. If you commit to that mindset, we will invest in
-                    your growth and give you every chance to build a strong career here."
-                  </p>
-                  <p class="toc-insight-attribution">Jeremy Thamert, Owner &amp; President</p>
-                </div>
-                <div class="toc-state-strip" aria-label="MH Construction brand mark">
-                  <div class="toc-brand-chip">
-                    <img src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-                  </div>
-                </div>
-              </div>
-              <div class="toc-insight-foot">Tri-State Service Footprint • Washington • Oregon • Idaho</div>
-            </section>
-          </div>
-        </section>
 
         <footer class="footer">
           <div class="contact">

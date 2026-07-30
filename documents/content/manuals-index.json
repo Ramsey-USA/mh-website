@@ -14,7 +14,7 @@
       "id": "employee-handbook",
       "manifest": "documents/content/employee-handbook.json",
       "manualFamily": "employee",
-      "formsPolicy": "shared"
+      "formsPolicy": "handbook-owned"
     }
   ]
 }

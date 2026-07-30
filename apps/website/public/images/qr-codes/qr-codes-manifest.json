@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T22:44:57.706Z",
+  "generatedAt": "2026-07-30T17:45:38.301Z",
   "baseUrl": "https://www.mhc-gc.com",
   "outputDirectory": "apps/website/public/images/qr-codes",
   "folders": [
@@ -2407,7 +2407,7 @@
       "relativePath": "team/qr-team-jeremy-thamert-color.png",
       "folder": "team",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/jeremy-thamert",
+      "url": "https://www.mhc-gc.com/team#jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
       "success": true,
       "error": null
@@ -2418,7 +2418,7 @@
       "relativePath": "team/qr-team-jeremy-thamert-bw.png",
       "folder": "team",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/jeremy-thamert",
+      "url": "https://www.mhc-gc.com/team#jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
       "success": true,
       "error": null

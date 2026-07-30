@@ -1,6 +1,6 @@
 # QR Codes for MH Construction
 
-Generated: 7/29/2026, 10:44:57 PM
+Generated: 7/30/2026, 5:45:38 PM
 
 ## Summary
 
@@ -1299,13 +1299,13 @@ Generated: 7/29/2026, 10:44:57 PM
 
 - **Name:** `team-jeremy-thamert`
 - **File:** `team/qr-team-jeremy-thamert-color.png`
-- **URL:** <https://www.mhc-gc.com/jeremy-thamert>
+- **URL:** <https://www.mhc-gc.com/team#jeremy-thamert>
 
 ### ✅ Jeremy Thamert - Owner & President
 
 - **Name:** `team-jeremy-thamert`
 - **File:** `team/qr-team-jeremy-thamert-bw.png`
-- **URL:** <https://www.mhc-gc.com/jeremy-thamert>
+- **URL:** <https://www.mhc-gc.com/team#jeremy-thamert>
 
 ### ✅ Kim Thamert - HR Director
 

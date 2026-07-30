@@ -41,8 +41,8 @@
         --type-form-entry: 8.1pt;
         --toc-body-left: 1.15in;
         --toc-body-right: 1.05in;
-        --toc-body-top: 3.16in;
-        --toc-body-bottom: 2.02in;
+        --toc-body-top: 3.34in;
+        --toc-body-bottom: 1.84in;
       }
 
       *,
@@ -131,14 +131,14 @@
         z-index: 1;
         display: flex;
         flex-direction: column;
-        min-height: 11in;
+        min-height: auto;
         padding: 1.5in 1.05in 1.86in 1.15in;
       }
 
       /* ── Page Header ─────────────────────────────────────── */
       .toc-header {
         position: absolute;
-        top: 0.95in;
+        top: 0.82in;
         left: 0.92in;
         right: 0.9in;
         text-align: center;
@@ -250,13 +250,54 @@
         left: var(--toc-body-left);
         right: var(--toc-body-right);
         bottom: var(--toc-body-bottom);
-        margin-top: 0.65in;
-        padding-top: 0.12in;
+        margin-top: 0.24in;
+        padding-top: 0.08in;
         overflow: hidden;
       }
 
       .toc-page--cont .toc-content {
         padding-top: 1.42in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-logo {
+        height: 1.45in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-logo-wrap {
+        padding: 0.06in 0.16in;
+        margin: 0 auto 0.08in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-rule {
+        margin: 0 auto 0.08in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-program-chip {
+        margin: 0 auto 0.04in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-title {
+        margin: 0.01in 0 0.01in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-body {
+        margin-top: 0.46in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-row-head {
+        margin-top: 0.12in;
+      }
+
+      .toc-page:not(.toc-page--cont) .toc-row + .toc-row {
+        padding-top: 0.06in;
+      }
+
+      .toc-page:not(.toc-page--cont) .mish-entry {
+        padding: 1.8pt 0;
+      }
+
+      .toc-page:not(.toc-page--cont) .mish-entry .mish-title {
+        gap: 0.5pt;
       }
 
       .toc-feature-stage {
@@ -434,7 +475,7 @@
       .cluster-rows {
         display: flex;
         flex-direction: column;
-        gap: 1pt;
+        gap: 0;
       }
 
       .toc-row-head {
@@ -466,11 +507,17 @@
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 0.16in;
         align-items: start;
+        border-top: 0.35pt solid var(--brand-secondary);
+        padding: 0.06in 0;
       }
 
       .toc-row + .toc-row {
-        border-top: 0.35pt solid #e5ddd2;
-        padding-top: 0.1in;
+        margin-top: 0.06in;
+        padding-top: 0.06in;
+      }
+
+      .toc-page--cont .toc-row + .toc-row {
+        padding-top: 0.08in;
       }
 
       .toc-row-left,
@@ -479,7 +526,7 @@
       }
 
       .toc-row-right .mish-entry.mish-form {
-        padding: 0.7pt 0;
+        padding: 1.4pt 0;
       }
 
       .toc-row-right .mish-entry.mish-form .mish-title {
@@ -777,7 +824,10 @@
           </div>
           <div class="toc-rule" aria-hidden="true"></div>
           <div class="toc-program-chip">Operations Manual Index</div>
-          <h1 class="toc-title">Operations Manual Table of Contents</h1>
+          <h1 class="toc-title">
+            Operations Manual<br />
+            Table of Contents
+          </h1>
           <p class="toc-subtitle">MH Construction Operations Manual</p>
         </header>
 
@@ -844,62 +894,13 @@
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
-            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Employee
-            Operations Manual Table of Contents (continued)
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Operations
+            Manual Table of Contents (continued)
           </p>
           <p class="toc-cont-page">Page 2</p>
         </header>
 
         <main class="toc-body">{{TOC_CLUSTERS_PAGE_2_HTML}}</main>
-
-        <section class="toc-feature-stage" aria-label="MH core values and owner statement">
-          <div class="toc-feature-body">
-            <section class="toc-values-card" aria-label="MH Construction core values">
-              <p class="toc-values-title">Our Core Values</p>
-              <div class="toc-values-grid">
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Honesty</span>
-                  <span class="toc-value-line">Transparent Communication Always</span>
-                </p>
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Integrity</span>
-                  <span class="toc-value-line">Doing What's Right, Every Time</span>
-                </p>
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Professionalism</span>
-                  <span class="toc-value-line">Excellence in Every Interaction</span>
-                </p>
-                <p class="toc-value-pill">
-                  <span class="toc-value-name">Thoroughness</span>
-                  <span class="toc-value-line">Attention to Detail in Everything We Do</span>
-                </p>
-              </div>
-            </section>
-
-            <section class="toc-insight" aria-label="Owner statement and licensed service states">
-              <div class="toc-insight-top">
-                <div class="toc-insight-copy">
-                  <p class="toc-insight-label">Word from the General</p>
-                  <p class="toc-insight-quote">
-                    "To every new employee joining MH Construction, welcome. We expect you to work with
-                    discipline, communicate with respect, and take pride in doing the small things right
-                    every day because those habits protect your crew and protect our reputation. Ask
-                    questions early, watch out for one another, and hold your work to a standard you would
-                    stand behind in front of your family. If you commit to that mindset, we will invest in
-                    your growth and give you every chance to build a strong career here."
-                  </p>
-                  <p class="toc-insight-attribution">Jeremy Thamert, Owner &amp; President</p>
-                </div>
-                <div class="toc-state-strip" aria-label="MH Construction brand mark">
-                  <div class="toc-brand-chip">
-                    <img src="{{BRAND_LOGO_COLOR}}" alt="MH Construction logo" />
-                  </div>
-                </div>
-              </div>
-              <div class="toc-insight-foot">Tri-State Service Footprint • Washington • Oregon • Idaho</div>
-            </section>
-          </div>
-        </section>
 
         <footer class="footer">
           <div class="contact">
@@ -959,8 +960,8 @@
       <div class="toc-content">
         <header class="toc-header toc-header--cont">
           <p class="toc-cont-mark">
-            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Employee
-            Handbook Table of Contents (continued)
+            {{BRAND_COMPANY_SHORT}}<span class="dot">&#8226;</span>Operations
+            Manual Table of Contents (continued)
           </p>
           <p class="toc-cont-page">Page {{TOC_PAGE_3_NUMBER}}</p>
         </header>

@@ -1,7 +1,7 @@
 # Marketing Strategy Guide
 
 **Category:** Marketing - Strategy
-**Last Updated:** July 29, 2026
+**Last Updated:** July 30, 2026
 **Version:** 1.0.0
 **Status:** ✅ Active
 
@@ -24,19 +24,34 @@ The strategy itself lives in the website service catalog and supporting marketin
 
 Use this guide when planning a project marketing runway, assigning weekly content, or reviewing whether public updates still match the approved MH brand voice.
 
-## Table of Contents
+## Table of Contents (Chapters and Sections)
 
-1. [Canonical Strategy Sources](#1-canonical-strategy-sources)
-2. [Strategy Spine](#2-strategy-spine)
-3. [36-Week Roadmap](#3-36-week-roadmap)
-4. [Content Standards](#4-content-standards)
-5. [Weekly Operating Rhythm](#5-weekly-operating-rhythm)
-6. [Capture and Repurpose Workflow](#6-capture-and-repurpose-workflow)
-7. [Guardrails](#7-guardrails)
-8. [Success Measures](#8-success-measures)
-9. [Deployment and Review](#9-deployment-and-review)
+Chapter-divider standard for this guide:
 
-## 1. Canonical Strategy Sources
+- Each chapter starts with a chapter tab/divider page.
+- Each chapter tab/divider page doubles as a dual-signature page with one signature by the owner and one by the designated officer.
+
+1. [Chapter 1: Canonical Strategy Sources (Associated forms: N/A - forms policy none)](#chapter-1-canonical-strategy-sources)
+2. [Chapter 2: Strategy Spine (Associated forms: N/A - forms policy none)](#chapter-2-strategy-spine)
+3. [Chapter 3: 36-Week Roadmap (Associated forms: N/A - forms policy none)](#chapter-3-36-week-roadmap)
+4. [Chapter 4: Content Standards (Associated forms: N/A - forms policy none)](#chapter-4-content-standards)
+5. [Section 4.1: Channel Baseline](#section-41-channel-baseline)
+6. [Section 4.2: Cadence Baseline](#section-42-cadence-baseline)
+7. [Section 4.3: Copy Baseline](#section-43-copy-baseline)
+8. [Section 4.4: Proof Baseline](#section-44-proof-baseline)
+9. [Chapter 5: Weekly Operating Rhythm (Associated forms: N/A - forms policy none)](#chapter-5-weekly-operating-rhythm)
+10. [Section 5.1: Planning](#section-51-planning)
+11. [Section 5.2: Publishing](#section-52-publishing)
+12. [Section 5.3: Closeout](#section-53-closeout)
+13. [Chapter 6: Capture and Repurpose Workflow (Associated forms: N/A - forms policy none)](#chapter-6-capture-and-repurpose-workflow)
+14. [Section 6.1: Capture Inputs](#section-61-capture-inputs)
+15. [Section 6.2: Repurpose Outputs](#section-62-repurpose-outputs)
+16. [Section 6.3: Asset Rules](#section-63-asset-rules)
+17. [Chapter 7: Guardrails (Associated forms: N/A - forms policy none)](#chapter-7-guardrails)
+18. [Chapter 8: Success Measures (Associated forms: N/A - forms policy none)](#chapter-8-success-measures)
+19. [Chapter 9: Deployment and Review (Associated forms: N/A - forms policy none)](#chapter-9-deployment-and-review)
+
+## Chapter 1: Canonical Strategy Sources
 
 | Source                                                                                         | What It Controls                                                 | Use It For                                                     |
 | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -45,7 +60,7 @@ Use this guide when planning a project marketing runway, assigning weekly conten
 | `docs/media/media-strategy.md`                                                                 | Photo/video roadmap and repurposing structure                    | Asset planning, capture lists, and visual proof workflow       |
 | `documents/input/marketing strategy/MH_Construction_Website_Page_Layout_Enhancement_Plan.docx` | Original strategy planning source                                | Historical intent, layout assumptions, and narrative direction |
 
-## 2. Strategy Spine
+## Chapter 2: Strategy Spine
 
 The 36-week strategy follows four project phases:
 
@@ -64,7 +79,7 @@ The strategy uses a **36-week, five-angle content rotation** covering:
 
 The rotation is not a rigid script. It is a coverage model that keeps weekly content balanced, factual, and tied to real field evidence.
 
-## 3. 36-Week Roadmap
+## Chapter 3: 36-Week Roadmap
 
 | Weeks | Phase              | Primary Goal                                         | Angle Emphasis                | Required Proof                                                      |
 | ----- | ------------------ | ---------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------- |
@@ -75,77 +90,77 @@ The rotation is not a rigid script. It is a coverage model that keeps weekly con
 | 25-30 | Closing II         | Convert completion into durable trust content        | Macro + proof                 | Owner-approved completion notes, final-condition imagery            |
 | 31-36 | Post-launch        | Turn delivery into case-study and referral assets    | Recap + authority             | Case study summary, testimonial, podcast post-interview with Jeremy |
 
-## 4. Content Standards
+## Chapter 4: Content Standards
 
-### Channel Baseline
+### Section 4.1: Channel Baseline
 
 - Primary channels: LinkedIn and Facebook.
 - Secondary repurposing channels: X, YouTube, Instagram, reviews, newsletters, and website case-study surfaces when approved.
 - Keep visual identity, naming, and trust framing consistent across every channel.
 
-### Cadence Baseline
+### Section 4.2: Cadence Baseline
 
 - Default pace: 1-2 posts per week.
 - Prefer one proof-driven update, one supporting technical or trust post, and one repurposed asset when the project has enough approved material.
 - Reduce cadence when approvals, privacy, or project sensitivity require a slower release rhythm.
 
-### Copy Baseline
+### Section 4.3: Copy Baseline
 
 - Lead with construction delivery language first.
 - Keep veteran field standards as credibility support, not as hype.
 - Use plain-language, evidence-backed statements.
 - Avoid speculative completion claims, internal assumptions, or unverified performance language.
 
-### Proof Baseline
+### Section 4.4: Proof Baseline
 
 - Only publish evidence-gated updates tied to actual milestones.
 - Prefer completed-scope photos, approved milestone notes, verified outcomes, and stakeholder-approved summaries.
 - Treat privacy, controlled access, and active-jobsite boundaries as mandatory.
 
-## 5. Weekly Operating Rhythm
+## Chapter 5: Weekly Operating Rhythm
 
-### Planning
+### Section 5.1: Planning
 
 1. Review the current phase and milestone calendar.
 2. Pick the week’s primary angle and one secondary angle.
 3. Confirm available photos, video, and approval status.
 4. Draft copy against the approved brand baseline.
 
-### Publishing
+### Section 5.2: Publishing
 
 1. Publish the primary post on LinkedIn and Facebook.
 2. Repurpose approved material to the secondary channels only when the content is already cleared.
 3. Keep captions short when the update is purely factual and expand only when context improves decision clarity.
 
-### Closeout
+### Section 5.3: Closeout
 
 1. Log what was published, where it went, and what proof supported it.
 2. Capture any new proof assets for the next week.
 3. Note unanswered questions, delays, or content gaps.
 
-## 6. Capture and Repurpose Workflow
+## Chapter 6: Capture and Repurpose Workflow
 
-### Capture Inputs
+### Section 6.1: Capture Inputs
 
 - Site photos from approved vantage points.
 - Milestone notes from the project team.
 - Safety and coordination proof when relevant.
 - After-state imagery for closing and post-launch assets.
 
-### Repurpose Outputs
+### Section 6.2: Repurpose Outputs
 
 - Short-form social post.
 - Long-form recap or case-study teaser.
 - Review or testimonial prompt when closeout is complete.
 - Post-launch authority piece or podcast recap with Jeremy when approved.
 
-### Asset Rules
+### Section 6.3: Asset Rules
 
 - Keep filenames and metadata organized for retrieval.
 - Separate rough captures from approved public assets.
 - Never reuse sensitive or unapproved images in public-facing marketing.
 
-## 7. Guardrails
+## Chapter 7: Guardrails
 
 - Keep language relationship-first and factual.
 - Preserve trust and accreditation signals where relevant.
@@ -154,7 +169,7 @@ The rotation is not a rigid script. It is a coverage model that keeps weekly con
 - Apply public-sector sensitivity controls when the project touches government or grant-funded work.
 - Align page titles, section labels, and descriptors with canonical MH naming rules.
 
-## 8. Success Measures
+## Chapter 8: Success Measures
 
 Track the strategy at three levels:
 
@@ -165,7 +180,7 @@ Track the strategy at three levels:
 | Brand congruency | Voice, naming, and trust signals stay aligned across channels                   |
 | Conversion value | Content produces calls, reviews, case-study material, or stakeholder confidence |
 
-## 9. Deployment and Review
+## Chapter 9: Deployment and Review
 
 Before publishing a new project marketing run, confirm the following:
 
