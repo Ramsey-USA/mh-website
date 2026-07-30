@@ -178,7 +178,7 @@ improvements.
 
 - [Services Overview](services.md) — Full service offering descriptions
 - [Core Values](core-values.md) — Honesty, Integrity, Professionalism, Thoroughness
-- [Location Data](../../src/lib/data/locations.ts) — City-specific project anchors per service area
+- [Location Data](../../apps/website/src/lib/data/locations.ts) — City-specific project anchors per service area
 - [Public & Government Services](/public-sector) — Procurement and compliance detail
 - [SEO Complete Guide](../technical/seo/seo-complete-guide.md) — How project data feeds
   location schemas and GEO keyword targeting

@@ -35,6 +35,15 @@ export function ServiceDetailPageContent({
   const showPublicSectorLink =
     service.ctaHref === "/public-sector" ||
     service.slug === "municipal-public-work";
+  const locationContextLinks = [
+    { href: "/locations", label: "View all service locations" },
+    { href: "/projects", label: "Review project portfolio" },
+    { href: "/contact", label: "Start a project conversation" },
+  ];
+  const proofSummary =
+    proofProjectLinks.length > 0
+      ? "Public proof references linked below show the project record behind this service path."
+      : "This service path is supported by the project record and delivery framework published on the site.";
 
   return (
     <main className="bg-white dark:bg-gray-900">
@@ -121,6 +130,9 @@ export function ServiceDetailPageContent({
             "These links are derived from approved proof references in the canonical service record.",
         }}
       >
+        <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
+          {proofSummary}
+        </p>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {proofProjectLinks.length > 0 ? (
             proofProjectLinks.map((href) => (
@@ -152,18 +164,15 @@ export function ServiceDetailPageContent({
         }}
       >
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <Link
-            href="/locations"
-            className="rounded-2xl border border-gray-200/90 bg-white/95 p-4 text-sm font-semibold text-brand-primary shadow-sm hover:underline dark:border-gray-700 dark:bg-gray-800/95 dark:text-brand-primary-light"
-          >
-            View all service locations
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-2xl border border-gray-200/90 bg-white/95 p-4 text-sm font-semibold text-brand-primary shadow-sm hover:underline dark:border-gray-700 dark:bg-gray-800/95 dark:text-brand-primary-light"
-          >
-            Start a project conversation
-          </Link>
+          {locationContextLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-2xl border border-gray-200/90 bg-white/95 p-4 text-sm font-semibold text-brand-primary shadow-sm hover:underline dark:border-gray-700 dark:bg-gray-800/95 dark:text-brand-primary-light"
+            >
+              {link.label}
+            </Link>
+          ))}
           {showPublicSectorLink ? (
             <Link
               href="/public-sector"

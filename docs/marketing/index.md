@@ -44,6 +44,8 @@ All marketing copy must remain congruent with MH branding standards: relationshi
   automated outreach generation.
 - **[Review Dashboard Import Schema](./templates/review-recognition-dashboard-import-schema.json)** —
   Field contract for dashboard-friendly review reporting exports.
+- **[Expected Weekly Summary Sample](./templates/samples/expected-output/review-weekly-summary.md)** — Canonical expected weekly output sample for automation regression checks.
+- **[Expected Monthly Leaderboard Sample](./templates/samples/expected-output/review-monthly-leaderboard.md)** — Canonical expected monthly output sample for automation regression checks.
 
 ### SEO
 

@@ -26,6 +26,7 @@ import {
   getLocationProjectDeepLinks,
   getLocationServiceDeepLinks,
 } from "@/lib/data/locations";
+import { buildLocationFaqSchema } from "@/lib/seo/location-metadata";
 
 const coreValues = [
   {
@@ -266,9 +267,15 @@ export function LocationPageContent({
         },
       };
 
+  const locationFaqSchema = buildLocationFaqSchema(
+    location,
+    enhancedSEO.siteUrl,
+  );
+
   return (
     <>
       <StructuredData data={locationSchema} />
+      <StructuredData data={locationFaqSchema} />
       <StructuredData data={breadcrumbSchema} />
 
       <main className="min-h-screen flex flex-col">

@@ -46,6 +46,19 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 - **[Project Architecture](../project/architecture.md)** — Current structural analysis reference
 - **[Test Coverage — Next Steps](./testing-coverage-next-steps.md)** — Coverage audit roadmap
 
+## App Operations References
+
+- **[Website Scripts Guide](../../apps/website/scripts/mh-scripts-guide.md)** — App package script catalog and operational command routing.
+- **[Website Testing Guide](../../apps/website/testing/mh-testing-guide.md)** — Testing workflows, command patterns, and expected coverage behavior.
+
+## Data Module Naming Policy
+
+- Team profile runtime imports must use `team-profiles` as the canonical module name.
+- Legacy `vintage-team` modules are compatibility bridges only and must not be used in new imports.
+- Canonical surface paths:
+  - `apps/website/src/lib/data/team-profiles.ts`
+  - `apps/dashboard/src/lib/data/team-profiles.ts`
+
 ## Forward Plan Requirement
 
 - **Global Jeremy ribbon standard (required):** Every public page must display the shared Jeremy leadership ribbon directly above the footer with identical behavior across routes. Route-specific ribbon copy is maintained in `apps/website/src/content/jeremy-page-ribbons.md`, and routing behavior is enforced through shared shell logic.

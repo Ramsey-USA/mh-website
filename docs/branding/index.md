@@ -116,6 +116,12 @@ Documentation ownership and consolidation rules to prevent duplicate branding gu
 
 - **[Section Types Guide](./section-types-guide.md)** - Available section patterns and usage
 
+### Runtime Branding Content Sources
+
+- **[Hero Page Slogans Source](../../apps/website/src/content/hero-page-slogans.md)** - Canonical route-level hero slogan source consumed by website rendering and SEO checks.
+- **[Jeremy Page Ribbons Source](../../apps/website/src/content/jeremy-page-ribbons.md)** - Route-keyed Jeremy leadership ribbon copy source used by shared above-footer ribbon logic.
+- **[Individual Branding Stamps Source](../../apps/website/src/content/individual-branding-stamps.md)** - Team-member branding stamp definitions used by website runtime loaders.
+
 ### Page Structure & Flow
 
 - **[Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md)** - Required body-content sequence for all MH pages

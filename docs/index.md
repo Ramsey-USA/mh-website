@@ -67,6 +67,10 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
   PWA + document congruency rules
 - **[Homepage Documentation](./technical/homepage.md)** — Reference standard for all pages
 
+## Status Tracking
+
+- **[Branding Optimization Master Status](../BRANDING_OPTIMIZATION_MASTER_STATUS.md)** — Consolidated branding optimization progress pointer and archive handoff record.
+
 ## Quick Links
 
 - [← Back to Main README](../README.md)

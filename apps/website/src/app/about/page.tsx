@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { cornerRadius } from "@/lib/styles/design-tokens";
-import { getJeremyThamertLeadershipSources } from "@/lib/data/vintage-team";
+import { getJeremyThamertLeadershipSources } from "@/lib/data/team-profiles";
 
 export default function AboutPage() {
   const commonT = useTranslations("common");
@@ -103,6 +103,43 @@ export default function AboutPage() {
           id="what-mh-does"
           className="py-10 sm:py-14 border-b border-gray-200 dark:border-gray-800"
         >
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 rounded-3xl border border-gray-200 bg-gray-50/80 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-800/60 sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-primary dark:text-brand-primary-light">
+                {locale.startsWith("es")
+                  ? "Contexto de confianza"
+                  : "Trust context"}
+              </p>
+              <h2 className="mt-3 text-2xl font-black tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+                {locale.startsWith("es")
+                  ? "La experiencia de MH se entiende mejor cuando se ve en contexto"
+                  : "MH’s experience becomes clearer when it is seen in context"}
+              </h2>
+              <p className="mt-4 text-base leading-7 text-gray-700 dark:text-gray-300">
+                {locale.startsWith("es")
+                  ? "Esta página reúne la visión, el alcance regional y los puntos de entrada para ver trabajos recientes, servicios y la siguiente conversación de evaluación."
+                  : "This page brings together the company’s view, regional reach, and clear entry points to recent work, services, and the next evaluation conversation."}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary hover:text-brand-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                >
+                  {locale.startsWith("es")
+                    ? "Ver portafolio"
+                    : "View portfolio"}
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+                >
+                  {locale.startsWith("es")
+                    ? "Hablar con el equipo"
+                    : "Talk with the team"}
+                </Link>
+              </div>
+            </div>
+          </div>
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <p className="font-subheading text-sm font-semibold tracking-[0.16em] uppercase text-brand-secondary mb-3">
               {pageContent.label}

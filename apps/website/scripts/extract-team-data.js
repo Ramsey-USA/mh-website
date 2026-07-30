@@ -2,7 +2,10 @@
 
 /**
  * Extract team data from TypeScript to JSON
- * This script converts vintage-team.ts data to team-data.json
+ * This script converts team-profiles data to team-data.json.
+ *
+ * Note: the parser reads the canonical teamProfileMembers declaration from
+ * vintage-team.ts (the migration-compatible source module).
  */
 
 const fs = require("fs");
@@ -15,13 +18,14 @@ const jsonFilePath = path.join(__dirname, "../src/lib/data/team-data.json");
 const tsContent = fs.readFileSync(tsFilePath, "utf8");
 
 // Extract the array content between the brackets
-const startMarker = "export const vintageTeamMembers: VintageTeamMember[] = [";
+const startMarker = "export const teamProfileMembers: TeamProfileMember[] = [";
 const endMarker = "\n];";
 
-const startIndex = tsContent.indexOf(startMarker) + startMarker.length;
+const markerIndex = tsContent.indexOf(startMarker);
+const startIndex = markerIndex + startMarker.length;
 const endIndex = tsContent.lastIndexOf(endMarker);
 
-if (startIndex === -1 || endIndex === -1) {
+if (markerIndex === -1 || endIndex === -1) {
   console.error("Could not find team data array in file");
   process.exit(1);
 }

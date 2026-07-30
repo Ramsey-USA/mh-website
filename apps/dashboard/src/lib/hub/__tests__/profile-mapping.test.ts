@@ -11,11 +11,11 @@ import {
   memberToFormState,
   type ProfileFormState,
 } from "../profile-mapping";
-import type { VintageTeamMember } from "@/lib/data/vintage-team";
+import type { TeamProfileMember } from "@/lib/data/team-profiles";
 
 function makeMember(
-  overrides: Partial<VintageTeamMember> = {},
-): VintageTeamMember {
+  overrides: Partial<TeamProfileMember> = {},
+): TeamProfileMember {
   return {
     name: "Test Person",
     role: "Tester",

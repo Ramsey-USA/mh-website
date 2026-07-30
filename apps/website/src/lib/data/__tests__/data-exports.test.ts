@@ -6,7 +6,7 @@
  */
 
 import { aboutTimelineSteps } from "../about-timeline";
-import { vintageTeamMembers } from "../vintage-team";
+import { teamProfileMembers } from "../team-profiles";
 import { COMPANY_INFO } from "@/lib/constants/company";
 
 describe("about-timeline data", () => {
@@ -26,14 +26,14 @@ describe("about-timeline data", () => {
   });
 });
 
-describe("vintage-team data", () => {
-  it("exports a non-empty vintageTeamMembers array", () => {
-    expect(Array.isArray(vintageTeamMembers)).toBe(true);
-    expect(vintageTeamMembers.length).toBeGreaterThan(0);
+describe("team-profiles data", () => {
+  it("exports a non-empty teamProfileMembers array", () => {
+    expect(Array.isArray(teamProfileMembers)).toBe(true);
+    expect(teamProfileMembers.length).toBeGreaterThan(0);
   });
 
   it("each team member has name, role, and cardNumber", () => {
-    vintageTeamMembers.forEach((member) => {
+    teamProfileMembers.forEach((member) => {
       expect(typeof member.name).toBe("string");
       expect(typeof member.role).toBe("string");
       expect(typeof member.cardNumber).toBe("number");
@@ -41,7 +41,7 @@ describe("vintage-team data", () => {
   });
 
   it("routes all public team contact emails through the office inbox", () => {
-    vintageTeamMembers.forEach((member) => {
+    teamProfileMembers.forEach((member) => {
       expect(member.email).toBe(COMPANY_INFO.email.main);
     });
   });

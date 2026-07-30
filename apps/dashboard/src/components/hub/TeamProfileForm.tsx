@@ -31,7 +31,7 @@ import {
   memberToFormState,
   type ProfileFormState,
 } from "@/lib/hub/profile-mapping";
-import type { VintageTeamMember } from "@/lib/data/vintage-team";
+import type { TeamProfileMember } from "@/lib/data/team-profiles";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -58,7 +58,7 @@ type SaveStatus = "idle" | "saving" | "saved" | "error";
 interface ApiProfileResponse {
   success: boolean;
   data?: {
-    profile: VintageTeamMember;
+    profile: TeamProfileMember;
     hasOverride: boolean;
     lastUpdated: string | null;
     submissionStatus: SubmissionStatus | null;
@@ -69,7 +69,7 @@ interface ApiProfileResponse {
 }
 
 interface ProfileLoadState {
-  profile: VintageTeamMember | null;
+  profile: TeamProfileMember | null;
   form: ProfileFormState | null;
   submissionStatus: SubmissionStatus | null;
   submittedAt: string | null;
@@ -100,7 +100,7 @@ interface TeamProfileFormProps {
     readonly department?: string;
     readonly employeeEmail?: string;
   };
-  readonly onProfileLoaded?: (profile: VintageTeamMember) => void;
+  readonly onProfileLoaded?: (profile: TeamProfileMember) => void;
 }
 
 export function TeamProfileForm({

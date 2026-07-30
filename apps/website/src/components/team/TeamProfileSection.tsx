@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { SkillsRadarChart } from "./SkillsRadarChart";
 import { Modal } from "@/components/ui/modals/Modal";
-import { type VintageTeamMember } from "@/lib/data/vintage-team";
+import { type TeamProfileMember } from "@/lib/data/team-profiles";
 import type { IndividualBrandingStamp as IndividualBrandingStampType } from "@/lib/content/individual-branding-stamps";
 import { IndividualBrandingStamp } from "@/components/shared-sections/IndividualBrandingStamp";
 import { buildCertificationShowcase } from "@/lib/safety/certification-showcase";
@@ -129,7 +129,7 @@ function getLinkedInHref(linkedinUrl?: string): string | null {
   }
 }
 
-type SkillKey = keyof VintageTeamMember["skills"];
+type SkillKey = keyof TeamProfileMember["skills"];
 
 const SKILL_KEYS: SkillKey[] = [
   "leadership",
@@ -231,7 +231,7 @@ interface AchievementBadge {
 }
 
 function pushVeteranBadges(
-  member: VintageTeamMember,
+  member: TeamProfileMember,
   badges: AchievementBadge[],
 ) {
   if (member.veteranStatus?.toLowerCase().includes("navy")) {
@@ -258,7 +258,7 @@ function pushVeteranBadges(
 }
 
 function pushEducationBadges(
-  member: VintageTeamMember,
+  member: TeamProfileMember,
   badges: AchievementBadge[],
 ) {
   if (!member.education) {
@@ -317,7 +317,7 @@ function pushEducationBadges(
 }
 
 function pushPerformanceBadges(
-  member: VintageTeamMember,
+  member: TeamProfileMember,
   badges: AchievementBadge[],
 ) {
   if (member.role.toLowerCase().includes("founder")) {
@@ -376,7 +376,7 @@ function pushPerformanceBadges(
 }
 
 function pushSkillBadges(
-  member: VintageTeamMember,
+  member: TeamProfileMember,
   badges: AchievementBadge[],
 ) {
   if (member.skills.leadership >= 88) {
@@ -452,7 +452,7 @@ function pushSkillBadges(
   }
 }
 
-function buildAchievementBadges(member: VintageTeamMember): AchievementBadge[] {
+function buildAchievementBadges(member: TeamProfileMember): AchievementBadge[] {
   const badges: AchievementBadge[] = [];
   pushVeteranBadges(member, badges);
   pushEducationBadges(member, badges);
@@ -465,7 +465,7 @@ function clampSkill(value: number): number {
   return Math.max(45, Math.min(99, Math.round(value)));
 }
 
-function resolveRoleProfile(member: VintageTeamMember): SkillWeightProfile {
+function resolveRoleProfile(member: TeamProfileMember): SkillWeightProfile {
   const role = member.role.toLowerCase();
 
   if (
@@ -505,8 +505,8 @@ function resolveRoleProfile(member: VintageTeamMember): SkillWeightProfile {
 }
 
 function buildRoleCalibratedSkills(
-  member: VintageTeamMember,
-): VintageTeamMember["skills"] {
+  member: TeamProfileMember,
+): TeamProfileMember["skills"] {
   const weights = resolveRoleProfile(member);
   const adjusted = { ...member.skills };
 
@@ -521,7 +521,7 @@ function buildRoleCalibratedSkills(
   return adjusted;
 }
 
-function TeamAvatar({ member }: Readonly<{ member: VintageTeamMember }>) {
+function TeamAvatar({ member }: Readonly<{ member: TeamProfileMember }>) {
   const [hasError, setHasError] = useState(false);
 
   if (!member.avatar || hasError) {
@@ -551,7 +551,7 @@ function TeamAvatar({ member }: Readonly<{ member: VintageTeamMember }>) {
 }
 
 interface TeamProfileSectionProps {
-  member: VintageTeamMember;
+  member: TeamProfileMember;
   index: number;
   brandingStamp?: IndividualBrandingStampType | null;
 }

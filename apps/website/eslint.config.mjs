@@ -196,6 +196,18 @@ const eslintConfig = [
       "no-restricted-imports": [
         "error",
         {
+          paths: [
+            {
+              name: "@/lib/data/vintage-team",
+              message:
+                "Use @/lib/data/team-profiles instead of the legacy vintage-team module.",
+            },
+            {
+              name: "../vintage-team",
+              message:
+                "Use ../team-profiles instead of the legacy vintage-team module.",
+            },
+          ],
           patterns: [
             {
               group: ["../**/components/**"],

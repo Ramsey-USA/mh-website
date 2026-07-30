@@ -10,9 +10,9 @@ import {
 } from "@/lib/hub/profile-markdown";
 import { SKILL_FIELDS } from "@/lib/hub/profile-mapping";
 import {
-  vintageTeamMembers,
-  type VintageTeamMember,
-} from "@/lib/data/vintage-team";
+  teamProfileMembers,
+  type TeamProfileMember,
+} from "@/lib/data/team-profiles";
 
 interface TeamQuestionnaireTabProps {
   readonly token: string;
@@ -21,7 +21,7 @@ interface TeamQuestionnaireTabProps {
 interface TeamProfileResponse {
   success: boolean;
   data?: {
-    profile: VintageTeamMember;
+    profile: TeamProfileMember;
   };
   message?: string;
 }
@@ -58,7 +58,7 @@ function nonEmptyCount(values: readonly string[] | undefined): number {
   return (values ?? []).filter((v) => v.trim().length > 0).length;
 }
 
-function completionFromProfile(profile: VintageTeamMember): CompletionItem[] {
+function completionFromProfile(profile: TeamProfileMember): CompletionItem[] {
   const skillValues = Object.values(profile.skills ?? {});
   const skillsDone =
     skillValues.length > 0 &&
@@ -152,7 +152,7 @@ const DEPARTMENT_OPTIONS = [
 ] as const;
 
 export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
-  const [profile, setProfile] = useState<VintageTeamMember | null>(null);
+  const [profile, setProfile] = useState<TeamProfileMember | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [mode, setMode] = useState<QuestionnaireMode>("form");
@@ -167,7 +167,7 @@ export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
 
   const knownEmployees = useMemo(
     () =>
-      [...vintageTeamMembers]
+      [...teamProfileMembers]
         .filter((member) => member.active)
         .sort((a, b) => a.name.localeCompare(b.name)),
     [],
@@ -386,7 +386,7 @@ export function TeamQuestionnaireTab({ token }: TeamQuestionnaireTabProps) {
     }
   };
 
-  const selectExistingEmployee = (member: VintageTeamMember) => {
+  const selectExistingEmployee = (member: TeamProfileMember) => {
     const selectedTarget: QuestionnaireTarget = {
       slug: member.slug,
       fullName: member.name,

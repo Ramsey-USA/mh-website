@@ -22,12 +22,12 @@ const TeamProfileSection = dynamic(
   { ssr: true },
 );
 import {
-  getPublicVintageTeamMembers,
+  getPublicTeamProfileMembers,
   applyProfileOverride,
   getJeremyThamertLeadershipSources,
-  type VintageTeamMember,
+  type TeamProfileMember,
   type TeamProfileOverride,
-} from "@/lib/data/vintage-team";
+} from "@/lib/data/team-profiles";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { navigationConfigs } from "@/components/navigation/navigationConfigs";
 import { normalizeEmployeeTestimonials } from "@/lib/data/testimonials";
@@ -59,7 +59,7 @@ const NextStepsSection = dynamic(
 );
 
 // Group team members by department
-function groupByDepartment(members: VintageTeamMember[]) {
+function groupByDepartment(members: TeamProfileMember[]) {
   return members.reduce(
     (acc, member) => {
       const dept = member.department;
@@ -67,7 +67,7 @@ function groupByDepartment(members: VintageTeamMember[]) {
       acc[dept].push(member);
       return acc;
     },
-    {} as Record<string, VintageTeamMember[]>,
+    {} as Record<string, TeamProfileMember[]>,
   );
 }
 
@@ -100,7 +100,7 @@ interface TeamProfileRow {
 function createDynamicMemberFromRow(
   row: TeamProfileRow,
   cardNumber: number,
-): VintageTeamMember {
+): TeamProfileMember {
   const role = row.role_title ?? row.position_title ?? "Team Member";
   return {
     slug: row.slug,
@@ -197,17 +197,17 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
     if (parsed !== undefined) override.specialties = parsed;
   }
   if (row.skills != null) {
-    const parsed = safeParseJson<VintageTeamMember["skills"]>(row.skills);
+    const parsed = safeParseJson<TeamProfileMember["skills"]>(row.skills);
     if (parsed !== undefined) override.skills = parsed;
   }
   if (row.current_year_stats != null) {
-    const parsed = safeParseJson<VintageTeamMember["currentYearStats"]>(
+    const parsed = safeParseJson<TeamProfileMember["currentYearStats"]>(
       row.current_year_stats,
     );
     if (parsed !== undefined) override.currentYearStats = parsed;
   }
   if (row.career_stats != null) {
-    const parsed = safeParseJson<VintageTeamMember["careerStats"]>(
+    const parsed = safeParseJson<TeamProfileMember["careerStats"]>(
       row.career_stats,
     );
     if (parsed !== undefined) override.careerStats = parsed;
@@ -228,11 +228,11 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
  */
 async function fetchProfileOverrides(): Promise<{
   overrides: Map<string, TeamProfileOverride>;
-  dynamicMembers: VintageTeamMember[];
+  dynamicMembers: TeamProfileMember[];
 }> {
   const overrides = new Map<string, TeamProfileOverride>();
-  const dynamicMembers: VintageTeamMember[] = [];
-  const staticSlugs = new Set(getPublicVintageTeamMembers().map((m) => m.slug));
+  const dynamicMembers: TeamProfileMember[] = [];
+  const staticSlugs = new Set(getPublicTeamProfileMembers().map((m) => m.slug));
 
   // During production build there is no live CF request context; skip D1 lookup
   // and fall back to static team data to keep prerender deterministic.
@@ -317,7 +317,7 @@ function DepartmentProfilesSection({
   brandingStamps,
 }: Readonly<{
   department: string;
-  members: VintageTeamMember[];
+  members: TeamProfileMember[];
   icon: string;
   sectionId: string;
   heading: { subtitle: string; title: string; description: string };
@@ -439,7 +439,7 @@ const faqSchema = {
 
 export default async function TeamPage() {
   const t = await getTranslations();
-  const publicTeamMembers = getPublicVintageTeamMembers();
+  const publicTeamMembers = getPublicTeamProfileMembers();
   const brandingStamps = getAllIndividualBrandingStamps();
   // Fetch profile overrides from D1; gracefully falls back to static JSON if unavailable
   const { overrides, dynamicMembers } = await fetchProfileOverrides();
@@ -590,6 +590,32 @@ export default async function TeamPage() {
         />
 
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="mb-6 rounded-3xl border border-gray-200 bg-white/95 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/95 sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-primary dark:text-brand-primary-light">
+              {t("team.pageUi.onThisPage.title")}
+            </p>
+            <h2 className="mt-3 text-2xl font-black tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+              {t("team.pageUi.onThisPage.description")}
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-gray-700 dark:text-gray-300">
+              {t("team.pageUi.onThisPage.description")}
+            </p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link
+                href="/about"
+                className="inline-flex items-center rounded-full border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary hover:text-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+              >
+                {t("team.hero.breadcrumb")}
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+              >
+                {t("team.hero.breadcrumb")}
+              </Link>
+            </div>
+          </div>
+
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.95fr)]">
             <div className="rounded-2xl border border-brand-secondary/25 bg-linear-to-r from-white via-brand-secondary/5 to-white dark:from-gray-900 dark:via-brand-secondary/15 dark:to-gray-900 p-5 sm:p-6 shadow-sm">
               <p className="text-xs sm:text-sm font-semibold tracking-[0.18em] text-brand-primary uppercase mb-2">

@@ -23,7 +23,7 @@ import {
   serviceUnavailable,
 } from "@/lib/api/responses";
 import type { JWTUser } from "@/lib/auth/jwt";
-import { vintageTeamMembers, APPROVER_EMAIL } from "@/lib/data/vintage-team";
+import { teamProfileMembers, APPROVER_EMAIL } from "@/lib/data/team-profiles";
 
 export const dynamic = "force-dynamic";
 
@@ -89,7 +89,7 @@ async function handleGet(
 
     // Enrich each row with the member's display name for the review UI
     const submissions = rows.map((row) => {
-      const member = vintageTeamMembers.find((m) => m.slug === row.slug);
+      const member = teamProfileMembers.find((m) => m.slug === row.slug);
       return {
         slug: row.slug,
         name: member?.name ?? row.full_name ?? row.slug,
@@ -186,7 +186,7 @@ async function handlePost(
       );
     }
 
-    const member = vintageTeamMembers.find((m) => m.slug === slug);
+    const member = teamProfileMembers.find((m) => m.slug === slug);
 
     await db.execute(
       `UPDATE team_profiles

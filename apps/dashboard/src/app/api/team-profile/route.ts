@@ -27,13 +27,13 @@ import {
 } from "@/lib/api/responses";
 import type { JWTUser } from "@/lib/auth/jwt";
 import {
-  vintageTeamMembers,
+  teamProfileMembers,
   ADMIN_EMAIL_TO_SLUG,
   APPROVER_EMAIL,
   applyProfileOverride,
   type TeamProfileOverride,
-  type VintageTeamMember,
-} from "@/lib/data/vintage-team";
+  type TeamProfileMember,
+} from "@/lib/data/team-profiles";
 
 export const dynamic = "force-dynamic";
 
@@ -92,17 +92,17 @@ function rowToOverride(row: TeamProfileRow): TeamProfileOverride {
     if (parsed !== undefined) override.specialties = parsed;
   }
   if (row.skills != null) {
-    const parsed = safeParseJson<VintageTeamMember["skills"]>(row.skills);
+    const parsed = safeParseJson<TeamProfileMember["skills"]>(row.skills);
     if (parsed !== undefined) override.skills = parsed;
   }
   if (row.current_year_stats != null) {
-    const parsed = safeParseJson<VintageTeamMember["currentYearStats"]>(
+    const parsed = safeParseJson<TeamProfileMember["currentYearStats"]>(
       row.current_year_stats,
     );
     if (parsed !== undefined) override.currentYearStats = parsed;
   }
   if (row.career_stats != null) {
-    const parsed = safeParseJson<VintageTeamMember["careerStats"]>(
+    const parsed = safeParseJson<TeamProfileMember["careerStats"]>(
       row.career_stats,
     );
     if (parsed !== undefined) override.careerStats = parsed;
@@ -152,7 +152,7 @@ function createBlankProfile(
     department?: string;
     employeeEmail?: string;
   },
-): VintageTeamMember {
+): TeamProfileMember {
   const name = seed.fullName?.trim() || slug.replaceAll("-", " ");
   const role = seed.roleTitle?.trim() || "Team Member";
   const department = seed.department?.trim() || "Mission Commanders";
@@ -205,7 +205,7 @@ function createBlankProfile(
   };
 }
 
-function hydrateDynamicMemberFromRow(row: TeamProfileRow): VintageTeamMember {
+function hydrateDynamicMemberFromRow(row: TeamProfileRow): TeamProfileMember {
   const seed: {
     fullName?: string;
     roleTitle?: string;
@@ -238,7 +238,7 @@ async function handleGet(
     return badRequest("Invalid slug format");
   }
 
-  const staticMember = vintageTeamMembers.find((m) => m.slug === slug);
+  const staticMember = teamProfileMembers.find((m) => m.slug === slug);
 
   // Fetch DB row (non-fatal if DB unavailable)
   let row: TeamProfileRow | null = null;
@@ -597,7 +597,7 @@ async function handlePut(
     return badRequest("Invalid slug format");
   }
 
-  const staticMember = vintageTeamMembers.find((m) => m.slug === slug);
+  const staticMember = teamProfileMembers.find((m) => m.slug === slug);
 
   const result = validateAndSanitize(body);
   if ("errors" in result) {

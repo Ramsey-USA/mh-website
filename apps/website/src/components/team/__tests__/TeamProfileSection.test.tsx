@@ -3,7 +3,7 @@ import { act } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TeamProfileSection } from "../TeamProfileSection";
-import type { VintageTeamMember } from "@/lib/data/vintage-team";
+import type { TeamProfileMember } from "@/lib/data/team-profiles";
 
 // Control isDarkMode between tests.  The factory is evaluated lazily so
 // mutating mockIsDarkMode before rerender causes useTheme to return the
@@ -49,7 +49,7 @@ jest.mock("../SkillsRadarChart", () => ({
   ),
 }));
 
-const baseMember: VintageTeamMember = {
+const baseMember: TeamProfileMember = {
   name: "Alex Builder",
   role: "Founder & Project Executive",
   department: "Leadership",
@@ -154,7 +154,7 @@ describe("TeamProfileSection", () => {
 
   it("shows a QR code download link in the full profile modal", async () => {
     const user = userEvent.setup();
-    const memberWithQrCode: VintageTeamMember = {
+    const memberWithQrCode: TeamProfileMember = {
       ...baseMember,
       qrCode: "/images/qr-codes/team/qr-team-alex-builder-color.png",
     };
@@ -199,7 +199,7 @@ describe("TeamProfileSection", () => {
     ];
 
     suspiciousUrls.forEach((linkedinUrl) => {
-      const memberWithSuspiciousLinkedin: VintageTeamMember = {
+      const memberWithSuspiciousLinkedin: TeamProfileMember = {
         ...baseMember,
         linkedinUrl,
       };
@@ -219,7 +219,7 @@ describe("TeamProfileSection", () => {
   });
 
   it("renders LinkedIn links for approved lnkd.in short links", () => {
-    const memberWithShortLink: VintageTeamMember = {
+    const memberWithShortLink: TeamProfileMember = {
       ...baseMember,
       linkedinUrl: "https://lnkd.in/alex-builder",
     };
@@ -234,7 +234,7 @@ describe("TeamProfileSection", () => {
   });
 
   it("renders LinkedIn links for linkedin.com subdomains", () => {
-    const memberWithSubdomainLink: VintageTeamMember = {
+    const memberWithSubdomainLink: TeamProfileMember = {
       ...baseMember,
       linkedinUrl: "https://www.linkedin.com/in/alex-builder/",
     };
@@ -271,7 +271,7 @@ describe("TeamProfileSection", () => {
   });
 
   it("renders Navy Veteran badge for navy veteran status", () => {
-    const navyMember: VintageTeamMember = {
+    const navyMember: TeamProfileMember = {
       ...baseMember,
       name: "Sam Sailor",
       slug: "sam-sailor",
@@ -287,7 +287,7 @@ describe("TeamProfileSection", () => {
 
   it("renders Master's Degree badge when education contains 'master'", () => {
     const { veteranStatus: _, ...baseWithoutVeteran } = baseMember;
-    const masterMember: VintageTeamMember = {
+    const masterMember: TeamProfileMember = {
       ...baseWithoutVeteran,
       name: "Pat Scholar",
       slug: "pat-scholar",
@@ -301,7 +301,7 @@ describe("TeamProfileSection", () => {
 
   it("renders College Graduate badge for AAS / technology education", () => {
     const { veteranStatus: _, ...baseWithoutVeteran } = baseMember;
-    const aasMember: VintageTeamMember = {
+    const aasMember: TeamProfileMember = {
       ...baseWithoutVeteran,
       name: "Terry Tech",
       slug: "terry-tech",
@@ -315,7 +315,7 @@ describe("TeamProfileSection", () => {
 
   it("renders fallback icon avatar when member has no avatar set", () => {
     const { avatar: _, ...baseWithoutAvatar } = baseMember;
-    const noAvatarMember: VintageTeamMember = {
+    const noAvatarMember: TeamProfileMember = {
       ...baseWithoutAvatar,
       name: "Jordan Nophoto",
       slug: "jordan-nophoto",
@@ -343,7 +343,7 @@ describe("TeamProfileSection", () => {
 
     roles.forEach(({ role, icon }) => {
       const { avatar: _a, veteranStatus: _v, ...baseStripped } = baseMember;
-      const m: VintageTeamMember = {
+      const m: TeamProfileMember = {
         ...baseStripped,
         name: `${role} Person`,
         slug: role.toLowerCase().replace(/\s/g, "-"),

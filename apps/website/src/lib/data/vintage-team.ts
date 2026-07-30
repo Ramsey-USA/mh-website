@@ -1,3 +1,6 @@
+// Legacy module retained for compatibility.
+// Prefer importing from ./team-profiles for new code.
+
 // Enhanced team member data for modern professional profiles
 // Includes professional statistics, career highlights, skills, and comprehensive details
 //
@@ -24,7 +27,7 @@ import {
   isPubliclyVisibleContent,
 } from "@/lib/content/content-governance";
 
-export interface VintageTeamMember {
+export interface TeamProfileMember {
   // Core identification
   name: string;
   role: string;
@@ -105,9 +108,9 @@ export interface TeamProfileOverride {
   specialInterests?: string;
   careerHighlights?: string[];
   specialties?: string[];
-  skills?: VintageTeamMember["skills"];
-  currentYearStats?: VintageTeamMember["currentYearStats"];
-  careerStats?: VintageTeamMember["careerStats"];
+  skills?: TeamProfileMember["skills"];
+  currentYearStats?: TeamProfileMember["currentYearStats"];
+  careerStats?: TeamProfileMember["careerStats"];
   yearsWithCompany?: number;
   hometown?: string;
   education?: string;
@@ -127,9 +130,9 @@ export interface TeamProfileOverride {
  * Static values are used as defaults; override values win when present.
  */
 export function applyProfileOverride(
-  member: VintageTeamMember,
+  member: TeamProfileMember,
   override: TeamProfileOverride | null | undefined,
-): VintageTeamMember {
+): TeamProfileMember {
   if (!override) return member;
 
   return {
@@ -173,7 +176,7 @@ export function getJeremyThamertLeadershipSources() {
 }
 
 function getTeamMemberGovernance(
-  member: Pick<VintageTeamMember, "slug" | "active">,
+  member: Pick<TeamProfileMember, "slug" | "active">,
 ): ContentGovernanceRecord {
   const isPublic = member.active;
 
@@ -203,7 +206,7 @@ function getTeamMemberGovernance(
 
 // Assembled team roster — order determines display sequence on the team page.
 // To reorder members, rearrange the entries in this array.
-export const vintageTeamMembers: VintageTeamMember[] = [
+export const teamProfileMembers: TeamProfileMember[] = [
   jeremyThamert,
   gator,
   kimThamert,
@@ -222,10 +225,10 @@ export const vintageTeamMembers: VintageTeamMember[] = [
   ...member,
   email: COMPANY_INFO.email.main,
   governance: getTeamMemberGovernance(member),
-})) as VintageTeamMember[];
+})) as TeamProfileMember[];
 
-export function getPublicVintageTeamMembers(): VintageTeamMember[] {
-  return vintageTeamMembers.filter(
+export function getPublicTeamProfileMembers(): TeamProfileMember[] {
+  return teamProfileMembers.filter(
     (member) =>
       member.active &&
       (member.governance ? isPubliclyVisibleContent(member.governance) : true),

@@ -65,6 +65,9 @@ jobs:
       - name: Enforce docs stack/version congruency guard
         run: npm run docs:stack:congruency:check
 
+      - name: Enforce team-profiles legacy import guard
+        run: npm run team-profiles:legacy-imports:check
+
       - name: Enforce migration mirror sync guard
         run: npm run migrations:sync:check
 

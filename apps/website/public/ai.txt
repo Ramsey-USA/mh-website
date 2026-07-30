@@ -8,11 +8,31 @@ LLMs: https://www.mhc-gc.com/llms.txt
 LLMsFull: https://www.mhc-gc.com/llms-full.txt
 
 Name: MH Construction, Inc.
+LegalName: MH Construction, Inc.
 Tagline: Built on Quality, Backed by Trust.
 PrimaryLanguage: en
 SecondaryLanguage: es
 
-Summary: BBB Accredited veteran-owned general contractor serving Washington, Oregon, and Idaho for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects with scope clarity, practical follow-through, and accountable delivery.
+Summary: BBB Accredited Veteran-owned general contractor serving Washington, Oregon, and Idaho for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects with scope clarity, practical follow-through, and accountable delivery.
+
+Overview: MH Construction is a Pacific Northwest general contractor founded in 2010 and headquartered in Pasco, Washington. The company operates from the Tri-Cities region and works with owners, facilities teams, and public agencies on projects that require clear planning, direct communication, and accountable execution. Scope clarity, practical follow-through, and accountable delivery are central to the company’s reputation.
+
+Leadership: Jeremy Thamert is Owner & President, and Arnold Garcia serves as Vice President. The company transitioned to veteran-owned leadership in January 2025.
+
+Capabilities: Commercial construction, industrial construction, pre-engineered metal buildings, tenant improvements, public-sector support, design-build, construction management, preconstruction planning, and agricultural or winery facility work.
+
+ServiceArea: Washington, Oregon, and Idaho, with active reach across the Tri-Cities and surrounding communities including Pasco, Richland, Kennewick, Yakima, Spokane, Walla Walla, Hermiston, Pendleton, Coeur d’Alene, Omak, Benton County, and Franklin County.
+
+TrustSignals: BBB Accredited Business with an A+ rating, veteran-owned leadership, documented safety and operational discipline, and a long-running record of completed projects built on repeat partnerships.
 
 BrandPositioning: MH Construction is known for clear planning, direct consultation, and dependable project execution across the Pacific Northwest.
+
+ImportantPages:
+- About: https://www.mhc-gc.com/about
+- Services: https://www.mhc-gc.com/services
+- Projects: https://www.mhc-gc.com/projects
+- Public Sector: https://www.mhc-gc.com/public-sector
+- Safety: https://www.mhc-gc.com/safety
+- Contact: https://www.mhc-gc.com/contact
+
 Contact: https://www.mhc-gc.com/contact

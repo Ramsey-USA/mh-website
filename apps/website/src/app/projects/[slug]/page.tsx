@@ -356,6 +356,14 @@ export default async function ProjectCaseStudyPage({
     projectMarketingRecord?.milestones.length
       ? [...projectMarketingRecord.milestones]
       : safetyMilestones.map((title) => ({ title }));
+  const projectDeliveryContextLinks = [
+    { href: "/services", label: "Explore delivery services" },
+    { href: "/locations", label: "View service locations" },
+    { href: "/contact", label: "Start a project conversation" },
+  ];
+  const proofSummary = caseStudy?.results?.length
+    ? "This case study is paired with project delivery evidence and adjacent service pathways so the scope is easier to evaluate."
+    : "This project page is structured to connect the completed work with the broader service delivery framework.";
 
   return (
     <>
@@ -599,6 +607,30 @@ export default async function ProjectCaseStudyPage({
                     </li>
                   ))}
                 </ul>
+              </Card>
+
+              <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
+                  Project Delivery Context
+                </p>
+                <h2 className="mt-3 text-xl font-bold text-gray-900 dark:text-white">
+                  Connect this proof to the next step
+                </h2>
+                <p className="mt-3 text-sm leading-6 text-gray-700 dark:text-gray-300">
+                  {proofSummary}
+                </p>
+                <div className="mt-4 space-y-3">
+                  {projectDeliveryContextLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                    >
+                      <span>{link.label}</span>
+                      <MaterialIcon icon="arrow_forward" size="sm" />
+                    </Link>
+                  ))}
+                </div>
               </Card>
 
               <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">

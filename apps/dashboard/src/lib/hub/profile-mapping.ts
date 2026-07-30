@@ -1,17 +1,17 @@
 /**
- * Pure mapping between {@link VintageTeamMember} and the Hub profile
+ * Pure mapping between {@link TeamProfileMember} and the Hub profile
  * editor's local form state.
  *
  * Extracted from `TeamProfileForm` so the conversion logic is reusable
  * and unit-testable without rendering React.
  */
 
-import type { VintageTeamMember } from "@/lib/data/vintage-team";
+import type { TeamProfileMember } from "@/lib/data/team-profiles";
 
 // ─── Skill field metadata ────────────────────────────────────────────────────
 
 export interface SkillField {
-  readonly key: keyof VintageTeamMember["skills"];
+  readonly key: keyof TeamProfileMember["skills"];
   readonly label: string;
 }
 
@@ -44,7 +44,7 @@ export interface ProfileFormState {
   careerHighlights: string[];
   /** Up to 6 items, padded with empty strings. */
   specialties: string[];
-  skills: Record<keyof VintageTeamMember["skills"], string>;
+  skills: Record<keyof TeamProfileMember["skills"], string>;
   currentYearStats: {
     projectsCompleted: string;
     clientSatisfaction: string;
@@ -74,7 +74,7 @@ function clampSkill(value: number): number {
 
 // ─── Member → form ───────────────────────────────────────────────────────────
 
-export function memberToFormState(member: VintageTeamMember): ProfileFormState {
+export function memberToFormState(member: TeamProfileMember): ProfileFormState {
   const skillEntries = SKILL_FIELDS.map(
     ({ key }) => [key, String(member.skills[key])] as const,
   );

@@ -303,9 +303,9 @@ jest.mock("@/lib/styles/layout-variants", () => ({
   },
 }));
 
-jest.mock("@/lib/data/vintage-team", () => ({
-  vintageTeamMembers: [],
-  getPublicVintageTeamMembers: () => [],
+jest.mock("@/lib/data/team-profiles", () => ({
+  teamProfileMembers: [],
+  getPublicTeamProfileMembers: () => [],
   getJeremyThamertLeadershipSources: () => [],
 }));
 
@@ -443,7 +443,7 @@ jest.mock("next/navigation", () => ({
   usePathname: () => "/safety/print/test-123",
 }));
 
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { eventRecords } from "@/lib/data/events";
 import { getFAQCategorySlugs } from "@/lib/data/faq-data";
 import { getLocationSlugs } from "@/lib/data/locations";
@@ -538,6 +538,30 @@ describe("Project detail page", () => {
       params: Promise.resolve({ slug }),
     });
     expect(() => render(page)).not.toThrow();
+  });
+
+  it("renders project delivery context links for case studies", async () => {
+    const slug = getPublishedProjectCaseStudySlugs()[0];
+    if (!slug) {
+      throw new Error("Expected at least one published project slug");
+    }
+
+    const { default: ProjectDetailPage } =
+      await import("../projects/[slug]/page");
+    const page = await ProjectDetailPage({
+      params: Promise.resolve({ slug }),
+    });
+
+    render(page);
+
+    expect(
+      screen.getByRole("heading", {
+        name: /connect this proof to the next step/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /start a project conversation/i }),
+    ).toHaveAttribute("href", "/contact");
   });
 });
 

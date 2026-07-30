@@ -15,7 +15,7 @@ When changing any of these surfaces, review the shared brand sources first, then
 
 - **Employee Handbook** - Public handbook route (`/employee-handbook`) and handbook PDF outputs in `documents/generated-pdfs/`
 - **Safety Manual / MISH** - [Safety Manual](../technical/safety-program-guide.md) and [Safety Terminology Glossary](../technical/safety-terminology-glossary.md)
-- **Operations Manual** - Canonical operations source retained in the document pipeline and governance notes
+- **Operations Manual** - Canonical operations source retained in the document pipeline and governance notes. Draft workspace index: [Operations Manual Draft Workspace](../../documents/content/mhc-operations-manual-drafts/README.md)
 - **Marketing Guide** - [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)
 - **Sales / Estimating Guide** - [Sales/Estimating Guide](../sales/sales-estimating-guide.md)
 

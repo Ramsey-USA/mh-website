@@ -13,10 +13,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.sitemap.seoName, PAGE_TERMINOLOGY.sitemap.mhBrandName)} | MH Construction`,
-    description: t("description"),
+    description:
+      "Browse the canonical site map for MH Construction and discover the main public pages for services, projects, locations, safety resources, and trust signals.",
     robots: {
       index: false,
       follow: true,
+    },
+    alternates: {
+      canonical: "https://www.mhc-gc.com/sitemap",
     },
   };
 }

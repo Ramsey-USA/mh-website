@@ -1,4 +1,4 @@
-import type { VintageTeamMember } from "@/lib/data/vintage-team";
+import type { TeamProfileMember } from "@/lib/data/team-profiles";
 
 const CODE_BLOCK_TAG = "team-profile-payload";
 const CODE_FENCE = "```";
@@ -7,7 +7,7 @@ function normalizeLineEndings(input: string): string {
   return input.replaceAll("\r\n", "\n");
 }
 
-function toPayload(member: VintageTeamMember): Record<string, unknown> {
+function toPayload(member: TeamProfileMember): Record<string, unknown> {
   return {
     bio: member.bio,
     funFact: member.funFact ?? "",
@@ -26,7 +26,7 @@ function toPayload(member: VintageTeamMember): Record<string, unknown> {
   };
 }
 
-export function teamProfileToMarkdown(member: VintageTeamMember): string {
+export function teamProfileToMarkdown(member: TeamProfileMember): string {
   const payload = JSON.stringify(toPayload(member), null, 2);
   return [
     "# Team Profile Questionnaire Draft",

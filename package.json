@@ -51,6 +51,7 @@
     "docs:preflight:pdf-output": "pnpm --filter @mhc/website run docs:preflight:pdf-output",
     "docs:clean:legacy-output": "bash scripts/docs/clean-stale-pdf-output.sh",
     "docs:guardrails:contracts": "bash scripts/validation/check-branding-doc-contracts.sh",
+    "team-profiles:legacy-imports:check": "node scripts/validation/check-no-legacy-vintage-team-imports.mjs",
     "docs:stack:congruency:check": "node scripts/validation/check-doc-stack-congruency.mjs",
     "guard:generated-artifacts": "bash scripts/validation/check-no-generated-artifacts.sh",
     "docs:extract": "node documents/scripts/extract.mjs",

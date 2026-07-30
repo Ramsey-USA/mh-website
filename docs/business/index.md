@@ -27,7 +27,12 @@ Business docs should stay congruent with the canonical MH voice, trust language,
 
 ### Team Data
 
-Team member data is maintained in `src/lib/data/vintage-team.ts` (source of truth).
+Team member data is maintained per surface:
+
+- Website public roster and governance model: `apps/website/src/lib/data/team-profiles.ts`
+- Dashboard profile workflow and approvals: `apps/dashboard/src/lib/data/team-profiles.ts`
+
+Treat these as intentionally separate runtime datasets with shared team JSON lineage, not a single interchangeable file.
 
 ## Quick Links
 

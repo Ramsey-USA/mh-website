@@ -176,7 +176,7 @@ describe("GET /api/team-profile/review", () => {
     expect(body.data.submissions).toHaveLength(1);
     const sub = body.data.submissions[0];
     expect(sub.slug).toBe("jeremy-thamert");
-    // name resolved from vintageTeamMembers static data
+    // name resolved from teamProfileMembers static data
     expect(typeof sub.name).toBe("string");
     expect(sub.name).not.toBe("jeremy-thamert"); // resolved, not raw slug
     expect(sub.bio).toBe("Jeremy's updated bio.");

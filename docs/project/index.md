@@ -36,6 +36,11 @@ All project documentation should preserve the same brand voice, trust framing, a
 
 - **[Audit Index](./audit-index.md)** — Master index of project audits and their outcomes.
 
+### Status Snapshots
+
+- **[Repository Status Report (Phase 2 Complete)](../../repo-status-phase2-complete.md)** — Root-level repository inventory and status snapshot retained for reference.
+- **[Markdown Housekeeping Priority Report (2026-07-29)](./markdown-housekeeping-priority-2026-07-29.md)** — Prioritized visibility and indexing follow-up plan after cache clear and audit sweep.
+
 ## Quick Links
 
 - [← Documentation Index](../index.md)

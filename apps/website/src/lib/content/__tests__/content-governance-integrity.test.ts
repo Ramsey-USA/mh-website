@@ -11,7 +11,7 @@ import {
 import { projectCaseStudies } from "@/lib/data/project-case-studies";
 import { serviceRoutes } from "@/lib/data/service-routes";
 import { eventRecords } from "@/lib/data/events";
-import { vintageTeamMembers } from "@/lib/data/vintage-team";
+import { teamProfileMembers } from "@/lib/data/team-profiles";
 import { getLocationSlugs, getLocationBySlug } from "@/lib/data/locations";
 import { getNewsInsightsContent } from "@/lib/data/news-insights";
 import {
@@ -38,7 +38,7 @@ function collectGovernedRecords(): GovernedRecord[] {
       id: `event:${record.slug}`,
       governance: record.governance,
     })),
-    ...vintageTeamMembers.map((record) => ({
+    ...teamProfileMembers.map((record) => ({
       id: `team:${record.slug}`,
       governance: record.governance,
     })),

@@ -7,6 +7,51 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { createOgImageUrl } from "@/lib/seo/og-image";
 
+export function buildLocationFaqSchema(
+  location: Pick<
+    LocationData,
+    "city" | "state" | "servicePriorities" | "nearbyAreas"
+  >,
+  siteUrl: string,
+) {
+  const serviceSummary = (location.servicePriorities || [])
+    .slice(0, 2)
+    .join(" and ");
+  const nearbyAreas = (location.nearbyAreas || []).slice(0, 2).join(", ");
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${siteUrl}/locations/${location.city.toLowerCase().replace(/\s+/g, "-")}#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `What services does MH Construction provide in ${location.city}, ${location.state}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `MH Construction supports ${location.city}, ${location.state} with ${serviceSummary || "commercial and municipal construction"} work, plus project planning and accountable field delivery.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `Which nearby areas does MH Construction serve around ${location.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `We commonly support projects in ${nearbyAreas || location.city} and nearby communities through our regional construction network.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: `How do I start a project with MH Construction in ${location.city}?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Start with a consultation so we can review scope, schedule, coordination, and delivery fit for your project in ${location.city}.`,
+        },
+      },
+    ],
+  };
+}
+
 /**
  * Generate standardized metadata for location pages
  * Eliminates duplication across all location pages

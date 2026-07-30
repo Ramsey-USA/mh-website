@@ -51,6 +51,12 @@ maintaining safety-critical CI gates.
 - **[Database Migrations Guide](./database-migrations-guide.md)** — Workflow for authoring,
   applying, and reviewing D1 migrations under `migrations/`.
 
+### Configuration References
+
+- **[Configuration Directory Guide](../../config/config-directory-guide.md)** — Scope and ownership model for deployment-only configuration files.
+- **[Cloudflare Edge Optimization Configuration](../../config/cloudflare/edge-optimization.md)** — Edge caching and Cloudflare performance-tuning reference.
+- **[Uptime Kuma Monitor Configuration](../../config/monitoring/uptime-kuma-monitors.md)** — Active monitor inventory and alerting setup notes.
+
 ## Quick Links
 
 - [← Documentation Index](../index.md)
