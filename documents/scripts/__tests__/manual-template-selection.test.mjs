@@ -43,3 +43,19 @@ test("guide section QR codes resolve to their own guide paths", async () => {
     process.argv = originalArgv;
   }
 });
+
+test("site-relative paths are normalized into safe absolute URLs", async () => {
+  const originalArgv = process.argv;
+  process.argv = ["node", "generate.mjs", "--manual", "marketing"];
+  try {
+    const { buildAbsoluteSiteUrl } = await import(
+      `../generate.mjs?test=${Date.now() + 3}`
+    );
+    assert.equal(
+      buildAbsoluteSiteUrl("/docs/safety/forms/annual report.pdf"),
+      "https://www.mhc-gc.com/docs/safety/forms/annual%20report.pdf",
+    );
+  } finally {
+    process.argv = originalArgv;
+  }
+});

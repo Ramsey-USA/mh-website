@@ -304,7 +304,7 @@ function adaptMarketingStrategyGuideTemplate(html) {
 
 ## Recommendation
 
-**Option A: Create Dedicated Templates**
+### Option A: Create Dedicated Templates
 
 ### Rationale
 

@@ -1940,7 +1940,7 @@ function buildSectionRelatedFormsHtml(sectionNumber, formsMap) {
       const formTitle = normalizeTocTitle(form?.title || "Untitled Form");
       const slug = slugForFormPackage(form);
       const relPath = resolveFormPublicRelativePath(form, slug);
-      const publicUrl = `${SITE_URL}/${String(relPath || "").replace(/^\/+/, "")}`;
+      const publicUrl = buildAbsoluteSiteUrl(relPath);
       const revision = String(
         form?.revision || ENFORCED_REVISION_NUMBER,
       ).trim();
@@ -4553,7 +4553,7 @@ async function generateFillableForm(formEntry) {
   const pages = optimizeFillablePageLayout(basePages, formEntry, layoutProfile);
   validateSignatureSectionTitleGuardrails(formEntry, pages);
   const formPublicRelativePath = resolveFormPublicRelativePath(formEntry, slug);
-  const formPublicUrl = `${SITE_URL}/${formPublicRelativePath}`;
+  const formPublicUrl = buildAbsoluteSiteUrl(formPublicRelativePath);
   const formQrDataUrl = await buildQrDataUrl(formPublicUrl);
 
   const body = pages
@@ -4827,7 +4827,29 @@ function resolveFormPublicRelativePath(formEntry, slug) {
   const basePath = isHandbookFormEntry(formEntry)
     ? "docs/employee/forms"
     : "docs/safety/forms";
-  return `${basePath}/${slug}.pdf`;
+  const safeSlug = encodeURIComponent(String(slug || "").trim() || "form");
+  return `${basePath}/${safeSlug}.pdf`;
+}
+
+export function buildAbsoluteSiteUrl(relativePath) {
+  const normalizedPath = String(relativePath || "")
+    .trim()
+    .replace(/^\/+/, "");
+  if (!normalizedPath) return SITE_URL;
+  if (/[\x00-\u001f?#\\]/.test(normalizedPath)) {
+    throw new Error(`Invalid site-relative path: ${relativePath}`);
+  }
+  const safePath = normalizedPath
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => {
+      if (segment === "." || segment === "..") {
+        throw new Error(`Invalid site-relative path: ${relativePath}`);
+      }
+      return encodeURIComponent(segment);
+    })
+    .join("/");
+  return new URL(safePath, `${SITE_URL}/`).toString();
 }
 
 function parseNumericSegment(fileName, matcher) {
