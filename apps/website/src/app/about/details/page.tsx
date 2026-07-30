@@ -21,6 +21,7 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 // Keep animations and lower-priority cards out of initial bundle.
 const FadeInWhenVisible = dynamic(
@@ -31,7 +32,7 @@ const FadeInWhenVisible = dynamic(
   { ssr: true },
 );
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: buildDualSeoTitle("about", "Detailed Construction Capabilities"),
   description:
     "Detailed construction capabilities for AG and winery facilities, tenant improvements, and municipal projects across the Pacific Northwest.",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-};
+});
 
 export default function AboutDetailsPage() {
   const commonT = useTranslations("common");

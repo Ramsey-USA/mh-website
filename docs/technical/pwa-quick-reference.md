@@ -196,24 +196,15 @@ Current registered bundle assets:
 - `/resources/safety-program`
 - `/docs/safety/safety-manual-complete.pdf`
 - `/docs/safety/safety-manual-contents.pdf`
-- `/docs/safety/forms/form-02-a-toolbox-talk-sign-in-log.pdf`
-- `/docs/safety/forms/form-02-b-job-hazard-analysis.pdf`
-- `/docs/safety/forms/form-02-c-incident-accident-report.pdf`
-- `/docs/safety/forms/form-02-d-near-miss-report.pdf`
-- `/docs/safety/forms/form-02-e-daily-site-safety-inspection.pdf`
-- `/docs/safety/forms/form-02-f-safety-orientation-sign-off.pdf`
-- `/docs/safety/forms/form-02-g-osha-300-log-cover-sheet.pdf`
-- `/docs/safety/forms/form-02-h-wa-li-roa-cover-sheet.pdf`
-- `/docs/safety/forms/form-02-i-employee-safety-training-record.pdf`
-- `/docs/safety/forms/form-02-j-pre-task-safety-plan.pdf`
-- `/docs/safety/forms/form-03-a-pre-employment-drug-screen-consent.pdf`
-- `/docs/safety/forms/form-03-c-post-accident-test-authorization.pdf`
-- `/docs/safety/forms/form-03-d-reasonable-suspicion-checklist.pdf`
-- `/docs/safety/forms/form-04-a-driver-authorization-mvr-request.pdf`
-- `/docs/safety/forms/form-04-b-vehicle-pre-trip-inspection.pdf`
-- `/docs/safety/forms/form-04-c-vehicle-accident-report.pdf`
-- `/docs/safety/forms/form-04-d-heavy-equipment-inspection-log.pdf`
-- `/docs/safety/forms/form-05-a-subcontractor-pre-qualification.pdf`
+- `/docs/safety/forms/safety-manual-forms-package.pdf`
+- `/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf`
+- `/docs/safety/forms/form-mish-04-safety-and-health-orientation-sign-in-log.pdf`
+- `/docs/safety/forms/form-mish-05-pre-job-safety-planning-job-hazard-analysis.pdf`
+- `/docs/safety/forms/form-mish-08-incident-near-miss-report.pdf`
+- `/docs/safety/forms/form-mish-09-safety-meeting-toolbox-talk-log.pdf`
+- `/docs/safety/forms/form-mish-18-vehicle-pre-trip-inspection-driver-log.pdf`
+- `/docs/safety/forms/form-mish-56-near-miss-reporting-analysis-form.pdf`
+- `/docs/safety/forms/form-mish-57-contractor-prequalification-safety-data-package-checklist.pdf`
 
 ## Support Matrix
 

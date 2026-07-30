@@ -8,6 +8,8 @@
     "dev:inspect": "pnpm --filter @mhc/website dev:inspect",
     "dev:dashboard": "pnpm --filter @mhc/dashboard dev",
     "build": "pnpm --filter @mhc/website build",
+    "build:quick": "pnpm --filter @mhc/website build:next",
+    "build:fast": "pnpm --filter @mhc/website build:fast",
     "deploy": "pnpm --filter @mhc/website run deploy",
     "build:dashboard": "pnpm --filter @mhc/dashboard build",
     "build:all": "pnpm --filter './apps/*' build",

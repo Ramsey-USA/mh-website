@@ -23,6 +23,8 @@ canonical UI component spec).
   patterns, and accessibility requirements.
 - **[Icon System Complete](./icon-system-complete.md)** — Icon library, sizing rules, and
   semantic usage.
+- **[MHC Enterprise Alignment Plan](./mhc-enterprise-alignment-plan.md)** — Phased implementation
+  roadmap for the enterprise documentation repair and expansion work referenced in the alignment report.
 
 ## Quick Links
 

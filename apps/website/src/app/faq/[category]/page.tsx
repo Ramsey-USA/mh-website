@@ -14,6 +14,7 @@ import {
 } from "@/lib/branding/page-names";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
@@ -228,18 +229,18 @@ export async function generateMetadata({
   const faqCategory = getFAQCategoryBySlug(category);
 
   if (!faqCategory) {
-    return {
+    return withGeoMetadata({
       title: `${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | MH Construction`,
       description:
         "Browse MH Construction frequently asked questions by topic to review process, service lines, safety, and partnership details.",
       robots: { index: false, follow: false },
-    };
+    });
   }
 
   const title = `${faqCategory.title} | ${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | MH Construction`;
   const description = faqCategory.metaDescription;
 
-  return {
+  return withGeoMetadata({
     title,
     description,
     alternates: {
@@ -258,7 +259,7 @@ export async function generateMetadata({
       ],
     },
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function FAQCategoryPage({

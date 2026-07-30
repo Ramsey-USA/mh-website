@@ -5,14 +5,29 @@ import {
   normalizeMhPhrasesInText,
 } from "@/lib/branding/page-names";
 
+const PRIMARY_SLOGAN_FALLBACK = "Built on Quality, Backed by Trust.";
+const SUPPORTING_SLOGAN_FALLBACK = "Standards high on every site, every day.";
+
+const primarySlogan = MH_SLOGANS?.primary ?? PRIMARY_SLOGAN_FALLBACK;
+const supportingSlogan =
+  MH_SLOGANS?.supporting?.[0] ?? SUPPORTING_SLOGAN_FALLBACK;
+
+function normalizePhrase(value: string): string {
+  if (typeof normalizeMhPhrasesInText === "function") {
+    return normalizeMhPhrasesInText(value);
+  }
+
+  return value;
+}
+
 const PAGEHUB_FOUNDATIONAL_KEYWORDS = [
   "general contractor Pasco, WA",
   "Pacific Northwest construction",
   "Tri-Cities contractor",
   "Washington Oregon Idaho contractor",
   "veteran-owned contractor Pacific Northwest",
-  MH_SLOGANS.primary,
-  MH_SLOGANS.supporting[0],
+  primarySlogan,
+  supportingSlogan,
   "construction delivery and stakeholder alignment",
   "client partner construction delivery",
 ];
@@ -63,6 +78,18 @@ const PAGEHUB_COMMERCIAL_KEYWORDS = [
   "Office Remodeling And Renovation",
   "Construction Management Solutions",
 ];
+
+const OPERATIONAL_STRATEGY_KEYWORDS = [
+  "construction operational strategy",
+  "operations manual construction",
+  "marketing strategy guide construction",
+  "sales and estimating guide construction",
+  "MISH Safety and Health Program",
+  "integrated operations marketing sales construction",
+];
+
+const OPERATIONAL_STRATEGY_LINE =
+  "Operational strategy aligned across the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.";
 
 const PAGEHUB_CANONICAL_PHRASES: Record<string, string> = {
   "general contractor pasco wa": "general contractor Pasco, WA",
@@ -119,16 +146,42 @@ export function withGeoMetadata(
     : COMPANY_INFO.address.stateCode;
 
   const existingOther = normalizeOther(metadata.other);
+  const routePath = getRoutePathFromMetadata(metadata);
   const mergedKeywords = mergeSitewideKeywords(metadata.keywords, metadata);
   const localizedAlternates = buildLocalizedAlternates(
     metadata.alternates,
     metadata.metadataBase,
   );
+  const enrichedDescription = appendOperationalStrategyLine(
+    metadata.description,
+    routePath,
+  );
+  const enrichedOpenGraphDescription = appendOperationalStrategyLine(
+    metadata.openGraph?.description,
+    routePath,
+  );
+  const enrichedTwitterDescription = appendOperationalStrategyLine(
+    metadata.twitter?.description,
+    routePath,
+  );
 
   return {
     ...metadata,
+    description: enrichedDescription,
     keywords: mergedKeywords,
     alternates: localizedAlternates,
+    openGraph: metadata.openGraph
+      ? {
+          ...metadata.openGraph,
+          description: enrichedOpenGraphDescription,
+        }
+      : metadata.openGraph,
+    twitter: metadata.twitter
+      ? {
+          ...metadata.twitter,
+          description: enrichedTwitterDescription,
+        }
+      : metadata.twitter,
     other: {
       ...existingOther,
       "geo.region": region,
@@ -305,10 +358,41 @@ function getKeywordStrategyByRoute(metadata: Metadata): string[] {
       (prefix) => routePath === prefix || routePath.startsWith(`${prefix}/`),
     )
   ) {
-    return PAGEHUB_FOUNDATIONAL_KEYWORDS;
+    return [...PAGEHUB_FOUNDATIONAL_KEYWORDS, ...OPERATIONAL_STRATEGY_KEYWORDS];
   }
 
-  return [...PAGEHUB_FOUNDATIONAL_KEYWORDS, ...PAGEHUB_COMMERCIAL_KEYWORDS];
+  return [
+    ...PAGEHUB_FOUNDATIONAL_KEYWORDS,
+    ...PAGEHUB_COMMERCIAL_KEYWORDS,
+    ...OPERATIONAL_STRATEGY_KEYWORDS,
+  ];
+}
+
+function appendOperationalStrategyLine(
+  value: string | null | undefined,
+  routePath: string | null,
+): string | undefined {
+  if (!value) {
+    return value ?? undefined;
+  }
+
+  const lowerValue = value.toLowerCase();
+  if (
+    lowerValue.includes("operations manual") &&
+    lowerValue.includes("marketing strategy guide") &&
+    lowerValue.includes("sales and estimating guide") &&
+    lowerValue.includes("mish")
+  ) {
+    return value;
+  }
+
+  const isRedirectRoute =
+    routePath?.includes("/print/") || routePath?.includes("/sitemap");
+  if (isRedirectRoute) {
+    return value;
+  }
+
+  return `${value} ${OPERATIONAL_STRATEGY_LINE}`;
 }
 
 function getRoutePathFromMetadata(metadata: Metadata): string | null {
@@ -349,7 +433,7 @@ function parseRoutePath(urlOrPath: string): string | null {
 function canonicalizePageHubPhrase(keyword: string): string {
   const normalizedKeyword = keyword.trim().replace(/\s+/g, " ");
   const canonical = PAGEHUB_CANONICAL_PHRASES[normalizedKeyword.toLowerCase()];
-  return normalizeMhPhrasesInText(canonical ?? normalizedKeyword);
+  return normalizePhrase(canonical ?? normalizedKeyword);
 }
 
 function normalizeKeywords(existingKeywords: Metadata["keywords"]): string[] {

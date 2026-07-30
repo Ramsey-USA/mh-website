@@ -45,22 +45,26 @@ Primary expansion source: `docs/branding/standards/mhc-terms.docx`
 
 Use these mappings in strategy and operational content where they improve clarity and consistency:
 
-| MHC Brand Term            | Standard Industry Term        | Typical Scope                    |
-| ------------------------- | ----------------------------- | -------------------------------- |
-| Command Doctrine          | Operations Hierarchy          | operations manual, leadership    |
-| Operational Theater       | Project Site / Jobsite        | handbook, marketing              |
-| Mission Parameters        | Project Scope                 | marketing, preconstruction       |
-| Force Multiplier          | Efficiency Gain               | marketing, website               |
-| Boots on the Ground       | Field Crew                    | marketing, recruitment           |
-| Rules of Engagement (ROE) | Project Contract              | marketing, handbook              |
-| Situation Report (SITREP) | Project Status Update         | marketing, client communications |
-| Ground Truth              | Verified Field Conditions     | marketing, preconstruction       |
-| Mission Accomplished      | Project Closeout              | marketing, case studies          |
-| Operational Tempo         | Project Schedule / Pace       | handbook, marketing              |
-| Standby to Standby        | On Call / Ready to Mobilize   | marketing, services              |
-| Hazard Recon              | Hazard Identification         | MISH public safety language      |
-| Protective Posture        | Personal Protective Equipment | public-facing safety language    |
-| Operational Pause         | Stop Work Authority           | public-facing safety language    |
+| MHC Brand Term            | Standard Industry Term                    | Typical Scope                                |
+| ------------------------- | ----------------------------------------- | -------------------------------------------- |
+| Command Doctrine          | Operations Hierarchy                      | operations manual, leadership                |
+| Operational Theater       | Project Site / Jobsite                    | handbook, marketing                          |
+| Mission Parameters        | Project Scope                             | marketing, preconstruction                   |
+| Force Multiplier          | Efficiency Gain                           | marketing, website                           |
+| Boots on the Ground       | Field Crew                                | marketing, recruitment                       |
+| Rules of Engagement (ROE) | Project Contract                          | marketing, handbook                          |
+| Situation Report (SITREP) | Project Status Update                     | marketing, client communications             |
+| Ground Truth              | Verified Field Conditions                 | marketing, preconstruction                   |
+| Zero-Gap Accountability   | Delivery Alignment / Scope Accountability | preconstruction, operations, handoffs        |
+| Handshake Pride           | Relationship Discipline                   | sales, marketing, stakeholder communications |
+| Verified Performance      | Evidence-Based Delivery                   | marketing, operations, reporting             |
+| Mission-Ready Handoff     | Transition Readiness / Handover           | sales, operations, closeout                  |
+| Mission Accomplished      | Project Closeout                          | marketing, case studies                      |
+| Operational Tempo         | Project Schedule / Pace                   | handbook, marketing                          |
+| Standby to Standby        | On Call / Ready to Mobilize               | marketing, services                          |
+| Hazard Recon              | Hazard Identification                     | MISH public safety language                  |
+| Protective Posture        | Personal Protective Equipment             | public-facing safety language                |
+| Operational Pause         | Stop Work Authority                       | public-facing safety language                |
 
 ## Regulatory-Protected Terms (No Substitution in Compliance Artifacts)
 

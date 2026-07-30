@@ -2,8 +2,9 @@ import { permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: buildDualSeoTitle(
     "publicSector",
     "Veteran-Led Public Sector Construction",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "https://www.mhc-gc.com/public-sector/veteran-led-construction",
   },
   robots: { index: false, follow: true },
-};
+});
 
 export default async function VeteranPublicSectorConstructionPage() {
   const locale = await getServerLocale();

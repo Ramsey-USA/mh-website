@@ -11,6 +11,7 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const VETERAN_LED_COMPLIANCE_HERO_SLOGAN = getHeroPageSlogan(
@@ -20,7 +21,7 @@ const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
 const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
 const veteranLedComplianceSeoTitle = `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: veteranLedComplianceSeoTitle,
   description:
     "Review MH Construction's veteran-led workflow for public-sector preconstruction planning, procurement readiness, and execution oversight.",
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/images/og/services/municipal-government.webp`],
   },
   robots: { index: true, follow: true },
-};
+});
 
 const workflow = [
   {

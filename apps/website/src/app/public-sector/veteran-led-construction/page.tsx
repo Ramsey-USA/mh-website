@@ -10,10 +10,11 @@ import {
 } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Public Sector Construction | MH Construction`,
   description:
     "Bridge veteran-focused values with public-sector project delivery. Learn how MH Construction aligns disciplined execution, transparency, and compliance for government work.",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/public-sector/veteran-led-construction`,
   },
   robots: { index: true, follow: true },
-};
+});
 
 export default async function VeteranLedConstructionPage() {
   const locale = await getServerLocale();

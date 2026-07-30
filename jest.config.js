@@ -119,8 +119,14 @@ const customJestConfig = {
   // Coverage report formats
   coverageReporters: ["text", "lcov", "html", "json"],
 
-  // Max workers for CI
-  maxWorkers: process.env.CI ? 2 : "50%",
+  // Worker parallelism. These suites are startup/IO-bound (jsdom + SWC transform
+  // per file). A percentage like "50%" rounds DOWN, so on a 2-core machine it
+  // becomes a single worker and the whole suite runs serially. Scale to the core
+  // count with a floor of 2 so parallelism is never lost, and allow an explicit
+  // override via JEST_WORKERS.
+  maxWorkers: process.env.JEST_WORKERS
+    ? Number(process.env.JEST_WORKERS)
+    : Math.max(2, require("node:os").cpus().length),
 };
 
 // Export Jest config

@@ -11,19 +11,19 @@ This chapter defines the official command model for MHC operations. It sets auth
 
 ## 2. Command Model (Navy Analog)
 
-- Commanding Officer (CO): CEO
-- Executive Officer (XO): COO
-- Master Chief: Chief Superintendent (Reagan)
-- CHENG: Safety Officer/CMO (hybrid technical and command bridge)
-- CPCO: Chief Preconstruction Officer (Estimator Officer; acting role currently Todd)
+- Commanding Officer (CO): President and CEO
+- Executive Officer (XO): Chief Operating Officer (COO)
+- Master Chief: Chief Superintendent
+- CHENG: Safety Officer & Chief Marketing Officer (hybrid technical and command bridge)
+- CHNAV: Preconstruction, estimating, sales, and Trade Partner engagement
 
 Command intent:
 
 - The CO sets strategic intent and final authority.
 - The XO executes company-wide operations and controls officer-level functions.
 - The Master Chief leads field execution standards and mission delivery discipline.
-- The CHENG coordinates safety, systems, and cross-functional controls and may escalate directly to CO when required.
-- The CPCO leads estimating command and preconstruction controls and may escalate directly to CO when required.
+- The CHENG coordinates safety, systems, cross-functional controls, and execution/post-project marketing oversight and may escalate directly to CO when required.
+- The CHNAV leads preconstruction, estimating, sales, and Trade Partner engagement and may escalate directly to CO when required.
 
 ## 3. Officer and Execution Bands
 
@@ -41,6 +41,12 @@ Execution band under Master Chief:
 - Foremen
 - Field crew
 - PMs and PEs directly support Master Chief execution objectives while retaining formal XO reporting.
+
+Project Management Wing Structure:
+
+- Each PM is designated a wing (for example, Alpha, Bravo, or Charlie).
+- Each PM manages multiple superintendents assigned to that wing.
+- Superintendents oversee foremen, and foremen oversee the field crew.
 
 ## 4. Formal Reporting vs Operational Support
 
@@ -97,3 +103,18 @@ Manual release sequence:
 - This manual is internal and operational.
 - Client-facing materials must not include internal approval thresholds unless explicitly authorized.
 - Command language in this chapter must remain synchronized with future org updates.
+- The operations manual is now treated as the v2 control baseline for command discipline, approval routing, and handoff governance.
+
+## 10. Branded Operating Language
+
+Use the following terms consistently in operations and project communications:
+
+- Client Partners: owners, developers, and municipalities we build for.
+- Trade Partners / Sub-Operators: specialized subcontractors who execute the work; "subcontractor" remains the legal and regulatory term where required.
+- Ground Truth: the actual, verified conditions of a site or project, free of assumptions.
+- Mission Parameters: the comprehensive scope of work.
+- Operational Theater: the active job site.
+- Task Operator: a field crew member.
+- Protective Posture: full compliance with PPE standards.
+- Zero-Gap Accountability: no task, safety check, or communication is left incomplete or assumed.
+- Handshake Pride: relationships are built on trust and verified performance, not just the lowest dollar.

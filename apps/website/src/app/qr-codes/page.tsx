@@ -19,6 +19,7 @@ import {
 } from "@/lib/branding/page-names";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 type QrCodeEntry = {
   name: string;
@@ -48,7 +49,7 @@ const FOLDER_LABELS: Record<string, string> = {
 
 const SITE_URL = "https://www.mhc-gc.com";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.qrCodes.seoName, PAGE_TERMINOLOGY.qrCodes.mhBrandName)} | MH Construction`,
   description:
     "Browse every MH Construction QR code, view each image at full size, and download the PNG files individually.",
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     description:
       "Access the full QR catalog and download exact PNG assets for field use.",
   },
-};
+});
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: SITE_URL },
@@ -160,7 +161,7 @@ export default async function QrCodesPage() {
                 size="sm"
                 className="text-brand-primary"
               />
-              <span className="font-subheading text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide font-heading uppercase">
+              <span className="font-subheading text-brand-primary dark:text-brand-secondary text-sm font-semibold tracking-wide uppercase">
                 QR Asset Library
               </span>
             </div>
@@ -298,7 +299,7 @@ export default async function QrCodesPage() {
                                   {entry.filename}
                                 </p>
                               </div>
-                              <span className="font-subheading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold font-heading uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
+                              <span className="font-subheading inline-flex items-center rounded-full border border-brand-primary/20 bg-brand-primary/10 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-brand-primary dark:border-brand-secondary/30 dark:bg-brand-secondary/10 dark:text-brand-secondary-light">
                                 {entry.variant}
                               </span>
                             </div>

@@ -6,11 +6,12 @@ import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: buildDualSeoTitle("home", "404 Page Not Found"),
   robots: { index: false, follow: false },
-};
+});
 
 export default async function NotFound() {
   const locale = await getServerLocale();

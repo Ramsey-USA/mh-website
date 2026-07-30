@@ -54,6 +54,8 @@ Release outputs:
 - PM opens closeout workstream and target release date.
 - PE issues closeout document request list to responsible contributors.
 - Master Chief validates field completion priorities that affect closeout.
+- Upon contract award, the Operations wing receives the Operations Brief from the Sales/CHNAV team, marking the transition from preconstruction to deployment.
+- PM/PE initiates Procore setup, the Master Chief assigns the superintendent, and CHENG initiates the Site Specific Safety Plan (SSSP).
 
 ### Step 2 - Package Assembly (PE)
 

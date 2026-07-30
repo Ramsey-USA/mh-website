@@ -261,7 +261,7 @@ async function main() {
       subtitle: "MH Construction Operations Policies and Procedures",
       revisionYear: 2026,
       revisionDate: "2026-07-29",
-      revisionVersion: "1.0",
+      revisionVersion: "2.0",
       company: "MH Construction, Inc.",
       address: "3111 N. Capitol Ave., Pasco, WA 99301",
       phone: "(509) 308-6489",

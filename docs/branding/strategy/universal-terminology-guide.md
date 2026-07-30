@@ -76,7 +76,7 @@ Adopt these families across new and revised content:
 - Quality/accountability: `Zero-Gap Accountability`, `Mission-Ready`, `Field-First`, `Audit-Ready Handoff`, `Proof of Delivery`, `Verified Performance`, `Operational Integrity`, `Accurate Firmness`
 - Safety/technical execution: `Safety Command Standards`, `Every Operator Goes Home Safe`, `Hazard Recon`, `Protective Posture`, `Spatial Capture`, `Digital Twin`, `Vertical Integration`
 - Leadership/culture: `Words from the General`, `Got Your Six`, `Service-Earned Discipline`, `Relationship-First`, `Built on Quality, Backed by Trust`, `Handshake Pride`, `The General`
-- Enterprise additions: `Operational Theater`, `Mission Parameters`, `Force Multiplier`, `Boots on the Ground`, `Rules of Engagement (ROE)`, `Situation Report (SITREP)`, `Ground Truth`, `Mission Accomplished`, `Operational Tempo`, `Standby to Standby`
+- Enterprise additions: `Operational Theater`, `Mission Parameters`, `Force Multiplier`, `Boots on the Ground`, `Rules of Engagement (ROE)`, `Situation Report (SITREP)`, `Ground Truth`, `Mission Accomplished`, `Operational Tempo`, `Standby to Standby`, `Mission-Ready Handoff`
 
 ### Regulatory Protection Rules (Do Not Replace)
 

@@ -23,6 +23,7 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
@@ -150,12 +151,12 @@ export async function generateMetadata({
     : undefined;
 
   if (!caseStudy) {
-    return {
+    return withGeoMetadata({
       title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | MH Construction`,
       description:
         "Review completed MH Construction projects and case studies across commercial, industrial, and public-sector work.",
       robots: { index: false, follow: false },
-    };
+    });
   }
 
   const canonicalSlug = caseStudy?.slug ?? project?.seoMetadata.slug ?? slug;
@@ -188,7 +189,7 @@ export async function generateMetadata({
     ? createProjectOgImageUrl(canonicalSlug, projectPhase)
     : `${SITE_URL}/images/og-default.jpg`;
 
-  return {
+  return withGeoMetadata({
     title,
     description,
     keywords: projectKeywords,
@@ -215,7 +216,7 @@ export async function generateMetadata({
       images: [ogImageUrl],
     },
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function ProjectCaseStudyPage({

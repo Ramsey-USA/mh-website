@@ -10,6 +10,8 @@ Final Approver: CEO (CO)
 
 Establish strict change-order and financial control discipline using single-change-order thresholds, SAGE100 synchronization, and clear authority routing.
 
+The same control thresholds apply to both initial proposals/estimates governed by the Sales Guide and post-contract change orders.
+
 ## 2. Command Ownership and Authority
 
 Approval authority by single change-order amount:

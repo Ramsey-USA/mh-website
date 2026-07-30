@@ -15,8 +15,9 @@ import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { getDocumentById, handbookForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.employeeHandbook.seoName, PAGE_TERMINOLOGY.employeeHandbook.mhBrandName)} | MH Construction`,
   description:
     "Public index of MH Construction's Employee Handbook sections and handbook-owned forms. Download the public table of contents PDF and review the current policy and acknowledgment inventory.",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.mhc-gc.com/employee-handbook",
   },
-};
+});
 
 const breadcrumbs = [
   { label: "Home", href: "/" },

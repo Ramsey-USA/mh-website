@@ -14,10 +14,11 @@ import { safetyForms } from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
   description:
     "Index of MH Construction's Safety Forms for the Safety Program (MISH Safety & Health Program / Safety Manual). Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     url: `${SITE_URL}/resources/safety-manual/forms`,
   },
-};
+});
 
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -80,7 +81,7 @@ export default async function SafetyManualFormsPage() {
           <div className="mb-5">
             <Breadcrumb items={breadcrumbs} />
           </div>
-          <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold font-heading uppercase tracking-wider text-brand-secondary">
+          <div className="font-subheading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
             <MaterialIcon
               icon={FORM_MANUAL_ICONS.formField}
               size="sm"
@@ -88,7 +89,7 @@ export default async function SafetyManualFormsPage() {
             />
             Safety Forms (MISH Safety &amp; Health Program)
           </div>
-          <p className="font-subheading mb-1 text-xs font-semibold font-heading uppercase tracking-wider text-brand-secondary/80">
+          <p className="font-subheading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
             Safety Manual <span aria-hidden>→</span> Safety Forms
           </p>
           <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
@@ -153,7 +154,7 @@ export default async function SafetyManualFormsPage() {
                 </div>
               </div>
               <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-brand-primary/10 pt-3">
-                <p className="font-subheading inline-flex items-center gap-1.5 text-[11px] font-semibold font-heading uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                <p className="font-subheading inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
                   <MaterialIcon icon="lock" size="sm" />
                   Blank template
                 </p>

@@ -3,8 +3,9 @@ import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.incidentReport.seoName, PAGE_TERMINOLOGY.incidentReport.mhBrandName)} | MH Construction`,
   description:
     "Authorized team incident report submission interface for MH Construction safety workflows.",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
-};
+});
 
 export default function SafetyIncidentReportLayout({
   children,

@@ -4,8 +4,9 @@ import { buildDualSeoTitle } from "@/lib/branding/page-names";
 
 import { getDocumentById } from "@/lib/data/documents";
 import { clusterForSection } from "@/lib/data/safety-manual-clusters";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: buildDualSeoTitle("safetyManual", "Section Redirect"),
   description:
     "Legacy safety manual section route that permanently redirects to the current indexed cluster page.",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     index: false,
     follow: true,
   },
-};
+});
 
 /**
  * Legacy section URL — `/resources/safety-manual/section/[slug]`

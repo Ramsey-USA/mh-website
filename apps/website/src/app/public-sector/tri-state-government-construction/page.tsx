@@ -11,6 +11,7 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const TRI_STATE_GOVERNMENT_HERO_SLOGAN = getHeroPageSlogan(
@@ -19,7 +20,7 @@ const TRI_STATE_GOVERNMENT_HERO_SLOGAN = getHeroPageSlogan(
 const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
 const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.triStateGovernmentConstruction.seoName, PAGE_TERMINOLOGY.triStateGovernmentConstruction.mhBrandName)} | MH Construction`,
   description:
     "Regional strategy for government construction across Washington, Oregon, and Idaho, aligned to location coverage and service pathways.",
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/images/og/services/municipal-government.webp`],
   },
   robots: { index: true, follow: true },
-};
+});
 
 const stateCoverage = [
   {

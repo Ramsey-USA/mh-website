@@ -22,11 +22,24 @@ import {
 import { DownloadGate } from "@/components/pwa";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
   description:
-    "Download MH Construction safety manuals, toolbox talk forms, JHA templates, and field documentation for crews, partners, and prequalification workflows.",
+    "Download MH Construction safety manuals, toolbox talk forms, JHA templates, and field documentation for crews, partners, and prequalification workflows, with public resources aligned to our operational strategy across the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.",
+  keywords: [
+    "construction resources",
+    "operations manual construction",
+    "marketing strategy guide construction",
+    "sales and estimating guide construction",
+    "MISH Safety and Health Program",
+    "safety manual forms",
+    "JHA templates",
+    "construction compliance documents",
+    "construction operational strategy",
+    "field documentation workflows",
+  ],
   alternates: {
     canonical: "https://www.mhc-gc.com/resources",
   },
@@ -37,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Safety manuals, toolbox talks, and field forms from MH Construction, organized for fast field use and agency review.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction, organized for fast field use and agency review, and aligned with our operational strategy across operations, marketing, sales/estimating, and MISH safety standards.",
     url: "https://www.mhc-gc.com/resources",
     type: "website",
   },
@@ -45,9 +58,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders, aligned with our operational strategy across operations, marketing, sales/estimating, and MISH safety standards.",
   },
-};
+});
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Home", url: "https://www.mhc-gc.com" },
@@ -416,8 +429,8 @@ export default async function ResourcesPage() {
                       </h3>
                       <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                         {isEs
-                          ? "Operations Manual, Marketing Strategy Guide y Sales and Estimating Guide se mantienen en el portal interno para equipos autenticados."
-                          : "The Operations Manual, Marketing Strategy Guide, and Sales and Estimating Guide are maintained in the internal staff portal for authenticated teams."}
+                          ? "El Operations Manual, la Marketing Strategy Guide y la Sales and Estimating Guide se mantienen en el portal interno para equipos autenticados y ahora reflejan el modelo operativo v2 de MH."
+                          : "The Operations Manual, Marketing Strategy Guide, and Sales and Estimating Guide are maintained in the internal staff portal for authenticated teams and now reflect MH's v2 operating model."}
                       </p>
                       <ul className="mt-3 flex flex-wrap gap-2 text-xs text-gray-700 dark:text-gray-300">
                         {internalManuals.map((doc) => (

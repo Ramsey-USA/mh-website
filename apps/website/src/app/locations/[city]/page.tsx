@@ -8,6 +8,7 @@ import {
 } from "@/lib/branding/page-names";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getLocationBySlug, getLocationSlugs } from "@/lib/data/locations";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { generateLocationMetadata } from "@/lib/seo/location-metadata";
 
 export const revalidate = 86400;
@@ -26,10 +27,10 @@ export async function generateMetadata({
   const location = getLocationBySlug(city);
 
   if (!location) {
-    return {
+    return withGeoMetadata({
       title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
       robots: { index: false, follow: false },
-    };
+    });
   }
 
   return generateLocationMetadata(location);

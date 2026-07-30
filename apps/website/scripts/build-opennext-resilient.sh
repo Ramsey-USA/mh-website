@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-max_attempts="${OPENNEXT_BUILD_MAX_ATTEMPTS:-3}"
+default_max_attempts=1
+if [[ "${CI:-false}" == "true" ]]; then
+  default_max_attempts=3
+fi
+
+max_attempts="${OPENNEXT_BUILD_MAX_ATTEMPTS:-${default_max_attempts}}"
 attempt=1
 use_low_memory_mode="${LOW_MEMORY_BUILD:-false}"
 use_standalone_prebuild_fallback="${OPENNEXT_BUILD_FORCE_STANDALONE_FALLBACK:-false}"
@@ -103,6 +108,11 @@ while [[ "$attempt" -le "$max_attempts" ]]; do
   if [[ "$exit_code" -eq 0 ]]; then
     echo "[build:opennext] Success on attempt ${attempt}."
     exit 0
+  fi
+
+  if [[ "$exit_code" -eq 130 ]]; then
+    echo "[build:opennext] Build interrupted (SIGINT). Exiting without retry."
+    exit "$exit_code"
   fi
 
   echo "[build:opennext] Attempt ${attempt} failed with exit code ${exit_code}."

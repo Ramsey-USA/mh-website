@@ -98,6 +98,12 @@ Every chapter must include the following blocks:
     - Version control and archive standards
     - Evidence retention and legal hold process
 
+## 4. V2 Implementation Notes
+
+- Treat the operations manual as the command-control baseline for the v2 operating model.
+- Preserve the same language family used in the sales and marketing v2 guides: Ground Truth, Zero-Gap Accountability, Handshake Pride, and Mission-Ready Handoff.
+- Keep the structure aligned with the approved chapter numbering and manual family conventions used in the generated PDF package.
+
 ## 4. Minimum Appendices
 
 - Appendix A: RACI matrix

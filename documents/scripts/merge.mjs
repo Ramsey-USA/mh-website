@@ -61,10 +61,10 @@ const isSalesEstimatingGuide =
 const isMarketingStrategyGuide =
   manualArg === "marketing" ||
   manualArg === "marketing-strategy-guide" ||
-  manualArg === "marketing-guide" ||
-  isSalesEstimatingGuide;
+  manualArg === "marketing-guide";
+const isGuideFamily = isMarketingStrategyGuide || isSalesEstimatingGuide;
 const isHandbookFamily = isEmployeeHandbook || isOperationsManual;
-const isManualFamily = isHandbookFamily || isMarketingStrategyGuide;
+const isManualFamily = isHandbookFamily || isGuideFamily;
 if (!isManualFamily && manualArg !== "safety") {
   console.error(
     `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide`,
@@ -86,9 +86,11 @@ const ACTIVE_MANIFEST_PATH = isEmployeeHandbook
   ? EMPLOYEE_HANDBOOK_MANIFEST_PATH
   : isOperationsManual
     ? OPERATIONS_MANUAL_MANIFEST_PATH
-    : isMarketingStrategyGuide
-      ? join(ROOT, "documents/content/marketing-strategy-guide.json")
-      : join(ROOT, "documents/content/safety-manual.json");
+    : isSalesEstimatingGuide
+      ? join(ROOT, "documents/content/sales-estimating-guide.json")
+      : isMarketingStrategyGuide
+        ? join(ROOT, "documents/content/marketing-strategy-guide.json")
+        : join(ROOT, "documents/content/safety-manual.json");
 
 const MANUAL_LABEL = isEmployeeHandbook
   ? "Employee Handbook"
@@ -569,7 +571,7 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 
   // ── Discover section PDFs in numeric order ──────────────────────────────
   let sectionFiles = [];
-  if (!isHandbookFamily) {
+  if (!isHandbookFamily && !isGuideFamily) {
     const files = await readdir(SECTIONS);
     sectionFiles = files
       .filter((f) => f.endsWith(".pdf"))
@@ -583,6 +585,47 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
       console.error(
         "❌  No section PDFs found in documents/generated-pdfs/sections/.",
       );
+      process.exit(1);
+    }
+  }
+
+  // ── Discover guide section PDFs in manifest order ───────────────────────
+  if (isGuideFamily) {
+    const manifest = JSON.parse(await readFile(ACTIVE_MANIFEST_PATH, "utf-8"));
+    const manifestSections = Array.isArray(manifest?.sections)
+      ? manifest.sections
+      : [];
+
+    const missing = [];
+    sectionFiles = [];
+
+    for (const section of manifestSections) {
+      const numeric = Number(section?.number);
+      const numberStr = String(Number.isFinite(numeric) ? numeric : 0).padStart(
+        2,
+        "0",
+      );
+      const slug =
+        normalizeSlug(section?.slug) ||
+        normalizeSlug(section?.title) ||
+        `section-${numberStr}`;
+      const fileName = `${numberStr}-${slug}.pdf`;
+      if (!existsSync(join(SECTIONS, fileName))) {
+        missing.push(fileName);
+        continue;
+      }
+      sectionFiles.push(fileName);
+    }
+
+    if (missing.length > 0) {
+      console.error(
+        `❌  Missing branded guide section PDF(s) in ${SECTIONS}:\n     ${missing.join("\n     ")}\n     Run \`npm run docs:generate:${isSalesEstimatingGuide ? "sales" : "marketing"}\` first.`,
+      );
+      process.exit(1);
+    }
+
+    if (sectionFiles.length === 0) {
+      console.error(`❌  No sections defined in ${ACTIVE_MANUAL}.json.`);
       process.exit(1);
     }
   }
@@ -798,16 +841,22 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
 }
 
 async function main() {
+  const includeFormsByDefault = !isGuideFamily;
+
   if (noTabs) {
     // Digital variant: cover + TOC + sections (+ forms unless --no-forms)
     const title = isEmployeeHandbook
       ? "MH Construction Employee Handbook — Digital"
       : isOperationsManual
         ? "MH Construction Operations Manual — Digital"
-        : "MH Construction Safety Manual — Digital";
+        : isSalesEstimatingGuide
+          ? "MH Construction Sales/Estimating Guide — Digital"
+          : isMarketingStrategyGuide
+            ? "MH Construction Marketing Strategy Guide — Digital"
+            : "MH Construction Safety Manual — Digital";
     await merge({
       includeTabs: false,
-      includeForms: !noForms,
+      includeForms: includeFormsByDefault && !noForms,
       outFile: OUT_FILE_DIGITAL,
       title,
     });
@@ -817,10 +866,14 @@ async function main() {
       ? "MH Construction Employee Handbook — Complete"
       : isOperationsManual
         ? "MH Construction Operations Manual — Complete"
-        : "MH Construction Safety Manual — Complete";
+        : isSalesEstimatingGuide
+          ? "MH Construction Sales/Estimating Guide — Complete"
+          : isMarketingStrategyGuide
+            ? "MH Construction Marketing Strategy Guide — Complete"
+            : "MH Construction Safety Manual — Complete";
     await merge({
       includeTabs: true,
-      includeForms: !noForms,
+      includeForms: includeFormsByDefault && !noForms,
       outFile: OUT_FILE,
       title,
     });

@@ -58,7 +58,7 @@ export const metadata: Metadata = withGeoMetadata({
   title: {
     absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
   },
-  description: `Construction partner for agricultural and winery communities, tenant improvements, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed project management. ${MH_SLOGANS.primary}`,
+  description: `Construction partner for agricultural and winery communities, tenant improvements, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed project management and one operational strategy connecting the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program. ${MH_SLOGANS.primary}`,
   keywords: [
     "general contractor Pasco, WA",
     "new construction services",
@@ -96,13 +96,19 @@ export const metadata: Metadata = withGeoMetadata({
     "veteran construction values",
     "WA OR ID licensed contractor",
     "Eastern Washington contractor",
+    "construction operational strategy",
+    "operations manual construction",
+    "marketing strategy guide construction",
+    "sales and estimating guide construction",
+    "MISH Safety and Health Program",
+    "integrated operations marketing sales construction",
   ],
   alternates: {
     canonical: SITE_URL,
   },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
-    description: `Construction services for agricultural and winery communities, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery. ${MH_SLOGANS.primary}`,
+    description: `Construction services for agricultural and winery communities, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery, aligned through one operational strategy across operations, marketing, sales and estimating, and MISH safety. ${MH_SLOGANS.primary}`,
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -121,7 +127,7 @@ export const metadata: Metadata = withGeoMetadata({
     site: "@mhc_gc",
     creator: "@mhc_gc",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
-    description: `Construction services with agricultural and winery expertise, occupied-space tenant improvement delivery, municipal execution, and light industrial project management. ${MH_SLOGANS.supporting[0]}`,
+    description: `Construction services with agricultural and winery expertise, occupied-space tenant improvement delivery, municipal execution, and light industrial project management, supported by one operational strategy spanning operations, marketing, sales/estimating, and MISH safety standards. ${MH_SLOGANS.supporting[0]}`,
     images: ["/images/og-default.jpg"],
   },
 });

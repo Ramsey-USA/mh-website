@@ -18,12 +18,13 @@ import {
 } from "@/lib/data/safety-manual-clusters";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 const safetyManual = manuals.find((m) => m.id === "safety-manual");
 const totalSections = safetyManual?.totalSections ?? 59;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyContents.seoName, PAGE_TERMINOLOGY.safetyContents.mhBrandName)} | MH Construction`,
   description: `Browse all ${totalSections} sections of MH Construction's Safety Program (MISH Safety & Health Program), delivered as the Safety Manual. Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Full manual access requires login.`,
   alternates: {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     url: `${siteUrl}/resources/safety-manual/contents`,
   },
-};
+});
 
 const breadcrumbs = [
   { label: "Home", href: "/" },

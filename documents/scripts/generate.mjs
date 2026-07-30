@@ -718,7 +718,7 @@ function normalizeQrSlugPart(value) {
     .replace(/^-|-$/g, "");
 }
 
-function buildSectionQrTargetUrl(sectionLike) {
+export function buildSectionQrTargetUrl(sectionLike) {
   const numeric = Number(
     typeof sectionLike === "object" ? sectionLike?.number : sectionLike,
   );
@@ -738,15 +738,15 @@ function buildSectionQrTargetUrl(sectionLike) {
     return `${ACTIVE_MANUAL_DIGITAL_URL}#section-${numberStr}`;
   }
 
+  if (isSalesEstimatingGuide) {
+    const chapterFile = `${numberStr}-${slug || `section-${numberStr}`}.pdf`;
+    return `${SITE_URL}/docs/sales/sections/${chapterFile}`;
+  }
+
   if (isOperationsManual || isMarketingStrategyGuide) {
     const chapterFile = `${numberStr}-${slug || `section-${numberStr}`}.pdf`;
     const manualPrefix = isOperationsManual ? "operations" : "marketing";
     return `${SITE_URL}/docs/${manualPrefix}/sections/${chapterFile}`;
-  }
-
-  if (isSalesEstimatingGuide) {
-    const chapterFile = `${numberStr}-${slug || `section-${numberStr}`}.pdf`;
-    return `${SITE_URL}/docs/sales/sections/${chapterFile}`;
   }
 
   return (
@@ -802,6 +802,153 @@ function adaptMarketingStrategyGuideTemplate(html) {
     .replaceAll("Employee Handbook Receipt", guideReceiptLabel)
     .replaceAll("Employee Handbook Receipt Sign-Off", guideAcknowledgmentLabel)
     .replaceAll("Employee Handbook", guideLabel);
+}
+
+function getGuideCoverCopy(manifestData = {}) {
+  const sectionCount = Array.isArray(manifestData?.sections)
+    ? manifestData.sections.length
+    : 0;
+  const safeSectionCount = sectionCount > 0 ? sectionCount : 4;
+
+  if (isSalesEstimatingGuide) {
+    return {
+      chipLabel: "Sales/Estimating Guide",
+      titleHtml: "Sales / Estimating<br />Guide",
+      subtitle:
+        "Preconstruction Qualification, Estimating Discipline, and Proposal Handoff",
+      snapshotHeading: "Guide Snapshot",
+      purpose:
+        "Preconstruction operating guide for disciplined qualification, estimating, and proposal execution",
+      audience:
+        "Sales leadership, estimators, preconstruction coordinators, and operations handoff stakeholders",
+      structure: `Table of contents plus ${safeSectionCount} sections, covering doctrine, approval controls, workflow, and trade-partner relations`,
+      coreTopics:
+        "Opportunity qualification, mission-parameter scope definition, estimate development standards, and coordinated handoff continuity",
+      useStandard:
+        "Daily reference for relationship-first, factual preconstruction delivery and contract-ready scope clarity",
+      qrHead: "Sales/Estimating Guide Online",
+      qrLabel: "Scan for latest sales/estimating guide",
+    };
+  }
+
+  return {
+    chipLabel: "Marketing Strategy Guide",
+    titleHtml: "Marketing Strategy<br />Guide",
+    subtitle:
+      "Post-Award Narrative Operations, Content Pillars, and Lifecycle Campaign",
+    snapshotHeading: "Guide Snapshot",
+    purpose:
+      "Post-award marketing operating guide for narrative control, proof capture, and relationship continuity",
+    audience:
+      "Marketing leadership, project teams, field contributors, and stakeholder communication owners",
+    structure: `Table of contents plus ${safeSectionCount} sections, covering doctrine, operations stack, content pillars, and lifecycle campaign execution`,
+    coreTopics:
+      "Channel governance, media standards, field-proof storytelling, and phased campaign cadence from deployment through legacy follow-up",
+    useStandard:
+      "Weekly reference for factual, relationship-first public communications tied to verified project progress",
+    qrHead: "Marketing Strategy Guide Online",
+    qrLabel: "Scan for latest marketing strategy guide",
+  };
+}
+
+function adaptGuideCoverContent(html, manifestData = {}) {
+  const copy = getGuideCoverCopy(manifestData);
+
+  return html
+    .replace(
+      /<div class="program-chip">[\s\S]*?<\/div>/,
+      `<div class="program-chip">${escapeHtml(copy.chipLabel)}</div>`,
+    )
+    .replace(
+      /<h1 class="title">[\s\S]*?<\/h1>/,
+      `<h1 class="title">${copy.titleHtml}</h1>`,
+    )
+    .replace(
+      /<p class="subtitle">[\s\S]*?<\/p>/,
+      `<p class="subtitle">${escapeHtml(copy.subtitle)}</p>`,
+    )
+    .replace(
+      /<div class="summary-head">[\s\S]*?<\/div>/,
+      `<div class="summary-head">${escapeHtml(copy.snapshotHeading)}</div>`,
+    )
+    .replace(
+      /(<strong>Purpose:<\/strong>)\s*([\s\S]*?)\./,
+      `$1 ${escapeHtml(copy.purpose)}.`,
+    )
+    .replace(
+      /(<strong>Audience:<\/strong>)\s*([\s\S]*?)\./,
+      `$1 ${escapeHtml(copy.audience)}.`,
+    )
+    .replace(
+      /(<strong>Structure:<\/strong>)\s*([\s\S]*?)\./,
+      `$1 ${escapeHtml(copy.structure)}.`,
+    )
+    .replace(
+      /(<strong>Core Topics:<\/strong>)\s*([\s\S]*?)\./,
+      `$1 ${escapeHtml(copy.coreTopics)}.`,
+    )
+    .replace(
+      /(<strong>Use Standard:<\/strong>)\s*([\s\S]*?)\./,
+      `$1 ${escapeHtml(copy.useStandard)}.`,
+    )
+    .replace(
+      /<p class="qr-head">[\s\S]*?<\/p>/,
+      `<p class="qr-head">${escapeHtml(copy.qrHead)}</p>`,
+    )
+    .replace(
+      /<div class="qr-label">[\s\S]*?<\/div>/,
+      `<div class="qr-label">${escapeHtml(copy.qrLabel)}</div>`,
+    );
+}
+
+function trimTabTemplateToSectionMax(html, maxSectionNumber) {
+  let nextHtml = html;
+  const safeMax = Number.isFinite(maxSectionNumber)
+    ? Math.max(0, Math.floor(maxSectionNumber))
+    : 0;
+
+  // Remove any static tab-page block beyond the manifest-driven range.
+  for (let n = safeMax + 1; n <= MISH_MAX_SECTION; n += 1) {
+    const nn = String(n).padStart(2, "0");
+    const blockPattern = new RegExp(
+      `\\n\\s*<!--\\s*Section\\s*${nn}(?:[^>]*)?-->[\\s\\S]*?(?=\\n\\s*<!--\\s*Section\\s*\\d{2}|\\n\\s*<script>|\\n\\s*</body>)`,
+      "i",
+    );
+    nextHtml = nextHtml.replace(blockPattern, "");
+  }
+
+  return nextHtml;
+}
+
+function resolveTabSecondarySigner() {
+  if (isSalesEstimatingGuide) {
+    return { name: "Todd", role: "CHNAV" };
+  }
+  if (isMarketingStrategyGuide || (!isManualFamily && manualArg === "safety")) {
+    return { name: "Matt Ramsey", role: "CHENG" };
+  }
+  if (isOperationsManual) {
+    return { name: "Kimberly Thamert", role: "COO" };
+  }
+  return null;
+}
+
+function applyTabSecondarySigner(html) {
+  const signer = resolveTabSecondarySigner();
+  if (!signer) return html;
+
+  let nextHtml = html;
+  const signerName = escapeHtml(signer.name);
+  const signerRole = escapeHtml(signer.role);
+
+  // Replace the second signer lane inside each tab signature row, regardless of legacy text.
+  nextHtml = nextHtml.replace(
+    /(<div class="tab-sig-row">[\s\S]*?<div class="tab-sig-cell">[\s\S]*?<\/div>\s*<div class="tab-sig-cell">[\s\S]*?<div class="tab-sig-name">)([\s\S]*?)(<\/div>[\s\S]*?<div class="tab-sig-role">)([\s\S]*?)(<\/div>)/gi,
+    (_, openName, _oldName, openRole, _oldRole, closeRole) =>
+      `${openName}${signerName}${openRole}${signerRole}${closeRole}`,
+  );
+
+  return nextHtml;
 }
 
 const WEBSITE_PAGE_INVENTORY = [
@@ -2534,12 +2681,14 @@ async function extractFieldRectsFromHtml(html, tmpName = "_tmp_measure.html") {
   await writeFile(tmpHtml, normalizedHtml, "utf-8");
   const browser = await getBrowser();
   const page = await browser.newPage();
+  page.setDefaultTimeout(600000);
+  page.setDefaultNavigationTimeout(600000);
   // Match Puppeteer Letter PDF default: 8.5×11in @ 96dpi = 816×1056 CSS px.
   await page.setViewport({ width: 816, height: 1056, deviceScaleFactor: 1 });
   try {
     await page.goto(pathToFileURL(tmpHtml).toString(), {
       waitUntil: "load",
-      timeout: 60000,
+      timeout: 600000,
     });
     const fields = await page.evaluate(() => {
       const PX_PER_IN = 96;
@@ -4988,6 +5137,18 @@ async function publishFormPackages() {
   await ensureDir(safetyPublicDir);
   await ensureDir(handbookPublicDir);
 
+  // Keep handbook-only letterhead out of the safety forms mirror.
+  const staleSafetyLetterheadPath = join(
+    safetyPublicDir,
+    HANDBOOK_LETTERHEAD_PACKAGE_FILE_NAME,
+  );
+  if (existsSync(staleSafetyLetterheadPath)) {
+    unlinkSync(staleSafetyLetterheadPath);
+    console.log(
+      `  ✓  Removed stale safety mirror file: ${staleSafetyLetterheadPath.replace(ROOT + "/", "")}`,
+    );
+  }
+
   const { readdir, copyFile } = await import("node:fs/promises");
   const files = (await readdir(packagesDir)).filter((f) => f.endsWith(".pdf"));
   if (files.length === 0) {
@@ -5028,7 +5189,7 @@ async function getBrowser() {
   if (!_browser) {
     _browser = await puppeteer.launch({
       headless: true,
-      timeout: 120000,
+      timeout: 600000,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
   }
@@ -5041,6 +5202,8 @@ async function getPdfRenderPage() {
     return _pdfRenderPage;
   }
   _pdfRenderPage = await browser.newPage();
+  _pdfRenderPage.setDefaultTimeout(600000);
+  _pdfRenderPage.setDefaultNavigationTimeout(600000);
   return _pdfRenderPage;
 }
 
@@ -5070,7 +5233,7 @@ async function renderPdf(htmlPath, pdfPath, pageOpts = {}) {
       // Load the HTML file via file:// protocol so relative CSS paths resolve
       await page.goto(pathToFileURL(htmlPath).toString(), {
         waitUntil: "load",
-        timeout: 60000,
+        timeout: 600000,
       });
 
       await page.pdf({ path: pdfPath, ...defaultOpts, ...pageOpts });
@@ -5132,7 +5295,9 @@ async function generateCover() {
   const qrDataUrl = await buildQrDataUrl(ACTIVE_MANUAL_DIGITAL_URL);
   let html = applyBrandTokens(raw).replace("{{QR_DIGITAL_MANUAL}}", qrDataUrl);
   if (isMarketingStrategyGuide) {
+    const manifestData = JSON.parse(await readFile(MANIFEST, "utf-8"));
     html = adaptMarketingStrategyGuideTemplate(html);
+    html = adaptGuideCoverContent(html, manifestData);
   }
   assertNoUnresolvedQrTemplateTokens(html, `${ACTIVE_MANUAL} cover`);
   const coverFileName = `${ACTIVE_MANUAL}-cover.pdf`;
@@ -8089,6 +8254,10 @@ async function generateTabs() {
     isHandbookFamily || isMarketingStrategyGuide
       ? manifestMaxSectionNumber
       : 59;
+  if (isHandbookFamily || isMarketingStrategyGuide) {
+    html = trimTabTemplateToSectionMax(html, expectedTabMax);
+  }
+  html = applyTabSecondarySigner(html);
   const missingTabTokens = [];
   for (let n = 0; n <= expectedTabMax; n++) {
     const token = `{{QR_TAB_${String(n).padStart(2, "0")}}}`;

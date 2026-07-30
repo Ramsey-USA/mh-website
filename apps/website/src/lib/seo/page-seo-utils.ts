@@ -140,7 +140,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     url: enhancedSEO.siteUrl,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | MH Construction`,
     description:
-      "Construction planning and delivery from MH Construction's Tri-Cities headquarters, serving Washington, Oregon, and Idaho with scope clarity and practical follow-through.",
+      "Construction planning and delivery from MH Construction's Tri-Cities headquarters, serving Washington, Oregon, and Idaho with scope clarity and practical follow-through, supported by one operational strategy across operations, marketing, sales and estimating, and MISH safety execution.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -165,7 +165,7 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | Construction Delivery Across WA, OR, and ID`,
     description:
-      "MH Construction delivers AG and winery facilities, tenant improvements, and municipal projects with clear planning, scope clarity, practical follow-through, and licensed coverage across WA, OR, and ID.",
+      "MH Construction delivers AG and winery facilities, tenant improvements, and municipal projects with clear planning, scope clarity, practical follow-through, and licensed coverage across WA, OR, and ID, backed by one operational strategy connecting the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.home, [
       "Jeremy Thamert leadership",
       "MH Construction home",
@@ -226,6 +226,12 @@ export function getHomepageSEO(): Metadata & { schemas: object[] } {
       "proven construction process",
       "construction testimonials Pacific Northwest",
       "veteran construction values",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
+      "integrated operations marketing sales construction",
     ]),
     canonicalUrl: enhancedSEO.siteUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
@@ -407,7 +413,7 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.about.seoName, PAGE_TERMINOLOGY.about.mhBrandName)} | Service-Earned Values, Honest Relationships`,
     description:
-      "Explore MH Construction's history, leadership, and trust foundations including BBB accreditation, regional chamber membership, and licensed operations across WA, OR, and ID.",
+      "Explore MH Construction's history, leadership, and trust foundations including BBB accreditation, regional chamber membership, and licensed operations across WA, OR, and ID, with one operational strategy connecting the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.about, [
       "veteran-owned construction company Tri-State WA OR ID",
       "MH Construction company history",
@@ -443,6 +449,11 @@ export function getAboutSEO(): Metadata & { schemas: object[] } {
       "Pendleton OR general contractor",
       "Eastern Washington construction history",
       "Pacific Northwest general contractor about",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
     ]),
     canonicalUrl: aboutUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
@@ -506,7 +517,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     url: servicesUrl,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | MH Construction`,
     description:
-      "Construction services for owners, facilities teams, and public-sector partners including agricultural and winery projects, tenant improvements, municipal work, and light industrial delivery across WA, OR, and ID with scope clarity and practical follow-through.",
+      "Construction services for owners, facilities teams, and public-sector partners including agricultural and winery projects, tenant improvements, municipal work, and light industrial delivery across WA, OR, and ID with scope clarity and practical follow-through, aligned through one operational strategy connecting operations, marketing, sales and estimating, and MISH safety standards.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${servicesUrl}#breadcrumb` },
@@ -526,7 +537,7 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.services.seoName, PAGE_TERMINOLOGY.services.mhBrandName)} | New Construction & Major Renovations, Preconstruction Planning & Feasibility, Tenant Improvements & Interior Buildouts, Light Industrial Construction, Government & Public Sector Construction, and Project Management & Coordination`,
     description:
-      "Explore MH Construction services for agricultural and winery facilities, tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, with construction-first planning, scope clarity, and practical follow-through.",
+      "Explore MH Construction services for agricultural and winery facilities, tenant improvements, municipal work, and light industrial scopes across WA, OR, and ID, with construction-first planning, scope clarity, practical follow-through, and one operational strategy connecting operations, marketing, sales and estimating, and MISH safety execution.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.services, [
       "Jeremy Thamert leadership",
       "new construction Tri-State WA OR ID",
@@ -565,6 +576,12 @@ export function getServicesSEO(): Metadata & { schemas: object[] } {
       "winery construction Pacific Northwest",
       "religious facility construction",
       "grant-funded construction projects",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
+      "integrated operations marketing sales construction",
     ]),
     canonicalUrl: servicesUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og/services/commercial-construction.webp`,
@@ -684,7 +701,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     url: teamUrl,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.team.seoName, PAGE_TERMINOLOGY.team.mhBrandName)} | MH Construction`,
     description:
-      "Meet MH Construction's leadership and field management team serving Washington, Oregon, and Idaho with accountable planning, scope clarity, and practical follow-through.",
+      "Meet MH Construction's leadership and field management team serving Washington, Oregon, and Idaho with accountable planning, scope clarity, practical follow-through, and one operational strategy connecting operations, marketing, sales and estimating, and MISH safety standards.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${teamUrl}#breadcrumb` },
@@ -696,7 +713,7 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.team.seoName, PAGE_TERMINOLOGY.team.mhBrandName)} | Leadership and Field Management`,
     description:
-      "Meet MH Construction's leadership team, including Jeremy Thamert and Arnold Garcia, guiding construction planning and field delivery for commercial, industrial, and public-sector work across WA, OR, and ID.",
+      "Meet MH Construction's leadership team, including Jeremy Thamert and Arnold Garcia, guiding construction planning and field delivery for commercial, industrial, and public-sector work across WA, OR, and ID under one operational strategy that aligns operations, marketing, sales and estimating, and MISH safety execution.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.team, [
       "MH Construction team leadership",
       "construction leadership team Tri-State WA OR ID",
@@ -714,6 +731,11 @@ export function getTeamSEO(): Metadata & { schemas: object[] } {
       "Pacific Northwest construction team",
       "Eastern Washington construction professionals",
       "veteran hiring construction company",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
     ]),
     canonicalUrl: teamUrl,
     schemas: withJeremyQuoteSchema(JEREMY_SEO_ROUTE_KEYS.team, teamUrl, [
@@ -733,7 +755,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/public-sector`,
     name: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | MH Construction`,
     description:
-      "Veteran-owned Tri-State contractor supporting public agencies with procurement-ready planning, BABAA-aligned delivery support, scope clarity, and accountable execution from Pasco, WA.",
+      "Veteran-owned Tri-State contractor supporting public agencies with procurement-ready planning, BABAA-aligned delivery support, scope clarity, and accountable execution from Pasco, WA, aligned to one operational strategy spanning operations, marketing, sales and estimating, and MISH safety.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -750,7 +772,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
     description:
-      "MH Construction supports public-sector project stakeholders with veteran-owned leadership, procurement-ready planning, BABAA-informed execution pathways, and transparent delivery reporting across WA, OR, and ID.",
+      "MH Construction supports public-sector project stakeholders with veteran-owned leadership, procurement-ready planning, BABAA-informed execution pathways, transparent delivery reporting across WA, OR, and ID, and one operational strategy connecting operations, marketing, sales and estimating, and MISH safety execution.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.publicSector, [
       "Jeremy Thamert leadership",
       "public-sector construction planning",
@@ -777,6 +799,11 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
       "Benton County construction",
       "Franklin County contractor",
       "Pacific Northwest public sector",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/public-sector`,
     schemas: withJeremyQuoteSchema(
@@ -1421,7 +1448,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     url: projectsUrl,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | MH Construction Portfolio`,
     description:
-      "Browse MH Construction's commercial, industrial, light industrial, and government project portfolio across Washington, Oregon, and Idaho with scope clarity, practical follow-through, and accountable delivery.",
+      "Browse MH Construction's commercial, industrial, light industrial, and government project portfolio across Washington, Oregon, and Idaho with scope clarity, practical follow-through, accountable delivery, and one operational strategy connecting operations, marketing, sales and estimating, and MISH safety execution.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     breadcrumb: { "@id": `${projectsUrl}#breadcrumb` },
@@ -1438,7 +1465,7 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.projects.seoName, PAGE_TERMINOLOGY.projects.mhBrandName)} | Completed Commercial and Industrial Construction Projects`,
     description:
-      "Explore MH Construction case studies for commercial, tenant improvement, municipal, agricultural and winery, and light industrial delivery across WA, OR, and ID.",
+      "Explore MH Construction case studies for commercial, tenant improvement, municipal, agricultural and winery, and light industrial delivery across WA, OR, and ID, aligned through one operational strategy spanning operations, marketing, sales and estimating, and MISH safety standards.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.projects, [
       "Jeremy Thamert leadership",
       "construction portfolio Tri-State WA OR ID",
@@ -1465,6 +1492,11 @@ export function getProjectsSEO(): Metadata & { schemas: object[] } {
       "70 percent referral rate contractor",
       "AGC Washington EMR Award projects",
       "WA OR ID construction portfolio",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
     ]),
     canonicalUrl: projectsUrl,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
@@ -1491,7 +1523,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/contact`,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | MH Construction`,
     description:
-      "Contact MH Construction for a consultation on commercial, industrial, or public-sector projects across WA, OR, and ID with scope clarity and practical follow-through. Headquarters: Pasco, WA. Call (509) 308-6489.",
+      "Contact MH Construction for a consultation on commercial, industrial, or public-sector projects across WA, OR, and ID with scope clarity, practical follow-through, and one operational strategy spanning operations, marketing, sales and estimating, and MISH safety execution. Headquarters: Pasco, WA. Call (509) 308-6489.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1508,7 +1540,7 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.contact.seoName, PAGE_TERMINOLOGY.contact.mhBrandName)} | Your Project. Honest Guidance. Let's Connect.`,
     description:
-      "Discuss your project with MH Construction for commercial, industrial, or public-sector work, or schedule a capability review from our Pasco, WA headquarters serving WA, OR, and ID. Call (509) 308-6489.",
+      "Discuss your project with MH Construction for commercial, industrial, or public-sector work, or schedule a capability review from our Pasco, WA headquarters serving WA, OR, and ID, under one operational strategy connecting operations, marketing, sales and estimating, and MISH safety standards. Call (509) 308-6489.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.contact, [
       "Jeremy Thamert leadership",
       "contact construction consultation",
@@ -1524,6 +1556,11 @@ export function getContactSEO(): Metadata & { schemas: object[] } {
       "Benton County construction contact",
       "Franklin County general contractor",
       "Tri-State general contractor contact",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/contact`,
     ogImage: `${enhancedSEO.siteUrl}/images/og-default.webp`,
@@ -1545,7 +1582,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/faq`,
     name: `${formatDualPageName("FAQ", PAGE_TERMINOLOGY.faq.mhBrandName)} | MH Construction`,
     description:
-      "Construction FAQ from MH Construction covering planning, delivery methods, safety practices, project controls, and consultations across WA, OR, and ID service areas with scope clarity and practical follow-through.",
+      "Construction FAQ from MH Construction covering planning, delivery methods, safety practices, project controls, and consultations across WA, OR, and ID service areas with scope clarity, practical follow-through, and one operational strategy connecting operations, marketing, sales and estimating, and MISH safety standards.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -1562,7 +1599,7 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
     title: `${formatDualPageName(PAGE_TERMINOLOGY.faq.seoName, PAGE_TERMINOLOGY.faq.mhBrandName)} | Direct Answers. Clear Guidance.`,
     description:
-      "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID.",
+      "Get direct answers on project planning, delivery methods, pricing visibility, safety expectations, and consultation workflow for MH Construction projects across WA, OR, and ID, including how our operational strategy aligns operations, marketing, sales and estimating, and MISH safety execution.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.faq, [
       "Jeremy Thamert leadership",
       "MH Construction FAQ",
@@ -1593,6 +1630,11 @@ export function getFAQSEO(): Metadata & { schemas: object[] } {
       "change orders construction",
       "site feasibility studies",
       "government construction projects",
+      "construction operational strategy",
+      "operations manual construction",
+      "marketing strategy guide construction",
+      "sales and estimating guide construction",
+      "MISH Safety and Health Program",
     ]),
     canonicalUrl: `${enhancedSEO.siteUrl}/faq`,
     ogImage: `${enhancedSEO.siteUrl}/images/og/faq/general-information.webp`,

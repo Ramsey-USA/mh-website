@@ -15,6 +15,9 @@ Any visual treatments used with messaging, such as headers, cards, or CTA blocks
 - **Veteran Values:** Military discipline, proven methods, traditional excellence
 - **Honest Relationships:** Face-to-face meetings, transparent pricing, direct communication
 - **Traditional Business:** Handshakes matter, promises kept, relationships last
+- **Ground Truth:** Planning and promises are rooted in evidence, verified conditions, and clear facts
+- **Zero-Gap Accountability:** Ownership stays visible from preconstruction through handoff and delivery
+- **Handshake Pride:** Relationships are built on respect, follow-through, and trusted execution
 - **Personal Consultation:** All CTAs direct to `/contact` for human interaction
 
 > **Note:** Booking, automated estimate, and 3D Explorer pages have been removed. All CTAs now
@@ -63,6 +66,17 @@ these core values in hierarchical order:
 - **Together** → **Trust** → Partnership relationships that last
 
 ---
+
+### V2 Operating-Model Pillars
+
+Our brand voice now reflects a more explicit operating model that extends from pursuit into delivery:
+
+- **Ground Truth** — communications and planning stay evidence-backed and specific.
+- **Zero-Gap Accountability** — responsibilities, assumptions, and handoffs remain clear at every stage.
+- **Handshake Pride** — relationships are treated as a long-term asset built on respect and follow-through.
+- **Mission-Ready Handoff** — each project transitions cleanly from preconstruction into execution and closeout without loss of continuity.
+
+Use these pillars to shape public-facing messaging, proposal language, stakeholder communications, and project narratives without turning the voice into hype or theater.
 
 ## Brand Voice & Tone Framework
 

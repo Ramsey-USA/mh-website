@@ -92,7 +92,7 @@ export const metadata: Metadata = withGeoMetadata({
     template: "%s",
   },
   description:
-    "MH Construction partners with owners, facilities teams, and public agencies to plan and deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho with scope clarity, practical follow-through, and accountable delivery.",
+    "MH Construction partners with owners, facilities teams, and public agencies to plan and deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho with scope clarity, practical follow-through, and accountable delivery, supported by one operational strategy connecting the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.",
   keywords: [
     "Jeremy Gale Thamert",
     "Jeremy G. Thamert",
@@ -148,6 +148,12 @@ export const metadata: Metadata = withGeoMetadata({
     "Eastern Washington contractor",
     "clear construction communication",
     "accountable construction delivery",
+    "construction operational strategy",
+    "operations manual construction",
+    "marketing strategy guide construction",
+    "sales and estimating guide construction",
+    "MISH Safety and Health Program",
+    "integrated operations marketing sales construction",
   ],
   authors: [
     {
@@ -172,7 +178,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "Stakeholder-focused planning and delivery for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho with scope clarity and practical follow-through.",
+      "Stakeholder-focused planning and delivery for commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across Washington, Oregon, and Idaho with scope clarity and practical follow-through, aligned to one operational strategy across operations, marketing, sales and estimating, and MISH safety execution.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -191,7 +197,7 @@ export const metadata: Metadata = withGeoMetadata({
       "Construction Planning and Delivery in WA, OR, and ID",
     ),
     description:
-      "MH Construction partners with owners, facilities teams, and public agencies to deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across WA, OR, and ID with scope clarity and practical follow-through.",
+      "MH Construction partners with owners, facilities teams, and public agencies to deliver commercial, tenant improvement, municipal, agricultural and winery, and light industrial projects across WA, OR, and ID with scope clarity and practical follow-through, guided by one operational strategy across operations, marketing, sales/estimating, and MISH safety.",
     images: ["/images/og-default.jpg"],
   },
   robots: {

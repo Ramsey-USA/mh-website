@@ -2,7 +2,7 @@
 
 **Category:** Marketing - Strategy
 **Last Updated:** July 30, 2026
-**Version:** 1.0.0
+**Version:** 2.0.0
 **Status:** ✅ Active
 
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for canonical brand values.
@@ -13,152 +13,130 @@
 
 ## Overview
 
-This guide turns the 36-week marketing strategy into a working playbook. It mirrors the same direct, sectioned style used across MH manual and handbook references so the plan reads like an operating guide instead of a loose campaign note.
+This guide reflects the v2 marketing operating model for MH Construction. It treats marketing as a disciplined operations system rather than a loose set of campaign notes.
 
-The strategy itself lives in the website service catalog and supporting marketing baseline docs:
+The operating model is built around five principles:
 
-- [Project Marketing and Social Media Strategy](../../apps/website/src/lib/data/service-routes.ts)
-- [Social Media Branding Parameters (Project Baseline)](./parameters/social-media-branding-parameters.md)
-- [Media Strategy & Photo/Video Roadmap](../media/media-strategy.md)
-- [Website Layout Enhancement Plan](../../documents/input/marketing%20strategy/MH_Construction_Website_Page_Layout_Enhancement_Plan.docx)
+- **Verified Performance**: public updates are grounded in actual progress, approved milestones, and evidence-backed facts.
+- **Professional Narrative Control**: marketing owns the public narrative once a project is active, while sales and operations maintain continuity in stakeholder communications.
+- **Channel Discipline**: content is planned, published, and repurposed through a defined stack rather than ad hoc posting.
+- **Three Content Pillars**: service-earned discipline, force multiplier, and handshake pride.
+- **Project Lifecycle Continuity**: content runs from deployment through closeout and follow-up so the relationship remains active after the ribbon cutting.
 
-Use this guide when planning a project marketing runway, assigning weekly content, or reviewing whether public updates still match the approved MH brand voice.
+Use this guide when planning a project marketing runway, assigning weekly content, reviewing proof standards, or aligning public-facing language with the approved MH brand voice.
 
 ## Table of Contents (Chapters and Sections)
 
-Chapter-divider standard for this guide:
-
-- Each chapter starts with a chapter tab/divider page.
-- Each chapter tab/divider page doubles as a dual-signature page with one signature by the owner and one by the designated officer.
-
-1. [Chapter 1: Canonical Strategy Sources (Associated forms: N/A - forms policy none)](#chapter-1-canonical-strategy-sources)
-2. [Chapter 2: Strategy Spine (Associated forms: N/A - forms policy none)](#chapter-2-strategy-spine)
-3. [Chapter 3: 36-Week Roadmap (Associated forms: N/A - forms policy none)](#chapter-3-36-week-roadmap)
-4. [Chapter 4: Content Standards (Associated forms: N/A - forms policy none)](#chapter-4-content-standards)
-5. [Section 4.1: Channel Baseline](#section-41-channel-baseline)
-6. [Section 4.2: Cadence Baseline](#section-42-cadence-baseline)
-7. [Section 4.3: Copy Baseline](#section-43-copy-baseline)
-8. [Section 4.4: Proof Baseline](#section-44-proof-baseline)
-9. [Chapter 5: Weekly Operating Rhythm (Associated forms: N/A - forms policy none)](#chapter-5-weekly-operating-rhythm)
-10. [Section 5.1: Planning](#section-51-planning)
-11. [Section 5.2: Publishing](#section-52-publishing)
-12. [Section 5.3: Closeout](#section-53-closeout)
-13. [Chapter 6: Capture and Repurpose Workflow (Associated forms: N/A - forms policy none)](#chapter-6-capture-and-repurpose-workflow)
-14. [Section 6.1: Capture Inputs](#section-61-capture-inputs)
-15. [Section 6.2: Repurpose Outputs](#section-62-repurpose-outputs)
-16. [Section 6.3: Asset Rules](#section-63-asset-rules)
-17. [Chapter 7: Guardrails (Associated forms: N/A - forms policy none)](#chapter-7-guardrails)
-18. [Chapter 8: Success Measures (Associated forms: N/A - forms policy none)](#chapter-8-success-measures)
-19. [Chapter 9: Deployment and Review (Associated forms: N/A - forms policy none)](#chapter-9-deployment-and-review)
+1. [Chapter 1: Canonical Strategy Sources](#chapter-1-canonical-strategy-sources)
+2. [Chapter 2: Core Doctrine and Operating Model](#chapter-2-core-doctrine-and-operating-model)
+3. [Chapter 3: The Marketing Operations Stack](#chapter-3-the-marketing-operations-stack)
+4. [Chapter 4: Three Content Pillars](#chapter-4-three-content-pillars)
+5. [Chapter 5: The Four-Phase Project Lifecycle Campaign](#chapter-5-the-four-phase-project-lifecycle-campaign)
+6. [Chapter 6: Content Standards and Proof Rules](#chapter-6-content-standards-and-proof-rules)
+7. [Section 6.1: Channel Baseline](#section-61-channel-baseline)
+8. [Section 6.2: Cadence Baseline](#section-62-cadence-baseline)
+9. [Section 6.3: Copy Baseline](#section-63-copy-baseline)
+10. [Section 6.4: Proof Baseline](#section-64-proof-baseline)
+11. [Chapter 7: Guardrails](#chapter-7-guardrails)
+12. [Chapter 8: Success Measures](#chapter-8-success-measures)
+13. [Chapter 9: Deployment and Review](#chapter-9-deployment-and-review)
 
 ## Chapter 1: Canonical Strategy Sources
 
-| Source                                                                                         | What It Controls                                                 | Use It For                                                     |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------- |
-| `apps/website/src/lib/data/service-routes.ts`                                                  | Canonical project marketing service summary                      | Public service copy and route-level strategy framing           |
-| `docs/marketing/parameters/social-media-branding-parameters.md`                                | Brand baseline, cadence, proof rules, and security-tier language | Approved tone, cadence, and content-length decisions           |
-| `docs/media/media-strategy.md`                                                                 | Photo/video roadmap and repurposing structure                    | Asset planning, capture lists, and visual proof workflow       |
-| `documents/input/marketing strategy/MH_Construction_Website_Page_Layout_Enhancement_Plan.docx` | Original strategy planning source                                | Historical intent, layout assumptions, and narrative direction |
+| Source                                                                                                                                  | What It Controls                                                 | Use It For                                                     |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| [Service Routes](../../apps/website/src/lib/data/service-routes.ts)                                                                     | Canonical project marketing service summary                      | Public service copy and route-level strategy framing           |
+| [Social Media Branding Parameters](./parameters/social-media-branding-parameters.md)                                                    | Brand baseline, cadence, proof rules, and security-tier language | Approved tone, cadence, and content-length decisions           |
+| [Media Strategy & Photo/Video Roadmap](../media/media-strategy.md)                                                                      | Photo/video roadmap and repurposing structure                    | Asset planning, capture lists, and visual proof workflow       |
+| [Website Layout Enhancement Plan](../../documents/input/marketing%20strategy/MH_Construction_Website_Page_Layout_Enhancement_Plan.docx) | Original strategy planning source                                | Historical intent, layout assumptions, and narrative direction |
 
-## Chapter 2: Strategy Spine
+## Chapter 2: Core Doctrine and Operating Model
 
-The 36-week strategy follows four project phases:
+Marketing at MH Construction is not simply posting photos. It is a marketing operations system designed to generate leads, build relationships, and support the broader project delivery story.
 
-1. **Preconstruction** - establish the story, capture plan, and stakeholder expectations before field production accelerates.
-2. **Active delivery** - keep a steady cadence of evidence-backed updates tied to real progress.
-3. **Closing** - convert punch, turnover, and QA/QC milestones into proof-rich trust content.
-4. **Post-launch** - turn the finished project into a case study, referral asset, and authority piece.
+The operating model is grounded in the following values:
 
-The strategy uses a **36-week, five-angle content rotation** covering:
+- **Integrity**: show the Ground Truth.
+- **Honesty**: do not manipulate project outcomes or overstate completion.
+- **Professionalism**: elevate the perception of the project team and the work.
+- **Thoroughness**: capture the full project story from deployment to mission accomplished.
 
-1. Macro progress
-2. Technical execution
-3. Logistics and coordination
-4. Safety and team discipline
-5. Spec-vs-reality proof
+Brand language should remain consistent with the approved MH primary slogan: “Built on Quality, Backed by Trust.” Visual standards should stay conservative, with strong contrast and a clear, professional layout.
 
-The rotation is not a rigid script. It is a coverage model that keeps weekly content balanced, factual, and tied to real field evidence.
+## Chapter 3: The Marketing Operations Stack
 
-## Chapter 3: 36-Week Roadmap
+MHC uses a multi-channel media distribution stack to ensure broad visibility and disciplined lead capture.
 
-| Weeks | Phase              | Primary Goal                                         | Angle Emphasis                | Required Proof                                                      |
-| ----- | ------------------ | ---------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------- |
-| 1-6   | Preconstruction    | Establish the project narrative and capture baseline | Macro + logistics             | Site context, mobilization plan, approved scope facts               |
-| 7-12  | Active delivery I  | Build trust through visible progress                 | Technical + logistics         | Progress photos, coordination notes, milestone confirmations        |
-| 13-18 | Active delivery II | Reinforce team discipline and quality control        | Safety/team + spec-vs-reality | Safety controls, quality checkpoints, before/after comparisons      |
-| 19-24 | Closing I          | Show closeout readiness and accountability           | Spec-vs-reality + technical   | Punch-list progress, QA/QC evidence, turnover prep                  |
-| 25-30 | Closing II         | Convert completion into durable trust content        | Macro + proof                 | Owner-approved completion notes, final-condition imagery            |
-| 31-36 | Post-launch        | Turn delivery into case-study and referral assets    | Recap + authority             | Case study summary, testimonial, podcast post-interview with Jeremy |
+The core stack includes:
 
-## Chapter 4: Content Standards
+- **Radio Ads and Commercials** for high-level awareness and lead capture.
+- **YouTube** for long-form video content, including walkthroughs and recap assets.
+- **Website** as the central hub for digital assets, project storytelling, and SEO visibility.
+- **LinkedIn** for B2B authority and stakeholder-facing updates.
+- **Facebook** for community, culture, and Trade Partner recognition.
+- **Instagram and X** for visual proof and rapid updates.
+- **Email Blasts** for direct communication with stakeholders and referral networks.
 
-### Section 4.1: Channel Baseline
+## Chapter 4: Three Content Pillars
+
+Every piece of marketing collateral should align with one of three pillars.
+
+### Pillar 1: Service-Earned Discipline
+
+Focus on the people, field standards, and the disciplined delivery culture that supports the work. Use service-earned language that elevates the team without sounding promotional.
+
+### Pillar 2: Force Multiplier
+
+Show the technology, integration, and operational efficiency behind the work. This includes spatial capture, digital twins, site documentation, and the tools that help the team coordinate and communicate clearly.
+
+### Pillar 3: Handshake Pride
+
+Highlight the stakeholder network and relationship quality behind the build. This includes Client Partners, architects, city officials, Trade Partners, veterans, and other community stakeholders who help define the project story.
+
+## Chapter 5: The Four-Phase Project Lifecycle Campaign
+
+### Phase I: Deployment and Execution
+
+Focus on schedule visibility and early project presence. Post at a measured cadence and keep the content grounded in real progress rather than optimism.
+
+### Phase II: Active Project and Increased Tempo
+
+Increase the cadence during peak construction activity. Use mid-project updates, Trade Partner spotlights, and milestone-based proof.
+
+### Phase III: Closing and Handoff
+
+Use closing content to support handover, customer confidence, and long-term relationship continuity. Include walkthroughs, final documentation, and proof-backed closeout content where approved.
+
+### Phase IV: Follow-Up and Legacy
+
+Transition into post-project follow-up, case studies, testimonials, and long-term lead generation. Keep the cadence steady and the content useful for future referral and reputation work.
+
+## Chapter 6: Content Standards and Proof Rules
+
+### Section 6.1: Channel Baseline
 
 - Primary channels: LinkedIn and Facebook.
-- Secondary repurposing channels: X, YouTube, Instagram, reviews, newsletters, and website case-study surfaces when approved.
-- Keep visual identity, naming, and trust framing consistent across every channel.
+- Secondary channels: YouTube, Instagram, X, reviews, newsletters, and website case-study surfaces when approved.
+- Keep visual identity, naming, and trust framing consistent across channels.
 
-### Section 4.2: Cadence Baseline
+### Section 6.2: Cadence Baseline
 
-- Default pace: 1-2 posts per week.
-- Prefer one proof-driven update, one supporting technical or trust post, and one repurposed asset when the project has enough approved material.
+- Default pace: one to two posts per week.
+- Prefer one proof-driven update and one supporting technical or trust post when the project has enough approved material.
 - Reduce cadence when approvals, privacy, or project sensitivity require a slower release rhythm.
 
-### Section 4.3: Copy Baseline
+### Section 6.3: Copy Baseline
 
 - Lead with construction delivery language first.
 - Keep veteran field standards as credibility support, not as hype.
 - Use plain-language, evidence-backed statements.
-- Avoid speculative completion claims, internal assumptions, or unverified performance language.
+- Avoid speculative completion claims, internal assumptions, and unverified performance language.
 
-### Section 4.4: Proof Baseline
+### Section 6.4: Proof Baseline
 
-- Only publish evidence-gated updates tied to actual milestones.
+- Only publish updates tied to actual milestones and approved facts.
 - Prefer completed-scope photos, approved milestone notes, verified outcomes, and stakeholder-approved summaries.
 - Treat privacy, controlled access, and active-jobsite boundaries as mandatory.
-
-## Chapter 5: Weekly Operating Rhythm
-
-### Section 5.1: Planning
-
-1. Review the current phase and milestone calendar.
-2. Pick the week’s primary angle and one secondary angle.
-3. Confirm available photos, video, and approval status.
-4. Draft copy against the approved brand baseline.
-
-### Section 5.2: Publishing
-
-1. Publish the primary post on LinkedIn and Facebook.
-2. Repurpose approved material to the secondary channels only when the content is already cleared.
-3. Keep captions short when the update is purely factual and expand only when context improves decision clarity.
-
-### Section 5.3: Closeout
-
-1. Log what was published, where it went, and what proof supported it.
-2. Capture any new proof assets for the next week.
-3. Note unanswered questions, delays, or content gaps.
-
-## Chapter 6: Capture and Repurpose Workflow
-
-### Section 6.1: Capture Inputs
-
-- Site photos from approved vantage points.
-- Milestone notes from the project team.
-- Safety and coordination proof when relevant.
-- After-state imagery for closing and post-launch assets.
-
-### Section 6.2: Repurpose Outputs
-
-- Short-form social post.
-- Long-form recap or case-study teaser.
-- Review or testimonial prompt when closeout is complete.
-- Post-launch authority piece or podcast recap with Jeremy when approved.
-
-### Section 6.3: Asset Rules
-
-- Keep filenames and metadata organized for retrieval.
-- Separate rough captures from approved public assets.
-- Never reuse sensitive or unapproved images in public-facing marketing.
 
 ## Chapter 7: Guardrails
 
@@ -188,8 +166,7 @@ Before publishing a new project marketing run, confirm the following:
 2. The weekly cadence matches the current delivery phase and sensitivity level.
 3. All public copy is evidence-backed and relationship-first.
 4. The primary slogan, trust language, and naming stay aligned with MH brand standards.
-5. The guide output is regenerated after any material change to sections, labels, or strategy sources.
-6. The merged PDF is archived with the source markdown so the strategy remains traceable.
+5. The guide output is regenerated after material changes to sections, labels, or strategy sources.
 
 ## Quick Links
 

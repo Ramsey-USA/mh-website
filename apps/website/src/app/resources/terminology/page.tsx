@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: buildDualSeoTitle("resources", "Construction Terminology Resources"),
   description:
     "Construction terminology references and brand language resources for project stakeholders, teams, and partners.",
-};
+});
 
 export default async function TerminologyResourcesPage() {
   const locale = await getServerLocale();

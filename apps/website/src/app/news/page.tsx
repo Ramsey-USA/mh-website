@@ -11,6 +11,7 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getNewsInsightsContent } from "@/lib/data/news-insights";
 import { createOgImageUrl } from "@/lib/seo/og-image";
 import { generateNewsInsightsSchemas } from "@/lib/seo/page-type-schema";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const NEWS_OG_IMAGE_URL = createOgImageUrl("news", "news-insights");
@@ -21,7 +22,7 @@ const NEWS_OG_DESCRIPTION =
 const NEWS_TWITTER_DESCRIPTION =
   "Construction insights from MH Construction with practical updates on Procore controls, site safety, trade alignment, and veteran-led leadership.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName("News and Insights", "Noticias e ideas")} | MH Construction`,
   description: NEWS_META_DESCRIPTION,
   alternates: {
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     images: [NEWS_OG_IMAGE_URL],
   },
   robots: { index: true, follow: true },
-};
+});
 
 export default async function NewsPage() {
   const locale = (await getServerLocale()) === "es" ? "es" : "en";

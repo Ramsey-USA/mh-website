@@ -16,11 +16,12 @@ import { locations } from "@/lib/data/locations";
 import { getTranslations } from "next-intl/server";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const locationList = Object.values(locations);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.locations.seoName, PAGE_TERMINOLOGY.locations.mhBrandName)} | MH Construction`,
   description:
     "Service coverage across Washington, Oregon, and Idaho with local project proof for AG and winery facilities, tenant improvements, and municipal builds.",
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     images: [`${SITE_URL}/images/og-default.webp`],
   },
   robots: { index: true, follow: true },
-};
+});
 
 const breadcrumbItems = [
   { name: "Home", url: "/" },

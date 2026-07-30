@@ -2,7 +2,7 @@
   "hero": {
     "baseLabel": "Inicio",
     "founded": "Fundado en 2010 • Empresa veterana desde enero de 2025 • Partidario de BABAA (Ley Build America, Buy America)",
-    "tagline": "Entrega lista para la misión en WA, OR e ID",
+    "tagline": "Entrega con Ground Truth en WA, OR e ID",
     "mission": "Built on Quality, Backed by Trust. (Construidos sobre calidad, respaldados por confianza.)",
     "serving": "Sede en Tri-Cities (Pasco, Richland, Kennewick) | Licencia Tri-State en WA, OR, ID",
     "primaryCtaLabel": "Iniciar conversación de proyecto",
@@ -62,7 +62,7 @@
   "services": {
     "sectionSubtitle": "Selector de Misiones",
     "sectionTitle": "Filtre por Ruta de Misión y Área de Enfoque",
-    "sectionDescription": "Use los filtros para encontrar rápidamente la tarjeta de servicio que mejor se ajusta al alcance y prioridades de su proyecto. Nuestra operación es principalmente comercial y evaluamos Custom Home Builds cuando hay ajuste de alcance.",
+    "sectionDescription": "Use los filtros para encontrar rápidamente la tarjeta de servicio que mejor se ajusta al alcance y prioridades de su proyecto. Nuestra operación es principalmente comercial y evaluamos Custom Home Builds cuando hay ajuste de alcance, con estándares de handoff listo para la misión en cada ruta de entrega.",
     "funnel": {
       "pathStepLabel": "Paso 1: Elija una ruta de misión",
       "focusStepLabel": "Paso 2: Elija un área de enfoque",
@@ -209,7 +209,7 @@
   "whyPartner": {
     "sectionSubtitle": "Responsabilidad Operativa",
     "sectionTitle": "Quién Lleva el Turno en Cada Etapa",
-    "sectionDescription": "Revise nuestro modelo de responsables, ruta de escalamiento y controles de aprobacion para mantener decisiones claras desde el inicio hasta el soporte posterior al cierre. From Handshake to Handoff, we got your 'six.' (Del primer apretón de manos a la entrega final, cubrimos su retaguardia.)",
+    "sectionDescription": "Revise nuestro modelo de responsables, ruta de escalamiento y controles de aprobacion para mantener decisiones claras desde el inicio hasta el soporte posterior al cierre, fundamentado en planificación Ground Truth y entregas transparentes. From Handshake to Handoff, we got your 'six.' (Del primer apretón de manos a la entrega final, cubrimos su retaguardia.)",
     "philosophy": "Tu palabra es tu compromiso; la nuestra también. Punto.",
     "theROI": "No gaps. No guesswork. Just accountable follow-through. (Sin brechas. Sin suposiciones. Solo seguimiento responsable.)",
     "tradeCta": {

@@ -7,12 +7,13 @@ import {
   generateBreadcrumbSchema,
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.privacy);
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withGeoMetadata({
   title: buildDualSeoTitle("privacy", "Policy Brief"),
-};
+});
 
 type PrivacyCopy = {
   pageName: string;

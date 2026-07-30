@@ -19,6 +19,7 @@ import { createOgImageUrl } from "@/lib/seo/og-image";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { generateEventDetailSchema } from "@/lib/seo/page-type-schema";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
@@ -46,10 +47,10 @@ export async function generateMetadata({
   const event = getEventRecordBySlug(slug);
 
   if (!event) {
-    return {
+    return withGeoMetadata({
       title: buildDualSeoTitle("events", "Event Detail"),
       robots: { index: false, follow: false },
-    };
+    });
   }
 
   const title = buildDualSeoTitle("events", event.title);
@@ -62,7 +63,7 @@ export async function generateMetadata({
     "event recap and outcomes",
   ];
 
-  return {
+  return withGeoMetadata({
     title,
     description,
     keywords,
@@ -89,7 +90,7 @@ export async function generateMetadata({
       images: [ogImageUrl],
     },
     robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function EventDetailPage({

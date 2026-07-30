@@ -5,7 +5,7 @@
     "subtitle": "36-Week Project Marketing Roadmap and Operating Guide",
     "revisionYear": 2026,
     "revisionDate": "2026-07-29",
-    "revisionVersion": "1.0",
+    "revisionVersion": "2.0",
     "company": "MH Construction, Inc.",
     "address": "3111 N. Capitol Ave., Pasco, WA 99301",
     "phone": "(509) 308-6489",
@@ -17,7 +17,7 @@
     "separateFrom": "employee-handbook",
     "formsManifest": "documents/forms/forms-manifest.json",
     "formsPolicy": "none",
-    "extractedAt": "2026-07-29T20:37:26.102Z"
+    "extractedAt": "2026-07-30T20:53:50.748Z"
   },
   "sections": [
     {
@@ -31,47 +31,47 @@
     },
     {
       "number": 2,
-      "title": "Strategy Spine",
-      "slug": "strategy-spine",
+      "title": "Core Doctrine and Operating Model",
+      "slug": "core-doctrine-and-operating-model",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/02-strategy-spine.html",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/02-core-doctrine-and-operating-model.html",
       "forms": []
     },
     {
       "number": 3,
-      "title": "36-Week Roadmap",
-      "slug": "36-week-roadmap",
+      "title": "The Marketing Operations Stack",
+      "slug": "the-marketing-operations-stack",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/03-36-week-roadmap.html",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/03-the-marketing-operations-stack.html",
       "forms": []
     },
     {
       "number": 4,
-      "title": "Content Standards",
-      "slug": "content-standards",
+      "title": "Three Content Pillars",
+      "slug": "three-content-pillars",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/04-content-standards.html",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/04-three-content-pillars.html",
       "forms": []
     },
     {
       "number": 5,
-      "title": "Weekly Operating Rhythm",
-      "slug": "weekly-operating-rhythm",
+      "title": "The Four-Phase Project Lifecycle Campaign",
+      "slug": "the-four-phase-project-lifecycle-campaign",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/05-weekly-operating-rhythm.html",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/05-the-four-phase-project-lifecycle-campaign.html",
       "forms": []
     },
     {
       "number": 6,
-      "title": "Capture and Repurpose Workflow",
-      "slug": "capture-and-repurpose-workflow",
+      "title": "Content Standards and Proof Rules",
+      "slug": "content-standards-and-proof-rules",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/06-capture-and-repurpose-workflow.html",
+      "bodyFile": "documents/content/mhc-marketing-strategy-guide-2026/sections/06-content-standards-and-proof-rules.html",
       "forms": []
     },
     {

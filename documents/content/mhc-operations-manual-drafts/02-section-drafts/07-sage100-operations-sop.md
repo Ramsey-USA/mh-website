@@ -10,6 +10,8 @@ Final Approver: CEO (CO)
 
 Define disciplined SAGE100 operations for accurate financial controls, job-cost integrity, and auditable alignment between project execution and accounting records.
 
+Marketing cost codes must be tracked as part of project financial discipline. Estimates developed by the CPCO/CHNAV team include marketing cost codes such as spatial capture, digital twin processing, and commercials; those codes must be actively tracked in the SAGE100 Job Cost module and reconciled monthly to support marketing ROI and project profitability reporting.
+
 ## 2. Command Ownership and Authority
 
 Systems-of-record modules in scope:

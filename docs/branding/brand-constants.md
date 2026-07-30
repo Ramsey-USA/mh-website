@@ -117,6 +117,15 @@ From Handshake to Handoff, we got your 'six.'
 
 **Usage:** Use in partnership-focused messaging that emphasizes continuity, accountability, and end-to-end support for client and trade partner teams.
 
+### Supporting Operating-Model Lines
+
+```text
+Ground Truth. Zero-Gap Accountability. Handshake Pride.
+Verified performance. Clear handoffs. Trusted delivery.
+```
+
+**Usage:** Use when describing preconstruction planning, delivery discipline, and accountable handoffs to project stakeholders, trade partners, and internal teams.
+
 ### Supporting Execution Lines
 
 ```text

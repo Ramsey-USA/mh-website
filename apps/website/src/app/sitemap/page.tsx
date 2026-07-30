@@ -7,9 +7,10 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return {
+  return withGeoMetadata({
     title: `${formatDualPageName(PAGE_TERMINOLOGY.sitemap.seoName, PAGE_TERMINOLOGY.sitemap.mhBrandName)} | MH Construction`,
     description:
       "Browse the canonical site map for MH Construction and discover the main public pages for services, projects, locations, safety resources, and trust signals.",
@@ -20,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "https://www.mhc-gc.com/sitemap",
     },
-  };
+  });
 }
 
 type SectionKey =

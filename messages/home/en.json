@@ -2,7 +2,7 @@
   "hero": {
     "baseLabel": "Home",
     "founded": "Founded 2010 • Veteran-Owned Since January 2025 • BABAA (Build America, Buy America Act) Supporter",
-    "tagline": "Mission-ready delivery across WA, OR, and ID",
+    "tagline": "Ground Truth delivery across WA, OR, and ID",
     "mission": "Built on Quality, Backed by Trust.",
     "serving": "Tri-Cities HQ (Pasco, Richland, Kennewick) | Tri-State Licensed in WA, OR, ID",
     "primaryCtaLabel": "Start a project conversation",
@@ -62,7 +62,7 @@
   "services": {
     "sectionSubtitle": "Mission Matcher",
     "sectionTitle": "Filter by Mission Path and Focus Area",
-    "sectionDescription": "Use the filters to quickly find the service card that best fits your scope and priorities. Our core work is commercial, with select custom home builds by fit.",
+    "sectionDescription": "Use the filters to quickly find the service card that best fits your scope and priorities. Our core work is commercial, with select custom home builds by fit and mission-ready handoff standards built into every delivery path.",
     "funnel": {
       "pathStepLabel": "Step 1: Choose a mission path",
       "focusStepLabel": "Step 2: Choose your focus area",
@@ -209,7 +209,7 @@
   "whyPartner": {
     "sectionSubtitle": "Operational Accountability",
     "sectionTitle": "Who Holds the Watch at Every Stage",
-    "sectionDescription": "Review our ownership model, escalation path, and approval controls so decisions stay clear from kickoff through post-closeout support. From Handshake to Handoff, we got your 'six.'",
+    "sectionDescription": "Review our ownership model, escalation path, and approval controls so decisions stay clear from kickoff through post-closeout support, grounded in Ground Truth planning and transparent handoffs. From Handshake to Handoff, we got your 'six.'",
     "philosophy": "Your word is your bond — so is ours. Period.",
     "theROI": "No gaps. No guesswork. Just accountable follow-through.",
     "tradeCta": {

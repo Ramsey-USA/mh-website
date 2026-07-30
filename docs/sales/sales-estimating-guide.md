@@ -1,8 +1,8 @@
-# Sales/Estimating Guide
+# Sales & Estimating Guide
 
 **Category:** Sales / Estimating - Strategy
 **Last Updated:** July 30, 2026
-**Version:** 1.0.0
+**Version:** 2.0.0
 **Status:** ✅ Active
 
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for canonical brand values.
@@ -13,159 +13,125 @@
 
 ## Overview
 
-This guide turns the sales and estimating strategy into a working playbook. It covers the work that the Marketing Strategy Guide does not: lead intake, qualification, preconstruction relationship management, estimate development, proposal discipline, and the handoff from pursuit to delivery.
+This guide reflects the v2 sales and estimating operating model for MH Construction. It covers the full preconstruction path from first opportunity review through proposal delivery and the formal handoff to operations.
 
-Use this guide when evaluating an opportunity, building a proposal, strengthening relationships with bankers, architects, city officials, and other project-side stakeholders hired by the client, or deciding whether an opportunity is worth pursuing.
+The operating model is built around four principles:
 
-Sales and estimating also coordinate relationship handoffs to the CEO, COO, and Marketing team, then help extend that handoff through the rest of the team so the pursuit stays aligned from first contact through award and beyond.
+- **Ground Truth Estimating**: pricing is based on verified site conditions, exhaustive Mission Parameters, and real project constraints rather than assumptions.
+- **Zero-Gap Accountability**: the sales team and estimating team bridge the gap between pursuit and delivery by making sure each Trade Partner and client-facing commitment is understood before execution begins.
+- **Handshake Pride**: relationships are built around trust, transparency, and verified performance, not just the lowest dollar.
+- **Mission-Ready Handoff**: every awarded opportunity moves into operations with a clear scope baseline, approval trail, and stakeholder continuity plan.
 
-The guide is intentionally direct and operational. It should read like a field manual for disciplined estimating rather than a loose list of sales tips.
+Use this guide when evaluating an opportunity, defining the project scope, qualifying Trade Partners, preparing an estimate, presenting a proposal, or coordinating the handoff to operations.
 
 ## Table of Contents (Chapters and Sections)
 
-Chapter-divider standard for this guide:
-
-- Each chapter starts with a chapter tab/divider page.
-- Each chapter tab/divider page doubles as a dual-signature page with one signature by the owner and one by the designated officer.
-
-1. [Chapter 1: Canonical Strategy Sources (Associated forms: N/A - forms policy none)](#chapter-1-canonical-strategy-sources)
-2. [Chapter 2: Strategy Spine (Associated forms: N/A - forms policy none)](#chapter-2-strategy-spine)
-3. [Chapter 3: Opportunity Qualification (Associated forms: N/A - forms policy none)](#chapter-3-opportunity-qualification)
-4. [Section 3.1: Qualification Questions](#section-31-qualification-questions)
-5. [Section 3.2: Qualify or Decline](#section-32-qualify-or-decline)
-6. [Chapter 4: Estimate Development Standard (Associated forms: N/A - forms policy none)](#chapter-4-estimate-development-standard)
-7. [Section 4.1: Scope Discipline](#section-41-scope-discipline)
-8. [Section 4.2: Pricing Discipline](#section-42-pricing-discipline)
-9. [Section 4.3: Quality Check](#section-43-quality-check)
-10. [Chapter 5: Stakeholder Relationship Plan (Associated forms: N/A - forms policy none)](#chapter-5-stakeholder-relationship-plan)
-11. [Section 5.1: Core Stakeholder Groups](#section-51-core-stakeholder-groups)
-12. [Section 5.2: Relationship Standards](#section-52-relationship-standards)
-13. [Chapter 6: Proposal and Follow-Up Workflow (Associated forms: N/A - forms policy none)](#chapter-6-proposal-and-follow-up-workflow)
-14. [Section 6.1: Pre-Proposal](#section-61-pre-proposal)
-15. [Section 6.2: Submission](#section-62-submission)
-16. [Section 6.3: Post-Submission](#section-63-post-submission)
-17. [Chapter 7: Guardrails (Associated forms: N/A - forms policy none)](#chapter-7-guardrails)
-18. [Chapter 8: Success Measures (Associated forms: N/A - forms policy none)](#chapter-8-success-measures)
-19. [Chapter 9: Deployment and Review (Associated forms: N/A - forms policy none)](#chapter-9-deployment-and-review)
+1. [Chapter 1: Canonical Strategy Sources](#chapter-1-canonical-strategy-sources)
+2. [Chapter 2: Core Doctrine and Operating Model](#chapter-2-core-doctrine-and-operating-model)
+3. [Chapter 3: Command Controls and Approval Matrix](#chapter-3-command-controls-and-approval-matrix)
+4. [Chapter 4: The 6-Step Preconstruction Workflow](#chapter-4-the-6-step-preconstruction-workflow)
+5. [Section 4.1: Opportunity Qualification](#section-41-opportunity-qualification)
+6. [Section 4.2: Mission Parameters and Scope](#section-42-mission-parameters-and-scope)
+7. [Section 4.3: Trade Partner Qualification](#section-43-trade-partner-qualification)
+8. [Section 4.4: Estimate Development Standard](#section-44-estimate-development-standard)
+9. [Section 4.5: Proposal Presentation](#section-45-proposal-presentation)
+10. [Section 4.6: Operations Brief and Handoff](#section-46-operations-brief-and-handoff)
+11. [Chapter 5: Trade Partner Relations](#chapter-5-trade-partner-relations)
+12. [Chapter 6: Proposal and Follow-Up Workflow](#chapter-6-proposal-and-follow-up-workflow)
+13. [Chapter 7: Guardrails](#chapter-7-guardrails)
+14. [Chapter 8: Success Measures](#chapter-8-success-measures)
+15. [Chapter 9: Deployment and Review](#chapter-9-deployment-and-review)
 
 ## Chapter 1: Canonical Strategy Sources
 
-| Source                                                                                | What It Controls                                             | Use It For                                                          |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
-| [Business Services](../business/services.md)                                          | Canonical service descriptions and proposal language         | Service framing, scope language, and client-facing positioning      |
-| [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)                  | Project storytelling and relationship-first public messaging | Keeping public project narratives consistent with pursuit messaging |
-| [Brand Constants](../branding/brand-constants.md)                                     | Canonical brand values, voice, and factual framing           | Title treatment, tone, and approved trust language                  |
-| [Dual Terminology Standard](../branding/strategy/dual-terminology-standard.md)        | Enterprise naming rules for outside audiences                | Stakeholder-facing terms, role labels, and naming consistency       |
-| [Universal Page Flow Standard](../technical/patterns/universal-page-flow-standard.md) | Lead-path page structure                                     | Proposal and sales-page sequencing that moves from trust to action  |
+| Source                                                                                | What It Controls                                                          | Use It For                                                          |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [Business Services](../business/services.md)                                          | Canonical service descriptions and proposal language                      | Service framing, scope language, and client-facing positioning      |
+| [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)                  | Public narrative, project communication, and relationship-first messaging | Keeping public project narratives consistent with pursuit messaging |
+| [Brand Constants](../branding/brand-constants.md)                                     | Canonical brand values, voice, and factual framing                        | Title treatment, tone, and approved trust language                  |
+| [Dual Terminology Standard](../branding/strategy/dual-terminology-standard.md)        | Enterprise naming rules for outside audiences                             | Stakeholder-facing terms, role labels, and naming consistency       |
+| [Universal Page Flow Standard](../technical/patterns/universal-page-flow-standard.md) | Lead-path page structure                                                  | Proposal and sales-page sequencing that moves from trust to action  |
 
-## Chapter 2: Strategy Spine
+## Chapter 2: Core Doctrine and Operating Model
 
-The sales and estimating strategy follows five stages:
+The sales and estimating division operates under the authority of CHNAV and the Estimator Officer. The core mission is to qualify opportunities, define the Mission Parameters, and deliver a precise estimate before any project transitions to operations.
 
-1. **Intake** - capture the opportunity, record the source, and identify who actually hired whom.
-2. **Qualification** - decide whether the opportunity fits MH, the client, the schedule, and the relationship risk profile.
-3. **Scope shaping** - define what is included, what is excluded, and what still needs design or stakeholder input.
-4. **Estimate and proposal** - build a clean, supportable offer that matches the scope and the project reality.
-5. **Handoff and nurture** - transition the win to operations or keep the relationship warm if the opportunity is delayed or lost.
+The operating model is anchored by:
 
-This strategy is not just about winning work. It is about winning the right work with a scope that can actually be delivered without damaging trust.
+- **Ground Truth Estimating**: use validated site conditions and documented assumptions, not optimism.
+- **Zero-Gap Accountability**: make sure the field, the estimate, and the client expectation all agree before the contract is signed.
+- **Handshake Pride**: build relationships around trust, transparency, and verified performance.
 
-## Chapter 3: Opportunity Qualification
+## Chapter 3: Command Controls and Approval Matrix
 
-### Section 3.1: Qualification Questions
+To protect the enterprise from financial exposure, all estimates, proposals, and post-contract change orders must follow the approval matrix before being presented to a Client Partner.
 
-- Who is the actual decision-maker, and who is influencing the decision?
-- Is the client already working with architects, engineers, bankers, or city officials who will shape the scope?
-- Is the opportunity aligned with MH capacity, schedule, geography, and service mix?
-- Does the project have enough definition to support a credible estimate?
-- Are there known risk points that require early clarification before pricing?
+| Value              | Required Approval Authority                     |
+| ------------------ | ----------------------------------------------- |
+| Under $25,000      | Project Manager (Alpha, Bravo, or Charlie Wing) |
+| $25,000 to $50,000 | Chief Operating Officer (XO)                    |
+| Over $50,000       | President and CEO (CO)                          |
 
-### Section 3.2: Qualify or Decline
+The estimate lead and CPCO remain responsible for accuracy, while final financial execution authority sits with the operations and command chain.
 
-Pursue the opportunity when:
+## Chapter 4: The 6-Step Preconstruction Workflow
 
-- The client relationship is real and reachable.
-- The project can be scoped without guesswork.
-- MH can compete on clarity, responsiveness, and execution credibility.
-- The bid path gives enough time for disciplined estimating.
+### Section 4.1: Opportunity Qualification
 
-Decline or defer the opportunity when:
+- Confirm the client relationship is real and reachable.
+- Determine whether the project fits MH capacity, schedule, geography, and service mix.
+- Ask whether the project aligns with MH’s vertically integrated delivery path and risk appetite.
+- Identify who holds decision authority and who is influencing the decision.
 
-- The scope is too vague to price responsibly.
-- The timeline forces a speculative number instead of a supportable estimate.
-- The relationship depends on promises that cannot be validated.
-- The pursuit would pull estimating time away from better-fit work.
+### Section 4.2: Mission Parameters and Scope
 
-## Chapter 4: Estimate Development Standard
+- Replace generic scope language with explicit Mission Parameters.
+- Define inclusions, exclusions, assumptions, clarifications, allowances, and alternates.
+- Request site verification, spatial capture, or additional design input when site conditions are not yet clear.
+- Tie every major assumption back to a visible project condition or known requirement.
 
-### Section 4.1: Scope Discipline
+### Section 4.3: Trade Partner Qualification
 
-- Define inclusions and exclusions before the first draft is shared.
-- Separate hard scope, assumed scope, alternates, and allowances.
-- Flag missing drawings, unclear specs, or unresolved coordination items.
-- Tie every material cost or labor assumption to a visible project condition.
+- Vet Trade Partners for safety records, financial stability, capacity, and values alignment.
+- Make sure each Trade Partner understands the MHC safety, quality, and communication standard before contracting begins.
+- Use the referral and qualification process to protect both schedule and reputation.
 
-### Section 4.2: Pricing Discipline
+### Section 4.4: Estimate Development Standard
 
-- Use real project conditions, not optimism, to set the number.
-- Protect margin by documenting the logic behind labor, materials, equipment, and subcontractor coverage.
-- Note contingency decisions clearly so leadership can explain the number later.
-- Never hide risk inside a polished proposal.
+- Build the estimate in a disciplined format using approved cost logic and supporting assumptions.
+- Include labor, materials, equipment, safety overhead, and marketing-related cost codes where applicable.
+- Keep the estimate transparent enough that leadership can explain it later without guesswork.
 
-### Section 4.3: Quality Check
+### Section 4.5: Proposal Presentation
 
-Before any estimate goes out, confirm:
+- Keep proposals clean, professional, and easy to review.
+- Use plain language that explains value and risk clearly.
+- Define the Rules of Engagement, scope clarifications, and any conditions that affect the offer.
+- Present the proposal as a partnership rather than a transaction.
 
-1. Scope matches the latest documents and stakeholder decisions.
-2. Pricing assumptions are documented and repeatable.
-3. Exceptions, clarifications, and alternates are easy to find.
-4. The proposal language is aligned with MH brand standards and service framing.
+### Section 4.6: Operations Brief and Handoff
 
-## Chapter 5: Stakeholder Relationship Plan
+- Lead the formal operations brief upon award.
+- Transfer Mission Parameters, Ground Truth intelligence, and approved assumptions to the XO and the project management teams.
+- Coordinate the handoff with marketing so public narrative and stakeholder communications remain aligned.
 
-Sales and estimating should build durable trust with the people who shape the project before it reaches the field.
+## Chapter 5: Trade Partner Relations
 
-### Section 5.1: Core Stakeholder Groups
+The sales team is the first point of contact for local specialized subcontractors and other Trade Partners. In branded communications, use the approved terms Trade Partner or Sub-Operator. Reserve the term subcontractor for legal and regulatory contexts when required.
 
-- Client decision-makers and project sponsors.
-- Bankers and financing partners.
-- Architects and design consultants.
-- City officials and permitting contacts.
-- Engineers, inspectors, and other technical reviewers.
-- Trade partners who influence price, availability, and sequencing.
+The relationship standard is simple:
 
-### Section 5.2: Relationship Standards
-
-- Keep communication responsive, calm, and fact-based.
-- Use the same scope language across emails, meetings, and proposals.
-- Never pressure stakeholders with inflated urgency or unsupported claims.
-- Treat every contact as part of the long-term reputation of MH Construction.
-- Coordinate relationship handoffs to the CEO, COO, and Marketing team when the opportunity needs broader leadership or messaging alignment.
-- Extend that handoff through operations, project management, and support functions so the full team carries the same relationship posture.
+- Treat Trade Partners with the same respect as Client Partners.
+- Communicate clearly that working with MH means adhering to a disciplined, safety-first standard.
+- Keep the relationship aligned with the same evidence-backed posture expected in client-facing work.
 
 ## Chapter 6: Proposal and Follow-Up Workflow
 
-### Section 6.1: Pre-Proposal
-
-1. Confirm the due date, submission format, and review path.
-2. Gather the current documents, addenda, and stakeholder notes.
-3. Align the estimate lead, leadership review, and any specialty inputs.
-4. Document open questions before the proposal is finalized.
-
-### Section 6.2: Submission
-
-1. Deliver the estimate cleanly and on time.
-2. Use plain language that helps the recipient understand value and risk.
-3. Include the clarifications needed to keep the number honest.
-4. Keep follow-up professional, short, and responsive.
-
-### Section 6.3: Post-Submission
-
-1. Record the outcome and the reason for it.
-2. Capture lessons that improve the next estimate.
-3. Maintain the relationship even if the opportunity is not awarded.
-4. Hand the project to operations with the same scope discipline used to win it.
-5. When the opportunity requires leadership or messaging continuity, route the relationship through the CEO, COO, and Marketing team so the handoff stays coordinated across the rest of the organization.
+1. Confirm the due date, submission format, review path, and owner responsibilities.
+2. Gather the latest documents, addenda, stakeholder notes, and open questions.
+3. Align the estimator lead, leadership review, and specialty inputs before finalization.
+4. Deliver the proposal on time and with clear clarifications.
+5. Record the outcome, capture lessons, and maintain the relationship after submission.
 
 ## Chapter 7: Guardrails
 
@@ -174,18 +140,17 @@ Sales and estimating should build durable trust with the people who shape the pr
 - Do not misrepresent capability, availability, or scope coverage.
 - Keep private pricing conversations and public messaging separated.
 - Preserve MH naming, trust references, and veteran-owned factual framing.
-- Align any lead-path page, proposal cover, or estimating asset with canonical brand standards.
 
 ## Chapter 8: Success Measures
 
 Track the strategy at three levels:
 
-| Measure            | What Good Looks Like                                                            |
-| ------------------ | ------------------------------------------------------------------------------- |
-| Qualified pipeline | Opportunities fit MH and are worth the estimating effort                        |
-| Estimate quality   | Numbers are supportable, repeatable, and explained clearly                      |
-| Stakeholder trust  | Bankers, architects, city officials, and clients get timely, credible responses |
-| Handoff quality    | Awarded work moves to operations without scope confusion                        |
+| Measure            | What Good Looks Like                                                                    |
+| ------------------ | --------------------------------------------------------------------------------------- |
+| Qualified pipeline | Opportunities fit MH and are worth the estimating effort                                |
+| Estimate quality   | Numbers are supportable, repeatable, and explained clearly                              |
+| Stakeholder trust  | Bankers, architects, city officials, and Client Partners get timely, credible responses |
+| Handoff quality    | Awarded work moves to operations without scope confusion                                |
 
 ## Chapter 9: Deployment and Review
 
@@ -195,7 +160,7 @@ Before using a new sales or estimating run, confirm the following:
 2. The estimate reflects the latest scope and stakeholder decisions.
 3. The proposal language matches the approved MH brand and terminology rules.
 4. The follow-up plan is documented so the relationship does not stall after submission.
-5. The guide output is regenerated after any material change to the strategy or section structure.
+5. The guide output is regenerated after material changes to the strategy or section structure.
 
 ## Quick Links
 

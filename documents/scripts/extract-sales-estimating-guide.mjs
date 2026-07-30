@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 /* eslint-disable no-console, prefer-template */
 
-import { mkdir, readFile, readdir, writeFile, rm } from "node:fs/promises";
+import { mkdir, readFile, writeFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname, extname, join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const SOURCE_MD = join(ROOT, "docs/sales/sales-estimating-guide.md");
+const SOURCE_DOCX = join(
+  ROOT,
+  "documents/input/sales strategy/MHC-Sales-Estimating-Guide-v3.docx",
+);
 const OUTPUT_DIR = join(
   ROOT,
   "documents/content/mhc-sales-estimating-guide-2026/sections",
@@ -216,7 +220,8 @@ function splitSections(markdown) {
   };
 
   for (const line of lines) {
-    const headingMatch = /^##\s+(\d+)\.\s+(.+)$/.exec(line.trim());
+    const headingMatch =
+      /^##\s+(?:Chapter\s+)?(\d+)(?:\.\s*|\s*:\s*)(.+)$/.exec(line.trim());
     if (headingMatch) {
       flush();
       current = {
@@ -234,15 +239,103 @@ function splitSections(markdown) {
   return sections;
 }
 
-async function main() {
-  if (!existsSync(SOURCE_MD)) {
-    throw new Error(`Source markdown not found: ${SOURCE_MD}`);
+function splitInlineBullets(line) {
+  return String(line)
+    .split(/\s+-\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function textLinesToHtml(lines) {
+  const parts = [];
+
+  for (const rawLine of lines) {
+    const line = String(rawLine || "").trim();
+    if (!line) continue;
+
+    const bulletParts = splitInlineBullets(line);
+    if (bulletParts.length > 1) {
+      const intro = bulletParts.shift();
+      if (intro) {
+        parts.push(`<p>${formatInline(intro)}</p>`);
+      }
+      parts.push("<ul>");
+      for (const bullet of bulletParts) {
+        parts.push(`<li>${formatInline(bullet)}</li>`);
+      }
+      parts.push("</ul>");
+      continue;
+    }
+
+    parts.push(`<p>${formatInline(line)}</p>`);
   }
 
-  const source = await readFile(SOURCE_MD, "utf-8");
-  const rawSections = splitSections(source);
+  return parts.join("\n");
+}
+
+async function loadSectionsFromDocx(sourcePath) {
+  const mammothMod = await import("mammoth");
+  const extractRawText =
+    mammothMod?.extractRawText || mammothMod?.default?.extractRawText;
+  if (typeof extractRawText !== "function") {
+    throw new Error("mammoth.extractRawText is unavailable");
+  }
+
+  const result = await extractRawText({ path: sourcePath });
+  const lines = String(result?.value || "")
+    .replaceAll("\r\n", "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const sections = [];
+  let current = null;
+
+  const flush = () => {
+    if (!current) return;
+    sections.push(current);
+    current = null;
+  };
+
+  for (const line of lines) {
+    const headingMatch = /^(\d+)\.\s+(.+)$/.exec(line);
+    if (headingMatch) {
+      flush();
+      current = {
+        title: headingMatch[2].trim(),
+        bodyHtmlLines: [],
+      };
+      continue;
+    }
+
+    if (!current) continue;
+    current.bodyHtmlLines.push(line);
+  }
+
+  flush();
+
+  return sections.map((section) => ({
+    title: section.title,
+    bodyHtml: textLinesToHtml(section.bodyHtmlLines),
+  }));
+}
+
+async function main() {
+  const sourcePath = existsSync(SOURCE_MD)
+    ? SOURCE_MD
+    : existsSync(SOURCE_DOCX)
+      ? SOURCE_DOCX
+      : null;
+  if (!sourcePath) {
+    throw new Error(`Source file not found: ${SOURCE_MD} or ${SOURCE_DOCX}`);
+  }
+  const usingDocx = sourcePath === SOURCE_DOCX;
+
+  const rawSections = usingDocx
+    ? await loadSectionsFromDocx(sourcePath)
+    : splitSections(await readFile(sourcePath, "utf-8"));
   if (rawSections.length === 0) {
-    throw new Error(`No sections found in ${SOURCE_MD}`);
+    throw new Error(`No sections found in ${sourcePath}`);
   }
 
   await rm(OUTPUT_DIR, { recursive: true, force: true });
@@ -254,8 +347,13 @@ async function main() {
     const numberStr = String(number).padStart(2, "0");
     const title = entry.title.replace(/^\d+\.\s*/, "").trim();
     const slug = slugify(title);
-    const bodyMarkdown = entry.bodyLines.join("\n").trim();
-    const html = markdownToHtml(bodyMarkdown);
+    const bodyMarkdown = Array.isArray(entry.bodyLines)
+      ? entry.bodyLines.join("\n").trim()
+      : "";
+    const html =
+      typeof entry.bodyHtml === "string" && entry.bodyHtml.trim()
+        ? entry.bodyHtml
+        : markdownToHtml(bodyMarkdown);
     const outputFileName = `${numberStr}-${slug}.html`;
 
     sections.push({
@@ -271,8 +369,8 @@ async function main() {
     const fragment = `<!--
   Sales/Estimating Guide — Section ${numberStr}: ${title} (GENERATED SOURCE)
   ------------------------------------------------------------------
-  Generated from docs/sales/sales-estimating-guide.md by documents/scripts/extract-sales-estimating-guide.mjs.
-  Edit freely after regeneration. The markdown guide remains the authoritative source.
+  Generated from ${sourcePath.replace(ROOT + "/", "")} by documents/scripts/extract-sales-estimating-guide.mjs.
+  Edit freely after regeneration.
 -->
 ${html}
 `;
@@ -293,14 +391,14 @@ ${html}
       subtitle: "Lead Qualification and Proposal Discipline Operating Guide",
       revisionYear: 2026,
       revisionDate: "2026-07-29",
-      revisionVersion: "1.0",
+      revisionVersion: "2.0",
       company: "MH Construction, Inc.",
       address: "3111 N. Capitol Ave., Pasco, WA 99301",
       phone: "(509) 308-6489",
       website: "https://www.mhc-gc.com",
       totalPages: 0,
-      source: "markdown-guide-extracted",
-      sourceDirectory: "docs/sales/sales-estimating-guide.md",
+      source: usingDocx ? "docx-guide-extracted" : "markdown-guide-extracted",
+      sourceDirectory: sourcePath.replace(ROOT + "/", ""),
       manualFamily: "sales",
       separateFrom: "employee-handbook",
       formsManifest: "documents/forms/forms-manifest.json",
