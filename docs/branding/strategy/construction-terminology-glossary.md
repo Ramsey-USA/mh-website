@@ -13,6 +13,8 @@ PMBOK 6 concepts and common industry expectations.
 Use this glossary when writing or reviewing copy for website pages, dashboard labels, handbook language,
 manuals, proposals, or implementation docs.
 
+**Brand Congruency:** Terminology mappings should preserve MH voice, trust language, and construction-first wording across public and internal surfaces.
+
 Primary expansion source: `docs/branding/standards/mhc-terms.docx`
 ("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
 

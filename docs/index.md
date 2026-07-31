@@ -19,7 +19,7 @@ Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./
 
 **Brand Congruency:** Documentation across all categories must keep typography and color decisions aligned with the canonical MH font and palette standards.
 
-The core manual family lives in the shared [Manual Family Hub](./manuals/index.md), which keeps the Employee Handbook, Safety Manual, Operations Manual, Marketing Guide, and Sales / Estimating Guide logically aligned.
+The core manual family lives in the shared [Manual Family Hub](./manuals/index.md), which keeps the Employee Handbook, Safety Manual, Operations Manual, Marketing Guide, and Sales / Estimating Guide logically aligned and reflected in the shared content registry.
 
 ## Categories
 
@@ -71,14 +71,11 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 
 - **[Branding Optimization Master Status](../BRANDING_OPTIMIZATION_MASTER_STATUS.md)** — Consolidated branding optimization progress pointer and archive handoff record.
 
-## Quick Links
+## Related References
 
-- [← Back to Main README](../README.md)
+Use these references when documentation work needs to connect back to repo governance, contribution rules, or release history.
+
+- [Main README](../README.md)
 - [CHANGELOG](../CHANGELOG.md)
 - [Security Policy](../SECURITY.md#dependency-override-hygiene)
 - [Contributing](../contributing.md)
-
----
-
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-**Built on Quality, Backed by Trust.**

@@ -19,13 +19,13 @@ Input template:
 Validation command (recommended before outreach generation):
 
 ```bash
-pnpm run reviews:closeout:validate -- --input docs/marketing/templates/review-closeout-input-template.csv
+pnpm run reviews:closeout:validate -- --input docs/marketing/google-business-profile/templates/review-closeout-input-template.csv
 ```
 
 Command:
 
 ```bash
-pnpm run reviews:outreach:generate -- --input docs/marketing/templates/review-closeout-input-template.csv --output-dir tmp/review-outreach
+pnpm run reviews:outreach:generate -- --input docs/marketing/google-business-profile/templates/review-closeout-input-template.csv --output-dir tmp/review-outreach
 ```
 
 Output files:
@@ -42,13 +42,13 @@ Input tracker:
 Validation command (recommended before manual runs):
 
 ```bash
-pnpm run reviews:tracker:validate -- --input docs/marketing/templates/review-recognition-tracker-template.csv
+pnpm run reviews:tracker:validate -- --input docs/marketing/google-business-profile/templates/review-recognition-tracker-template.csv
 ```
 
 Command:
 
 ```bash
-pnpm run reviews:summary:weekly -- --input docs/marketing/templates/review-recognition-tracker-template.csv --stale-days 7 --output tmp/review-outreach/review-weekly-summary.md
+pnpm run reviews:summary:weekly -- --input docs/marketing/google-business-profile/templates/review-recognition-tracker-template.csv --stale-days 7 --output tmp/review-outreach/review-weekly-summary.md
 ```
 
 Summary includes:
@@ -62,7 +62,7 @@ Summary includes:
 Command:
 
 ```bash
-pnpm run reviews:dashboard:export -- --input docs/marketing/templates/review-recognition-tracker-template.csv --output tmp/review-outreach/review-recognition-dashboard-import.csv
+pnpm run reviews:dashboard:export -- --input docs/marketing/google-business-profile/templates/review-recognition-tracker-template.csv --output tmp/review-outreach/review-recognition-dashboard-import.csv
 ```
 
 Schema reference:
@@ -74,7 +74,7 @@ Schema reference:
 Command:
 
 ```bash
-pnpm run reviews:leaderboard:monthly -- --input docs/marketing/templates/review-recognition-tracker-template.csv --month 2026-07 --output tmp/review-outreach/review-monthly-leaderboard.md
+pnpm run reviews:leaderboard:monthly -- --input docs/marketing/google-business-profile/templates/review-recognition-tracker-template.csv --month 2026-07 --output tmp/review-outreach/review-monthly-leaderboard.md
 ```
 
 ## 5) Export Monthly KPI JSON
@@ -82,7 +82,7 @@ pnpm run reviews:leaderboard:monthly -- --input docs/marketing/templates/review-
 Command:
 
 ```bash
-pnpm run reviews:kpi:monthly -- --input docs/marketing/templates/review-recognition-tracker-template.csv --month 2026-07 --output tmp/review-outreach/review-monthly-kpi.json
+pnpm run reviews:kpi:monthly -- --input docs/marketing/google-business-profile/templates/review-recognition-tracker-template.csv --month 2026-07 --output tmp/review-outreach/review-monthly-kpi.json
 ```
 
 ## 6) Run Weekly Ops in One Command
@@ -90,7 +90,7 @@ pnpm run reviews:kpi:monthly -- --input docs/marketing/templates/review-recognit
 This command validates the tracker, generates the weekly summary, exports dashboard CSV, and writes the monthly leaderboard.
 
 ```bash
-pnpm run reviews:weekly:run -- --closeout-input docs/marketing/templates/review-closeout-input-template.csv --input docs/marketing/templates/review-recognition-tracker-template.csv --stale-days 7 --output-dir tmp/review-outreach --month 2026-07
+pnpm run reviews:weekly:run -- --closeout-input docs/marketing/google-business-profile/templates/review-closeout-input-template.csv --input docs/marketing/google-business-profile/templates/review-recognition-tracker-template.csv --stale-days 7 --output-dir tmp/review-outreach --month 2026-07
 ```
 
 ## Onboarding Samples

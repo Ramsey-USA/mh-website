@@ -7,6 +7,8 @@
 
 **Brand Congruency:** Security guidance must preserve canonical trust messaging, accessible terminology, and consistent MH visual-language references.
 
+Keep security labels, trust indicators, and user-facing form copy aligned with MH Construction naming and construction-first voice.
+
 ## 🧭 Quick Navigation
 
 - [📚 Development Standards](../development/standards/development-standards.md)

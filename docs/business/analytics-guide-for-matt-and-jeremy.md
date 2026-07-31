@@ -439,8 +439,3 @@ Google Analytics event collection.
 6. **Competitor Tracking:** Monitor competitor mentions
 7. **SEO Rankings:** Track keyword positions
 8. **Social Listening:** Monitor social media mentions
-
----
-
-**Built for Veterans, by Veterans.**
-**Built on Quality, Backed by Trust.**

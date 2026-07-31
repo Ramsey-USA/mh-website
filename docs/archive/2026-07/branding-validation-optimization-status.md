@@ -9,6 +9,8 @@
 This file is the consolidated archive record for the July 2026 branding-validation
 optimization pass that previously lived across multiple top-level status files.
 
+**Brand Congruency:** Archive records should keep MH naming, trust-safe references, and canonical branding links intact for traceability.
+
 The optimization consolidated branding validation logic into shared rule and utility
 modules, reduced duplication, and kept backward compatibility for existing tests
 and CLI checks.

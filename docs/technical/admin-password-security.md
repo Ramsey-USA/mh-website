@@ -1,5 +1,7 @@
 # Admin Password Security Guide
 
+**Brand Congruency:** Admin security guidance should preserve MH Construction naming, trust-safe language, and clear operational terminology.
+
 ## Rotating Default Credentials for Production
 
 **Last Updated:** April 8, 2026  

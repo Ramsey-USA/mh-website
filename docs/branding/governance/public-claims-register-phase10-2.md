@@ -8,6 +8,8 @@
 This record inventories repeated high-risk public claims and ties each migrated claim
 to a controlled source in [apps/website/src/lib/content/claims.ts](../../../apps/website/src/lib/content/claims.ts).
 
+**Brand Congruency:** Controlled claims should stay factual, trust-safe, and aligned with approved MH naming and veteran-owned framing.
+
 ## Inventoried Claim Families
 
 | Claim Family                                           | Repeated Surfaces                                         | Evidence In Repo | Controlled In Register | Notes                                                                  |

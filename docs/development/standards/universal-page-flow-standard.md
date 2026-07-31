@@ -11,6 +11,8 @@
 
 **Brand Congruency:** Body-flow decisions must still use canonical MH typography and color patterns so section order and visual language remain aligned.
 
+Flow decisions should also preserve MH Construction naming and construction-first copy throughout the body content sequence.
+
 ---
 
 ## Core Rule

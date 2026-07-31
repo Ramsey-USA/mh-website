@@ -1,5 +1,7 @@
 # Safety CI Gate Policy
 
+**Brand Congruency:** Safety gate policy language should preserve MH Construction naming, trust-safe references, and canonical route terminology.
+
 **Last Updated:** April 18, 2026  
 **Owner:** Engineering  
 **Applies To:** all pull requests into `main` and all pushes to `main`/`develop`  

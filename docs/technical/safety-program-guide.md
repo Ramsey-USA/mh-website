@@ -29,6 +29,8 @@ This guide documents:
 
 **Brand Congruency:** Safety program templates, generated PDFs, and print routes must keep typography and color usage aligned with the canonical MH font and palette standards.
 
+Where user-facing labels appear, keep them construction-first, trust-safe, and aligned with MH Construction naming.
+
 ### PDF Governance Update (April 22, 2026)
 
 - Safety PDF workflow is now governed by dedicated agents:

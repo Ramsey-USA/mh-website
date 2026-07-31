@@ -8,6 +8,8 @@ Use this companion with [Consistency Guide](./consistency-guide.md) for implemen
 
 ## Implementation Checklist
 
+**Brand Congruency:** Implementation checks should keep MH typography, trust content, and construction-first copy aligned across pages and components.
+
 ### Before Creating a New Page
 
 - [ ] Choose hero pattern (image/video background or gradient)

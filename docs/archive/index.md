@@ -7,6 +7,8 @@
 
 Historical documentation snapshots that are no longer active standards, kept for traceability.
 
+**Brand Congruency:** Archived references should still preserve MH Construction naming, trust-safe terminology, and construction-first context where visible.
+
 ## Available Archive Sets
 
 - [2026-07 Archive Set](./2026-07/index.md)

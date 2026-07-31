@@ -8,6 +8,8 @@
 SEO implementation, route indexing policy, and section-ordering references for
 search visibility and accessibility alignment.
 
+**Brand Congruency:** SEO governance in this folder should keep titles, descriptions, routes, and indexing guidance construction-first, trust-safe, and aligned with the canonical MH slogan family.
+
 ## Core Guides
 
 - **[Complete SEO & Search Optimization Guide](./seo-complete-guide.md)** — Canonical implementation guide.

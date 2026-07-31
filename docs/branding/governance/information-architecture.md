@@ -9,6 +9,8 @@
 Keep branding markdown organized around clear ownership so future developers can find, update,
 and enforce MH branding standards without duplicating guidance.
 
+**Brand Congruency:** Folder structure and file ownership guidance should remain aligned with the canonical MH voice, trust content, and construction-first terminology.
+
 ## Folder Ownership Model
 
 - `docs/branding/brand-constants.md`: Canonical factual constants (identity, messaging lines, licenses, contact values).

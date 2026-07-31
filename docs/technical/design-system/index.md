@@ -11,6 +11,8 @@ canonical UI component spec).
 
 **Brand Congruency:** Design-system implementations must use the canonical MH typography and color system so component behavior stays visually consistent across pages.
 
+Design-system guidance should also preserve MH Construction naming and construction-first copy when component labels or examples surface to users.
+
 ## Current Status
 
 - The website design baseline is currently validated against the unified token system and brand guardrails.

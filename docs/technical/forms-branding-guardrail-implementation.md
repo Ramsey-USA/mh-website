@@ -5,6 +5,8 @@ description: Complete guide to enforcing letterhead-aligned branding across all 
 
 ## Forms Branding Guardrail — Implementation Guide
 
+**Brand Congruency:** Form guardrail guidance should preserve MH Construction naming, trust-safe copy, and construction-first brand language in all user-facing form surfaces.
+
 ## Overview
 
 A forms branding guardrail system has been created to ensure **all safety forms** use identical border alignment, ribbon styling, and footer branding as the `safety-manual-letterhead.html` template.

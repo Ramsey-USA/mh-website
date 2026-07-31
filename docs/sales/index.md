@@ -1,7 +1,7 @@
 # Sales / Estimating Documentation
 
 **Category:** Sales / Estimating - Strategy  
-**Last Updated:** July 29, 2026
+**Last Updated:** July 31, 2026
 
 ## Overview
 
@@ -18,6 +18,11 @@ Marketing creates awareness around the client project. Sales/estimating turns th
 ### Strategy Baseline
 
 - **[Sales/Estimating Guide](./sales-estimating-guide.md)** — Lead qualification workflow, estimate development standard, stakeholder relationship rhythm, proposal discipline, and handoff expectations.
+- **[Marketing Parameters Directory](../marketing/parameters/index.md)** — Shared entry point for the reusable baselines that sales and marketing both consume when campaign language, approvals, proof, and handoff rules overlap.
+- **[Social Media Branding Parameters (Shared Campaign Baseline)](../marketing/parameters/social-media-branding-parameters.md)** — Shared parameter source for proof rules, lifecycle naming, channel controls, and stakeholder-safe follow-up language when sales content overlaps marketing surfaces.
+- **[Lifecycle Campaign Parameters](../marketing/parameters/lifecycle-campaign-parameters.md)** — Shared campaign-stage naming and timing when pursuit recaps or owner-approved updates align with build-phase communication.
+- **[Proof and Approval Parameters](../marketing/parameters/proof-and-approval-parameters.md)** — Shared evidence gates and release rules for follow-up language or recap assets that may be reused externally.
+- **[Pursuit and Handoff Parameters](../marketing/parameters/pursuit-and-handoff-parameters.md)** — Shared opportunity-fit rules, approval authority, and handoff continuity baseline.
 - **[Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)** — Project visibility, public storytelling, and relationship-building guide for the build cycle and beyond.
 - **[Business Services](../business/services.md)** — Canonical service language, proposal framing, and public service descriptions.
 
@@ -31,16 +36,13 @@ Marketing creates awareness around the client project. Sales/estimating turns th
 
 Before publishing any sales or estimating asset, confirm that terminology, trust references, and page titles align with the canonical brand language in [Brand Constants](../branding/brand-constants.md).
 
-## Quick Links
+## Related References
 
-- [← Documentation Index](../index.md)
-- [← Back to Main README](../../README.md)
+Use these references when sales or estimating work needs to connect back to the broader docs system, MH message hierarchy, or adjacent pursuit and service strategy docs.
+
+- [Documentation Index](../index.md)
+- [Main README](../../README.md)
 - [Manual Family Hub](../manuals/index.md)
 - [Brand Messaging](../branding/strategy/messaging.md)
 - [Business Services](../business/services.md)
 - [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)
-
----
-
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-**Built on Quality, Backed by Trust.**

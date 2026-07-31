@@ -57,6 +57,8 @@ Executable enforcement:
 Define how MH Branding Guardrails must be applied across all website surfaces so enforcement is
 explicit, complete, and repeatable.
 
+**Brand Congruency:** Coverage guidance must preserve MH Construction naming, trust-safe voice, and construction-first terminology across all website surfaces.
+
 This document operationalizes the guardrails from:
 
 - `docs/branding/agent-branding-policy.md`

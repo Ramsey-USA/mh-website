@@ -1,5 +1,7 @@
 # Automatic Media Optimization
 
+**Brand Congruency:** Media filenames, captions, and optimization outputs should preserve MH construction-first naming and approved brand language where visible to users.
+
 This project automatically optimizes images and videos when they're added to the repository.
 
 ## How It Works

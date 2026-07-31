@@ -43,7 +43,23 @@ jest.mock("@/components/services", () => ({
   ConstructionExpertiseSection: () => <section id="expertise" />,
   CoreServicesSection: () => <section id="core-services" />,
   SpecialtyServicesSection: () => <section id="specialty" />,
-  ConstructionProcessSection: () => <section id="process" />,
+  ConstructionProcessSection: ({
+    description,
+    steps,
+  }: {
+    description: string;
+    steps: Array<{ title: string; description: string }>;
+  }) => (
+    <section id="process">
+      <p>{description}</p>
+      {steps.slice(0, 3).map((step) => (
+        <div key={step.title}>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+      ))}
+    </section>
+  ),
   WhyChooseUs: () => <section id="trust-in-action" />,
   GovernmentProjectsSection: () => <section id="government" />,
   ServiceAreasSection: () => <section id="service-areas" />,
@@ -122,6 +138,9 @@ describe("ServicesPage", () => {
       ).toBe(true);
     });
 
+    expect(
+      screen.getAllByText(/approval gates|handoff governance/i).length,
+    ).toBeGreaterThan(0);
     expect(screen.getByRole("link", { name: "Contact" })).toHaveAttribute(
       "href",
       "/contact",

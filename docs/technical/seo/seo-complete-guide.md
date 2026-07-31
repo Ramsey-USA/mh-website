@@ -7,7 +7,9 @@
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../../branding/brand-constants.md).
 
-**Brand Congruency:** SEO copy, titles, schema, and page labels must remain aligned with approved MH voice, trust language, veteran-owned framing, and accessibility naming.
+**Brand Congruency:** SEO copy, titles, schema, and page labels must remain aligned with approved MH voice, trust language, veteran-owned framing, accessibility naming, and construction-first terminology.
+
+Lead with professional construction terminology in titles, descriptions, schema, and keywords. Use veteran-owned framing as supporting context, not as the primary SEO label.
 
 > **Consolidation Note:** This document consolidates and supersedes:
 >
@@ -186,7 +188,7 @@ For canonical per-route ordering maps and implementation details, use:
 ⚠️ **Minimum:** 30 characters  
 ❌ **Maximum:** 60 characters (hard limit)
 
-**Formula:** `[Page Name] | MH Construction`
+**Formula:** `[Construction or service term] | MH Construction`
 
 **Examples:**
 
@@ -227,20 +229,20 @@ with transparent pricing. Schedule your free consultation today.
 3. **Identity:** "veteran-owned construction"
 4. **Location:** "Pacific Northwest", "Tri-State licensed (WA, OR, ID)", "Tri-Cities HQ"
 5. **Services:** Related service terms
-6. **USP:** "transparent pricing", "military precision"
+6. **USP:** "transparent pricing", "project management"
 7. **Secondary:** Additional relevant terms
 
 **Current Primary Keywords (Root Layout):**
 
-1. veteran-owned contractor
+1. construction contractor
 2. Pacific Northwest construction
-3. military precision construction
+3. commercial construction services
 4. Pacific Northwest builder
-5. General MH military construction
-6. veteran benefits construction
+5. MH Construction
+6. veteran-owned construction
 7. Tri-State licensed contractor
 8. transparent construction partnerships
-9. military-style project management
+9. project management
 10. Washington Oregon Idaho contractor
 11. sustainable construction technology
 12. community-focused building

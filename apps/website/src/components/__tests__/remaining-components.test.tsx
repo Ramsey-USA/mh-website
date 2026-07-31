@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  *
  * Tests for remaining 0%-coverage components:
- * VendorPlatformLink, TestimonialsSection, NextStepsSection,
- * SkillsRadarChart, TeamProfileSection, LocationPageContent
+ * VendorPlatformLink, TestimonialsSection,
+ * SkillsRadarChart, LocationPageContent
  */
 
 import React from "react";
@@ -198,9 +198,7 @@ import {
   type VendorPlatform,
 } from "../allies/VendorPlatformLink";
 import { TestimonialsSection } from "../shared-sections/TestimonialsSection";
-import { NextStepsSection } from "../shared-sections/NextStepsSection";
 import { SkillsRadarChart } from "../team/SkillsRadarChart";
-import { TeamProfileSection } from "../team/TeamProfileSection";
 import { LocationPageContent } from "../locations/LocationPageContent";
 
 // ─── VendorPlatformLink ───────────────────────────────────────────────────────
@@ -335,42 +333,6 @@ describe("TestimonialsSection", () => {
   });
 });
 
-// ─── NextStepsSection ─────────────────────────────────────────────────────────
-
-describe("NextStepsSection", () => {
-  it("renders the section", () => {
-    render(<NextStepsSection />);
-    expect(screen.getByText("Let's Build Together")).toBeTruthy();
-  });
-
-  it("renders PitchDeckCTA card", () => {
-    render(<NextStepsSection />);
-    expect(screen.getByTestId("pitch-deck-cta")).toBeTruthy();
-  });
-
-  it("renders View Our Work card with link", () => {
-    render(<NextStepsSection />);
-    expect(screen.getByText(/View Project Portfolio/i)).toBeTruthy();
-  });
-
-  it("renders contact/schedule card", () => {
-    render(<NextStepsSection />);
-    // Multiple matches expected — just confirm the section renders at least one CTA
-    expect(
-      screen.getAllByText(
-        /Schedule|consultation|Contact|Get Started|contact_phone/i,
-      ).length,
-    ).toBeGreaterThanOrEqual(1);
-  });
-
-  it("renders with custom className (passes through)", () => {
-    render(<NextStepsSection className="test-class" />);
-    // BrandedContentSection mock passes through className
-    const { container } = render(<NextStepsSection className="test-class-2" />);
-    expect(container.querySelector(".test-class-2")).toBeTruthy();
-  });
-});
-
 // ─── SkillsRadarChart ─────────────────────────────────────────────────────────
 
 const mockSkillData = [
@@ -411,134 +373,6 @@ describe("SkillsRadarChart", () => {
   it("renders with empty data array", () => {
     const { container } = render(<SkillsRadarChart data={[]} />);
     expect(container.firstChild).toBeTruthy();
-  });
-});
-
-// ─── TeamProfileSection ───────────────────────────────────────────────────────
-
-const mockMember = {
-  name: "John Doe",
-  role: "Project Manager",
-  department: "Operations",
-  cardNumber: 1,
-  position: "Project Manager",
-  nickname: "JD",
-  yearsWithCompany: 5,
-  height: "6'0\"",
-  hometown: "Kennewick, WA",
-  education: "BS Construction Management",
-  skills: {
-    leadership: 90,
-    technical: 85,
-    communication: 80,
-    safety: 95,
-    problemSolving: 88,
-    teamwork: 92,
-    organization: 87,
-    innovation: 75,
-    passion: 98,
-    continuingEducation: 82,
-  },
-  currentYearStats: {
-    projectsCompleted: 12,
-    clientSatisfaction: 98,
-    safetyRecord: "Zero incidents",
-    teamCollaborations: 8,
-  },
-  careerStats: {
-    totalProjects: 150,
-    yearsExperience: 15,
-    specialtyAreas: 4,
-    mentorships: 6,
-  },
-  awards: "Employee of the Year 2024",
-  bio: "Dedicated construction professional with 15 years of experience.",
-  careerHighlights: ["Led $50M commercial project", "Certified PMP"],
-  funFact: "Built a treehouse",
-  certifications: "PMP, OSHA 30",
-  hobbies: "Woodworking",
-  specialInterests: "Sustainable building",
-  specialties: ["Commercial", "Industrial"],
-  avatar: "/images/team/john-doe.jpg",
-  qrCode: "/images/qr/john-doe.png",
-  veteranStatus: "Army Veteran",
-  active: true,
-  slug: "john-doe",
-  email: "john@mhc-gc.com",
-};
-
-describe("TeamProfileSection", () => {
-  it("renders team member name", () => {
-    render(<TeamProfileSection member={mockMember} index={0} />);
-    expect(screen.getByText("John Doe")).toBeTruthy();
-  });
-
-  it("renders team member role/position", () => {
-    render(<TeamProfileSection member={mockMember} index={0} />);
-    expect(
-      screen.getAllByText(/Project Manager/i).length,
-    ).toBeGreaterThanOrEqual(1);
-  });
-
-  it("renders bio text", () => {
-    render(<TeamProfileSection member={mockMember} index={0} />);
-    expect(
-      screen.getByText(/Dedicated construction professional/i),
-    ).toBeTruthy();
-  });
-
-  it("renders career highlights", () => {
-    render(<TeamProfileSection member={mockMember} index={1} />);
-    expect(screen.getByText(/Led.*50M/i)).toBeTruthy();
-  });
-
-  it("renders stats (projects completed)", () => {
-    render(<TeamProfileSection member={mockMember} index={0} />);
-    expect(screen.getByText("12")).toBeTruthy();
-  });
-
-  it("renders with even index (alternates layout)", () => {
-    const { container } = render(
-      <TeamProfileSection member={mockMember} index={0} />,
-    );
-    expect(container.firstChild).toBeTruthy();
-  });
-
-  it("renders with odd index", () => {
-    const { container } = render(
-      <TeamProfileSection member={mockMember} index={1} />,
-    );
-    expect(container.firstChild).toBeTruthy();
-  });
-
-  it("renders veteran status badge", () => {
-    render(<TeamProfileSection member={mockMember} index={0} />);
-    expect(screen.getByText(/Army Veteran/i)).toBeTruthy();
-  });
-
-  it("renders member without optional fields", () => {
-    const {
-      nickname,
-      awards,
-      funFact,
-      certifications,
-      hobbies,
-      veteranStatus,
-      qrCode,
-      avatar,
-      ...rest
-    } = mockMember;
-    const minimal = { ...rest };
-    const { container } = render(
-      <TeamProfileSection member={minimal} index={0} />,
-    );
-    expect(container.firstChild).toBeTruthy();
-  });
-
-  it("shows top skill values in radar chart area", () => {
-    render(<TeamProfileSection member={mockMember} index={0} />);
-    // Top-skill chips should render in the radar summary area.
-    expect(screen.getByText("Passionate Drive")).toBeTruthy();
   });
 });
 

@@ -36,10 +36,6 @@ Use [Website Guardrails Coverage Map](../../branding/governance/website-guardrai
 
 ## Historical Hero Audit Set
 
-- **[Hero Congruency Audit (2026-05-16)](./hero-congruency-audit-2026-05-16.md)** — Snapshot audit findings for hero surface parity
-- **[Hero Congruency Rollout Plan (2026-05-16)](./hero-congruency-rollout-plan-2026-05-16.md)** — Execution plan that followed the congruency audit
-- **[Hero Presence Inventory (2026-05-16)](./hero-presence-inventory-2026-05-16.md)** — Route-by-route hero presence inventory from the same audit cycle
-
 ## AI & Agent Guidance
 
 - **[AI Development Guidelines](./ai-development-guidelines.md)** — Rules for AI-assisted development

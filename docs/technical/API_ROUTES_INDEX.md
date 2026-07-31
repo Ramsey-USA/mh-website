@@ -6,6 +6,8 @@ This document provides a centralized index of all API endpoints in the MH Constr
 
 **Brand Congruency:** Route naming, endpoint labels, and API descriptions should stay aligned with approved MH terminology and trust-safe language.
 
+Keep API-facing names construction-first where user-visible, and avoid slogan-heavy phrasing in route labels or endpoint descriptions.
+
 ---
 
 ## Table of Contents

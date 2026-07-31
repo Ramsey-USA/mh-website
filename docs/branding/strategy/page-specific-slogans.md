@@ -8,6 +8,8 @@
 > This document is the governance companion for how to author, review, and validate that runtime matrix.
 > The primary slogan remains [Brand Constants](../brand-constants.md) and every page in scope should have one page-specific slogan in addition to the canonical primary line.
 
+**Brand Congruency:** Page slogans should stay factual, relationship-first, and aligned with the canonical MH slogan family and construction-first page naming.
+
 ---
 
 ## Usage Rules

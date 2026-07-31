@@ -7,7 +7,7 @@ This plan converts the recommendations in [docs/technical/design-system/MHC-Ente
 Bring the handbook, safety manual, operations manual, sales guide, and marketing guide into a single enterprise-aligned operating model with:
 
 - consistent enterprise terminology
-- a unified Navy-hybrid command structure
+- a unified enterprise command structure
 - clear separation between Sales and Marketing
 - complete command controls and governance appendices
 - stronger safety integration with MISH references and KPI alignment
@@ -24,7 +24,8 @@ Tasks:
   - replace generic terms with “Client Partners” and “Trade Partners”
   - replace old titles with the enterprise command model: CO, XO, Master Chief, CHENG, CHNAV
 - Ensure the core values block appears in the introductory sections of the Operations Manual, Sales Guide, and Marketing Guide.
-- Standardize the slogan and supporting brand language used in the manuals and guides.
+- Standardize the canonical MH slogan and supporting brand language used in the manuals and guides.
+- Keep all public-facing terminology construction-first, with veteran-owned framing used as trust context rather than primary labeling.
 
 Primary files:
 
@@ -125,7 +126,7 @@ Primary files:
 ## Acceptance Checklist
 
 - [ ] Global terminology replacement completed across all manuals.
-- [ ] Navy-hybrid titles applied consistently.
+- [ ] Construction-first, enterprise-aligned titles applied consistently.
 - [ ] Handbook technology and safety updates completed.
 - [ ] Operations Manual appendices A-F drafted.
 - [ ] Admin/HR SOP added to the Operations Manual.

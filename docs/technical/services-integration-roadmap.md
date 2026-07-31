@@ -6,6 +6,8 @@
 
 Use this roadmap with [External Services Integration Guide](./services-integration-guide.md).
 
+**Brand Congruency:** Service integrations and rollout notes must preserve MH construction-first terminology, trust-safe language, and the canonical slogan family.
+
 ## Purpose
 
 This document tracks recommended service additions and operational maturity steps
@@ -51,7 +53,7 @@ Why:
 Baseline profile checklist:
 
 1. Claim or create listing in `https://business.google.com`
-2. Complete business profile fields with canonical brand details
+2. Complete business profile fields with canonical MH brand details, including the approved company name, slogan, and service-area language
 3. Add all active service areas and core services
 4. Upload fresh project media and logo assets
 5. Set a weekly review response SLA and posting cadence

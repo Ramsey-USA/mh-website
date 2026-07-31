@@ -7,6 +7,8 @@
 
 **Brand Congruency:** This checklist is a required gate for typography, color, voice, trust content, accessibility, and naming alignment.
 
+Keep page audits construction-first and trust-safe when validating route copy, headings, and CTA language.
+
 **Copy Congruency Rule:** Shared phrasing across pages is acceptable; duplicated phrasing within the same page is not.
 
 ---

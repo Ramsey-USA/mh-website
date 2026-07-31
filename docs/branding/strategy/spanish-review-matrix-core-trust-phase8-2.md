@@ -9,6 +9,8 @@ Repository-only translation review artifact for Prompt 8.2 core and trust page
 surfaces. This table tracks namespace coverage, sensitive wording review scope,
 and human approval status.
 
+**Brand Congruency:** Spanish review decisions should preserve MH Construction naming, trust-safe messaging, and approved veteran-owned framing.
+
 ## Review Scope
 
 - Homepage and `components/home/*`

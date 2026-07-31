@@ -1,7 +1,7 @@
 # Project Documentation
 
 **Category:** Project - Overview  
-**Last Updated:** July 11, 2026
+**Last Updated:** July 31, 2026
 
 ## Overview
 
@@ -41,13 +41,11 @@ All project documentation should preserve the same brand voice, trust framing, a
 - **[Repository Status Report (Phase 2 Complete)](../../repo-status-phase2-complete.md)** — Root-level repository inventory and status snapshot retained for reference.
 - **[Markdown Housekeeping Priority Report (2026-07-29)](./markdown-housekeeping-priority-2026-07-29.md)** — Prioritized visibility and indexing follow-up plan after cache clear and audit sweep.
 
-## Quick Links
+## Related References
 
-- [← Documentation Index](../index.md)
-- [← Back to Main README](../../README.md)
+Use these references when project planning or governance work needs to connect back to the broader docs system, deployment guidance, or technical implementation standards.
+
+- [Documentation Index](../index.md)
+- [Main README](../../README.md)
 - [Deployment Documentation](../deployment/index.md)
 - [Technical Documentation](../technical/index.md)
-
----
-
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

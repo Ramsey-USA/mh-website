@@ -1,5 +1,7 @@
 # Secrets Management Guide
 
+**Brand Congruency:** Secrets handling guidance should keep project naming, environment labels, and operational references aligned with MH Construction terminology.
+
 ## Secure Handling of API Keys and Credentials
 
 **Last Updated:** April 15, 2026

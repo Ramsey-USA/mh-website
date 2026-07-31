@@ -1,17 +1,34 @@
 # Google Business Profile Optimization Guide
 
 **Category:** Marketing - Google Business Profile  
-**Last Updated:** April 15, 2026  
-**Version:** 1.1.0  
+**Last Updated:** July 31, 2026  
+**Version:** 2.0.0  
 **Status:** ✅ Active
 
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for exact brand values.
 >
 > **Brand Congruency:** Keep every post, reply, and profile edit factual, relationship-first, and aligned with approved MH voice, trust language, and SEO naming.
 
+> **Execution Baseline:** Apply [Social Media Branding Parameters](./parameters/social-media-branding-parameters.md), [Proof and Approval Parameters](./parameters/proof-and-approval-parameters.md), and [GBP Post Templates](./gbp-post-templates.md) before publishing or adapting GBP content.
+
 ---
 
-## 📍 **Your Google Business Profile**
+## Purpose
+
+This guide defines how MH Construction should operate its Google Business Profile as a local-trust channel. It is not a separate marketing system. It is one execution surface inside the broader MH marketing operating model.
+
+Use this guide when managing weekly GBP activity, maintaining profile accuracy, responding to reviews, planning local-service posts, or aligning local search visibility with approved MH messaging.
+
+## Operating Intent
+
+Google Business Profile should help MH do four things well:
+
+- Maintain accurate local business information.
+- Publish short-form, evidence-backed updates that support trust.
+- Respond to reviews and questions with professionalism and clear follow-through.
+- Strengthen local search visibility without drifting into hype, speculation, or off-brand claims.
+
+## Your Google Business Profile
 
 **Primary Location:** 3111 N Capitol Ave, Pasco, WA 99301  
 **Phone:** (509) 308-6489  
@@ -23,26 +40,41 @@
 
 ---
 
-## 🎯 **Weekly Action Plan (20 Minutes/Week)**
+## Weekly Operating Rhythm
+
+Use GBP as a supporting channel within the approved 1-2 posts per week baseline. GBP should reinforce local trust visibility, not create a separate content calendar that outruns approved proof.
 
 ### Monday (5 minutes) - Weekly Post
 
-Create a Google Post about this week's focus:
+Publish one approved post when there is a clear reason to do so. Good candidates include:
 
 - Current project update
 - New service announcement
 - Industry tip or insight
 - Company milestone
 
-**Example Posts:**
+Follow the approved structure in [GBP Post Templates](./gbp-post-templates.md). Keep the post short, local, and evidence-backed.
+
+**Post Check:**
+
+- Is the update tied to a real milestone, real service fact, or real company event?
+- Is the wording relationship-first and construction-first?
+- Would the owner or field team recognize this as accurate?
+- Does the post link to the most relevant website page?
+
+**Example Post:**
 
 ```text
-🏗️ Project Update: Breaking ground on a new 10,000 sq ft commercial facility in Kennewick this week! Our veteran-owned team is proud to serve the Tri-Cities headquarters community and a Tri-State project footprint.
+🏗️ Ground Break Update
 
-📞 Need construction services? Call (509) 308-6489
-🌐 Visit: www.mhc-gc.com
+Work is underway on a new commercial project in Kennewick. Site preparation is in motion, and the team is aligning the early work for a clean, accountable start.
 
-#TriCitiesConstruction #CommercialConstruction #VeteranOwned
+Built on Quality, Backed by Trust.
+
+📞 (509) 308-6489
+🌐 www.mhc-gc.com/contact
+
+#CommercialConstruction #KennewickWA #VeteranOwned
 ```
 
 ### Wednesday (5 minutes) - Photo Upload
@@ -54,12 +86,13 @@ Upload 2-3 new photos:
 - Team at work photos
 - Equipment/capabilities photos
 
-**Photo Tips:**
+**Photo Standards:**
 
 - High resolution (min 720px wide)
 - Well-lit, professional appearance
-- Show people working (adds authenticity)
+- Show real conditions, real work, or real team presence when appropriate
 - Avoid photos with sensitive client info visible
+- Avoid images that expose uncontrolled access points, private data, or misleading project status
 
 ### Friday (10 minutes) - Engagement Check
 
@@ -70,7 +103,7 @@ Upload 2-3 new photos:
 
 ---
 
-## 📝 **Monthly Tasks (1 Hour/Month)**
+## Monthly Operating Tasks
 
 ### Week 1: Content Audit
 
@@ -84,16 +117,18 @@ Upload 2-3 new photos:
 Add 5-10 common questions with answers:
 
 - "What areas do you serve?"
-- "Do you offer free estimates?"
+- "How do you approach early project planning?"
 - "Are you licensed and insured?"
 - "What types of projects do you handle?"
 - "Do you work with government contracts?"
+
+Keep answers plain-language, factual, and consistent with approved service and public-sector messaging.
 
 ### Week 3: Attributes & Services Update
 
 - Verify all services are listed
 - Update any certifications or credentials
-- Add seasonal service offerings
+- Update service descriptions when website naming changes
 - Check veteran-owned business attribute is displayed
 
 ### Week 4: Competitor Analysis
@@ -101,16 +136,31 @@ Add 5-10 common questions with answers:
 - Check 3-5 competitor profiles
 - Note what they're doing well
 - Identify opportunities to differentiate
-- Adjust strategy as needed
+- Adjust strategy only when changes stay within MH brand and proof guardrails
 
 ---
 
-## 🌟 **Review Response Templates**
+## Review Response Standards
+
+Review responses should protect trust, show professionalism, and avoid public argument. Respond with clarity, gratitude, and a willingness to continue the conversation directly when needed.
+
+### Response Rules
+
+- Respond within 24-48 hours.
+- Thank the reviewer.
+- Acknowledge specific details when they are appropriate to mention publicly.
+- Do not disclose private project details.
+- Move resolution conversations offline when concerns are sensitive or disputed.
+- Stay professional, never defensive.
+
+## Review Response Templates
 
 ### 5-Star Review Response
 
 ```text
-Thank you so much for the kind words, [Name]! We're thrilled that you're happy with [specific project detail]. Our veteran-owned team takes pride in Built on Quality, Backed by Trust. We appreciate your trust and look forward to serving you again in the future!
+Thank you, [Name]. We appreciate the trust you placed in MH Construction for [project detail]. Our team takes pride in clear communication, dependable follow-through, and quality work from planning through handoff.
+
+Built on Quality, Backed by Trust.
 
 - MH Construction Team
 ```
@@ -118,7 +168,9 @@ Thank you so much for the kind words, [Name]! We're thrilled that you're happy w
 ### 4-Star Review Response
 
 ```text
-Thank you for your feedback, [Name]! We're glad we could help with [project]. We noticed you gave us 4 stars - is there anything we could have done better? We're always looking to improve our service. Feel free to reach out at (509) 308-6489.
+Thank you for the feedback, [Name]. We appreciate the opportunity to support [project]. If there is anything we could have handled better, we would value the chance to learn more.
+
+Please feel free to contact our team at (509) 308-6489.
 
 - MH Construction Team
 ```
@@ -126,22 +178,18 @@ Thank you for your feedback, [Name]! We're glad we could help with [project]. We
 ### 3-Star or Below Response
 
 ```text
-Thank you for taking the time to share your experience, [Name]. We take all feedback seriously and would like to make this right. Please contact us directly at (509) 308-6489 so we can discuss your concerns and find a solution.
+Thank you for taking the time to share your feedback, [Name]. We take concerns seriously and would appreciate the opportunity to speak with you directly so we can better understand the issue and respond appropriately.
+
+Please contact our team at (509) 308-6489.
 
 - MH Construction Team
 ```
 
-**Key Principles:**
-
-- Respond within 24-48 hours
-- Always thank the reviewer
-- Address specific points mentioned
-- Offer to take conversations offline if needed
-- Stay professional, never defensive
-
 ---
 
-## 📸 **Content Calendar & Post Ideas**
+## Content Mix and Post Ideas
+
+Use GBP for local-proof visibility, service reminders, and review-friendly trust content. Keep post topics grounded in approved facts and current business priorities.
 
 ### Project Updates (Weekly)
 
@@ -174,34 +222,35 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 ### Veteran-Owned Focus (Monthly)
 
 - Highlight veteran team members
-- Government contracting capabilities
+- Veteran-owned company history and leadership
 - Community service projects
 - Military appreciation events
 
 ---
 
-## 📊 **Key Performance Indicators**
+## Success Measures
 
-### Track Monthly
+Track results at the same level of discipline used elsewhere in the marketing system.
 
-- **Profile Views:** Target 500+ views/month
+### Monitor Monthly
+
+- **Profile Views:** Track trend direction and local visibility growth
 - **Search Queries:** Monitor what people search for
-- **Website Clicks:** Target 50+ clicks/month
+- **Website Clicks:** Track traffic quality and intent
 - **Phone Calls:** Track calls from profile
 - **Direction Requests:** People finding your location
 - **Photo Views:** Engagement with visual content
 
-### Goals (6 Months)
+### Evaluate Quarterly
 
-- 10+ positive reviews (4+ stars average)
-- 1,000+ profile views/month
-- 100+ website clicks/month
-- Top 3 ranking for "general contractor Tri-State licensed"
-- Complete profile (100% information filled)
+- Review quality and response consistency
+- Growth in trusted local visibility
+- Stronger engagement on approved project and service posts
+- Clean alignment between profile messaging and website/service language
 
 ---
 
-## 🚀 **Optimization Checklist**
+## Optimization Checklist
 
 ### Profile Completeness (Do Once)
 
@@ -216,55 +265,53 @@ Thank you for taking the time to share your experience, [Name]. We take all feed
 - [ ] Opening date added
 - [ ] From the business description added
 - [ ] Veteran-owned badge displayed
-- [ ] Payment methods listed
 - [ ] Service area cities added
 
 ### Visual Content
 
 - [ ] Logo uploaded (square, high-res)
 - [ ] Cover photo uploaded (landscape, professional)
-- [ ] 50+ photos uploaded (aim for 100+)
+- [ ] Core photo library uploaded and kept current
 - [ ] Videos uploaded (project timelapses, tours)
 - [ ] Photos organized by categories
 - [ ] 360° virtual tour (if applicable)
 
 ### Engagement
 
-- [ ] Posts published weekly (minimum)
+- [ ] Posts published when approved proof exists
 - [ ] All reviews responded to
 - [ ] Q&A section managed proactively
-- [ ] Messages enabled and monitored
-- [ ] Booking/contact buttons active
+- [ ] Contact options reviewed for current workflow
 
 ---
 
-## 💡 **Pro Tips**
+## Best Practices
 
 ### Posting Best Practices
 
-1. **Post on Monday mornings** (highest engagement)
-2. **Include a call-to-action** in every post
-3. **Use relevant hashtags** (3-5 per post)
-4. **Add photos to posts** (50% more engagement)
-5. **Keep text concise** (100-300 words ideal)
-6. **Link to specific website pages** when relevant
+1. Post when you have approved facts, not just because the calendar says to post.
+2. Include a clear next step when the post supports inquiry or follow-up.
+3. Keep hashtags limited and locally useful.
+4. Pair posts with approved visuals when those visuals add clarity.
+5. Keep the copy concise and specific.
+6. Link to the most relevant page rather than the homepage by default.
 
 ### Photo Best Practices
 
-1. **Upload at least 3 photos per week**
-2. **Variety is key** (projects, team, equipment, office)
-3. **Name files descriptively** (commercial-building-richland-wa.jpg)
-4. **Show progression** (before, during, after)
-5. **Include people when possible** (team at work)
-6. **Professional quality** (no blurry or poorly lit photos)
+1. Use a balanced mix of projects, team, equipment, and service-area imagery.
+2. Show progression when it adds useful context.
+3. Include people when it strengthens authenticity and permission is clear.
+4. Use descriptive file names when storing or reusing assets.
+5. Avoid blurry, poorly lit, or ambiguous visuals.
+6. Remove or avoid anything that exposes private or sensitive information.
 
 ### Review Generation
 
-1. **Ask satisfied clients** (within 1 week of completion)
-2. **Make it easy** (provide direct link)
-3. **Timing matters** (right after positive interaction)
-4. **Never incentivize** (violates Google policy)
-5. **Follow up politely** (one reminder is okay)
+1. Ask satisfied clients for honest reviews after a positive milestone or closeout moment.
+2. Make it easy by providing a direct review link.
+3. Ask at the right time, when the experience is current and positive.
+4. Never incentivize the review.
+5. Follow up once, politely, if appropriate.
 
 **Direct Review Link Format:**
 
@@ -276,22 +323,21 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 
 ---
 
-## 📅 **90-Day Implementation Plan**
+## 90-Day Implementation Plan
 
 ### Days 1-7: Foundation
 
 - Complete all profile information
-- Upload 20+ photos
+- Upload a strong initial photo set
 - Write optimized business description
-- Set up post schedule
-- Create content bank (10 posts ready)
+- Build a short approved content bank using the GBP templates
 
 ### Days 8-30: Consistency
 
-- Post 2x per week
-- Add 10 photos per week
+- Post within the approved 1-2 posts per week rhythm when proof exists
+- Add new photos as approved assets become available
 - Respond to any reviews within 24 hours
-- Answer 10 Q&A questions proactively
+- Answer common Q&A prompts proactively
 - Monitor insights weekly
 
 ### Days 31-60: Optimization
@@ -300,19 +346,19 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 - Adjust posting frequency based on insights
 - Request reviews from recent happy clients
 - Add video content
-- Expand photo gallery to 50+ photos
+- Expand the photo library where it adds useful proof
 
 ### Days 61-90: Scale
 
-- Post 3x per week
-- Host Q&A about construction services
+- Maintain steady approved posting cadence
+- Improve local Q&A coverage
 - Create seasonal content
 - Track ROI (calls, clicks, conversions)
 - Adjust strategy based on data
 
 ---
 
-## 🛠️ **Tools & Resources**
+## Tools and Resources
 
 ### Scheduling Tools
 
@@ -340,13 +386,13 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 
 ---
 
-## 📞 **Quick Reference**
+## Quick Reference
 
 **When to Post:**
 
-- Monday mornings (7-9 AM): Highest engagement
-- Wednesday afternoons (1-3 PM): Secondary peak
-- Avoid weekends unless time-sensitive
+- Use the approved 1-2 posts per week rhythm when there is real proof to publish
+- Prefer business-hour posting windows when the team can monitor engagement
+- Avoid unnecessary weekend posting unless time-sensitive
 
 **What to Post:**
 
@@ -366,16 +412,15 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 **Response Time Goals:**
 
 - Reviews: Within 24-48 hours
-- Messages: Within 4 hours during business hours
 - Q&A: Within 24 hours
 
 ---
 
-## ✅ **Weekly Checklist (Print & Use)**
+## Weekly Checklist
 
 **Monday:**
 
-- [ ] Create and publish Google Post (5 min)
+- [ ] Create and publish a Google Post if approved proof exists (5 min)
 - [ ] Check for new reviews to respond to (2 min)
 
 **Wednesday:**
@@ -386,16 +431,17 @@ https://g.page/r/[YOUR_PLACE_ID]/review
 **Friday:**
 
 - [ ] Review insights and analytics (5 min)
-- [ ] Respond to any messages (3 min)
 - [ ] Plan next week's content (5 min)
 
 **Total Time:** 20-30 minutes per week
 
 ---
 
-**Need Help?** Contact your web development team for:
+## Related Canonical Sources
 
-- Custom graphics for posts
-- Website updates to reflect GBP changes
-- Review widget integration
-- Advanced analytics setup
+- [Marketing Strategy Guide](./marketing-strategy-guide.md) - channel intent, campaign structure, and relationship-first operating model.
+- [Marketing Parameters Directory](./parameters/index.md) - shared baseline cluster for lifecycle, proof, approvals, and handoff rules.
+- [Social Media Branding Parameters](./parameters/social-media-branding-parameters.md) - channel baseline, cadence, and message hierarchy.
+- [Proof and Approval Parameters](./parameters/proof-and-approval-parameters.md) - evidence gates, hold conditions, and release discipline.
+- [GBP Post Templates](./gbp-post-templates.md) - approved short-form post structures for local GBP publishing.
+- [Brand Constants](../branding/brand-constants.md) - canonical company facts, slogan standards, and approved contact details.

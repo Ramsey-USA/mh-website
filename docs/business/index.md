@@ -1,7 +1,7 @@
 # Business Documentation
 
 **Category:** Business - Overview  
-**Last Updated:** July 24, 2026
+**Last Updated:** July 31, 2026
 
 ## Overview
 
@@ -34,14 +34,11 @@ Team member data is maintained per surface:
 
 Treat these as intentionally separate runtime datasets with shared team JSON lineage, not a single interchangeable file.
 
-## Quick Links
+## Related References
 
-- [← Back to Main README](../../README.md)
+Use these references when business documentation needs to connect back to the canonical MH brand source or adjacent marketing and branding guidance.
+
+- [Main README](../../README.md)
 - [Brand Constants](../branding/brand-constants.md) - Single source of truth for brand values
 - [Branding Documentation](../branding/)
 - [Marketing Resources](../marketing/)
-
----
-
-**Built on Quality, Backed by Trust.**  
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025

@@ -1,5 +1,7 @@
 # Safety Smoke Setup Guide
 
+**Brand Congruency:** Safety smoke guidance should preserve MH Construction naming, trust-safe labels, and construction-first operational references.
+
 **Last Updated:** April 18, 2026  
 **Owner:** Engineering  
 **Status:** ✅ Active

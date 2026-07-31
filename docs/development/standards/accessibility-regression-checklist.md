@@ -9,6 +9,8 @@ Manual accessibility verification companion for automated Jest and Lighthouse ch
 Use this checklist when shipping changes that affect public routes, layout, forms,
 navigation, dialogs, media controls, or localization behavior.
 
+**Brand Congruency:** Accessibility checks should preserve MH voice, trust content, and construction-first naming on every audited surface.
+
 ## Representative Route Matrix
 
 Verify each route class below using keyboard-only flow and a screen reader smoke pass.

@@ -340,8 +340,13 @@ export function generateJeremyPersonSchema() {
   const credentialLinks = jeremyProfile.credentialLinks ?? [];
   const membershipLinks = jeremyProfile.membershipLinks ?? [];
   const storyLinks = jeremyProfile.storyLinks ?? [];
+  const referenceLinks = jeremyProfile.referenceLinks ?? [];
   const jeremyCredentialAndMembershipLinks = Array.from(
-    new Set([...credentialLinks, ...membershipLinks].map((link) => link.url)),
+    new Set(
+      [...credentialLinks, ...membershipLinks]
+        .map((link) => link.url)
+        .concat(jeremyProfile.linkedinUrl ? [jeremyProfile.linkedinUrl] : []),
+    ),
   );
   const jeremyNameVariants = [
     "Jeremy Gale Thamert",
@@ -355,6 +360,18 @@ export function generateJeremyPersonSchema() {
     "@id": `${defaultSEO.siteUrl}/jeremy-thamert#person`,
     name: "Jeremy Gale Thamert",
     alternateName: jeremyNameVariants,
+    identifier: [
+      {
+        "@type": "PropertyValue",
+        propertyID: "full-name",
+        value: "Jeremy Gale Thamert",
+      },
+      {
+        "@type": "PropertyValue",
+        propertyID: "name-variant",
+        value: "Jeremy G Thamert",
+      },
+    ],
     givenName: "Jeremy",
     familyName: "Thamert",
     jobTitle: "Owner & President",
@@ -375,12 +392,14 @@ export function generateJeremyPersonSchema() {
       name: defaultSEO.siteName,
     },
     description:
-      "Jeremy Gale Thamert is Owner & President of MH Construction, leading relationship-first project delivery across Washington, Oregon, and Idaho with verified public records, credential references, and independent stories.",
+      "Jeremy Gale Thamert is Owner & President of MH Construction, leading relationship-first commercial and industrial project delivery across Washington, Oregon, and Idaho with biography details supported by public records and independent reporting.",
     knowsAbout: [
+      "Commercial and Industrial Construction Delivery",
       "Construction Operations",
       "Project Delivery",
       "Safety Culture",
       "Veteran-Owned Business Leadership",
+      "Military Aviation Operations",
       "Code Compliance",
       "Plans Examination",
       "Renewable Energy Coordination",
@@ -400,6 +419,12 @@ export function generateJeremyPersonSchema() {
       "@type": "CreativeWork",
       name: link.label,
       url: link.url,
+    })),
+    citation: referenceLinks.map((link) => ({
+      "@type": "CreativeWork",
+      name: link.label,
+      url: link.url,
+      identifier: `Reference [${link.id}]`,
     })),
     subjectOf: {
       "@id": `${defaultSEO.siteUrl}/#video-jeremy-leadership`,

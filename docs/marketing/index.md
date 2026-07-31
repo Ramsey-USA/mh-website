@@ -1,7 +1,7 @@
 # Marketing Documentation
 
 **Category:** Marketing - Overview  
-**Last Updated:** July 29, 2026
+**Last Updated:** July 31, 2026
 
 ## Overview
 
@@ -15,37 +15,30 @@ All marketing copy must remain congruent with MH branding standards: relationshi
 
 ### Strategy Baseline
 
-- **[Social Media Branding Parameters (Project Baseline)](./parameters/social-media-branding-parameters.md)** — Canonical MH terminology, trust-proof rules, adjustable cadence/length parameters, and required security-tier communication controls for public-sector work.
+- **[Marketing Parameters Directory](./parameters/index.md)** — Shared entry point for reusable marketing and sales baselines covering lifecycle, proof, approvals, and cross-functional handoff rules.
+- **[Social Media Branding Parameters (Shared Campaign Baseline)](./parameters/social-media-branding-parameters.md)** — Canonical shared parameters source for marketing and sales congruency, including trust-proof rules, lifecycle naming, adjustable cadence/length parameters, and required security-tier communication controls.
+- **[Lifecycle Campaign Parameters](./parameters/lifecycle-campaign-parameters.md)** — Shared phase names, week ranges, slogan lines, and campaign-stage intent for project storytelling and recap work.
+- **[Proof and Approval Parameters](./parameters/proof-and-approval-parameters.md)** — Shared evidence gates, release thresholds, hold conditions, and approval checks for cross-functional campaign use.
+- **[Pursuit and Handoff Parameters](./parameters/pursuit-and-handoff-parameters.md)** — Shared continuity rules for opportunity fit, approval authority, and pursuit-to-operations alignment when sales and marketing overlap.
 - **[Marketing Strategy Guide](./marketing-strategy-guide.md)** — 36-week project marketing runway, phase mapping, five-angle rotation, publishing rhythm, and repurposing workflow.
 
 ### Google Business Profile
 
-- **[Google Business Profile Optimization Guide](./google-business-profile-guide.md)** — Profile
-  setup, optimization, and ongoing maintenance.
-- **[GBP Post Templates](./gbp-post-templates.md)** — Ready-to-use post templates aligned with MH
-  voice and veteran-owned framing.
-- **[Review Recognition Program](./review-recognition-program.md)** — Compliant SOP for increasing
-  authentic reviews with employee recognition rewards.
-- **[Review Outreach Templates](./review-outreach-templates.md)** — Email, SMS, and verbal scripts for
-  honest review requests.
-- **[Review Automation Runbook](./review-automation-runbook.md)** — Command workflow for outreach file
-  generation, weekly summary reporting, and dashboard exports.
-- **[Weekly Ops Automation Command](./review-automation-runbook.md)** — Single command workflow that
-  validates tracker data and generates weekly plus monthly reporting outputs.
-- **[Closeout Input Validation](./review-automation-runbook.md)** — Validator command for outreach
-  input quality and contact completeness checks.
-- **[Monthly KPI JSON Export](./review-automation-runbook.md)** — JSON metrics export for dashboard
-  ingestion and monthly leadership reporting.
-- **[Sample Regression Check](./review-automation-runbook.md)** — CI-safe command to verify sample
-  automation outputs against expected artifacts.
-- **[Review Recognition Tracker Template](./templates/review-recognition-tracker-template.csv)** —
-  CSV template for verification and gift card fulfillment logging.
-- **[Review Closeout Input Template](./templates/review-closeout-input-template.csv)** — Input CSV for
-  automated outreach generation.
-- **[Review Dashboard Import Schema](./templates/review-recognition-dashboard-import-schema.json)** —
-  Field contract for dashboard-friendly review reporting exports.
-- **[Expected Weekly Summary Sample](./templates/samples/expected-output/review-weekly-summary.md)** — Canonical expected weekly output sample for automation regression checks.
-- **[Expected Monthly Leaderboard Sample](./templates/samples/expected-output/review-monthly-leaderboard.md)** — Canonical expected monthly output sample for automation regression checks.
+- **[Google Business Profile Documentation](./google-business-profile/index.md)** — Dedicated folder hub for GBP operations, review workflows, templates, and support assets.
+- **[Google Business Profile Optimization Guide](./google-business-profile/google-business-profile-guide.md)** — Operating workflow for profile upkeep, review handling, Q&A management, and local search execution.
+- **[GBP Post Templates](./google-business-profile/gbp-post-templates.md)** — Ready-to-use local post templates aligned with MH voice, proof discipline, and service-area messaging.
+- **[Review Recognition Program](./google-business-profile/review-recognition-program.md)** — Compliant SOP for increasing authentic reviews with employee recognition rewards.
+- **[Review Outreach Templates](./google-business-profile/review-outreach-templates.md)** — Email, SMS, verbal, and response scripts for honest review requests.
+- **[Review Automation Runbook](./google-business-profile/review-automation-runbook.md)** — Command workflow for outreach file generation, weekly summary reporting, and dashboard exports.
+- **[Weekly Ops Automation Command](./google-business-profile/review-automation-runbook.md)** — Single command workflow that validates tracker data and generates weekly plus monthly reporting outputs.
+- **[Closeout Input Validation](./google-business-profile/review-automation-runbook.md)** — Validator command for outreach input quality and contact completeness checks.
+- **[Monthly KPI JSON Export](./google-business-profile/review-automation-runbook.md)** — JSON metrics export for dashboard ingestion and monthly leadership reporting.
+- **[Sample Regression Check](./google-business-profile/review-automation-runbook.md)** — CI-safe command to verify sample automation outputs against expected artifacts.
+- **[Review Recognition Tracker Template](./google-business-profile/templates/review-recognition-tracker-template.csv)** — CSV template for verification and gift card fulfillment logging.
+- **[Review Closeout Input Template](./google-business-profile/templates/review-closeout-input-template.csv)** — Input CSV for automated outreach generation.
+- **[Review Dashboard Import Schema](./google-business-profile/templates/review-recognition-dashboard-import-schema.json)** — Field contract for dashboard-friendly review reporting exports.
+- **[Expected Weekly Summary Sample](./google-business-profile/templates/samples/expected-output/review-weekly-summary.md)** — Canonical expected weekly output sample for automation regression checks.
+- **[Expected Monthly Leaderboard Sample](./google-business-profile/templates/samples/expected-output/review-monthly-leaderboard.md)** — Canonical expected monthly output sample for automation regression checks.
 
 ### SEO
 
@@ -56,15 +49,12 @@ All marketing copy must remain congruent with MH branding standards: relationshi
 
 Before publishing any marketing asset, confirm that terminology, trust references, and page titles align with the canonical brand language in [Brand Constants](../branding/brand-constants.md).
 
-## Quick Links
+## Related References
 
-- [← Documentation Index](../index.md)
-- [← Back to Main README](../../README.md)
+Use these references when marketing work needs to connect back to the broader docs system, manual-family guidance, or canonical MH messaging standards.
+
+- [Documentation Index](../index.md)
+- [Main README](../../README.md)
 - [Manual Family Hub](../manuals/index.md)
-- [Branding Messaging](../branding/strategy/messaging.md)
+- [Brand Messaging](../branding/strategy/messaging.md)
 - [SEO Complete Guide](../technical/seo/seo-complete-guide.md)
-
----
-
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-**Built on Quality, Backed by Trust.**

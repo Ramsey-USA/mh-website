@@ -811,7 +811,7 @@ const legacyManuals: DocumentEntry[] = [
     title: "Operations Manual",
     subtitle: "MH Construction Operations Standards",
     description:
-      "Operational standards for project delivery, team coordination, and quality-first execution practices across MH Construction field and office workflows.",
+      "Operational standards for project delivery, team coordination, approval governance, and quality-first execution practices across MH Construction field and office workflows, with control gates for handoff, records retention, and risk escalation.",
     category: "manual",
     icon: "engineering",
     revisionYear: 2026,

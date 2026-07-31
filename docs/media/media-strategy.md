@@ -1,13 +1,22 @@
 # MH Construction — Media Strategy & Photo/Video Roadmap
 
-> **Purpose:** Step-by-step guide for systematically introducing photos,
-> videos, and graphics across the site — with a folder structure, naming
-> conventions, SEO rules, and a path toward automated testimonial
-> distribution to social media and email.
+**Category:** Media - Strategy  
+**Last Updated:** July 31, 2026  
+**Status:** Active
+
+> **Purpose:** Define how MH captures, organizes, optimizes, and deploys media assets across the website, project marketing, testimonial distribution, and related trust surfaces.
 
 **Brand Congruency:** Media assets and overlays must support canonical MH typography, color usage, trust visibility, and approved naming.
 
+> **Execution Baseline:** Apply [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md), [Lifecycle Campaign Parameters](../marketing/parameters/lifecycle-campaign-parameters.md), and [Proof and Approval Parameters](../marketing/parameters/proof-and-approval-parameters.md) before publishing or repurposing new visual assets.
+
 ---
+
+## Overview
+
+Media at MH Construction is not just a file-management task. It is a proof system. The role of photo, video, and graphic assets is to reinforce Ground Truth, support Zero-Gap Accountability, and preserve Handshake Pride across every project phase.
+
+Use this guide when planning capture needs, organizing files, replacing placeholders, preparing social or testimonial assets, or aligning visual proof with the broader marketing operating model.
 
 ## Table of Contents
 
@@ -27,6 +36,8 @@
 ---
 
 ## 1. Folder Structure
+
+This structure exists to keep visual proof organized by use case, approval level, and publishing surface.
 
 Everything lives under `public/`. The reorganized layout below adds new
 folders for testimonials, case-study photos, social graphics, and videos.
@@ -101,6 +112,7 @@ public/
 
 - **One folder per context** — never mix testimonial photos with team
   headshots or project photos.
+- **Proof before polish** — organize files around the kind of verified story they support, not just around design convenience.
 - **MVR records privacy** — files in `compliance/mvr-records/` must be redacted before storage (no SSNs, full DOBs, or license numbers visible). These are reference logs only; never serve them as public assets.
 - **Subcontractor documents** — `documents/subcontractors/` is for internal operational use. Track COI expiration dates in the Subcontractor Matrix and keep AIE templates aligned with Washington State statute of repose requirements.
 - **ID matching** — a testimonial with `id: "client-001"` has its photo at
@@ -135,6 +147,8 @@ public/
 
 ## 3. Replacing Placeholders
 
+Placeholder replacement should improve proof quality, not just aesthetics. Use real project, team, or service visuals whenever approval and image quality support it.
+
 The five placeholder images below are used site-wide as fallbacks when no
 real photo exists. Replace them one category at a time.
 
@@ -159,6 +173,8 @@ real photo exists. Replace them one category at a time.
 ---
 
 ## 4. Optimization Rules
+
+These rules protect performance, consistency, and image quality at the same time.
 
 These apply to every image added to the project.
 
@@ -190,6 +206,8 @@ pnpm --filter @mhc/website run optimize:images -- --force
 ---
 
 ## 5. SEO Requirements for Every Image
+
+Visual assets should support search visibility without losing clarity or trust. Treat metadata, alt text, and OG coverage as part of the media workflow, not a separate cleanup step.
 
 ### 5a. `alt` text
 
@@ -280,6 +298,8 @@ Do **not** add `priority` to below-the-fold images — it wastes bandwidth.
 ---
 
 ## 6. Testimonials — Photo + Distribution Workflow
+
+Testimonial media should be handled as approved trust assets. Do not publish testimonial visuals or quotes without documented permission and a clean proof trail.
 
 ### 6a. Data model — add photo fields
 
@@ -398,6 +418,8 @@ public/images/safety/
 ---
 
 ## 7. Social Media Auto-Post (n8n)
+
+Automation is useful only when the underlying media and copy are already approved. Never let automation outrun proof review.
 
 The site already uses `n8n` (via `N8N_WEBHOOK_URL`) for form notifications.
 Extend that workflow to auto-post testimonials to social media.
@@ -528,6 +550,8 @@ Schedule trigger (runs daily at 07:00 PT)
 
 ## 8. Email Blast Automation (n8n + Resend)
 
+Email distribution should follow the same proof discipline as social distribution. Approved content for one surface is not automatically approved for another unless the message still fits that audience and context.
+
 The newsletter subscriber list is stored in the D1 database
 (`newsletter_subscribers` table). Use it for targeted email blasts when a
 notable testimonial is published.
@@ -600,6 +624,8 @@ This is required by CAN-SPAM and CASL.
 
 ## 9. Open Graph Images per Page
 
+OG images are part of route-level trust presentation. They should be intentional, route-specific, and aligned with the same construction-first naming logic used in titles and descriptions.
+
 Replace the single `og-default` used today with per-page OG images.
 Priority order matches traffic volume from Lighthouse results:
 
@@ -621,6 +647,8 @@ in corner · overlaid page title text.
 ---
 
 ## 10. Video Workflow
+
+Video should be used where movement, sequencing, or spoken context adds meaning that still imagery cannot carry as clearly.
 
 ### 10a. Format requirements
 
@@ -734,6 +762,8 @@ Set preload intentionally:
 
 ## 11. Checklist — Adding New Media
 
+Use this checklist whenever a new media asset is likely to appear on the website, in social content, in testimonials, or in owner-facing recap materials.
+
 Use this checklist every time photos or videos are added.
 
 ### Photos
@@ -782,6 +812,8 @@ Use this checklist every time photos or videos are added.
 ---
 
 ## 12. Rollout Priority Order
+
+Roll out media improvements in the order that most strengthens trust, proof quality, and visible delivery competence.
 
 Work through these phases in order. Each phase is independently deployable.
 

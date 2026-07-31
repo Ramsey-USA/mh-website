@@ -1,8 +1,8 @@
 # Operational Hub Congruent Plan
 
 **Category:** Project - Platform Governance  
-**Last Updated:** June 30, 2026  
-**Version:** 1.2.0  
+**Last Updated:** July 31, 2026  
+**Version:** 1.2.1  
 **Status:** ✅ Active - Canonical Cross-Platform Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
@@ -116,7 +116,4 @@ Recommended checks:
 - [Project Architecture](./architecture.md)
 - [Main README](../../README.md)
 
----
-
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-[← Back to README](../../README.md)
+Use these references when platform-governance work needs to connect back to brand standards, architecture state, or repo-level operating context.

@@ -9,6 +9,8 @@
 - Orphan files (not cataloged and not utilized): 0
 - Under-cataloged but utilized files (not in index or README catalogs): 103
 
+**Brand Congruency:** Housekeeping priorities should preserve MH Construction naming, trust-safe voice, and construction-first terminology when documenting indexing decisions.
+
 ## Source-Of-Truth Guardrail Updates
 
 - Deprecated app mirror trees confirmed absent: `apps/website/docs`, `apps/website/messages`, `apps/website/documents`.
@@ -115,6 +117,4 @@ Action: keep family-level cataloging unless a requirement is introduced for per-
 - [docs/manuals/index.md](../manuals/index.md)
 - [docs/marketing/index.md](../marketing/index.md)
 
----
-
-**MH Construction** - Founded 2010, Veteran-Owned Since January 2025
+Use these related indexes as the downstream discoverability surfaces affected by this housekeeping pass.

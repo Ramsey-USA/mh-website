@@ -9,17 +9,11 @@
 This folder stores dated markdown artifacts that are no longer active operational standards
 but are retained for historical traceability.
 
+**Brand Congruency:** Archived snapshots should retain MH Construction naming, trust-safe voice, and construction-first terminology in visible labels.
+
 ## Archived Files
 
-- [Hero Congruency Audit (2026-05-16)](./hero-congruency-audit-2026-05-16.md)
-- [Hero Congruency Rollout Plan (2026-05-16)](./hero-congruency-rollout-plan-2026-05-16.md)
-- [Hero Presence Inventory (2026-05-16)](./hero-presence-inventory-2026-05-16.md)
-- [Home Page Optimization Progress](./home-page-optimization-progress.md)
 - [Branding Validation Optimization Status](./branding-validation-optimization-status.md)
-- [Performance Optimization Strategy](./performance-optimization-strategy.md)
-- [Large Component Refactoring](./large-component-refactoring.md)
-- [Codebase Analysis](./codebase-analysis.md)
-- [Markdown Consolidation Ledger (2026-07-10)](./markdown-consolidation-ledger-2026-07-10.md)
 
 ## Usage Rule
 

@@ -1,5 +1,7 @@
 # Cloudflare Security Hardening Runbook
 
+**Brand Congruency:** Hardening guidance should keep public-facing labels and notes aligned with MH Construction naming and trust-safe terminology.
+
 **Category:** Deployment - Cloudflare Security  
 **Last Updated:** July 10, 2026
 

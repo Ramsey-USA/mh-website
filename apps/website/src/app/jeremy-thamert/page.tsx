@@ -18,21 +18,44 @@ const canonicalUrl = "https://www.mhc-gc.com/jeremy-thamert";
 const jeremyStamp = getIndividualBrandingStamp("jeremy-thamert");
 const jeremySeoName = "Jeremy Gale Thamert";
 const jeremyAltNames = ["Jeremy G. Thamert", "Jeremy Thamert"];
-const jeremyShortName = "Jeremy Thamert";
+const jeremyNameVariants = [jeremySeoName, ...jeremyAltNames];
 const jeremySeoTitle = buildDualSeoTitle("team", `${jeremySeoName} Profile`);
 const jeremyPageSlogan = MH_SLOGANS.heroByRoute.team;
-const jeremySeoDescription = `${jeremySeoName} is Owner & President of MH Construction in Pasco, WA. Learn how the Army veteran leads with clear communication, disciplined delivery, and relationship-first accountability across WA, OR, and ID, with verified public records, credential references, and independent stories.`;
+const jeremySeoDescription = `${jeremySeoName} is Owner & President of MH Construction in Pasco, WA, leading commercial and industrial construction delivery across the Inland Northwest. Learn how independent reporting and public records support his background in Army flight-engineer service, renewable-energy entrepreneurship, and code-compliance credential identifiers.`;
 
 type ReferenceLink = {
   label: string;
   url: string;
 };
 
+type NumberedReferenceLink = ReferenceLink & {
+  id: number;
+};
+
 const credentialLinks: ReferenceLink[] = jeremyProfile.credentialLinks ?? [];
 const storyLinks: ReferenceLink[] = jeremyProfile.storyLinks ?? [];
 const membershipLinks: ReferenceLink[] = jeremyProfile.membershipLinks ?? [];
+const referenceLinks: NumberedReferenceLink[] =
+  jeremyProfile.referenceLinks ?? [];
+const subjectOfReferences =
+  referenceLinks.length > 0
+    ? referenceLinks.map((link) => ({
+        "@type": "CreativeWork",
+        name: link.label,
+        url: link.url,
+        identifier: `Reference [${link.id}]`,
+      }))
+    : storyLinks.map((link) => ({
+        "@type": "CreativeWork",
+        name: link.label,
+        url: link.url,
+      }));
 const sameAsLinks = Array.from(
-  new Set([...membershipLinks, ...credentialLinks].map((link) => link.url)),
+  new Set(
+    [...membershipLinks, ...credentialLinks]
+      .map((link) => link.url)
+      .concat(jeremyProfile.linkedinUrl ? [jeremyProfile.linkedinUrl] : []),
+  ),
 );
 
 function findReferenceLink(
@@ -50,13 +73,16 @@ export const metadata: Metadata = withGeoMetadata({
   title: jeremySeoTitle,
   description: jeremySeoDescription,
   keywords: [
-    jeremySeoName,
-    jeremyShortName,
-    `${jeremySeoName} MH Construction`,
-    `${jeremySeoName} Owner and President`,
-    `${jeremySeoName} veteran construction leader`,
-    `${jeremySeoName} verified leadership profile`,
-    `${jeremySeoName} Washington L&I contractor record`,
+    ...jeremyNameVariants,
+    ...jeremyNameVariants.map((name) => `${name} MH Construction`),
+    ...jeremyNameVariants.map((name) => `${name} Owner and President`),
+    ...jeremyNameVariants.map((name) => `${name} veteran construction leader`),
+    ...jeremyNameVariants.map((name) => `${name} verified leadership profile`),
+    ...jeremyNameVariants.map(
+      (name) => `${name} Washington L&I contractor record`,
+    ),
+    "Jeremy Gale Thamert leadership profile",
+    "Jeremy G Thamert leadership profile",
     "MH Construction leadership",
     "MH Construction team",
     "veteran-owned construction leadership",
@@ -96,7 +122,19 @@ const personSchema = {
   "@type": "Person",
   "@id": `${canonicalUrl}#person`,
   name: jeremySeoName,
-  alternateName: [jeremyShortName, ...jeremyAltNames],
+  alternateName: jeremyNameVariants,
+  identifier: [
+    {
+      "@type": "PropertyValue",
+      propertyID: "full-name",
+      value: jeremySeoName,
+    },
+    {
+      "@type": "PropertyValue",
+      propertyID: "name-variant",
+      value: "Jeremy G Thamert",
+    },
+  ],
   jobTitle: "Owner & President",
   description: jeremyProfile.bio,
   image: `https://www.mhc-gc.com${jeremyProfile.avatar}`,
@@ -116,11 +154,13 @@ const personSchema = {
     name: "U.S. Army Aviation",
   },
   knowsAbout: [
+    "Commercial and Industrial Construction Delivery",
     "Construction Operations",
     "Project Delivery",
     "Safety Culture",
     "Relationship-First Client Service",
     "Veteran-Owned Business Leadership",
+    "Military Aviation Operations",
     "Code Compliance",
     "Plans Examination",
     "Renewable Energy Coordination",
@@ -136,11 +176,7 @@ const personSchema = {
     name: link.label,
     url: link.url,
   })),
-  subjectOf: storyLinks.map((link) => ({
-    "@type": "CreativeWork",
-    name: link.label,
-    url: link.url,
-  })),
+  subjectOf: subjectOfReferences,
 };
 
 const profilePageSchema = {
@@ -734,6 +770,41 @@ export default async function JeremyThamertPage() {
                   </div>
                 </article>
               </div>
+
+              {referenceLinks.length > 0 ? (
+                <article className="mt-8 rounded-xl border border-brand-primary/20 bg-gray-50 p-5 dark:bg-gray-800/50 sm:p-6">
+                  <h3 className="text-lg font-extrabold text-gray-900 dark:text-white sm:text-xl">
+                    {isEs
+                      ? "Mapa de Referencias (DOCX)"
+                      : "Biography Reference Map (DOCX)"}
+                  </h3>
+                  <p className="font-body mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    {isEs
+                      ? "Las referencias numeradas se muestran en el mismo orden del paquete de biografia fuente."
+                      : "Numbered references are listed in the same order as the source biography package."}
+                  </p>
+                  <ol className="mt-4 space-y-3">
+                    {referenceLinks.map((link) => (
+                      <li key={`${link.id}-${link.url}`}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start justify-between gap-3 rounded-lg border border-brand-primary/15 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-brand-primary/15"
+                        >
+                          <span className="flex min-w-0 items-start gap-2">
+                            <span className="mt-0.5 shrink-0 font-black text-brand-primary">
+                              [{link.id}]
+                            </span>
+                            <span>{link.label}</span>
+                          </span>
+                          <MaterialIcon icon="open_in_new" size="sm" />
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </article>
+              ) : null}
             </div>
           </div>
         </section>

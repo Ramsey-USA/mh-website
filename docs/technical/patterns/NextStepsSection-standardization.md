@@ -11,6 +11,8 @@ as the last section before the footer.
 
 **Brand Congruency:** NextSteps implementations must preserve canonical MH typography, color usage, trust content visibility, and naming.
 
+CTA copy in this pattern should stay relationship-first, construction-first, and aligned with MH trust language.
+
 ## Component Location
 
 **File:** `/src/components/shared-sections/NextStepsSection.tsx` (241 lines)

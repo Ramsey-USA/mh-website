@@ -9,6 +9,8 @@ Record approved language-invariant route exceptions for Spanish coverage checks
 when a route is intentionally redirect-only and has no user-facing localized
 content surface.
 
+**Brand Congruency:** Locale-routing exceptions should preserve MH construction-first naming and avoid reintroducing military-forward or slogan-heavy route labels.
+
 ## Approved Invariant Redirect Routes
 
 | Route                       | Owning file                                              | Behavior                                         | Rationale                                                                                 |

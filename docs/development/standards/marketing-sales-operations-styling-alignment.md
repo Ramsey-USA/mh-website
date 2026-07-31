@@ -5,6 +5,8 @@
 
 ## Current Template Architecture
 
+**Brand Congruency:** Styling alignment guidance should preserve MH Construction naming, relationship-first voice, and construction-first page context across sales and marketing guides.
+
 ### Template Hierarchy
 
 1. **Safety Manual** → Has dedicated templates: `safety-manual-*.html`

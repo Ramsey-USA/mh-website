@@ -64,7 +64,7 @@ Canonical standard:
 2. Intro + Upper Brass _(Discover)_
 3. Mission Commanders _(Discover)_
 4. Employee Testimonials _(Proof)_
-5. Field Officers/Special Ops/Logistics _(Trust)_
+5. Field Operations/Site Logistics _(Trust)_
 6. Company Culture _(Trust)_
 7. Career Growth + NextStepsSection _(Action)_
 

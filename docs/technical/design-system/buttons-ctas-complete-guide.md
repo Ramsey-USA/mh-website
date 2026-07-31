@@ -7,6 +7,8 @@
 
 **Brand Congruency:** Button colors, type treatments, and labels must remain aligned with Brand Constants, the Color System, and Unified Component Standards.
 
+Keep CTA labels relationship-first and construction-first, with veteran-owned context used only where it strengthens trust and clarity.
+
 **Canonical Visual Contract:** [Unified Component Standards - Button Visual Contract](../../branding/standards/unified-component-standards.md#button-visual-contract-canonical)
 
 **⚠️ CONSOLIDATED DOCUMENT:** This guide consolidates and supersedes:

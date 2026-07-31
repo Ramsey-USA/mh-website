@@ -2,7 +2,7 @@
 
 Month: 2026-07
 Generated: 2026-07-23T15:26:24.920Z
-Source: docs/marketing/templates/samples/review-recognition-tracker-sample.csv
+Source: docs/marketing/google-business-profile/templates/samples/review-recognition-tracker-sample.csv
 
 ## Snapshot
 

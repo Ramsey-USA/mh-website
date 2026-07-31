@@ -1,7 +1,7 @@
 # Audit Index
 
 **Category:** Project - Audit Hub  
-**Last Updated:** June 30, 2026  
+**Last Updated:** July 31, 2026  
 **Status:** ✅ Active - Consolidated Entry Point
 
 ---
@@ -55,7 +55,4 @@ June 30, 2026 progress note: Route and SEO congruency sweep is complete across c
 - [Project Architecture](./architecture.md)
 - [Main README](../../README.md)
 
----
-
-**MH Construction** — Founded 2010, Veteran-Owned Since January 2025  
-[← Back to README](../../README.md)
+Use these references when audit work needs to connect back to the governing platform plan, live architecture state, or repo-level context.

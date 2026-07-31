@@ -8,6 +8,8 @@
 This standard defines the required build process and validation gates for all
 hero commercial videos used across MH Construction website pages.
 
+**Brand Congruency:** Hero commercial guidance should preserve MH Construction naming, trust-safe messaging, and construction-first page context.
+
 Current state: the production homepage now ships a manifest-driven company hero
 commercial with poster fallback. The first active campaign is registered as
 `mhc-command-the-horizon-2026q3-v01` and is rendered via the home hero runtime.

@@ -8,6 +8,8 @@
 
 This matrix records page-level metadata ownership and behavior for all current public route families, using the canonical route inventory from `apps/website/src/lib/seo/route-manifest.ts` and route class policy from `apps/website/config/seo/route-indexing-policy.json`.
 
+**Brand Congruency:** Route titles, descriptions, and metadata ownership in this matrix should remain construction-first, trust-safe, and aligned with MH voice and approved slogan usage.
+
 ## Canonical Language and URL Rules
 
 - Canonical URL strategy is unprefixed and single-URL per route.

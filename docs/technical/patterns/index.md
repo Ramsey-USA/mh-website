@@ -10,6 +10,8 @@ MH Construction website.
 
 **Brand Congruency:** Pattern implementations must preserve canonical MH typography, color usage, trust visibility, and naming.
 
+Pattern guidance should favor construction-first language and the canonical MH slogan family when copy is surfaced to users.
+
 ## Available Patterns
 
 - **[Component Pattern Strategy](./component-pattern-strategy.md)** — Overall strategy for choosing,

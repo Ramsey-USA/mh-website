@@ -6,6 +6,8 @@
 
 Use this reference with [Color System](./color-system.md) for fast implementation checks.
 
+**Brand Congruency:** Quick-reference color guidance should preserve MH Construction naming, trust signals, and the canonical color system.
+
 ## Quick Reference Card
 
 ### Brand Colors

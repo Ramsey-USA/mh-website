@@ -11,6 +11,8 @@ listed in sitemap, or blocked from indexing.
 
 **Brand Congruency:** Route indexing and canonicalization decisions must preserve approved page names, trust surfaces, and SEO-safe terminology.
 
+Use construction-first page names and approved MH terminology when classifying routes, canonicals, and sitemap entries.
+
 Use this when:
 
 - adding a new route under `src/app`

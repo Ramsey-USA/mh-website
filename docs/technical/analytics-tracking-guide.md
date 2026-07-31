@@ -7,6 +7,8 @@
 
 **Brand Congruency:** Analytics event names, labels, and reporting language must remain aligned with canonical MH terminology and trust-safe phrasing.
 
+Keep event names and dashboards construction-first, with veteran-owned context used only where it improves trust and clarity.
+
 ## Quick Start: Add Tracking to ANY Page in 30 Seconds
 
 ### Step 1: Add the Hook (Automatic Tracking)

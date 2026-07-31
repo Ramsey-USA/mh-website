@@ -3,6 +3,8 @@
 **Category:** Technical - CTA Governance  
 **Last Updated:** May 17, 2026
 
+**Brand Congruency:** CTA guidance should keep copy relationship-first, trust-safe, and aligned with the canonical MH slogan family and construction-first voice.
+
 ## Decision
 
 For multi-page reuse and performance consistency, keep `NextStepsSection` as the default CTA section.

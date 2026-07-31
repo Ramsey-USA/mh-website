@@ -15,6 +15,24 @@
       "manifest": "documents/content/employee-handbook.json",
       "manualFamily": "employee",
       "formsPolicy": "handbook-owned"
+    },
+    {
+      "id": "operations-manual",
+      "manifest": "documents/content/operations-manual.json",
+      "manualFamily": "operations",
+      "formsPolicy": "operations-owned"
+    },
+    {
+      "id": "marketing-strategy-guide",
+      "manifest": "documents/content/marketing-strategy-guide.json",
+      "manualFamily": "marketing",
+      "formsPolicy": "none"
+    },
+    {
+      "id": "sales-estimating-guide",
+      "manifest": "documents/content/sales-estimating-guide.json",
+      "manualFamily": "sales",
+      "formsPolicy": "none"
     }
   ]
 }

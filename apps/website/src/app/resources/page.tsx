@@ -72,7 +72,13 @@ const resourcesSupportingLine = MH_SLOGANS.supporting[1];
 
 export default async function ResourcesPage() {
   const isEs = (await getServerLocale()) === "es";
-  const publicManualIds = new Set(["safety-manual", "employee-handbook"]);
+  const publicManualIds = new Set([
+    "safety-manual",
+    "employee-handbook",
+    "operations-manual",
+    "marketing-strategy-guide",
+    "sales-estimating-guide",
+  ]);
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
   const employeeHandbook = manuals.find(
     (doc) => doc.id === "employee-handbook",
@@ -429,8 +435,8 @@ export default async function ResourcesPage() {
                       </h3>
                       <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                         {isEs
-                          ? "El Operations Manual, la Marketing Strategy Guide y la Sales and Estimating Guide se mantienen en el portal interno para equipos autenticados y ahora reflejan el modelo operativo v2 de MH."
-                          : "The Operations Manual, Marketing Strategy Guide, and Sales and Estimating Guide are maintained in the internal staff portal for authenticated teams and now reflect MH's v2 operating model."}
+                          ? "El Operations Manual, la Marketing Strategy Guide y la Sales and Estimating Guide ahora se exponen como parte del ecosistema de recursos públicos y se mantienen alineados con el modelo operativo v2 de MH."
+                          : "The Operations Manual, Marketing Strategy Guide, and Sales and Estimating Guide are now surfaced as part of the public resources ecosystem and stay aligned with MH's v2 operating model."}
                       </p>
                       <ul className="mt-3 flex flex-wrap gap-2 text-xs text-gray-700 dark:text-gray-300">
                         {internalManuals.map((doc) => (

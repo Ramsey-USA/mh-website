@@ -14,6 +14,8 @@ Generated: 12/24/2025, 10:02:38 PM
 
 **Brand Congruency:** Any QR-linked labels or destination naming retained here should stay aligned with canonical MH terminology and trust framing.
 
+Use construction-first destination names and preserve the MH Construction brand in any user-facing QR labels or callouts.
+
 ## Summary
 
 - **Total QR Codes:** 72

@@ -1,8 +1,8 @@
 # MH Construction — Architecture Documentation
 
 **Category:** Project - Architecture  
-**Last Updated:** June 20, 2026  
-**Version:** 1.3.0  
+**Last Updated:** July 31, 2026  
+**Version:** 1.3.1  
 **Status:** ✅ Active
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
@@ -10,6 +10,12 @@
 
 > **Brand Congruency Note:** Architecture, page labels, metadata, and SEO-facing names must stay aligned with approved MH branding, trust language, and veteran-owned factual framing.
 > Visual architecture decisions must keep typography and color usage aligned with the canonical MH font system and color system.
+
+## Purpose
+
+This document captures the current architecture state of the MH platform so project planning, audits, and implementation work can reference one consistent view of the live system.
+
+Use it when reviewing route coverage, runtime dependencies, platform integrations, delivery posture, or future architecture decisions that need to remain congruent with MH brand and operating standards.
 
 ## 🎯 **CURRENT STATE: Complete Production Platform**
 
@@ -310,3 +316,15 @@ src/
 - **Design System**: Comprehensive style guide with Figma integration
 - **Testing Strategy**: Lighthouse performance monitoring and code quality checks
 - **CI/CD Pipeline**: Automated testing, building, and deployment workflows
+
+---
+
+## Related References
+
+Use these references when architecture work needs to connect back to platform governance, technical implementation standards, or repo-level context.
+
+- [Project Documentation Index](./index.md)
+- [Operational Hub Congruent Plan](./operational-hub-congruent-plan.md)
+- [Technical Documentation](../technical/index.md)
+- [Brand Constants](../branding/brand-constants.md)
+- [Main README](../../README.md)

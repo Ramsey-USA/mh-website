@@ -10,6 +10,8 @@ design system, SEO, PWA, analytics, security, and external service integrations.
 
 Use these guides together with the branding and development standards so implementation stays congruent with approved voice, trust content, accessibility, and SEO naming.
 
+MH branding in this section should remain construction-first, trust-safe, and aligned with the canonical slogan family, led by “Built on Quality, Backed by Trust.”
+
 **Brand Congruency:** Technical implementations must keep typography and color usage aligned with the canonical MH font and palette system.
 
 Before shipping branding-sensitive technical changes, verify surface coverage using [Website Guardrails Coverage Map](../branding/governance/website-guardrails-coverage.md).
@@ -19,7 +21,7 @@ Before shipping branding-sensitive technical changes, verify surface coverage us
 - **[Homepage Documentation](./homepage.md)** — The canonical reference page. All other pages
   must match its visual weight, spacing, and polish.
 
-Brand-facing content in this section should stay aligned with the canonical terminology and messaging guides.
+Brand-facing content in this section should stay aligned with the canonical terminology and messaging guides, with veteran-owned framing used as supporting credibility rather than the primary label.
 
 ## Design System
 

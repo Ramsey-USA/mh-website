@@ -8,6 +8,8 @@ Scope: Existing published Locations hub and city routes
 
 This matrix records location-level evidence controls used to keep local SEO tied to verified repository data and to prevent false-office behavior on service-area pages.
 
+**Brand Congruency:** Location evidence, city slugs, and related-service labels should stay aligned with construction-first MH terminology and trust-safe local SEO naming.
+
 ## Control Rules
 
 - Only Pasco is treated as a public office location.

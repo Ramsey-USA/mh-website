@@ -7,6 +7,8 @@
 
 Interaction inventory for Prompt 7.2 covering the existing shared controls and representative route-level interactions audited during the accessibility pass.
 
+**Brand Congruency:** Interaction inventories should keep control labels, state language, and route references aligned with MH Construction terminology and trust-safe copy.
+
 ## Inventory
 
 | Surface                          | Trigger                                                                                                                                                                                     | Keyboard model                                                                        | Focus entry                           | Focus return                                                    | Escape behavior                                 | Outside click                                          | Announced state                                                                  | Pending state                                             | Error state                                                               | No-JS fallback                                                         |

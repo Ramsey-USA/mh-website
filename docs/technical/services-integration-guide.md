@@ -17,6 +17,8 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 
 **Brand Congruency:** Integration outputs and service-driven messaging must preserve canonical MH terminology, trust language, and approved visual-language standards.
 
+Service integration copy should remain construction-first, with veteran-owned framing used only as supporting trust context.
+
 ---
 
 ## Current Status Summary

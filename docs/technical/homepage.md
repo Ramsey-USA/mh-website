@@ -15,6 +15,8 @@
 
 The homepage is implemented as a server-first App Router page that combines:
 
+**Brand Congruency:** Homepage implementation and section copy should preserve the canonical MH slogan family, construction-first naming, and trust-safe proof content.
+
 - A manifest-driven command-center video hero with poster fallback.
 - Public-proof summary cards sourced from current data.
 - Service and project pathways for commercial delivery.

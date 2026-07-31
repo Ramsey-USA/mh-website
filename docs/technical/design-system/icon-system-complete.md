@@ -675,7 +675,7 @@ import { SEMANTIC_ICONS } from "@/lib/constants/navigation-icons";
 - `engineering` - Engineering expertise, core services
 - `verified` - Quality assurance, certifications
 - `handshake` - Allies, partners, trade partners (see People Icon Standard above)
-- `military_tech` - Veteran-owned status, military precision
+- `military_tech` - Veteran-owned status, veteran-led credibility
 
 **Service Icons (Conceptual):**
 

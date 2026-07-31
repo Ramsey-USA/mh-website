@@ -8,6 +8,8 @@
 
 Lock the MH website header structure so desktop navigation order and CTA placement do not drift across redesigns, refactors, or content updates.
 
+**Brand Congruency:** Header labels and navigation order should remain aligned with MH Construction voice, trust content, and construction-first naming.
+
 ## Non-Negotiable Desktop Header Layout
 
 At desktop breakpoint and above, the header row must remain:

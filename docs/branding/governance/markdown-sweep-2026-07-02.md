@@ -8,6 +8,8 @@
 
 Record the repository-wide markdown sweep that consolidated branding checklist routing and reduced guidance ambiguity for future developers.
 
+**Brand Congruency:** Markdown sweep records should preserve canonical MH voice, trust content, and construction-first terminology when documenting governance changes.
+
 ## Scope Covered
 
 - Branding governance docs in `docs/branding/governance/`

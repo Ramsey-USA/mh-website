@@ -15,9 +15,9 @@ When changing any of these surfaces, review the shared brand sources first, then
 
 - **Employee Handbook** - Public handbook route (`/employee-handbook`) and handbook PDF outputs in `documents/generated-pdfs/`
 - **Safety Manual / MISH** - [Safety Manual](../technical/safety-program-guide.md) and [Safety Terminology Glossary](../technical/safety-terminology-glossary.md)
-- **Operations Manual** - Canonical operations source retained in the document pipeline and governance notes. Draft workspace index: [Operations Manual Draft Workspace](../../documents/content/mhc-operations-manual-drafts/README.md)
-- **Marketing Guide** - [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)
-- **Sales / Estimating Guide** - [Sales/Estimating Guide](../sales/sales-estimating-guide.md)
+- **Operations Manual** - Canonical operations source retained in the document pipeline and governance notes. Draft workspace index: [Operations Manual Draft Workspace](../../documents/content/mhc-operations-manual-drafts/README.md) and registry entry in [documents/content/operations-manual.json](../../documents/content/operations-manual.json)
+- **Marketing Guide** - [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md) with source manifest in [documents/content/marketing-strategy-guide.json](../../documents/content/marketing-strategy-guide.json)
+- **Sales / Estimating Guide** - [Sales/Estimating Guide](../sales/sales-estimating-guide.md) with source manifest in [documents/content/sales-estimating-guide.json](../../documents/content/sales-estimating-guide.json)
 
 ## Governance and Change Authority
 

@@ -4,7 +4,7 @@
 **Last Updated:** July 23, 2026
 **Status:** Active Draft for Leadership Approval
 
-> **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for canonical brand values.
+> **Brand Reference:** See [Brand Constants](../../branding/brand-constants.md) for canonical brand values.
 >
 > **Brand Congruency:** This program must remain relationship-first, factual, trust-preserving, and compliant with platform policies.
 

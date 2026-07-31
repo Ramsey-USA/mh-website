@@ -240,5 +240,42 @@ describe("generateJeremyPersonSchema()", () => {
     expect((schema.subjectOf as any)["@id"]).toContain(
       "#video-jeremy-leadership",
     );
+    expect(schema.alternateName).toEqual(
+      expect.arrayContaining([
+        "Jeremy Gale Thamert",
+        "Jeremy G. Thamert",
+        "Jeremy Thamert",
+      ]),
+    );
+    expect(schema.sameAs).toEqual(
+      expect.arrayContaining([
+        "https://www.linkedin.com/in/jeremy-thamert-8b3563282/",
+      ]),
+    );
+    expect(schema.identifier).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "PropertyValue",
+          propertyID: "name-variant",
+          value: "Jeremy G Thamert",
+        }),
+      ]),
+    );
+    expect(Array.isArray(schema.citation)).toBe(true);
+    expect((schema.citation as any[]).length).toBeGreaterThanOrEqual(14);
+    expect(schema.citation).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          "@type": "CreativeWork",
+          identifier: "Reference [1]",
+          url: "https://secure.lni.wa.gov/verify/Detail.aspx?LIC=MHCONCI907R7",
+        }),
+        expect.objectContaining({
+          "@type": "CreativeWork",
+          identifier: "Reference [14]",
+          url: "https://pnwba.com/event-6666551",
+        }),
+      ]),
+    );
   });
 });

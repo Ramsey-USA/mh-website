@@ -1,5 +1,7 @@
 # Cloudflare Verification Runbook
 
+**Brand Congruency:** Verification steps should preserve MH Construction naming, trust content, and approved visual-language references.
+
 **Category:** Deployment - Cloudflare Verification  
 **Last Updated:** July 16, 2026  
 **Scope:** Confirm production Cloudflare connection and optimization status for `mhc-v2-website`

@@ -25,31 +25,31 @@ const processSteps = [
   {
     title: "Project Discovery and Scope Validation",
     description:
-      "Align project goals, success criteria, budget boundaries, and operating constraints before design and procurement commitments.",
+      "Align project goals, success criteria, budget boundaries, and operating constraints before design and procurement commitments, with approval gates, risk review, and sales-and-estimating guidance shaping the initial scope narrative.",
     tags: ["Scope", "Budget", "Risk"],
   },
   {
     title: "Pre-Deployment Planning",
     description:
-      "Lock sequence logic, constructability assumptions, permit path, and procurement readiness for cleaner field starts.",
+      "Lock sequence logic, constructability assumptions, permit path, and procurement readiness for cleaner field starts, backed by command-level controls, approval discipline, and a marketing-and-sales framework for handoff-ready messaging.",
     tags: ["Planning", "Precon", "Controls"],
   },
   {
     title: "Execution and Coordination",
     description:
-      "Drive field production with superintendent oversight and PM command loops to keep schedule, communication, and quality aligned.",
+      "Drive field production with superintendent oversight and PM command loops to keep schedule, communication, and quality aligned through documented escalation paths, approval visibility, and disciplined handoff governance.",
     tags: ["Execution", "Scheduling", "Coordination"],
   },
   {
     title: "Quality and Safety Verification",
     description:
-      "Apply continuous QA checks and safety enforcement with documented escalations when issues require leadership decisions.",
+      "Apply continuous QA checks and safety enforcement with documented escalations, evidence retention, and leadership-level review when issues require command decisions.",
     tags: ["QA", "Safety", "Compliance"],
   },
   {
     title: "Closeout and Handoff",
     description:
-      "Complete punch, handoff packages, and handoff-ready documentation so project handoff is orderly and audit-ready, with approved proof assets prepared for post-launch communication.",
+      "Complete punch, handoff packages, and handoff-ready documentation so project turnover is orderly and audit-ready, with approval records, retained evidence, and approved proof assets prepared for post-launch communication.",
     tags: ["Closeout", "Documentation", "Turnover"],
   },
   {
@@ -59,27 +59,27 @@ const processSteps = [
     tags: ["Support", "Marketing", "Jeremy Interview"],
   },
   {
-    title: "Marketing Phase I: Preconstruction",
+    title: "Marketing Strategy Phase I: Preconstruction",
     description:
-      "Set the project marketing baseline before mobilization: messaging guardrails, channel plan, content-angle assignments, and evidence standards for what can be published.",
+      "Set the project marketing baseline before mobilization with messaging guardrails, channel planning, content-angle assignments, and evidence standards for what can be published as part of the marketing strategy playbook.",
     tags: ["Preconstruction", "Messaging", "Planning"],
   },
   {
-    title: "Marketing Phase II: Active Project",
+    title: "Marketing Strategy Phase II: Active Project",
     description:
-      "Run weekly cadence (1-2 posts) with documented field proof, rotating macro, technical, logistics, safety-team, and spec-vs-reality content across LinkedIn and Facebook with approved adaptation for X, YouTube, and Instagram.",
+      "Run weekly cadence (1-2 posts) with documented field proof, rotating macro, technical, logistics, safety-team, and spec-vs-reality content across LinkedIn and Facebook, aligned with the sales and estimating strategy for continuity from proposal to delivery.",
     tags: ["Active", "Cadence", "Content Rotation"],
   },
   {
-    title: "Marketing Phase III: Closing and Handover",
+    title: "Marketing Strategy Phase III: Closing and Handover",
     description:
-      "Publish closeout-ready milestones, owner-approved recap content, and proof-led summaries that connect delivered scope to quality, safety, and turnover outcomes.",
+      "Publish closeout-ready milestones, owner-approved recap content, and proof-led summaries that connect delivered scope to quality, safety, and turnover outcomes under the marketing strategy and sales guidance framework.",
     tags: ["Closing", "Milestones", "Proof"],
   },
   {
-    title: "Marketing Phase IV: Post-Launch",
+    title: "Marketing Strategy Phase IV: Post-Launch",
     description:
-      "Convert final assets into case-study and reputation content, including post-launch social proof packaging and the post-completion podcast post-interview with Jeremy when approvals are in place.",
+      "Convert final assets into case-study and reputation content, including post-launch social proof packaging and the post-completion podcast post-interview with Jeremy when approvals are in place, reinforcing the sales and marketing strategy after handoff.",
     tags: ["Post-Launch", "Case Study", "Podcast"],
   },
 ] as const;
@@ -88,31 +88,31 @@ const processStepsEs = [
   {
     title: "Descubrimiento del Proyecto y Validación de Alcance",
     description:
-      "Alineamos objetivos, criterios de exito, limites de presupuesto y restricciones operativas antes de compromisos de diseno y compras.",
+      "Alineamos objetivos, criterios de exito, limites de presupuesto y restricciones operativas antes de compromisos de diseno y compras, con puertas de aprobación, revisión de riesgos y guía de ventas y estimación para la narrativa inicial del alcance.",
     tags: ["Alcance", "Presupuesto", "Riesgo"],
   },
   {
     title: "Planificación de Preconstrucción",
     description:
-      "Definimos logica de secuencia, supuestos de constructabilidad, ruta de permisos y preparacion de compras para iniciar obra con mayor control.",
+      "Definimos logica de secuencia, supuestos de constructabilidad, ruta de permisos y preparacion de compras para iniciar obra con mayor control, respaldados por controles de mando, disciplina de aprobación y un marco de marketing y ventas para mensajes listos para entrega.",
     tags: ["Planificacion", "Preconstruccion", "Controles"],
   },
   {
     title: "Ejecucion y Coordinacion",
     description:
-      "Conducimos produccion en campo con supervision de obra y bucles de gestion para mantener cronograma, comunicacion y calidad alineados.",
+      "Conducimos produccion en campo con supervision de obra y bucles de gestion para mantener cronograma, comunicacion y calidad alineados mediante rutas de escalamiento documentadas, visibilidad de aprobación y gobernanza disciplinada de handoff.",
     tags: ["Ejecucion", "Cronograma", "Coordinacion"],
   },
   {
     title: "Verificacion de Calidad y Seguridad",
     description:
-      "Aplicamos controles continuos de calidad y estandares de seguridad con escalamiento documentado cuando se requieren decisiones de liderazgo.",
+      "Aplicamos controles continuos de calidad y estandares de seguridad con escalamiento documentado, retención de evidencia y revisión de liderazgo cuando las decisiones requieren mando.",
     tags: ["Calidad", "Seguridad", "Cumplimiento"],
   },
   {
     title: "Cierre y Entrega",
     description:
-      "Completamos pendientes, paquetes de entrega y documentacion lista para auditoria para un handoff ordenado y verificable.",
+      "Completamos pendientes, paquetes de entrega y documentacion lista para auditoria para un handoff ordenado y verificable, con registros de aprobación, evidencia retenida y activos de prueba preparados para la comunicación de post-lanzamiento.",
     tags: ["Cierre", "Documentacion", "Entrega"],
   },
   {
@@ -122,27 +122,27 @@ const processStepsEs = [
     tags: ["Soporte", "Garantia", "Seguimiento"],
   },
   {
-    title: "Marketing Fase I: Preconstruccion",
+    title: "Estrategia de Marketing Fase I: Preconstruccion",
     description:
-      "Definimos base de comunicacion antes de movilizar: lineamientos de mensaje, plan de canales y estandares de evidencia publicable.",
+      "Definimos la base de comunicacion antes de movilizar con lineamientos de mensaje, plan de canales y estandares de evidencia publicable como parte de la estrategia de marketing.",
     tags: ["Preconstruccion", "Mensaje", "Planificacion"],
   },
   {
-    title: "Marketing Fase II: Proyecto Activo",
+    title: "Estrategia de Marketing Fase II: Proyecto Activo",
     description:
-      "Ejecutamos cadencia semanal con evidencia de campo y rotacion de contenido tecnico, logistico y de seguridad en canales aprobados.",
+      "Ejecutamos cadencia semanal con evidencia de campo y rotacion de contenido tecnico, logistico y de seguridad en canales aprobados, alineada con la estrategia de ventas y estimacion para mantener continuidad desde la propuesta hasta la entrega.",
     tags: ["Activo", "Cadencia", "Contenido"],
   },
   {
-    title: "Marketing Fase III: Cierre y Traspaso",
+    title: "Estrategia de Marketing Fase III: Cierre y Traspaso",
     description:
-      "Publicamos hitos de cierre y resumenes con evidencia que conectan alcance entregado con resultados de calidad y seguridad.",
+      "Publicamos hitos de cierre y resumenes con evidencia que conectan alcance entregado con resultados de calidad y seguridad dentro del marco de la estrategia de marketing y ventas.",
     tags: ["Cierre", "Hitos", "Prueba"],
   },
   {
-    title: "Marketing Fase IV: Post-Lanzamiento",
+    title: "Estrategia de Marketing Fase IV: Post-Lanzamiento",
     description:
-      "Convertimos activos finales en contenido de casos y reputacion, con empaquetado de prueba social segun aprobaciones.",
+      "Convertimos activos finales en contenido de casos y reputacion, con empaquetado de prueba social segun aprobaciones, reforzando la estrategia de ventas y marketing despues del handoff.",
     tags: ["Post-Lanzamiento", "Caso", "Reputacion"],
   },
 ] as const;
@@ -263,8 +263,8 @@ export default async function ServicesPage() {
         }
         description={
           isEs
-            ? "Un modelo operativo unificado que mantiene visibles la entrega de construcción, la evidencia de campo y los controles de seguimiento por fases desde preconstrucción hasta post-lanzamiento."
-            : "A unified operating model that keeps construction delivery, field proof, and phase-based follow-through visible from preconstruction through post-launch."
+            ? "Un modelo operativo unificado que conecta la entrega de construcción, la estrategia de marketing y la estrategia de ventas y estimación para mantener visibles la evidencia de campo, el seguimiento por fases y la continuidad desde preconstrucción hasta post-lanzamiento."
+            : "A unified operating model that connects construction delivery, the marketing strategy, and the sales and estimating strategy to keep field proof, phase-based follow-through, and continuity visible from preconstruction through post-launch."
         }
         steps={localizedProcessSteps.map((step) => ({
           ...step,

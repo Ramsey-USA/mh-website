@@ -1,5 +1,7 @@
 # PWA Quick Reference Guide
 
+**Brand Congruency:** PWA behavior, labels, and install prompts should stay aligned with MH construction-first terminology and trust-safe copy.
+
 **Related Documentation:**
 
 - [Browser Titles](./browser-tab-titles-inventory.md) - Title system used in PWA

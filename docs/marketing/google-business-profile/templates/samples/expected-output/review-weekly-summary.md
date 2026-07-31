@@ -1,7 +1,7 @@
 # Weekly Review Recognition Summary
 
 Generated: 2026-07-23T15:26:24.752Z
-Source: docs/marketing/templates/samples/review-recognition-tracker-sample.csv
+Source: docs/marketing/google-business-profile/templates/samples/review-recognition-tracker-sample.csv
 
 ## Snapshot
 
