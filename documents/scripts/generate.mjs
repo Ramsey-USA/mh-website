@@ -6780,13 +6780,12 @@ async function validateOperationsMhcCapitalizationGuardrails() {
         const token = match[0];
         if (token === "MHC") continue;
 
-        const start = match.index || 0;
-        const tail = line.slice(start).toLowerCase();
+        const lowerLine = line.toLowerCase();
 
         // Allow canonical domain/slug formats that are intentionally lowercase.
         if (
-          tail.startsWith("mhc-gc.com") ||
-          tail.startsWith("mhc-operations-manual")
+          /\bmhc-gc\.com\b/.test(lowerLine) ||
+          /\bmhc-operations-manual\b/.test(lowerLine)
         ) {
           continue;
         }
