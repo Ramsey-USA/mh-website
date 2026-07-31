@@ -4,8 +4,16 @@ import { getServerLocale } from "@/lib/i18n/locale.server";
 import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
+const publicSectorConstructionPathTitleParts = [
+  "Public Sector Construction Path",
+  "MH Construction",
+] as const;
+
 export const metadata: Metadata = withGeoMetadata({
-  title: buildDualSeoTitle("publicSector", "Public Sector Construction Path"),
+  title: buildDualSeoTitle(
+    "publicSector",
+    publicSectorConstructionPathTitleParts[0],
+  ),
   description:
     "Redirects to the canonical page at /public-sector/veteran-led-construction.",
   alternates: {
