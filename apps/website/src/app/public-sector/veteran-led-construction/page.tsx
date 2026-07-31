@@ -15,9 +15,9 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 
 export const metadata: Metadata = withGeoMetadata({
-  title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Public Sector Construction | MH Construction`,
+  title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Public Sector Construction Path | MH Construction`,
   description:
-    "Bridge veteran-focused values with public-sector project delivery. Learn how MH Construction aligns disciplined execution, transparency, and compliance for government work.",
+    "Bridge public-sector construction planning with veteran-owned accountability. Learn how MH Construction aligns disciplined execution, transparency, and compliance for government work.",
   alternates: {
     canonical: `${SITE_URL}/public-sector/veteran-led-construction`,
   },

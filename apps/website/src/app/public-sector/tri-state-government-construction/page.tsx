@@ -182,7 +182,7 @@ export default async function TriStateGovernmentConstructionPage() {
               trackId="tri-state-veteran-compliance"
               variant="outline"
             >
-              Veteran-led compliance workflow
+              Public-sector compliance workflow
             </TrackedBridgeButton>
             <TrackedBridgeButton
               href="/contact"
@@ -196,7 +196,7 @@ export default async function TriStateGovernmentConstructionPage() {
               trackId="tri-state-veteran-pathway"
               variant="outline"
             >
-              Veteran public-sector pathway
+              Public-sector construction path
             </TrackedBridgeButton>
             <TrackedBridgeButton
               href="/locations/yakima"

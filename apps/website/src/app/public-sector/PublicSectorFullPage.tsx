@@ -73,7 +73,7 @@ const grantSupportServices = [
   {
     icon: "military_tech",
     title: "Project Costing",
-    description: `${MH_SLOGANS.heroByRoute.publicSector} Disciplined preconstruction estimating and budget validation for agency procurement planning`,
+    description: `${MH_SLOGANS.heroByRoute.publicSector} Preconstruction estimating and budget validation aligned to agency procurement planning`,
     features: [
       "Line-item cost breakdowns aligned with agency documentation requirements",
       "Labor assumptions coordinated to prevailing wage obligations",
@@ -275,7 +275,7 @@ const hanfordCapabilities = [
   },
   {
     icon: "workspace_premium",
-    title: "Military-Grade Quality Assurance",
+    title: "Documented Quality Assurance",
     description:
       "Quality control aligned to strict public-sector standards and documented review workflows",
   },
@@ -363,7 +363,7 @@ export default function PublicSectorFullPage() {
 
             <p className="font-body mx-auto max-w-5xl font-light text-gray-700 dark:text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
               <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-                Army-veteran-led team
+                Construction-first team with veteran-owned leadership
               </span>{" "}
               delivers compliance-ready construction with clear cost visibility,
               .64 EMR safety performance, documented controls, and
@@ -474,10 +474,10 @@ export default function PublicSectorFullPage() {
           },
           {
             id: "veteran-preference",
-            title: "Veteran-Owned & BABAA Commitment",
+            title: "Veteran-Owned Accountability & BABAA Alignment",
             icon: "military_tech",
             tagline: "Service-Earned Values",
-            description: `${veteranOwnedClaim} under Army veteran Jeremy Thamert, bringing 15+ years of military aviation experience and operational discipline. We support the Build America, Buy America Act (BABAA), stay current through AGC resources, and maintain veteran hiring initiatives with clear execution standards. ${triStateLicenseClaim}.`,
+            description: `${veteranOwnedClaim} under Army veteran Jeremy Thamert, bringing 15+ years of military aviation experience, disciplined planning, and direct accountability to public-sector construction. We support the Build America, Buy America Act (BABAA), stay current through AGC resources, and maintain veteran hiring initiatives with clear execution standards. ${triStateLicenseClaim}.`,
             image: "/images/compliance/veteran-owned.webp",
             iconBg: "bg-brand-primary",
             stats: "2025",
@@ -495,7 +495,7 @@ export default function PublicSectorFullPage() {
           <>
             Navigate complex regulations with{" "}
             <span className="font-bold text-brand-primary dark:text-brand-primary-light">
-              veteran-led oversight and disciplined execution
+              construction oversight backed by veteran-owned accountability
             </span>
             . Compliance programs, proven safety performance, and{" "}
             <span className="font-bold text-gray-900 dark:text-white">
@@ -550,7 +550,7 @@ export default function PublicSectorFullPage() {
 
               <p className="font-body mx-auto max-w-5xl font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 <span className="font-bold text-brand-primary-light">
-                  Proven operational excellence
+                  Proven high-compliance delivery
                 </span>{" "}
                 in high-security DOE and Hanford environments with clear
                 understanding of compliance requirements,{" "}
@@ -934,7 +934,7 @@ export default function PublicSectorFullPage() {
               <p className="font-body mx-auto max-w-5xl mb-8 font-light text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide px-2">
                 Partner with{" "}
                 <span className="font-bold text-brand-primary-light">
-                  veteran leadership
+                  a construction team backed by veteran-owned leadership
                 </span>{" "}
                 for{" "}
                 <span className="font-bold text-white">
@@ -1041,9 +1041,9 @@ export default function PublicSectorFullPage() {
               {[
                 {
                   href: "/public-sector/veteran-led-construction",
-                  title: "Veteran Public Sector Path",
+                  title: "Veteran-Owned Public Sector Path",
                   detail:
-                    "See how veteran leadership supports public-sector delivery.",
+                    "See how veteran-owned leadership supports public-sector delivery.",
                 },
                 {
                   href: "/public-sector/veteran-led-compliance",

@@ -211,8 +211,8 @@ export default async function ResourcesPage() {
                 </div>
                 <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                   {isEs
-                    ? "Explore actualizaciones operativas administradas en el repositorio sobre seguridad, coordinacion de campo, entrega de oficios y ejecucion liderada por veteranos."
-                    : "Explore repository-managed operational updates on safety planning, field coordination, trade delivery, and veteran-led execution."}
+                    ? "Explore actualizaciones operativas administradas en el repositorio sobre seguridad, coordinacion de campo, entrega de oficios y ejecucion respaldada por una empresa veterana."
+                    : "Explore repository-managed operational updates on safety planning, field coordination, trade delivery, and execution backed by veteran-owned accountability."}
                 </p>
               </div>
               <MaterialIcon

@@ -5,10 +5,7 @@ import { buildDualSeoTitle } from "@/lib/branding/page-names";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 export const metadata: Metadata = withGeoMetadata({
-  title: buildDualSeoTitle(
-    "publicSector",
-    "Veteran-Led Public Sector Construction",
-  ),
+  title: buildDualSeoTitle("publicSector", "Public Sector Construction Path"),
   description:
     "Redirects to the canonical page at /public-sector/veteran-led-construction.",
   alternates: {

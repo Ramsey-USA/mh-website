@@ -16,11 +16,11 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const NEWS_OG_IMAGE_URL = createOgImageUrl("news", "news-insights");
 const NEWS_META_DESCRIPTION =
-  "Repository-managed updates and construction insights from MH Construction on Procore coordination, safety planning, trade delivery, AG and winery sequencing, and veteran-led accountability.";
+  "Repository-managed updates and construction insights from MH Construction on Procore coordination, safety planning, trade delivery, AG and winery sequencing, and veteran-owned accountability.";
 const NEWS_OG_DESCRIPTION =
   "Operational news from MH Construction covering field coordination, safety execution, trade sequencing, and accountable delivery across active construction projects.";
 const NEWS_TWITTER_DESCRIPTION =
-  "Construction insights from MH Construction with practical updates on Procore controls, site safety, trade alignment, and veteran-led leadership.";
+  "Construction insights from MH Construction with practical updates on Procore controls, site safety, trade alignment, and veteran-owned leadership.";
 
 export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName("News and Insights", "Noticias e ideas")} | MH Construction`,

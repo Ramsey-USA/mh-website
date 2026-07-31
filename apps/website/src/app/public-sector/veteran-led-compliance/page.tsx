@@ -19,14 +19,14 @@ const VETERAN_LED_COMPLIANCE_HERO_SLOGAN = getHeroPageSlogan(
 ).slogan;
 const GOVERNMENT_LIGHT_LOGO = "/images/logo/mh-logo-black.webp";
 const GOVERNMENT_DARK_LOGO = "/images/logo/mh-logo-white.webp";
-const veteranLedComplianceSeoTitle = `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Led Compliance Workflow | MH Construction`;
+const veteranLedComplianceSeoTitle = `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Public Sector Compliance Workflow | MH Construction`;
 
 export const metadata: Metadata = withGeoMetadata({
   title: veteranLedComplianceSeoTitle,
   description:
-    "Review MH Construction's veteran-led workflow for public-sector preconstruction planning, procurement readiness, and execution oversight.",
+    "Review MH Construction's public-sector workflow for preconstruction planning, procurement readiness, and execution oversight, backed by veteran-owned accountability.",
   keywords: [
-    "veteran-led compliance workflow",
+    "public-sector compliance workflow",
     "public-sector preconstruction planning",
     "procurement-ready construction planning",
     "public agency project alignment",
@@ -41,13 +41,13 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: veteranLedComplianceSeoTitle,
     description:
-      "Veteran-led workflow for public-sector planning, procurement readiness, and transparent compliance reporting.",
+      "Public-sector workflow for planning, procurement readiness, and transparent compliance reporting.",
     url: `${SITE_URL}/public-sector/veteran-led-compliance`,
     type: "website",
     images: [
       {
         url: `${SITE_URL}/images/og/services/municipal-government.webp`,
-        alt: "MH Construction veteran-led public-sector compliance workflow",
+        alt: "MH Construction public-sector compliance workflow",
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     title: veteranLedComplianceSeoTitle,
     description:
-      "Public-sector compliance planning with veteran-led execution controls and transparent project reporting.",
+      "Public-sector compliance planning with documented execution controls and transparent project reporting.",
     creator: "@mhc_gc",
     images: [`${SITE_URL}/images/og/services/municipal-government.webp`],
   },
@@ -101,13 +101,13 @@ export default async function VeteranLedCompliancePage() {
         <div className="mx-auto max-w-5xl w-full ml-auto">
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
             {isEs
-              ? "Ruta de Cumplimiento -> Cumplimiento Liderado por Veteranos"
-              : "Compliance Pathway → Veteran-Led Compliance"}
+              ? "Ruta de Cumplimiento -> Cumplimiento del Sector Público"
+              : "Compliance Pathway → Public Sector Compliance"}
           </p>
           <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
             {isEs
-              ? "Flujo de Cumplimiento Liderado por Veteranos"
-              : "Veteran-Led Compliance Workflow"}
+              ? "Flujo de Cumplimiento del Sector Público"
+              : "Public Sector Compliance Workflow"}
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">
             {isEs
@@ -129,8 +129,8 @@ export default async function VeteranLedCompliancePage() {
           { label: isEs ? "Gobierno" : "Government", href: "/public-sector" },
           {
             label: isEs
-              ? "Cumplimiento Liderado por Veteranos"
-              : "Veteran-Led Compliance",
+              ? "Cumplimiento del Sector Público"
+              : "Public Sector Compliance",
           },
         ]}
       />

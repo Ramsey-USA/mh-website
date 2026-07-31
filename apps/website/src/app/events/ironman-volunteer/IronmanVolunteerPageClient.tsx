@@ -245,8 +245,8 @@ export function IronmanVolunteerPageClient({
                     />
                     <span>
                       {isEs
-                        ? "Liderazgo veterano aplicado al servicio comunitario"
-                        : "Veteran-led leadership applied to community service"}
+                        ? "Responsabilidad de empresa veterana aplicada al servicio comunitario"
+                        : "Veteran-owned accountability applied to community service"}
                     </span>
                   </li>
                 </ul>
@@ -314,8 +314,8 @@ export function IronmanVolunteerPageClient({
               </p>
               <h3 className="mt-2 text-xl font-black text-gray-900 dark:text-white">
                 {isEs
-                  ? "Liderazgo veterano, servicio confiable"
-                  : "Veteran-led leadership, reliable service"}
+                  ? "Empresa veterana, servicio confiable"
+                  : "Veteran-owned accountability, reliable service"}
               </h3>
               <p className="font-body mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                 {isEs

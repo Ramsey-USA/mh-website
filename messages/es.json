@@ -344,7 +344,7 @@
         "items": {
           "veteranDiscipline": {
             "title": "Estándares Veteranos de Campo",
-            "description": "El liderazgo veterano refuerza la ejecución estructurada y la resolución práctica de problemas en los equipos de proyecto."
+            "description": "El liderazgo de empresa veterana refuerza la ejecución estructurada y la resolución práctica de problemas en los equipos de proyecto."
           },
           "communication": {
             "title": "Comunicación Abierta y Transparencia",
@@ -369,7 +369,7 @@
         }
       },
       "quote": {
-        "text": "Unirse a MH Construction significa integrarse a un equipo de construcción basado en integridad, transparencia y relaciones de largo plazo, con estándares veteranos que respaldan la ejecución diaria.",
+        "text": "Unirse a MH Construction significa integrarse a un equipo de construcción basado en integridad, transparencia y relaciones de largo plazo, con estándares veteranos de campo que respaldan la ejecución diaria.",
         "author": "Jeremy Thamert, Propietario y Presidente"
       }
     },
@@ -1033,14 +1033,14 @@
       "current": "Construcción del Sector Público"
     },
     "hero": {
-      "kicker": "Puente para Veteranos",
-      "title": "Ruta de Construcción del Sector Público Liderada por Veteranos",
-      "description": "Esta página conecta valores centrados en veteranos con requisitos de proyectos gubernamentales para que agencias públicas y equipos de proyecto puedan avanzar de la intención a la ejecución con una planificación clara."
+      "kicker": "Puente del Sector Público",
+      "title": "Ruta de Construcción del Sector Público",
+      "description": "Esta página conecta la planificación de construcción del sector público con la responsabilidad de una empresa veterana para que agencias públicas y equipos de proyecto puedan avanzar de los requisitos a la ejecución con una planificación clara."
     },
     "cards": {
       "delivery": {
         "title": "Entrega del Sector Público",
-        "text": "Revisa como el flujo de entrega gubernamental se alinea con la ejecución de proyectos liderada por veteranos.",
+        "text": "Revisa cómo el flujo de entrega gubernamental se alinea con una ejecución responsable del sector público.",
         "cta": "Explorar página del sector público"
       },
       "compliance": {
@@ -1066,10 +1066,10 @@
   "veteransPage": {
     "hero": {
       "kicker": "Veteranos",
-      "titleLine1": "Apoyando a Quienes Sirvieron",
-      "titleLine2": "Honrando a Quienes Sirvieron",
-      "titleLine3": "Todas las Ramas, Todos los Valores",
-      "titleLine4": "Descuento para Veteranos de Combate Disponible",
+      "titleLine1": "Apoyo en Construcción para Quienes Sirvieron",
+      "titleLine2": "Liderazgo de Empresa Veterana",
+      "titleLine3": "Alcance Claro, Precios Honestos",
+      "titleLine4": "Revisión de Precios para Proyectos de Veteranos de Combate",
       "titleLine5Prefix": "Construyendo proyectos para el Cliente, ",
       "notWord": "NO",
       "titleLine5Suffix": "por el Dólar"
@@ -1080,28 +1080,28 @@
     },
     "foundation": {
       "subtitle": "Nuestra Base",
-      "title": "Valores de Empresa Veterana y Rendimiento Comprobado",
+      "title": "Valores de Construcción Primero y Responsabilidad Veterana",
       "description": {
         "prefix": "Donde",
-        "highlight1": "la disciplina militar se encuentra con el liderazgo honesto en construcción",
-        "middle": "- los valores ganados en servicio de honestidad, integridad y asociación guían",
-        "highlight2": "cada proyecto y alianza",
+        "highlight1": "el liderazgo honesto en construcción se refuerza con disciplina ganada en el servicio",
+        "middle": "- honestidad, integridad y cumplimiento guían",
+        "highlight2": "cada alcance, cronograma y alianza",
         "suffix": "que construimos."
       },
       "values": {
         "leadership": {
           "title": "Liderazgo de Empresa Veterana",
-          "subtitle": "Excelencia Ganada en el Servicio",
-          "description": "El propietario veterano del Ejército Jeremy Thamert aporta más de 15 años de experiencia en aviación militar y disciplina operativa. El veterano de la Marina Matt Ramsey aplica ejecución disciplinada a las operaciones digitales. El liderazgo veterano combinado respalda seguimiento confiable y comunicación clara.",
+          "subtitle": "Responsabilidad en Construcción",
+          "description": "El propietario veterano del Ejército Jeremy Thamert aporta más de 15 años de experiencia en aviación militar, planificación disciplinada y responsabilidad directa al liderazgo de MH Construction. El veterano de la Marina Matt Ramsey respalda las operaciones digitales con el mismo cumplimiento confiable. Juntos, el liderazgo de empresa veterana fortalece la comunicación clara y un servicio orientado a relaciones.",
           "highlights": [
             "Equipo veterano de Ejército + Marina",
-            "Disciplina operativa militar",
-            "Ejecución confiable"
+            "Responsabilidad primero en construcción",
+            "Cumplimiento confiable"
           ],
           "statLabel": "Lideres Veteranos"
         },
         "safety": {
-          "title": "EMR .64 - Seguridad Lista para Combate",
+          "title": "EMR .64 - Desempeño de Seguridad Verificado",
           "subtitle": "Cada Miembro del Equipo Regresa a Casa",
           "description": "Protocolos de seguridad disciplinados con EMR .64, un 40% mejor que el promedio de la industria, más de 3 años sin lesiones con tiempo perdido y designación OSHA VPP Star.",
           "highlights": [
@@ -1113,8 +1113,8 @@
         },
         "experience": {
           "title": "Experiencia de Construcción Multidisciplinaria",
-          "subtitle": "Excelencia Veterana + Civil",
-          "description": "Veteranos y civiles trabajan juntos con métodos probados en campo para proyectos comerciales, industriales y municipales.",
+          "subtitle": "Disciplina Ganada en Servicio, Ejecución Probada en Campo",
+          "description": "Veteranos y civiles trabajan juntos con métodos probados en campo para proyectos comerciales, industriales y municipales con coordinación firme desde la preconstrucción hasta el cierre.",
           "highlights": [
             "Experiencia probada en campo",
             "Colaboración veterano-civil",
@@ -1135,8 +1135,8 @@
         },
         "missions": {
           "title": "Más de 650 Proyectos Exitosos",
-          "subtitle": "Excelencia Operativa Comprobada",
-          "description": "Más de 650 proyectos completados desde 2010. El liderazgo veterano aporta planificación disciplinada, ejecución bajo presión y resultados consistentes.",
+          "subtitle": "Entrega de Proyectos Comprobada",
+          "description": "Más de 650 proyectos completados desde 2010. El liderazgo de empresa veterana respalda planificación disciplinada, coordinación responsable y resultados consistentes.",
           "highlights": [
             "Más de 650 proyectos completados",
             "Planificación disciplinada",
@@ -1173,28 +1173,28 @@
     },
     "combat": {
       "subtitle": "El Servicio Reconoce al Servicio",
-      "title": "Descuento para Veteranos de Combate Disponible",
+      "title": "Revisión de Precios para Proyectos de Veteranos de Combate",
       "description": {
         "highlight1": "Todas las ramas, todos los rangos, todas las epocas",
         "middle": "- Ejército, Marina, Fuerza Aerea, Marines, Guardia Costera y Fuerza Espacial. Si sirvio en combate, honramos ese servicio con",
-        "highlight2": "precios preferenciales en todos los servicios de construcción",
+        "highlight2": "consideración de precios para proyectos en nuestros servicios de construcción",
         "suffix": ". Cada descuento se determina mediante evaluación según alcance del proyecto, historial de servicio y necesidades específicas. Sin letra pequeña. Su servicio importa."
       },
       "cards": {
         "allBranches": {
           "aria": "Todas las Ramas Militares",
-          "title": "Todas las Ramas Son Bienvenidas",
+          "title": "Todas las Ramas Se Consideran",
           "description": "Ejército, Marina, Fuerza Aérea, Marines, Guardia Costera y Fuerza Espacial: todos los veteranos de combate califican para evaluación."
         },
         "tailoredService": {
           "aria": "Evaluación Caso por Caso",
-          "title": "Adaptado a Su Servicio",
-          "description": "Cada situación de veterano es única. Los descuentos se determinan caso por caso según alcance del proyecto, historial de servicio y circunstancias individuales."
+          "title": "Adaptado a Su Proyecto",
+          "description": "Cada situación de veterano es única. La consideración de precios se determina caso por caso según alcance del proyecto, historial de servicio y circunstancias individuales."
         }
       },
       "timeline": {
-        "title": "Proceso de Evaluación del Descuento para Veteranos de Combate",
-        "description": "Nuestro proceso claro de evaluación garantiza una revisión justa y respetuosa de cada solicitud de veterano de combate.",
+        "title": "Proceso de Revisión de Precios para Veteranos de Combate",
+        "description": "Nuestro proceso claro de revisión garantiza una evaluación justa y respetuosa de cada solicitud de veterano de combate.",
         "steps": {
           "initialConsultation": {
             "title": "Consulta Inicial",
@@ -1209,8 +1209,8 @@
             "description": "Evaluamos alcance, cronograma y necesidades de construcción del proyecto, incluyendo tamaño, complejidad, materiales, mano de obra y presupuesto."
           },
           "discountDetermination": {
-            "title": "Determinación del Descuento",
-            "description": "Con base en historial de servicio y detalles del proyecto, determinamos un descuento apropiado y lo comunicamos con claridad."
+            "title": "Determinación de Precio",
+            "description": "Con base en historial de servicio y detalles del proyecto, determinamos cualquier consideración de precio apropiada y la comunicamos con claridad."
           },
           "transparentProposal": {
             "title": "Propuesta Transparente",
@@ -1220,7 +1220,7 @@
       },
       "commitment": {
         "title": "Nuestro Compromiso",
-        "description": "Como empresa veterana, honrar el servicio en combate es un compromiso permanente. Cada veterano de combate recibe consideración justa, trato respetuoso y precios significativos."
+        "description": "Como empresa veterana, honrar el servicio en combate es un compromiso permanente. Cada veterano de combate recibe consideración justa, trato respetuoso y un proceso claro de revisión."
       },
       "cta": {
         "aria": "Contactar ahora",
@@ -1234,8 +1234,8 @@
       "description": {
         "prefix": "Como",
         "highlight1": "empresa veterana desde enero de 2025",
-        "middle": ", estamos desplegando programas operativos de largo plazo para apoyar a veteranos.",
-        "highlight2": "Servicio por encima de uno mismo",
+        "middle": ", estamos invirtiendo en programas de contratación, capacitación y alianzas de largo plazo para apoyar a veteranos.",
+        "highlight2": "Relaciones por encima de transacciones",
         "suffix": "- construyendo relaciones que superan los proyectos."
       },
       "stats": {
@@ -1269,8 +1269,8 @@
         },
         "allies": {
           "aria": "Red de aliados veteranos",
-          "title": "Aliados Veteranos",
-          "description": "Incorporamos Socios Comerciales de propiedad veterana a una red en crecimiento con oportunidades preferenciales.",
+          "title": "Red de Socios Comerciales Veteranos",
+          "description": "Incorporamos Socios Comerciales de propiedad veterana a una red en crecimiento basada en oportunidades calificadas, comunicación honesta y alineación de largo plazo.",
           "link": "Conviertase en Aliado"
         },
         "training": {
@@ -1283,7 +1283,7 @@
     },
     "partnerships": {
       "subtitle": "Construyendo Relaciones",
-      "title": "Alianzas Estratégicas con Organizaciones de Veteranos",
+      "title": "Alianzas con Organizaciones de Veteranos e Impacto Medible",
       "description": {
         "prefix": "Nos asociamos con",
         "highlight1": "organizaciones de veteranos selectivas",
@@ -1309,7 +1309,7 @@
         "regional": {
           "aria": "Presencia e Impacto Regional - Presencia Local",
           "title": "Presencia e Impacto Regional",
-          "tagline": "Presencia Local Real",
+          "tagline": "Presencia Local y Cumplimiento Local",
           "description": "Fuerte presencia en el Pacífico Noroeste con programas activos en Washington, Oregon o Idaho e impacto local medible.",
           "stats": "Programas Enfocados en PNW"
         },
@@ -1332,12 +1332,12 @@
     },
     "bridgePaths": {
       "title": "Rutas Puente del Sector Público",
-      "description": "Pase de valores enfocados en veteranos a la planificación de proyectos gubernamentales con rutas directas para cumplimiento, estrategia regional y alcance del proyecto.",
+      "description": "Pase de la responsabilidad de una empresa veterana a la planificación de proyectos gubernamentales con rutas directas para cumplimiento, estrategia regional y alcance del proyecto.",
       "openPathway": "Abrir ruta",
       "items": {
         "publicSector": {
-          "title": "Ruta Liderada por Veteranos para Sector Público",
-          "description": "Conecte valores de veteranos con la planificación de ejecución del sector público."
+          "title": "Ruta de Empresa Veterana para el Sector Público",
+          "description": "Conecte valores de empresa veterana con la planificación y ejecución de proyectos del sector público."
         },
         "compliance": {
           "title": "Flujo de Cumplimiento",
@@ -1351,7 +1351,7 @@
     },
     "nextSteps": {
       "title": "Construyamos Juntos",
-      "subtitle": "Asóciese con un equipo veterano orientado a relaciones donde honestidad, integridad, profesionalismo y minuciosidad guían cada decisión."
+      "subtitle": "Asóciese con un equipo de construcción veterano y orientado a relaciones donde honestidad, integridad, profesionalismo y minuciosidad guían cada decisión."
     }
   },
   "employeeHandbook": {

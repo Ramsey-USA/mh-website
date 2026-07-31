@@ -261,7 +261,7 @@
     "overview": {
       "subtitle": "Meet Our",
       "title": "Leadership Team",
-      "description": "Meet the construction team serving agricultural and winery communities, commercial tenant improvements, and municipal projects across the Pacific Northwest, with veteran-led field standards supporting every delivery phase."
+      "description": "Meet the construction team serving agricultural and winery communities, commercial tenant improvements, and municipal projects across the Pacific Northwest, with veteran field standards supporting every delivery phase."
     },
     "leadershipSources": {
       "label": "Verified leadership sources",
@@ -344,7 +344,7 @@
         "items": {
           "veteranDiscipline": {
             "title": "Veteran Field Standards",
-            "description": "Veteran-led leadership reinforces structured execution and practical problem-solving across project teams."
+            "description": "Veteran-owned leadership reinforces structured execution and practical problem-solving across project teams."
           },
           "communication": {
             "title": "Open Communication & Transparency",
@@ -369,7 +369,7 @@
         }
       },
       "quote": {
-        "text": "Joining MH Construction means joining a construction team built on integrity, transparency, and long-term relationships, with veteran-led standards supporting daily execution.",
+        "text": "Joining MH Construction means joining a construction team built on integrity, transparency, and long-term relationships, with veteran field standards supporting daily execution.",
         "author": "Jeremy Thamert, Owner & President"
       }
     },
@@ -1033,14 +1033,14 @@
       "current": "Public Sector Construction"
     },
     "hero": {
-      "kicker": "Veteran Bridge",
-      "title": "Veteran-Led Public Sector Construction Path",
-      "description": "This page connects veteran-centered values with government requirements so agencies and mission-driven teams can move from intent to execution with clear planning."
+      "kicker": "Public Sector Bridge",
+      "title": "Public Sector Construction Path",
+      "description": "This page connects public-sector construction planning with veteran-owned accountability so agencies and project teams can move from requirements to execution with clear planning."
     },
     "cards": {
       "delivery": {
         "title": "Public Sector Delivery",
-        "text": "Review how government delivery workflows align with veteran-led execution.",
+        "text": "Review how government delivery workflows align with accountable public-sector execution.",
         "cta": "Explore public sector page"
       },
       "compliance": {
@@ -1066,10 +1066,10 @@
   "veteransPage": {
     "hero": {
       "kicker": "Veterans",
-      "titleLine1": "Supporting Those Who Served",
-      "titleLine2": "Honoring Those Who Served",
-      "titleLine3": "All Branches, All Values",
-      "titleLine4": "Combat Veteran Discount at the Ready",
+      "titleLine1": "Construction Support for Those Who Served",
+      "titleLine2": "Veteran-Owned Leadership",
+      "titleLine3": "Clear Scope, Honest Pricing",
+      "titleLine4": "Combat Veteran Project Pricing Review",
       "titleLine5Prefix": "Built on Quality, Backed by Trust.",
       "notWord": "",
       "titleLine5Suffix": ""
@@ -1080,28 +1080,28 @@
     },
     "foundation": {
       "subtitle": "Our Foundation",
-      "title": "Veteran-Owned Values & Proven Performance",
+      "title": "Construction-First Values, Veteran-Owned Accountability",
       "description": {
         "prefix": "Where",
-        "highlight1": "military discipline meets honest construction leadership",
-        "middle": "- values of honesty, integrity, and partnership guide",
-        "highlight2": "every project and partnership",
+        "highlight1": "honest construction leadership is reinforced by service-earned discipline",
+        "middle": "- honesty, integrity, and follow-through guide",
+        "highlight2": "every scope, schedule, and partnership",
         "suffix": "we build."
       },
       "values": {
         "leadership": {
           "title": "Veteran-Owned Leadership",
-          "subtitle": "Service-Earned Excellence",
-          "description": "Army veteran owner Jeremy Thamert brings 15+ years of military aviation experience and operational discipline. Navy veteran Matt Ramsey applies disciplined execution to digital operations. Together, veteran leadership supports dependable follow-through and clear communication.",
+          "subtitle": "Construction Accountability",
+          "description": "Army veteran owner Jeremy Thamert brings 15+ years of military aviation experience, disciplined planning, and direct accountability to MH Construction's leadership. Navy veteran Matt Ramsey supports digital operations with the same dependable follow-through. Together, veteran-owned leadership strengthens clear communication and relationship-first service.",
           "highlights": [
             "Army + Navy veteran team",
-            "Military operational discipline",
-            "Dependable execution"
+            "Construction-first accountability",
+            "Dependable follow-through"
           ],
           "statLabel": "Veteran Leaders"
         },
         "safety": {
-          "title": ".64 EMR - Combat-Ready Safety",
+          "title": ".64 EMR - Verified Safety Performance",
           "subtitle": "Every Team Member Returns Home",
           "description": "Disciplined safety protocols with a .64 EMR (40% better than industry average), 3+ years without a time-loss injury, and OSHA VPP Star designation.",
           "highlights": [
@@ -1113,8 +1113,8 @@
         },
         "experience": {
           "title": "Cross-Discipline Construction Experience",
-          "subtitle": "Veteran + Civilian Excellence",
-          "description": "Veterans and civilians work together using field-tested methods across commercial, industrial, and municipal projects.",
+          "subtitle": "Service-Earned Discipline, Field-Tested Delivery",
+          "description": "Veterans and civilians work together using field-tested methods across commercial, industrial, and municipal projects with steady coordination from preconstruction through close-out.",
           "highlights": [
             "Field-tested expertise",
             "Veteran-civilian collaboration",
@@ -1134,9 +1134,9 @@
           "statLabel": "Transparency"
         },
         "missions": {
-          "title": "650+ Successful Missions",
-          "subtitle": "Proven Operational Excellence",
-          "description": "650+ completed projects since 2010. Veteran leadership brings disciplined planning, execution under pressure, and consistent results.",
+          "title": "650+ Completed Projects",
+          "subtitle": "Proven Project Delivery",
+          "description": "650+ completed projects since 2010. Veteran-owned leadership supports disciplined planning, accountable coordination, and consistent results.",
           "highlights": [
             "650+ completed projects",
             "Disciplined planning",
@@ -1173,28 +1173,28 @@
     },
     "combat": {
       "subtitle": "Service Recognizes Service",
-      "title": "Combat Veteran Discount at the Ready",
+      "title": "Combat Veteran Project Pricing Review",
       "description": {
         "highlight1": "All branches, all ranks, all eras",
         "middle": "- Army, Navy, Air Force, Marines, Coast Guard, and Space Force. If you served in combat, we honor that service with",
-        "highlight2": "preferential pricing on all construction services",
+        "highlight2": "project pricing consideration across our construction services",
         "suffix": ". Each discount is determined through a screening process based on project scope, service record, and specific needs. No fine print. Your service matters."
       },
       "cards": {
         "allBranches": {
           "aria": "All Military Branches",
-          "title": "All Branches Welcome",
+          "title": "All Branches Considered",
           "description": "Army, Navy, Air Force, Marines, Coast Guard, and Space Force - all combat veterans qualify for consideration."
         },
         "tailoredService": {
           "aria": "Case-by-Case Evaluation",
-          "title": "Tailored to Your Service",
-          "description": "Every veteran's situation is unique. Discounts are determined case-by-case based on project scope, service record, and circumstances."
+          "title": "Tailored to Your Project",
+          "description": "Every veteran's situation is unique. Pricing consideration is determined case-by-case based on project scope, service record, and circumstances."
         }
       },
       "timeline": {
-        "title": "Combat Veteran Discount Screening Process",
-        "description": "Our straightforward screening process ensures fair and respectful evaluation of every combat veteran application.",
+        "title": "Combat Veteran Pricing Review Process",
+        "description": "Our straightforward review process ensures fair and respectful evaluation of every combat veteran request.",
         "steps": {
           "initialConsultation": {
             "title": "Initial Consultation",
@@ -1209,8 +1209,8 @@
             "description": "We evaluate scope, schedule, and construction needs, including size, complexity, materials, labor, and budget constraints."
           },
           "discountDetermination": {
-            "title": "Discount Determination",
-            "description": "Based on service record and project details, we determine an appropriate discount and communicate it clearly."
+            "title": "Pricing Determination",
+            "description": "Based on service record and project details, we determine any appropriate pricing consideration and communicate it clearly."
           },
           "transparentProposal": {
             "title": "Transparent Proposal",
@@ -1220,7 +1220,7 @@
       },
       "commitment": {
         "title": "Our Commitment",
-        "description": "As a Veteran-Owned company, honoring combat service is a standing commitment. Every combat veteran receives fair consideration, respectful treatment, and meaningful pricing."
+        "description": "As a Veteran-Owned company, honoring combat service is a standing commitment. Every combat veteran receives fair consideration, respectful treatment, and a clear review process."
       },
       "cta": {
         "aria": "Contact now",
@@ -1234,8 +1234,8 @@
       "description": {
         "prefix": "As a",
         "highlight1": "Veteran-Owned company Since January 2025",
-        "middle": ", we're deploying long-term operational programs to support veterans.",
-        "highlight2": "Service over self",
+        "middle": ", we're investing in long-term hiring, training, and partnership programs that support veterans.",
+        "highlight2": "Relationships over transactions",
         "suffix": "- building relationships that outlast projects."
       },
       "stats": {
@@ -1269,8 +1269,8 @@
         },
         "allies": {
           "aria": "Veteran allies network",
-          "title": "Veteran Allies",
-          "description": "We recruit Veteran-Owned Trade Partners into a growing network with preferential opportunities.",
+          "title": "Veteran Trade Partner Network",
+          "description": "We recruit Veteran-Owned Trade Partners into a growing network built on qualified opportunities, honest communication, and long-term alignment.",
           "link": "Become an Ally"
         },
         "training": {
@@ -1283,7 +1283,7 @@
     },
     "partnerships": {
       "subtitle": "Building Relationships",
-      "title": "Strategic Veteran Organization Partnerships",
+      "title": "Veteran Organization Partnerships with Measurable Impact",
       "description": {
         "prefix": "We partner with",
         "highlight1": "selective veteran organizations",
@@ -1309,7 +1309,7 @@
         "regional": {
           "aria": "Regional Presence & Impact - Local Boots on Ground",
           "title": "Regional Presence & Impact",
-          "tagline": "Local Boots on Ground",
+          "tagline": "Local Presence, Local Follow-Through",
           "description": "Strong Pacific Northwest presence with active programs in Washington, Oregon, or Idaho and measurable local impact.",
           "stats": "PNW-Focused Programs"
         },
@@ -1332,12 +1332,12 @@
     },
     "bridgePaths": {
       "title": "Public Sector Bridge Paths",
-      "description": "Move from veteran-focused values into government project planning with direct pathways for compliance, regional strategy, and project scoping.",
+      "description": "Move from veteran-owned accountability into government project planning with direct pathways for compliance, regional strategy, and project scoping.",
       "openPathway": "Open pathway",
       "items": {
         "publicSector": {
-          "title": "Veteran-Led Public Sector Path",
-          "description": "Bridge veteran values into public-sector delivery planning."
+          "title": "Veteran-Owned Public Sector Path",
+          "description": "Bridge veteran-owned values into public-sector project planning and delivery."
         },
         "compliance": {
           "title": "Compliance Workflow",
@@ -1351,7 +1351,7 @@
     },
     "nextSteps": {
       "title": "Let's Build Together",
-      "subtitle": "Partner with a Veteran-Owned, relationship-first team where honesty, integrity, professionalism, and thoroughness guide every decision."
+      "subtitle": "Partner with a Veteran-Owned, relationship-first construction team where honesty, integrity, professionalism, and thoroughness guide every decision."
     }
   },
   "employeeHandbook": {

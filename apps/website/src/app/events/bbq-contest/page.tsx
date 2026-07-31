@@ -352,8 +352,8 @@ export default async function BbqContestPage() {
                 </p>
                 <h3 className="mt-2 text-xl font-black text-gray-900 dark:text-white">
                   {isEs
-                    ? "Liderazgo veterano, enfoque en servicio"
-                    : "Veteran-led leadership, service-first planning"}
+                    ? "Empresa veterana, planificacion orientada al servicio"
+                    : "Veteran-owned accountability, service-first planning"}
                 </h3>
                 <p className="font-body mt-3 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
                   {isEs

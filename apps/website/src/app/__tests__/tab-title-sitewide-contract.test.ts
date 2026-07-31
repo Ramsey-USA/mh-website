@@ -79,7 +79,7 @@ describe("Sitewide tab title metadata contract", () => {
       requiredSnippets: [
         "buildDualSeoTitle(",
         '"publicSector",',
-        '"Veteran-Led Public Sector Construction",',
+        '"Public Sector Construction Path",',
       ],
     },
     {

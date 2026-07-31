@@ -755,7 +755,7 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/public-sector`,
     name: `${formatDualPageName("Public Sector Construction", PAGE_TERMINOLOGY.publicSector.mhBrandName)} | MH Construction`,
     description:
-      "Veteran-owned Tri-State contractor supporting public agencies with procurement-ready planning, BABAA-aligned delivery support, scope clarity, and accountable execution from Pasco, WA, aligned to one operational strategy spanning operations, marketing, sales and estimating, and MISH safety.",
+      "Tri-State public-sector contractor supporting agencies with procurement-ready planning, BABAA-aligned delivery support, scope clarity, and accountable execution from Pasco, WA, backed by veteran-owned leadership and one operational strategy spanning operations, marketing, sales and estimating, and MISH safety.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -770,9 +770,9 @@ export function getGovernmentSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Veteran-Owned, Accountable Delivery`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.publicSector.seoName, PAGE_TERMINOLOGY.publicSector.mhBrandName)} | Procurement-Ready Planning, Accountable Delivery`,
     description:
-      "MH Construction supports public-sector project stakeholders with veteran-owned leadership, procurement-ready planning, BABAA-informed execution pathways, transparent delivery reporting across WA, OR, and ID, and one operational strategy connecting operations, marketing, sales and estimating, and MISH safety execution.",
+      "MH Construction supports public-sector project stakeholders with procurement-ready planning, BABAA-informed execution pathways, transparent delivery reporting across WA, OR, and ID, and veteran-owned leadership as supporting accountability across one operational strategy connecting operations, marketing, sales and estimating, and MISH safety execution.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.publicSector, [
       "Jeremy Thamert leadership",
       "public-sector construction planning",
@@ -824,7 +824,7 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
     url: `${enhancedSEO.siteUrl}/veterans`,
     name: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | MH Construction`,
     description:
-      "Veteran-focused MH Construction programs include combat veteran discounts, community support, and leadership pathways connected to commercial, industrial, and public-sector work across WA, OR, and ID with scope clarity and practical follow-through.",
+      "Construction support for veterans at MH Construction includes combat veteran project pricing review, community support, and leadership pathways connected to commercial, industrial, and public-sector work across WA, OR, and ID with scope clarity and practical follow-through.",
     isPartOf: { "@id": `${enhancedSEO.siteUrl}/#website` },
     about: { "@id": `${enhancedSEO.siteUrl}/#organization` },
     primaryImageOfPage: {
@@ -839,12 +839,13 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
 
   return generateEnhancedMetadata({
     // Title without trailing "| MH Construction" — generateEnhancedMetadata appends it
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | Combat Veteran Discount, Year-Round Support`,
+    title: `${formatDualPageName(PAGE_TERMINOLOGY.veterans.seoName, PAGE_TERMINOLOGY.veterans.mhBrandName)} | Construction Support, Pricing Review, Year-Round Programs`,
     description:
-      "Learn how MH Construction supports veterans through combat veteran discounts, hiring initiatives, apprenticeships, and long-term community partnerships across the Pacific Northwest.",
+      "Learn how MH Construction supports veterans through combat veteran project pricing review, hiring initiatives, apprenticeships, and long-term community partnerships across the Pacific Northwest.",
     keywords: buildPageKeywords(JEREMY_SEO_ROUTE_KEYS.veterans, [
       "veteran-owned construction Tri-State",
-      "combat veteran discount",
+      "construction support for veterans",
+      "combat veteran project pricing review",
       "veteran hiring priority",
       "Army Navy veteran leadership",
       "veteran apprenticeship programs",
@@ -858,8 +859,8 @@ export function getVeteransSEO(): Metadata & { schemas: object[] } {
       "Jeremy Thamert Army veteran",
       "Matt Ramsey Navy veteran",
       "all-branch veterans",
-      "veteran discount screening",
-      "military construction services",
+      "veteran pricing review",
+      "construction services for veterans",
       "Tri-State veteran contractor",
       "veteran-owned business Washington",
     ]),
