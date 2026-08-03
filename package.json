@@ -105,7 +105,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.2.0",
+    "lint-staged": "^17.3.0",
     "markdownlint-cli2": "^0.23.2",
     "pdf-lib": "^1.17.1",
     "pdf-parse": "^2.4.5",
