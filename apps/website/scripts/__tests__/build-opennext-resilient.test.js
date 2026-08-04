@@ -14,7 +14,7 @@ describe("build-opennext-resilient wrapper", () => {
     const script = fs.readFileSync(wrapperPath, "utf8");
 
     expect(script).toContain("npx opennextjs-cloudflare build");
-    expect(script).not.toContain("opennextjs-cloudflare build");
+    expect(script).not.toMatch(/(^|\n)\s*opennextjs-cloudflare build\b/m);
   });
 
   it("can be executed as a shell script", () => {

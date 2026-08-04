@@ -79,7 +79,7 @@ run_build() {
     fi
 
     echo "[build:opennext] Packaging prebuilt standalone output."
-    opennextjs-cloudflare build --skipNextBuild
+    npx opennextjs-cloudflare build --skipNextBuild
     return
   fi
 
