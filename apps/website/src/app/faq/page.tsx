@@ -32,6 +32,7 @@ import {
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
+import { isExternalHref } from "@/lib/navigation/path-utils";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.faq);
 
@@ -79,10 +80,6 @@ const faqSchema = {
 };
 
 const FAQ_HUB_OVERVIEW_ID = "faq-hub-overview";
-
-function isExternalHref(href: string): boolean {
-  return /^https?:\/\//.test(href);
-}
 
 /**
  * FAQ Accordion Component - Modern Card Design

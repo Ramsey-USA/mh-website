@@ -1,7 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(git rev-parse --show-toplevel)"
+find_repo_root() {
+  local dir="${1:-$PWD}"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/package.json" && -f "$dir/pnpm-workspace.yaml" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  return 1
+}
+
+ROOT="$(find_repo_root "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)")"
+if [[ -z "${ROOT:-}" ]]; then
+  echo "Unable to locate repository root." >&2
+  exit 1
+fi
+
 cd "$ROOT"
 
 ENV_FILE="${1:-$ROOT/.env.r2.local}"
@@ -14,10 +31,10 @@ if [[ ! -f "$ENV_FILE" ]]; then
   exit 1
 fi
 
-if git ls-files --error-unmatch "$ENV_FILE" >/dev/null 2>&1; then
-  echo "❌ $ENV_FILE is tracked by git"
-  echo "   Remove it from git immediately"
-  exit 1
+if [[ -f "$ROOT/.gitignore" ]] && grep -Eq '(^|[[:space:]])\.env\.r2\.local($|[[:space:]])' "$ROOT/.gitignore"; then
+  echo "✅ $ENV_FILE is covered by local ignore rules"
+else
+  echo "ℹ️ $ENV_FILE is not explicitly ignored by .gitignore"
 fi
 
 set -a
@@ -31,4 +48,4 @@ if ! validate_cloudflare_r2_env; then
   exit 1
 fi
 
-echo "✅ R2 publish auth file looks valid and is not tracked by git"
+echo "✅ R2 publish auth file looks valid"

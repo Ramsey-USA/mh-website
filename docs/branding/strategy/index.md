@@ -3,6 +3,12 @@
 **Category:** Branding - Strategy Index
 **Last Updated:** July 28, 2026
 
+## Quick Summary
+
+Messaging, terminology, and slogan governance for consistent MH brand voice.
+
+Use this index when you need the canonical guidance for voice, slogans, naming, and cross-surface messaging alignment.
+
 ## Overview
 
 Messaging, terminology, and slogan governance for consistent MH brand voice.
@@ -19,10 +25,9 @@ For enterprise term additions and term-protection rules, use `docs/branding/stan
 - **[Slogan Coverage Matrix](./slogan-coverage-matrix.md)** — Slogan coverage map across key surfaces.
 - **[Universal Terminology Guide](./universal-terminology-guide.md)** — Canonical terminology standards.
 - **[Construction Terminology Glossary](./construction-terminology-glossary.md)** — PMBOK 6 and military-themed construction term mapping.
-- **[Safety Terminology Glossary](../../technical/safety-terminology-glossary.md)** — Canonical MISH/APP/SSSP and MSDS/SDS + Toolbox Talk freshness definitions.
 - **[Dual Terminology Standard](./dual-terminology-standard.md)** — Required enterprise dual-label format rules.
 - **[Brand Congruency QA Checklist](./brand-congruency-qa-checklist.md)** — Strategy-side validation checklist.
-- **[Spanish Review Matrix - Core And Trust Pages (Phase 8.2)](./spanish-review-matrix-core-trust-phase8-2.md)** — Repository review artifact for namespace-by-namespace Spanish approval tracking.
+- **[Spanish Review Matrix - Core And Trust Pages (Phase 8.2)](../archive/2026-08/spanish-review-matrix-core-trust-phase8-2.md)** — Archived repository review artifact for Spanish approval tracking.
 
 ## Related
 

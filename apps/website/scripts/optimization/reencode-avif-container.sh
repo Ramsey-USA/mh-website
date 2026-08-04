@@ -7,7 +7,14 @@ if ! command -v docker >/dev/null 2>&1; then
   exit 1
 fi
 
-ROOT_DIR="$(git rev-parse --show-toplevel)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT_DIR" != "/" ]]; do
+  if [[ -f "$ROOT_DIR/package.json" && -f "$ROOT_DIR/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT_DIR="$(dirname "$ROOT_DIR")"
+done
+
 IMAGE_TAG="mhc-avif-reencode:local"
 DOCKERFILE_PATH="$ROOT_DIR/apps/website/scripts/optimization/avif-reencode.Dockerfile"
 

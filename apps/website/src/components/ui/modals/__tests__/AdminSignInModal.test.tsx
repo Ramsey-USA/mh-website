@@ -77,7 +77,7 @@ describe("AdminSignInModal", () => {
     expect(screen.getByLabelText(/Password/i)).toHaveValue("");
   });
 
-  it("submits successfully, stores auth state, and routes to the dashboard", async () => {
+  it("submits successfully and closes the modal", async () => {
     const user = userEvent.setup();
     const onClose = jest.fn();
     const mockFetch = globalThis.fetch as jest.MockedFunction<typeof fetch>;
@@ -111,7 +111,8 @@ describe("AdminSignInModal", () => {
     });
 
     // Token is persisted as an httpOnly cookie by the server — not in localStorage.
-    expect(pushMock).toHaveBeenCalledWith("/dashboard");
+    // Navigation is handled by protected-route middleware after sign-in.
+    expect(pushMock).not.toHaveBeenCalled();
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 

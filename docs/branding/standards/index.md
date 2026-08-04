@@ -3,6 +3,12 @@
 **Category:** Branding - Standards Index
 **Last Updated:** July 28, 2026
 
+## Quick Summary
+
+Visual and component standards that preserve MH brand consistency across website, documents, and forms.
+
+Use this index when you need the approved rules for color, hero composition, navigation, terminology, documents, or team-facing branding patterns.
+
 ## Overview
 
 Visual and component standards that preserve MH brand consistency across website,
@@ -13,11 +19,10 @@ documents, and forms.
 - **[Color System](./color-system.md)** — Canonical color policy, accessibility, and token governance.
 - **[Color Quick Reference](./color-quick-reference.md)** — Compact implementation tables and snippets.
 - **[Unified Component Standards](./unified-component-standards.md)** — Shared UI component standards.
-- **[Header Navigation Contract](./header-navigation-contract.md)** — Canonical desktop header order and responsive menu behavior.
+- **[Header Navigation Contract](./header-navigation-contract.md)** — Canonical header order and menu behavior.
 - **[Hero Section Standards](./hero-section-standards.md)** — Hero composition and messaging constraints.
 - **[Hero Guardrails](./hero-guardrails.md)** — Required hero behavioral and compliance checks.
 - **[SEO Terminology Standard](./seo-terminology-standard.md)** — Construction-first SEO vocabulary and military-language precedence rules.
-- **MHC Terms Library (DOCX Source)** — `mhc-terms.docx` (Version 2.0) is the canonical upstream source for term additions and protected regulatory wording.
 - **[Spanish Mision Allowlist](./spanish-mision-allowlist.md)** — Approved Spanish mission-language exceptions retained for veteran-context governance.
 - **[Documents & Forms Branding Standards](./documents-and-forms-standards.md)** — Print/download/manual/form branding requirements.
 - **[Team Badge System](./team-badge-system.md)** — Veteran and role badge usage rules.

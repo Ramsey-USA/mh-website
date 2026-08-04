@@ -7,7 +7,6 @@ import type { ChatWidget } from "@/components/chatbot/ChatWidget";
 type ChatWidgetComponentType = typeof ChatWidget;
 
 const CHAT_WIDGET_EXCLUDED_PREFIXES = [
-  "/dashboard",
   "/offline",
   "/file-handler",
   "/protocol-handler",

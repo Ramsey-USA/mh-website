@@ -2,20 +2,17 @@
 
 set -euo pipefail
 
-ROOT_DIR="$(git rev-parse --show-toplevel)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT_DIR" != "/" ]]; do
+  if [[ -f "$ROOT_DIR/package.json" && -f "$ROOT_DIR/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT_DIR="$(dirname "$ROOT_DIR")"
+done
+
 cd "$ROOT_DIR"
 
 resolve_base_range() {
-  if [[ -n "${BASE_SHA:-}" ]] && git rev-parse --verify "${BASE_SHA}^{commit}" >/dev/null 2>&1; then
-    echo "${BASE_SHA}...HEAD"
-    return 0
-  fi
-
-  if git rev-parse --verify "HEAD~1^{commit}" >/dev/null 2>&1; then
-    echo "HEAD~1...HEAD"
-    return 0
-  fi
-
   return 1
 }
 
@@ -55,24 +52,9 @@ has_link_in_index() {
 
 added_candidates=()
 
-if diff_range="$(resolve_base_range)"; then
-  while IFS= read -r file; do
-    [[ -n "$file" ]] && added_candidates+=("$file")
-  done < <(git diff --name-only --diff-filter=A "$diff_range" | grep -E '^docs/.+\.md$' || true)
-fi
-
-# Include staged and unstaged working-tree additions so local lint runs catch
-# missing index links before commit.
-while IFS= read -r line; do
-  [[ -z "$line" ]] && continue
-  status="${line:0:2}"
-  file="${line:3}"
-  if [[ "$status" == "A " || "$status" == "??" ]]; then
-    if [[ "$file" =~ ^docs/.+\.md$ ]]; then
-      added_candidates+=("$file")
-    fi
-  fi
-done < <(git status --porcelain)
+while IFS= read -r file; do
+  [[ -n "$file" ]] && added_candidates+=("$file")
+done < <(find docs -type f -name '*.md' 2>/dev/null | sort)
 
 declare -A seen=()
 added_md=()

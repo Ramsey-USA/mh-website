@@ -5,6 +5,12 @@
 **Category:** Media - Overview  
 **Last Updated:** July 22, 2026
 
+## Quick Summary
+
+Photo and video strategy guidance for the MH Construction website and supporting marketing surfaces.
+
+Use this section when you need media planning guidance, hero-commercial guardrails, or asset-optimization standards that support the broader MH brand and marketing work.
+
 ## Overview
 
 Photo and video strategy guidance for the MH Construction website and supporting marketing surfaces.

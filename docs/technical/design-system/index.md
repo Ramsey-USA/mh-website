@@ -3,6 +3,12 @@
 **Category:** Technical - Design System  
 **Last Updated:** July 7, 2026
 
+## Quick Summary
+
+Complete design system implementation guides for MH Construction interactive elements. Pair with [Unified Component Standards](../../branding/standards/unified-component-standards.md) (the canonical UI component spec).
+
+Use this index when you need button, icon, typography, or interaction patterns that must remain visually consistent with MH standards.
+
 ## Overview
 
 Complete design system implementation guides for MH Construction interactive elements. Pair with
@@ -25,8 +31,7 @@ Design-system guidance should also preserve MH Construction naming and construct
   patterns, and accessibility requirements.
 - **[Icon System Complete](./icon-system-complete.md)** — Icon library, sizing rules, and
   semantic usage.
-- **[MHC Enterprise Alignment Plan](./mhc-enterprise-alignment-plan.md)** — Phased implementation
-  roadmap for the enterprise documentation repair and expansion work referenced in the alignment report.
+- **[MHC Enterprise Alignment Plan](../../archive/2026-08/mhc-enterprise-alignment-plan.md)** — Archived roadmap for the enterprise documentation repair and expansion work referenced in the alignment report.
 
 ## Quick Links
 

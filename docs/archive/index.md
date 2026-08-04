@@ -12,6 +12,7 @@ Historical documentation snapshots that are no longer active standards, kept for
 ## Available Archive Sets
 
 - [2026-07 Archive Set](./2026-07/index.md)
+- [2026-08 Archive Set](./2026-08/index.md)
 
 ## Rule
 

@@ -1,7 +1,20 @@
 # Marketing/Sales to Operations Manual Styling Alignment Analysis
 
-**Date:** 2026-07-30  
-**Purpose:** Document layout and typography differences between marketing/sales guides and operations manual, and define minimal changes needed for alignment.
+**Category:** Development - Standards  
+**Last Updated:** July 30, 2026  
+**Status:** Active
+
+## Quick Summary
+
+This document explains the layout and typography differences between marketing/sales guides and the operations manual, and it defines the minimal changes needed to align them.
+
+Use this page when reviewing template structure, manual-family styling, or future documentation design decisions.
+
+## What This Review Covers
+
+- The current template architecture for manual-family outputs
+- The main layout and typography differences between handbook-style and operations-style templates
+- The smallest practical change set for aligning marketing and sales guides with operations-style structure
 
 ## Current Template Architecture
 
@@ -180,6 +193,22 @@ All occurrences of "Employee Handbook" replaced with "Operations Manual" in:
 ---
 
 ## Minimal Changes Needed for Marketing/Sales Alignment
+
+### Recommended Direction
+
+Use a dedicated operations-style template set for marketing and sales guides so the output stays consistent, readable, and aligned with the technical-reference purpose of those documents.
+
+### Practical Next Steps
+
+1. Create dedicated marketing/sales template files for cover, section, TOC, spine, and tabs.
+2. Reuse the operations-style layout patterns instead of relying on handbook text substitution alone.
+3. Apply branding language and terminology updates in the template content rather than in ad hoc replacements.
+
+## Related Resources
+
+- [Development Standards](./index.md)
+- [Page Template Guide](./page-template-guide.md)
+- [Documentation Index](../../index.md)
 
 ### Strategy: Create Dedicated Operations-Style Templates for Marketing/Sales
 

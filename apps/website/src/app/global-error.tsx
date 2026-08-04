@@ -5,6 +5,7 @@ import { ErrorFallbackCard } from "@/components/error/ErrorFallbackCard";
 import { captureException } from "@/lib/monitoring/sentry";
 import { getClientLocale } from "@/lib/i18n/locale";
 import { logger } from "@/lib/utils/logger";
+import { toSafeErrorContext } from "@/lib/navigation/path-utils";
 
 const GLOBAL_ERROR_COPY = {
   en: {
@@ -24,14 +25,6 @@ const GLOBAL_ERROR_COPY = {
     contact: "Contactar soporte",
   },
 } as const;
-
-function toSafeErrorContext(error: Error & { digest?: string }) {
-  return {
-    boundary: "global-error",
-    errorName: error.name,
-    digest: error.digest ?? null,
-  };
-}
 
 function resolveGlobalCopy() {
   return getClientLocale() === "es"

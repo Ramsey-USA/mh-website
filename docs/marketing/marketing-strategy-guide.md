@@ -5,6 +5,12 @@
 **Version:** 2.0.8
 **Status:** ✅ Active
 
+## Quick Summary
+
+Use this guide when planning a project marketing runway, reviewing proof standards, or checking whether public-facing messaging stays aligned with MH branding and lifecycle expectations.
+
+This is the operating-model reference for marketing strategy work and should be paired with the parameters directory and GBP playbooks.
+
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for canonical brand values.
 >
 > **Brand Congruency:** Keep marketing strategy, cadence, proof standards, and page titles relationship-first, factual, veteran-owned in framing, and aligned with approved MH naming.

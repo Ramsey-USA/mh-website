@@ -59,10 +59,6 @@ describe("Sitewide tab title metadata contract", () => {
       ],
     },
     {
-      file: "app/safety/hub/layout.tsx",
-      requiredSnippets: ['buildDualSeoTitle("safety", "Safety Culture")'],
-    },
-    {
       file: "app/safety/print/[id]/page.tsx",
       requiredSnippets: [
         'buildDualSeoTitle("safetyForms", "Print Safety Form")',

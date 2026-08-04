@@ -10,10 +10,13 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-const { spawnSync } = require("node:child_process");
+const {
+  collectFilesByPatterns,
+  findRepoRoot,
+} = require("../lib/local-file-collection.js");
 
 const APP_ROOT = process.cwd();
-const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
+const REPO_ROOT = findRepoRoot(APP_ROOT);
 const PUBLIC_EMAIL = "office@mhc-gc.com";
 
 const TARGET_GLOBS = [
@@ -36,32 +39,16 @@ const EXCLUDED_PATH_PATTERNS = [
   /scripts\//,
 ];
 
-function runGitLsFiles(cwd, globs) {
-  const result = spawnSync("git", ["ls-files", ...globs], {
-    cwd,
-    encoding: "utf8",
-  });
-
-  if (result.status !== 0) {
-    throw new Error(
-      (result.stderr || result.stdout || "git ls-files failed").trim(),
-    );
-  }
-
-  return (result.stdout || "")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
-}
-
 function shouldSkipPath(filePath) {
   return EXCLUDED_PATH_PATTERNS.some((pattern) => pattern.test(filePath));
 }
 
 function collectPublicSourceFiles() {
-  return runGitLsFiles(APP_ROOT, TARGET_GLOBS)
-    .map((relative) => path.resolve(APP_ROOT, relative))
-    .filter((absPath) => !shouldSkipPath(absPath));
+  return collectFilesByPatterns(
+    APP_ROOT,
+    TARGET_GLOBS,
+    EXCLUDED_PATH_PATTERNS,
+  ).filter((absPath) => !shouldSkipPath(absPath));
 }
 
 function findNonOfficeEmails(filePath) {

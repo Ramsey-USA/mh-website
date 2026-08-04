@@ -10,12 +10,11 @@ Founded by Mike Holstein in 2010, Veteran Owned since January 2025 under Jeremy 
 
 ## What This Repository Contains
 
-This is a pnpm monorepo for MH Construction's public website, operations dashboard, shared assets, and documentation pipelines.
+This is a pnpm monorepo for MH Construction's public website, shared assets, and documentation pipelines.
 
 ```text
 apps/
   website/      # Public site (Next.js + OpenNext + Cloudflare)
-  dashboard/    # Operations Hub (Next.js)
 packages/
   shared/       # Shared constants and utilities
 docs/           # Canonical project documentation
@@ -38,7 +37,7 @@ For architecture and route inventory, use [docs/project/architecture.md](docs/pr
 
 ## Audience Paths
 
-### New Developer (Website or Dashboard)
+### New Developer (Website)
 
 Start here:
 
@@ -98,28 +97,20 @@ Environment template: [.env.local.example](.env.local.example).
 
 Website dev runs on <http://localhost:3000>.
 
-Dashboard dev:
-
-```bash
-pnpm run dev:dashboard
-```
-
-Dashboard runs on <http://localhost:3001>.
-
 ## Top 8 Commands
 
 Run from repository root unless noted.
 
-| Goal                | Command                    |
-| ------------------- | -------------------------- |
-| Website dev         | `pnpm run dev`             |
-| Dashboard dev       | `pnpm run dev:dashboard`   |
-| Build all apps      | `pnpm run build:all`       |
-| Type-check all apps | `pnpm run type-check`      |
-| Lint all apps       | `pnpm run lint`            |
-| Test website        | `pnpm run test`            |
-| Validate docs setup | `pnpm run docs:sync`       |
-| Verify no mirrors   | `pnpm run docs:sync:check` |
+| Goal                 | Command                    |
+| -------------------- | -------------------------- |
+| Website dev          | `pnpm run dev`             |
+| Build website        | `pnpm run build`           |
+| Type-check workspace | `pnpm run type-check`      |
+| Lint workspace       | `pnpm run lint`            |
+| Test website         | `pnpm run test`            |
+| Validate docs setup  | `pnpm run docs:sync`       |
+| Verify no mirrors    | `pnpm run docs:sync:check` |
+| Markdown quality     | `pnpm run lint:markdown`   |
 
 For docs publishing commands, see [Safety Manual and Handbook Pipeline](#safety-manual-and-handbook-pipeline).
 For full quality gates, see [Quality Gate Before PR](#quality-gate-before-pr).

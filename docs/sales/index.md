@@ -3,15 +3,25 @@
 **Category:** Sales / Estimating - Strategy  
 **Last Updated:** July 31, 2026
 
+## Quick Summary
+
+Use this section for sales and estimating work that happens before and around award: lead qualification, stakeholder relationship building, estimating, proposal discipline, and clean handoffs to delivery.
+
+Start here when you need the shared sales baseline, approval standards, or handoff rules that keep pursuit work aligned with MH brand and operations expectations.
+
 ## Overview
 
-Sales and estimating playbooks for lead qualification, stakeholder relationship building, preconstruction estimating, proposal discipline, and leadership relationship handoffs.
+Use this section for sales and estimating work that happens before and around award: lead qualification, stakeholder relationship building, estimating, proposal discipline, and clean handoffs to delivery.
 
-This category governs the work that happens before and around award: identifying qualified opportunities, building accurate estimates, strengthening relationships with bankers, architects, city officials, and other project-side stakeholders, and handing a clean scope to delivery when the job is won.
-
-Marketing creates awareness around the client project. Sales/estimating turns that attention into qualified opportunities, scoped pricing, and durable trust with the people the client hires to shape the project.
+Marketing creates awareness around the client project. Sales and estimating turn that attention into qualified opportunities, scoped pricing, and durable trust with the people the client hires to shape the project.
 
 **Brand Congruency:** Sales assets must stay relationship-first, factual, veteran-owned in framing, and aligned with canonical MH naming, proof standards, and public/private communication controls.
+
+### Start Here
+
+- [Sales/Estimating Guide](./sales-estimating-guide.md) — the core workflow for qualification, estimating, and handoff
+- [Marketing Parameters Directory](../marketing/parameters/index.md) — shared rules for messaging and approvals
+- [Brand Constants](../branding/brand-constants.md) — the canonical source for approved wording and brand facts
 
 ## Available Resources
 

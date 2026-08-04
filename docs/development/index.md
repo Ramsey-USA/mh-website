@@ -3,12 +3,25 @@
 **Category:** Development - Overview  
 **Last Updated:** July 3, 2026
 
+## Quick Summary
+
+This section is the main entry point for implementation work, standards, component patterns, and developer guidance across the MH website.
+
+Use it when you need to find the right standards document, quick-reference pattern, or approval checkpoint before changing a route, component, or content surface.
+
 ## Overview
 
-Engineering standards, quick references, refactoring playbooks, and component templates for
-building MH Construction website features at homepage-level quality.
+Use this section when you are implementing, refactoring, or validating website features. Start with the standards index, then use the quick-reference guides for common patterns and reusable components.
 
 **Brand Congruency:** Development work must preserve canonical MH typography, color usage, terminology, trust visibility, and accessibility expectations.
+
+### Start Here
+
+- [Standards Index](./standards/index.md) — the main entry point for implementation rules
+- [Quick Reference Index](./quick-reference/index.md) — compact references for common implementation work
+- [Component Templates Index](./components/index.md) — reusable section templates and implementation notes
+- [Markdown Document Template](./quick-reference/markdown-doc-template.md) — shared structure for new docs and reference pages
+- [Brand Congruency Master Checklist](../branding/governance/brand-congruency-master-checklist.md) — required gate for branding-sensitive changes
 
 ## Standards (Required Reading)
 
@@ -44,7 +57,7 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 - **[Hero Commercial Video Guardrails](./standards/hero-commercial-video-guardrails.md)** — Canonical build and validation rules for hero videos
 - **[Development Standards](./standards/development-standards.md)** — Current refactor and decomposition guidance
 - **[Project Architecture](../project/architecture.md)** — Current structural analysis reference
-- **[Test Coverage — Next Steps](./testing-coverage-next-steps.md)** — Coverage audit roadmap
+- **[Test Coverage — Next Steps](../archive/2026-08/testing-coverage-next-steps.md)** — Archived coverage audit roadmap
 
 ## App Operations References
 
@@ -72,6 +85,7 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 - [← Back to Main README](../../README.md)
 - [Branding Documentation](../branding/index.md)
 - [Technical Documentation](../technical/index.md)
+- [Markdown Document Template](./quick-reference/markdown-doc-template.md)
 
 ---
 

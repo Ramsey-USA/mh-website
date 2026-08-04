@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(git rev-parse --show-toplevel)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT_DIR" != "/" ]]; do
+  if [[ -f "$ROOT_DIR/package.json" && -f "$ROOT_DIR/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT_DIR="$(dirname "$ROOT_DIR")"
+done
+
 CANONICAL_OUTPUT_DIR="$ROOT_DIR/documents/generated-pdfs"
 STALE_MIRROR_OUTPUT_DIR="$ROOT_DIR/apps/website/documents/generated-pdfs"
 

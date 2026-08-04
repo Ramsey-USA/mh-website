@@ -3,23 +3,28 @@
 **Category:** Documentation - Master Index  
 **Last Updated:** July 29, 2026
 
+## Quick Summary
+
+This is the main entry point for MH Construction documentation. Use it to quickly find the right category, understand the documentation architecture, and jump into the most relevant reference.
+
+Use this page when you need to locate branding, development, marketing, technical, or operational guidance without searching through the repository manually.
+
 ## Overview
 
-Central index for all MH Construction project documentation. Each category has its own
-`index.md` with a full file listing. Start with the main [README](../README.md) for the
-developer workflow, then drill into the category you need.
+This is the main entry point for MH Construction documentation. Use it to find the right category quickly, then drill into the detailed index for that area.
+
+### Start Here
+
+- [Main README](../README.md) — project workflow, contributor guidance, and release context
+- [Branding Quick Reference](./branding/quick-reference.md) — condensed branding entry point
+- [Branding Documentation](./branding/index.md) — full branding system and governance docs
+- [Manual Family Hub](./manuals/index.md) — shared handbook/manual/guide change-control path
 
 All documentation categories should remain congruent with the canonical brand language, trust content, and SEO naming rules documented in the Branding and Development standards.
 
-Enterprise naming across website, dashboard, MISH, handbook, and document assets must follow the canonical dual-terminology standard before any local copy edits are made.
-
-Latest update: June 30 congruency closure pass completed across core website copy and centralized SEO metadata/schema utilities, with one intentional canonical mission-text exception retained for standards alignment.
-
-Branding markdown update note: see [Branding Markdown Sweep Log (2026-07-02)](./branding/governance/markdown-sweep-2026-07-02.md).
+Enterprise naming across website, MISH, handbook, and document assets must follow the canonical dual-terminology standard before any local copy edits are made.
 
 **Brand Congruency:** Documentation across all categories must keep typography and color decisions aligned with the canonical MH font and palette standards.
-
-The core manual family lives in the shared [Manual Family Hub](./manuals/index.md), which keeps the Employee Handbook, Safety Manual, Operations Manual, Marketing Guide, and Sales / Estimating Guide logically aligned and reflected in the shared content registry.
 
 ## Categories
 
@@ -47,7 +52,7 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 
 1. Start at a category index (for example, [Technical](./technical/index.md) or [Branding](./branding/index.md)).
 2. Open the category's standards/governance files for canonical policy.
-3. Use companion references for implementation speed: [Color Quick Reference](./branding/standards/color-quick-reference.md), [Consistency Implementation Checklists](./development/standards/consistency-implementation-checklists.md), [SEO Section Ordering Reference](./technical/seo/section-ordering-reference.md), and [Services Integration Roadmap](./technical/services-integration-roadmap.md).
+3. Use companion references for implementation speed: [Color Quick Reference](./branding/standards/color-quick-reference.md), [Consistency Implementation Checklists](./development/standards/consistency-implementation-checklists.md), [SEO Section Ordering Reference](./technical/seo/section-ordering-reference.md), and [Services Integration Roadmap](./archive/2026-08/services-integration-roadmap.md).
 4. For historical context, use [Archive](./archive/index.md) and the dated set index.
 
 ## Single Sources of Truth
@@ -63,13 +68,13 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 - **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency
 - **[Unified Component Standards](./branding/standards/unified-component-standards.md)** — UI
   component patterns
-- **[Operational Hub Congruent Plan](./project/operational-hub-congruent-plan.md)** — Website +
-  PWA + document congruency rules
-- **[Homepage Documentation](./technical/homepage.md)** — Reference standard for all pages
+- **[Operational Hub Congruent Plan](./project/operational-hub-congruent-plan.md)** — Website,
+  PWA, and document congruency rules
+- **[Homepage Documentation](./archive/2026-08/homepage.md)** — Archived reference standard for legacy homepage implementation notes
 
 ## Status Tracking
 
-- **[Branding Optimization Master Status](../BRANDING_OPTIMIZATION_MASTER_STATUS.md)** — Consolidated branding optimization progress pointer and archive handoff record.
+- **[Branding Optimization Master Status](./archive/2026-08/branding-optimization-master-status.md)** — Consolidated branding optimization progress pointer and archive handoff record.
 
 ## Related References
 
@@ -79,3 +84,4 @@ Use these references when documentation work needs to connect back to repo gover
 - [CHANGELOG](../CHANGELOG.md)
 - [Security Policy](../SECURITY.md#dependency-override-hygiene)
 - [Contributing](../contributing.md)
+- [Markdown Document Template](./development/quick-reference/markdown-doc-template.md)

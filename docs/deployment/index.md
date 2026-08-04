@@ -3,6 +3,12 @@
 **Category:** Deployment - Overview  
 **Last Updated:** July 19, 2026
 
+## Quick Summary
+
+Operational guides for deploying the MH Construction website to Cloudflare Workers and maintaining safety-critical CI gates.
+
+Use this section when you need deployment, rollout, rollback, or operational safety guidance that must stay consistent with MH release standards.
+
 ## Overview
 
 Operational guides for deploying the MH Construction website to Cloudflare Workers and

@@ -3,13 +3,23 @@
 **Category:** Manuals - Overview  
 **Last Updated:** July 30, 2026
 
+## Quick Summary
+
+This hub keeps the handbook, safety manual, operations manual, marketing guide, and sales guide aligned around one shared branding language and approval path.
+
+Use it when a change touches more than one manual-family surface and needs consistent terminology, proof standards, or governance.
+
 ## Overview
 
-This hub keeps the core MH manual and guide family aligned around one branding language and one change-control path.
+Use this hub when a wording, naming, proof, or relationship standard must stay consistent across the Employee Handbook, Safety Manual, Operations Manual, Marketing Guide, and Sales / Estimating Guide.
 
-Use it when a wording, naming, proof, or relationship standard needs to stay congruent across the Employee Handbook, Safety Manual, Operations Manual, Marketing Guide, and Sales / Estimating Guide.
+This family is organized around one branding language and one change-control path so updates remain coherent across the full manual ecosystem.
 
-When changing any of these surfaces, review the shared brand sources first, then update the individual guide or manual so the same terminology, tone, and handoff logic stays consistent everywhere.
+### Start Here
+
+- [Brand Constants](../branding/brand-constants.md) — the canonical source for approved wording and company facts
+- [Dual Terminology Standard](../branding/strategy/dual-terminology-standard.md) — the naming system for shared cross-surface language
+- [Brand Congruency Master Checklist](../branding/governance/brand-congruency-master-checklist.md) — the required gate before publishing changes
 
 ## Family Map
 
@@ -72,6 +82,7 @@ For language, title, or relationship changes that touch more than one manual or 
 - [Branding Documentation](../branding/index.md)
 - [Marketing Documentation](../marketing/index.md)
 - [Sales / Estimating Documentation](../sales/index.md)
+- [Markdown Document Template](../development/quick-reference/markdown-doc-template.md)
 
 ---
 

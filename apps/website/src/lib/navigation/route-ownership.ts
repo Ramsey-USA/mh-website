@@ -12,6 +12,7 @@ const WEBSITE_NAV_ROUTE_PREFIXES = [
   "/contact",
   "/events",
   "/faq",
+  "/hub",
   "/locations",
   "/privacy",
   "/projects",
@@ -25,9 +26,7 @@ const WEBSITE_NAV_ROUTE_PREFIXES = [
   "/veterans",
 ] as const;
 
-const DASHBOARD_NAV_ROUTE_PREFIXES = ["/dashboard", "/hub"] as const;
-
-export type NavRouteOwner = "website" | "dashboard" | "unknown";
+export type NavRouteOwner = "website" | "unknown";
 
 function normalizeHrefPath(href: string): string {
   if (!href) {
@@ -68,12 +67,6 @@ export function getNavRouteOwner(href: string): NavRouteOwner {
     WEBSITE_NAV_ROUTE_PREFIXES.some((prefix) => matchesPrefix(path, prefix))
   ) {
     return "website";
-  }
-
-  if (
-    DASHBOARD_NAV_ROUTE_PREFIXES.some((prefix) => matchesPrefix(path, prefix))
-  ) {
-    return "dashboard";
   }
 
   return "unknown";

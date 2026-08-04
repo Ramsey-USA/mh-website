@@ -114,9 +114,9 @@ export default async function EmployeeHandbookPage() {
               </Button>
             )}
             <Button asChild variant="outline" size="lg">
-              <Link href="/hub">
+              <Link href="/contact?topic=employee-handbook-access">
                 <MaterialIcon icon="login" size="sm" className="text-white" />
-                Dashboard (Staff Hub) Sign-In
+                Request Access
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -141,7 +141,7 @@ export default async function EmployeeHandbookPage() {
           <span>
             <strong>Blank templates only.</strong> Completed acknowledgments,
             personnel records, and handbook workflow documents remain restricted
-            to authorized personnel inside the Dashboard (Staff Hub).
+            to authorized personnel through the appropriate internal process.
           </span>
         </div>
       </div>

@@ -12,9 +12,15 @@
 ## 🧭 Quick Navigation
 
 - [📌 Brand Constants](../../branding/brand-constants.md) - ⭐ **SINGLE SOURCE OF TRUTH**
-- [🎯 Development Standards](./development-standards.md) - Core standards
-- [🎨 Branding](../../branding/) - Brand guidelines
+- [🎯 Development Standards](./development-standards.md) - Core implementation standards
+- [🎨 Branding](../../branding/) - Brand guidelines and messaging references
 - [Main README](../../../README.md) - Central documentation hub
+
+### Use This Guide When
+
+Use this guide when you need to make a page feel coherent with the rest of the site: messaging, section rhythm, typography, layout, and component behavior.
+
+If you are unsure whether a change belongs in a page, a section, or a component, start here before making implementation edits.
 
 ---
 

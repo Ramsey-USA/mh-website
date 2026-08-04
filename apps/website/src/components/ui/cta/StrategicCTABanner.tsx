@@ -69,12 +69,11 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             </div>
             <div className="text-white text-center sm:text-left">
               <p id="pwa-cta-heading" className="font-bold text-xl mb-1">
-                Access MH Construction Dashboard (Staff Hub)
+                Download MH Construction Resources
               </p>
               <p className="text-sm text-white/90">
-                Team members can open Dashboard (Staff Hub) for the MISH Safety
-                &amp; Health Program (Safety Manual), forms, and operational
-                workflows.
+                Review our public safety manual, handbook index, and project
+                information directly from this website.
               </p>
             </div>
           </div>
@@ -83,17 +82,17 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
             size="lg"
             onClick={trackPwaInstall}
             className="shrink-0"
-            aria-label="Open MH Construction Dashboard (Staff Hub)"
+            aria-label="Open MH Construction resources"
             asChild
           >
-            <Link href="/hub" className="shrink-0">
+            <Link href="/resources" className="shrink-0">
               <MaterialIcon
-                icon="dashboard"
+                icon="folder_open"
                 size="md"
                 className="mr-2"
                 aria-hidden="true"
               />
-              Open Dashboard (Staff Hub)
+              Explore Resources
             </Link>
           </Button>
         </div>
@@ -218,27 +217,27 @@ export function StrategicCTABanner(props: Readonly<StrategicCTABannerProps>) {
       className={className}
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {/* Staff Hub */}
+        {/* Public Resources */}
         <Button
           variant="outline"
           size="lg"
           onClick={trackComboPwa}
           className="flex flex-col items-center gap-2 h-auto py-6 border-2 border-brand-bronze/30 hover:border-brand-bronze/60 bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
-          aria-label="Open MH Construction Dashboard (Staff Hub)"
+          aria-label="Explore MH Construction resources"
           asChild
         >
-          <Link href="/hub" className="block">
+          <Link href="/resources" className="block">
             <MaterialIcon
-              icon="dashboard"
+              icon="folder_open"
               size="xl"
               aria-hidden="true"
               className="text-brand-primary"
             />
             <span className="font-bold text-gray-900 dark:text-white">
-              Dashboard (Staff Hub)
+              Resources
             </span>
             <span className="text-xs text-gray-600 dark:text-gray-300">
-              Team portal access
+              Safety manual & handbook
             </span>
           </Link>
         </Button>

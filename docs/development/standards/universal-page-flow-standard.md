@@ -202,4 +202,4 @@ Any exception should still preserve clarity and should be documented in the page
 - [Consistency Guide](./consistency-guide.md)
 - [Section Types Guide](../../branding/section-types-guide.md)
 - [Page-Specific Messaging Guide](../../branding/strategy/page-specific-messaging-guide.md)
-- [Homepage Reference](../../technical/homepage.md)
+- [Homepage Reference](../../archive/2026-08/homepage.md)

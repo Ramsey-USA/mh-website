@@ -12,10 +12,16 @@
 
 **Purpose:** Copy-paste boilerplate for creating new MH-standard pages  
 **Version:** 1.1.0  
-**Reference:** [Homepage](../../technical/homepage.md) - Your page must match this quality level  
+**Reference:** [Homepage](../../archive/2026-08/homepage.md) - Your page must match this quality level
 **Quick Start:** Copy the template below and customize for your page
 
 **Brand Congruency:** New page scaffolds must keep typography, color usage, trust content, and naming aligned with canonical MH standards.
+
+## Use This Guide When
+
+Use this guide when you are creating a new page, route, or major section shell and want the fastest path to a cohesive MH layout.
+
+If you are changing an existing page, start with [Consistency Guide](./consistency-guide.md) and then use this guide for the structural scaffold.
 
 ---
 

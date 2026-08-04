@@ -4,6 +4,12 @@
 **Last Updated:** July 31, 2026  
 **Status:** Active
 
+## Quick Summary
+
+This folder is the canonical home for MH Construction's Google Business Profile operating docs, execution templates, review workflows, and related support assets.
+
+Use this index when you need the operating playbooks, review workflow templates, or reporting samples for GBP work.
+
 ## Purpose
 
 This folder is the canonical home for MH Construction's Google Business Profile operating docs, execution templates, review workflows, and related support assets.
@@ -14,6 +20,9 @@ Use this folder when the work involves local search visibility, GBP posting, rev
 
 - **[Google Business Profile Optimization Guide](./google-business-profile-guide.md)** - operating workflow for profile upkeep, review handling, Q&A management, and recurring GBP tasks.
 - **[GBP Post Templates](./gbp-post-templates.md)** - approved local-post structures for project updates, service highlights, and local trust content.
+- **[Expected Output Samples Index](./templates/samples/expected-output/index.md)** - entry point for the canonical weekly and monthly reporting samples.
+- **[Expected Weekly Summary Sample](./templates/samples/expected-output/review-weekly-summary.md)** - canonical sample output for weekly review reporting.
+- **[Expected Monthly Leaderboard Sample](./templates/samples/expected-output/review-monthly-leaderboard.md)** - canonical sample output for monthly review reporting.
 
 ## Review Workflow Docs
 

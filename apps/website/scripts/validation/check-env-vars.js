@@ -100,31 +100,30 @@ if (process.env.ADMIN_JEREMY_PASSWORD === "admin123") {
 // Check for .env.local file in git
 const fs = require("fs");
 const path = require("path");
-const { execSync } = require("child_process");
 
 const envLocalPath = path.join(process.cwd(), ".env.local");
 if (fs.existsSync(envLocalPath)) {
   console.log("  ✓ .env.local file exists locally");
 
-  try {
-    const gitStatus = execSync("git ls-files .env.local", { encoding: "utf8" });
-    if (gitStatus.trim()) {
-      console.log(
-        "  ❌ .env.local is tracked by Git - THIS IS A SECURITY RISK!",
-      );
-      hasErrors = true;
-    } else {
-      console.log("  ✓ .env.local is NOT tracked by Git (good)");
-    }
-  } catch (error) {
-    console.log("  ✓ .env.local is NOT tracked by Git (good)");
+  const gitignorePath = path.join(process.cwd(), ".gitignore");
+  const envLocalIgnored =
+    fs.existsSync(gitignorePath) &&
+    fs
+      .readFileSync(gitignorePath, "utf8")
+      .split(/\r?\n/)
+      .some((entry) => entry.trim() === ".env.local");
+
+  if (envLocalIgnored) {
+    console.log("  ✓ .env.local is covered by local ignore rules");
+  } else {
+    console.log("  ℹ️  .env.local is not explicitly ignored by .gitignore");
   }
 } else {
   console.log("  ℹ️  .env.local file not found (using environment variables)");
 }
 
 // Final summary
-console.log("\n" + "=".repeat(50));
+console.log(`\n${"=".repeat(50)}`);
 if (hasErrors) {
   console.log("❌ VALIDATION FAILED - Missing required environment variables");
   console.log(

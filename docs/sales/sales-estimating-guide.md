@@ -5,6 +5,12 @@
 **Version:** 2.0.3
 **Status:** ✅ Active
 
+## Quick Summary
+
+Use this guide when evaluating an opportunity, defining scope, preparing an estimate, presenting a proposal, or coordinating the handoff to operations.
+
+This is the operating-model reference for sales and estimating work and should be paired with the shared marketing parameters when pursuit language overlaps public-facing channels.
+
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for canonical brand values.
 >
 > **Brand Congruency:** Keep sales and estimating language relationship-first, factual, veteran-owned in framing, and aligned with approved MH naming.

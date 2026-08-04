@@ -3,23 +3,29 @@
 **Category:** Technical - Overview  
 **Last Updated:** July 19, 2026
 
+## Quick Summary
+
+This section covers implementation guidance for the MH Construction website, including homepage standards, design system patterns, SEO, PWA, analytics, security, and integrations.
+
+Use it when you need technical implementation guidance that must stay aligned with branding, accessibility, and documentation standards.
+
 ## Overview
 
-Implementation guides for the MH Construction website covering the homepage reference standard,
-design system, SEO, PWA, analytics, security, and external service integrations.
+Use this section for implementation guidance across the MH Construction website, including the homepage reference, design system, SEO, PWA, analytics, security, and integration patterns.
 
-Use these guides together with the branding and development standards so implementation stays congruent with approved voice, trust content, accessibility, and SEO naming.
-
-MH branding in this section should remain construction-first, trust-safe, and aligned with the canonical slogan family, led by “Built on Quality, Backed by Trust.”
+These guides should be used alongside the branding and development standards so implementation stays congruent with approved voice, trust content, accessibility, and SEO naming.
 
 **Brand Congruency:** Technical implementations must keep typography and color usage aligned with the canonical MH font and palette system.
 
-Before shipping branding-sensitive technical changes, verify surface coverage using [Website Guardrails Coverage Map](../branding/governance/website-guardrails-coverage.md).
+### Start Here
+
+- [Homepage Documentation](./homepage.md) — the visual and content reference for page quality
+- [Website Guardrails Coverage Map](../branding/governance/website-guardrails-coverage.md) — required coverage check for branding-sensitive changes
+- [SEO Index](./seo/index.md) — implementation entry point for SEO guidance
 
 ## Reference Standard
 
-- **[Homepage Documentation](./homepage.md)** — The canonical reference page. All other pages
-  must match its visual weight, spacing, and polish.
+- **[Homepage Documentation](../archive/2026-08/homepage.md)** — Archived reference page for the legacy homepage implementation notes.
 
 Brand-facing content in this section should stay aligned with the canonical terminology and messaging guides, with veteran-owned framing used as supporting credibility rather than the primary label.
 
@@ -37,7 +43,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 - **[AlternatingShowcase Pattern](./patterns/AlternatingShowcase-pattern.md)**
 - **[NextStepsSection Standardization](./patterns/NextStepsSection-standardization.md)**
 - **[Component Pattern Strategy](./patterns/component-pattern-strategy.md)**
-- **[CTA Page Allocation](./cta-page-allocation.md)** — _See for the official distinction and usage policy between `NextStepsSection` and `StrategicCTABanner`._
+- **[CTA Page Allocation](../archive/2026-08/cta-page-allocation.md)** — _Archived reference for the distinction and usage policy between `NextStepsSection` and `StrategicCTABanner`._
 
 ## SEO
 
@@ -54,8 +60,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 ## Analytics
 
-- **[Analytics Tracking Implementation Guide](./analytics-tracking-guide.md)** — Event taxonomy
-  and 100% page coverage requirements.
+- **[Analytics Tracking Implementation Guide](../archive/2026-08/analytics-tracking-guide.md)** — Archived event taxonomy and 100% page coverage notes.
 
 ## Theming
 
@@ -79,16 +84,14 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 - **[External Services Integration Guide](./services-integration-guide.md)** — Twilio, Resend,
   Cloudflare bindings, and other external service wiring.
-- **[Services Integration Roadmap](./services-integration-roadmap.md)** — Priority rollout,
-  ownership checklist, and maturity planning.
+- **[Services Integration Roadmap](../archive/2026-08/services-integration-roadmap.md)** — Archived priority rollout, ownership checklist, and maturity planning notes.
 
 ## Reference
 
 - **[API Routes Reference](./API_ROUTES_INDEX.md)** — Index of all `src/app/api` routes.
-- **[Browser Tab Titles Inventory](./browser-tab-titles-inventory.md)** — Dual military/construction
-  messaging across all routes.
-- **[Repository Handoff Bundle (2026-07-19)](./repo-handoff-bundle-2026-07-19.md)** — Focused repository structure and tooling export for handoff context.
-- **[QR Codes Guide](./qr-codes-guide.md)** — Archived reference for QR code assets under
+- **[Browser Tab Titles Inventory](../archive/2026-08/browser-tab-titles-inventory.md)** — Archived dual military/construction messaging inventory across routes.
+- **[Repository Handoff Bundle (2026-07-19)](../archive/2026-08/repo-handoff-bundle-2026-07-19.md)** — Archived repository structure and tooling export for handoff context.
+- **[QR Codes Guide](../archive/2026-08/qr-codes-guide.md)** — Archived reference for QR code assets under
   `public/images/qr-codes/`.
 
 ## Quick Links
@@ -97,6 +100,7 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 - [← Back to Main README](../../README.md)
 - [Branding Documentation](../branding/index.md)
 - [Development Standards](../development/standards/index.md)
+- [Markdown Document Template](../development/quick-reference/markdown-doc-template.md)
 
 ---
 

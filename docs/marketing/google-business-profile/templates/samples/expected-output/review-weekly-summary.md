@@ -1,7 +1,14 @@
 # Weekly Review Recognition Summary
 
-Generated: 2026-07-23T15:26:24.752Z
-Source: docs/marketing/google-business-profile/templates/samples/review-recognition-tracker-sample.csv
+**Category:** Marketing - Google Business Profile  
+**Last Updated:** July 23, 2026  
+**Status:** Sample Output
+
+## Quick Summary
+
+This page shows the expected weekly summary output for the review recognition workflow.
+
+Use it as a reference when validating the output format for weekly reporting.
 
 ## Snapshot
 
@@ -19,3 +26,8 @@ Source: docs/marketing/google-business-profile/templates/samples/review-recognit
 ## Duplicate Flags
 
 No duplicate reviewer/project keys detected.
+
+## Related Resources
+
+- [Monthly Review Recognition Leaderboard](./review-monthly-leaderboard.md)
+- [Review Automation Runbook](../../../review-automation-runbook.md)

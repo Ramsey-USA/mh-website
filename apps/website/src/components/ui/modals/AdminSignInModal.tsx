@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useId, useRef, useState, type FormEvent } from "react";
-import { useRouter } from "next/navigation";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { Button, Card, CardHeader, CardContent } from "@/components/ui";
 import { Input } from "@/components/ui/forms/Input";
@@ -22,7 +21,6 @@ interface AdminSignInModalProps {
 export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
   const locale = useLocale();
   const isEs = locale === "es";
-  const router = useRouter();
   const titleId = useId();
   const modalRef = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState("");
@@ -54,9 +52,6 @@ export function AdminSignInModal({ isOpen, onClose }: AdminSignInModalProps) {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        // Refresh token is persisted as an httpOnly cookie by the server.
-        // Access token is short-lived and will be bootstrapped on /dashboard.
-        router.push("/dashboard");
         onClose();
       } else {
         setError(

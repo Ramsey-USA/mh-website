@@ -1,8 +1,14 @@
 # Monthly Review Recognition Leaderboard
 
-Month: 2026-07
-Generated: 2026-07-23T15:26:24.920Z
-Source: docs/marketing/google-business-profile/templates/samples/review-recognition-tracker-sample.csv
+**Category:** Marketing - Google Business Profile  
+**Last Updated:** July 23, 2026  
+**Status:** Sample Output
+
+## Quick Summary
+
+This page shows the expected monthly leaderboard output for the review recognition workflow.
+
+Use it as a reference when validating the output format for monthly reporting.
 
 ## Snapshot
 
@@ -17,3 +23,8 @@ Source: docs/marketing/google-business-profile/templates/samples/review-recognit
 | ---- | ---------------- | ----------------: | ----------------: | ---------: | -----: | ------: |
 | 1    | Jeremy Thamert   |                 2 |                 2 |       5.00 | $50.00 |   $0.00 |
 | 2    | Kimberly Thamert |                 1 |                 0 |       4.00 |  $0.00 |  $25.00 |
+
+## Related Resources
+
+- [Weekly Review Recognition Summary](./review-weekly-summary.md)
+- [Review Automation Runbook](../../../review-automation-runbook.md)

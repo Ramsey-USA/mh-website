@@ -2,7 +2,14 @@
 
 set -euo pipefail
 
-ROOT_DIR="$(git rev-parse --show-toplevel)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT_DIR" != "/" ]]; do
+  if [[ -f "$ROOT_DIR/package.json" && -f "$ROOT_DIR/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT_DIR="$(dirname "$ROOT_DIR")"
+done
+
 SOURCE_DIR="$ROOT_DIR/migrations"
 TARGETS=()
 

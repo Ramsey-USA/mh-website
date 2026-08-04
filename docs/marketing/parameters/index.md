@@ -4,6 +4,12 @@
 **Last Updated:** July 31, 2026  
 **Status:** Active
 
+## Quick Summary
+
+This directory is the shared parameter cluster for MH marketing and sales strategy. It centralizes the reusable baselines that should stay consistent across campaign planning, pursuit follow-up, public narrative, and post-award stakeholder communication.
+
+Use this index when you need the shared rules for messaging cadence, approvals, lifecycle phases, or cross-functional handoffs.
+
 ## Purpose
 
 This directory is the shared parameter cluster for MH marketing and sales strategy. It centralizes the reusable baselines that should stay consistent across campaign planning, pursuit follow-up, public narrative, and post-award stakeholder communication.

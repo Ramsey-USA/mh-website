@@ -829,7 +829,7 @@ Current breakdown:
 ## Related Documentation
 
 - [README - Quick Start](../../README.md)
-- [Testing Guide](../development/testing-coverage-next-steps.md)
+- [Testing Guide](../archive/2026-08/testing-coverage-next-steps.md)
 - [Development Standards](../development/standards/index.md)
 - [Security Standards](../technical/form-security-standards.md)
 
