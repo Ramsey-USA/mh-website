@@ -3,19 +3,26 @@ const path = require("node:path");
 
 function findRepoRoot(startDir = process.cwd()) {
   let currentDir = path.resolve(startDir);
+  let nearestPackageDir = null;
 
   while (true) {
     if (
       fs.existsSync(path.join(currentDir, "pnpm-workspace.yaml")) ||
-      fs.existsSync(path.join(currentDir, ".git")) ||
-      fs.existsSync(path.join(currentDir, "package.json"))
+      fs.existsSync(path.join(currentDir, ".git"))
     ) {
       return currentDir;
     }
 
+    if (
+      nearestPackageDir === null &&
+      fs.existsSync(path.join(currentDir, "package.json"))
+    ) {
+      nearestPackageDir = currentDir;
+    }
+
     const parentDir = path.dirname(currentDir);
     if (parentDir === currentDir) {
-      return currentDir;
+      return nearestPackageDir ?? currentDir;
     }
 
     currentDir = parentDir;
