@@ -121,10 +121,9 @@ describe("Safety navigation contracts", () => {
       await import("../resources/safety-manual/section/[slug]/page");
 
     const manual = getDocumentById("safety-manual");
-    const section = manual?.sections?.find((s) => s.slug === "fall-protection");
-    const expectedHref = section
-      ? clusterForSection(Number(section.number))?.href
-      : null;
+    expect(manual).toBeTruthy();
+
+    const expectedHref = clusterForSection(21)?.href;
 
     expect(expectedHref).toBeTruthy();
 

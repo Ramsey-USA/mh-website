@@ -37,10 +37,17 @@ export default async function SafetyManualSectionPage({
 }) {
   const { slug } = await params;
   const manual = getDocumentById("safety-manual");
-  const section = manual?.sections?.find((s) => s.slug === slug);
+
+  // Backward compatibility: older deep links used shorter slugs (for example,
+  // "fall-protection") while current canonical slugs may append form context.
+  const section =
+    manual?.sections?.find((s) => s.slug === slug) ??
+    manual?.sections?.find((s) => s.slug.startsWith(`${slug}-`));
+
   if (section) {
     const lookup = clusterForSection(Number(section.number));
     if (lookup) permanentRedirect(lookup.href);
   }
+
   permanentRedirect("/resources/safety-manual/contents");
 }

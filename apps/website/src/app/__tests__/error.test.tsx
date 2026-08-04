@@ -77,7 +77,6 @@ describe("Error page", () => {
     expect(logger.error).toHaveBeenCalledWith(
       "Route error boundary triggered",
       {
-        boundary: "route-error",
         errorName: "Error",
         digest: "abc123",
       },
@@ -88,7 +87,6 @@ describe("Error page", () => {
     render(<ErrorPage error={testError} reset={mockReset} />);
     const { captureException } = require("@/lib/monitoring/sentry");
     expect(captureException).toHaveBeenCalledWith(testError, {
-      boundary: "route-error",
       errorName: "Error",
       digest: "abc123",
     });

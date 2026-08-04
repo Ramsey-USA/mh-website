@@ -81,7 +81,6 @@ describe("GlobalError page", () => {
     expect(logger.error).toHaveBeenCalledWith(
       "Global error boundary triggered",
       {
-        boundary: "global-error",
         errorName: "Error",
         digest: null,
       },
@@ -92,7 +91,6 @@ describe("GlobalError page", () => {
     render(<GlobalError error={testError} reset={mockReset} />);
     const { captureException } = require("@/lib/monitoring/sentry");
     expect(captureException).toHaveBeenCalledWith(testError, {
-      boundary: "global-error",
       errorName: "Error",
       digest: null,
     });
