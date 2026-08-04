@@ -83,17 +83,17 @@ expectLine(
 );
 
 expectLine(
-  "docs/technical/homepage.md",
+  "docs/archive/2026-08/homepage.md",
   `  "next": "${versions.next}",`,
   failures,
 );
 expectLine(
-  "docs/technical/homepage.md",
+  "docs/archive/2026-08/homepage.md",
   `  "react": "^${versions.react}",`,
   failures,
 );
 expectLine(
-  "docs/technical/homepage.md",
+  "docs/archive/2026-08/homepage.md",
   `  "typescript": "^${versions.typescript}"`,
   failures,
 );

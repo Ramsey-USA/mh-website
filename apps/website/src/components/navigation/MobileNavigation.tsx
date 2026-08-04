@@ -4,6 +4,7 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useClickTracking } from "@/lib/analytics/hooks";
 import { useDialogBehavior } from "@/hooks/useDialogBehavior";
+import { isActivePath } from "@/lib/navigation/path-utils";
 import type { NavItem } from "./navigation-data";
 
 type MobileNavigationProps = {
@@ -20,14 +21,6 @@ type MobileNavigationProps = {
   };
   ctaHref: string;
 };
-
-function isActivePath(pathname: string, href: string): boolean {
-  if (href === "/") {
-    return pathname === "/";
-  }
-
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
 
 export function MobileNavigation({
   primaryItems,

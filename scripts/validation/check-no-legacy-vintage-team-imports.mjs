@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import path from "node:path";
 
 const ALLOWED_FILES = new Set([
   "apps/website/src/lib/data/team-profiles.ts",
@@ -18,10 +18,37 @@ const LEGACY_IMPORT_RE =
 const LEGACY_SYMBOL_RE =
   /\b(VintageTeamMember|vintageTeamMembers|getPublicVintageTeamMembers)\b/;
 
+function walkFiles(dir) {
+  const results = [];
+  const entries = readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      if (entry.name === "node_modules" || entry.name === ".git") {
+        continue;
+      }
+      results.push(...walkFiles(fullPath));
+      continue;
+    }
+
+    if (entry.isFile() && CODE_EXT_RE.test(entry.name)) {
+      results.push(fullPath);
+    }
+  }
+
+  return results;
+}
+
 function getTrackedFiles() {
-  const output = execSync("git ls-files", { encoding: "utf8" }).trim();
-  if (!output) return [];
-  return output.split("\n").filter((file) => CODE_EXT_RE.test(file));
+  const repoRoot = path.resolve(
+    path.dirname(new URL(import.meta.url).pathname),
+    "../..",
+  );
+  return walkFiles(repoRoot).map((filePath) =>
+    path.relative(repoRoot, filePath).replace(/\\/g, "/"),
+  );
 }
 
 function collectViolations(files) {

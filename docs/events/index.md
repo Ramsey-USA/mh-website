@@ -3,6 +3,12 @@
 **Category:** Events - Overview  
 **Last Updated:** July 24, 2026
 
+## Quick Summary
+
+This directory is the dedicated record for events MH Construction sponsors or hosts.
+
+Use it when you need finalized event outcomes, participation data, sponsor coordination context, or the canonical route references for event-related work.
+
 ## Overview
 
 This directory is the dedicated record for events MH Construction sponsors or hosts.

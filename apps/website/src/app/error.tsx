@@ -5,14 +5,7 @@ import { useTranslations } from "next-intl";
 import { ErrorFallbackCard } from "@/components/error/ErrorFallbackCard";
 import { logger } from "@/lib/utils/logger";
 import { captureException } from "@/lib/monitoring/sentry";
-
-function toSafeErrorContext(error: Error & { digest?: string }) {
-  return {
-    boundary: "route-error",
-    errorName: error.name,
-    digest: error.digest ?? null,
-  };
-}
+import { toSafeErrorContext } from "@/lib/navigation/path-utils";
 
 export default function Error({
   error,

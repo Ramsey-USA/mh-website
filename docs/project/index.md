@@ -3,6 +3,12 @@
 **Category:** Project - Overview  
 **Last Updated:** July 31, 2026
 
+## Quick Summary
+
+High-level project architecture, audit history, and the cross-surface congruency plan that aligns the website, PWA, and operational documents.
+
+Use this section when you need the current implementation landscape, roadmap context, or cross-surface governance notes for MH projects.
+
 ## Overview
 
 High-level project architecture, audit history, and the cross-surface congruency plan that aligns
@@ -38,8 +44,8 @@ All project documentation should preserve the same brand voice, trust framing, a
 
 ### Status Snapshots
 
-- **[Repository Status Report (Phase 2 Complete)](../../repo-status-phase2-complete.md)** — Root-level repository inventory and status snapshot retained for reference.
-- **[Markdown Housekeeping Priority Report (2026-07-29)](./markdown-housekeeping-priority-2026-07-29.md)** — Prioritized visibility and indexing follow-up plan after cache clear and audit sweep.
+- **[Repository Status Report (Phase 2 Complete)](../archive/2026-08/repo-status-phase2-complete.md)** — Archived repository inventory and status snapshot retained for reference.
+- **[Markdown Housekeeping Priority Report (2026-07-29)](../archive/2026-08/markdown-housekeeping-priority-2026-07-29.md)** — Archived prioritization report for the documentation cleanup and indexing follow-up work.
 
 ## Related References
 

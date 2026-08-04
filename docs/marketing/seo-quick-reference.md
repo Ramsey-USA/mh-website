@@ -12,7 +12,7 @@
 
 **Related Documentation:**
 
-- [Browser Titles Inventory](../technical/browser-tab-titles-inventory.md) - Complete title system
+- [Browser Titles Inventory](../archive/2026-08/browser-tab-titles-inventory.md) - Archived title system reference
 - [Marketing Strategy Guide](./marketing-strategy-guide.md) - broader marketing operating model and channel alignment
 - [Brand Constants](../branding/brand-constants.md) - canonical slogan, trust language, and company facts
 
@@ -147,6 +147,6 @@ pnpm run type-check           # TypeScript check
 ## 📚 Canonical Docs
 
 - [SEO Complete Guide](../technical/seo/seo-complete-guide.md)
-- [Browser Titles Inventory](../technical/browser-tab-titles-inventory.md)
+- [Browser Titles Inventory](../archive/2026-08/browser-tab-titles-inventory.md)
 - [Brand Constants](../branding/brand-constants.md)
 - [Marketing Strategy Guide](./marketing-strategy-guide.md)

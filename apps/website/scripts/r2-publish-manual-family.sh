@@ -15,7 +15,14 @@ fi
 
 MANUAL_SLUG="$1"
 R2_PREFIX="$2"
-ROOT="$(git rev-parse --show-toplevel)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT" != "/" ]]; do
+  if [[ -f "$ROOT/package.json" && -f "$ROOT/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT="$(dirname "$ROOT")"
+done
+
 BUCKET="mh-construction-assets"
 OUTPUT_DIR="$ROOT/documents/generated-pdfs"
 SECTIONS_DIR="$OUTPUT_DIR/sections"

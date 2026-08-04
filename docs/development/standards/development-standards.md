@@ -5,6 +5,12 @@
 **Version:** 1.2.0  
 **Status:** ✅ Active - Mandatory
 
+## Quick Summary
+
+Use this document when implementing or refactoring website code and need the non-negotiable standards that keep the product consistent and maintainable.
+
+Start here for the core rules, then follow the consistency and page-template guides for page-level implementation and review.
+
 ## 🧭 Quick Navigation
 
 - [📚 Consistency Guide](./consistency-guide.md)
@@ -16,10 +22,17 @@
 
 ## 🎯 Purpose
 
-This document establishes mandatory coding standards for the MH Construction website.  
+Use this document when you are implementing or refactoring website code and need the non-negotiable standards that keep the product consistent and maintainable.
+
 These standards ensure consistency, maintainability, and prevent recurring bugs.
 
 **⚠️ CRITICAL**: Violation of these standards will be caught by ESLint and blocked in CI/CD.
+
+### If You Are New Here
+
+- Start with this document for the core rules.
+- Then read [Consistency Guide](./consistency-guide.md) for page-level voice, rhythm, and structure.
+- Use [Page Template Guide](./page-template-guide.md) when scaffolding a new page or route.
 
 ### 🔗 Related Brand Standards
 
@@ -287,8 +300,8 @@ import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
 
 ### Documentation
 
-- **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** - Complete implementation
-- **[Analytics Tracking Guide](../../technical/analytics-tracking-guide.md)** -
+- **[Analytics Tracking Guide](../../archive/2026-08/analytics-tracking-guide.md)** - Archived implementation reference
+- **[Analytics Tracking Guide](../../archive/2026-08/analytics-tracking-guide.md)** -
   Implementation guide, quick reference cheatsheet, and dashboard access
 
 ### Best Practices
@@ -309,7 +322,7 @@ import { trackClick, trackFormSubmit } from "@/lib/analytics/tracking";
 
 ---
 
-## � Form Security Standards
+## 🔐 Form Security Standards
 
 **Effective Date:** April 14, 2026  
 **Status:** ✅ Mandatory
@@ -371,7 +384,7 @@ TURNSTILE_SECRET_KEY=your_secret_key          # Server-side
 
 ---
 
-## �📦 Import Standards
+## 📦 Import Standards
 
 ### MANDATORY: Use `@/` Absolute Imports
 

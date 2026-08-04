@@ -1,8 +1,28 @@
 #!/bin/bash
 # Pre-commit security check script
-# Scans staged files for potential credential exposure
+# Scans local files for potential credential exposure
 
-set -e
+set -euo pipefail
+
+find_repo_root() {
+  local dir="${1:-$PWD}"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/package.json" && -f "$dir/pnpm-workspace.yaml" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+    dir="$(dirname "$dir")"
+  done
+  return 1
+}
+
+ROOT_DIR="$(find_repo_root "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)")"
+if [[ -z "${ROOT_DIR:-}" ]]; then
+  echo "Unable to locate repository root." >&2
+  exit 1
+fi
+
+cd "$ROOT_DIR"
 
 echo "🔒 Running pre-commit security checks..."
 
@@ -12,19 +32,16 @@ YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-# Function to check for potential secrets
 check_secrets() {
     local file=$1
     local issues=0
-    
-    # Check for potential API keys (re_xxx, sk_xxx, pk_xxx patterns)
+
     if grep -qE "(re|sk|pk)_[a-zA-Z0-9]{30,}" "$file" 2>/dev/null; then
         echo -e "${RED}⚠️  Potential API key found in: $file${NC}"
         grep -nE "(re|sk|pk)_[a-zA-Z0-9]{30,}" "$file" | head -3
         ((issues++))
     fi
-    
-    # Check for hardcoded passwords (common patterns)
+
     if grep -qEi "(password|passwd|pwd)['\"]?\s*[:=]\s*['\"][^'\"]{8,}['\"]" "$file" 2>/dev/null; then
         if ! grep -q "admin123\|demo123\|password123" "$file"; then
             echo -e "${YELLOW}⚠️  Potential hardcoded password in: $file${NC}"
@@ -32,53 +49,64 @@ check_secrets() {
             ((issues++))
         fi
     fi
-    
-    # Check for AWS keys
+
     if grep -qE "AKIA[0-9A-Z]{16}" "$file" 2>/dev/null; then
         echo -e "${RED}⚠️  Potential AWS access key in: $file${NC}"
         ((issues++))
     fi
 
-    # Check for Cloudflare API tokens
     if grep -qE "cfat_[A-Za-z0-9_-]{20,}" "$file" 2>/dev/null; then
         echo -e "${RED}⚠️  Potential Cloudflare API token found in: $file${NC}"
         grep -nE "cfat_[A-Za-z0-9_-]{20,}" "$file" | head -3
         ((issues++))
     fi
-    
-    # Check for private keys
+
     if grep -q "BEGIN.*PRIVATE KEY" "$file" 2>/dev/null; then
         echo -e "${RED}⚠️  Private key found in: $file${NC}"
         ((issues++))
     fi
-    
-    # Check for database connection strings
+
     if grep -qE "(mongodb|mysql|postgres|postgresql)://[^'\"\s]+" "$file" 2>/dev/null; then
         echo -e "${YELLOW}⚠️  Database connection string in: $file${NC}"
         ((issues++))
     fi
-    
+
     return $issues
 }
 
-# Get list of staged files
-STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+collect_files() {
+    if [[ $# -gt 0 ]]; then
+        printf '%s\n' "$@"
+        return 0
+    fi
 
-if [ -z "$STAGED_FILES" ]; then
+    if [[ -d "$ROOT_DIR/.git" ]] && command -v git >/dev/null 2>&1; then
+        git -C "$ROOT_DIR" diff --cached --name-only --diff-filter=ACM
+        return 0
+    fi
+
+    find "$ROOT_DIR" -type f \
+        ! -path "*/node_modules/*" \
+        ! -path "*/.git/*" \
+        ! -path "*/.next/*" \
+        ! -path "*/coverage/*" \
+        | sed "s#^$ROOT_DIR/##" | sort
+}
+
+mapfile -t STAGED_FILES < <(collect_files "$@")
+
+if [ ${#STAGED_FILES[@]} -eq 0 ]; then
     echo -e "${GREEN}✓ No files to check${NC}"
     exit 0
 fi
 
-# Check if private local env files are accidentally staged
-if echo "$STAGED_FILES" | grep -qE '(^|/)\.env(\.r2)?\.local$'; then
+if printf '%s\n' "${STAGED_FILES[@]}" | grep -qE '(^|/)\.env(\.r2)?\.local$'; then
     echo -e "${RED}❌ ERROR: private local env file is staged!${NC}"
     echo "These files can contain secrets and should NEVER be committed."
-    echo "Run: git reset HEAD .env.local .env.r2.local"
     exit 1
 fi
 
-# Check if any .env files (except committed examples) are staged
-if echo "$STAGED_FILES" | grep -E '(^|/)\.env(\.[A-Za-z0-9_-]+)?$' | grep -vE '\.env\.local\.example$|\.env\.r2\.local\.example$'; then
+if printf '%s\n' "${STAGED_FILES[@]}" | grep -E '(^|/)\.env(\.[A-Za-z0-9_-]+)?$' | grep -vE '\.env\.local\.example$|\.env\.r2\.local\.example$'; then
     echo -e "${RED}❌ ERROR: .env file(s) detected in staged files!${NC}"
     echo "Environment files with secrets should not be committed."
     echo "Only committed example templates should be checked in."
@@ -86,10 +114,7 @@ if echo "$STAGED_FILES" | grep -E '(^|/)\.env(\.[A-Za-z0-9_-]+)?$' | grep -vE '\
 fi
 
 TOTAL_ISSUES=0
-
-# Check each staged file
-for file in $STAGED_FILES; do
-    # Skip binary files, node_modules, and certain extensions
+for file in "${STAGED_FILES[@]}"; do
     if [[ -f "$file" ]] && \
        [[ ! "$file" =~ \.png$ ]] && \
        [[ ! "$file" =~ \.jpg$ ]] && \
@@ -103,7 +128,6 @@ for file in $STAGED_FILES; do
        [[ ! "$file" =~ node_modules ]] && \
        [[ ! "$file" =~ \.next ]] && \
        [[ ! "$file" =~ coverage ]]; then
-        
         check_secrets "$file" || ((TOTAL_ISSUES++))
     fi
 done

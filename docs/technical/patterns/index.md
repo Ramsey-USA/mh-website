@@ -3,6 +3,12 @@
 **Category:** Technical - Component Patterns  
 **Last Updated:** May 4, 2026
 
+## Quick Summary
+
+Reusable section and component patterns that maintain homepage-level cohesiveness across the MH Construction website.
+
+Use this index when you need a reusable pattern for alternating showcases, CTA sections, or component strategy decisions.
+
 ## Overview
 
 Reusable section and component patterns that maintain homepage-level cohesiveness across the

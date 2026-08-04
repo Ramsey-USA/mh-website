@@ -5,6 +5,12 @@
 **Version:** 1.3.1  
 **Status:** ✅ Active
 
+## Quick Summary
+
+Use this document when reviewing the current MH platform architecture, route coverage, runtime dependencies, or implementation decisions that need to stay aligned with branding and operational standards.
+
+This is the reference point for architecture-level planning and should be paired with the technical and project documentation indexes when changes affect multiple surfaces.
+
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 > **Page Structure Standard:** All lead-path pages follow the [Universal Page Flow Standard](../development/standards/universal-page-flow-standard.md) (Discover → Trust → Proof → Action).
 
@@ -23,7 +29,7 @@ Use it when reviewing route coverage, runtime dependencies, platform integration
 
 - ✅ **Homepage** (`/src/app/page.tsx`) - Partnership-focused landing with core
   values, SEO-focused metadata and structured data, performance optimized with lazy loading
-  - Full documentation: [Homepage Documentation](../technical/homepage.md)
+  - Full documentation: [Homepage Documentation](../archive/2026-08/homepage.md)
 - ✅ **About Page** (`/src/app/about/page.tsx`) - Company story and 4-value foundation
 - ✅ **Services Sections on Home** (`/src/app/page.tsx` `id="services"`) - Service discovery and detail are handled in home sections
 - ✅ **Projects Page** (`/src/app/projects/page.tsx`) - Portfolio showcase with filtering

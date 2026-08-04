@@ -7,7 +7,7 @@ if [[ "${1:-}" == "--fix" ]]; then
   MODE="fix"
 fi
 
-ROOT="$(git rev-parse --show-toplevel)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
 
 # Enforce canonical docs/messages/documents layout before linting markdown.
@@ -37,9 +37,12 @@ while IFS= read -r -d '' file; do
     md_files+=("$file")
   fi
 done < <(
-  git ls-files -z '*.md' \
-    ':!:.github/agents/**' \
-    ':!:apps/website/public/images/qr-codes/README.md'
+  find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f -name '*.md' -print0 | while IFS= read -r -d '' file; do
+    case "$file" in
+      ./.github/agents/*|./apps/website/public/images/qr-codes/README.md) continue ;;
+    esac
+    printf '%s\0' "$file"
+  done
 )
 
 if [[ ${#md_files[@]} -gt 0 ]]; then

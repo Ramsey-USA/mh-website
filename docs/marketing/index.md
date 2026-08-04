@@ -3,13 +3,26 @@
 **Category:** Marketing - Overview  
 **Last Updated:** July 31, 2026
 
+## Quick Summary
+
+Use this section for external-facing marketing playbooks covering Google Business Profile management, project marketing strategy, and SEO operations.
+
+Start here when you need the approved messaging baseline, operational workflow, or campaign guidance that must stay aligned with MH branding and trust signals.
+
 ## Overview
 
-External-facing marketing playbooks for Google Business Profile management, project marketing strategy, and SEO operations.
+Use this section for external-facing marketing playbooks covering Google Business Profile management, project marketing strategy, and SEO operations.
 
 All marketing copy must remain congruent with MH branding standards: relationship-first voice, factual veteran-owned framing, preserved trust signals, and approved SEO naming.
 
 **Brand Congruency:** Marketing assets and page treatments must keep typography and color usage aligned with canonical MH standards.
+
+### Start Here
+
+- [Marketing Strategy Guide](./marketing-strategy-guide.md) — the core planning document for campaign and content direction
+- [Google Business Profile Optimization Guide](./google-business-profile/google-business-profile-guide.md) — the operating guide for GBP workflow and review handling
+- [Marketing Parameters Directory](./parameters/index.md) — reusable rules for messaging, approvals, and handoffs
+- [Brand Constants](../branding/brand-constants.md) — the canonical source for approved brand messaging
 
 ## Available Resources
 

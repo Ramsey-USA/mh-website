@@ -2,18 +2,31 @@
 
 const { spawnSync } = require("node:child_process");
 const { resolve } = require("node:path");
+const fs = require("node:fs");
 
-const root = spawnSync("git", ["rev-parse", "--show-toplevel"], {
-  encoding: "utf8",
-});
+function findRepoRoot(startDir) {
+  let currentDir = resolve(startDir);
 
-if (root.status !== 0) {
-  process.stderr.write(root.stderr || "Failed to resolve repository root.\n");
-  process.exit(root.status ?? 1);
+  while (true) {
+    if (
+      fs.existsSync(resolve(currentDir, "pnpm-workspace.yaml")) ||
+      fs.existsSync(resolve(currentDir, ".git"))
+    ) {
+      return currentDir;
+    }
+
+    const parentDir = resolve(currentDir, "..");
+    if (parentDir === currentDir) {
+      return currentDir;
+    }
+
+    currentDir = parentDir;
+  }
 }
 
+const repoRoot = findRepoRoot(__dirname);
 const target = resolve(
-  root.stdout.trim(),
+  repoRoot,
   "apps/website/scripts/validation/check-public-asset-budgets.js",
 );
 const result = spawnSync(process.execPath, [target, ...process.argv.slice(2)], {

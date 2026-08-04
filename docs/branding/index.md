@@ -3,21 +3,25 @@
 **Category:** Branding - Overview  
 **Last Updated:** July 28, 2026
 
+## Quick Summary
+
+This section is the central hub for MH branding strategy, standards, governance, and implementation guidance.
+
+Use it when you need the approved brand language, visual standards, terminology rules, or the right pre-merge checklist for a branding-sensitive change.
+
 ## Overview
 
-This directory contains all branding documentation for MH Construction, including design standards, strategic messaging,
-and brand identity guidelines.
+This directory contains the MH branding system in a single, connected structure covering strategy, standards, governance, and implementation guidance.
 
-Enterprise dual terminology is governed as a shared system across website, dashboard, MISH, handbook, and document assets.
-Official term-library source for the current model is `docs/branding/standards/mhc-terms.docx` (Version 2.0, effective 04/07/2026).
+Use the branding set as one system rather than as isolated documents. Enterprise dual terminology is governed across website, dashboard, MISH, handbook, and document assets, and the official term-library source for the current model remains `docs/branding/standards/mhc-terms.docx` (Version 2.0, effective 04/07/2026).
 
 ## 📌 Single Source of Truth
 
 - **[Brand Constants](./brand-constants.md)** - ⭐ **START HERE** - Canonical values for all brand elements
+- **[MH Branding Quick Reference](./quick-reference.md)** - Condensed entry point for rapid review and shared understanding
 - **[Page Slogans](./strategy/page-specific-slogans.md)** - Governance guide for runtime canonical page-level hero slogans
 - **[Agent Branding Policy](./agent-branding-policy.md)** - Fast enforcement policy for AI agent decisions
 - **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical enterprise dual-label standard for website/dashboard/document surfaces
-- **[Construction Terminology Glossary](./strategy/construction-terminology-glossary.md)** - MH-to-PMBOK 6 construction vocabulary map
 - **[Brand Congruency Master Checklist](./governance/brand-congruency-master-checklist.md)** - Canonical pre-merge branding gate
 - **[Website Guardrails Coverage Map](./governance/website-guardrails-coverage.md)** - Required coverage map for all website surfaces
 
@@ -80,28 +84,26 @@ On-demand specialist agents use explicit PASS/FAIL report contracts:
 Design and visual standards for consistent brand implementation.
 
 - **[Standards Index](./standards/index.md)** - Entry point for all branding standards
-
-- **[Color System](./standards/color-system.md)** - Brand colors (Hunter Green #386851, Leather Tan #BD9264)
-- **[Color Quick Reference](./standards/color-quick-reference.md)** - Compact color tables and implementation snippets
-- **[Header Navigation Contract](./standards/header-navigation-contract.md)** - Canonical desktop header order and responsive menu behavior
-- **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header guidelines
-- **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns (v7.1.0)
+- **[Color System](./standards/color-system.md)** - Brand colors and token guidance
+- **[Color Quick Reference](./standards/color-quick-reference.md)** - Compact implementation reference
+- **[Header Navigation Contract](./standards/header-navigation-contract.md)** - Canonical desktop header order and menu behavior
+- **[Hero Section Standards](./standards/hero-section-standards.md)** - Page header and hero composition guidance
+- **[Unified Component Standards](./standards/unified-component-standards.md)** - UI component patterns and layout rules
 - **[Documents & Forms Branding Standards](./standards/documents-and-forms-standards.md)** - Print/download/manual/form identity standards
 - **[Team Badge System](./standards/team-badge-system.md)** - Veteran and role badge guidelines
 - **[Team Profile Radar Chart](./standards/team-profile-radar-chart.md)** - Skill visualization standards
 
 ### Strategy
 
-Messaging, voice, and brand positioning guidelines.
+Messaging, voice, and brand positioning guidance.
 
 - **[Strategy Index](./strategy/index.md)** - Entry point for messaging and terminology strategy docs
-
 - **[Brand Overview](./strategy/brand-overview.md)** - Core brand identity
-- **[Messaging Guide](./strategy/messaging.md)** - Core messaging framework (v7.0.0)
-- **[Page Slogans](./strategy/page-specific-slogans.md)** - Governance guide for runtime canonical slogan matrix for page-level surfaces
-- **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical dual-label and arrow-format naming rules
-- **[Universal Terminology](./strategy/universal-terminology-guide.md)** - Consistent word choices
-- **[Page-Specific Messaging](./strategy/page-specific-messaging-guide.md)** - Voice by page type
+- **[Messaging Guide](./strategy/messaging.md)** - Core messaging framework
+- **[Page Slogans](./strategy/page-specific-slogans.md)** - Governance guide for runtime canonical slogan matrix
+- **[Dual Terminology Standard](./strategy/dual-terminology-standard.md)** - Canonical dual-label and naming rules
+- **[Universal Terminology](./strategy/universal-terminology-guide.md)** - Preferred terminology and word choices
+- **[Page-Specific Messaging](./strategy/page-specific-messaging-guide.md)** - Voice guidance by page type
 
 ### Governance
 
@@ -133,6 +135,7 @@ Documentation ownership and consolidation rules to prevent duplicate branding gu
 - [← Back to Main README](../../README.md)
 - [Technical Documentation](../technical/)
 - [Development Standards](../development/standards/)
+- [Documentation Index](../index.md)
 
 ---
 

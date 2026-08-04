@@ -3,7 +3,20 @@
 **Category:** Marketing - Google Business Profile  
 **Last Updated:** July 31, 2026  
 **Version:** 2.0.0  
-**Status:** ✅ Active
+**Status:** Active
+
+## Quick Summary
+
+This guide explains how MH Construction should operate its Google Business Profile as a local-trust channel.
+
+Use it for weekly posting, review response, profile maintenance, Q&A updates, and local search visibility work.
+
+## What This Guide Covers
+
+- The operating intent behind GBP work
+- Weekly and monthly execution rhythms
+- Review response standards and response templates
+- Content mix ideas and success measures
 
 > **Brand Reference:** See [Brand Constants](../branding/brand-constants.md) for exact brand values.
 >
@@ -251,6 +264,20 @@ Track results at the same level of discipline used elsewhere in the marketing sy
 ---
 
 ## Optimization Checklist
+
+### Recommended Weekly Workflow
+
+1. Review profile accuracy and business details.
+2. Publish one approved post when there is a clear reason.
+3. Add or refresh photos that support trust and visibility.
+4. Respond to new reviews and questions promptly.
+5. Review the next week’s content priorities and any needed updates.
+
+## Related Resources
+
+- [Marketing Documentation Index](./index.md)
+- [Google Business Profile Documentation](./google-business-profile/index.md)
+- [Brand Constants](../branding/brand-constants.md)
 
 ### Profile Completeness (Do Once)
 

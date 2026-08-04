@@ -30,7 +30,14 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/load-cloudflare-r2-env.sh"
 require_cloudflare_r2_env
 
-ROOT="$(git rev-parse --show-toplevel)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT" != "/" ]]; do
+  if [[ -f "$ROOT/package.json" && -f "$ROOT/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT="$(dirname "$ROOT")"
+done
+
 BUCKET="mh-construction-assets"
 R2_PREFIX="docs/safety"
 OUTPUT_DIR="$ROOT/documents/generated-pdfs"

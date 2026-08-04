@@ -4,6 +4,12 @@
 **Status:** Official Service Offerings  
 **Version:** 7.0.0
 
+## Quick Summary
+
+Use this page as the canonical reference for MH services and capabilities when updating public-facing service language, proposal framing, or business-facing descriptions.
+
+This document should be paired with the brand constants and the business documentation index when service copy needs to stay aligned with approved MH wording and trust framing.
+
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
 **Brand Congruency:** Service descriptions must preserve trust content, factual veteran-owned framing, and approved service naming across the site.

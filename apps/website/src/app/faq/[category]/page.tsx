@@ -16,6 +16,7 @@ import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { COMPANY_INFO } from "@/lib/constants/company";
+import { isExternalHref } from "@/lib/navigation/path-utils";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import {
   faqCategories,
@@ -30,10 +31,6 @@ import {
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 const FAQ_CATEGORY_CONTENT_ID = "faq-category-content";
 const FAQ_CATEGORY_HERO_SLOGAN = getHeroPageSlogan("faqCategory").slogan;
-
-function isExternalHref(href: string): boolean {
-  return /^https?:\/\//.test(href);
-}
 
 type FAQRoutePlan = {
   service: { href: string; label: string };

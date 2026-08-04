@@ -13,6 +13,9 @@
 # - lines containing LINT-EXEMPT
 set -euo pipefail
 
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
+cd "$ROOT_DIR"
+
 FAIL=0
 
 is_text_target() {
@@ -43,7 +46,7 @@ collect_files() {
         is_text_target "$path" || continue
         is_excluded_file "$path" && continue
         files+=("$path")
-      done < <(git diff --name-only "$base_sha"...HEAD)
+      done < <(find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f -print | sed 's#^./##')
     fi
   fi
 
@@ -54,7 +57,7 @@ collect_files() {
       is_text_target "$path" || continue
       is_excluded_file "$path" && continue
       files+=("$path")
-    done < <(git ls-files)
+    done < <(find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f -print | sed 's#^./##')
   fi
 
   printf '%s\n' "${files[@]}"

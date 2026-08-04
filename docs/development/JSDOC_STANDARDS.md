@@ -432,7 +432,7 @@ JSDoc support built-in:
 ## Related Documentation
 
 - [Code Quality Standards](./standards/README.md)
-- [Testing Guide](./testing-coverage-next-steps.md)
+- [Testing Guide](../archive/2026-08/testing-coverage-next-steps.md)
 - [TypeScript Standards](./typescript-best-practices.md)
 
 ---

@@ -11,8 +11,16 @@
   **Consolidation Rule:** Keep this cheatsheet concise and example-first; place normative standards in standards docs.
 
 **Version:** 1.1.0  
-**Reference Standard:** [Homepage](../../technical/homepage.md) - Your page should match this level of polish  
+**Reference Standard:** [Homepage](../../archive/2026-08/homepage.md) - Your page should match this level of polish
 **Related:** [Unified Component Standards](../../branding/standards/unified-component-standards.md) | [Brand Constants](../../branding/brand-constants.md)
+
+---
+
+## 🚦 Use This When
+
+Use this cheatsheet when you need a fast, copy-paste pattern for a common UI section or component and want to stay visually aligned with the homepage.
+
+This is a quick-reference companion, not a replacement for the normative standards in [Development Standards](../standards/development-standards.md), [Consistency Guide](../standards/consistency-guide.md), and [Page Template Guide](../standards/page-template-guide.md).
 
 ---
 

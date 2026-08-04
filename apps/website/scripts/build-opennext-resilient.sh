@@ -74,7 +74,7 @@ run_build() {
 
       use_standalone_prebuild_fallback="false"
       use_low_memory_mode="true"
-      LOW_MEMORY_BUILD=true NODE_OPTIONS="${existing_node_options# }" opennextjs-cloudflare build
+      LOW_MEMORY_BUILD=true NODE_OPTIONS="${existing_node_options# }" npx opennextjs-cloudflare build
       return
     fi
 
@@ -90,11 +90,11 @@ run_build() {
     fi
 
     echo "[build:opennext] Running in low-memory mode."
-    LOW_MEMORY_BUILD=true NODE_OPTIONS="${existing_node_options# }" opennextjs-cloudflare build
+    LOW_MEMORY_BUILD=true NODE_OPTIONS="${existing_node_options# }" npx opennextjs-cloudflare build
     return
   fi
 
-  opennextjs-cloudflare build
+  npx opennextjs-cloudflare build
 }
 
 while [[ "$attempt" -le "$max_attempts" ]]; do

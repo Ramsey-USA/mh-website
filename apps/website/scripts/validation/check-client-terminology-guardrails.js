@@ -9,11 +9,14 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-const { spawnSync } = require("node:child_process");
 const { CLIENT_TERMINOLOGY_GUARDRAIL_RULES } = require("./branding-rules.cjs");
+const {
+  collectFilesByPatterns,
+  findRepoRoot,
+} = require("../lib/local-file-collection.js");
 
 const APP_ROOT = process.cwd();
-const REPO_ROOT = path.resolve(APP_ROOT, "..", "..");
+const REPO_ROOT = findRepoRoot(APP_ROOT);
 const TERMINOLOGY_LIBRARY_FILE = process.env.TERMINOLOGY_LIBRARY_FILE
   ? path.resolve(process.env.TERMINOLOGY_LIBRARY_FILE)
   : path.join(REPO_ROOT, "documents", "content", "terminology-library.json");
@@ -69,24 +72,6 @@ const REQUIRED_PROTECTED_TERMS = [
 const STANDARD_TERM_EQUIVALENTS = {
   "Project Site / Jobsite": ["Project Site / Jobsite", "Project Site"],
 };
-
-function runGitLsFiles(cwd, globs) {
-  const result = spawnSync("git", ["ls-files", ...globs], {
-    cwd,
-    encoding: "utf8",
-  });
-
-  if (result.status !== 0) {
-    throw new Error(
-      (result.stderr || result.stdout || "git ls-files failed").trim(),
-    );
-  }
-
-  return (result.stdout || "")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
-}
 
 function shouldSkipPath(filePath) {
   return EXCLUDED_PATH_PATTERNS.some((pattern) => pattern.test(filePath));
@@ -333,11 +318,13 @@ function main() {
   const terminologyLibrary = readAndValidateTerminologyLibrary();
   validatePageNamesTerminologyParity(terminologyLibrary);
 
-  let files = runGitLsFiles(APP_ROOT, TARGET_GLOBS);
+  let files = collectFilesByPatterns(
+    APP_ROOT,
+    TARGET_GLOBS,
+    EXCLUDED_PATH_PATTERNS,
+  );
 
-  files = files
-    .map((relative) => path.resolve(APP_ROOT, relative))
-    .filter((absPath) => !shouldSkipPath(absPath));
+  files = files.filter((absPath) => !shouldSkipPath(absPath));
 
   const allFindings = [];
 

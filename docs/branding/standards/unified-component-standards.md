@@ -360,7 +360,7 @@ subheaders, and card-title typography across the website.
 ### Canonical References
 
 - [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
-- [Homepage Documentation](../../technical/homepage.md)
+- [Homepage Documentation](../../archive/2026-08/homepage.md)
 - [Design System Standards](../../development/standards/design-system-standards.md)
 
 ## Container and Modal Visual Contract (Canonical)
@@ -383,7 +383,7 @@ and modal/dialog presentation patterns.
 
 - [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
 - [Consistency Guide](../../development/standards/consistency-guide.md)
-- [Homepage Documentation](../../technical/homepage.md)
+- [Homepage Documentation](../../archive/2026-08/homepage.md)
 
 ### Line Length & Spacing
 
@@ -602,7 +602,7 @@ page-navigation overlays, and navigation action presentation.
 ### Canonical References
 
 - [Page Compliance Checklist](../../development/standards/page-compliance-checklist.md)
-- [Homepage Documentation](../../technical/homepage.md)
+- [Homepage Documentation](../../archive/2026-08/homepage.md)
 - [Consistency Guide](../../development/standards/consistency-guide.md)
 
 ## Footer Accreditation and Trust Continuity Visual Contract (Canonical)

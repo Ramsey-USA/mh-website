@@ -24,7 +24,14 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/lib/load-cloudflare-r2-env.sh"
 require_cloudflare_r2_env
 
-ROOT_DIR="$(git rev-parse --show-toplevel)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+while [[ "$ROOT_DIR" != "/" ]]; do
+  if [[ -f "$ROOT_DIR/package.json" && -f "$ROOT_DIR/pnpm-workspace.yaml" ]]; then
+    break
+  fi
+  ROOT_DIR="$(dirname "$ROOT_DIR")"
+done
+
 cd "$ROOT_DIR"
 
 BUCKET="mh-construction-assets"

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Guardrail: generated reports and legacy app mirror trees must never be committed.
-ROOT_DIR="$(git rev-parse --show-toplevel)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
 PATTERNS=(
@@ -30,7 +30,7 @@ for pattern in "${PATTERNS[@]}"; do
   while IFS= read -r path; do
     [[ -z "$path" ]] && continue
     violations+=("$path")
-  done < <(git ls-files -- "$pattern")
+  done < <(find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f \( -path "$pattern" \) -print | sed 's#^./##')
 done
 
 if [[ ${#violations[@]} -gt 0 ]]; then
