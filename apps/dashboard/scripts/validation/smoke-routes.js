@@ -26,9 +26,21 @@ const managedDevCommand =
   process.env.DASHBOARD_SMOKE_DEV_COMMAND || "npm run dev";
 
 const routes = [
-  "/api/security/status",
-  "/api/auth/refresh",
-  "/api/safety/jobs",
+  {
+    path: "/api/security/status",
+    method: "GET",
+    acceptedStatuses: [200, 401, 403],
+  },
+  {
+    path: "/api/auth/refresh",
+    method: "POST",
+    acceptedStatuses: [200, 401, 403],
+  },
+  {
+    path: "/api/safety/jobs",
+    method: "GET",
+    acceptedStatuses: [200, 401, 403],
+  },
 ];
 
 let managedDevProcess = null;
@@ -61,9 +73,14 @@ function isReachableStatus(status) {
 
 async function waitForServerReady() {
   const startedAt = Date.now();
+  const readinessProbe = {
+    path: "/api/security/status",
+    method: "GET",
+    acceptedStatuses: [200, 401, 403],
+  };
 
   while (Date.now() - startedAt < startupTimeoutMs) {
-    const result = await checkRoute("/api/security/status");
+    const result = await checkRoute(readinessProbe);
     if (result.status > 0 && isReachableStatus(result.status)) {
       return;
     }
@@ -80,7 +97,14 @@ async function startManagedDevServerIfNeeded() {
     return;
   }
 
-  const probe = await checkRouteWithTimeout("/", initialProbeTimeoutMs);
+  const probe = await checkRouteWithTimeout(
+    {
+      path: "/api/security/status",
+      method: "GET",
+      acceptedStatuses: [200, 401, 403],
+    },
+    initialProbeTimeoutMs,
+  );
   if (probe.status > 0 && isReachableStatus(probe.status)) {
     console.info("Detected existing dashboard server; using current process.");
     return;
@@ -114,18 +138,23 @@ function stopManagedDevServer() {
   managedDevProcess = null;
 }
 
-function checkRoute(route) {
-  return checkRouteWithTimeout(route, timeoutMs);
+function checkRoute(routeConfig) {
+  return checkRouteWithTimeout(routeConfig, timeoutMs);
 }
 
-async function checkRouteWithTimeout(route, routeTimeoutMs) {
+async function checkRouteWithTimeout(routeConfig, routeTimeoutMs) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), routeTimeoutMs);
+  const route = routeConfig.path;
+  const method = routeConfig.method || "GET";
+  const acceptedStatuses = new Set(
+    routeConfig.acceptedStatuses || Array.from(expectedStatuses),
+  );
   const url = `${baseUrl}${route}`;
 
   try {
     const response = await fetch(url, {
-      method: "GET",
+      method,
       redirect: "manual",
       signal: controller.signal,
       headers: {
@@ -135,10 +164,11 @@ async function checkRouteWithTimeout(route, routeTimeoutMs) {
 
     clearTimeout(timeoutId);
 
-    if (!expectedStatuses.has(response.status)) {
+    if (!acceptedStatuses.has(response.status)) {
       return {
         ok: false,
         route,
+        method,
         status: response.status,
         location: response.headers.get("location") || "",
       };
@@ -147,6 +177,7 @@ async function checkRouteWithTimeout(route, routeTimeoutMs) {
     return {
       ok: true,
       route,
+      method,
       status: response.status,
       location: response.headers.get("location") || "",
     };
@@ -155,6 +186,7 @@ async function checkRouteWithTimeout(route, routeTimeoutMs) {
     return {
       ok: false,
       route,
+      method,
       status: 0,
       error: error instanceof Error ? error.message : String(error),
     };
@@ -173,16 +205,22 @@ async function main() {
 
   await startManagedDevServerIfNeeded();
 
-  for (const route of routes) {
-    const result = await checkRoute(route);
+  for (const routeConfig of routes) {
+    const result = await checkRoute(routeConfig);
     if (result.ok) {
       const suffix = result.location ? ` -> ${result.location}` : "";
-      console.info(`PASS ${route} (${result.status})${suffix}`);
+      console.info(
+        `PASS ${result.method} ${result.route} (${result.status})${suffix}`,
+      );
     } else {
       if (result.status > 0) {
-        console.error(`FAIL ${route} (${result.status})`);
+        console.error(
+          `FAIL ${result.method} ${result.route} (${result.status})`,
+        );
       } else {
-        console.error(`FAIL ${route} (${result.error || "unknown error"})`);
+        console.error(
+          `FAIL ${result.method} ${result.route} (${result.error || "unknown error"})`,
+        );
       }
       failures.push(result);
     }
