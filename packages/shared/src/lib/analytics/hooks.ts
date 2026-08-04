@@ -30,7 +30,6 @@ import {
 import { trackJourneyMilestone, trackLandingPage } from "./marketing-tracking";
 
 const ANALYTICS_EXCLUDED_ROUTE_PREFIXES = [
-  "/dashboard",
   "/offline",
   "/file-handler",
   "/protocol-handler",

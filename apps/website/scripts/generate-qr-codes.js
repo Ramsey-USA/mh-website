@@ -184,10 +184,10 @@ const QR_CODES = [
     label: "www.mhc-gc.com/safety/intake",
   },
   {
-    name: "hub",
-    url: `${BASE_URL}/hub`,
-    description: "Employee Hub",
-    label: "www.mhc-gc.com/hub",
+    name: "safety-manual-access",
+    url: `${BASE_URL}/resources/safety-manual/contents`,
+    description: "Safety Manual Access",
+    label: "www.mhc-gc.com/resources/safety-manual/contents",
   },
   {
     name: "employee-handbook",

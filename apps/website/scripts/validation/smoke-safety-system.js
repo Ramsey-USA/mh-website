@@ -43,7 +43,7 @@ const checks = [
     expected: publicPageExpected,
   },
   {
-    name: "Safety hub page",
+    name: "Legacy safety hub redirect",
     path: "/safety/hub",
     method: "GET",
     expected: publicPageExpected,
