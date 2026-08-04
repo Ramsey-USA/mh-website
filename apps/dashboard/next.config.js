@@ -1,11 +1,11 @@
 /**
  * MH Construction Dashboard - Next.js Configuration
  *
- * Standalone dashboard app (Operations Hub + admin pages).
+ * Standalone admin API app.
  * Deploys as a separate Cloudflare Worker from the main website.
  *
  * Route ownership (configured in Cloudflare Workers dashboard):
- *   This worker: www.mhc-gc.com/dashboard*, /hub*, and all admin API routes
+ *   This worker: admin API routes on www.mhc-gc.com
  *   Website worker: www.mhc-gc.com/* (everything else)
  *
  * @see apps/website/next.config.js for the companion website configuration

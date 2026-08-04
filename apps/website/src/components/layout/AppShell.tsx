@@ -37,7 +37,7 @@ interface AppShellProps {
 }
 
 const QUICK_ACTIONS = [
-  { label: "Hub", href: "/hub", icon: PAGE_ICONS.hub },
+  { label: "Home", href: "/", icon: PAGE_ICONS.home },
   { label: "Safety", href: "/safety", icon: SEMANTIC_ICONS.safety },
   { label: "Incident", href: "/safety/incident-report", icon: "report" },
   { label: "Resources", href: "/resources", icon: FORM_MANUAL_ICONS.source },
@@ -362,12 +362,12 @@ export function AppShell({
         >
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-2">
             <Link
-              href="/hub"
+              href="/resources"
               prefetch={false}
               className="font-subheading inline-flex items-center gap-2 self-start rounded-full border border-brand-secondary/60 bg-brand-secondary/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-brand-secondary"
             >
               <MaterialIcon icon="construction" size="sm" />
-              PWA Command Deck
+              Safety Resource Deck
             </Link>
 
             <nav

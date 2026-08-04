@@ -444,24 +444,24 @@
       "error": null
     },
     {
-      "name": "hub",
+      "name": "safety-manual-access",
       "filename": "qr-hub-color.png",
       "relativePath": "safety/qr-hub-color.png",
       "folder": "safety",
       "variant": "color",
-      "url": "https://www.mhc-gc.com/hub",
-      "description": "Employee Hub",
+      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
+      "description": "Safety Manual Access",
       "success": true,
       "error": null
     },
     {
-      "name": "hub",
+      "name": "safety-manual-access",
       "filename": "qr-hub-bw.png",
       "relativePath": "safety/qr-hub-bw.png",
       "folder": "safety",
       "variant": "bw",
-      "url": "https://www.mhc-gc.com/hub",
-      "description": "Employee Hub",
+      "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
+      "description": "Safety Manual Access",
       "success": true,
       "error": null
     },

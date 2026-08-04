@@ -1,8 +1,8 @@
 /**
  * Pure aggregation helpers for analytics dashboard click data.
  *
- * Extracted from `src/app/dashboard/page.tsx` so the calculations can be
- * memoized at the page level and unit-tested without React.
+ * Extracted from dashboard UI modules so the calculations can be
+ * shared and unit-tested without React.
  */
 
 import type { DashboardClick } from "./types";

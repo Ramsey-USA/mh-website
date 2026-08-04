@@ -131,14 +131,14 @@ describe("PageNavigation", () => {
     ).toHaveAttribute("href", "/events");
     expect(
       screen.getByRole("menuitem", {
-        name: new RegExp(PAGE_TERMINOLOGY.hub.seoName, "i"),
+        name: new RegExp(PAGE_TERMINOLOGY.resources.seoName, "i"),
       }),
-    ).toHaveAttribute("href", "/hub");
+    ).toHaveAttribute("href", "/resources");
     expect(
       screen.getByText(PAGE_TERMINOLOGY.events.mhBrandName),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(PAGE_TERMINOLOGY.hub.mhBrandName),
+      screen.getByText(PAGE_TERMINOLOGY.resources.mhBrandName),
     ).toBeInTheDocument();
   });
 

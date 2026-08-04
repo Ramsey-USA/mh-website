@@ -12,7 +12,6 @@ const WEBSITE_NAV_ROUTE_PREFIXES = [
   "/contact",
   "/events",
   "/faq",
-  "/hub",
   "/locations",
   "/privacy",
   "/projects",

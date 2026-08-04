@@ -202,11 +202,11 @@ export default function SafetyIncidentReportPage() {
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
-              href="/hub"
+              href="/safety"
               className="inline-flex items-center gap-2 rounded-xl bg-brand-primary px-5 py-3 text-sm font-bold text-white hover:bg-brand-primary-dark"
             >
-              <MaterialIcon icon="dashboard" size="sm" className="text-white" />
-              Return to Hub
+              <MaterialIcon icon="shield" size="sm" className="text-white" />
+              Return to Safety
             </Link>
             <Link
               href="/safety"
@@ -471,11 +471,11 @@ export default function SafetyIncidentReportPage() {
               </button>
 
               <Link
-                href="/hub"
+                href="/safety"
                 className="inline-flex items-center gap-2 rounded-xl border border-brand-primary px-5 py-3 text-sm font-bold text-brand-primary transition-colors hover:bg-brand-primary hover:text-white"
               >
-                <MaterialIcon icon="dashboard" size="sm" />
-                Back to Dashboard (Staff Hub)
+                <MaterialIcon icon="shield" size="sm" />
+                Back to Safety
               </Link>
             </div>
           </form>

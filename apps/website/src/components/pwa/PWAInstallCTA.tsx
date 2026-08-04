@@ -164,7 +164,7 @@ export function PWAInstallCTA({
       >
         {/* Optional badge */}
         <div className="bg-brand-primary -top-4 left-1/2 absolute px-4 py-1 rounded-full -translate-x-1/2 shadow-md">
-          <span className="font-subheading font-bold text-sm text-white font-heading uppercase tracking-wide">
+          <span className="font-subheading font-bold text-sm text-white uppercase tracking-wide">
             New
           </span>
         </div>
@@ -305,10 +305,10 @@ export function PWAInstallCTA({
                 <p className="font-body text-center text-xs leading-relaxed text-white/70 sm:text-left">
                   Already installed?{" "}
                   <a
-                    href="/hub"
+                    href="/resources/safety-manual/contents"
                     className="underline hover:text-white/90 transition-colors"
                   >
-                    Open Dashboard (Staff Hub)
+                    Open safety resources
                   </a>
                 </p>
               </div>

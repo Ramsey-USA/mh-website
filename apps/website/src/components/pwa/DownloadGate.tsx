@@ -98,10 +98,10 @@ export function DownloadGate({
 
       <div className="flex flex-wrap items-center gap-2">
         <Link
-          href="/hub"
+          href="/resources/safety-manual/contents"
           className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 px-3 py-1.5 text-xs font-semibold text-brand-primary/80 transition-colors hover:border-brand-primary/50 hover:text-brand-primary dark:text-brand-secondary"
         >
-          Already installed? Open the app
+          Already installed? Open safety resources
           <MaterialIcon icon="smartphone" size="sm" />
         </Link>
       </div>

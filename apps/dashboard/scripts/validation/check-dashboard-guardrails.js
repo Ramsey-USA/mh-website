@@ -14,8 +14,6 @@ const deployScriptPath = path.join(
 );
 
 const requiredDashboardRoutePatterns = [
-  "www.mhc-gc.com/dashboard*",
-  "www.mhc-gc.com/hub*",
   "www.mhc-gc.com/api/auth/*",
   "www.mhc-gc.com/api/safety/*",
   "www.mhc-gc.com/api/drivers/*",

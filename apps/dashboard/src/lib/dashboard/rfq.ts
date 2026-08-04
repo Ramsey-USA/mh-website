@@ -1,5 +1,5 @@
 // Pure helpers and types for the RFQ Package Builder wizard.
-// Extracted from src/app/dashboard/RfqTab.tsx so they are testable
+// Extracted from dashboard UI modules so they are testable
 // without React/jsdom and reusable from other wizard surfaces.
 
 export interface EvaluationCriterion {

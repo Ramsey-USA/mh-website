@@ -155,7 +155,7 @@ export function useFormSubmit<TData = unknown, TResponse = unknown>(
  * @example
  * ```tsx
  * const { isSubmitting, error, submit } = useAuthenticatedFormSubmit(token, {
- *   onSuccess: () => router.push('/dashboard'),
+ *   onSuccess: () => router.push('/safety'),
  * });
  *
  * await submit('/api/protected/items', { name: 'Item 1' });

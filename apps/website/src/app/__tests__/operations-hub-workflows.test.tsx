@@ -49,8 +49,8 @@ describe("Safety incident-report page", () => {
 
     expect(screen.getByText(/Team Access Required/i)).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /Return to Hub/i }),
-    ).toHaveAttribute("href", "/hub");
+      screen.getByRole("link", { name: /Return to Safety/i }),
+    ).toHaveAttribute("href", "/safety");
   });
 
   it("loads active jobs with auth token on incident route", async () => {

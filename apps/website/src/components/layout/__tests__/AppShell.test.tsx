@@ -122,8 +122,8 @@ describe("AppShell", () => {
     expect(screen.getByTestId("site-footer")).toBeInTheDocument();
 
     expect(
-      screen.getByRole("link", { name: /PWA Command Deck/i }),
-    ).toHaveAttribute("href", "/hub");
+      screen.getByRole("link", { name: /Safety Resource Deck/i }),
+    ).toHaveAttribute("href", "/resources");
     const quickActionsNav = screen.getByRole("navigation", {
       name: /PWA quick actions/i,
     });
@@ -134,8 +134,8 @@ describe("AppShell", () => {
     );
 
     expect(
-      within(quickActionsNav).getByRole("link", { name: /Hub/i }),
-    ).toHaveAttribute("href", "/hub");
+      within(quickActionsNav).getByRole("link", { name: /Home/i }),
+    ).toHaveAttribute("href", "/");
     expect(
       within(quickActionsNav).getByRole("link", { name: /Safety/i }),
     ).toHaveAttribute("href", "/safety");

@@ -106,11 +106,6 @@ export const ALL_SITE_PAGES_EN = [
     label: PAGE_TERMINOLOGY.faq.seoName,
     description: PAGE_TERMINOLOGY.faq.mhBrandName,
   },
-  {
-    href: "/hub",
-    label: PAGE_TERMINOLOGY.hub.seoName,
-    description: PAGE_TERMINOLOGY.hub.mhBrandName,
-  },
 ] as const;
 
 export const ALL_SITE_PAGES_ES = [
@@ -148,11 +143,6 @@ export const ALL_SITE_PAGES_ES = [
     href: "/faq",
     label: "Ayuda/Preguntas",
     description: "Informe rápido",
-  },
-  {
-    href: "/hub",
-    label: "Hub del equipo",
-    description: "Portal del personal",
   },
 ] as const;
 

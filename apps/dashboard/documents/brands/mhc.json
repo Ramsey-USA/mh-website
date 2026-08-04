@@ -54,7 +54,7 @@
     "kennewick": "../../../website/public/images/credentials/Kennewick-TriCity-Regional-Chamber-logo-horizontal.png"
   },
   "qrCodes": {
-    "dashboard": "https://www.mhc-gc.com/safety/hub",
+    "dashboard": "https://www.mhc-gc.com/resources/safety-manual/contents",
     "digitalManual": "https://www.mhc-gc.com/docs/safety/safety-manual-digital.pdf",
     "tableOfContents": "https://www.mhc-gc.com/resources/safety-manual/contents"
   }

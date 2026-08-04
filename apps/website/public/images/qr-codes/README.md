@@ -227,17 +227,17 @@ Generated: 7/30/2026, 5:45:38 PM
 - **File:** `safety/qr-safety-intake-bw.png`
 - **URL:** <https://www.mhc-gc.com/safety/intake>
 
-### ✅ Employee Hub
+### ✅ Safety Manual Access
 
-- **Name:** `hub`
+- **Name:** `safety-manual-access`
 - **File:** `safety/qr-hub-color.png`
-- **URL:** <https://www.mhc-gc.com/hub>
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
 
-### ✅ Employee Hub
+### ✅ Safety Manual Access
 
-- **Name:** `hub`
+- **Name:** `safety-manual-access`
 - **File:** `safety/qr-hub-bw.png`
-- **URL:** <https://www.mhc-gc.com/hub>
+- **URL:** <https://www.mhc-gc.com/resources/safety-manual/contents>
 
 ### ✅ Employee Handbook
 

@@ -8,7 +8,6 @@ import { verifyRefreshToken } from "@/lib/auth/jwt";
 import { securityMiddleware } from "./src/middleware/security";
 
 const ADMIN_ONLY_PREFIXES = [
-  "/dashboard",
   "/api/analytics",
   "/api/leads",
   "/api/drivers",

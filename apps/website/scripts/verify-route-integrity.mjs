@@ -74,7 +74,6 @@ const FORBIDDEN_STATUS_FRAGMENTS = [
   "/cancelled",
   "/private",
 ];
-const CROSS_APP_PREFIXES = ["/hub", "/dashboard"];
 
 function readText(filePath) {
   return fs.readFileSync(filePath, "utf8");
@@ -506,14 +505,6 @@ function checkRouteIntegrity() {
   // 5. No navigation or footer link points to a missing route.
   const navLinks = parseLinkHrefs();
   for (const href of navLinks) {
-    if (
-      CROSS_APP_PREFIXES.some(
-        (prefix) => href === prefix || href.startsWith(`${prefix}/`),
-      )
-    ) {
-      continue;
-    }
-
     if (href.startsWith("/api/")) {
       continue;
     }

@@ -116,10 +116,10 @@ export default async function SafetyManualFormsPage() {
             <strong>Blank templates only.</strong> Completed forms,
             project-specific JHAs, and incident records are restricted —{" "}
             <Link
-              href="/hub"
+              href="/contact?topic=safety-manual"
               className="underline hover:text-amber-900 dark:hover:text-amber-200"
             >
-              sign in to Dashboard (Staff Hub)
+              request team access
             </Link>{" "}
             for authorized access.
           </span>
@@ -184,11 +184,11 @@ export default async function SafetyManualFormsPage() {
                     </span>
                   )}
                   <Link
-                    href="/hub"
+                    href="/contact?topic=safety-manual"
                     className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary/30 bg-white px-3 py-1.5 text-xs font-semibold text-brand-primary hover:bg-brand-primary/5 transition-colors dark:bg-transparent dark:text-brand-secondary dark:border-brand-secondary/30"
                   >
-                    <MaterialIcon icon="login" size="sm" />
-                    Sign In
+                    <MaterialIcon icon="mail" size="sm" />
+                    Request Access
                   </Link>
                 </div>
               </footer>

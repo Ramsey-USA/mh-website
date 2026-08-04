@@ -290,9 +290,9 @@ export default async function EmployeeHandbookPage() {
                       </span>
                     )}
                     <Button asChild variant="outline" size="sm">
-                      <Link href="/hub">
-                        <MaterialIcon icon="login" size="sm" />
-                        Dashboard (Staff Hub) Sign-In
+                      <Link href="/contact?topic=employee-handbook-access">
+                        <MaterialIcon icon="mail" size="sm" />
+                        Request Team Access
                       </Link>
                     </Button>
                   </div>
@@ -315,9 +315,9 @@ export default async function EmployeeHandbookPage() {
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Button asChild variant="primary" size="sm">
-              <Link href="/hub">
-                <MaterialIcon icon="login" size="sm" className="text-white" />
-                Open Dashboard (Staff Hub)
+              <Link href="/contact?topic=employee-handbook-access">
+                <MaterialIcon icon="mail" size="sm" className="text-white" />
+                Request Team Access
               </Link>
             </Button>
             <Button asChild variant="outline" size="sm">

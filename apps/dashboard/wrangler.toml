@@ -7,8 +7,6 @@ compatibility_flags = ["nodejs_compat"]
 # Route Ownership
 # ========================================================================
 # This Worker handles the following routes on www.mhc-gc.com:
-#   /dashboard*          — admin dashboard
-#   /hub*                — operations hub
 #   /api/auth/*          — authentication
 #   /api/safety/*        — safety forms and SSSP management
 #   /api/drivers/*       — driver management
@@ -21,7 +19,7 @@ compatibility_flags = ["nodejs_compat"]
 #
 # The website Worker (mhc-v2-website) handles www.mhc-gc.com/* for all
 # other public pages and public API routes (contact, newsletter, etc.).
-# Cloudflare routes the more-specific dashboard paths to this Worker first.
+# Cloudflare routes the more-specific admin API paths to this Worker first.
 # ========================================================================
 
 # KV Namespaces (shared with website worker — same zone, same data)
@@ -52,14 +50,6 @@ database_id = "98ad144a-cfe2-4f19-a55c-c43140279840"
 crons = ["0 14 * * *"]
 
 # Explicit production routes for dashboard worker.
-[[routes]]
-pattern = "www.mhc-gc.com/dashboard*"
-zone_name = "mhc-gc.com"
-
-[[routes]]
-pattern = "www.mhc-gc.com/hub*"
-zone_name = "mhc-gc.com"
-
 [[routes]]
 pattern = "www.mhc-gc.com/api/auth/*"
 zone_name = "mhc-gc.com"

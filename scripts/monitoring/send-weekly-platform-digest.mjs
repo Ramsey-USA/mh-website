@@ -581,8 +581,8 @@ async function main() {
     { endpoint: "/contact", acceptedStatuses: [200, 301, 302, 307, 308, 403] },
     { endpoint: "/projects", acceptedStatuses: [200, 301, 302, 307, 308, 403] },
     {
-      endpoint: "/dashboard",
-      acceptedStatuses: [200, 301, 302, 307, 308, 401, 403, 404],
+      endpoint: "/safety",
+      acceptedStatuses: [200, 301, 302, 307, 308, 403],
     },
     {
       endpoint: "/api/analytics/dashboard/overview",
@@ -764,7 +764,7 @@ async function main() {
         <td style="padding:12px;background:#fff8e1;border:1px solid #f3d47a;border-radius:8px">
           <p style="margin:0 0 6px;font-size:12px;color:#7c5b00;text-transform:uppercase;letter-spacing:.5px;font-weight:700">Forward To Team: Executive Summary</p>
           <p style="margin:0;font-size:14px;color:#1f2937;line-height:1.45">
-            Website/dashboard health: <strong>${healthPasses}/${endpointResults.length} pass</strong>. 
+            Website/API health: <strong>${healthPasses}/${endpointResults.length} pass</strong>. 
             Lighthouse coverage: <strong>${lighthouse.successfulAudits || 0}/${lighthouse.totalPages || 0}</strong>. 
             Media integrity: <strong>${media.passCount}/${media.sampledCount} pass</strong>.
             Hero video gaps: <strong>${heroCoverage.missingHeroVideoPages.length}</strong>. 
