@@ -26,11 +26,9 @@ const managedDevCommand =
   process.env.DASHBOARD_SMOKE_DEV_COMMAND || "npm run dev";
 
 const routes = [
-  "/",
-  "/hub",
-  "/dashboard",
-  "/hub/profile",
-  "/hub/profile/review",
+  "/api/security/status",
+  "/api/auth/refresh",
+  "/api/safety/jobs",
 ];
 
 let managedDevProcess = null;
@@ -65,7 +63,7 @@ async function waitForServerReady() {
   const startedAt = Date.now();
 
   while (Date.now() - startedAt < startupTimeoutMs) {
-    const result = await checkRoute("/");
+    const result = await checkRoute("/api/security/status");
     if (result.status > 0 && isReachableStatus(result.status)) {
       return;
     }

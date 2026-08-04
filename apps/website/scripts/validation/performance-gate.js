@@ -25,13 +25,12 @@ const summaryPath = path.resolve(
   fileArg || "lighthouse-results/summary.json",
 );
 
-const KEY_ROUTE_PATHS = new Set(["/", "/careers", "/veterans", "/dashboard"]);
+const KEY_ROUTE_PATHS = new Set(["/", "/careers", "/veterans"]);
 
 const STRICT_MIN_PERFORMANCE_BY_PATH = {
   "/": 70,
   "/careers": 65,
   "/veterans": 65,
-  "/dashboard": 60,
 };
 
 function getPathname(url) {
@@ -186,7 +185,7 @@ function main() {
 
   if (keyRouteSuccessCount === 0) {
     const message =
-      "No successful audits for key routes (/, /careers, /veterans, /dashboard)";
+      "No successful audits for key routes (/, /careers, /veterans)";
     if (strict) {
       fail(message);
       return;

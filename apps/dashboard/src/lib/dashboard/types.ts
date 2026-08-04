@@ -1,5 +1,5 @@
 /**
- * Shared types for the analytics dashboard at /dashboard.
+ * Shared types for dashboard analytics APIs.
  *
  * Mirrors the response shape returned by /api/analytics/dashboard.
  */
