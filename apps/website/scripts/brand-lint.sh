@@ -8,6 +8,7 @@
 #
 # Exclusions:
 # - docs/project/* (planning/audit history)
+# - docs/archive/* (historical snapshots may contain legacy terms)
 # - docs/branding/* (guidelines include intentional "incorrect" examples)
 # - documents/content/* (generated extracts from legal/regulatory documents)
 # - lines containing LINT-EXEMPT
@@ -25,11 +26,16 @@ is_text_target() {
 
 is_excluded_file() {
   local file="$1"
-  [[ "$file" == docs/project/* ]] || [[ "$file" == docs/branding/* ]] || [[ "$file" == documents/content/* ]] || [[ "$file" == apps/website/documents/content/* ]] || [[ "$file" == tmp/* ]] || [[ "$file" == apps/website/tmp/* ]] || [[ "$file" == repo-status-*.md ]] || [[ "$file" == BRANDING_OPTIMIZATION_MASTER_STATUS.md ]] || [[ "$file" == seo-audit-report.json ]]
+  [[ "$file" == docs/project/* ]] || [[ "$file" == docs/archive/* ]] || [[ "$file" == docs/branding/* ]] || [[ "$file" == documents/content/* ]] || [[ "$file" == apps/website/documents/content/* ]] || [[ "$file" == tmp/* ]] || [[ "$file" == apps/website/tmp/* ]] || [[ "$file" == repo-status-*.md ]] || [[ "$file" == BRANDING_OPTIMIZATION_MASTER_STATUS.md ]] || [[ "$file" == seo-audit-report.json ]]
 }
 
 collect_files() {
   local files=()
+  local -a FIND_CMD=(
+    find .
+    \( -path "*/.git" -o -path "*/node_modules" -o -path "*/.next" -o -path "*/.open-next" -o -path "*/dist" -o -path "*/build" -o -path "*/coverage" \) -prune
+    -o -type f -print
+  )
 
   if [[ "${BRAND_LINT_CHANGED_ONLY:-false}" == "true" ]] && [[ -n "${BRAND_LINT_BASE_SHA:-}" ]]; then
     local base_sha="${BRAND_LINT_BASE_SHA}"
@@ -46,7 +52,7 @@ collect_files() {
         is_text_target "$path" || continue
         is_excluded_file "$path" && continue
         files+=("$path")
-      done < <(find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f -print | sed 's#^./##')
+      done < <("${FIND_CMD[@]}" | sed 's#^./##')
     fi
   fi
 
@@ -57,7 +63,7 @@ collect_files() {
       is_text_target "$path" || continue
       is_excluded_file "$path" && continue
       files+=("$path")
-    done < <(find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f -print | sed 's#^./##')
+    done < <("${FIND_CMD[@]}" | sed 's#^./##')
   fi
 
   printf '%s\n' "${files[@]}"

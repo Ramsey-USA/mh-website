@@ -17,7 +17,7 @@
 
 **Brand Congruency:** New page scaffolds must keep typography, color usage, trust content, and naming aligned with canonical MH standards.
 
-### Use This Guide When
+## Use This Guide When
 
 Use this guide when you are creating a new page, route, or major section shell and want the fastest path to a cohesive MH layout.
 
