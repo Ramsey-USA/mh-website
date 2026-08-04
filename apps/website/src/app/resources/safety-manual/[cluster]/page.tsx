@@ -325,10 +325,10 @@ export default async function SafetyManualClusterPage({
             section. Full procedures, forms, and proprietary controls are
             restricted —{" "}
             <Link
-              href="/hub"
+              href="/contact?topic=safety-manual"
               className="underline hover:text-amber-900 dark:hover:text-amber-200"
             >
-              sign in
+              request access
             </Link>{" "}
             or{" "}
             <Link
@@ -430,15 +430,15 @@ export default async function SafetyManualClusterPage({
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <Link
-                      href="/hub"
+                      href="/contact?topic=safety-manual"
                       className="inline-flex items-center gap-1.5 rounded-lg bg-brand-primary px-3.5 py-2 text-xs font-bold text-white shadow hover:bg-brand-primary-dark transition-colors"
                     >
                       <MaterialIcon
-                        icon="login"
+                        icon="mail"
                         size="sm"
                         className="text-white"
                       />
-                      Sign In
+                      Request Access
                     </Link>
                     <Link
                       href={`/contact?topic=safety-manual&section=MISH-${s.numberStr}`}

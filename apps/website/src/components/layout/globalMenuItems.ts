@@ -106,12 +106,6 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       subLabel: PAGE_TERMINOLOGY.safety.mhBrandName,
       icon: PAGE_ICONS.safety,
     },
-    {
-      href: "/hub",
-      label: PAGE_TERMINOLOGY.hub.seoName,
-      subLabel: PAGE_TERMINOLOGY.hub.mhBrandName,
-      icon: PAGE_ICONS.hub,
-    },
   ],
   es: [
     {
@@ -209,12 +203,6 @@ export const globalMenuItemsByLocale: Record<"en" | "es", GlobalMenuItem[]> = {
       label: "Seguridad",
       subLabel: "Seguridad",
       icon: PAGE_ICONS.safety,
-    },
-    {
-      href: "/hub",
-      label: "Hub del equipo",
-      subLabel: "Portal del personal",
-      icon: PAGE_ICONS.hub,
     },
   ],
 };

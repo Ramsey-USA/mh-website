@@ -68,7 +68,6 @@ const STATIC_ASSETS = [
   "/privacy",
   "/terms",
   "/safety",
-  "/hub",
   "/resources",
   "/resources/safety-program",
   // Note: Next.js CSS chunks use content-hash filenames (e.g. /_next/static/css/4a8b2c.css)

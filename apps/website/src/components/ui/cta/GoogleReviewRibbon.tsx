@@ -17,7 +17,7 @@ const HIDDEN_EXACT_ROUTES = new Set([
   "/careers",
 ]);
 
-const HIDDEN_ROUTE_PREFIXES = ["/hub", "/safety", "/admin", "/api"];
+const HIDDEN_ROUTE_PREFIXES = ["/safety", "/admin", "/api"];
 
 export function GoogleReviewRibbon(props: Readonly<GoogleReviewRibbonProps>) {
   const { className = "" } = props;

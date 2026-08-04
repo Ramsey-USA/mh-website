@@ -57,8 +57,10 @@ describe("DownloadGate", () => {
       screen.getByText(/use the install app button in the site footer/i),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("link", { name: /already installed\? open the app/i }),
-    ).toHaveAttribute("href", "/hub");
+      screen.getByRole("link", {
+        name: /already installed\? open safety resources/i,
+      }),
+    ).toHaveAttribute("href", "/resources/safety-manual/contents");
   });
 
   it("renders children when user has admin role in localStorage", async () => {

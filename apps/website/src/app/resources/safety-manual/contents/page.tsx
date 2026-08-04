@@ -275,11 +275,11 @@ export default async function SafetyManualContentsPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/hub"
+              href="/contact?topic=safety-manual"
               className="inline-flex items-center gap-2 rounded-lg bg-brand-primary px-5 py-2.5 text-sm font-bold text-white shadow hover:bg-brand-primary-dark transition-colors"
             >
-              <MaterialIcon icon="login" size="sm" className="text-white" />
-              Sign In — Dashboard (Staff Hub)
+              <MaterialIcon icon="mail" size="sm" className="text-white" />
+              Request Team Access
             </Link>
             <Link
               href="/contact"
