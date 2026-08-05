@@ -1,6 +1,6 @@
 # Dual Terminology Standard
 
-**Last Updated:** July 28, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Canonical Reference (enterprise terminology)
 
 ## Purpose
@@ -9,8 +9,8 @@ Define one source of truth for dual terminology used across MH Construction asse
 This standard is intentionally military-themed construction language and may be expanded or optimized to
 create stronger enterprise language as long as clarity, trust, and brand congruency are preserved.
 
-Primary source for current terminology expansion: `docs/branding/standards/mhc-terms.docx`
-("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
+Primary source for current terminology expansion: `documents/content/terminology-library.json`
+("MH Construction Brand Terms Library", Version 2.1, last updated 08/05/2026).
 
 **Brand Congruency:** Dual terminology must never weaken trust content, factual veteran-owned framing, or accessibility clarity.
 
@@ -138,25 +138,20 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 - Metadata dual form remains canonical, for example `Locations (Regional AO)`.
 - UI surfaces should follow the surface matrix above rather than forced parenthetical rendering.
 
-### Terms Library v2.0 Enterprise Additions
+### Terms Library v2.1 Enterprise Additions
 
 Approved expansion terms for strategy, marketing, handbook, and operations documentation:
 
 - `Command Doctrine` (Operations Hierarchy)
 - `Operational Theater` (Project Site / Jobsite)
 - `Mission Parameters` (Project Scope)
-- `Force Multiplier` (Efficiency Gain)
-- `Boots on the Ground` (Field Crew)
-- `Rules of Engagement (ROE)` (Project Contract)
-- `Situation Report (SITREP)` (Project Status Update)
-- `Ground Truth` (Verified Field Conditions)
 - `Zero-Gap Accountability` (Delivery Alignment / Scope Accountability)
-- `Handshake Pride` (Relationship Discipline)
-- `Verified Performance` (Evidence-Based Delivery)
+- `Verified Performance` (Verified Performance Statement with Source)
 - `Mission-Ready Handoff` (Transition Readiness / Handover)
-- `Mission Accomplished` (Project Closeout)
-- `Operational Tempo` (Project Schedule / Pace)
-- `Standby to Standby` (On Call / Ready to Mobilize)
+- `Hazard Recon` (Hazard Identification)
+- `Protective Posture` (Personal Protective Equipment)
+- `Operational Pause` (Stop Work Authority)
+- `Field Team` (Site Leadership / Field Presence)
 
 ## Construction Terminology Alignment
 

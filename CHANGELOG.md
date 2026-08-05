@@ -4,6 +4,10 @@ All notable changes to the MH Construction website are documented here.
 
 ---
 
+## August 2026
+
+- **Aug 4:** MH ecosystem knowledge-base transition — migrated active documentation from legacy manual-family framing to the numbered 01-10 ecosystem model. Added canonical source registry `docs/manuals/mh-ecosystem-source-index.md` covering core doctrine, strategy/business development, project delivery, safety/field operations, IT/infrastructure, and forms families (EHB, operations, MISH), with explicit reserved status for currently empty `06-tbt-library` and `07-sds-library`. Updated cross-index references in `docs/manuals/index.md`, `docs/index.md`, `docs/marketing/index.md`, `docs/sales/index.md`, and development standards references for terminology congruency. Repointed strategy guides to current numbered source inputs and updated safety guide intake guidance to treat `documents/input/04-safety-and-field-ops/` and `documents/input/10-forms-mish/` as canonical upstream intake while preserving the existing extract workspace pipeline.
+
 ## July 2026
 
 - **Jul 28:** Safety-manual tab QR safeguard expansion — completed the missing MISH QR placeholder coverage for sections 51 through 59 in `documents/manuals/safety-manual-tabs.html` and tightened the generation guardrail in `documents/scripts/generate.mjs` so the full 59-section manual flow remains validated. Verification evidence: a direct `python3` check returned `missing []` for placeholders 51-59, and editor diagnostics reported no errors for the updated files.

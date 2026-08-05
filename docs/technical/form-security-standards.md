@@ -9,6 +9,16 @@
 
 Keep security labels, trust indicators, and user-facing form copy aligned with MH Construction naming and construction-first voice.
 
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this guide:
+
+- `documents/input/05-it-and-infrastructure/mh-it-digital-infrastructure-guide-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-it-data-governance-addendum-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-new-employee-orientation-guide-v1-0-draft.docx`
+
+Use these sources as the controlled baseline for access discipline, incident preservation, recurring review, and system-governance expectations that sit behind form security controls.
+
 ## 🧭 Quick Navigation
 
 - [📚 Development Standards](../development/standards/development-standards.md)
@@ -21,6 +31,16 @@ Keep security labels, trust indicators, and user-facing form copy aligned with M
 ## 🎯 Purpose
 
 This document establishes **mandatory security standards** for all public-facing forms on the MH Construction website. These standards protect against bot submissions, spam, and malicious attacks while maintaining a positive user experience.
+
+Form security should be treated as part of a broader resilience and access-governance model rather than a standalone anti-spam feature set.
+
+## Controlled Security Commitments
+
+- protect public forms with layered controls that can be reviewed and evidenced
+- treat audit logging as a controlled record, not just a debugging convenience
+- preserve evidence when suspected abuse, compromise, or incident conditions appear
+- align privileged access to form-processing systems with role-based approval, least privilege, and recurring review
+- coordinate onboarding and offboarding for staff who administer or review protected form workflows
 
 ---
 

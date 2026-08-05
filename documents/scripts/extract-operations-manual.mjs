@@ -1,22 +1,33 @@
 #!/usr/bin/env node
 /* eslint-disable no-console, prefer-template */
 
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { dirname, extname, join, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
-const SOURCE_DIR = join(
+const SOURCE_DOCX = join(
   ROOT,
-  "documents/content/mhc-operations-manual-drafts/02-section-drafts",
+  "documents/input/01-core-doctrine/mh-operations-manual-v1-0-draft.docx",
 );
+const SOURCE_MD = join(ROOT, "docs/operations/operations-manual.md");
 const OUTPUT_DIR = join(
   ROOT,
   "documents/content/mhc-operations-manual-2026/sections",
 );
 const MANIFEST_PATH = join(ROOT, "documents/content/operations-manual.json");
+
+export function resolveOperationsManualSourcePath() {
+  if (existsSync(SOURCE_DOCX)) {
+    return SOURCE_DOCX;
+  }
+  if (existsSync(SOURCE_MD)) {
+    return SOURCE_MD;
+  }
+  return null;
+}
 
 function slugify(value) {
   return String(value)
@@ -205,28 +216,71 @@ function markdownToHtml(markdown) {
 }
 
 async function main() {
-  if (!existsSync(SOURCE_DIR)) {
-    throw new Error(`Source directory not found: ${SOURCE_DIR}`);
+  const sourcePath = resolveOperationsManualSourcePath();
+  if (!sourcePath) {
+    throw new Error(`Source file not found: ${SOURCE_DOCX} or ${SOURCE_MD}`);
   }
 
-  const entries = await readdir(SOURCE_DIR);
-  const markdownFiles = entries
-    .filter((entry) => extname(entry).toLowerCase() === ".md")
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  const usingDocx = sourcePath === SOURCE_DOCX;
+  let sectionEntries = [];
 
-  if (markdownFiles.length === 0) {
-    throw new Error(`No markdown files found in ${SOURCE_DIR}`);
+  if (usingDocx) {
+    const mammothMod = await import("mammoth");
+    const extractRawText =
+      mammothMod?.extractRawText || mammothMod?.default?.extractRawText;
+    if (typeof extractRawText !== "function") {
+      throw new Error("mammoth.extractRawText is unavailable");
+    }
+
+    const result = await extractRawText({ path: sourcePath });
+    const lines = String(result?.value || "")
+      .replaceAll("\r\n", "\n")
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+    const sectionTitles = lines
+      .filter((line) => /^OPS-\d+/i.test(line))
+      .map((line) => line.replace(/^OPS-\d+\s*\|\s*/i, "").trim())
+      .filter(Boolean);
+
+    sectionEntries = sectionTitles.map((title, index) => ({
+      fileName: `${String(index + 1).padStart(2, "0")}-${slugify(title)}.md`,
+      markdown: `# ${title}`,
+    }));
+
+    if (sectionEntries.length === 0) {
+      sectionEntries = [
+        {
+          fileName: "01-operations-manual-overview.md",
+          markdown: "# Operations Manual Overview",
+        },
+      ];
+    }
+  } else {
+    const markdown = await readFile(sourcePath, "utf-8");
+    sectionEntries = markdown
+      .split(/\n(?=##\s+)/)
+      .filter(Boolean)
+      .map((chunk, index) => ({
+        fileName: `${String(index + 1).padStart(2, "0")}-${slugify(chunk.split(/\n/)[0].replace(/^#\s+/, ""))}.md`,
+        markdown: chunk,
+      }));
+  }
+
+  if (sectionEntries.length === 0) {
+    throw new Error(`No section content found in ${sourcePath}`);
   }
 
   await mkdir(OUTPUT_DIR, { recursive: true });
 
   const sections = [];
-  for (let index = 0; index < markdownFiles.length; index += 1) {
-    const fileName = markdownFiles[index];
+  for (let index = 0; index < sectionEntries.length; index += 1) {
+    const entry = sectionEntries[index];
     const sectionNumber = index + 1;
     const numberStr = String(sectionNumber).padStart(2, "0");
-    const sourcePath = join(SOURCE_DIR, fileName);
-    const markdown = await readFile(sourcePath, "utf-8");
+    const fileName = entry.fileName;
+    const markdown = entry.markdown;
     const titleLine =
       markdown
         .split("\n")
@@ -239,7 +293,7 @@ async function main() {
     const outputFileName = `${numberStr}-${slug}.html`;
     const outputPath = join(OUTPUT_DIR, outputFileName);
 
-    const html = `<!--\n  Operations Manual — Chapter ${numberStr}: ${title} (GENERATED SOURCE)\n  ------------------------------------------------------------------\n  Generated from section drafts by documents/scripts/extract-operations-manual.mjs.\n  Edit freely after regeneration. Source markdown remains authoritative.\n-->\n${htmlBody}\n`;
+    const html = `<!--\n  Operations Manual — Chapter ${numberStr}: ${title} (GENERATED SOURCE)\n  ------------------------------------------------------------------\n  Generated from ${sourcePath.replace(ROOT + "/", "")} by documents/scripts/extract-operations-manual.mjs.\n  Edit freely after regeneration.\n-->\n${htmlBody}\n`;
 
     await writeFile(outputPath, html, "utf-8");
 
@@ -267,9 +321,8 @@ async function main() {
       phone: "(509) 308-6489",
       website: "https://www.mhc-gc.com",
       totalPages: 0,
-      source: "markdown-html-fragments",
-      sourceDirectory:
-        "documents/content/mhc-operations-manual-drafts/02-section-drafts",
+      source: usingDocx ? "docx-guide-extracted" : "markdown-html-fragments",
+      sourceDirectory: sourcePath.replace(ROOT + "/", ""),
       manualFamily: "operations",
       separateFrom: "employee-handbook",
       formsManifest: "documents/forms/forms-manifest.json",
@@ -287,13 +340,19 @@ async function main() {
 
   console.log("📄 MH Construction — Operations Manual Extractor");
   console.log("================================================");
-  console.log(`Source:   ${SOURCE_DIR}`);
+  console.log(`Source:   ${sourcePath.replace(ROOT + "/", "")}`);
   console.log(`Sections: ${OUTPUT_DIR}`);
   console.log(`Manifest: ${MANIFEST_PATH}`);
   console.log(`\n✅ Generated ${sections.length} operations chapter file(s).`);
 }
 
-main().catch((error) => {
-  console.error(`\n❌ Fatal error: ${error.message}`);
-  process.exit(1);
-});
+const invokedDirectly =
+  process.argv[1] &&
+  resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (invokedDirectly) {
+  main().catch((error) => {
+    console.error(`\n❌ Fatal error: ${error.message}`);
+    process.exit(1);
+  });
+}

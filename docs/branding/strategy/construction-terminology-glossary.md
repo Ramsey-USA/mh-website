@@ -1,7 +1,7 @@
 # Construction Terminology Glossary
 
 **Category:** Branding - Strategy
-**Last Updated:** July 28, 2026
+**Last Updated:** August 5, 2026
 **Status:** Canonical Reference
 
 ## Purpose
@@ -15,8 +15,8 @@ manuals, proposals, or implementation docs.
 
 **Brand Congruency:** Terminology mappings should preserve MH voice, trust language, and construction-first wording across public and internal surfaces.
 
-Primary expansion source: `docs/branding/standards/mhc-terms.docx`
-("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
+Primary expansion source: `documents/content/terminology-library.json`
+("MH Construction Brand Terms Library", Version 2.1, last updated 08/05/2026).
 
 ## How To Use
 
@@ -43,30 +43,22 @@ Primary expansion source: `docs/branding/standards/mhc-terms.docx`
 | Trade Partners                               | Procurement/delivery collaborators     | subcontractors, vendors, suppliers, specialty scopes             |
 | Allies                                       | Trade Partner network members          | named partner network, preferred collaborators                   |
 
-## Terms Library v2.0 Additions
+## Terms Library v2.1 Additions
 
 Use these mappings in strategy and operational content where they improve clarity and consistency:
 
-| MHC Brand Term            | Standard Industry Term                    | Typical Scope                                |
-| ------------------------- | ----------------------------------------- | -------------------------------------------- |
-| Command Doctrine          | Operations Hierarchy                      | operations manual, leadership                |
-| Operational Theater       | Project Site / Jobsite                    | handbook, marketing                          |
-| Mission Parameters        | Project Scope                             | marketing, preconstruction                   |
-| Force Multiplier          | Efficiency Gain                           | marketing, website                           |
-| Boots on the Ground       | Field Crew                                | marketing, recruitment                       |
-| Rules of Engagement (ROE) | Project Contract                          | marketing, handbook                          |
-| Situation Report (SITREP) | Project Status Update                     | marketing, client communications             |
-| Ground Truth              | Verified Field Conditions                 | marketing, preconstruction                   |
-| Zero-Gap Accountability   | Delivery Alignment / Scope Accountability | preconstruction, operations, handoffs        |
-| Handshake Pride           | Relationship Discipline                   | sales, marketing, stakeholder communications |
-| Verified Performance      | Evidence-Based Delivery                   | marketing, operations, reporting             |
-| Mission-Ready Handoff     | Transition Readiness / Handover           | sales, operations, closeout                  |
-| Mission Accomplished      | Project Closeout                          | marketing, case studies                      |
-| Operational Tempo         | Project Schedule / Pace                   | handbook, marketing                          |
-| Standby to Standby        | On Call / Ready to Mobilize               | marketing, services                          |
-| Hazard Recon              | Hazard Identification                     | MISH public safety language                  |
-| Protective Posture        | Personal Protective Equipment             | public-facing safety language                |
-| Operational Pause         | Stop Work Authority                       | public-facing safety language                |
+| MHC Brand Term          | Standard Industry Term                     | Typical Scope                         |
+| ----------------------- | ------------------------------------------ | ------------------------------------- |
+| Command Doctrine        | Operations Hierarchy                       | operations manual, leadership         |
+| Operational Theater     | Project Site / Jobsite                     | handbook, marketing                   |
+| Mission Parameters      | Project Scope                              | marketing, preconstruction            |
+| Zero-Gap Accountability | Delivery Alignment / Scope Accountability  | preconstruction, operations, handoffs |
+| Verified Performance    | Verified Performance Statement with Source | marketing, operations, reporting      |
+| Mission-Ready Handoff   | Transition Readiness / Handover            | sales, operations, closeout           |
+| Hazard Recon            | Hazard Identification                      | MISH public safety language           |
+| Protective Posture      | Personal Protective Equipment              | public-facing safety language         |
+| Operational Pause       | Stop Work Authority                        | public-facing safety language         |
+| Field Team              | Site Leadership / Field Presence           | website, marketing                    |
 
 ## Regulatory-Protected Terms (No Substitution in Compliance Artifacts)
 

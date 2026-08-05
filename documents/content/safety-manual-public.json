@@ -4,9 +4,9 @@
     "title": "Safety Manual",
     "revisionYear": 2026,
     "revisionDate": "2026-01-01",
-    "derivedAt": "2026-08-04T19:39:37.329Z",
+    "derivedAt": "2026-08-05T04:44:36.597Z",
     "derivedFrom": "documents/content/safety-manual.json",
-    "totalSections": 55
+    "totalSections": 56
   },
   "sections": [
     {
@@ -502,6 +502,15 @@
       "key": "MISH_55",
       "title": "Stop Work Authority (SWA) Program (Forms: Stop Work Authority Log)",
       "slug": "stop-work-authority-swa-program-forms-stop-work-authority-log",
+      "previewHtml": ""
+    },
+    {
+      "id": "section-56",
+      "number": 56,
+      "numberStr": "56",
+      "key": "MISH_56",
+      "title": "Companion Safety Programs",
+      "slug": "companion-safety-programs",
       "previewHtml": ""
     }
   ]

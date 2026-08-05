@@ -1,7 +1,7 @@
 # Branding Strategy Index
 
 **Category:** Branding - Strategy Index
-**Last Updated:** July 28, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -14,7 +14,7 @@ Use this index when you need the canonical guidance for voice, slogans, naming, 
 Messaging, terminology, and slogan governance for consistent MH brand voice.
 
 For enterprise naming across website, dashboard, MISH, handbook, and document assets, use the dual-terminology standard as the canonical rule set.
-For enterprise term additions and term-protection rules, use `docs/branding/standards/mhc-terms.docx` as the upstream source.
+For enterprise term additions and term-protection rules, use `documents/content/terminology-library.json` as the canonical structured source, synced from `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx`.
 
 ## Strategy Library
 
@@ -34,6 +34,7 @@ For enterprise term additions and term-protection rules, use `docs/branding/stan
 - **[Branding Documentation Index](../index.md)**
 - **[Brand Constants](../brand-constants.md)**
 - **[Brand Congruency Master Checklist](../governance/brand-congruency-master-checklist.md)**
+- **[Strategy and Branding Canonical Map](../../manuals/strategy-branding-canonical-map.md)**
 
 ---
 

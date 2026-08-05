@@ -145,9 +145,9 @@ export const whyChooseReasons = [
   },
   {
     iconName: CONTENT_ICONS.verified,
-    title: "3 State - Licensed & Insured",
+    title: "3 State - Licensed & Contract-Ready",
     description:
-      "Fully licensed and insured across Washington, Oregon, and Idaho with continuously maintained compliance credentials.",
+      "Licensed across Washington, Oregon, and Idaho, with insurance, bonding, and project protections managed against current contract requirements and controlled compliance workflows.",
   },
 ];
 

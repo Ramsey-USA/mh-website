@@ -1,7 +1,7 @@
 # Technical Documentation
 
 **Category:** Technical - Overview  
-**Last Updated:** July 19, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -26,6 +26,30 @@ These guides should be used alongside the branding and development standards so 
 ## Reference Standard
 
 - **[Homepage Documentation](../archive/2026-08/homepage.md)** — Archived reference page for the legacy homepage implementation notes.
+
+## Numbered Ecosystem Source Lineage
+
+Technical implementation updates that intersect operations systems should align to the canonical `05-it-and-infrastructure` intake family:
+
+- `documents/input/05-it-and-infrastructure/mh-field-command-center-system-standard-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-it-data-governance-addendum-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-it-digital-infrastructure-guide-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-new-employee-orientation-guide-v1-0-draft.docx`
+
+Use [Ecosystem Destination Matrix](../manuals/ecosystem-destination-matrix.md) and [MH Ecosystem Source Index](../manuals/mh-ecosystem-source-index.md) to keep source-routing and guide parity synchronized.
+For file-level 04 and 05 routing, use [Safety and Field Operations Canonical Map](../manuals/safety-field-ops-canonical-map.md) and [IT and Infrastructure Canonical Map](../manuals/it-infrastructure-canonical-map.md).
+
+## IT and Infrastructure Control Commitments
+
+The current 05-family source set frames technical operations as controlled resilience and access-governance work, not only implementation convenience.
+
+- **Access by role and business need**: provisioning should follow approved role, least-privilege, and MFA requirements before access is granted.
+- **Quarterly access recertification**: user and privileged access should be reviewed on a recurring cadence rather than left permanent by default.
+- **Restore testing, not backup optimism**: backup success alone is insufficient; recovery and restore evidence are part of the expected control set.
+- **Immediate incident containment**: suspected security incidents should be reported, preserved, and contained without waiting for downstream confirmation.
+- **Coordinated onboarding and offboarding**: system access, handbook/onboarding steps, and property or credential recovery should move together as one governed workflow.
+
+These commitments are the operating layer beneath the technical implementation references in this category.
 
 Brand-facing content in this section should stay aligned with the canonical terminology and messaging guides, with veteran-owned framing used as supporting credibility rather than the primary label.
 

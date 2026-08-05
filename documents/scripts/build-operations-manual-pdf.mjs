@@ -10,14 +10,14 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const DOCS_DIR = join(ROOT, "documents");
-const MANUAL_DIR = join(DOCS_DIR, "content", "mhc-operations-manual-drafts");
-const DRAFTS_DIR = join(MANUAL_DIR, "02-section-drafts");
-const APPENDICES_DIR = join(MANUAL_DIR, "03-forms-appendices");
+const MANUAL_DIR = join(DOCS_DIR, "content", "mhc-operations-manual-2026");
+const DRAFTS_DIR = join(MANUAL_DIR, "sections");
+const APPENDICES_DIR = join(MANUAL_DIR, "appendices");
 const OUTPUT_DIR = join(DOCS_DIR, "generated-pdfs");
 const PREVIEW_DIR = join(DOCS_DIR, "output", "operations-manual");
 const BRAND_PATH = join(DOCS_DIR, "brands", "mhc.json");
-const OUT_HTML = join(PREVIEW_DIR, "operations-manual-rough-draft.html");
-const OUT_PDF = join(OUTPUT_DIR, "operations-manual-rough-draft.pdf");
+const OUT_HTML = join(PREVIEW_DIR, "operations-manual-preview.html");
+const OUT_PDF = join(OUTPUT_DIR, "operations-manual-preview.pdf");
 const CANONICAL_LAYOUT = Object.freeze({
   leftInsetIn: 0.92,
   rightInsetIn: 0.9,
@@ -371,20 +371,18 @@ function markdownToHtml(markdown) {
 async function loadSectionFiles(dirPath) {
   if (!existsSync(dirPath)) return [];
   const entries = await readdir(dirPath);
-  const markdownFiles = entries
-    .filter((entry) => extname(entry).toLowerCase() === ".md")
+  const htmlFiles = entries
+    .filter((entry) => extname(entry).toLowerCase() === ".html")
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
   const sections = [];
-  for (const fileName of markdownFiles) {
+  for (const fileName of htmlFiles) {
     const filePath = join(dirPath, fileName);
     const text = await readFile(filePath, "utf-8");
-    const titleLine =
-      text
-        .split("\n")
-        .map((line) => line.trim())
-        .find((line) => line.startsWith("# ")) || `# ${fileName}`;
-    const title = titleLine.replace(/^#\s+/, "").trim();
+    const titleMatch = text.match(
+      /Operations Manual — Chapter [^:]+: (.+?) \(GENERATED SOURCE\)/,
+    );
+    const title = titleMatch?.[1]?.trim() || fileName;
     const sectionId = slugify(`${fileName}-${title}`);
     sections.push({ fileName, filePath, title, sectionId, markdown: text });
   }
@@ -469,8 +467,8 @@ export function renderHtmlDocument(drafts, appendices, brand) {
 
   const sectionBlocks = allSections
     .map((entry) => {
-      const bodyMarkdown = entry.markdown.replace(/^#\s+.+$/m, "").trim();
-      const htmlBody = markdownToHtml(bodyMarkdown);
+      const bodyHtml = entry.markdown.replace(/^<!--[\s\S]*?-->\n/m, "").trim();
+      const htmlBody = bodyHtml || entry.markdown;
       return `
       <section class="page" aria-label="${escapeHtml(entry.title)}">
         <div class="page-frame">

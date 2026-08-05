@@ -1,6 +1,6 @@
 # Page-Specific Messaging & Language Guide
 
-**Last Updated:** July 28, 2026 | **Version:** 3.3.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
+**Last Updated:** August 5, 2026 | **Version:** 3.4.0 | **Status:** Official Brand Standard - Veteran/Honesty Focus
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
@@ -32,8 +32,8 @@ For enterprise naming and dual-label usage across website, dashboard, MISH, hand
 That dual-terminology system is military-themed construction language and can be expanded or optimized to
 create stronger enterprise language when needed, as long as the approved structure and factual framing stay intact.
 
-Upstream term-library source for new additions: `docs/branding/standards/mhc-terms.docx`
-(Brand Terms Library v2.0, effective 04/07/2026).
+Upstream term-library source for new additions: `documents/content/terminology-library.json`
+(Brand Terms Library v2.1, last updated 08/05/2026).
 
 Compliance exception rule: in MISH docs, safety forms, and OSHA/WISHA communications,
 protected regulatory terms must remain unchanged.

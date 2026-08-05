@@ -234,8 +234,8 @@ export const whyChooseUs: WhyChooseUsItem[] = [
   },
   {
     iconName: "verified",
-    title: "3-State Licensed and Insured",
+    title: "3-State Licensed and Contract-Ready",
     description:
-      "Fully licensed and insured for commercial construction across Washington, Oregon, and Idaho.",
+      "Licensed across Washington, Oregon, and Idaho, with insurance and bonding requirements managed against current contract obligations and controlled compliance workflows.",
   },
 ];

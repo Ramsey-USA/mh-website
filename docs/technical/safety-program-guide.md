@@ -1,7 +1,7 @@
 # MH Construction Safety Program Guide
 
 **Path:** `docs/technical/safety-program-guide.md`
-**Last Updated:** June 24, 2026
+**Last Updated:** August 5, 2026
 **Version:** 1.4.0
 **Safety Program Revision:** Rev 3 — Effective 04/07/2026
 **Status:** ✅ Active
@@ -57,12 +57,28 @@ Where user-facing labels appear, keep them construction-first, trust-safe, and a
   Each SSSP must be developed uniquely for the individual project scope, conditions, and hazards while
   inheriting MISH baseline controls, hierarchy, and evidence requirements.
 
-### MISH 5.0 Authoring Standard
+### MISH Ecosystem Authoring Standard (Current Intake)
 
-The structural source-of-truth for MISH 5.0 authoring is the Dean Thoemke APP development DOCX:
+The current structural source-of-truth intake for safety authoring is the numbered ecosystem source set:
 
-- `documents/content/MHC-MISH-APP-59-Sections/Dean Thoemke-AGC-APP development.docx`
-- Dean Thoemke is Director of Safety at the NWAGC and can be reached at [dthoemke@nwagc.org](mailto:dthoemke@nwagc.org).
+- `documents/input/04-safety-and-field-ops/mish-manual-v3-0-draft.docx`
+- `documents/input/10-forms-mish/*.docx`
+
+Companion 04-family doctrine and field-operations sources that should remain aligned when safety language or controls are updated:
+
+- `documents/input/04-safety-and-field-ops/mh-emergency-response-plan-v1-0-draft.docx`
+- `documents/input/04-safety-and-field-ops/mh-equipment-fleet-management-manual-v1-0-draft.docx`
+- `documents/input/04-safety-and-field-ops/mh-equipment-operators-manual-v1-0-draft.docx`
+- `documents/input/04-safety-and-field-ops/mh-federal-motor-carrier-compliance-manual-v1-0-draft.docx`
+- `documents/input/04-safety-and-field-ops/mh-warehouse-management-guide-v1-0-draft.docx`
+- `documents/input/04-safety-and-field-ops/mh-warehouse-management-system-standard-v1-0-draft.docx`
+
+Reserved supporting libraries:
+
+- `documents/input/06-tbt-library` (reserved; activate when structured toolbox-talk library uploads begin)
+- `documents/input/07-sds-library` (reserved; activate when structured SDS/MSDS library uploads begin)
+
+Legacy Dean Thoemke APP development reference material remains useful historical context, but numbered ecosystem intake folders are now the active source model for knowledge-base synchronization.
 
 Apply the guidance in that source when creating or revising MISH content:
 
@@ -71,6 +87,32 @@ Apply the guidance in that source when creating or revising MISH content:
 - Treat chapter/task headings as the authoritative source for extraction, tab labels, and related form references.
 - Keep em dash variants and heading punctuation consistent with the source wording when normalizing copied text.
 - Use this standard as the baseline for further MISH development, including newly added chapters and associated forms.
+
+### Safety and Field Operations Control Commitments
+
+The broader 04-family source set makes clear that MISH is only one part of the field-operations control layer. The active safety guide should stay aligned with these operating commitments:
+
+- **Emergency readiness before work starts:** project-specific emergency contacts, emergency action planning, drills, and post-event improvement records should be in place before affected work begins.
+- **Equipment authorization and defect removal:** operator qualification must be verified before dispatch, and unsafe equipment must be removed from service until repair and return-to-service acceptance are documented.
+- **Fleet and dispatch control:** vehicle, trailer, CDL, medical, endorsement, and dispatch status controls should prevent unqualified or uncertain dispatches rather than relying on field judgment alone.
+- **Warehouse custody and material control:** receiving, shortages, damage, checkout, return, dispatch, chemical storage, and inventory accuracy should all produce traceable custody and exception records.
+- **System-of-record discipline:** the live operational system, approved accounting records, and controlled archives each have distinct roles; project execution tools do not replace those core records.
+- **Escalation on material failure:** overdue actions, repeated failures, cyber events, safety risks, quality issues, and contract exposures should escalate immediately to accountable owners and executive leadership.
+
+These commitments are the operating layer beneath the chapter and form structure in MISH and should guide updates to related forms, custody logs, inspection records, and field-facing workflows.
+
+### Control-to-Form Evidence Map
+
+Use the current form set to keep 04-family controls tied to concrete field evidence.
+
+- **Emergency readiness and drills:** `Emergency Drill Log`, `Incident Report`, and `First Aid Treatment Log`
+- **Equipment inspection and dispatch readiness:** `Daily Equipment Inspection` and `Vehicle Pre-Trip Inspection (DOT)`
+- **Operator qualification and assignment control:** `Operator Certification Log` and `Equipment Assignment Transfer`
+- **Maintenance and return-to-service control:** `Equipment Maintenance Request` and `Return-to-Service Release`
+- **Warehouse custody and receiving control:** `Receiving Inspection Log`, `Tool Checkout Log`, and `Material Delivery Ticket`
+- **Chemical and spill control:** `Chemical Inventory Log` and `Hazardous Material Spill Report`
+
+Where a control is shared between MISH and operations-owned workflows, keep both the safety-form layer and the operations-form evidence layer aligned rather than treating them as separate systems.
 
 #### Dean Gold Standard - Implementation Model (How We Apply It)
 
@@ -187,7 +229,11 @@ revision has been reviewed against the applicable state rules.
 ### Document Pipeline
 
 ```text
-documents/content/MHC-MISH-APP-59-Sections/         ← Canonical Word source bundle (.docx MISH sections)
+documents/input/04-safety-and-field-ops/mish-manual-v3-0-draft.docx   ← Canonical upstream MISH manual intake
+documents/input/10-forms-mish/*.docx                                   ← Canonical upstream MISH forms intake
+           │
+           ▼  Intake normalization (copy/map into extract workspace)
+documents/content/MHC-MISH-APP-59-Sections/                            ← Extract workspace used by current scripts
            │
            ▼  pnpm --filter @mhc/website run docs:extract-word
 documents/content/safety-manual.json                ← Auto-generated manifest (59 chapters)
@@ -239,10 +285,10 @@ documents/
 │   ├── safety-manual.json                                ← DO NOT EDIT MANUALLY — auto-generated by extract scripts
 │   ├── employee-handbook.json                            ← Employee Handbook manifest (chapter-based section metadata)
 │   ├── manuals-index.json                                ← Dual-manual registry & forms-policy map (MISH shared, handbook-owned)
-│   ├── MHC-MISH-APP-59-Sections/                         ← Current source Word docs (MISH naming)
+│   ├── MHC-MISH-APP-59-Sections/                         ← Extract workspace generated from numbered ecosystem intake
 │   └── mhc-employee-handbook-2026/                       ← Canonical Employee Handbook chapter PDFs
 ├── forms/
-│   ├── MHC-MISH-59-Forms/               ← Canonical source form .docx files (shared between manuals)
+│   ├── MHC-MISH-59-Forms/               ← Working forms workspace populated from `documents/input/10-forms-mish/`
 │   ├── forms-manifest.json              ← Form registry (shared by MISH + Handbook)
 │   └── *.html                           ← Optional standalone HTML form templates for PDF generation
 ├── manuals/
@@ -305,10 +351,12 @@ When new program Word source files are delivered, follow this checklist **in ord
 
 ### Step 1 — Drop new source files
 
-Create or update the canonical source folder inside `documents/content/`:
+Create or update source intake in the numbered ecosystem folders, then stage into the extract workspace:
 
 ```bash
-documents/content/MHC-MISH-APP-59-Sections/  # Place MISH .docx section files here
+documents/input/04-safety-and-field-ops/  # Upstream MISH manual source files
+documents/input/10-forms-mish/            # Upstream MISH form source files
+documents/content/MHC-MISH-APP-59-Sections/  # Extract workspace used by docs:extract-word
 ```
 
 ### Step 2 — Update brand metadata
@@ -622,13 +670,20 @@ Successful authenticated login flows now emit server-side `login` audit events t
 
 ## Folder Naming Convention
 
-Program source files should be stored in the canonical MISH app folder:
+Program source intake files should be stored in the numbered ecosystem folders first:
+
+```
+documents/input/04-safety-and-field-ops/
+documents/input/10-forms-mish/
+```
+
+Extraction currently runs from this workspace folder:
 
 ```
 documents/content/MHC-MISH-APP-59-Sections/  ← Current
 ```
 
-Do **not** split active source files across multiple folders.
+Do **not** split active source intake outside the numbered folder model.
 
 ---
 

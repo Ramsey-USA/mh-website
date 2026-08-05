@@ -7,6 +7,16 @@
 **Last Updated:** April 8, 2026  
 **Priority:** ℹ️ Informational — production credentials are in place
 
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this guide:
+
+- `documents/input/05-it-and-infrastructure/mh-it-digital-infrastructure-guide-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-it-data-governance-addendum-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-new-employee-orientation-guide-v1-0-draft.docx`
+
+Use these sources as the controlled baseline for least privilege, MFA, access recertification, incident preservation, onboarding, and offboarding expectations.
+
 ---
 
 ## Overview
@@ -14,6 +24,16 @@
 The MH Construction admin analytics system uses default passwords (`admin123`)
 for development convenience. **These MUST be changed before production
 deployment.**
+
+This credential guidance should be treated as one part of a broader controlled access workflow. Password rotation alone is not sufficient without role-based approval, MFA, periodic access review, and coordinated offboarding.
+
+## Access Governance Commitments
+
+- approve admin access by role and business need before provisioning
+- require MFA wherever supported by the underlying system or provider
+- review active access on a recurring cadence rather than assuming permanent need
+- preserve evidence when an access issue or suspected incident occurs
+- coordinate offboarding so credentials, access, and any assigned devices or property are recovered together
 
 ### Current Admin Accounts
 

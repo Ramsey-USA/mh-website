@@ -11,139 +11,1705 @@
     "phone": "(509) 308-6489",
     "website": "https://www.mhc-gc.com",
     "totalPages": 0,
-    "source": "markdown-html-fragments",
-    "sourceDirectory": "documents/content/mhc-operations-manual-drafts/02-section-drafts",
+    "source": "docx-guide-extracted",
+    "sourceDirectory": "documents/input/01-core-doctrine/mh-operations-manual-v1-0-draft.docx",
     "manualFamily": "operations",
     "separateFrom": "employee-handbook",
     "formsManifest": "documents/forms/forms-manifest.json",
     "formsPolicy": "operations-owned",
-    "extractedAt": "2026-07-30T21:04:22.955Z"
+    "extractedAt": "2026-08-05T00:05:12.560Z"
   },
   "sections": [
     {
       "number": 1,
-      "title": "MHC Operations Manual - Command Doctrine and Authority",
-      "slug": "mhc-operations-manual-command-doctrine-and-authority",
+      "title": "OPERATIONS HIERARCHY AND AUTHORITY",
+      "slug": "operations-hierarchy-and-authority",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/01-mhc-operations-manual-command-doctrine-and-authority.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/01-operations-hierarchy-and-authority.html",
       "forms": []
     },
     {
       "number": 2,
-      "title": "MHC Operations Manual - Chapter Blueprint",
-      "slug": "mhc-operations-manual-chapter-blueprint",
+      "title": "OPS-01.1 PURPOSE",
+      "slug": "ops-01-1-purpose",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/02-mhc-operations-manual-chapter-blueprint.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/02-ops-01-1-purpose.html",
       "forms": []
     },
     {
       "number": 3,
-      "title": "MHC Operations Manual - Estimator Command and Preconstruction Controls",
-      "slug": "mhc-operations-manual-estimator-command-and-preconstruction-controls",
+      "title": "OPS-01.2 COMMAND MODEL (NAVY ANALOG)",
+      "slug": "ops-01-2-command-model-navy-analog",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/03-mhc-operations-manual-estimator-command-and-preconstruction-controls.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/03-ops-01-2-command-model-navy-analog.html",
       "forms": []
     },
     {
       "number": 4,
-      "title": "MHC Operations Manual - Procore Governance SOP",
-      "slug": "mhc-operations-manual-procore-governance-sop",
+      "title": "OPS-01.3 OFFICER AND EXECUTION BANDS",
+      "slug": "ops-01-3-officer-and-execution-bands",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/04-mhc-operations-manual-procore-governance-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/04-ops-01-3-officer-and-execution-bands.html",
       "forms": []
     },
     {
       "number": 5,
-      "title": "MHC Operations Manual - Change Orders and Financial Controls SOP",
-      "slug": "mhc-operations-manual-change-orders-and-financial-controls-sop",
+      "title": "OPS-01.4 FORMAL REPORTING vs. OPERATIONAL SUPPORT",
+      "slug": "ops-01-4-formal-reporting-vs-operational-support",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/05-mhc-operations-manual-change-orders-and-financial-controls-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/05-ops-01-4-formal-reporting-vs-operational-support.html",
       "forms": []
     },
     {
       "number": 6,
-      "title": "MHC Operations Manual - Project Execution and Closeout SOP",
-      "slug": "mhc-operations-manual-project-execution-and-closeout-sop",
+      "title": "OPS-01.5 DEPARTMENTAL SCALING",
+      "slug": "ops-01-5-departmental-scaling",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/06-mhc-operations-manual-project-execution-and-closeout-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/06-ops-01-5-departmental-scaling.html",
       "forms": []
     },
     {
       "number": 7,
-      "title": "MHC Operations Manual - SAGE100 Operations SOP",
-      "slug": "mhc-operations-manual-sage100-operations-sop",
+      "title": "OPS-01.6 SUCCESSION RULE",
+      "slug": "ops-01-6-succession-rule",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/07-mhc-operations-manual-sage100-operations-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/07-ops-01-6-succession-rule.html",
       "forms": []
     },
     {
       "number": 8,
-      "title": "MHC Operations Manual - Internal Server Operations SOP",
-      "slug": "mhc-operations-manual-internal-server-operations-sop",
+      "title": "OPS-01.7 ESCALATION RIGHTS",
+      "slug": "ops-01-7-escalation-rights",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/08-mhc-operations-manual-internal-server-operations-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/08-ops-01-7-escalation-rights.html",
       "forms": []
     },
     {
       "number": 9,
-      "title": "MHC Operations Manual - Outlook and Communications SOP",
-      "slug": "mhc-operations-manual-outlook-and-communications-sop",
+      "title": "OPS-01.8 COMMAND CADENCE",
+      "slug": "ops-01-8-command-cadence",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/09-mhc-operations-manual-outlook-and-communications-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/09-ops-01-8-command-cadence.html",
       "forms": []
     },
     {
       "number": 10,
-      "title": "MHC Operations Manual - HH2 Timekeeping SOP",
-      "slug": "mhc-operations-manual-hh2-timekeeping-sop",
+      "title": "OPS-01.9 BRANDED OPERATING LANGUAGE",
+      "slug": "ops-01-9-branded-operating-language",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/10-mhc-operations-manual-hh2-timekeeping-sop.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/10-ops-01-9-branded-operating-language.html",
       "forms": []
     },
     {
       "number": 11,
-      "title": "MHC Operations Manual - Safety and Compliance Governance",
-      "slug": "mhc-operations-manual-safety-and-compliance-governance",
+      "title": "CHAPTER BLUEPRINT AND MANUAL SCHEMA",
+      "slug": "chapter-blueprint-and-manual-schema",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/11-mhc-operations-manual-safety-and-compliance-governance.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/11-chapter-blueprint-and-manual-schema.html",
       "forms": []
     },
     {
       "number": 12,
-      "title": "MHC Operations Manual - KPI and Reporting Cadence",
-      "slug": "mhc-operations-manual-kpi-and-reporting-cadence",
+      "title": "OPS-02.1 MANUAL OBJECTIVES",
+      "slug": "ops-02-1-manual-objectives",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/12-mhc-operations-manual-kpi-and-reporting-cadence.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/12-ops-02-1-manual-objectives.html",
       "forms": []
     },
     {
       "number": 13,
-      "title": "MHC Operations Manual - Records Retention and Document Control",
-      "slug": "mhc-operations-manual-records-retention-and-document-control",
+      "title": "OPS-02.2 REQUIRED CHAPTER SCHEMA",
+      "slug": "ops-02-2-required-chapter-schema",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/13-mhc-operations-manual-records-retention-and-document-control.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/13-ops-02-2-required-chapter-schema.html",
       "forms": []
     },
     {
       "number": 14,
-      "title": "MHC Operations Manual - Organization and RACI Narrative",
-      "slug": "mhc-operations-manual-organization-and-raci-narrative",
+      "title": "OPS-02.3 MANUAL FAMILY CROSS-REFERENCE",
+      "slug": "ops-02-3-manual-family-cross-reference",
       "subtitle": "",
       "pages": "TBD",
-      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/14-mhc-operations-manual-organization-and-raci-narrative.html",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/14-ops-02-3-manual-family-cross-reference.html",
+      "forms": []
+    },
+    {
+      "number": 15,
+      "title": "OPS-02.4 INTEGRATION HANDOFF TRIGGERS",
+      "slug": "ops-02-4-integration-handoff-triggers",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/15-ops-02-4-integration-handoff-triggers.html",
+      "forms": []
+    },
+    {
+      "number": 16,
+      "title": "OPS-02.5 MINIMUM APPENDICES",
+      "slug": "ops-02-5-minimum-appendices",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/16-ops-02-5-minimum-appendices.html",
+      "forms": []
+    },
+    {
+      "number": 17,
+      "title": "OPS-02.6 DOCUMENT ARCHITECTURE AND METHODOLOGY",
+      "slug": "ops-02-6-document-architecture-and-methodology",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/17-ops-02-6-document-architecture-and-methodology.html",
+      "forms": []
+    },
+    {
+      "number": 18,
+      "title": "ESTIMATOR COMMAND AND PRECONSTRUCTION CONTROLS",
+      "slug": "estimator-command-and-preconstruction-controls",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/18-estimator-command-and-preconstruction-controls.html",
+      "forms": []
+    },
+    {
+      "number": 19,
+      "title": "OPS-03.1 MISSION PURPOSE",
+      "slug": "ops-03-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/19-ops-03-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 20,
+      "title": "OPS-03.2 COMMAND OWNERSHIP",
+      "slug": "ops-03-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/20-ops-03-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 21,
+      "title": "OPS-03.3 BID / NO-BID DECISION FRAMEWORK",
+      "slug": "ops-03-3-bid-no-bid-decision-framework",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/21-ops-03-3-bid-no-bid-decision-framework.html",
+      "forms": []
+    },
+    {
+      "number": 22,
+      "title": "OPS-03.4 PRECONSTRUCTION WORKFLOW (6 STEPS)",
+      "slug": "ops-03-4-preconstruction-workflow-6-steps",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/22-ops-03-4-preconstruction-workflow-6-steps.html",
+      "forms": []
+    },
+    {
+      "number": 23,
+      "title": "OPS-03.1 Step 1 - Qualification",
+      "slug": "ops-03-1-step-1-qualification",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/23-ops-03-1-step-1-qualification.html",
+      "forms": []
+    },
+    {
+      "number": 24,
+      "title": "OPS-03.2 Step 2 - Mission Parameters / Scope",
+      "slug": "ops-03-2-step-2-mission-parameters-scope",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/24-ops-03-2-step-2-mission-parameters-scope.html",
+      "forms": []
+    },
+    {
+      "number": 25,
+      "title": "OPS-03.3 Step 3 - Trade Partner Qualification",
+      "slug": "ops-03-3-step-3-trade-partner-qualification",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/25-ops-03-3-step-3-trade-partner-qualification.html",
+      "forms": []
+    },
+    {
+      "number": 26,
+      "title": "OPS-03.4 Step 4 - Estimate Development",
+      "slug": "ops-03-4-step-4-estimate-development",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/26-ops-03-4-step-4-estimate-development.html",
+      "forms": []
+    },
+    {
+      "number": 27,
+      "title": "OPS-03.5 Step 5 - Proposal Presentation",
+      "slug": "ops-03-5-step-5-proposal-presentation",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/27-ops-03-5-step-5-proposal-presentation.html",
+      "forms": []
+    },
+    {
+      "number": 28,
+      "title": "OPS-03.6 Step 6 - Operations Brief / Handoff",
+      "slug": "ops-03-6-step-6-operations-brief-handoff",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/28-ops-03-6-step-6-operations-brief-handoff.html",
+      "forms": []
+    },
+    {
+      "number": 29,
+      "title": "OPS-03.5 APPROVAL AUTHORITY (SINGLE CHANGE ORDER / PROPOSAL)",
+      "slug": "ops-03-5-approval-authority-single-change-order-proposal",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/29-ops-03-5-approval-authority-single-change-order-proposal.html",
+      "forms": []
+    },
+    {
+      "number": 30,
+      "title": "OPS-03.6 BONDING, LICENSING, AND MULTI-STATE CONTROLS",
+      "slug": "ops-03-6-bonding-licensing-and-multi-state-controls",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/30-ops-03-6-bonding-licensing-and-multi-state-controls.html",
+      "forms": []
+    },
+    {
+      "number": 31,
+      "title": "OPS-03.7 KPI AND REVIEW CADENCE",
+      "slug": "ops-03-7-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/31-ops-03-7-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 32,
+      "title": "PROCORE GOVERNANCE SOP",
+      "slug": "procore-governance-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/32-procore-governance-sop.html",
+      "forms": []
+    },
+    {
+      "number": 33,
+      "title": "OPS-04.1 MISSION PURPOSE",
+      "slug": "ops-04-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/33-ops-04-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 34,
+      "title": "OPS-04.2 COMMAND OWNERSHIP",
+      "slug": "ops-04-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/34-ops-04-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 35,
+      "title": "OPS-04.3 PROJECT SETUP SEQUENCE",
+      "slug": "ops-04-3-project-setup-sequence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/35-ops-04-3-project-setup-sequence.html",
+      "forms": []
+    },
+    {
+      "number": 36,
+      "title": "OPS-04.1 Step 1 - Project Creation (PE)",
+      "slug": "ops-04-1-step-1-project-creation-pe",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/36-ops-04-1-step-1-project-creation-pe.html",
+      "forms": []
+    },
+    {
+      "number": 37,
+      "title": "OPS-04.2 Step 2 - PM Activation (PM)",
+      "slug": "ops-04-2-step-2-pm-activation-pm",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/37-ops-04-2-step-2-pm-activation-pm.html",
+      "forms": []
+    },
+    {
+      "number": 38,
+      "title": "OPS-04.3 Step 3 - COO Go-Ahead Checkpoint (COO)",
+      "slug": "ops-04-3-step-3-coo-go-ahead-checkpoint-coo",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/38-ops-04-3-step-3-coo-go-ahead-checkpoint-coo.html",
+      "forms": []
+    },
+    {
+      "number": 39,
+      "title": "OPS-04.4 Step 4 - SSSP Linkage (CHENG)",
+      "slug": "ops-04-4-step-4-sssp-linkage-cheng",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/39-ops-04-4-step-4-sssp-linkage-cheng.html",
+      "forms": []
+    },
+    {
+      "number": 40,
+      "title": "OPS-04.5 Step 5 - RFI/Submittal Routing",
+      "slug": "ops-04-5-step-5-rfi-submittal-routing",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/40-ops-04-5-step-5-rfi-submittal-routing.html",
+      "forms": []
+    },
+    {
+      "number": 41,
+      "title": "OPS-04.6 Step 6 - Closeout Sign-Off",
+      "slug": "ops-04-6-step-6-closeout-sign-off",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/41-ops-04-6-step-6-closeout-sign-off.html",
+      "forms": []
+    },
+    {
+      "number": 42,
+      "title": "OPS-04.4 CONTROLS AND THRESHOLDS",
+      "slug": "ops-04-4-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/42-ops-04-4-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 43,
+      "title": "OPS-04.5 KPI AND REVIEW CADENCE",
+      "slug": "ops-04-5-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/43-ops-04-5-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 44,
+      "title": "CHANGE ORDERS AND FINANCIAL CONTROLS SOP",
+      "slug": "change-orders-and-financial-controls-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/44-change-orders-and-financial-controls-sop.html",
+      "forms": []
+    },
+    {
+      "number": 45,
+      "title": "OPS-05.1 MISSION PURPOSE",
+      "slug": "ops-05-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/45-ops-05-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 46,
+      "title": "OPS-05.2 FINANCIAL AUTHORITY MATRIX",
+      "slug": "ops-05-2-financial-authority-matrix",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/46-ops-05-2-financial-authority-matrix.html",
+      "forms": []
+    },
+    {
+      "number": 47,
+      "title": "OPS-05.3 SAGE 100 COST CODING",
+      "slug": "ops-05-3-sage-100-cost-coding",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/47-ops-05-3-sage-100-cost-coding.html",
+      "forms": []
+    },
+    {
+      "number": 48,
+      "title": "PROJECT EXECUTION AND CLOSEOUT SOP",
+      "slug": "project-execution-and-closeout-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/48-project-execution-and-closeout-sop.html",
+      "forms": []
+    },
+    {
+      "number": 49,
+      "title": "OPS-06.1 MISSION PURPOSE",
+      "slug": "ops-06-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/49-ops-06-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 50,
+      "title": "OPS-06.2 COMMAND OWNERSHIP",
+      "slug": "ops-06-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/50-ops-06-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 51,
+      "title": "OPS-06.3 REQUIRED CLOSEOUT PACKAGE",
+      "slug": "ops-06-3-required-closeout-package",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/51-ops-06-3-required-closeout-package.html",
+      "forms": []
+    },
+    {
+      "number": 52,
+      "title": "OPS-06.4 SOP STEPS",
+      "slug": "ops-06-4-sop-steps",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/52-ops-06-4-sop-steps.html",
+      "forms": []
+    },
+    {
+      "number": 53,
+      "title": "OPS-06.1 Step 1 - Closeout Kickoff (PM + PE)",
+      "slug": "ops-06-1-step-1-closeout-kickoff-pm-pe",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/53-ops-06-1-step-1-closeout-kickoff-pm-pe.html",
+      "forms": []
+    },
+    {
+      "number": 54,
+      "title": "OPS-06.2 Step 2 - Package Assembly (PE)",
+      "slug": "ops-06-2-step-2-package-assembly-pe",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/54-ops-06-2-step-2-package-assembly-pe.html",
+      "forms": []
+    },
+    {
+      "number": 55,
+      "title": "OPS-06.3 Step 3 - Package Review (PM)",
+      "slug": "ops-06-3-step-3-package-review-pm",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/55-ops-06-3-step-3-package-review-pm.html",
+      "forms": []
+    },
+    {
+      "number": 56,
+      "title": "OPS-06.4 Step 4 - Field Validation (Chief Superintendent)",
+      "slug": "ops-06-4-step-4-field-validation-chief-superintendent",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/56-ops-06-4-step-4-field-validation-chief-superintendent.html",
+      "forms": []
+    },
+    {
+      "number": 57,
+      "title": "OPS-06.5 Step 5 - Digital Sign-Off and Release",
+      "slug": "ops-06-5-step-5-digital-sign-off-and-release",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/57-ops-06-5-step-5-digital-sign-off-and-release.html",
+      "forms": []
+    },
+    {
+      "number": 58,
+      "title": "OPS-06.6 Step 6 - Archive and Reporting",
+      "slug": "ops-06-6-step-6-archive-and-reporting",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/58-ops-06-6-step-6-archive-and-reporting.html",
+      "forms": []
+    },
+    {
+      "number": 59,
+      "title": "SAGE 100 OPERATIONS SOP",
+      "slug": "sage-100-operations-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/59-sage-100-operations-sop.html",
+      "forms": []
+    },
+    {
+      "number": 60,
+      "title": "OPS-07.1 MISSION PURPOSE",
+      "slug": "ops-07-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/60-ops-07-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 61,
+      "title": "OPS-07.2 MODULES IN SCOPE",
+      "slug": "ops-07-2-modules-in-scope",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/61-ops-07-2-modules-in-scope.html",
+      "forms": []
+    },
+    {
+      "number": 62,
+      "title": "OPS-07.3 AUTHORITY MODEL",
+      "slug": "ops-07-3-authority-model",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/62-ops-07-3-authority-model.html",
+      "forms": []
+    },
+    {
+      "number": 63,
+      "title": "OPS-07.4 MARKETING COST CODE INTEGRATION",
+      "slug": "ops-07-4-marketing-cost-code-integration",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/63-ops-07-4-marketing-cost-code-integration.html",
+      "forms": []
+    },
+    {
+      "number": 64,
+      "title": "OPS-07.5 KPI AND REVIEW CADENCE",
+      "slug": "ops-07-5-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/64-ops-07-5-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 65,
+      "title": "INTERNAL SERVER OPERATIONS SOP",
+      "slug": "internal-server-operations-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/65-internal-server-operations-sop.html",
+      "forms": []
+    },
+    {
+      "number": 66,
+      "title": "OPS-08.1 MISSION PURPOSE",
+      "slug": "ops-08-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/66-ops-08-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 67,
+      "title": "OPS-08.2 COMMAND OWNERSHIP",
+      "slug": "ops-08-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/67-ops-08-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 68,
+      "title": "OPS-08.3 CONTROLS AND THRESHOLDS",
+      "slug": "ops-08-3-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/68-ops-08-3-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 69,
+      "title": "OPS-08.4 KPI AND REVIEW CADENCE",
+      "slug": "ops-08-4-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/69-ops-08-4-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 70,
+      "title": "OUTLOOK AND COMMUNICATIONS SOP",
+      "slug": "outlook-and-communications-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/70-outlook-and-communications-sop.html",
+      "forms": []
+    },
+    {
+      "number": 71,
+      "title": "OPS-09.1 MISSION PURPOSE",
+      "slug": "ops-09-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/71-ops-09-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 72,
+      "title": "OPS-09.2 COMMAND OWNERSHIP",
+      "slug": "ops-09-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/72-ops-09-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 73,
+      "title": "OPS-09.3 ACCOUNT LIFECYCLE CONTROLS",
+      "slug": "ops-09-3-account-lifecycle-controls",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/73-ops-09-3-account-lifecycle-controls.html",
+      "forms": []
+    },
+    {
+      "number": 74,
+      "title": "OPS-09.4 KPI AND REVIEW CADENCE",
+      "slug": "ops-09-4-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/74-ops-09-4-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 75,
+      "title": "HH2 TIMEKEEPING SOP",
+      "slug": "hh2-timekeeping-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/75-hh2-timekeeping-sop.html",
+      "forms": []
+    },
+    {
+      "number": 76,
+      "title": "OPS-10.1 MISSION PURPOSE",
+      "slug": "ops-10-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/76-ops-10-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 77,
+      "title": "OPS-10.2 COMMAND OWNERSHIP",
+      "slug": "ops-10-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/77-ops-10-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 78,
+      "title": "OPS-10.3 CONTROLS AND THRESHOLDS",
+      "slug": "ops-10-3-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/78-ops-10-3-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 79,
+      "title": "OPS-10.4 KPI AND REVIEW CADENCE",
+      "slug": "ops-10-4-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/79-ops-10-4-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 80,
+      "title": "SAFETY AND COMPLIANCE GOVERNANCE",
+      "slug": "safety-and-compliance-governance",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/80-safety-and-compliance-governance.html",
+      "forms": []
+    },
+    {
+      "number": 81,
+      "title": "OPS-11.1 MISSION PURPOSE",
+      "slug": "ops-11-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/81-ops-11-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 82,
+      "title": "OPS-11.2 COMMAND OWNERSHIP",
+      "slug": "ops-11-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/82-ops-11-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 83,
+      "title": "OPS-11.3 GOVERNANCE CADENCE",
+      "slug": "ops-11-3-governance-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/83-ops-11-3-governance-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 84,
+      "title": "OPS-11.4 CAO AND HR INTEGRATION",
+      "slug": "ops-11-4-cao-and-hr-integration",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/84-ops-11-4-cao-and-hr-integration.html",
+      "forms": []
+    },
+    {
+      "number": 85,
+      "title": "OPS-11.5 STOP-WORK AUTHORITY (SWA)",
+      "slug": "ops-11-5-stop-work-authority-swa",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/85-ops-11-5-stop-work-authority-swa.html",
+      "forms": []
+    },
+    {
+      "number": 86,
+      "title": "OPS-11.6 KPI AND REVIEW CADENCE",
+      "slug": "ops-11-6-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/86-ops-11-6-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 87,
+      "title": "KPI AND REPORTING CADENCE",
+      "slug": "kpi-and-reporting-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/87-kpi-and-reporting-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 88,
+      "title": "OPS-12.1 MISSION PURPOSE",
+      "slug": "ops-12-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/88-ops-12-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 89,
+      "title": "OPS-12.2 REPORTING CADENCE",
+      "slug": "ops-12-2-reporting-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/89-ops-12-2-reporting-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 90,
+      "title": "OPS-12.3 KPI FAMILIES",
+      "slug": "ops-12-3-kpi-families",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/90-ops-12-3-kpi-families.html",
+      "forms": []
+    },
+    {
+      "number": 91,
+      "title": "OPS-12.4 WEEKLY MEETING PROTOCOL",
+      "slug": "ops-12-4-weekly-meeting-protocol",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/91-ops-12-4-weekly-meeting-protocol.html",
+      "forms": []
+    },
+    {
+      "number": 92,
+      "title": "RECORDS RETENTION AND DOCUMENT CONTROL",
+      "slug": "records-retention-and-document-control",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/92-records-retention-and-document-control.html",
+      "forms": []
+    },
+    {
+      "number": 93,
+      "title": "OPS-13.1 MISSION PURPOSE",
+      "slug": "ops-13-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/93-ops-13-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 94,
+      "title": "OPS-13.2 RETENTION BASELINE (CONSERVATIVE)",
+      "slug": "ops-13-2-retention-baseline-conservative",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/94-ops-13-2-retention-baseline-conservative.html",
+      "forms": []
+    },
+    {
+      "number": 95,
+      "title": "OPS-13.3 DOCUMENT CONTROL STANDARDS",
+      "slug": "ops-13-3-document-control-standards",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/95-ops-13-3-document-control-standards.html",
+      "forms": []
+    },
+    {
+      "number": 96,
+      "title": "OPS-13.4 REVISION WORKFLOW",
+      "slug": "ops-13-4-revision-workflow",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/96-ops-13-4-revision-workflow.html",
+      "forms": []
+    },
+    {
+      "number": 97,
+      "title": "OPS-13.5 ACCESS AND LEGAL HOLD",
+      "slug": "ops-13-5-access-and-legal-hold",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/97-ops-13-5-access-and-legal-hold.html",
+      "forms": []
+    },
+    {
+      "number": 98,
+      "title": "ORGANIZATION AND RACI NARRATIVE",
+      "slug": "organization-and-raci-narrative",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/98-organization-and-raci-narrative.html",
+      "forms": []
+    },
+    {
+      "number": 99,
+      "title": "OPS-14.1 MISSION PURPOSE",
+      "slug": "ops-14-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/99-ops-14-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 100,
+      "title": "OPS-14.2 COMMAND MAPPING",
+      "slug": "ops-14-2-command-mapping",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/100-ops-14-2-command-mapping.html",
+      "forms": []
+    },
+    {
+      "number": 101,
+      "title": "OPS-14.3 DEPARTMENTAL OVERSIGHT",
+      "slug": "ops-14-3-departmental-oversight",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/101-ops-14-3-departmental-oversight.html",
+      "forms": []
+    },
+    {
+      "number": 102,
+      "title": "OPS-14.4 PROCESS-FAMILY OWNERSHIP SNAPSHOT",
+      "slug": "ops-14-4-process-family-ownership-snapshot",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/102-ops-14-4-process-family-ownership-snapshot.html",
+      "forms": []
+    },
+    {
+      "number": 103,
+      "title": "TOOLBOX TALK & OSHA MONTHLY THEME TRAINING PROGRAM",
+      "slug": "toolbox-talk-osha-monthly-theme-training-program",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/103-toolbox-talk-osha-monthly-theme-training-program.html",
+      "forms": []
+    },
+    {
+      "number": 104,
+      "title": "OPS-15.1 MISSION PURPOSE",
+      "slug": "ops-15-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/104-ops-15-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 105,
+      "title": "OPS-15.2 COMMAND OWNERSHIP",
+      "slug": "ops-15-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/105-ops-15-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 106,
+      "title": "OPS-15.3 OSHA MONTHLY THEME CALENDAR",
+      "slug": "ops-15-3-osha-monthly-theme-calendar",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/106-ops-15-3-osha-monthly-theme-calendar.html",
+      "forms": []
+    },
+    {
+      "number": 107,
+      "title": "OPS-15.4 WEEKLY TBT DELIVERY PROTOCOL",
+      "slug": "ops-15-4-weekly-tbt-delivery-protocol",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/107-ops-15-4-weekly-tbt-delivery-protocol.html",
+      "forms": []
+    },
+    {
+      "number": 108,
+      "title": "OPS-15.1 Step 1 - Topic Selection",
+      "slug": "ops-15-1-step-1-topic-selection",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/108-ops-15-1-step-1-topic-selection.html",
+      "forms": []
+    },
+    {
+      "number": 109,
+      "title": "OPS-15.2 Step 2 - Pre-Talk Preparation",
+      "slug": "ops-15-2-step-2-pre-talk-preparation",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/109-ops-15-2-step-2-pre-talk-preparation.html",
+      "forms": []
+    },
+    {
+      "number": 110,
+      "title": "OPS-15.3 Step 3 - Delivery",
+      "slug": "ops-15-3-step-3-delivery",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/110-ops-15-3-step-3-delivery.html",
+      "forms": []
+    },
+    {
+      "number": 111,
+      "title": "OPS-15.4 Step 4 - Attendance and Sign-In",
+      "slug": "ops-15-4-step-4-attendance-and-sign-in",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/111-ops-15-4-step-4-attendance-and-sign-in.html",
+      "forms": []
+    },
+    {
+      "number": 112,
+      "title": "OPS-15.5 Step 5 - CHENG Review",
+      "slug": "ops-15-5-step-5-cheng-review",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/112-ops-15-5-step-5-cheng-review.html",
+      "forms": []
+    },
+    {
+      "number": 113,
+      "title": "OPS-15.5 ANNUAL TRAINING PLAN STRUCTURE",
+      "slug": "ops-15-5-annual-training-plan-structure",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/113-ops-15-5-annual-training-plan-structure.html",
+      "forms": []
+    },
+    {
+      "number": 114,
+      "title": "OPS-15.6 TRAINING RECORDS AND RETENTION",
+      "slug": "ops-15-6-training-records-and-retention",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/114-ops-15-6-training-records-and-retention.html",
+      "forms": []
+    },
+    {
+      "number": 115,
+      "title": "OPS-15.7 CONTROLS AND THRESHOLDS",
+      "slug": "ops-15-7-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/115-ops-15-7-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 116,
+      "title": "OPS-15.8 KPI AND REVIEW CADENCE",
+      "slug": "ops-15-8-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/116-ops-15-8-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 117,
+      "title": "OPS-15.9 ESCALATION PATH",
+      "slug": "ops-15-9-escalation-path",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/117-ops-15-9-escalation-path.html",
+      "forms": []
+    },
+    {
+      "number": 118,
+      "title": "MSDS/SDS MANAGEMENT SOP",
+      "slug": "msds-sds-management-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/118-msds-sds-management-sop.html",
+      "forms": []
+    },
+    {
+      "number": 119,
+      "title": "OPS-16.1 MISSION PURPOSE",
+      "slug": "ops-16-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/119-ops-16-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 120,
+      "title": "OPS-16.2 COMMAND OWNERSHIP",
+      "slug": "ops-16-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/120-ops-16-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 121,
+      "title": "OPS-16.3 SDS BINDER REQUIREMENTS (PER SITE)",
+      "slug": "ops-16-3-sds-binder-requirements-per-site",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/121-ops-16-3-sds-binder-requirements-per-site.html",
+      "forms": []
+    },
+    {
+      "number": 122,
+      "title": "OPS-16.4 SDS MASTER INDEX (ONENOTE)",
+      "slug": "ops-16-4-sds-master-index-onenote",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/122-ops-16-4-sds-master-index-onenote.html",
+      "forms": []
+    },
+    {
+      "number": 123,
+      "title": "OPS-16.5 SOP STEPS",
+      "slug": "ops-16-5-sop-steps",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/123-ops-16-5-sop-steps.html",
+      "forms": []
+    },
+    {
+      "number": 124,
+      "title": "OPS-16.1 Step 1 - New Chemical Introduction",
+      "slug": "ops-16-1-step-1-new-chemical-introduction",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/124-ops-16-1-step-1-new-chemical-introduction.html",
+      "forms": []
+    },
+    {
+      "number": 125,
+      "title": "OPS-16.2 Step 2 - Pre-Task Hazard Review",
+      "slug": "ops-16-2-step-2-pre-task-hazard-review",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/125-ops-16-2-step-2-pre-task-hazard-review.html",
+      "forms": []
+    },
+    {
+      "number": 126,
+      "title": "OPS-16.3 Step 3 - TBT Integration (August)",
+      "slug": "ops-16-3-step-3-tbt-integration-august",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/126-ops-16-3-step-3-tbt-integration-august.html",
+      "forms": []
+    },
+    {
+      "number": 127,
+      "title": "OPS-16.4 Step 4 - SDS Update and Version Control",
+      "slug": "ops-16-4-step-4-sds-update-and-version-control",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/127-ops-16-4-step-4-sds-update-and-version-control.html",
+      "forms": []
+    },
+    {
+      "number": 128,
+      "title": "OPS-16.5 Step 5 - Project Closeout SDS Reconciliation",
+      "slug": "ops-16-5-step-5-project-closeout-sds-reconciliation",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/128-ops-16-5-step-5-project-closeout-sds-reconciliation.html",
+      "forms": []
+    },
+    {
+      "number": 129,
+      "title": "OPS-16.6 Step 6 - Quarterly Audit",
+      "slug": "ops-16-6-step-6-quarterly-audit",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/129-ops-16-6-step-6-quarterly-audit.html",
+      "forms": []
+    },
+    {
+      "number": 130,
+      "title": "OPS-16.6 EMERGENCY RESPONSE INTEGRATION",
+      "slug": "ops-16-6-emergency-response-integration",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/130-ops-16-6-emergency-response-integration.html",
+      "forms": []
+    },
+    {
+      "number": 131,
+      "title": "OPS-16.7 CONTROLS AND THRESHOLDS",
+      "slug": "ops-16-7-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/131-ops-16-7-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 132,
+      "title": "OPS-16.8 KPI AND REVIEW CADENCE",
+      "slug": "ops-16-8-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/132-ops-16-8-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 133,
+      "title": "SITE SPECIFIC SAFETY PLAN (SSSP) PIPELINE SOP",
+      "slug": "site-specific-safety-plan-sssp-pipeline-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/133-site-specific-safety-plan-sssp-pipeline-sop.html",
+      "forms": []
+    },
+    {
+      "number": 134,
+      "title": "OPS-17.1 MISSION PURPOSE",
+      "slug": "ops-17-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/134-ops-17-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 135,
+      "title": "OPS-17.2 COMMAND OWNERSHIP",
+      "slug": "ops-17-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/135-ops-17-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 136,
+      "title": "OPS-17.3 SSSP TRIGGER EVENTS",
+      "slug": "ops-17-3-sssp-trigger-events",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/136-ops-17-3-sssp-trigger-events.html",
+      "forms": []
+    },
+    {
+      "number": 137,
+      "title": "OPS-17.4 SSSP REQUIRED COMPONENTS",
+      "slug": "ops-17-4-sssp-required-components",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/137-ops-17-4-sssp-required-components.html",
+      "forms": []
+    },
+    {
+      "number": 138,
+      "title": "OPS-17.5 SOP STEPS",
+      "slug": "ops-17-5-sop-steps",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/138-ops-17-5-sop-steps.html",
+      "forms": []
+    },
+    {
+      "number": 139,
+      "title": "OPS-17.1 Step 1 - Plan Extraction and Hazard Assessment",
+      "slug": "ops-17-1-step-1-plan-extraction-and-hazard-assessment",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/139-ops-17-1-step-1-plan-extraction-and-hazard-assessment.html",
+      "forms": []
+    },
+    {
+      "number": 140,
+      "title": "OPS-17.2 Step 2 - SSSP Draft Creation",
+      "slug": "ops-17-2-step-2-sssp-draft-creation",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/140-ops-17-2-step-2-sssp-draft-creation.html",
+      "forms": []
+    },
+    {
+      "number": 141,
+      "title": "OPS-17.3 Step 3 - Review and Approval",
+      "slug": "ops-17-3-step-3-review-and-approval",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/141-ops-17-3-step-3-review-and-approval.html",
+      "forms": []
+    },
+    {
+      "number": 142,
+      "title": "OPS-17.4 Step 4 - Distribution and Orientation",
+      "slug": "ops-17-4-step-4-distribution-and-orientation",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/142-ops-17-4-step-4-distribution-and-orientation.html",
+      "forms": []
+    },
+    {
+      "number": 143,
+      "title": "OPS-17.5 Step 5 - Ongoing Maintenance",
+      "slug": "ops-17-5-step-5-ongoing-maintenance",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/143-ops-17-5-step-5-ongoing-maintenance.html",
+      "forms": []
+    },
+    {
+      "number": 144,
+      "title": "OPS-17.6 Step 6 - Closeout Archive",
+      "slug": "ops-17-6-step-6-closeout-archive",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/144-ops-17-6-step-6-closeout-archive.html",
+      "forms": []
+    },
+    {
+      "number": 145,
+      "title": "OPS-17.6 ROLES THAT REMAIN CONSTANT ACROSS ALL SSSPs",
+      "slug": "ops-17-6-roles-that-remain-constant-across-all-sssps",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/145-ops-17-6-roles-that-remain-constant-across-all-sssps.html",
+      "forms": []
+    },
+    {
+      "number": 146,
+      "title": "OPS-17.7 SSSP ACCESS VIA ONENOTE AND PORTAL",
+      "slug": "ops-17-7-sssp-access-via-onenote-and-portal",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/146-ops-17-7-sssp-access-via-onenote-and-portal.html",
+      "forms": []
+    },
+    {
+      "number": 147,
+      "title": "OPS-17.8 CONTROLS AND THRESHOLDS",
+      "slug": "ops-17-8-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/147-ops-17-8-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 148,
+      "title": "OPS-17.9 KPI AND REVIEW CADENCE",
+      "slug": "ops-17-9-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/148-ops-17-9-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 149,
+      "title": "DIGITAL INFRASTRUCTURE, ONENOTE & PORTAL ACCESS ARCHITECTURE",
+      "slug": "digital-infrastructure-onenote-portal-access-architecture",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/149-digital-infrastructure-onenote-portal-access-architecture.html",
+      "forms": []
+    },
+    {
+      "number": 150,
+      "title": "OPS-18.1 MISSION PURPOSE",
+      "slug": "ops-18-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/150-ops-18-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 151,
+      "title": "OPS-18.2 COMMAND OWNERSHIP",
+      "slug": "ops-18-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/151-ops-18-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 152,
+      "title": "OPS-18.3 TECHNOLOGY STACK AND INTEGRATION MAP",
+      "slug": "ops-18-3-technology-stack-and-integration-map",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/152-ops-18-3-technology-stack-and-integration-map.html",
+      "forms": []
+    },
+    {
+      "number": 153,
+      "title": "OPS-18.4 ONENOTE NOTEBOOK ARCHITECTURE",
+      "slug": "ops-18-4-onenote-notebook-architecture",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/153-ops-18-4-onenote-notebook-architecture.html",
+      "forms": []
+    },
+    {
+      "number": 154,
+      "title": "OPS-18.5 MHC-GC.COM PORTAL / DASHBOARD ARCHITECTURE",
+      "slug": "ops-18-5-mhc-gc-com-portal-dashboard-architecture",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/154-ops-18-5-mhc-gc-com-portal-dashboard-architecture.html",
+      "forms": []
+    },
+    {
+      "number": 155,
+      "title": "OPS-18.6 DATA FLOW: SAFETY PROGRAM LIFECYCLE",
+      "slug": "ops-18-6-data-flow-safety-program-lifecycle",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/155-ops-18-6-data-flow-safety-program-lifecycle.html",
+      "forms": []
+    },
+    {
+      "number": 156,
+      "title": "OPS-18.1 Award",
+      "slug": "ops-18-1-award",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/156-ops-18-1-award.html",
+      "forms": []
+    },
+    {
+      "number": 157,
+      "title": "OPS-18.2 Mobilization",
+      "slug": "ops-18-2-mobilization",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/157-ops-18-2-mobilization.html",
+      "forms": []
+    },
+    {
+      "number": 158,
+      "title": "OPS-18.3 Active Construction",
+      "slug": "ops-18-3-active-construction",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/158-ops-18-3-active-construction.html",
+      "forms": []
+    },
+    {
+      "number": 159,
+      "title": "OPS-18.4 Quarterly Audit",
+      "slug": "ops-18-4-quarterly-audit",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/159-ops-18-4-quarterly-audit.html",
+      "forms": []
+    },
+    {
+      "number": 160,
+      "title": "OPS-18.5 Closeout",
+      "slug": "ops-18-5-closeout",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/160-ops-18-5-closeout.html",
+      "forms": []
+    },
+    {
+      "number": 161,
+      "title": "OPS-18.7 ACCESS GOVERNANCE",
+      "slug": "ops-18-7-access-governance",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/161-ops-18-7-access-governance.html",
+      "forms": []
+    },
+    {
+      "number": 162,
+      "title": "OPS-18.8 CONTROLS AND THRESHOLDS",
+      "slug": "ops-18-8-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/162-ops-18-8-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 163,
+      "title": "OPS-18.9 KPI AND REVIEW CADENCE",
+      "slug": "ops-18-9-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/163-ops-18-9-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 164,
+      "title": "OPS-18.6 APPENDIX A - RACI MATRIX",
+      "slug": "ops-18-6-appendix-a-raci-matrix",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/164-ops-18-6-appendix-a-raci-matrix.html",
+      "forms": []
+    },
+    {
+      "number": 165,
+      "title": "OPS-18.7 APPENDIX B - CONTROLS, RETENTION, AND CONTINUITY BASELINE",
+      "slug": "ops-18-7-appendix-b-controls-retention-and-continuity-baseline",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/165-ops-18-7-appendix-b-controls-retention-and-continuity-baseline.html",
+      "forms": []
+    },
+    {
+      "number": 166,
+      "title": "OPS-18.8 APPENDIX C - WEEKLY OPERATIONS MEETING AGENDA TEMPLATE",
+      "slug": "ops-18-8-appendix-c-weekly-operations-meeting-agenda-template",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/166-ops-18-8-appendix-c-weekly-operations-meeting-agenda-template.html",
+      "forms": []
+    },
+    {
+      "number": 167,
+      "title": "OPS-18.9 APPENDIX D - APPROVAL AUTHORITY MATRIX",
+      "slug": "ops-18-9-appendix-d-approval-authority-matrix",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/167-ops-18-9-appendix-d-approval-authority-matrix.html",
+      "forms": []
+    },
+    {
+      "number": 168,
+      "title": "OPS-18.10 APPENDIX E - KPI DICTIONARY",
+      "slug": "ops-18-10-appendix-e-kpi-dictionary",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/168-ops-18-10-appendix-e-kpi-dictionary.html",
+      "forms": []
+    },
+    {
+      "number": 169,
+      "title": "OPS-18.11 APPENDIX F - RETENTION SCHEDULE AND DISPOSAL LOG TEMPLATES",
+      "slug": "ops-18-11-appendix-f-retention-schedule-and-disposal-log-templates",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/169-ops-18-11-appendix-f-retention-schedule-and-disposal-log-templates.html",
+      "forms": []
+    },
+    {
+      "number": 170,
+      "title": "OPS-18.12 APPENDIX G - OSHA MONTHLY SAFETY THEME CALENDAR",
+      "slug": "ops-18-12-appendix-g-osha-monthly-safety-theme-calendar",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/170-ops-18-12-appendix-g-osha-monthly-safety-theme-calendar.html",
+      "forms": []
+    },
+    {
+      "number": 171,
+      "title": "OPS-18.13 APPENDIX H - SDS MASTER INDEX TEMPLATE",
+      "slug": "ops-18-13-appendix-h-sds-master-index-template",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/171-ops-18-13-appendix-h-sds-master-index-template.html",
+      "forms": []
+    },
+    {
+      "number": 172,
+      "title": "OPS-18.14 APPENDIX I - SSSP PROJECT CHECKLIST",
+      "slug": "ops-18-14-appendix-i-sssp-project-checklist",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/172-ops-18-14-appendix-i-sssp-project-checklist.html",
+      "forms": []
+    },
+    {
+      "number": 173,
+      "title": "OPS-18.15 APPENDIX J - ONENOTE NOTEBOOK ARCHITECTURE MAP",
+      "slug": "ops-18-15-appendix-j-onenote-notebook-architecture-map",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/173-ops-18-15-appendix-j-onenote-notebook-architecture-map.html",
+      "forms": []
+    },
+    {
+      "number": 174,
+      "title": "FLEET, EQUIPMENT, AND WAREHOUSE OPERATIONS SOP",
+      "slug": "fleet-equipment-and-warehouse-operations-sop",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/174-fleet-equipment-and-warehouse-operations-sop.html",
+      "forms": []
+    },
+    {
+      "number": 175,
+      "title": "OPS-19.1 MISSION PURPOSE",
+      "slug": "ops-19-1-mission-purpose",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/175-ops-19-1-mission-purpose.html",
+      "forms": []
+    },
+    {
+      "number": 176,
+      "title": "OPS-19.2 COMMAND OWNERSHIP",
+      "slug": "ops-19-2-command-ownership",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/176-ops-19-2-command-ownership.html",
+      "forms": []
+    },
+    {
+      "number": 177,
+      "title": "OPS-19.3 ROLES AND RESPONSIBILITIES",
+      "slug": "ops-19-3-roles-and-responsibilities",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/177-ops-19-3-roles-and-responsibilities.html",
+      "forms": []
+    },
+    {
+      "number": 178,
+      "title": "OPS-19.4 SOP STEPS",
+      "slug": "ops-19-4-sop-steps",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/178-ops-19-4-sop-steps.html",
+      "forms": []
+    },
+    {
+      "number": 179,
+      "title": "OPS-19.1 Step 1 - Asset Request",
+      "slug": "ops-19-1-step-1-asset-request",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/179-ops-19-1-step-1-asset-request.html",
+      "forms": []
+    },
+    {
+      "number": 180,
+      "title": "OPS-19.2 Step 2 - Staging and Inspection",
+      "slug": "ops-19-2-step-2-staging-and-inspection",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/180-ops-19-2-step-2-staging-and-inspection.html",
+      "forms": []
+    },
+    {
+      "number": 181,
+      "title": "OPS-19.3 Step 3 - Transport and Delivery",
+      "slug": "ops-19-3-step-3-transport-and-delivery",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/181-ops-19-3-step-3-transport-and-delivery.html",
+      "forms": []
+    },
+    {
+      "number": 182,
+      "title": "OPS-19.4 Step 4 - On-Site Control",
+      "slug": "ops-19-4-step-4-on-site-control",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/182-ops-19-4-step-4-on-site-control.html",
+      "forms": []
+    },
+    {
+      "number": 183,
+      "title": "OPS-19.5 Step 5 - Return and Maintenance",
+      "slug": "ops-19-5-step-5-return-and-maintenance",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/183-ops-19-5-step-5-return-and-maintenance.html",
+      "forms": []
+    },
+    {
+      "number": 184,
+      "title": "OPS-19.5 SAFETY AND COMPLIANCE INTEGRATION",
+      "slug": "ops-19-5-safety-and-compliance-integration",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/184-ops-19-5-safety-and-compliance-integration.html",
+      "forms": []
+    },
+    {
+      "number": 185,
+      "title": "OPS-19.6 CONTROLS AND THRESHOLDS",
+      "slug": "ops-19-6-controls-and-thresholds",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/185-ops-19-6-controls-and-thresholds.html",
+      "forms": []
+    },
+    {
+      "number": 186,
+      "title": "OPS-19.7 KPI AND REVIEW CADENCE",
+      "slug": "ops-19-7-kpi-and-review-cadence",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/186-ops-19-7-kpi-and-review-cadence.html",
+      "forms": []
+    },
+    {
+      "number": 187,
+      "title": "OPS-19.8 ESCALATION PATH",
+      "slug": "ops-19-8-escalation-path",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/187-ops-19-8-escalation-path.html",
+      "forms": []
+    },
+    {
+      "number": 188,
+      "title": "OPS-02.7 MASTER DOCUMENT INDEX",
+      "slug": "ops-02-7-master-document-index",
+      "subtitle": "",
+      "pages": "TBD",
+      "bodyFile": "documents/content/mhc-operations-manual-2026/sections/188-ops-02-7-master-document-index.html",
       "forms": []
     }
   ]

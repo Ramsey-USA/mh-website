@@ -1,7 +1,7 @@
 # Brand Congruency Master Checklist
 
 **Category:** Branding - Governance  
-**Last Updated:** July 28, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Active - Canonical
 
 ## Purpose
@@ -19,12 +19,12 @@ or documentation that can affect MH brand consistency.
 1. **Terminology:** Naming remains consistent across UI copy, metadata, schema, and docs.
 1. **Dual terminology:** Cross-asset naming follows `docs/branding/strategy/dual-terminology-standard.md` for website, dashboard, MISH, handbook, operations manual, marketing guide, sales guide, and document surfaces.
 1. **Construction glossary:** PMBOK 6 alignment and military-themed construction terms follow `docs/branding/strategy/construction-terminology-glossary.md`.
-1. **Terms source parity:** Terminology additions and mappings align with `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0).
+1. **Terms source parity:** Terminology additions and mappings align with `documents/content/terminology-library.json` (Brand Terms Library v2.1) and the upstream input source `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx`.
 1. **Primary language pattern:** Surface-aware order is preserved: general copy/docs can render MH brand term first with industry clarifier, while SEO metadata remains construction-first.
 1. **Regulatory protection:** OSHA/WISHA terms stay unchanged in MISH docs, safety forms, and compliance communications.
 1. **Safety support readiness:** Manual-family language remains compatible with pending Safety Data Sheets (SDS/MSDS) and Toolbox Talk libraries, so future uploads can connect without terminology or workflow drift.
 1. **Accessibility:** Semantic headings, labels, contrast, and keyboard flow remain valid.
-1. **SEO naming:** Labels and titles stay plain-language and canonical. For Jeremy authority content, keep the approved trio `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert` aligned with the shared `Words from the General` ribbon strategy.
+1. **SEO naming:** Labels and titles stay plain-language and canonical. For Jeremy authority content, keep the approved trio `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert` aligned with the shared `Word From the General` ribbon strategy.
 1. **Document chip parity:** For print/document artifacts, program/chapter/form identifier pillboxes use the canonical `1.5pt` corner radius consistently across safety-manual and employee-handbook templates.
 1. **TOC association parity:** Print TOCs preserve chapter-to-form pairing (chapter left, associated forms right), continuation pages keep page-1 spacing, TOC row spacing remains locked at `0.1in`, safety/handbook footer structures match (no legacy footer labels), and handbook TOC does not render empty continuation pages.
 1. **Spine metadata parity:** Safety and handbook spines keep identical metadata-stack structure and spacing with `.spine-logo-wrap { gap: 0; }` and `.spine-meta { padding-top: 0.1in; gap: 0.1in; }`.

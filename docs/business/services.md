@@ -1,6 +1,6 @@
 # MH Construction Services & Capabilities - Veteran-Led Excellence
 
-**Last Updated:** April 15, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Official Service Offerings  
 **Version:** 7.0.0
 
@@ -14,6 +14,16 @@ This document should be paired with the brand constants and the business documen
 
 **Brand Congruency:** Service descriptions must preserve trust content, factual veteran-owned framing, and approved service naming across the site.
 
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this page:
+
+- `documents/input/01-core-doctrine/mh-company-bible-v1-0-draft.docx`
+- `documents/input/01-core-doctrine/mh-rm01-bonding-addendum-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+
+Use the Company Bible as the controlled source for enterprise operating commitments behind service delivery. Use the bonding addendum as the controlled source for trust-sensitive bonding and insurer language. Use project-delivery doctrine as the source for execution continuity and handoff expectations.
+
 ## Expert Veteran-Led Construction Management in the Pacific Northwest
 
 **Tri-Cities Headquarters**: Pasco, WA | **Service Area**: Washington, Oregon, Idaho  
@@ -25,6 +35,18 @@ This document should be paired with the brand constants and the business documen
 
 **Strategic Focus:** Professional veteran-led construction operations with military precision and
 construction expertise.
+
+## Service Delivery Commitments
+
+The current doctrine source set frames MH services as controlled delivery commitments, not just capability claims.
+
+- **Project-first accountability**: every service line should support clear ownership, review, and follow-through.
+- **Evidence-backed execution**: planning, approvals, field records, and closeout documentation are part of the service standard.
+- **Risk-aware delivery**: scope, sequencing, and contract obligations should be addressed early rather than deferred downstream.
+- **Quality and turnover discipline**: work is expected to move through defined checkpoints, verification, and documented completion.
+- **Trust-safe external language**: bonding, insurance, and credential references should remain factual and controlled rather than promotional.
+
+These commitments are the operating layer beneath the capability descriptions that follow.
 
 ---
 
@@ -347,10 +369,14 @@ attention to detail and reliable execution.
 We're not just contractors - we're community partners invested in the success of the
 Pacific Northwest region.
 
-### Licensed & Insured
+### Licensed, Insured, and Contract-Ready
 
-Fully licensed across Washington, Oregon, and Idaho with comprehensive insurance coverage
-for your protection.
+Licensed across Washington, Oregon, and Idaho. Insurance, bonding, and related
+project protections are managed against current contract requirements and
+controlled compliance workflows rather than presented as blanket claims.
+
+When project stakeholders need proof-of-coverage or compliance documentation,
+MH routes those requests through the current controlled records and approval path.
 
 ### Quality Assurance
 

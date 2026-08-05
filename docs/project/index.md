@@ -1,7 +1,7 @@
 # Project Documentation
 
 **Category:** Project - Overview  
-**Last Updated:** July 31, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -26,6 +26,18 @@ All project documentation should preserve the same brand voice, trust framing, a
 
 **Brand Congruency:** Project planning and architecture updates must also keep typography and color guidance aligned with canonical MH standards.
 
+## Numbered Ecosystem Source Lineage
+
+Project documentation should align to the numbered intake families that govern enterprise risk, quality, project execution, safety integration, and controlled records:
+
+- `documents/input/01-core-doctrine/mh-corporate-risk-management-playbook-v1-0-draft.docx`
+- `documents/input/01-core-doctrine/mh-quality-management-plan-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-estimating-bid-package-guide-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-financial-controls-guide-v1-0-draft.docx`
+
+Use [Core Doctrine Canonical Map](../manuals/core-doctrine-canonical-map.md) and [Project Delivery Canonical Map](../manuals/project-delivery-canonical-map.md) to keep project governance, execution, and evidence language aligned with the source model.
+
 ## Available Resources
 
 ### Architecture
@@ -37,6 +49,11 @@ All project documentation should preserve the same brand voice, trust framing, a
 
 - **[Operational Hub Congruent Plan](./operational-hub-congruent-plan.md)** — Source of truth for
   website ↔ PWA ↔ document alignment and roadmap sequencing.
+
+### Controlled Operations Guidance
+
+- **[Enterprise Risk Management Guide](./enterprise-risk-management-guide.md)** — Markdown-facing baseline for enterprise risk, escalation, and evidence controls.
+- **[Quality Management Guide](./quality-management-guide.md)** — Markdown-facing baseline for quality planning, nonconformance, and turnover controls.
 
 ### Audits
 
@@ -55,3 +72,4 @@ Use these references when project planning or governance work needs to connect b
 - [Main README](../../README.md)
 - [Deployment Documentation](../deployment/index.md)
 - [Technical Documentation](../technical/index.md)
+- [Core Doctrine Canonical Map](../manuals/core-doctrine-canonical-map.md)

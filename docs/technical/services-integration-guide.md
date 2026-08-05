@@ -19,6 +19,24 @@ Transactional email notifications (form submissions, alerts) route through **n8n
 
 Service integration copy should remain construction-first, with veteran-owned framing used only as supporting trust context.
 
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this guide:
+
+- `documents/input/05-it-and-infrastructure/mh-it-digital-infrastructure-guide-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-it-data-governance-addendum-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-new-employee-orientation-guide-v1-0-draft.docx`
+
+These sources establish the controlled resilience baseline behind integrations, access, and onboarding-related system workflows.
+
+## Security and Resilience Commitments
+
+- approve access by role and business need before provisioning
+- apply least privilege and MFA requirements to supported systems whenever available
+- perform recurring access review and restore testing rather than relying on static configuration assumptions
+- report, preserve, and contain suspected incidents immediately
+- keep onboarding and offboarding access changes aligned with controlled HR and training workflows
+
 ---
 
 ## Current Status Summary

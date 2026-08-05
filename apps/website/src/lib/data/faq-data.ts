@@ -122,7 +122,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "Do you have insurance and bonding?",
         answer:
-          "Yes, absolutely. As part of our Professionalism value, we maintain comprehensive insurance coverage and bonding as required for all project types. We meet or exceed all federal, state, and local requirements for mission-ready construction. Full details are provided during the consultation process.",
+          "Yes. Insurance, bonding, and related project protections are managed against current contract requirements and controlled compliance workflows for each project. We can provide the relevant documentation and review path during the consultation process.",
       },
       {
         question: "What happens if something goes wrong?",

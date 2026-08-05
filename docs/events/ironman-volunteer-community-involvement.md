@@ -20,7 +20,7 @@
 
 ## Content and Branding Notes
 
-- Route-specific **Words from the General** quote is configured in:
+- Route-specific **Word From the General** quote is configured in:
   - `apps/website/src/content/jeremy-page-ribbons.md` (`events/ironman-volunteer`)
 - Messaging emphasizes practical leadership, relationship continuity, and regional trust-building.
 

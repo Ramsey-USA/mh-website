@@ -1,8 +1,17 @@
 # Proof and Approval Parameters (Shared Evidence Baseline)
 
 **Category:** Marketing - Strategy Baseline  
-**Last Updated:** July 31, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Active
+
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this file:
+
+- `documents/input/02-strategy-and-business-dev/mh-marketing-strategy-guide-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-marketing-flight-program-standard-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+- `documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx`
 
 ## Purpose
 
@@ -17,6 +26,7 @@ Use this file when deciding whether content is strong enough, approved enough, a
 - Publish only updates tied to actual milestones, visible field conditions, or approved stakeholder facts.
 - Prefer completed-scope photos, milestone notes, approved project facts, verified outcomes, and stakeholder-approved summaries.
 - Do not publish speculative completion claims, internal-only assumptions, or performance claims that cannot be defended later.
+- When the communication depends on project-delivery progress, verify that the underlying gate, handoff, closeout, or acceptance evidence exists before public release.
 
 ### Hold Conditions
 

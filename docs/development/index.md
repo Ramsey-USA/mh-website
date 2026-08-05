@@ -1,7 +1,7 @@
 # Development Documentation
 
 **Category:** Development - Overview  
-**Last Updated:** July 3, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -22,6 +22,7 @@ Use this section when you are implementing, refactoring, or validating website f
 - [Component Templates Index](./components/index.md) — reusable section templates and implementation notes
 - [Markdown Document Template](./quick-reference/markdown-doc-template.md) — shared structure for new docs and reference pages
 - [Brand Congruency Master Checklist](../branding/governance/brand-congruency-master-checklist.md) — required gate for branding-sensitive changes
+- [Ecosystem Destination Matrix](../manuals/ecosystem-destination-matrix.md) — canonical folder-to-destination routing for numbered intake families
 
 ## Standards (Required Reading)
 
@@ -58,6 +59,24 @@ See **[Standards Index](./standards/index.md)** for the full standards library, 
 - **[Development Standards](./standards/development-standards.md)** — Current refactor and decomposition guidance
 - **[Project Architecture](../project/architecture.md)** — Current structural analysis reference
 - **[Test Coverage — Next Steps](../archive/2026-08/testing-coverage-next-steps.md)** — Archived coverage audit roadmap
+
+## Numbered Intake Parity
+
+- Treat `documents/input/01-*` through `documents/input/10-*` as the canonical source intake model for documentation parity.
+- Use [MH Ecosystem Source Index](../manuals/mh-ecosystem-source-index.md) as the source inventory authority before updating guide copy or pipeline notes.
+- Use [Ecosystem Destination Matrix](../manuals/ecosystem-destination-matrix.md) to route each family update to the correct markdown and manifest destinations.
+- Use [IT and Infrastructure Canonical Map](../manuals/it-infrastructure-canonical-map.md) when system or onboarding changes originate from the 05 numbered intake family.
+
+## IT and Onboarding Development Commitments
+
+The current 05-family source set adds a controlled operating expectation to development-facing work:
+
+- system access should be provisioned through an approved access workflow, not ad hoc sharing
+- onboarding should complete employment, handbook, safety, and access steps before independent assignment
+- 30/60/90-day integration and competency confirmation should be treated as part of the governed onboarding lifecycle
+- offboarding should revoke access and recover property through a coordinated process rather than isolated ticket closure
+
+When implementation work touches authentication, permissions, onboarding, or admin workflows, keep those expectations aligned with the active 05 doctrine sources.
 
 ## App Operations References
 

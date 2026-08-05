@@ -228,8 +228,8 @@ export default async function ResourcesPage() {
               {isEs ? "Empleados actuales:" : "Current employees:"}
             </strong>{" "}
             {isEs
-              ? "los formatos diarios, los flujos de incidentes y los registros internos se gestionan en el Dashboard (Staff Hub), no en paginas publicas."
-              : "day-to-day forms, incident workflows, and internal records are handled in the Dashboard (Staff Hub), not on public pages."}
+              ? "los formatos diarios, los flujos de incidentes y los registros internos se gestionan en la experiencia de acceso del equipo de MH Construction, no en páginas públicas."
+              : "day-to-day forms, incident workflows, and internal records are handled in the MH Construction team access experience, not on public pages."}
           </div>
 
           {/* Manuals */}

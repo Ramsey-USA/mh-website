@@ -6,12 +6,33 @@
 
 **Last Updated:** April 15, 2026
 
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this guide:
+
+- `documents/input/05-it-and-infrastructure/mh-it-digital-infrastructure-guide-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-it-data-governance-addendum-v1-0-draft.docx`
+- `documents/input/05-it-and-infrastructure/mh-new-employee-orientation-guide-v1-0-draft.docx`
+
+Use these sources as the controlled baseline for secret provisioning, least-privilege access, restore testing, incident preservation, and coordinated onboarding/offboarding expectations.
+
 ---
 
 ## Overview
 
 This guide establishes standards for managing sensitive information like API
 keys, database credentials, and authentication tokens.
+
+Secrets handling should be treated as part of a broader controlled access and resilience workflow. Provisioning, rotation, recovery, and removal of secrets should align with approved role access, recurring review, and incident-response evidence expectations.
+
+## Access and Resilience Commitments
+
+- provision secrets by role and business need rather than by convenience
+- apply least-privilege access and MFA where the underlying platform supports it
+- review access on a recurring cadence, especially for privileged systems and production deployments
+- treat restore testing as a control alongside backup creation for secret-dependent systems
+- preserve and document evidence immediately when compromise, misuse, or suspected incident conditions are identified
+- coordinate onboarding and offboarding so secret access is granted and revoked as part of the same controlled workflow as system access
 
 ---
 

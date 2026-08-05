@@ -11,7 +11,7 @@ const ROOT = resolve(__dirname, "../..");
 const SOURCE_MD = join(ROOT, "docs/marketing/marketing-strategy-guide.md");
 const SOURCE_DOCX = join(
   ROOT,
-  "documents/input/marketing strategy/MHC-Marketing-Strategy-Guide-v3.docx",
+  "documents/input/02-strategy-and-business-dev/mh-marketing-strategy-guide-v1-0-draft.docx",
 );
 const OUTPUT_DIR = join(
   ROOT,
@@ -21,6 +21,16 @@ const MANIFEST_PATH = join(
   ROOT,
   "documents/content/marketing-strategy-guide.json",
 );
+
+export function resolveGuideSourcePath() {
+  if (existsSync(SOURCE_DOCX)) {
+    return SOURCE_DOCX;
+  }
+  if (existsSync(SOURCE_MD)) {
+    return SOURCE_MD;
+  }
+  return null;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -321,19 +331,23 @@ async function loadSectionsFromDocx(sourcePath) {
 }
 
 async function main() {
-  const sourcePath = existsSync(SOURCE_MD)
-    ? SOURCE_MD
-    : existsSync(SOURCE_DOCX)
-      ? SOURCE_DOCX
-      : null;
+  const sourcePath = resolveGuideSourcePath();
   if (!sourcePath) {
     throw new Error(`Source file not found: ${SOURCE_MD} or ${SOURCE_DOCX}`);
   }
   const usingDocx = sourcePath === SOURCE_DOCX;
 
-  const rawSections = usingDocx
+  let rawSections = usingDocx
     ? await loadSectionsFromDocx(sourcePath)
     : splitSections(await readFile(sourcePath, "utf-8"));
+
+  if (
+    rawSections.length === 0 &&
+    existsSync(SOURCE_MD) &&
+    sourcePath !== SOURCE_MD
+  ) {
+    rawSections = splitSections(await readFile(SOURCE_MD, "utf-8"));
+  }
   if (rawSections.length === 0) {
     throw new Error(`No sections found in ${sourcePath}`);
   }
@@ -408,7 +422,13 @@ async function main() {
   console.log(`   Sections → ${OUTPUT_DIR}`);
 }
 
-main().catch((error) => {
-  console.error("\n❌ Fatal error:", error);
-  process.exit(1);
-});
+const invokedDirectly =
+  process.argv[1] &&
+  resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (invokedDirectly) {
+  main().catch((error) => {
+    console.error("\n❌ Fatal error:", error);
+    process.exit(1);
+  });
+}

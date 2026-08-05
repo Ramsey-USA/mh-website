@@ -307,11 +307,11 @@ export default async function EmployeeHandbookPage() {
             Need Full Handbook Access?
           </h2>
           <p className="font-body mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-            Team members can access complete handbook workflows in the Dashboard
-            (Staff Hub). Architects, bonding banks, insurers, and compliance
-            reviewers can use this public index for current-version confirmation
-            and request credentialed access through our Safety and Compliance
-            team.
+            Team members can access complete handbook workflows in the MH
+            Construction team access experience. Architects, bonding banks,
+            insurers, and compliance reviewers can use this public index for
+            current-version confirmation and request credentialed access through
+            our Safety and Compliance team.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Button asChild variant="primary" size="sm">

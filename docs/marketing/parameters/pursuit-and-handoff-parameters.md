@@ -1,8 +1,18 @@
 # Pursuit and Handoff Parameters (Shared Continuity Baseline)
 
 **Category:** Marketing - Strategy Baseline  
-**Last Updated:** July 31, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Active
+
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this file:
+
+- `documents/input/02-strategy-and-business-dev/mh-sales-estimating-guide-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-bidpilot-sales-estimating-preconstruction-standard-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-estimating-bid-package-guide-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+- `documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx`
 
 ## Purpose
 
@@ -42,6 +52,7 @@ Use this matrix before presenting estimates, proposals, or post-contract change 
 - Transfer Mission Parameters, Ground Truth intelligence, and approved assumptions into operations in a format leadership can defend later.
 - Coordinate with marketing when post-award communication, recap assets, or public narrative may continue after award.
 - Keep owner trust, scope clarity, and approval history intact from pursuit through project execution.
+- Preserve the executed contract, budget baseline, mapped cost codes, schedule constraints, accepted value engineering, and identified high-risk items as part of the controlled handoff evidence set.
 
 ## Related Canonical Sources
 

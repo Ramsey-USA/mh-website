@@ -19,7 +19,7 @@ describe("CompanyStats", () => {
   it("renders all default stat labels", () => {
     render(<CompanyStats />);
     expect(screen.getByText("Award-Winning Safety EMR")).toBeInTheDocument();
-    expect(screen.getByText("States Licensed & Insured")).toBeInTheDocument();
+    expect(screen.getByText("States Licensed")).toBeInTheDocument();
     expect(
       screen.queryByText("Years Combined Experience"),
     ).not.toBeInTheDocument();

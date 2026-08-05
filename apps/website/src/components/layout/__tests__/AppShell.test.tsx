@@ -315,12 +315,12 @@ describe("AppShell", () => {
         footer={footerSlot}
         jeremyRibbons={{
           "projects/[slug]": {
-            eyebrow: "Words from the General",
+            eyebrow: "Word From the General",
             quote: "Project ribbon quote",
             attribution: "Jeremy Thamert, Owner & President",
           },
           default: {
-            eyebrow: "Words from the General",
+            eyebrow: "Word From the General",
             quote: "Default ribbon quote",
             attribution: "Jeremy Thamert, Owner & President",
           },
@@ -347,12 +347,12 @@ describe("AppShell", () => {
         footer={footerSlot}
         jeremyRibbons={{
           about: {
-            eyebrow: "Words from the General",
+            eyebrow: "Word From the General",
             quote: "About ribbon quote",
             attribution: "Jeremy Thamert, Owner & President",
           },
           default: {
-            eyebrow: "Words from the General",
+            eyebrow: "Word From the General",
             quote: "Default ribbon quote",
             attribution: "Jeremy Thamert, Owner & President",
           },

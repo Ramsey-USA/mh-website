@@ -1,7 +1,7 @@
 # Marketing Parameters Directory
 
 **Category:** Marketing - Strategy Baseline  
-**Last Updated:** July 31, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Active
 
 ## Quick Summary
@@ -15,6 +15,20 @@ Use this index when you need the shared rules for messaging cadence, approvals, 
 This directory is the shared parameter cluster for MH marketing and sales strategy. It centralizes the reusable baselines that should stay consistent across campaign planning, pursuit follow-up, public narrative, and post-award stakeholder communication.
 
 Use this directory when a rule set is meant to be reused across guides instead of living inside only one guide.
+
+## Numbered Ecosystem Source Lineage
+
+These shared parameter baselines should align to the numbered intake families that currently govern strategy, pursuit, handoff, and delivery continuity:
+
+- `documents/input/02-strategy-and-business-dev/mh-marketing-strategy-guide-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-marketing-flight-program-standard-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-sales-estimating-guide-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-bidpilot-sales-estimating-preconstruction-standard-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-estimating-bid-package-guide-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+- `documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx`
+
+Use [Strategy and Branding Canonical Map](../../manuals/strategy-branding-canonical-map.md) and [Project Delivery Canonical Map](../../manuals/project-delivery-canonical-map.md) to keep these shared baselines synchronized with the current source model.
 
 ## Parameter Baselines
 

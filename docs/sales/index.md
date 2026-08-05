@@ -1,7 +1,7 @@
 # Sales / Estimating Documentation
 
 **Category:** Sales / Estimating - Strategy  
-**Last Updated:** July 31, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -16,6 +16,18 @@ Use this section for sales and estimating work that happens before and around aw
 Marketing creates awareness around the client project. Sales and estimating turn that attention into qualified opportunities, scoped pricing, and durable trust with the people the client hires to shape the project.
 
 **Brand Congruency:** Sales assets must stay relationship-first, factual, veteran-owned in framing, and aligned with canonical MH naming, proof standards, and public/private communication controls.
+
+## Numbered Ecosystem Source Lineage
+
+Sales and estimating documentation should align to the canonical numbered intake families that govern pursuit, bid discipline, and handoff continuity:
+
+- `documents/input/02-strategy-and-business-dev/mh-sales-estimating-guide-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-bidpilot-sales-estimating-preconstruction-standard-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-estimating-bid-package-guide-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+- `documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx`
+
+Use [Project Delivery Canonical Map](../manuals/project-delivery-canonical-map.md) and [Strategy and Branding Canonical Map](../manuals/strategy-branding-canonical-map.md) to keep sales copy, estimate controls, and handoff language synchronized with the source model.
 
 ### Start Here
 
@@ -52,7 +64,7 @@ Use these references when sales or estimating work needs to connect back to the 
 
 - [Documentation Index](../index.md)
 - [Main README](../../README.md)
-- [Manual Family Hub](../manuals/index.md)
+- [MH Ecosystem Documentation Hub](../manuals/index.md)
 - [Brand Messaging](../branding/strategy/messaging.md)
 - [Business Services](../business/services.md)
 - [Marketing Strategy Guide](../marketing/marketing-strategy-guide.md)

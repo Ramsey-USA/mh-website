@@ -1,7 +1,7 @@
 # Development Standards
 
 **Category:** Development - Standards  
-**Last Updated:** July 10, 2026
+**Last Updated:** August 4, 2026
 
 ## Quick Summary
 
@@ -27,7 +27,7 @@ Use [Website Guardrails Coverage Map](../../branding/governance/website-guardrai
 ## Core Standards
 
 - **[Development Standards](./development-standards.md)** — Core code patterns and conventions
-- **[Marketing/Sales to Operations Manual Styling Alignment Analysis](./marketing-sales-operations-styling-alignment.md)** — Review of manual-family template differences and minimal alignment changes
+- **[Marketing/Sales to Operations Manual Styling Alignment Analysis](./marketing-sales-operations-styling-alignment.md)** — Review of numbered ecosystem template differences and minimal alignment changes
 - **[New Route Onboarding](./development-standards.md#new-route-onboarding-required)** — Required Jeremy ribbon and route-aware SEO quote integration for future indexable pages
 - **[Consistency Guide](./consistency-guide.md)** — **MANDATORY** site-wide consistency rules
 - **[Consistency Implementation Checklists](./consistency-implementation-checklists.md)** — Build-time and pre-merge execution checklist companion

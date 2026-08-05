@@ -183,7 +183,8 @@ export default async function SafetyManualContentsPage() {
             </Link>
             . Public visitors, architects, subcontractors, vendors, and future
             employees can use this index, the TOC PDF, and blank safety forms.
-            Current employees should use the Dashboard (Staff Hub).
+            Current employees should use the MH Construction team access
+            experience.
           </span>
         </div>
       </div>

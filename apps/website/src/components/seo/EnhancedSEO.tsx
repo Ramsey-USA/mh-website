@@ -611,7 +611,7 @@ export function generateConstructionFAQSchema() {
     {
       question: "What areas do you serve in the Pacific Northwest?",
       answer:
-        "MH Construction serves projects throughout the Pacific Northwest and is fully licensed in Washington, Oregon, and Idaho. We are headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and deliver work across our Tri-State footprint, with Montana expansion coming soon.",
+        "MH Construction serves projects throughout the Pacific Northwest and is licensed across Washington, Oregon, and Idaho. We are headquartered in the Tri-Cities (Pasco, Richland, Kennewick) and deliver work across our Tri-State footprint, with Montana expansion coming soon.",
     },
     {
       question: "What makes MH Construction different from other contractors?",

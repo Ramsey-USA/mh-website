@@ -3,13 +3,13 @@
 /**
  * documents/scripts/extract-word.mjs
  *
- * Extracts section text from DOCX files under documents/content/MHC-MISH-APP-59-Sections/
+ * Extracts section text from DOCX files under documents/input/04-safety-and-field-ops/
  * and writes a structured manifest to documents/content/safety-manual.json.
  *
  * Usage:
  *   npm run docs:extract-word
  *   node documents/scripts/extract-word.mjs
- *   node documents/scripts/extract-word.mjs --input documents/content/MHC-MISH-APP-59-Sections
+ *   node documents/scripts/extract-word.mjs --input documents/input/04-safety-and-field-ops
  */
 
 import { readdir, writeFile } from "fs/promises";
@@ -19,12 +19,9 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
-const DEFAULT_INPUT_DIR = join(
-  ROOT,
-  "documents/content/MHC-MISH-APP-59-Sections",
-);
+const DEFAULT_INPUT_DIR = join(ROOT, "documents/input/04-safety-and-field-ops");
 const OUTPUT = join(ROOT, "documents/content/safety-manual.json");
-const COMBINED_MANUAL_PATTERN = /^MISH_Manual.*\.docx$/i;
+const COMBINED_MANUAL_PATTERN = /^mish[-_ ]manual.*\.docx$/i;
 
 const args = process.argv.slice(2);
 const getArg = (flag) => {
@@ -75,6 +72,14 @@ function decodeBasicEntities(text) {
   );
 }
 
+function escapeHtml(text) {
+  return String(text || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
 function resolveCanonicalTitleFromBody(html, fallbackTitle) {
   // Primary source: section opener line like "MISH 01 — Safety & Health Program Overview"
   const headingMatch = html.match(/MISH\s*\d{1,2}\s*[—:-]\s*([^<\n]+)/i);
@@ -84,6 +89,33 @@ function resolveCanonicalTitleFromBody(html, fallbackTitle) {
 
   const candidate = normalizeWhitespace(decodeBasicEntities(headingMatch[1]));
   return candidate || fallbackTitle;
+}
+
+function buildAssociatedFormId(sectionNumber, index, total) {
+  const base = `FORM ${String(sectionNumber).padStart(2, "0")}`;
+  return total > 1 ? `${base}-${index + 1}` : base;
+}
+
+function parseAssociatedFormsFromTitle(title, sectionNumber) {
+  const numericSection = Number(sectionNumber);
+  if (!Number.isFinite(numericSection) || numericSection <= 0) {
+    return [];
+  }
+
+  const match = String(title || "").match(/\(\s*Forms?:\s*([^)]+)\)/i);
+  if (!match) {
+    return [];
+  }
+
+  const labels = String(match[1] || "")
+    .split(/\s*&\s*|\s+and\s+/i)
+    .map((label) => normalizeWhitespace(label))
+    .filter(Boolean);
+
+  return labels.map((label, index) => ({
+    id: buildAssociatedFormId(numericSection, index, labels.length),
+    title: label,
+  }));
 }
 
 function parseSectionFromFilename(filename) {
@@ -134,6 +166,14 @@ async function extractDocxHtml(filePath) {
   });
   // Preserve native tables/lists/paragraphs; strip surrounding whitespace runs.
   return (result.value || "").replace(/\s+/g, " ").trim();
+}
+
+async function extractDocxRawText(filePath) {
+  const mammoth = await import("mammoth");
+  const result = await mammoth.extractRawText({
+    buffer: readFileSync(filePath),
+  });
+  return String(result.value || "").trim();
 }
 
 function sanitizeCombinedManualSectionHtml(html) {
@@ -192,11 +232,76 @@ function extractSectionsFromCombinedManual(html, sourceName) {
       wordCount: htmlToPlainText(sectionHtml).split(/\s+/).filter(Boolean)
         .length,
       summary: buildSummary(htmlToPlainText(sectionHtml)),
+      forms: parseAssociatedFormsFromTitle(
+        current.title || `Section ${numberStr}`,
+        current.number,
+      ),
       body: sectionHtml,
     });
   }
 
   return extractedSections;
+}
+
+function linesToHtml(lines) {
+  return lines
+    .map((line) => normalizeWhitespace(line))
+    .filter(Boolean)
+    .map((line) => `<p>${escapeHtml(line)}</p>`)
+    .join("");
+}
+
+function extractSectionsFromCombinedManualText(text, sourceName) {
+  const lines = String(text || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const sections = new Map();
+  let current = null;
+
+  const commitCurrent = () => {
+    if (!current || current.lines.length === 0) {
+      return;
+    }
+
+    const numberStr = String(current.number).padStart(2, "0");
+    const combinedText = current.lines.join(" ");
+    sections.set(current.number, {
+      id: `section-${numberStr}`,
+      number: current.number,
+      numberStr,
+      key: `MISH_${numberStr}`,
+      title: current.title,
+      slug: buildSlug(current.title || `Section ${numberStr}`),
+      filename: `${sourceName}#MISH-${numberStr}`,
+      pages: 0,
+      wordCount: combinedText.split(/\s+/).filter(Boolean).length,
+      summary: buildSummary(combinedText),
+      forms: parseAssociatedFormsFromTitle(current.title, current.number),
+      body: linesToHtml(current.lines),
+    });
+  };
+
+  for (const line of lines) {
+    const headingMatch = /^MISH[-\s]?(\d{1,2})\.0:\s*(.+)$/i.exec(line);
+    if (headingMatch) {
+      commitCurrent();
+      current = {
+        number: Number(headingMatch[1]),
+        title: normalizeWhitespace(headingMatch[2]),
+        lines: [line],
+      };
+      continue;
+    }
+
+    if (current) {
+      current.lines.push(line);
+    }
+  }
+
+  commitCurrent();
+  return sections;
 }
 
 function htmlToPlainText(html) {
@@ -222,9 +327,9 @@ async function main() {
     COMBINED_MANUAL_PATTERN.test(basename(filePath)),
   );
 
-  if (parsed.length === 0) {
+  if (parsed.length === 0 && !combinedManualPath) {
     throw new Error(
-      "No section files matched expected MISH-## naming. Example: MISH-01_Section-Title.docx",
+      "No MISH section DOCX files or combined MISH manual were found in the selected input folder.",
     );
   }
 
@@ -256,6 +361,7 @@ async function main() {
         pages: 0,
         wordCount,
         summary,
+        forms: parseAssociatedFormsFromTitle(canonicalTitle, meta.number),
         body: html,
       });
       presentNumbers.add(meta.number);
@@ -274,6 +380,7 @@ async function main() {
         pages: 0,
         wordCount: 0,
         summary: "Content extraction failed. See source DOCX.",
+        forms: parseAssociatedFormsFromTitle(meta.title, meta.number),
         body: "",
         error: err.message,
       });
@@ -286,10 +393,18 @@ async function main() {
       `\n  ℹ  Scanning combined manual: ${basename(combinedManualPath)}`,
     );
     const combinedHtml = await extractDocxHtml(combinedManualPath);
-    const combinedSections = extractSectionsFromCombinedManual(
+    let combinedSections = extractSectionsFromCombinedManual(
       combinedHtml,
       basename(combinedManualPath),
     );
+    if (combinedSections.size === 0) {
+      console.log("  ℹ  Falling back to raw-text MISH parser.");
+      const combinedText = await extractDocxRawText(combinedManualPath);
+      combinedSections = extractSectionsFromCombinedManualText(
+        combinedText,
+        basename(combinedManualPath),
+      );
+    }
     let supplementedCount = 0;
 
     for (const [number, section] of [...combinedSections.entries()].sort(

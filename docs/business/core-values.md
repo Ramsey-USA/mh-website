@@ -1,12 +1,21 @@
 # MH Construction Core Values - Service-Earned Foundation
 
-**Last Updated:** April 15, 2026  
+**Last Updated:** August 5, 2026  
 **Status:** Official Company Values  
 **Version:** 7.0.0
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../branding/brand-constants.md).
 
 **Brand Congruency:** Core values language must remain factual, relationship-first, and consistent with approved veteran-owned framing and trust messaging.
+
+## Numbered Ecosystem Sources
+
+Current numbered ecosystem sources for this page:
+
+- `documents/input/01-core-doctrine/mh-company-bible-v1-0-draft.docx`
+- `documents/input/01-core-doctrine/mh-workforce-development-matrix-v1-0-draft.docx`
+
+Use the Company Bible as the controlled policy and operating-model source for enterprise values language. Use the Workforce Development Matrix as the controlled source for role-competency, training, and development expectations that support these values in practice.
 
 ## 4-Value Service-Earned Foundation System
 
@@ -25,8 +34,30 @@ MH Construction operates on a comprehensive 4-principle system rooted in militar
 defines who we are and how we work. Each value builds toward our ultimate goal: **Trust** - the
 culmination of all other values working together.
 
-**Strategic Focus:** These service-earned values attract professional veterans and project stakeholders who value
-military precision applied to construction excellence.
+**Strategic Focus:** These service-earned values support accountable construction leadership, trustworthy delivery, and workforce expectations that can be trained, measured, and reviewed.
+
+## Operational Alignment
+
+The current 01 Core Doctrine source set frames MH values as operating requirements, not only messaging language.
+
+- The Company Bible establishes enterprise authority, document control, and operating expectations.
+- The Workforce Development Matrix establishes role competency, required training, credential tracking, and development evidence.
+- The Employee Handbook remains the personnel-policy surface, while doctrine and workforce controls provide the operating backbone behind those expectations.
+
+When value language changes, update the related doctrine, handbook, and workforce references in the same change so messaging and operating controls do not drift.
+
+## Enterprise Operating Commitments
+
+The Company Bible makes clear that MH values are reinforced through an enterprise management system, not through slogans alone. In practice, that means these commitments sit underneath every value on this page:
+
+- **Controlled accountability**: each process, record, and approval path has an identified owner and review path.
+- **Competency before assignment**: controlled work requires verified training, qualifications, and current role readiness.
+- **Evidence-backed execution**: decisions, inspections, reviews, and follow-up actions should produce attributable records.
+- **Integrated risk, quality, and safety discipline**: values are expressed through planning, hold points, corrective action, and controlled escalation, not just intent.
+- **Document and system control**: approved sources, version history, and system-of-record boundaries matter because trust depends on consistent information.
+- **Continuous improvement**: audits, management review, and corrective action are part of how MH sustains professionalism and trust over time.
+
+These commitments are the operating layer beneath the four values below. They explain how MH turns value language into repeatable performance across leadership, field execution, administration, and client-facing delivery.
 
 ---
 

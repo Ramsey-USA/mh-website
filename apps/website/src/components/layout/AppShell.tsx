@@ -251,7 +251,7 @@ export function AppShell({
 
     return (
       ribbons["default"] ?? {
-        eyebrow: "Words from the General",
+        eyebrow: "Word From the General",
         quote:
           "My commitment on every page is the same: clear planning, disciplined execution, and communication that keeps the mission, the schedule, and the build aligned.",
         attribution: "Jeremy Thamert, Owner & President",
