@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "baseline": {
+    "name": "MH Ecosystem",
+    "version": "1.0/3.0",
+    "status": "draft",
+    "publishedDate": "2026-08-04",
+    "docxCount": 193,
+    "pdfCount": 193,
+    "authorAndChiefEditor": "Matt Ramsey",
+    "coEditor": "Todd Shoeff",
+    "finalApprover": "Jeremy Thamert"
+  },
+  "enterprisePosition": [
+    "Safety and compliance command",
+    "Disciplined preconstruction and project controls",
+    "Audit-ready handoff and closeout",
+    "Multi-state execution across Washington, Oregon, and Idaho",
+    "Veteran-led accountability and stakeholder trust"
+  ],
+  "roles": {
+    "CHENG": {
+      "title": "Chief Engineer",
+      "publicLabel": "Chief Engineer (CHENG)",
+      "accountability": ["Safety", "Marketing", "Brand", "Website", "Construction-phase stakeholder satisfaction"]
+    },
+    "CHNAV": {
+      "title": "Chief Navigation Officer",
+      "publicLabel": "Chief Navigation Officer (CHNAV)",
+      "accountability": ["Sales", "Estimating", "Preconstruction", "BidPilot"]
+    },
+    "COO": {
+      "title": "Chief Operating Officer",
+      "publicLabel": "Chief Operating Officer (COO)",
+      "accountability": ["Operations", "Executive direction of CHENG and CHNAV"]
+    },
+    "CEO": {
+      "title": "Chief Executive Officer",
+      "publicLabel": "Chief Executive Officer (CEO)",
+      "accountability": ["Final executive authority"]
+    }
+  },
+  "systems": {
+    "bidPilot": {"scope": "Sales, Estimating, and Preconstruction", "publicStatus": "in-development"},
+    "marketingFlight": {"scope": "Marketing and stakeholder relationship campaigns", "publicStatus": "in-development"},
+    "fieldCommandCenter": {"scope": "Field, fleet, equipment, warehouse, and WMS", "publicStatus": "in-development"},
+    "procore": {"scope": "Project execution and construction records", "publicStatus": "operational"},
+    "sage100": {"scope": "Financial records", "publicStatus": "operational"},
+    "inHouseServer": {"scope": "Approved digital archive", "publicStatus": "operational"}
+  },
+  "publicPlatformLabel": "Secure Internal Systems",
+  "fieldCommandCenterDevelopmentOwners": ["Chief Engineer (CHENG)", "Chief Navigation Officer (CHNAV)", "IT Specialist"],
+  "publicDownloadPolicy": {
+    "draftDownloadsAllowed": false,
+    "eligibleAfterApproval": ["Employee Handbook public edition", "MISH public edition", "Blank public forms", "Toolbox Talks", "SDS references", "Terminology library", "Approved marketing guides"],
+    "internalOnly": ["Financial controls", "IT controls", "Fleet and warehouse records", "WMS controls", "Authority matrices", "Internal forms", "System configuration", "Credentials", "Dashboard standards"]
+  },
+  "pdfGenerator": {
+    "purpose": "Apply and control MH branding standards across public Ecosystem documents",
+    "requiredMetadata": ["source version", "lifecycle status", "author", "co-editor", "final approver", "public/internal classification", "release record"]
+  },
+  "wordsFromTheGeneral": {
+    "publicationApprovedBy": "Chief Engineer (CHENG)",
+    "publishNow": true,
+    "revisionAllowed": true
+  }
+}

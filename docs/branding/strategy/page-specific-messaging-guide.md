@@ -91,7 +91,7 @@ For **page section ordering**, all lead-path pages must follow the
 **Key Message:** Built on communication and follow-through (exclusive to this group)
 
 Enterprise note: public-facing pages that support external review audiences should use
-Project Stakeholders terminology, while current employee workflows should use Dashboard (Staff Hub).
+Project Stakeholders terminology, while current employee workflows should use Secure Internal Systems.
 
 ### Group 4: Direct Communication
 

@@ -1,8 +1,10 @@
 # MH Construction Brand Constants
 
 **Category:** Branding - Single Source of Truth  
-**Last Updated:** July 23, 2026  
-**Version:** 1.5.0  
+**Last Updated:** August 5, 2026
+
+**Version:** 2.0.0-draft
+
 **Status:** ✅ Official Reference
 
 > **Purpose:** This file is the canonical reference for all brand constants, including
@@ -293,9 +295,9 @@ For PMBOK-style construction language and military-themed term mappings, see
 | Concept                      | Canonical Dual Term                                           | Scope                                                                           |
 | ---------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | Safety Program               | **MH Construction Industrial Safety & Health (MISH) Program** | Website, dashboard safety modules, MISH PDFs, safety forms docs                 |
-| Employee Operations          | **Dashboard (Staff Hub)**                                     | Employee CTAs, dashboard shell, internal workflows, handbook process docs       |
+| Employee Operations          | **Secure Internal Systems**                                  | Employee CTAs, internal workflows, handbook process docs                        |
 | Employee Handbook (Public)   | **Employee Handbook** + Public Index/Blank Forms language     | Website handbook page, handbook TOC/forms downloads, public docs                |
-| Employee Handbook (Internal) | **Employee Handbook Workflows** via **Dashboard (Staff Hub)** | Dashboard processes, internal SOPs, onboarding/training docs                    |
+| Employee Handbook (Internal) | **Employee Handbook Workflows** via **Secure Internal Systems** | Internal processes, SOPs, onboarding/training docs                           |
 | External Audience            | **Project Stakeholders**                                      | Public marketing copy, safety/compliance pages, proposals, public documentation |
 
 ### MISH / APP / SSSP Distinction
@@ -313,7 +315,7 @@ For PMBOK-style construction language and military-themed term mappings, see
 | ❌ "clients" (alone)                               | ✅ "Project Stakeholders"       |
 | ❌ "subcontractor shorthand"                       | ✅ "Trade Partners"             |
 | ❌ "vendors" (alone where partner context matters) | ✅ "Trade Partners" or "Allies" |
-| ❌ "staff portal" (for employee workflow surfaces) | ✅ "Dashboard (Staff Hub)"      |
+| ❌ "Staff Hub" or public claims that Field Command Center is operational | ✅ "Secure Internal Systems" |
 
 ---
 

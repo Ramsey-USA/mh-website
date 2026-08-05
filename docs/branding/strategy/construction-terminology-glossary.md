@@ -30,7 +30,7 @@ Primary expansion source: `documents/content/terminology-library.json`
 | MH Term Family                               | PMBOK 6 / Construction Concept         | Preferred Usage                                                  |
 | -------------------------------------------- | -------------------------------------- | ---------------------------------------------------------------- |
 | Project Stakeholders                         | Stakeholder management                 | external review audiences, owners, architects, banks, insurers   |
-| Dashboard (Staff Hub)                        | Project controls / internal operations | employee workflow, task management, internal routing             |
+| Secure Internal Systems                     | Project controls / internal operations | employee workflow, task management, internal routing             |
 | MISH Safety & Health Program (Safety Manual) | Safety management / compliance program | safety manuals, forms, handbooks, compliance docs                |
 | Scope architecture                           | Scope management                       | front-end planning, deliverable boundaries, scope-fit review     |
 | Sequence logic                               | Schedule management                    | milestone planning, work sequencing, execution cadence           |

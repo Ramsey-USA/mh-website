@@ -123,6 +123,15 @@ Canonical sources:
 - [messages/](messages)
 - [documents/](documents)
 
+Enterprise content authority:
+
+- [MH Ecosystem website authority](documents/content/mh-ecosystem/README.md)
+- [Machine-readable enterprise platform controls](documents/content/mh-ecosystem/enterprise-platform.json)
+
+The MH Ecosystem controls website descriptions of roles, systems, enterprise capabilities,
+public/private document boundaries, and document lifecycle. Draft Ecosystem documents may inform
+public copy but may not be published as downloads until their Review and approval gates close.
+
 Legacy app mirror trees under [apps/website](apps/website) are deprecated and should remain absent.
 
 After editing docs, messages, or documents, run:
@@ -130,6 +139,7 @@ After editing docs, messages, or documents, run:
 ```bash
 pnpm run docs:sync
 pnpm run docs:sync:check
+pnpm run ecosystem:authority:check
 ```
 
 If sync check fails, remove mirror duplicates under [apps/website/docs](apps/website/docs), [apps/website/messages](apps/website/messages), and [apps/website/documents](apps/website/documents).
@@ -137,6 +147,10 @@ If sync check fails, remove mirror duplicates under [apps/website/docs](apps/web
 ## Safety Manual and Handbook Pipeline
 
 Document generation commands live in [apps/website](apps/website) package scripts and use canonical sources under [documents/](documents).
+
+The PDF generator is the branding-control mechanism for public Ecosystem documents. It must apply the
+approved MH typography, colors, logo treatment, lifecycle status, source version, author, co-editor,
+final approver, public/internal classification, and reproducible release metadata.
 
 Terminology standard:
 

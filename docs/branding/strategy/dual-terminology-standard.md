@@ -38,12 +38,12 @@ Use the same primary/secondary pair across all surfaces for each concept.
 | Employee Operations        | Dashboard                    | Staff Hub                                                                              | Website employee-facing CTAs, dashboard shell, handbook workflow docs, onboarding docs |
 | External Audience          | Project Stakeholders         | owners, architects, bonding banks, insurers, subcontractors, vendors, future employees | Website marketing copy, proposal text, trust/compliance pages, public manuals/indexes  |
 | Handbook Public Surface    | Employee Handbook            | Public Index + Blank Forms                                                             | Website handbook page, downloadable handbook TOC/forms docs, handbook instructions     |
-| Internal Handbook Workflow | Employee Handbook Workflows  | Dashboard (Staff Hub) Required                                                         | Dashboard flows, handbook process docs, internal SOPs                                  |
+| Internal Handbook Workflow | Employee Handbook Workflows  | Secure Internal Systems Required                                                       | Internal workflows, handbook process docs, internal SOPs                               |
 
 Rendered pair requirement:
 
 - Safety Program surfaces should render the pair as `MISH Safety & Health Program (Safety Manual)` when shown inline.
-- Employee workflow surfaces should render the pair as `Dashboard (Staff Hub)` when shown inline.
+- Employee workflow surfaces should render `Secure Internal Systems` until Field Command Center is operational.
 
 ## Core Rule
 
@@ -53,7 +53,7 @@ For SEO-facing page names and metadata, retain construction terminology as the p
 Home remains the intentional anchor exception as `Home (Command Center)`.
 When a concept has a required primary/secondary pair above, do not collapse it to a single alias on one surface.
 When showing the pair inline in copy or labels, use the canonical rendered form exactly (for example,
-`Dashboard (Staff Hub)` and `MISH Safety & Health Program (Safety Manual)`).
+`Secure Internal Systems` and `MISH Safety & Health Program (Safety Manual)`).
 
 The terminology system may be expanded with new pairs when the business needs a stronger enterprise voice,
 provided the new language still reads like military-themed construction language and does not dilute the
@@ -73,7 +73,7 @@ Canonical navigation pattern matrix:
 3. Hamburger menu: plain-language SEO name primary with MH brand name on the secondary line.
 4. Footer navigation: plain-language SEO name primary with MH brand name as the supporting sublabel.
 5. Metadata/SEO title fields: canonical dual title helper format remains `SEO Name (MH Brand Name)` where dual titles are required.
-6. Dashboard and document surfaces: use the same concept pair as website surfaces (for example, `Dashboard (Staff Hub)` and `MISH Safety & Health Program (Safety Manual)`).
+6. Internal-system and document surfaces: use the same concept pair as website surfaces (for example, `Secure Internal Systems` and `MISH Safety & Health Program (Safety Manual)`).
 
 Browser tab implementation rule:
 
@@ -103,7 +103,7 @@ Governance companion for review and authoring rules: `docs/branding/strategy/pag
 ### Enterprise-Wide Required Pairs
 
 - `MISH Safety & Health Program (Safety Manual)`
-- `Dashboard (Staff Hub)`
+- `Secure Internal Systems`
 - `Project Stakeholders` (external audiences)
 - `Employee Handbook` for public index/form labels
 - `Employee Handbook Workflows` for dashboard/internal process language
@@ -206,7 +206,7 @@ The terminology dictionary also recognizes common page-label variants so shared 
 1. Never remove accreditation/trust surfaces while normalizing terminology.
 2. Never alter WA/OR/ID license values or verification links during terminology-only changes.
 3. Preserve factual ownership phrasing: `Founded 2010, Veteran-Owned Since January 2025`.
-4. Preserve audience clarity: external pages must address project stakeholders; internal workflows must route current employees to Dashboard (Staff Hub).
+4. Preserve audience clarity: external pages must address project stakeholders; internal workflows must route current employees to Secure Internal Systems.
 
 ## Implementation References
 
