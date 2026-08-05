@@ -309,13 +309,13 @@ For PMBOK-style construction language and military-themed term mappings, see
 
 ### Avoid These Terms
 
-| Avoid                                                                   | Use Instead                    |
-| ----------------------------------------------------------------------- | ------------------------------ |
-| ❌ "retail-buyer labels"                                                | ✅ "Project Stakeholders"      |
-| ❌ "clients" (alone)                                                    | ✅ "Project Stakeholders"      |
-| ❌ "subcontractor shorthand"                                            | ✅ "Trade Partners"            |
-| ❌ "vendors" (alone where partner context matters)                      | ✅ "Trade Partners" or "Allies"|
-| ❌ "Staff Hub" or public claims that Field Command Center is operational| ✅ "Secure Internal Systems"   |
+| Avoid                                                                    | Use Instead                     |
+| ------------------------------------------------------------------------ | ------------------------------- |
+| ❌ "retail-buyer labels"                                                 | ✅ "Project Stakeholders"       |
+| ❌ "clients" (alone)                                                     | ✅ "Project Stakeholders"       |
+| ❌ "subcontractor shorthand"                                             | ✅ "Trade Partners"             |
+| ❌ "vendors" (alone where partner context matters)                       | ✅ "Trade Partners" or "Allies" |
+| ❌ "Staff Hub" or public claims that Field Command Center is operational | ✅ "Secure Internal Systems"    |
 
 ---
 
