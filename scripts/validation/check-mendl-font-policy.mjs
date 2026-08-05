@@ -4,12 +4,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join, extname } from "node:path";
 
 const ROOT = process.cwd();
-const TARGET_DIRS = [
-  "apps/website/src",
-  "apps/dashboard/src",
-  "documents",
-  "scripts",
-];
+const TARGET_DIRS = ["apps/website/src", "documents", "scripts"];
 
 const ALLOWED_EXTENSIONS = new Set([
   ".css",

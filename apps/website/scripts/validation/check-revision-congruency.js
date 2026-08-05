@@ -3,8 +3,8 @@
 /**
  * Revision Congruency Check
  *
- * Enforces canonical revision metadata across documents, dashboard brand config,
- * and website-facing source bindings.
+ * Enforces canonical revision metadata across documents and website-facing
+ * source bindings.
  */
 
 const fs = require("node:fs");
@@ -24,14 +24,6 @@ const CANONICAL = {
 
 const FILES = {
   documentsBrand: path.join(REPO_ROOT, "documents", "brands", "mhc.json"),
-  dashboardBrand: path.join(
-    REPO_ROOT,
-    "apps",
-    "dashboard",
-    "documents",
-    "brands",
-    "mhc.json",
-  ),
   formsManifest: path.join(
     REPO_ROOT,
     "documents",
@@ -137,10 +129,13 @@ function checkGeneratorEnforcement() {
     `${rel(FILES.docsGenerator)} must enforce ENFORCED_REVISION_DATE = "${CANONICAL.revisionDate}".`,
   );
   assert(
-    /const\s+ENFORCED_REVISION_NUMBER\s*=\s*isEmployeeHandbook\s*\?\s*"4\.0"\s*:\s*"3\.0";/.test(
+    /const\s+ENFORCED_REVISION_NUMBER\s*=\s*isEmployeeHandbook\s*\?\s*"4\.0"/.test(
       src,
-    ),
-    `${rel(FILES.docsGenerator)} must enforce ENFORCED_REVISION_NUMBER = isEmployeeHandbook ? "${CANONICAL.handbookRevisionNumber}" : "${CANONICAL.revisionNumber}".`,
+    ) &&
+      /:\s*isOperationsManual\s*\?\s*"1\.0"/.test(src) &&
+      /:\s*isMarketingStrategyGuide\s*\?\s*"1\.0"/.test(src) &&
+      /:\s*"3\.0";/.test(src),
+    `${rel(FILES.docsGenerator)} must enforce ENFORCED_REVISION_NUMBER with handbook ${CANONICAL.handbookRevisionNumber}, operations/marketing 1.0, and default safety ${CANONICAL.revisionNumber}.`,
   );
 }
 
@@ -212,15 +207,28 @@ function checkWebsiteBindings() {
   );
 
   assert(
-    safetyPage.includes("Revision 3.0, effective July 1, 2026"),
-    `${rel(FILES.safetyPage)} FAQ revision statement must use "Revision 3.0, effective July 1, 2026".`,
+    /const\s+SAFETY_REVISION_NUMBER\s*=\s*SAFETY_MANUAL\?\.revisionNumber\s*\?\?\s*"3\.0";/.test(
+      safetyPage,
+    ),
+    `${rel(FILES.safetyPage)} must default SAFETY_REVISION_NUMBER to ${CANONICAL.revisionNumber}.`,
+  );
+  assert(
+    /const\s+SAFETY_REVISION_DATE\s*=\s*SAFETY_MANUAL\?\.revisionDate\s*\?\?\s*"7\/1\/2026";/.test(
+      safetyPage,
+    ),
+    `${rel(FILES.safetyPage)} must default SAFETY_REVISION_DATE to ${CANONICAL.revisionDate}.`,
+  );
+  assert(
+    /Revision\s*\$\{SAFETY_REVISION_NUMBER\},\s*effective\s*\$\{SAFETY_REVISION_DATE_EN\}/.test(
+      safetyPage,
+    ),
+    `${rel(FILES.safetyPage)} FAQ revision statement must interpolate the canonical safety revision label.`,
   );
 }
 
 function checkLegacyDateLeakage() {
   const scopedFiles = [
     FILES.documentsBrand,
-    FILES.dashboardBrand,
     FILES.formsManifest,
     FILES.docsData,
     FILES.safetyContentsPage,
@@ -243,7 +251,6 @@ function checkLegacyDateLeakage() {
 
 function main() {
   checkBrandFile(FILES.documentsBrand, "Documents brand");
-  checkBrandFile(FILES.dashboardBrand, "Dashboard brand");
   checkFormsManifest();
   checkGeneratorEnforcement();
   checkWebsiteBindings();
@@ -258,7 +265,7 @@ function main() {
   }
 
   console.log(
-    `PASS: Revision metadata is congruent at Rev ${CANONICAL.revisionNumber} / ${CANONICAL.revisionDate} across documents, dashboard, and website sources.`,
+    `PASS: Revision metadata is congruent at Rev ${CANONICAL.revisionNumber} / ${CANONICAL.revisionDate} across documents and website sources.`,
   );
 }
 

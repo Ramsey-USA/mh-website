@@ -124,16 +124,10 @@ assert_contains "apps/website/src/styles/variables.css" "--font-heading:" "Websi
 assert_contains "apps/website/src/styles/variables.css" "mendl-sans-dusk" "Website heading stack must include Mendl Sans Dusk"
 assert_contains "apps/website/src/styles/variables.css" "--font-body:" "Website typography variables must define body stack"
 assert_contains "apps/website/src/styles/variables.css" "mendl-sans-dusk" "Website body stack must include Mendl Sans Dusk"
-assert_contains "apps/dashboard/src/styles/variables.css" "--font-heading:" "Dashboard typography variables must define heading stack"
-assert_contains "apps/dashboard/src/styles/variables.css" "mendl-sans-dusk" "Dashboard heading stack must include Mendl Sans Dusk"
-assert_contains "apps/dashboard/src/styles/variables.css" "--font-body:" "Dashboard typography variables must define body stack"
-assert_contains "apps/dashboard/src/styles/variables.css" "mendl-sans-dusk" "Dashboard body stack must include Mendl Sans Dusk"
 
 assert_contains "apps/website/src/app/globals.css" "@font-face" "Website globals must define self-hosted font faces"
 assert_contains "apps/website/src/app/globals.css" "Mendl_Sans_Dusk_Regular.otf" "Website globals must load Mendl Sans Dusk"
 assert_contains "apps/website/src/app/globals.css" "Mendl_Sans_Dusk_Regular.otf" "Website globals must load Mendl Sans Dusk"
-assert_contains "apps/dashboard/src/app/layout.tsx" "use.typekit.net/jqs8bjh.css" "Dashboard layout must load MH Typekit kit for Mendl Sans Dusk"
-assert_contains "apps/dashboard/src/app/layout.tsx" "NEXT_PUBLIC_ENABLE_ADOBE_FONTS" "Dashboard layout must preserve Adobe Fonts toggle"
 
 assert_contains "documents/styles/brand.css" "--font-heading:" "Document brand stylesheet must define heading stack"
 assert_contains "documents/styles/brand.css" "mendl-sans-dusk" "Document heading stack must include Mendl Sans Dusk"

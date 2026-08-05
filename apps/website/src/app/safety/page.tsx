@@ -24,7 +24,7 @@ const MISH_PROGRAM_LABEL = "MISH Safety & Health Program (Safety Manual)";
 const SAFETY_MANUAL = manuals.find((doc) => doc.id === "safety-manual");
 const SAFETY_SECTION_COUNT = SAFETY_MANUAL?.totalSections ?? 56;
 const SAFETY_REVISION_NUMBER = SAFETY_MANUAL?.revisionNumber ?? "3.0";
-const SAFETY_REVISION_DATE = SAFETY_MANUAL?.revisionDate ?? "1/1/2026";
+const SAFETY_REVISION_DATE = SAFETY_MANUAL?.revisionDate ?? "7/1/2026";
 
 function parseRevisionDate(value: string): Date | null {
   const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);

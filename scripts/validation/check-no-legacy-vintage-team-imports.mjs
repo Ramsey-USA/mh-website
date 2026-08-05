@@ -3,10 +3,7 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import path from "node:path";
 
-const ALLOWED_FILES = new Set([
-  "apps/website/src/lib/data/team-profiles.ts",
-  "apps/dashboard/src/lib/data/team-profiles.ts",
-]);
+const ALLOWED_FILES = new Set(["apps/website/src/lib/data/team-profiles.ts"]);
 
 const ALLOWED_SYMBOL_FILES = new Set([
   "scripts/validation/check-no-legacy-vintage-team-imports.mjs",

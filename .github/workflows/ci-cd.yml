@@ -112,10 +112,6 @@ jobs:
         working-directory: apps/website
         run: npm run type-check
 
-      - name: Run TypeScript type check — dashboard
-        working-directory: apps/dashboard
-        run: npm run type-check
-
       - name: Run ESLint — website
         working-directory: apps/website
         run: npm run lint
@@ -140,14 +136,6 @@ jobs:
         working-directory: apps/website
         run: npm run seo:jeremy:metadata:check
 
-      - name: Run ESLint — dashboard
-        working-directory: apps/dashboard
-        run: npm run lint
-
-      - name: Run dashboard deploy guardrails
-        working-directory: apps/dashboard
-        run: npm run guardrails:dashboard
-
       - name: Restore Prettier cache
         uses: actions/cache@v6
         with:
@@ -170,14 +158,6 @@ jobs:
         working-directory: apps/website
         timeout-minutes: 10
         run: npm run test:ci:fast
-
-      - name: Run tests — dashboard
-        working-directory: apps/dashboard
-        run: npm run test:ci
-
-      - name: Run dashboard route smoke test
-        working-directory: apps/dashboard
-        run: npm run smoke:routes:ci
 
       - name: Check public asset budgets
         working-directory: apps/website
@@ -272,39 +252,6 @@ jobs:
       - name: Check bundle size
         working-directory: apps/website
         run: npm run bundle:report
-
-  # Build Verification — Dashboard
-  build-dashboard:
-    name: Build Next.js (Dashboard)
-    runs-on: ubuntu-latest
-    needs: [quality-checks]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Setup workspace
-        uses: ./.github/actions/setup-workspace
-        with:
-          skip-checkout: "true"
-          node-version: ${{ env.NODE_VERSION }}
-          install-command: pnpm install --frozen-lockfile --filter @mhc/dashboard... --loglevel error
-
-      - name: Restore Next.js build cache (dashboard)
-        uses: actions/cache@v6
-        with:
-          path: |
-            apps/dashboard/.next/cache
-            apps/dashboard/.open-next/cache
-          key: nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
-            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**', 'apps/dashboard/next.config.js', 'apps/dashboard/open-next.config.ts') }}
-          restore-keys: |
-            nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
-            nextjs-dashboard-cache-
-
-      - name: Build dashboard
-        working-directory: apps/dashboard
-        run: npm run build
 
   # Deploy to Cloudflare Workers — runs only on pushes to main
   deploy-website:
