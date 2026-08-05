@@ -6,8 +6,10 @@
     "lastUpdated": "2026-08-05",
     "status": "canonical-upstream-source-with-input-sync",
     "source": {
+      "ecosystemAuthority": "documents/content/mh-ecosystem/enterprise-platform.json",
       "docx": "documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx",
       "governingStandards": [
+        "documents/content/mh-ecosystem/README.md",
         "docs/branding/strategy/dual-terminology-standard.md",
         "docs/branding/strategy/universal-terminology-guide.md",
         "docs/branding/standards/seo-terminology-standard.md"
@@ -514,9 +516,9 @@
     },
     {
       "concept": "Employee Operations",
-      "primary": "Dashboard",
-      "secondary": "Staff Hub",
-      "inlineRendered": "Dashboard (Staff Hub)"
+      "primary": "Secure Internal Systems",
+      "secondary": "Field Command Center when operational",
+      "inlineRendered": "secure internal systems"
     },
     {
       "concept": "External Audience",
@@ -531,7 +533,30 @@
     {
       "concept": "Internal Handbook Workflow",
       "primary": "Employee Handbook Workflows",
-      "secondary": "Dashboard (Staff Hub) Required"
+      "secondary": "Secure Internal Systems Required"
+    }
+  ],
+  "enterpriseSystems": [
+    {
+      "name": "BidPilot",
+      "standardTerm": "Sales, Estimating, and Preconstruction system of action",
+      "publicStatus": "in-development"
+    },
+    {
+      "name": "Marketing Flight",
+      "standardTerm": "Marketing planning and stakeholder relationship system",
+      "publicStatus": "in-development"
+    },
+    {
+      "name": "Field Command Center",
+      "standardTerm": "Field, fleet, equipment, warehouse, and WMS system",
+      "publicStatus": "in-development",
+      "publicLabelUntilLaunch": "Secure Internal Systems",
+      "developmentOwners": [
+        "Chief Engineer (CHENG)",
+        "Chief Navigation Officer (CHNAV)",
+        "IT Specialist"
+      ]
     }
   ],
   "regulatoryProtectionRules": {

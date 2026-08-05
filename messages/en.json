@@ -59,7 +59,7 @@
           "crm": {
             "category": "Technology",
             "title": "Integrated CRM & Project Management Platform",
-            "description": "High-Level CRM rollout is in progress to improve communication, real-time updates, and handoff continuity from first contact to close-out.",
+            "description": "Secure internal systems are being developed to strengthen communication, controlled updates, and handoff continuity from first contact through closeout.",
             "date": "Mar 2026",
             "linkText": "Learn More"
           },
@@ -92,7 +92,7 @@
             "linkText": "Our Values"
           }
         },
-        "footerNote": "Full blog integration with High-Level CRM is in progress"
+        "footerNote": "Marketing Flight integration for coordinated project storytelling is in development"
       },
       "nextSteps": {
         "sectionTitle": "Next Steps",
@@ -596,7 +596,7 @@
       "subtitle": "MH Construction",
       "title": "MISH Safety & Health Program",
       "para1": "Our {sectionCount}-section written safety program covers every OSHA-required construction safety topic and is delivered in the field as our Safety Manual. From fall protection and excavation to electrical safety and hazardous materials, it is the operational foundation for every site we run.",
-      "para2": "Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification standards, WISHA, Oregon OSHA, and Idaho requirements. The Dean Gold Standards are applied in our MISH authoring model, with Dean serving as one of MHC's primary safety advocates. Available in full to bonding banks, insurers, architects, and project partners through our secure Dashboard (Staff Hub). Legacy APP references remain in historical source material for continuity.",
+      "para2": "Aligned with federal OSHA 29 CFR 1926, AGC CSEA prequalification standards, WISHA, Oregon OSHA, and Idaho requirements. The Dean Gold Standards are applied in our MISH authoring model, with Dean serving as one of MHC's primary safety advocates. Available in full to bonding banks, insurers, architects, and project partners through our Secure Internal Systems. Legacy APP references remain in historical source material for continuity.",
       "imageCaption1": "{sectionCount} Sections",
       "imageCaption2": "~350 pages · All OSHA topics covered",
       "commitments": {
@@ -683,7 +683,7 @@
     "snapshots": {
       "subtitle": "Safety Documentation",
       "title": "Lives in the App",
-      "para1": "The MH Construction app is our Dashboard (Staff Hub) for the MISH Safety & Health Program (Safety Manual), field forms, toolbox talks, incident reports, and Employee Handbook workflows. Real-time snapshots of job-site safety compliance. Free to install. Role-gated for team members. Current employees are instructed to use the Dashboard (Staff Hub) for daily operations.",
+      "para1": "The MH Construction app provides role-gated access to secure internal systems for the MISH Safety & Health Program (Safety Manual), field forms, toolbox talks, incident reports, and Employee Handbook workflows. Field Command Center is being developed through the Chief Engineer, Chief Navigation Officer, and IT Specialist. Current employees receive controlled access instructions for daily operations.",
       "contactNote": "Bonding teams, insurers, architects, subcontractors, and trade partners may request documentation access through our office at",
       "contactOr": "or",
       "footNote": "Safety documentation and workflows are available for authorized team members in the MH Construction app. Use the Install App button in the site footer."
@@ -1368,14 +1368,14 @@
     },
     "status": {
       "title": "Current Status",
-      "description": "No handbook file has been uploaded yet. This placeholder preserves Staff Hub navigation and keeps the destination stable for future publishing."
+      "description": "Public handbook information and blank forms are maintained here. Controlled employee workflows remain in secure internal systems."
     },
     "nextStep": {
       "title": "Next Step",
       "description": "Upload the Word handbook source and we will connect it to the existing document generation process to publish a versioned PDF."
     },
     "cta": {
-      "backToHub": "Back to Staff Hub",
+      "backToHub": "Back to Employee Resources",
       "viewResources": "View Field Resources"
     }
   },
@@ -2260,7 +2260,7 @@
         "title": "Portfolio",
         "description": "Explore completed projects showcasing quality craftsmanship across commercial, industrial, and government sectors.",
         "button": "View Complete Portfolio",
-        "note": "Detailed portfolio and High-Level CRM integration coming soon"
+        "note": "Detailed portfolio and Marketing Flight integration are in development"
       },
       "accreditations": {
         "title": "Accredited & Certified",

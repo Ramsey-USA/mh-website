@@ -1,5 +1,13 @@
 # Jeremy Page Ribbons
 
+Status: Approved for publication
+
+Approval authority: Chief Engineer (CHENG)
+
+Approved: August 5, 2026
+
+Revision control: Quotes may be corrected through the standard content-review workflow.
+
 ## home
 
 eyebrow: Word From the General

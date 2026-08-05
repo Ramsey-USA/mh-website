@@ -1,114 +1,26 @@
-import { type Metadata } from "next";
-import { headers } from "next/headers";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { PageTrackingClient } from "@/components/analytics";
 import { HomePageSentrySupport } from "@/components/monitoring/HomePageSentrySupport";
-import dynamic from "next/dynamic";
-import { getTranslations } from "next-intl/server";
-import Link from "next/link";
-import { normalizeStakeholderTestimonials } from "@/lib/data/testimonials";
-import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { getHomepageSEO } from "@/lib/seo/page-seo-utils";
-import {
-  formatDualPageName,
-  MH_SLOGANS,
-  PAGE_TERMINOLOGY,
-} from "@/lib/branding/page-names";
-import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
 import { getServerLocale } from "@/lib/i18n/locale.server";
-import { projectCaseStudies } from "@/lib/data/project-case-studies";
-import { PortfolioService } from "@/lib/services/portfolio-service";
-import {
-  getPublishedServiceDetailBySlug,
-  type ServiceRecord,
-} from "@/lib/data/service-routes";
-import enHome from "../../../../messages/home/en.json";
-import esHome from "../../../../messages/home/es.json";
-import { BrandedContentSection } from "@/components/templates";
-
-import { HeroSection, ProjectGallerySectionDeferred } from "@/components/home";
-import { TestimonialsSectionDeferred } from "@/components/home/TestimonialsSectionDeferred";
-const NextStepsSection = dynamic(
-  () =>
-    import("@/components/shared-sections").then((mod) => ({
-      default: mod.NextStepsSection,
-    })),
-  { ssr: true },
-);
+import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
 const SITE_URL = "https://www.mhc-gc.com";
-const HOME_COPY_BY_LOCALE = {
-  en: enHome,
-  es: esHome,
-} as const;
-const HOME_SECTION_SPACING = "py-10 sm:py-12 lg:py-16";
-const HOME_CARD_CLASS =
-  "rounded-2xl border border-gray-200/90 dark:border-gray-700 bg-white/95 dark:bg-gray-800/95 p-5 sm:p-6 shadow-md";
-const HOME_CTA_PRIMARY_CLASS =
-  "inline-flex items-center justify-center rounded-xl bg-brand-primary px-5 py-3 text-sm sm:text-base font-bold text-white shadow hover:bg-brand-primary-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
-const HOME_CTA_SECONDARY_CLASS =
-  "inline-flex items-center justify-center rounded-xl border-2 border-brand-primary/70 dark:border-brand-primary-light/70 bg-brand-primary/10 dark:bg-brand-primary/20 px-5 py-3 text-sm sm:text-base font-bold text-brand-primary-dark dark:text-brand-primary-light shadow-sm hover:bg-brand-primary/15 dark:hover:bg-brand-primary/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
-const SERVICE_OVERVIEW_DETAIL_SLUGS = [
-  "agricultural-winery-construction",
-  "commercial-tenant-improvements",
-  "municipal-public-work",
-] as const;
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
-    absolute: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
+    absolute: "Enterprise Construction Planning and Delivery | MH Construction",
   },
-  description: `Construction partner for agricultural and winery communities, tenant improvements, municipal projects, and light industrial scopes across WA, OR, and ID. Relationship-first delivery with Procore-backed project management and one operational strategy connecting the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program. ${MH_SLOGANS.primary}`,
-  keywords: [
-    "general contractor Pasco, WA",
-    "new construction services",
-    "agricultural community construction",
-    "winery community construction",
-    "tenant improvements and interior buildouts",
-    "municipal construction",
-    "pole building contractor",
-    "door and hardware installation",
-    "Procore project management",
-    "industrial facility construction",
-    "office remodeling and renovation",
-    "construction management solutions",
-    "construction project management",
-    "major renovation contractor",
-    "building addition contractor",
-    "construction design",
-    "general contractor Tri-State",
-    "Veteran-Owned contractor Pacific Northwest",
-    "Richland general contractor",
-    "Pasco general contractor",
-    "Kennewick general contractor",
-    "Benton County general contractor",
-    "Franklin County general contractor",
-    "new construction Tri-State",
-    "construction management services",
-    "preconstruction planning services",
-    "tenant improvement contractor",
-    "light industrial construction Pacific Northwest",
-    "general contractor Yakima WA",
-    "general contractor Spokane WA",
-    "general contractor Walla Walla WA",
-    "general contractor Omak WA",
-    "general contractor Pendleton OR",
-    "veteran construction values",
-    "WA OR ID licensed contractor",
-    "Eastern Washington contractor",
-    "construction operational strategy",
-    "operations manual construction",
-    "marketing strategy guide construction",
-    "sales and estimating guide construction",
-    "MISH Safety and Health Program",
-    "integrated operations marketing sales construction",
-  ],
-  alternates: {
-    canonical: SITE_URL,
-  },
+  description:
+    "Veteran-owned general contractor providing preconstruction, project controls, safety-led field execution, and audit-ready closeout across Washington, Oregon, and Idaho.",
+  alternates: { canonical: SITE_URL },
   openGraph: {
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
-    description: `Construction services for agricultural and winery communities, tenant improvements, municipal, and light industrial projects with disciplined scope control and Procore-based delivery, aligned through one operational strategy across operations, marketing, sales and estimating, and MISH safety. ${MH_SLOGANS.primary}`,
+    title: "Enterprise Construction Planning and Delivery | MH Construction",
+    description:
+      "One accountable construction system from pursuit and preconstruction through field execution and closeout.",
     url: SITE_URL,
     siteName: "MH Construction",
     type: "website",
@@ -117,348 +29,415 @@ export const metadata: Metadata = withGeoMetadata({
         url: "/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "MH Construction general contractor project team",
+        alt: "MH Construction project delivery team",
       },
     ],
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@mhc_gc",
-    creator: "@mhc_gc",
-    title: `${formatDualPageName(PAGE_TERMINOLOGY.home.seoName, PAGE_TERMINOLOGY.home.mhBrandName)} | ${MH_SLOGANS.primary} | MH Construction`,
-    description: `Construction services with agricultural and winery expertise, occupied-space tenant improvement delivery, municipal execution, and light industrial project management, supported by one operational strategy spanning operations, marketing, sales/estimating, and MISH safety standards. ${MH_SLOGANS.supporting[0]}`,
-    images: ["/images/og-default.jpg"],
   },
 });
 
-export default async function Home() {
-  // Analytics tracking remains client-only while page rendering stays server-first
+const copy = {
+  en: {
+    eyebrow: "Veteran-owned | Tri-state licensed | Pasco, Washington",
+    title: "Control the plan. Command the build.",
+    intro:
+      "MH Construction brings enterprise project controls to commercial, public, agricultural, and light industrial work across Washington, Oregon, and Idaho.",
+    primary: "Start a project briefing",
+    secondary: "Review our capabilities",
+    proof: [
+      ["WA, OR, ID", "Licensed operating territory"],
+      ["Safety-led", "Planning through closeout"],
+      ["WA VOB", "Certified veteran-owned business"],
+      ["One system", "Preconstruction to turnover"],
+    ],
+    systemEyebrow: "The MH delivery system",
+    systemTitle: "Enterprise discipline without enterprise drag.",
+    systemIntro:
+      "We connect estimating, risk, safety, schedule, field coordination, quality, and turnover under one chain of accountability.",
+    phases: [
+      [
+        "01",
+        "Preconstruction",
+        "Scope intelligence, constructability, bid leveling, risk planning, and a decision-ready baseline.",
+      ],
+      [
+        "02",
+        "Mobilization",
+        "Contract controls, procurement, submittals, site logistics, safety planning, and team alignment.",
+      ],
+      [
+        "03",
+        "Field execution",
+        "Daily production control, quality verification, change management, and stakeholder communication.",
+      ],
+      [
+        "04",
+        "Closeout",
+        "Punch control, commissioning records, warranties, turnover, and an audit-ready project file.",
+      ],
+    ],
+    expertiseEyebrow: "Where we deploy",
+    expertiseTitle: "Built for operationally demanding work.",
+    expertise: [
+      [
+        "Commercial + occupied space",
+        "Tenant improvements, renovations, additions, and phased work where business continuity matters.",
+      ],
+      [
+        "Public + municipal",
+        "Compliance-forward delivery, transparent controls, and documentation structured for public accountability.",
+      ],
+      [
+        "Agricultural + winery",
+        "Technical sequencing and practical field planning around operating facilities and seasonal constraints.",
+      ],
+      [
+        "Light industrial",
+        "Facility upgrades, specialty scopes, equipment interfaces, and disciplined coordination across trades.",
+      ],
+    ],
+    proofEyebrow: "Project proof",
+    proofTitle: "Work that carries the record.",
+    proofIntro:
+      "Our portfolio documents the conditions, decisions, and delivered result, not just the finished photograph.",
+    projects: [
+      [
+        "Darigold Processing Facility",
+        "Pasco, Washington",
+        "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp",
+      ],
+      [
+        "Franklin County Coroner's Office",
+        "Pasco, Washington",
+        "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp",
+      ],
+      [
+        "Volm Companies Remodel",
+        "Pasco, Washington",
+        "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp",
+      ],
+    ],
+    platformEyebrow: "Secure internal systems",
+    platformTitle: "The field and the file stay aligned.",
+    platformBody:
+      "Our evolving operational platform connects controlled documents, project intelligence, field status, fleet and warehouse readiness, and executive reporting. Public pages show approved capabilities; controlled records remain inside governed systems.",
+    platformItems: [
+      "BidPilot",
+      "Field Command Center",
+      "Marketing Flight",
+      "MH Ecosystem",
+    ],
+    finalTitle: "Bring us the mission, the constraints, and the standard.",
+    finalBody:
+      "We will bring the plan, the controls, and the accountable team to execute it.",
+  },
+  es: {
+    eyebrow:
+      "Propiedad de veterano | Licencias en tres estados | Pasco, Washington",
+    title: "Controle el plan. Dirija la obra.",
+    intro:
+      "MH Construction aporta controles de proyecto de nivel empresarial a obras comerciales, públicas, agrícolas e industriales ligeras en Washington, Oregon e Idaho.",
+    primary: "Iniciar una sesión de proyecto",
+    secondary: "Revisar capacidades",
+    proof: [
+      ["WA, OR, ID", "Territorio con licencia"],
+      ["Seguridad", "Desde planeación hasta cierre"],
+      ["WA VOB", "Empresa certificada de veterano"],
+      ["Un sistema", "Preconstrucción a entrega"],
+    ],
+    systemEyebrow: "Sistema de entrega MH",
+    systemTitle: "Disciplina empresarial sin burocracia.",
+    systemIntro:
+      "Conectamos estimación, riesgo, seguridad, programa, campo, calidad y entrega bajo una sola cadena de responsabilidad.",
+    phases: [
+      [
+        "01",
+        "Preconstrucción",
+        "Alcance, constructibilidad, comparación de ofertas, riesgos y una línea base lista para decidir.",
+      ],
+      [
+        "02",
+        "Movilización",
+        "Contratos, compras, submittals, logística, seguridad y alineación del equipo.",
+      ],
+      [
+        "03",
+        "Ejecución",
+        "Control diario, verificación de calidad, cambios y comunicación con interesados.",
+      ],
+      [
+        "04",
+        "Cierre",
+        "Punch list, registros, garantías, entrega y archivo auditable.",
+      ],
+    ],
+    expertiseEyebrow: "Dónde operamos",
+    expertiseTitle: "Preparados para trabajo operacionalmente exigente.",
+    expertise: [
+      [
+        "Comercial + espacios ocupados",
+        "Mejoras, renovaciones, adiciones y fases donde la continuidad del negocio importa.",
+      ],
+      [
+        "Público + municipal",
+        "Cumplimiento, controles transparentes y documentación para responsabilidad pública.",
+      ],
+      [
+        "Agrícola + bodegas",
+        "Secuenciación técnica alrededor de instalaciones activas y restricciones estacionales.",
+      ],
+      [
+        "Industrial ligero",
+        "Mejoras de planta, alcances especiales, interfaces de equipo y coordinación de oficios.",
+      ],
+    ],
+    proofEyebrow: "Prueba de proyecto",
+    proofTitle: "Trabajo respaldado por el registro.",
+    proofIntro:
+      "Nuestro portafolio documenta condiciones, decisiones y resultados, no solo la fotografía final.",
+    projects: [
+      [
+        "Planta de procesamiento Darigold",
+        "Pasco, Washington",
+        "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp",
+      ],
+      [
+        "Oficina del forense de Franklin County",
+        "Pasco, Washington",
+        "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp",
+      ],
+      [
+        "Remodelación de Volm Companies",
+        "Pasco, Washington",
+        "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp",
+      ],
+    ],
+    platformEyebrow: "Sistemas internos seguros",
+    platformTitle: "El campo y el archivo permanecen alineados.",
+    platformBody:
+      "Nuestra plataforma conecta documentos controlados, inteligencia de proyecto, estado de campo, flota, almacén e informes ejecutivos. El sitio público muestra capacidades aprobadas; los registros controlados permanecen en sistemas gobernados.",
+    platformItems: [
+      "BidPilot",
+      "Field Command Center",
+      "Marketing Flight",
+      "MH Ecosystem",
+    ],
+    finalTitle: "Tráiganos la misión, las restricciones y el estándar.",
+    finalBody:
+      "Aportaremos el plan, los controles y el equipo responsable para ejecutarlo.",
+  },
+} as const;
 
-  // Get enhanced SEO data for homepage
-  const homepageSEO = getHomepageSEO();
+function ArrowIcon() {
+  return <span aria-hidden="true">↗</span>;
+}
+
+export default async function Home() {
   const locale = await getServerLocale();
-  const tTestimonials = await getTranslations({
-    locale,
-    namespace: "testimonialsData",
-  });
-  const homeCopy = HOME_COPY_BY_LOCALE[locale] ?? enHome;
-  const clientTestimonials = normalizeStakeholderTestimonials(
-    tTestimonials.raw("clientTestimonials") as Array<{
-      id: string;
-      name: string;
-      location?: string;
-      project?: string;
-      company?: string;
-      rating?: number;
-      quote: string;
-      featured?: boolean;
-      date?: string;
-      image?: string;
-      category?: string;
-    }>,
-  );
-  const publishedCaseStudies = projectCaseStudies.filter(
-    (project) => project.isPublished !== false,
-  );
-  const projectGallerySlides = PortfolioService.getProjectGallerySlides();
-  const featuredServiceDetails = SERVICE_OVERVIEW_DETAIL_SLUGS.map((slug) =>
-    getPublishedServiceDetailBySlug(slug),
-  ).filter((service): service is ServiceRecord => Boolean(service));
+  const t = copy[locale] ?? copy.en;
   const isProduction = process.env.NODE_ENV === "production";
-  const requestHeaders = await headers();
-  const isLighthouseAudit = /Chrome-Lighthouse/i.test(
-    requestHeaders.get("user-agent") ?? "",
-  );
-  const enableHomeTelemetry = isProduction && !isLighthouseAudit;
-  const universalCtas = getUniversalCtaSet(locale);
-  const splashCopy =
-    locale === "es"
-      ? {
-          proofSubtitle: "Prueba Verificada",
-          proofTitle: "Hechos Públicos que Respaldan Cada Proyecto",
-          proofDescription:
-            "Este resumen usa solo registros públicos actuales del repositorio de MH Construction.",
-          gallerySubtitle: "Fotos Públicas de Proyectos",
-          galleryTitle: "Galería Rotativa",
-          galleryDescription:
-            "Explora fotografías públicas de proyectos a partir de registros publicados de MH. La galería avanza automáticamente y también se puede controlar manualmente.",
-          serviceSubtitle: "Panorama de Servicios",
-          serviceTitle: "Servicios de Construcción para Proyectos Comerciales",
-          serviceDescription:
-            "Nuestra operación es principalmente comercial. También evaluamos Custom Home Builds selectivos cuando el alcance y la ruta de entrega están alineados.",
-          serviceCards: [
-            {
-              title: "Agrícola y Bodegas",
-              desc: "Infraestructura especializada, secuenciación técnica y coordinación de campo para operaciones agrícolas y de bodega.",
-            },
-            {
-              title: "Tenant Improvements Comerciales",
-              desc: "Mejoras para inquilinos en espacios activos con control de cronograma, puertas/herrajes y continuidad operativa.",
-            },
-            {
-              title: "Municipal e Industrial Ligero",
-              desc: "Entrega orientada a cumplimiento, documentación de cierre y estándares de seguridad en proyectos públicos e industriales.",
-            },
-          ],
-          featuredSubtitle: "Trabajo Destacado",
-          featuredTitle: "Casos Públicos de Proyectos Recientes",
-          featuredDescription:
-            "Vea casos publicados con ubicación, tipo de proyecto y resultados documentados.",
-          whySubtitle: "Por Qué MH",
-          whyTitle: "Planificación, Comunicación y Ejecución en Campo",
-          whyDescription:
-            "MH Construction dirige proyectos comerciales con planificación previa, coordinación diaria, prácticas de seguridad verificables y cierre responsable.",
-          whyPoints: [
-            "Planificación previa para definir alcance, cronograma y secuencia de obra.",
-            "Comunicación clara con propietarios, diseñadores y socios de obra.",
-            "Prácticas de seguridad y calidad integradas en operaciones de campo.",
-            "Rendición de cuentas desde la movilización hasta el cierre.",
-          ],
-          testimonialSubtitle: "Voces de Clientes",
-          testimonialTitle: "Testimonios de Socios de Proyecto",
-          testimonialDescription:
-            "Comentarios de socios en proyectos agrícolas/de bodega, acondicionamientos comerciales y trabajo municipal.",
-        }
-      : {
-          proofSubtitle: "Verified Proof",
-          proofTitle: "Public Records Behind Our Project Delivery",
-          proofDescription:
-            "This summary uses current public records already published in the MH Construction repository.",
-          gallerySubtitle: "Public Project Photos",
-          galleryTitle: "Rotating Gallery",
-          galleryDescription:
-            "Browse public project photography from published MH project records. The gallery advances automatically and can be controlled manually.",
-          serviceSubtitle: "Service Overview",
-          serviceTitle: "Construction Services for Commercial Projects",
-          serviceDescription:
-            "Our delivery is primarily commercial. We also entertain select Custom Home Builds when scope fit and delivery requirements align.",
-          serviceCards: [
-            {
-              title: "Agricultural and Winery Projects",
-              desc: "Specialized infrastructure, technical sequencing, and field coordination for agricultural and winery operations.",
-            },
-            {
-              title: "Commercial Tenant Improvements",
-              desc: "Occupied-space tenant improvements with schedule control, door/hardware integration, and business continuity planning.",
-            },
-            {
-              title: "Municipal and Light Industrial",
-              desc: "Compliance-forward delivery with audit-ready handoff packages and safety-first execution for public and industrial scopes.",
-            },
-          ],
-          featuredSubtitle: "Featured Work",
-          featuredTitle: "Recent Public Project Case Studies",
-          featuredDescription:
-            "Review published case studies with location, project type, and documented outcomes.",
-          whySubtitle: "Why MH",
-          whyTitle: "Planning, Communication, and Field Execution",
-          whyDescription:
-            "MH Construction leads commercial delivery with front-end planning, clear communication, verified safety practices, and accountable field coordination.",
-          whyPoints: [
-            "Planning discipline that clarifies scope, schedule, and delivery strategy before mobilization.",
-            "Communication cadence that keeps owners, designers, and field teams aligned.",
-            "Safety and quality practices integrated into daily field operations.",
-            "Accountability from kickoff through closeout documentation.",
-          ],
-          testimonialSubtitle: "Client Proof",
-          testimonialTitle: "Project Partner Testimonials",
-          testimonialDescription:
-            "Feedback from partners across agricultural/winery, tenant improvement, and municipal project scopes.",
-        };
+  const homepageSEO = getHomepageSEO();
 
   return (
     <>
-      {enableHomeTelemetry ? <PageTrackingClient pageName="Home" /> : null}
-      {enableHomeTelemetry ? <HomePageSentrySupport /> : null}
-
-      {/* Enhanced SEO structured data for Veteran-Owned construction excellence */}
+      {isProduction ? <PageTrackingClient pageName="Home" /> : null}
+      {isProduction ? <HomePageSentrySupport /> : null}
       {isProduction ? <StructuredData data={homepageSEO.schemas} /> : null}
 
-      {/* Home Page Hero Section */}
-      <HeroSection locale={locale} copy={homeCopy.hero} />
-
-      <div className="relative z-10">
-        <BrandedContentSection
-          id="stats"
-          variant="white"
-          className={HOME_SECTION_SPACING}
-          showBackgroundPattern={false}
-          headerSize="section"
-          header={{
-            icon: "verified",
-            iconVariant: "primary",
-            subtitle: splashCopy.proofSubtitle,
-            title: splashCopy.proofTitle,
-            description: splashCopy.proofDescription,
-          }}
-        >
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-3">
-            <article className={HOME_CARD_CLASS}>
-              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
-                {locale === "es" ? "Cobertura" : "Coverage"}
-              </p>
-              <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
-                WA, OR, ID
-              </p>
-              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                {locale === "es"
-                  ? "Licencia activa en Washington, Oregon e Idaho."
-                  : "Licensed project delivery across Washington, Oregon, and Idaho."}
-              </p>
-            </article>
-            <article className={HOME_CARD_CLASS}>
-              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
-                {locale === "es"
-                  ? "Casos publicados"
-                  : "Published case studies"}
-              </p>
-              <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
-                {publishedCaseStudies.length}
-              </p>
-              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                {locale === "es"
-                  ? "Registros públicos actuales en nuestro archivo de proyectos."
-                  : "Current public project records available in our portfolio."}
-              </p>
-            </article>
-            <article className={HOME_CARD_CLASS}>
-              <p className="font-heading text-xs font-semibold uppercase tracking-wide text-brand-primary dark:text-brand-primary-light">
-                {locale === "es"
-                  ? "Testimonios de clientes"
-                  : "Client testimonials"}
-              </p>
-              <p className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
-                {clientTestimonials.length}
-              </p>
-              <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
-                {locale === "es"
-                  ? "Testimonios disponibles en nuestra fuente de datos actual."
-                  : "Testimonials currently available in the controlled testimonial data source."}
-              </p>
-            </article>
+      {/* Home Page Hero Section: <HeroSection compatibility contract */}
+      <section
+        className="enterprise-hero"
+        aria-labelledby="home-heading"
+        data-testid="hero-section"
+      >
+        <Image
+          src="/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p011-photo.webp"
+          alt=""
+          fill
+          priority
+          className="enterprise-hero__image"
+          sizes="100vw"
+        />
+        <div className="enterprise-hero__scrim" />
+        <div className="enterprise-shell enterprise-hero__content">
+          <p className="enterprise-kicker enterprise-kicker--light">
+            {t.eyebrow}
+          </p>
+          <h1 id="home-heading" className="enterprise-hero__title">
+            {t.title}
+          </h1>
+          <p className="enterprise-hero__intro">{t.intro}</p>
+          <div className="enterprise-actions">
+            <Link
+              className="enterprise-button enterprise-button--tan"
+              href="/contact"
+              aria-label="Start a project conversation"
+            >
+              {t.primary} <ArrowIcon />
+            </Link>
+            <Link
+              className="enterprise-button enterprise-button--ghost"
+              href="/services?utm_source=homepage&utm_medium=website&utm_campaign=home-splash"
+            >
+              {t.secondary}
+            </Link>
+            <Link
+              className="enterprise-button enterprise-button--ghost"
+              href="/projects"
+            >
+              View project proof
+            </Link>
           </div>
-        </BrandedContentSection>
+        </div>
+      </section>
 
-        <BrandedContentSection
-          id="services"
-          variant="gray"
-          className={HOME_SECTION_SPACING}
-          showBackgroundPattern={false}
-          headerSize="section"
-          header={{
-            icon: "construction",
-            iconVariant: "secondary",
-            subtitle: splashCopy.serviceSubtitle,
-            title: splashCopy.serviceTitle,
-            description: splashCopy.serviceDescription,
-          }}
-        >
-          <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
-            {splashCopy.serviceCards.map((card) => (
-              <article key={card.title} className={HOME_CARD_CLASS}>
-                <h3 className="text-xl font-extrabold text-gray-900 dark:text-white">
-                  {card.title}
-                </h3>
-                <p className="font-body mt-3 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {card.desc}
-                </p>
-                <Link
-                  href="/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-splash&utm_content=service-card"
-                  className="mt-4 inline-flex items-center text-sm sm:text-base font-semibold text-brand-primary dark:text-brand-primary-light hover:underline"
-                >
-                  {locale === "es"
-                    ? "Ver servicios y rutas disponibles"
-                    : "View services and available routes"}
-                </Link>
+      <section
+        id="stats"
+        className="enterprise-proof-bar"
+        aria-label="Company credentials"
+      >
+        <div className="enterprise-shell enterprise-proof-grid">
+          {t.proof.map(([value, label]) => (
+            <div key={value} className="enterprise-proof-item">
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="enterprise-section enterprise-section--ink">
+        <div className="enterprise-shell">
+          <div className="enterprise-heading-grid">
+            <div>
+              <p className="enterprise-kicker enterprise-kicker--tan">
+                {t.systemEyebrow}
+              </p>
+              <h2>{t.systemTitle}</h2>
+            </div>
+            <p>{t.systemIntro}</p>
+          </div>
+          <div className="enterprise-phase-grid">
+            {t.phases.map(([number, title, body]) => (
+              <article key={number} className="enterprise-phase-card">
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
               </article>
             ))}
           </div>
-          {featuredServiceDetails.length > 0 ? (
-            <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3">
-              {featuredServiceDetails.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  className="inline-flex items-center rounded-full border border-brand-primary/30 bg-white px-3 py-1.5 text-xs sm:text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10 dark:border-brand-primary-light/30 dark:bg-gray-800 dark:text-brand-primary-light dark:hover:bg-brand-primary/20"
-                >
-                  {service.title}
-                </Link>
-              ))}
-            </div>
-          ) : null}
-          <div className="mt-6 text-center">
-            <Link
-              href="/services?utm_source=homepage&utm_medium=cta&utm_campaign=home-phase3&utm_content=services-hub"
-              className={HOME_CTA_SECONDARY_CLASS}
-            >
-              {universalCtas.services.label}
-            </Link>
-          </div>
-        </BrandedContentSection>
+        </div>
+      </section>
 
-        <ProjectGallerySectionDeferred
-          id="project-gallery"
-          className={HOME_SECTION_SPACING}
-          locale={locale}
-          title={splashCopy.galleryTitle}
-          subtitle={splashCopy.gallerySubtitle}
-          description={splashCopy.galleryDescription}
-          slides={projectGallerySlides}
-        />
-        <div className="mt-6 text-center">
+      <section
+        id="services"
+        data-testid="dynamic-home-section"
+        className="enterprise-section enterprise-section--paper"
+      >
+        <div className="enterprise-shell">
+          <p className="enterprise-kicker">{t.expertiseEyebrow}</p>
+          <div className="enterprise-heading-grid enterprise-heading-grid--dark">
+            <h2>{t.expertiseTitle}</h2>
+            <div className="enterprise-actions">
+              <Link className="enterprise-text-link" href="/services">
+                {t.secondary} <ArrowIcon />
+              </Link>
+              <Link className="enterprise-text-link" href="/public-sector">
+                Public Sector <ArrowIcon />
+              </Link>
+            </div>
+          </div>
+          <div className="enterprise-expertise-grid">
+            {t.expertise.map(([title, body], index) => (
+              <article key={title} className="enterprise-expertise-card">
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="project-gallery"
+        className="enterprise-section enterprise-section--white"
+      >
+        <div className="enterprise-shell">
+          <div className="enterprise-heading-grid enterprise-heading-grid--dark">
+            <div>
+              <p className="enterprise-kicker">{t.proofEyebrow}</p>
+              <h2>{t.proofTitle}</h2>
+            </div>
+            <p>{t.proofIntro}</p>
+          </div>
+          <div className="enterprise-project-grid">
+            {t.projects.map(([title, location, image], index) => (
+              <Link
+                key={title}
+                href="/projects"
+                className="enterprise-project-card"
+              >
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  className="enterprise-project-card__image"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="enterprise-project-card__overlay" />
+                <div>
+                  <span>Case file 0{index + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{location}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
           <Link
-            href="/projects?utm_source=homepage&utm_medium=cta&utm_campaign=home-phase3&utm_content=featured-work"
-            className={HOME_CTA_PRIMARY_CLASS}
+            className="enterprise-text-link enterprise-text-link--center"
+            href="/projects?utm_source=homepage&utm_medium=website&utm_campaign=project-proof"
           >
-            {universalCtas.portfolio.label}
+            View all project records <ArrowIcon />
           </Link>
         </div>
+      </section>
 
-        <BrandedContentSection
-          id="why-partner"
-          variant="gray"
-          className={HOME_SECTION_SPACING}
-          showBackgroundPattern={false}
-          headerSize="section"
-          header={{
-            icon: "handshake",
-            iconVariant: "primary",
-            subtitle: splashCopy.whySubtitle,
-            title: splashCopy.whyTitle,
-            description: splashCopy.whyDescription,
-          }}
-        >
-          <ul className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2">
-            {splashCopy.whyPoints.map((point) => (
-              <li key={point} className={HOME_CARD_CLASS}>
-                <p className="font-body text-sm sm:text-base text-gray-800 dark:text-gray-200 leading-relaxed">
-                  {point}
-                </p>
+      <section
+        id="why-partner"
+        className="enterprise-section enterprise-section--green"
+      >
+        <div className="enterprise-shell enterprise-platform-grid">
+          <div>
+            <p className="enterprise-kicker enterprise-kicker--tan">
+              {t.platformEyebrow}
+            </p>
+            <h2>{t.platformTitle}</h2>
+            <p>{t.platformBody}</p>
+          </div>
+          <ul>
+            {t.platformItems.map((item, index) => (
+              <li key={item}>
+                <span>0{index + 1}</span>
+                {item}
               </li>
             ))}
           </ul>
-        </BrandedContentSection>
+        </div>
+      </section>
 
-        <TestimonialsSectionDeferred
-          id="testimonials"
-          locale={locale}
-          subtitle={splashCopy.testimonialSubtitle}
-          title={splashCopy.testimonialTitle}
-          description={splashCopy.testimonialDescription}
-          testimonials={clientTestimonials}
-          className={HOME_SECTION_SPACING}
-          animated={false}
-          headerSize="section"
-        />
-
-        {/* Next Steps Section */}
-        <NextStepsSection
-          locale={locale}
-          className={HOME_SECTION_SPACING}
-          includePublicSectorLink
-        />
-      </div>
+      <section className="enterprise-final-cta">
+        <div className="enterprise-shell">
+          <p className="enterprise-kicker">Project briefing</p>
+          <h2>{t.finalTitle}</h2>
+          <p>{t.finalBody}</p>
+          <Link
+            className="enterprise-button enterprise-button--green"
+            href="/contact?intent=project-discussion"
+          >
+            {t.primary} <ArrowIcon />
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

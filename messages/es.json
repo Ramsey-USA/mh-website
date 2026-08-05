@@ -59,7 +59,7 @@
           "crm": {
             "category": "Tecnología",
             "title": "Plataforma Integrada de CRM y Gestión de Proyectos",
-            "description": "La implementación de High-Level CRM está en marcha para brindar comunicación fluida, actualizaciones en tiempo real y una mejor experiencia del cliente.",
+            "description": "Se están desarrollando sistemas internos seguros para fortalecer la comunicación, las actualizaciones controladas y la continuidad desde el primer contacto hasta el cierre.",
             "date": "Mar 2026",
             "linkText": "Conocer Más"
           },
@@ -92,7 +92,7 @@
             "linkText": "Nuestros Valores"
           }
         },
-        "footerNote": "Integración completa del blog con la plataforma High-Level CRM en progreso"
+        "footerNote": "La integración de Marketing Flight para coordinar historias de proyectos está en desarrollo"
       },
       "nextSteps": {
         "sectionTitle": "Próximos Pasos",
@@ -596,7 +596,7 @@
       "subtitle": "MH Construction",
       "title": "Programa de Seguridad y Salud MISH",
       "para1": "Nuestro programa de seguridad escrito de {sectionCount} secciones cubre cada tema de seguridad en construcción requerido por OSHA y se entrega en campo como nuestro Manual de Seguridad. Desde protección contra caídas y excavación hasta seguridad eléctrica y materiales peligrosos, es la base operativa de cada sitio que dirigimos.",
-      "para2": "Alineado con OSHA federal 29 CFR 1926, estándares de precalificación AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho. Los Dean Gold Standards se aplican en nuestro modelo de autoría MISH, con Dean como uno de los principales defensores de seguridad de MHC. Disponible en su totalidad para bancos de fianzas, aseguradoras, arquitectos y socios de proyecto a través de nuestro Dashboard (Staff Hub) seguro. Las referencias históricas al APP permanecen en el material fuente para continuidad.",
+      "para2": "Alineado con OSHA federal 29 CFR 1926, estándares de precalificación AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho. Los Dean Gold Standards se aplican en nuestro modelo de autoría MISH, con Dean como uno de los principales defensores de seguridad de MHC. Disponible en su totalidad para bancos de fianzas, aseguradoras, arquitectos y socios de proyecto a través de nuestros Sistemas Internos Seguros. Las referencias históricas al APP permanecen en el material fuente para continuidad.",
       "imageCaption1": "{sectionCount} Secciones",
       "imageCaption2": "~350 páginas · Todos los temas OSHA cubiertos",
       "commitments": {
@@ -683,7 +683,7 @@
     "snapshots": {
       "subtitle": "Documentación de Seguridad",
       "title": "Vive en la Aplicación",
-      "para1": "La aplicación de MH Construction es nuestro Dashboard (Staff Hub) para el Programa de Seguridad y Salud MISH (Manual de Seguridad), formularios de campo, charlas de seguridad, reportes de incidentes y flujos de trabajo del Manual del Empleado. Capturas en tiempo real del cumplimiento de seguridad en el sitio de trabajo. Instalación gratuita. Acceso restringido por rol para miembros del equipo. Los empleados actuales tienen instrucciones de usar el Dashboard (Staff Hub) para operaciones diarias.",
+      "para1": "La aplicación de MH Construction brinda acceso por función a sistemas internos seguros para el Programa de Seguridad y Salud MISH (Manual de Seguridad), formularios de campo, charlas de seguridad, reportes de incidentes y flujos de trabajo del Manual del Empleado. Field Command Center está siendo desarrollado por el Chief Engineer, el Chief Navigation Officer y el IT Specialist. Los empleados reciben instrucciones de acceso controlado para las operaciones diarias.",
       "contactNote": "Los equipos de fianzas, aseguradoras, arquitectos, subcontratistas y proveedores pueden solicitar acceso a la documentación a través de nuestra oficina en",
       "contactOr": "o",
       "footNote": "La documentación de seguridad y los flujos de trabajo están disponibles para los miembros autorizados del equipo en la aplicación de MH Construction. Use el botón Instalar Aplicación en el pie de página del sitio."
