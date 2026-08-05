@@ -244,7 +244,11 @@ export default async function Home() {
       {isProduction ? <StructuredData data={homepageSEO.schemas} /> : null}
 
       {/* Home Page Hero Section: <HeroSection compatibility contract */}
-      <section className="enterprise-hero" aria-labelledby="home-heading">
+      <section
+        className="enterprise-hero"
+        aria-labelledby="home-heading"
+        data-testid="hero-section"
+      >
         <Image
           src="/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p011-photo.webp"
           alt=""
@@ -265,7 +269,8 @@ export default async function Home() {
           <div className="enterprise-actions">
             <Link
               className="enterprise-button enterprise-button--tan"
-              href="/contact?intent=project-discussion"
+              href="/contact"
+              aria-label="Start a project conversation"
             >
               {t.primary} <ArrowIcon />
             </Link>
@@ -275,11 +280,18 @@ export default async function Home() {
             >
               {t.secondary}
             </Link>
+            <Link
+              className="enterprise-button enterprise-button--ghost"
+              href="/projects"
+            >
+              View project proof
+            </Link>
           </div>
         </div>
       </section>
 
       <section
+        id="stats"
         className="enterprise-proof-bar"
         aria-label="Company credentials"
       >
@@ -318,15 +330,21 @@ export default async function Home() {
 
       <section
         id="services"
+        data-testid="dynamic-home-section"
         className="enterprise-section enterprise-section--paper"
       >
         <div className="enterprise-shell">
           <p className="enterprise-kicker">{t.expertiseEyebrow}</p>
           <div className="enterprise-heading-grid enterprise-heading-grid--dark">
             <h2>{t.expertiseTitle}</h2>
-            <Link className="enterprise-text-link" href="/services">
-              {t.secondary} <ArrowIcon />
-            </Link>
+            <div className="enterprise-actions">
+              <Link className="enterprise-text-link" href="/services">
+                {t.secondary} <ArrowIcon />
+              </Link>
+              <Link className="enterprise-text-link" href="/public-sector">
+                Public Sector <ArrowIcon />
+              </Link>
+            </div>
           </div>
           <div className="enterprise-expertise-grid">
             {t.expertise.map(([title, body], index) => (
@@ -340,7 +358,10 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="enterprise-section enterprise-section--white">
+      <section
+        id="project-gallery"
+        className="enterprise-section enterprise-section--white"
+      >
         <div className="enterprise-shell">
           <div className="enterprise-heading-grid enterprise-heading-grid--dark">
             <div>
@@ -374,14 +395,17 @@ export default async function Home() {
           </div>
           <Link
             className="enterprise-text-link enterprise-text-link--center"
-            href="/projects"
+            href="/projects?utm_source=homepage&utm_medium=website&utm_campaign=project-proof"
           >
             View all project records <ArrowIcon />
           </Link>
         </div>
       </section>
 
-      <section className="enterprise-section enterprise-section--green">
+      <section
+        id="why-partner"
+        className="enterprise-section enterprise-section--green"
+      >
         <div className="enterprise-shell enterprise-platform-grid">
           <div>
             <p className="enterprise-kicker enterprise-kicker--tan">
