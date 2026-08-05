@@ -1,4 +1,4 @@
-# MH Construction Brand Constants
+﻿# MH Construction Brand Constants
 
 **Category:** Branding - Single Source of Truth  
 **Last Updated:** August 5, 2026
@@ -292,13 +292,13 @@ For PMBOK-style construction language and military-themed term mappings, see
 
 ### Enterprise Dual Terminology Matrix
 
-| Concept                      | Canonical Dual Term                                           | Scope                                                                           |
-| ---------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Safety Program               | **MH Construction Industrial Safety & Health (MISH) Program** | Website, dashboard safety modules, MISH PDFs, safety forms docs                 |
-| Employee Operations          | **Secure Internal Systems**                                  | Employee CTAs, internal workflows, handbook process docs                        |
-| Employee Handbook (Public)   | **Employee Handbook** + Public Index/Blank Forms language     | Website handbook page, handbook TOC/forms downloads, public docs                |
-| Employee Handbook (Internal) | **Employee Handbook Workflows** via **Secure Internal Systems** | Internal processes, SOPs, onboarding/training docs                           |
-| External Audience            | **Project Stakeholders**                                      | Public marketing copy, safety/compliance pages, proposals, public documentation |
+| Concept                      | Canonical Dual Term                                             | Scope                                                                           |
+| ---------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Safety Program               | **MH Construction Industrial Safety & Health (MISH) Program**   | Website, dashboard safety modules, MISH PDFs, safety forms docs                 |
+| Employee Operations          | **Secure Internal Systems**                                     | Employee CTAs, internal workflows, handbook process docs                        |
+| Employee Handbook (Public)   | **Employee Handbook** + Public Index/Blank Forms language       | Website handbook page, handbook TOC/forms downloads, public docs                |
+| Employee Handbook (Internal) | **Employee Handbook Workflows** via **Secure Internal Systems** | Internal processes, SOPs, onboarding/training docs                              |
+| External Audience            | **Project Stakeholders**                                        | Public marketing copy, safety/compliance pages, proposals, public documentation |
 
 ### MISH / APP / SSSP Distinction
 
@@ -309,13 +309,13 @@ For PMBOK-style construction language and military-themed term mappings, see
 
 ### Avoid These Terms
 
-| Avoid                                              | Use Instead                     |
-| -------------------------------------------------- | ------------------------------- |
-| ❌ "retail-buyer labels"                           | ✅ "Project Stakeholders"       |
-| ❌ "clients" (alone)                               | ✅ "Project Stakeholders"       |
-| ❌ "subcontractor shorthand"                       | ✅ "Trade Partners"             |
-| ❌ "vendors" (alone where partner context matters) | ✅ "Trade Partners" or "Allies" |
-| ❌ "Staff Hub" or public claims that Field Command Center is operational | ✅ "Secure Internal Systems" |
+| Avoid                                                                   | Use Instead                    |
+| ----------------------------------------------------------------------- | ------------------------------ |
+| ❌ "retail-buyer labels"                                                 | ✅ "Project Stakeholders"       |
+| ❌ "clients" (alone)                                                     | ✅ "Project Stakeholders"       |
+| ❌ "subcontractor shorthand"                                             | ✅ "Trade Partners"             |
+| ❌ "vendors" (alone where partner context matters)                       | ✅ "Trade Partners" or "Allies" |
+| ❌ "Staff Hub" or public claims that Field Command Center is operational | ✅ "Secure Internal Systems"    |
 
 ---
 
@@ -356,7 +356,7 @@ in the construction market.
 
 | Tier | Level               | Certification | Certifying Body                               | Status               |
 | ---- | ------------------- | ------------- | --------------------------------------------- | -------------------- |
-| 1    | State               | WA DVA VOB    | Washington State Dept. of Veterans Affairs    | ✅ Certified (2026)  |
+| 1    | State               | WA DVA VOB    | Washington State Dept. of Veterans Affairs    | ✅ Certified (2026)   |
 | 2    | Federal             | SBA VetCert   | U.S. Small Business Administration            | 🔄 Actively Pursuing |
 | 3    | Private / Corporate | NaVOBA        | National Veteran-Owned Business Association   | 🔄 Actively Pursuing |
 | 4    | Private / Corporate | NVBDC         | National Veteran Business Development Council | 🔄 Actively Pursuing |
@@ -499,7 +499,7 @@ in the construction market.
 
 | Status     | Format          |
 | ---------- | --------------- |
-| Active     | `✅ Active`     |
+| Active     | `✅ Active`      |
 | Draft      | `📝 Draft`      |
 | Deprecated | `⚠️ Deprecated` |
 | Archived   | `📦 Archived`   |
