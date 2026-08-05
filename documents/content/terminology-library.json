@@ -6,6 +6,7 @@
     "lastUpdated": "2026-08-05",
     "status": "canonical-upstream-source-with-input-sync",
     "source": {
+      "ecosystemAuthority": "documents/content/mh-ecosystem/enterprise-platform.json",
       "docx": "documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx",
       "governingStandards": [
         "documents/content/mh-ecosystem/README.md",
