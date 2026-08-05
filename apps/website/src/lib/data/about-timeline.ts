@@ -102,7 +102,7 @@ export const aboutTimelineSteps: TimelineStep[] = [
     num: 13,
     icon: CONTENT_ICONS.rocket_launch,
     title: "Integrated CRM Platform",
-    desc: "Implementing High-Level CRM for seamless communication and real-time project updates—leveraging technology to enhance the personal service that defines MH partnerships. (2025)",
+    desc: "Building secure internal systems for disciplined preconstruction, marketing, field coordination, and accountable project handoffs. BidPilot, Marketing Flight, and Field Command Center are being developed through the Chief Engineer, Chief Navigation Officer, and IT Specialist. (2025-present)",
     position: "left",
   },
   {
