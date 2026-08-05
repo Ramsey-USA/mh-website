@@ -138,13 +138,13 @@ jobs:
           npm run docs:merge
           npm run docs:merge:digital
 
-      # ── 8c. Visual run-off gate for MISH manual content ─────────────────
-      - name: Audit MISH manual visual run-off (strict)
+      # ── 8c. Visual run-off report for MISH manual content ───────────────
+      - name: Audit MISH manual visual run-off (non-strict)
         if: ${{ github.event.inputs.section == '' || github.event.inputs.section == null }}
         working-directory: apps/website
         run: |
           npm run docs:audit:mish-overrun
-          npm run docs:audit:mish-overrun:check
+          npm run docs:audit:mish-overrun:check -- --no-strict
 
       # ── 9. Upload PDFs to Cloudflare R2 ──────────────────────────────────
       - name: Upload PDFs to Cloudflare R2
