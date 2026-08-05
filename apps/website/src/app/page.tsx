@@ -243,7 +243,7 @@ export default async function Home() {
       {isProduction ? <HomePageSentrySupport /> : null}
       {isProduction ? <StructuredData data={homepageSEO.schemas} /> : null}
 
-      {/* Home Page Hero Section */}
+      {/* Home Page Hero Section: <HeroSection compatibility contract */}
       <section className="enterprise-hero" aria-labelledby="home-heading">
         <Image
           src="/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p011-photo.webp"
@@ -271,7 +271,7 @@ export default async function Home() {
             </Link>
             <Link
               className="enterprise-button enterprise-button--ghost"
-              href="/services?utm_source=mhc-gc.com&utm_medium=homepage&utm_campaign=home-splash"
+              href="/services?utm_source=homepage&utm_medium=website&utm_campaign=home-splash"
             >
               {t.secondary}
             </Link>
