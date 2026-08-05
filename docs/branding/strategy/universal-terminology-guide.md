@@ -30,6 +30,8 @@ when the change improves clarity without weakening brand congruency.
 Primary source for the current terminology model: `documents/content/terminology-library.json`
 ("MH Construction Brand Terms Library", Version 2.1, last updated 08/05/2026).
 
+Regulatory and canonical terminology baseline source: `docs/branding/standards/mhc-terms.docx`.
+
 For PMBOK 6 alignment and construction vocabulary mapping, use
 [Construction Terminology Glossary](./construction-terminology-glossary.md) as the companion reference.
 

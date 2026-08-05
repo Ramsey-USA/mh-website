@@ -12,6 +12,8 @@ create stronger enterprise language as long as clarity, trust, and brand congrue
 Primary source for current terminology expansion: `documents/content/terminology-library.json`
 ("MH Construction Brand Terms Library", Version 2.1, last updated 08/05/2026).
 
+Regulatory and canonical terminology baseline source: `docs/branding/standards/mhc-terms.docx`.
+
 **Brand Congruency:** Dual terminology must never weaken trust content, factual veteran-owned framing, or accessibility clarity.
 
 This standard governs:
