@@ -552,7 +552,7 @@
         "program": {
           "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de {sectionCount} Secciones",
           "body": "MH Construction mantiene un programa de seguridad escrito integral (Revisión {revisionNumber}, vigente desde {revisionDate}) que cubre todos los temas requeridos por OSHA. Alineado con 29 CFR 1926, AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho.",
-          "tag": "Rev {revisionNumber} · {revisionDate}"
+          "tag": "Revisión {revisionNumber} · {revisionDate}"
         }
       }
     },
