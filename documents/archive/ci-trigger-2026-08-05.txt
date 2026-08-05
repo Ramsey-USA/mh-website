@@ -1,0 +1,1 @@
+CI trigger note: no content changes; this file exists to trigger the Generate Safety Manual PDFs workflow after CI gate fixes.
