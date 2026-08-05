@@ -17,6 +17,8 @@ Use this section when you are implementing, refactoring, or validating website f
 
 ### Start Here
 
+- [Enterprise Website Overhaul Phase 1](./enterprise-website-overhaul-phase-1.md) - governance-first mission scope, authority baseline, validation gates, and release boundary
+
 - [Standards Index](./standards/index.md) — the main entry point for implementation rules
 - [Quick Reference Index](./quick-reference/index.md) — compact references for common implementation work
 - [Component Templates Index](./components/index.md) — reusable section templates and implementation notes
