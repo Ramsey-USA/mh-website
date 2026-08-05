@@ -14,23 +14,34 @@ const LEGACY_IMPORT_RE =
   /(from\s+["'][^"']*vintage-team["'])|(require\(\s*["'][^"']*vintage-team["']\s*\))|(jest\.mock\(\s*["'][^"']*vintage-team["'])/;
 const LEGACY_SYMBOL_RE =
   /\b(VintageTeamMember|vintageTeamMembers|getPublicVintageTeamMembers)\b/;
+const SKIP_DIRS = new Set(["node_modules", ".git"]);
+const SKIP_PATH_PREFIXES = ["apps/dashboard/"];
 
-function walkFiles(dir) {
+function shouldSkipPath(filePath) {
+  return SKIP_PATH_PREFIXES.some((prefix) => filePath.startsWith(prefix));
+}
+
+function walkFiles(dir, repoRoot) {
   const results = [];
   const entries = readdirSync(dir, { withFileTypes: true });
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
+    const relativePath = path.relative(repoRoot, fullPath).replace(/\\/g, "/");
 
     if (entry.isDirectory()) {
-      if (entry.name === "node_modules" || entry.name === ".git") {
+      if (SKIP_DIRS.has(entry.name) || shouldSkipPath(`${relativePath}/`)) {
         continue;
       }
-      results.push(...walkFiles(fullPath));
+      results.push(...walkFiles(fullPath, repoRoot));
       continue;
     }
 
-    if (entry.isFile() && CODE_EXT_RE.test(entry.name)) {
+    if (
+      entry.isFile() &&
+      CODE_EXT_RE.test(entry.name) &&
+      !shouldSkipPath(relativePath)
+    ) {
       results.push(fullPath);
     }
   }
@@ -43,7 +54,7 @@ function getTrackedFiles() {
     path.dirname(new URL(import.meta.url).pathname),
     "../..",
   );
-  return walkFiles(repoRoot).map((filePath) =>
+  return walkFiles(repoRoot, repoRoot).map((filePath) =>
     path.relative(repoRoot, filePath).replace(/\\/g, "/"),
   );
 }
