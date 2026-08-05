@@ -22,6 +22,19 @@ if (authority.baseline?.status !== "draft") {
   errors.push("MH Ecosystem baseline must remain draft until the Review gate.");
 }
 
+const baseline = authority.baseline ?? {};
+if (baseline.docxCount !== 193 || baseline.pdfCount !== 193) {
+  errors.push("Complete Master Draft baseline must contain 193 DOCX/PDF pairs.");
+}
+
+if (baseline.packageCount !== 10 || baseline.companyBibleSeparate !== true) {
+  errors.push("Release structure must retain ten ZIP packages and a separately controlled Company Bible.");
+}
+
+if (baseline.releaseArtifact !== "mh-ecosystem-draft-2026-08-04.zip") {
+  errors.push("Complete Master Draft release artifact identity is incorrect.");
+}
+
 if (authority.publicDownloadPolicy?.draftDownloadsAllowed !== false) {
   errors.push("Draft Ecosystem downloads must remain blocked from public release.");
 }

@@ -14,7 +14,9 @@
 
 ## Purpose
 
-The MH Ecosystem is the controlling informational source for website language, document generation, operating-system terminology, and public descriptions of MH Construction's enterprise capabilities. The August 4, 2026 master Draft contains 193 DOCX/PDF pairs across ten numbered packages plus the MH Company Bible.
+The MH Ecosystem is the controlling informational source for website language, document generation, operating-system terminology, and public descriptions of MH Construction's enterprise capabilities. The August 4, 2026 Complete Master Draft package contains 193 DOCX/PDF pairs across ten numbered ZIP packages. The MH Company Bible remains controlled separately, as required by the release structure.
+
+The controlled release artifact is `mh-ecosystem-draft-2026-08-04.zip`. Its August 5 source-index reconciliation confirms 193 readable DOCX files, 193 paired PDFs, 527 rendered PDF pages, ten valid ZIP packages, and the Employee Handbook in Package 08.
 
 The source package remains outside the public repository because it includes internal operating controls. This directory records the approved website-facing authority model without exposing private finance, IT, fleet, warehouse, personnel, or dashboard material.
 
