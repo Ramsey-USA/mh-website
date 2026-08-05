@@ -100,7 +100,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         {
           sourceType: "document",
           reference:
-            "documents/input/project-stories/volm-companies/2026-07_volm-companies-remodel_story_v1.docx",
+            "documents/content/project-stories/volm-companies-remodel.json",
           note: "Story record documents ROW19-0275 permit closeout.",
         },
       ],
@@ -139,7 +139,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Preserved operational continuity at an active regional distribution site.",
     ],
     evidenceSourceFile:
-      "documents/input/project-stories/volm-companies/2026-07_volm-companies-remodel_story_v1.docx",
+      "documents/content/project-stories/volm-companies-remodel.json",
     evidenceNotes:
       "Story record documents ROW19-0275 permit closeout, controlled industrial sequencing, and final photography on 2020-02-05.",
     reviewStatus: "Verified public summary",
@@ -160,7 +160,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         {
           sourceType: "document",
           reference:
-            "documents/input/project-stories/darigold-processing-plant/2026-07_darigold-pasco-production-facility_story_v1.docx",
+            "documents/content/project-stories/darigold-pasco-production-facility.json",
           note: "Package-level scope remains pending verification.",
         },
       ],
@@ -199,7 +199,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Published verification-safe SEO content without overclaiming unverified scope ownership.",
     ],
     evidenceSourceFile:
-      "documents/input/project-stories/darigold-processing-plant/2026-07_darigold-pasco-production-facility_story_v1.docx",
+      "documents/content/project-stories/darigold-pasco-production-facility.json",
     evidenceNotes:
       "Story record confirms 2025-10-22 exterior closeout documentation while MH package-level scope remains pending verification.",
     reviewStatus: "Pending verification",
@@ -220,7 +220,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         {
           sourceType: "document",
           reference:
-            "documents/input/project-stories/franklin-county-morgue/2026-07_franklin-county-coroners-office-morgue_story_v1.docx",
+            "documents/content/project-stories/franklin-county-coroners-office-morgue.json",
           note: "Story record confirms RFQ and design milestones.",
         },
       ],
@@ -259,7 +259,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Improved coordination with law enforcement, funeral-service, and donor-recovery partners.",
     ],
     evidenceSourceFile:
-      "documents/input/project-stories/franklin-county-morgue/2026-07_franklin-county-coroners-office-morgue_story_v1.docx",
+      "documents/content/project-stories/franklin-county-coroners-office-morgue.json",
     evidenceNotes:
       "Story record confirms the RFQ and design milestones, 2025-09-01 completion, and the 2025-10-29 public opening.",
     reviewStatus: "Verified public summary",

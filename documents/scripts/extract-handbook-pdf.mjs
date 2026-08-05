@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable no-console, prefer-template */
 
-import { execFileSync } from "node:child_process";
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -9,20 +8,16 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "../..");
 const MANIFEST_PATH = join(ROOT, "documents/content/employee-handbook.json");
-const DEFAULT_SOURCE_PDF = join(
+const DEFAULT_SOURCE_DOCX = join(
   ROOT,
-  "documents/content/mhc-employee-handbook-2026/sections/MHC_Employee_Handbook_Rev4.pdf",
+  "documents/input/08-forms-ehb/mh-employee-handbook-v3-0-draft.docx",
 );
 const DEFAULT_SECTION_DIR = join(
   ROOT,
   "documents/content/mhc-employee-handbook-2026/sections",
 );
-const HANDBOOK_HEADER = "MH CONSTRUCTION, INC. • EMPLOYEE HANDBOOK";
-const FOOTER_PATTERN =
-  /^MH Construction, Inc\. \| Employee Handbook Rev .* \| Confidential(?: \d+)?$/;
-const PAGE_NUMBER_PATTERN = /^\d+\.?$/;
-const REVISION_LINE_PATTERN = /^Revision\s+\d+(?:\.\d+)?\s+•\s+Effective\s+/i;
-const CHAPTER_START_PATTERN = /^CH\s+(\d{2}):\s*(.*)$/;
+const SOURCE_PAGE_PATTERN = /^SOURCE PAGE\s+(\d+)$/i;
+const SECTION_START_PATTERN = /^SECTION\s+(\d{2})\s+REVISION$/i;
 const SINGLE_MARKER_PATTERN = /^\d+\.$/;
 const HEADING_PATTERN = /^[A-Z0-9&/(),.' -]+$/;
 const KNOWN_ACRONYMS = new Map([
@@ -52,37 +47,23 @@ const getArg = (flag) => {
   return index === -1 ? null : args[index + 1] || null;
 };
 
-const SOURCE_PDF = getArg("--input")
+const SOURCE_DOCX = getArg("--input")
   ? resolve(ROOT, getArg("--input"))
-  : DEFAULT_SOURCE_PDF;
+  : DEFAULT_SOURCE_DOCX;
 const SECTION_DIR = getArg("--output-dir")
   ? resolve(ROOT, getArg("--output-dir"))
   : DEFAULT_SECTION_DIR;
 
-function runTextTool(command, toolArgs) {
-  try {
-    return execFileSync(command, toolArgs, {
-      cwd: ROOT,
-      encoding: "utf-8",
-      stdio: ["ignore", "pipe", "pipe"],
-    });
-  } catch (error) {
-    const message = error.stderr?.trim() || error.message;
-    throw new Error(`${command} failed: ${message}`);
-  }
+async function extractRawDocxText(docxPath) {
+  const mammoth = await import("mammoth");
+  const result = await mammoth.extractRawText({ path: docxPath });
+  return String(result.value || "").replace(/\r\n?/g, "\n");
 }
 
-function parsePdfPageCount(pdfPath) {
-  const pdfInfo = runTextTool("pdfinfo", [pdfPath]);
-  const match = pdfInfo.match(/^Pages:\s+(\d+)$/m);
-  return match ? Number(match[1]) : 0;
-}
-
-function extractRawPdfText(pdfPath) {
-  return runTextTool("pdftotext", ["-raw", pdfPath, "-"]).replace(
-    /\r\n?/g,
-    "\n",
-  );
+function parseDocxPageCount(rawText) {
+  const matches = [...String(rawText || "").matchAll(/SOURCE PAGE\s+(\d+)/gi)];
+  if (matches.length === 0) return 0;
+  return Math.max(...matches.map((match) => Number(match[1]) || 0));
 }
 
 function normalizeWhitespace(text) {
@@ -127,10 +108,16 @@ function toTitleCase(text) {
 function shouldSkipLine(line) {
   return (
     !line ||
-    line === HANDBOOK_HEADER ||
-    FOOTER_PATTERN.test(line) ||
-    PAGE_NUMBER_PATTERN.test(line) ||
-    REVISION_LINE_PATTERN.test(line)
+    SOURCE_PAGE_PATTERN.test(line) ||
+    /^MH CONSTRUCTION\s+[•|].*PASCO/i.test(line) ||
+    /^HB\s+\d{2}$/i.test(line) ||
+    /^HANDBOOK SECTION\s+\d{2}$/i.test(line) ||
+    /^TAB\s+\d{2}\s+REV\s+/i.test(line) ||
+    /^SECTION\s+\d{2}\s+REVISION$/i.test(line) ||
+    /^DOCUMENT$/i.test(line) ||
+    /^PROGRAM$/i.test(line) ||
+    /^FOUNDED 2010, VETERAN-OWNED SINCE JANUARY 2025$/i.test(line) ||
+    /^VETERAN-\s*OWNED .* BUILT ON QUALITY, BACKED BY TRUST$/i.test(line)
   );
 }
 
@@ -138,7 +125,6 @@ function splitChapters(rawText) {
   const lines = rawText.split("\n");
   const chapters = new Map();
   let currentNumber = null;
-  let capturingTitle = false;
 
   for (const rawLine of lines) {
     const line = normalizeWhitespace(rawLine.replace(/\f/g, " "));
@@ -149,15 +135,10 @@ function splitChapters(rawText) {
       continue;
     }
 
-    const chapterMatch = line.match(CHAPTER_START_PATTERN);
+    const chapterMatch = line.match(SECTION_START_PATTERN);
     if (chapterMatch) {
       currentNumber = Number(chapterMatch[1]);
       chapters.set(currentNumber, []);
-      capturingTitle = true;
-      const remainder = chapterMatch[2].replace(/\s+—\s*$/, "").trim();
-      if (remainder) {
-        chapters.get(currentNumber).push(`__TITLE__ ${remainder}`);
-      }
       continue;
     }
 
@@ -165,14 +146,11 @@ function splitChapters(rawText) {
       continue;
     }
 
-    if (capturingTitle) {
-      if (REVISION_LINE_PATTERN.test(line)) {
-        capturingTitle = false;
-        continue;
-      }
-      chapters
-        .get(currentNumber)
-        .push(`__TITLE__ ${line.replace(/\s+—\s*$/, "").trim()}`);
+    if (
+      /^FORMS APPENDIX TABLE OF CONTENTS$/i.test(line) ||
+      /^HANDBOOK-FORM-\d+/i.test(line)
+    ) {
+      currentNumber = null;
       continue;
     }
 
@@ -184,9 +162,6 @@ function splitChapters(rawText) {
 
 function collectContentLines(lines) {
   return lines.filter((line) => {
-    if (line.startsWith("__TITLE__ ")) {
-      return false;
-    }
     if (shouldSkipLine(line)) {
       return false;
     }
@@ -311,39 +286,7 @@ function buildStructuredHtml(lines) {
 
 function buildSectionHtml(section, lines) {
   const body = buildStructuredHtml(lines);
-  return `<!--\n  Employee Handbook — Chapter ${String(section.number).padStart(2, "0")}: ${section.title} (GENERATED SOURCE)\n  ------------------------------------------------------------------\n  Generated from MHC_Employee_Handbook_Rev4.pdf by documents/scripts/extract-handbook-pdf.mjs.\n  Edit freely after regeneration. The uploaded Rev 4 PDF is the authoritative replacement source.\n-->\n${body}\n`;
-}
-
-function legacyBuildListHtml(block) {
-  const items = [];
-  let current = [];
-
-  for (const line of block) {
-    if (/^\u2022\s*/u.test(line)) {
-      if (current.length > 0) {
-        items.push(cleanJoinedText(current.join(" ")));
-      }
-      current = [line.replace(/^\u2022\s*/u, "")];
-      continue;
-    }
-
-    if (current.length === 0) {
-      current = [line];
-      continue;
-    }
-
-    current.push(line);
-  }
-
-  if (current.length > 0) {
-    items.push(cleanJoinedText(current.join(" ")));
-  }
-
-  const listItems = items
-    .map((item) => `  <li class="sec-bullet">${escapeHtml(item)}</li>`)
-    .join("\n");
-
-  return `<ul class="sec-list">\n${listItems}\n</ul>`;
+  return `<!--\n  Employee Handbook — Chapter ${String(section.number).padStart(2, "0")}: ${section.title} (GENERATED SOURCE)\n  ------------------------------------------------------------------\n  Generated from mh-employee-handbook-v3-0-draft.docx by documents/scripts/extract-handbook-pdf.mjs.\n  Edit freely after regeneration. The numbered 08-forms-ehb DOCX is the authoritative replacement source.\n-->\n${body}\n`;
 }
 
 async function removeExistingSectionHtml(sectionDir) {
@@ -355,9 +298,9 @@ async function removeExistingSectionHtml(sectionDir) {
 }
 
 async function main() {
-  console.log("📄 MH Construction — Employee Handbook PDF Extractor");
-  console.log("====================================================");
-  console.log(`Input:    ${SOURCE_PDF}`);
+  console.log("📄 MH Construction — Employee Handbook DOCX Extractor");
+  console.log("=====================================================");
+  console.log(`Input:    ${SOURCE_DOCX}`);
   console.log(`Manifest: ${MANIFEST_PATH}`);
   console.log(`Output:   ${SECTION_DIR}\n`);
 
@@ -367,9 +310,9 @@ async function main() {
     throw new Error("employee-handbook.json does not contain any sections.");
   }
 
-  const rawText = extractRawPdfText(SOURCE_PDF);
+  const rawText = await extractRawDocxText(SOURCE_DOCX);
   const chapterMap = splitChapters(rawText);
-  const totalPages = parsePdfPageCount(SOURCE_PDF);
+  const totalPages = parseDocxPageCount(rawText);
 
   await mkdir(SECTION_DIR, { recursive: true });
   await removeExistingSectionHtml(SECTION_DIR);
@@ -378,7 +321,7 @@ async function main() {
     const chapterLines = chapterMap.get(Number(section.number));
     if (!chapterLines) {
       throw new Error(
-        `Unable to locate chapter ${section.number} in ${SOURCE_PDF}`,
+        `Unable to locate chapter ${section.number} in ${SOURCE_DOCX}`,
       );
     }
 
@@ -396,11 +339,12 @@ async function main() {
     ...manifest.document,
     totalPages,
     revisionDate: "2026-07-01",
-    revisionVersion: "4.0",
+    revisionVersion: "3.0",
     revisionYear: 2026,
-    source: "combined-pdf-html-fragments",
-    sourcePdf:
-      "documents/content/mhc-employee-handbook-2026/sections/MHC_Employee_Handbook_Rev4.pdf",
+    source: "combined-docx-html-fragments",
+    sourceDirectory: "documents/input/08-forms-ehb",
+    sourceFile:
+      "documents/input/08-forms-ehb/mh-employee-handbook-v3-0-draft.docx",
     extractedAt: new Date().toISOString(),
   };
 

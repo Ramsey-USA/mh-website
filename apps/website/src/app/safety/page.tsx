@@ -21,8 +21,38 @@ import { getServerLocale } from "@/lib/i18n/locale.server";
 
 const SITE_URL = "https://www.mhc-gc.com";
 const MISH_PROGRAM_LABEL = "MISH Safety & Health Program (Safety Manual)";
-const SAFETY_SECTION_COUNT =
-  manuals.find((doc) => doc.id === "safety-manual")?.totalSections ?? 59;
+const SAFETY_MANUAL = manuals.find((doc) => doc.id === "safety-manual");
+const SAFETY_SECTION_COUNT = SAFETY_MANUAL?.totalSections ?? 56;
+const SAFETY_REVISION_NUMBER = SAFETY_MANUAL?.revisionNumber ?? "3.0";
+const SAFETY_REVISION_DATE = SAFETY_MANUAL?.revisionDate ?? "1/1/2026";
+
+function parseRevisionDate(value: string): Date | null {
+  const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) {
+    return new Date(Number(iso[1]), Number(iso[2]) - 1, Number(iso[3]));
+  }
+  const us = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (us) {
+    return new Date(Number(us[3]), Number(us[1]) - 1, Number(us[2]));
+  }
+  return null;
+}
+
+function formatRevisionDateForLocale(value: string, locale: string): string {
+  const parsed = parseRevisionDate(value);
+  if (!parsed) return value;
+  const targetLocale = locale === "es" ? "es-ES" : "en-US";
+  return new Intl.DateTimeFormat(targetLocale, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(parsed);
+}
+
+const SAFETY_REVISION_DATE_EN = formatRevisionDateForLocale(
+  SAFETY_REVISION_DATE,
+  "en",
+);
 
 const veteranOwnedClaim = getApprovedClaimOrFallback({
   id: "veteran_owned_since_2025",
@@ -188,7 +218,7 @@ const safetyFaqSchema = {
       name: "What is MH Construction's written safety program?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `MH Construction maintains a ${SAFETY_SECTION_COUNT}-section written safety program (Revision 3.0, effective July 1, 2026), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and project stakeholders at mhc-gc.com/safety.`,
+        text: `MH Construction maintains a ${SAFETY_SECTION_COUNT}-section written safety program (Revision ${SAFETY_REVISION_NUMBER}, effective ${SAFETY_REVISION_DATE_EN}), delivered as the ${MISH_PROGRAM_LABEL}. The program is aligned with OSHA 29 CFR 1926, AGC CSEA, WISHA (Washington), Oregon OSHA, and Idaho requirements. It is available for review by bonding banks, insurers, architects, and project stakeholders at mhc-gc.com/safety.`,
       },
     },
     {
@@ -228,137 +258,153 @@ export default async function SafetyPage() {
       `safetyPage.${key}` as Parameters<typeof t>[0],
       values as Parameters<typeof t>[1],
     );
+  const sectionCount = String(SAFETY_SECTION_COUNT);
+  const revisionDate = formatRevisionDateForLocale(
+    SAFETY_REVISION_DATE,
+    locale,
+  );
 
-  const safetyProofContent = getSafetyProofContent(MISH_PROGRAM_LABEL, {
-    credentials: {
-      items: {
-        oshaVpp: {
-          title: sp("credentials.items.oshaVpp.title"),
-          body: sp("credentials.items.oshaVpp.body"),
-          tag: sp("credentials.items.oshaVpp.tag"),
+  const safetyProofContent = getSafetyProofContent(
+    MISH_PROGRAM_LABEL,
+    SAFETY_SECTION_COUNT,
+    {
+      credentials: {
+        items: {
+          oshaVpp: {
+            title: sp("credentials.items.oshaVpp.title"),
+            body: sp("credentials.items.oshaVpp.body"),
+            tag: sp("credentials.items.oshaVpp.tag"),
+          },
+          agcWa: {
+            title: sp("credentials.items.agcWa.title"),
+            body: sp("credentials.items.agcWa.body"),
+            tag: sp("credentials.items.agcWa.tag"),
+          },
+          osha30: {
+            title: sp("credentials.items.osha30.title"),
+            body: sp("credentials.items.osha30.body"),
+            tag: sp("credentials.items.osha30.tag"),
+          },
+          deanGold: {
+            title: sp("credentials.items.deanGold.title"),
+            body: sp("credentials.items.deanGold.body"),
+            tag: sp("credentials.items.deanGold.tag"),
+          },
+          program: {
+            title: sp("credentials.items.program.title", { sectionCount }),
+            body: sp("credentials.items.program.body", {
+              sectionCount,
+              revisionNumber: SAFETY_REVISION_NUMBER,
+              revisionDate,
+            }),
+            tag: sp("credentials.items.program.tag", {
+              revisionNumber: SAFETY_REVISION_NUMBER,
+              revisionDate,
+            }),
+          },
         },
-        agcWa: {
-          title: sp("credentials.items.agcWa.title"),
-          body: sp("credentials.items.agcWa.body"),
-          tag: sp("credentials.items.agcWa.tag"),
+      },
+      badges: {
+        items: {
+          oshaVpp: {
+            title: sp("badges.items.oshaVpp.title"),
+            subtitle: sp("badges.items.oshaVpp.subtitle"),
+          },
+          agcWa: {
+            title: sp("badges.items.agcWa.title"),
+            subtitle: sp("badges.items.agcWa.subtitle"),
+          },
+          osha30: {
+            title: sp("badges.items.osha30.title"),
+            subtitle: sp("badges.items.osha30.subtitle"),
+          },
+          wisha: {
+            title: sp("badges.items.wisha.title"),
+            subtitle: sp("badges.items.wisha.subtitle"),
+          },
+          emr: {
+            title: sp("badges.items.emr.title"),
+            subtitle: sp("badges.items.emr.subtitle"),
+          },
+          csea: {
+            title: sp("badges.items.csea.title"),
+            subtitle: sp("badges.items.csea.subtitle"),
+          },
+          deanGold: {
+            title: sp("badges.items.deanGold.title"),
+            subtitle: sp("badges.items.deanGold.subtitle"),
+          },
         },
-        osha30: {
-          title: sp("credentials.items.osha30.title"),
-          body: sp("credentials.items.osha30.body"),
-          tag: sp("credentials.items.osha30.tag"),
+      },
+      program: {
+        commitments: {
+          safeHome: {
+            title: sp("program.commitments.safeHome.title"),
+            body: sp("program.commitments.safeHome.body"),
+          },
+          accountability: {
+            title: sp("program.commitments.accountability.title"),
+            body: sp("program.commitments.accountability.body"),
+          },
+          discipline: {
+            title: sp("program.commitments.discipline.title"),
+            body: sp("program.commitments.discipline.body"),
+          },
+          speakUp: {
+            title: sp("program.commitments.speakUp.title"),
+            body: sp("program.commitments.speakUp.body"),
+          },
         },
-        deanGold: {
-          title: sp("credentials.items.deanGold.title"),
-          body: sp("credentials.items.deanGold.body"),
-          tag: sp("credentials.items.deanGold.tag"),
+      },
+      performance: {
+        stats: {
+          emr: {
+            label: sp("performance.stats.emr.label"),
+            sub: sp("performance.stats.emr.sub"),
+          },
+          agcWa: {
+            label: sp("performance.stats.agcWa.label"),
+            sub: sp("performance.stats.agcWa.sub"),
+          },
+          years: {
+            label: sp("performance.stats.years.label"),
+            sub: sp("performance.stats.years.sub"),
+          },
+          sections: { label: sp("performance.stats.sections.label") },
         },
-        program: {
-          title: sp("credentials.items.program.title"),
-          body: sp("credentials.items.program.body"),
-          tag: sp("credentials.items.program.tag"),
+      },
+      evidence: {
+        habits: {
+          toolbox: sp("evidence.habits.toolbox"),
+          jha: sp("evidence.habits.jha"),
+          incident: sp("evidence.habits.incident"),
+          equipment: sp("evidence.habits.equipment"),
+          review: sp("evidence.habits.review"),
+          peer: sp("evidence.habits.peer"),
+        },
+      },
+      compliance: {
+        items: {
+          osha: {
+            title: sp("compliance.items.osha.title"),
+            body: sp("compliance.items.osha.body"),
+          },
+          wisha: {
+            title: sp("compliance.items.wisha.title"),
+            body: sp("compliance.items.wisha.body"),
+          },
+          epa: {
+            title: sp("compliance.items.epa.title"),
+            body: sp("compliance.items.epa.body"),
+          },
+          payroll: {
+            title: sp("compliance.items.payroll.title"),
+            body: sp("compliance.items.payroll.body"),
+          },
         },
       },
     },
-    badges: {
-      items: {
-        oshaVpp: {
-          title: sp("badges.items.oshaVpp.title"),
-          subtitle: sp("badges.items.oshaVpp.subtitle"),
-        },
-        agcWa: {
-          title: sp("badges.items.agcWa.title"),
-          subtitle: sp("badges.items.agcWa.subtitle"),
-        },
-        osha30: {
-          title: sp("badges.items.osha30.title"),
-          subtitle: sp("badges.items.osha30.subtitle"),
-        },
-        wisha: {
-          title: sp("badges.items.wisha.title"),
-          subtitle: sp("badges.items.wisha.subtitle"),
-        },
-        emr: {
-          title: sp("badges.items.emr.title"),
-          subtitle: sp("badges.items.emr.subtitle"),
-        },
-        csea: {
-          title: sp("badges.items.csea.title"),
-          subtitle: sp("badges.items.csea.subtitle"),
-        },
-        deanGold: {
-          title: sp("badges.items.deanGold.title"),
-          subtitle: sp("badges.items.deanGold.subtitle"),
-        },
-      },
-    },
-    program: {
-      commitments: {
-        safeHome: {
-          title: sp("program.commitments.safeHome.title"),
-          body: sp("program.commitments.safeHome.body"),
-        },
-        accountability: {
-          title: sp("program.commitments.accountability.title"),
-          body: sp("program.commitments.accountability.body"),
-        },
-        discipline: {
-          title: sp("program.commitments.discipline.title"),
-          body: sp("program.commitments.discipline.body"),
-        },
-        speakUp: {
-          title: sp("program.commitments.speakUp.title"),
-          body: sp("program.commitments.speakUp.body"),
-        },
-      },
-    },
-    performance: {
-      stats: {
-        emr: {
-          label: sp("performance.stats.emr.label"),
-          sub: sp("performance.stats.emr.sub"),
-        },
-        agcWa: {
-          label: sp("performance.stats.agcWa.label"),
-          sub: sp("performance.stats.agcWa.sub"),
-        },
-        years: {
-          label: sp("performance.stats.years.label"),
-          sub: sp("performance.stats.years.sub"),
-        },
-        sections: { label: sp("performance.stats.sections.label") },
-      },
-    },
-    evidence: {
-      habits: {
-        toolbox: sp("evidence.habits.toolbox"),
-        jha: sp("evidence.habits.jha"),
-        incident: sp("evidence.habits.incident"),
-        equipment: sp("evidence.habits.equipment"),
-        review: sp("evidence.habits.review"),
-        peer: sp("evidence.habits.peer"),
-      },
-    },
-    compliance: {
-      items: {
-        osha: {
-          title: sp("compliance.items.osha.title"),
-          body: sp("compliance.items.osha.body"),
-        },
-        wisha: {
-          title: sp("compliance.items.wisha.title"),
-          body: sp("compliance.items.wisha.body"),
-        },
-        epa: {
-          title: sp("compliance.items.epa.title"),
-          body: sp("compliance.items.epa.body"),
-        },
-        payroll: {
-          title: sp("compliance.items.payroll.title"),
-          body: sp("compliance.items.payroll.body"),
-        },
-      },
-    },
-  });
+  );
   return (
     <>
       <PageTrackingClient pageName="Safety Program" />
@@ -446,7 +492,10 @@ export default async function SafetyPage() {
               </span>
             </h2>
             <p className="font-body text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              {sp("credentials.description", { mishLabel: MISH_PROGRAM_LABEL })}
+              {sp("credentials.description", {
+                mishLabel: MISH_PROGRAM_LABEL,
+                sectionCount,
+              })}
             </p>
           </div>
 
@@ -530,7 +579,10 @@ export default async function SafetyPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="font-heading inline-block text-xs font-bold uppercase tracking-widest text-brand-secondary-text dark:text-brand-secondary-light mb-4">
-                {sp("program.revLabel")}
+                {sp("program.revLabel", {
+                  revisionNumber: SAFETY_REVISION_NUMBER,
+                  revisionDate,
+                })}
               </span>
               <h2 className="mb-4 sm:mb-6 font-black text-gray-900 dark:text-gray-100 text-3xl xs:text-4xl sm:text-5xl md:text-6xl leading-tight tracking-tighter overflow-visible">
                 <span className="block mb-2 font-semibold text-gray-700 dark:text-gray-200 text-xl xs:text-2xl sm:text-3xl md:text-4xl tracking-tight py-1">
@@ -541,7 +593,7 @@ export default async function SafetyPage() {
                 </span>
               </h2>
               <p className="font-body text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-                {sp("program.para1")}
+                {sp("program.para1", { sectionCount })}
               </p>
               <p className="font-body text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
                 {sp("program.para2")}
@@ -583,7 +635,7 @@ export default async function SafetyPage() {
               <div className="absolute inset-0 bg-linear-to-t from-brand-primary/60 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                 <p className="font-black text-xl">
-                  {sp("program.imageCaption1")}
+                  {sp("program.imageCaption1", { sectionCount })}
                 </p>
                 <p className="text-white/80 text-sm">
                   {sp("program.imageCaption2")}

@@ -322,6 +322,10 @@ const SAFETY_MANUAL_SECTIONS = SAFETY_MANUAL_JSON.sections.map((s) => ({
   title: s.title,
   numeric: s.number,
 }));
+const MAX_SAFETY_SECTION_NUMBER = SAFETY_MANUAL_SECTIONS.reduce(
+  (max, section) => Math.max(max, Number(section.numeric) || 0),
+  0,
+);
 
 // Cluster groupings — MIRROR of src/lib/data/safety-manual-clusters.ts.
 // Keep in sync; verified at runtime against the imported sections list.
@@ -393,14 +397,18 @@ function loadSafetyManualForms() {
           const match = String(section).match(/^MISH\s+(\d{1,2})$/i);
           if (!match) return false;
           const sectionNumber = Number.parseInt(match[1], 10);
-          return sectionNumber >= 1 && sectionNumber <= 50;
+          return (
+            sectionNumber >= 1 &&
+            sectionNumber <= (MAX_SAFETY_SECTION_NUMBER || 59)
+          );
         });
       })
       .map((entry) => ({
         id: String(entry.slug || "").replace(/^form-/, ""),
+        slug: String(entry.slug || ""),
         title: String(entry.title || entry.slug || "Safety Form"),
       }))
-      .filter((entry) => entry.id.length > 0);
+      .filter((entry) => entry.id.length > 0 || entry.slug.length > 0);
 
     if (mishForms.length === 0) {
       console.warn(
@@ -460,12 +468,18 @@ const HANDBOOK_FORMS = loadHandbookForms();
 
 function normalizeManifestFormQrName(entry, prefix) {
   const slug = String(entry?.slug || "").trim();
-  if (!slug) {
-    return prefix;
+  if (slug) {
+    const normalizedSlug = slug.replace(/^form-/, "");
+    return `${prefix}-${normalizedSlug}`;
   }
 
-  const normalizedSlug = slug.replace(/^form-/, "");
-  return `${prefix}-${normalizedSlug}`;
+  const id = String(entry?.id || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return id ? `${prefix}-${id}` : prefix;
 }
 
 module.exports = {

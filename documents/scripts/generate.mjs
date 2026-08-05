@@ -564,7 +564,7 @@ const MARKETING_GUIDE_SECTION_DRAFTS_DIR = join(
 );
 const OPERATIONS_MANUAL_SECTION_DRAFTS_DIR = join(
   DOCS_DIR,
-  "content/mhc-operations-manual-drafts/02-section-drafts",
+  "content/mhc-operations-manual-2026/sections",
 );
 const SAFETY_LETTERHEAD_TEMPLATE_PATH = join(
   DOCS_DIR,
@@ -1724,11 +1724,15 @@ function buildTocEntryHtml(num, title, options = {}) {
 function buildTocFormEntryHtml(formId, formTitle, options = {}) {
   const displayTitle = normalizeTocTitle(formTitle);
   const formRevision = options.formRevision || ENFORCED_REVISION_NUMBER;
-  // Convert form ID to FORM XX numbering (e.g., MISH 01 -> FORM 01)
-  const formNum = String(formId || "").match(/\d+/)?.[0] || "";
-  const formCode = formNum
-    ? `FORM ${String(formNum).padStart(2, "0")}`
-    : formId;
+  const normalizedFormId = String(formId || "").trim();
+  // Preserve explicit FORM labels (for multi-form chapter mappings such as
+  // FORM 09-1 / FORM 09-2) while still normalizing plain numeric IDs.
+  const formNum = normalizedFormId.match(/\d+/)?.[0] || "";
+  const formCode = /^FORM\s+/i.test(normalizedFormId)
+    ? normalizedFormId.toUpperCase()
+    : formNum
+      ? `FORM ${String(formNum).padStart(2, "0")}`
+      : normalizedFormId;
   return (
     `<li class="mish-entry mish-form">` +
     `<span class="mish-code">${escapeHtml(formCode)}</span>` +
@@ -1823,14 +1827,18 @@ function buildTocFormCode(form) {
   if (!rawId) return "FORM";
 
   const HANDBOOK_FORM_CONTENT_CODES = Object.freeze({
-    "HANDBOOK-FORM-01": "CV", // Company Vehicle
-    "HANDBOOK-FORM-02": "RA", // Receipt Acknowledgment
-    "HANDBOOK-FORM-03": "SP", // Safety Policy
-    "HANDBOOK-FORM-04": "WH", // Remote Work
-    "HANDBOOK-FORM-05": "CE", // Computer Electronics
-    "HANDBOOK-FORM-06": "EP", // Employee Photo
-    "HANDBOOK-FORM-07": "CP", // Client Photo
-    "HANDBOOK-FORM-08": "GE", // General Expense
+    "HANDBOOK-FORM-09": "EHB-F-01.1",
+    "HANDBOOK-FORM-10": "EHB-F-02.1",
+    "HANDBOOK-FORM-11": "EHB-F-05.1",
+    "HANDBOOK-FORM-12": "EHB-F-05.2",
+    "HANDBOOK-FORM-13": "EHB-F-07.1",
+    "HANDBOOK-FORM-14": "EHB-F-07.2",
+    "HANDBOOK-FORM-15": "EHB-F-08.1",
+    "HANDBOOK-FORM-16": "EHB-F-08.2",
+    "HANDBOOK-FORM-17": "EHB-F-08.3",
+    "HANDBOOK-FORM-18": "EHB-F-09.1",
+    "HANDBOOK-FORM-19": "EHB-F-10.1",
+    "HANDBOOK-FORM-20": "EHB-F-10.2",
   });
 
   const handbookMatch = /^HANDBOOK-FORM-(\d{1,2})$/i.exec(rawId);
@@ -1926,6 +1934,85 @@ function buildTocSectionFormsMap(forms) {
   return map;
 }
 
+function buildManifestDerivedFormId(sectionNumber, index, total) {
+  const base = `FORM ${String(sectionNumber).padStart(2, "0")}`;
+  return total > 1 ? `${base}-${index + 1}` : base;
+}
+
+function parseAssociatedFormTitles(value) {
+  const match = String(value || "").match(/\(\s*Forms?:\s*([^)]+)\)/i);
+  if (!match) return [];
+  return String(match[1] || "")
+    .split(/\s*&\s*|\s+and\s+/i)
+    .map((label) => normalizeWhitespace(label))
+    .filter(Boolean);
+}
+
+function deriveManifestSectionForms(section) {
+  const numericSection = Number(section?.number);
+  if (!Number.isFinite(numericSection) || numericSection <= 0) {
+    return [];
+  }
+
+  const explicitForms = Array.isArray(section?.forms)
+    ? section.forms
+        .map((form, index, list) => ({
+          id:
+            String(form?.id || "").trim() ||
+            buildManifestDerivedFormId(numericSection, index, list.length),
+          title: String(form?.title || "").trim(),
+          revision: form?.revision,
+          effectiveDate: form?.effectiveDate,
+          publicUrl: form?.publicUrl,
+          slug: form?.slug,
+        }))
+        .filter((form) => form.title)
+    : [];
+
+  if (explicitForms.length > 0) {
+    return explicitForms;
+  }
+
+  const derivedTitles = parseAssociatedFormTitles(section?.title);
+  return derivedTitles.map((title, index) => ({
+    id: buildManifestDerivedFormId(numericSection, index, derivedTitles.length),
+    title,
+  }));
+}
+
+function buildManifestSectionFormsMap(sections) {
+  const map = new Map();
+
+  for (const section of Array.isArray(sections) ? sections : []) {
+    const numericSection = Number(section?.number);
+    if (!Number.isFinite(numericSection) || numericSection <= 0) continue;
+
+    const forms = deriveManifestSectionForms(section);
+    if (forms.length === 0) continue;
+
+    map.set(numericSection, forms);
+  }
+
+  for (const [sectionNum, sectionForms] of map.entries()) {
+    const deduped = [];
+    const seen = new Set();
+    for (const form of sectionForms) {
+      const key = `${String(form?.id || "")
+        .trim()
+        .toLowerCase()}::${String(form?.title || "")
+        .trim()
+        .toLowerCase()}`;
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      deduped.push(form);
+    }
+    deduped.sort(compareFormsForToc);
+    map.set(sectionNum, deduped);
+  }
+
+  return map;
+}
+
 function buildSectionRelatedFormsHtml(sectionNumber, formsMap) {
   const numericSection = Number(sectionNumber);
   if (!Number.isFinite(numericSection) || numericSection <= 0) return "";
@@ -1938,9 +2025,13 @@ function buildSectionRelatedFormsHtml(sectionNumber, formsMap) {
     .map((form) => {
       const formCode = buildTocFormCode(form);
       const formTitle = normalizeTocTitle(form?.title || "Untitled Form");
-      const slug = slugForFormPackage(form);
-      const relPath = resolveFormPublicRelativePath(form, slug);
-      const publicUrl = buildAbsoluteSiteUrl(relPath);
+      const explicitPublicUrl = String(form?.publicUrl || "").trim();
+      const slug = String(form?.slug || "").trim();
+      const publicUrl = explicitPublicUrl
+        ? explicitPublicUrl
+        : slug
+          ? buildAbsoluteSiteUrl(resolveFormPublicRelativePath(form, slug))
+          : "";
       const revision = String(
         form?.revision || ENFORCED_REVISION_NUMBER,
       ).trim();
@@ -1950,7 +2041,9 @@ function buildSectionRelatedFormsHtml(sectionNumber, formsMap) {
 
       return (
         `<li class="sec-bullet">` +
-        `<a href="${escapeHtml(publicUrl)}">${escapeHtml(formCode)} — ${escapeHtml(formTitle)}</a>` +
+        (publicUrl
+          ? `<a href="${escapeHtml(publicUrl)}">${escapeHtml(formCode)} — ${escapeHtml(formTitle)}</a>`
+          : `${escapeHtml(formCode)} — ${escapeHtml(formTitle)}`) +
         `<span class="related-form-meta">REV ${escapeHtml(revision)} · Effective ${escapeHtml(effectiveDate)}</span>` +
         `</li>`
       );
@@ -2975,36 +3068,19 @@ function formIdEquals(formEntry, value) {
   return String(formEntry?.id || "").toUpperCase() === value;
 }
 
-function isHandbookForm01(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-01");
+function parseHandbookFormNumericId(formEntry) {
+  const id = String(formEntry?.id || "").toUpperCase();
+  const match = /^HANDBOOK-FORM-(\d{1,2})$/.exec(id);
+  if (!match) return null;
+  const value = Number(match[1]);
+  return Number.isFinite(value) ? value : null;
 }
 
-function isHandbookForm02(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-02");
-}
-
-function isHandbookForm03(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-03");
-}
-
-function isHandbookForm04(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-04");
-}
-
-function isHandbookForm05(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-05");
-}
-
-function isHandbookForm06(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-06");
-}
-
-function isHandbookForm07(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-07");
-}
-
-function isHandbookForm08(formEntry) {
-  return formIdEquals(formEntry, "HANDBOOK-FORM-08");
+function isLegacyHandbookForm(formEntry, ...numbers) {
+  const numericId = parseHandbookFormNumericId(formEntry);
+  return Number.isFinite(numericId) && numericId >= 1 && numericId <= 8
+    ? numbers.includes(numericId)
+    : false;
 }
 
 function isHandbookFormEntry(formEntry) {
@@ -3015,6 +3091,12 @@ function isHandbookFormEntry(formEntry) {
 function isMishFormEntry(formEntry) {
   const id = String(formEntry?.id || "").toUpperCase();
   return /^MISH\s+\d{1,2}$/.test(id);
+}
+
+function isSafetyFormEntry(formEntry) {
+  if (!formEntry || isHandbookFormEntry(formEntry)) return false;
+  if (isOperationsFormEntry(formEntry)) return false;
+  return resolveMishSectionTargets(formEntry?.manualSection).length > 0;
 }
 
 function isOperationsFormEntry(formEntry) {
@@ -3030,7 +3112,7 @@ function getFormsForActiveManual(forms) {
   if (isOperationsManual) {
     return list.filter((formEntry) => isOperationsFormEntry(formEntry));
   }
-  return list.filter((formEntry) => isMishFormEntry(formEntry));
+  return list.filter((formEntry) => isSafetyFormEntry(formEntry));
 }
 
 function buildHandbookForm04Pages(formEntry) {
@@ -3460,8 +3542,7 @@ function isLegacySignatureBlockText(text) {
 function filterDocxBlocksForForm(formEntry, blocks) {
   if (!Array.isArray(blocks) || blocks.length === 0) return [];
 
-  const strictSignatureFiltering =
-    isHandbookForm01(formEntry) || isHandbookForm02(formEntry);
+  const strictSignatureFiltering = isLegacyHandbookForm(formEntry, 1, 2);
   if (!strictSignatureFiltering) {
     return blocks;
   }
@@ -3479,7 +3560,9 @@ function filterDocxBlocksForForm(formEntry, blocks) {
 async function loadDocxDerivedFormHtml(formEntry) {
   if (!formEntry?.docxPath) return "";
 
-  const sourcePath = join(DOCS_DIR, "forms", formEntry.docxPath);
+  const sourcePath = String(formEntry.docxPath).startsWith("documents/")
+    ? join(ROOT, String(formEntry.docxPath))
+    : join(DOCS_DIR, "forms", formEntry.docxPath);
   if (!existsSync(sourcePath)) {
     console.warn(
       `⚠️  DOCX source not found for ${formEntry.id}: ${formEntry.docxPath}`,
@@ -3669,7 +3752,7 @@ function getFormLayoutProfile(formEntry) {
     docxChunkSize: 5,
   };
 
-  if (isHandbookForm03(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 3)) {
     return {
       ...base,
       firstPageBudget: 1200,
@@ -3678,7 +3761,7 @@ function getFormLayoutProfile(formEntry) {
     };
   }
 
-  if (isHandbookForm04(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 4)) {
     return {
       ...base,
       firstPageBudget: 1200,
@@ -3687,7 +3770,7 @@ function getFormLayoutProfile(formEntry) {
     };
   }
 
-  if (isHandbookForm06(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 6)) {
     return {
       ...base,
       firstPageBudget: 1200,
@@ -3755,21 +3838,22 @@ function isToolboxTalkForm(formEntry) {
 }
 
 function buildDefaultSignatureSection(formEntry) {
-  const titleByForm = new Map([
-    ["HANDBOOK-FORM-01", "Company Vehicle Policy Acknowledgment Sign-Off"],
-    ["HANDBOOK-FORM-02", "Employee Handbook Receipt Sign-Off"],
-    [
-      "HANDBOOK-FORM-03",
-      "MISH (Accident Prevention Program) Acknowledgment Sign-Off",
-    ],
-  ]);
-  const id = String(formEntry?.id || "").toUpperCase();
+  const legacyHandbookId = parseHandbookFormNumericId(formEntry);
   const fallbackTitle = `${String(formEntry?.title || "Form").trim()} Sign-Off`;
+  let resolvedTitle = fallbackTitle;
+  if (legacyHandbookId === 1) {
+    resolvedTitle = "Company Vehicle Policy Acknowledgment Sign-Off";
+  } else if (legacyHandbookId === 2) {
+    resolvedTitle = "Employee Handbook Receipt Sign-Off";
+  } else if (legacyHandbookId === 3) {
+    resolvedTitle =
+      "MISH (Accident Prevention Program) Acknowledgment Sign-Off";
+  }
   return {
     type: "signatures",
-    title: titleByForm.get(id) || fallbackTitle,
+    title: resolvedTitle,
     manualSignOnly:
-      isHandbookFormEntry(formEntry) || isMishFormEntry(formEntry),
+      isHandbookFormEntry(formEntry) || isSafetyFormEntry(formEntry),
     blocks: [
       {
         role: "Employee",
@@ -3822,23 +3906,23 @@ function buildToolboxTalkSignatureSections(formEntry) {
 }
 
 async function buildDefaultFillablePages(formEntry) {
-  if (isHandbookForm04(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 4)) {
     return buildHandbookForm04Pages(formEntry);
   }
 
-  if (isHandbookForm05(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 5)) {
     return buildHandbookForm05Pages(formEntry);
   }
 
-  if (isHandbookForm06(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 6)) {
     return buildHandbookForm06Pages(formEntry);
   }
 
-  if (isHandbookForm08(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 8)) {
     return buildHandbookForm08Pages(formEntry);
   }
 
-  if (isHandbookForm07(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 7)) {
     return buildHandbookForm07Pages(formEntry);
   }
 
@@ -3858,7 +3942,7 @@ async function buildDefaultFillablePages(formEntry) {
     html: chunk,
   }));
 
-  if (isHandbookForm02(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 2)) {
     docxSections = docxSections.slice(0, 1).map((section) => ({
       ...section,
       html: String(section.html || "")
@@ -3871,11 +3955,11 @@ async function buildDefaultFillablePages(formEntry) {
     }));
   }
 
-  if (isHandbookForm01(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 1)) {
     docxSections = docxSections.slice(0, 1);
   }
 
-  if (isHandbookForm03(formEntry)) {
+  if (isLegacyHandbookForm(formEntry, 3)) {
     const combinedHtml = docxSections
       .slice(0, 2)
       .map((section) => String(section.html || "").trim())
@@ -3926,14 +4010,16 @@ async function buildDefaultFillablePages(formEntry) {
 
   const defaultEntrySections = hasDocxSpecificContent
     ? [
-        ...(isHandbookForm01(formEntry)
+        ...(isLegacyHandbookForm(formEntry, 1)
           ? [
               docxSections[0],
               ...postContentSignatureSections,
               ...docxSections.slice(1),
             ]
           : docxSections),
-        ...(isHandbookForm01(formEntry) ? [] : postContentSignatureSections),
+        ...(isLegacyHandbookForm(formEntry, 1)
+          ? []
+          : postContentSignatureSections),
       ].filter(Boolean)
     : [
         {
@@ -3985,7 +4071,7 @@ function getFillablePages(formEntry) {
     ? formEntry.fillable.pages
     : buildDefaultFillablePages(formEntry);
 
-  if (!isMishFormEntry(formEntry)) return basePages;
+  if (!isSafetyFormEntry(formEntry)) return basePages;
 
   return Promise.resolve(basePages).then((pages) =>
     ensureMishFillableEntrySections(pages, formEntry),
@@ -4034,7 +4120,7 @@ function buildMishEntryFillableSections(formEntry) {
 }
 
 function ensureMishFillableEntrySections(pages, formEntry) {
-  if (!isMishFormEntry(formEntry)) return pages;
+  if (!isSafetyFormEntry(formEntry)) return pages;
   if (!Array.isArray(pages) || pages.length === 0) return pages;
   if (hasInteractiveFillableSections(pages)) return pages;
 
@@ -4459,7 +4545,8 @@ function renderSheet(page, idx, ns, formEntry) {
 }
 
 function validateSignatureSectionTitleGuardrails(formEntry, pages) {
-  const enforce = isHandbookFormEntry(formEntry) || isMishFormEntry(formEntry);
+  const enforce =
+    isHandbookFormEntry(formEntry) || isSafetyFormEntry(formEntry);
   if (!enforce) return;
 
   const signatureTitles = (pages || []).flatMap((page) =>
@@ -4495,7 +4582,7 @@ function validateHandbookSignatureGuardrails(
   fields = [],
 ) {
   const isManualSignatureForm =
-    isHandbookFormEntry(formEntry) || isMishFormEntry(formEntry);
+    isHandbookFormEntry(formEntry) || isSafetyFormEntry(formEntry);
   if (!isManualSignatureForm) return;
 
   const signatureSections = (pages || []).flatMap((page) =>
@@ -4876,8 +4963,8 @@ function compareHandbookPackageNames(left, right) {
 }
 
 function compareSafetyPackageNames(left, right) {
-  const leftNum = parseNumericSegment(left, /^form-mish-(\d{1,2})(?:-|$)/i);
-  const rightNum = parseNumericSegment(right, /^form-mish-(\d{1,2})(?:-|$)/i);
+  const leftNum = parseNumericSegment(left, /^form-(\d{1,2})(?:-|$)/i);
+  const rightNum = parseNumericSegment(right, /^form-(\d{1,2})(?:-|$)/i);
   if (leftNum !== rightNum) {
     return leftNum - rightNum;
   }
@@ -5063,7 +5150,7 @@ async function generateAllFormPackages() {
     }
 
     return (
-      fileName.startsWith("form-mish-") ||
+      /^form-(?!handbook-)/i.test(fileName) ||
       fileName === SAFETY_FORMS_PACKAGE_FILE_NAME
     );
   };
@@ -5102,7 +5189,7 @@ async function generateAllFormPackages() {
   }
 
   const safetyPackageFiles = eligible
-    .filter((formEntry) => isMishFormEntry(formEntry))
+    .filter((formEntry) => isSafetyFormEntry(formEntry))
     .map((formEntry) => `${slugForFormPackage(formEntry)}.pdf`)
     .sort(compareSafetyPackageNames);
 
@@ -6404,16 +6491,28 @@ async function generateToc() {
       );
     }
   } else {
+    const manifestFormsMap = buildManifestSectionFormsMap(manifestSections);
+    const manifestFormsCount = [...manifestFormsMap.values()].reduce(
+      (sum, sectionForms) => sum + sectionForms.length,
+      0,
+    );
     try {
-      const forms = await loadFormsManifest();
-      const sectionLinkedForms = forms.filter(
-        (f) => resolveMishSectionTargets(f.manualSection).length > 0,
-      );
-      formsMap = buildTocSectionFormsMap(sectionLinkedForms);
+      if (manifestFormsCount > 0) {
+        formsMap = manifestFormsMap;
+        console.log(
+          `  ℹ  Added ${manifestFormsCount} associated form(s) across ${formsMap.size} MISH section(s) from the manual manifest`,
+        );
+      } else {
+        const forms = await loadFormsManifest();
+        const sectionLinkedForms = forms.filter(
+          (f) => resolveMishSectionTargets(f.manualSection).length > 0,
+        );
+        formsMap = buildTocSectionFormsMap(sectionLinkedForms);
 
-      console.log(
-        `  ℹ  Added ${sectionLinkedForms.length} associated form(s) across ${formsMap.size} MISH section(s)`,
-      );
+        console.log(
+          `  ℹ  Added ${sectionLinkedForms.length} associated form(s) across ${formsMap.size} MISH section(s)`,
+        );
+      }
     } catch (err) {
       console.warn(`  ⚠  Could not load forms manifest: ${err.message}`);
     }
@@ -8271,11 +8370,30 @@ async function generateTabs() {
     }
   }
 
-  const expectedTabMax =
-    isHandbookFamily || isMarketingStrategyGuide
-      ? manifestMaxSectionNumber
-      : 59;
-  if (isHandbookFamily || isMarketingStrategyGuide) {
+  const tabTokenMatches = Array.from(html.matchAll(/\{\{QR_TAB_(\d+)\}\}/g));
+  const templateMaxTabNumber =
+    tabTokenMatches.length > 0
+      ? Math.max(...tabTokenMatches.map((match) => Number(match[1]) || 0))
+      : 0;
+
+  const expectedTabMax = Math.min(
+    manifestMaxSectionNumber,
+    templateMaxTabNumber,
+    MISH_MAX_SECTION,
+  );
+
+  if (manifestMaxSectionNumber > templateMaxTabNumber) {
+    console.warn(
+      `  ⚠  ${ACTIVE_MANUAL} tabs template supports QR tabs 00-${String(
+        templateMaxTabNumber,
+      ).padStart(
+        2,
+        "0",
+      )}; manifest has sections through ${manifestMaxSectionNumber}. Limiting tab QR injection to available template slots.`,
+    );
+  }
+
+  if (expectedTabMax < templateMaxTabNumber) {
     html = trimTabTemplateToSectionMax(html, expectedTabMax);
   }
   html = applyTabSecondarySigner(html);
@@ -8294,7 +8412,7 @@ async function generateTabs() {
 
   // Keep tab headers aligned with canonical manifest section titles.
   if (manifestSectionByNumber.size > 0) {
-    for (let n = 1; n <= MISH_MAX_SECTION; n++) {
+    for (let n = 1; n <= expectedTabMax; n++) {
       const canonicalTitle = manifestSectionByNumber.get(n)?.title;
       if (!canonicalTitle) continue;
       const nn = String(n).padStart(2, "0");
@@ -8316,7 +8434,7 @@ async function generateTabs() {
   // ── Generate and inject per-tab section QR codes ─────────────────────────
   // For MISH: Tabs 00–59 map to public section URLs; tab 00 = TOC landing page.
   // For Employee Handbook: tab QR codes route to the public handbook index.
-  for (let n = 0; n <= MISH_MAX_SECTION; n++) {
+  for (let n = 0; n <= expectedTabMax; n++) {
     const nn = String(n).padStart(2, "0");
     const token = `{{QR_TAB_${nn}}}`;
     if (!html.includes(token)) continue;
@@ -8525,7 +8643,9 @@ function getFormPackageRenderCachePath() {
 
 function resolveFormDocxSourcePath(formEntry) {
   if (!formEntry?.docxPath) return "";
-  return join(DOCS_DIR, "forms", formEntry.docxPath);
+  return String(formEntry.docxPath).startsWith("documents/")
+    ? join(ROOT, String(formEntry.docxPath))
+    : join(DOCS_DIR, "forms", formEntry.docxPath);
 }
 
 function getFileSignature(filePath) {
@@ -8611,7 +8731,7 @@ async function generateSections(filter = null) {
     isHandbookFamily || isMarketingStrategyGuide
       ? String(manifestData?.document?.sourceFile || "").trim()
       : "";
-  const handbookSourcePdfPath = handbookSourceFile
+  const handbookSourceFallbackPath = handbookSourceFile
     ? handbookSourceFile.startsWith("documents/")
       ? join(ROOT, handbookSourceFile)
       : join(DOCS_DIR, handbookSourceFile)
@@ -8679,13 +8799,18 @@ async function generateSections(filter = null) {
   const sectionRenderCache = await loadSectionRenderCache();
   let sectionFormsMap = new Map();
   if (!(isHandbookFamily || isMarketingStrategyGuide)) {
-    const manifestForms = await loadFormsManifest().catch(() => []);
-    const safetyLinkedForms = manifestForms.filter(
-      (form) =>
-        isMishFormEntry(form) &&
-        resolveMishSectionTargets(form.manualSection).length > 0,
-    );
-    sectionFormsMap = buildTocSectionFormsMap(safetyLinkedForms);
+    const manifestSectionFormsMap = buildManifestSectionFormsMap(sections);
+    if (manifestSectionFormsMap.size > 0) {
+      sectionFormsMap = manifestSectionFormsMap;
+    } else {
+      const manifestForms = await loadFormsManifest().catch(() => []);
+      const safetyLinkedForms = manifestForms.filter(
+        (form) =>
+          isSafetyFormEntry(form) &&
+          resolveMishSectionTargets(form.manualSection).length > 0,
+      );
+      sectionFormsMap = buildTocSectionFormsMap(safetyLinkedForms);
+    }
   }
   let renderedCount = 0;
   let skippedCount = 0;
@@ -8727,7 +8852,7 @@ async function generateSections(filter = null) {
       section.pages
     ) {
       sectionSource = extractPdfTextByPageRange(
-        handbookSourcePdfPath,
+        handbookSourceFallbackPath,
         String(section.pages),
       ).trim();
     }
@@ -8953,9 +9078,8 @@ async function generateForms() {
  * `documents/generated-pdfs/form-covers/` and carry the same chrome as
  * `safety-manual-cover.html` (frame, ribbon, identity bar, accreditation
  * footer, ★ VETERAN OWNED ★ tagline) plus a section-header-style
- * Form-Identification-and-Control card. Source `.docx` files in
- * `documents/forms/MHC-MISH-59-Forms/` are the canonical editable source
- * Word and are bound behind their cover at print/collation time.
+ * Form-Identification-and-Control card. Source `.docx` files referenced in
+ * the manifest are bound behind their cover at print/collation time.
  *
  * Tokens consumed by `documents/manuals/form-cover.html`:
  *   {{FORM_ID}}              e.g. "FORM 02-J"
@@ -9001,7 +9125,7 @@ async function generateFormCovers() {
   const isActiveFamilyCover = (fileName) =>
     isEmployeeHandbook
       ? fileName.startsWith("form-handbook-")
-      : fileName.startsWith("form-mish-");
+      : /^form-(?!handbook-)/i.test(fileName);
 
   for (const existingFile of await readdir(coversDir)) {
     if (!existingFile.endsWith(".pdf")) continue;

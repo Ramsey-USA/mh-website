@@ -1,8 +1,8 @@
 # Agent Branding Policy (Master at Arms)
 
 **Category:** Branding - Agent Policy  
-**Last Updated:** July 28, 2026  
-**Version:** 1.2.0  
+**Last Updated:** August 5, 2026  
+**Version:** 1.3.0  
 **Status:** ✅ Active
 
 > **Purpose:** Fast, unambiguous policy for AI agents enforcing MH branding standards.
@@ -13,12 +13,13 @@
 >
 > 1. This file (agent decision policy)
 > 2. [Brand Constants](./brand-constants.md) (canonical values)
-> 3. `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0)
-> 4. [Dual Terminology Standard](./strategy/dual-terminology-standard.md)
-> 5. [Universal Terminology Guide](./strategy/universal-terminology-guide.md)
-> 6. [Unified Component Standards](./standards/unified-component-standards.md)
-> 7. [Messaging Guide](./strategy/messaging.md)
-> 8. Remaining branding docs for implementation detail
+> 3. `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx` (upstream source)
+> 4. `documents/content/terminology-library.json` (Brand Terms Library v2.1)
+> 5. [Dual Terminology Standard](./strategy/dual-terminology-standard.md)
+> 6. [Universal Terminology Guide](./strategy/universal-terminology-guide.md)
+> 7. [Unified Component Standards](./standards/unified-component-standards.md)
+> 8. [Messaging Guide](./strategy/messaging.md)
+> 9. Remaining branding docs for implementation detail
 
 ## Scope
 

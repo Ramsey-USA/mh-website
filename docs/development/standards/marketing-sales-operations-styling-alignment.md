@@ -1,18 +1,18 @@
 # Marketing/Sales to Operations Manual Styling Alignment Analysis
 
 **Category:** Development - Standards  
-**Last Updated:** July 30, 2026  
+**Last Updated:** August 4, 2026  
 **Status:** Active
 
 ## Quick Summary
 
 This document explains the layout and typography differences between marketing/sales guides and the operations manual, and it defines the minimal changes needed to align them.
 
-Use this page when reviewing template structure, manual-family styling, or future documentation design decisions.
+Use this page when reviewing template structure, numbered ecosystem styling, or future documentation design decisions.
 
 ## What This Review Covers
 
-- The current template architecture for manual-family outputs
+- The current template architecture for numbered ecosystem outputs
 - The main layout and typography differences between handbook-style and operations-style templates
 - The smallest practical change set for aligning marketing and sales guides with operations-style structure
 
@@ -125,7 +125,7 @@ Marketing and sales guides use `adaptMarketingStrategyGuideTemplate()` for strin
   <img class="toc-team-photo" src="{{BRAND_TEAM_GROUP_PHOTO}}" />
 
   <section class="toc-insight">
-    <p class="toc-insight-label">Word from the General</p>
+    <p class="toc-insight-label">Word From the General</p>
     <p class="toc-insight-quote">
       "To every new employee joining MH Construction..."
     </p>
@@ -339,7 +339,7 @@ function adaptMarketingStrategyGuideTemplate(html) {
 
 ### Rationale
 
-1. **MDS Compliance:** Follows established pattern where each manual family has its own template set
+1. **MDS Compliance:** Follows the established numbered-ecosystem pattern where each document family has its own template set
 2. **Maintainability:** Clear separation between handbook (culture/onboarding) and operations/marketing/sales (technical reference)
 3. **Typography Parity:** Marketing and sales guides are technical references like operations, not culture documents like handbook
 4. **Future-Proof:** Enables marketing/sales-specific customizations without affecting handbook
@@ -457,5 +457,5 @@ After implementation:
 **MDS compliance maintained:**
 
 - All brand tokens, chrome, and footer standards preserved
-- Follows established template-per-manual-family pattern
+- Follows established template-per-ecosystem-family pattern
 - Enables future customization without cross-contamination

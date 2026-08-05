@@ -1,15 +1,15 @@
 # SEO Terminology Standard
 
 **Category:** Branding - SEO Language Standard
-**Last Updated:** July 28, 2026
+**Last Updated:** August 5, 2026
 **Status:** Official MH Branding Standard
 
 ## Purpose
 
 Set a clear, repeatable rule for search-facing copy: use professional construction terminology first, and use military-themed language only as subtle supporting context.
 
-This SEO rule remains compatible with `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0),
-which governs term expansions for non-SEO surfaces.
+This SEO rule remains compatible with `documents/content/terminology-library.json` (Brand Terms Library v2.1),
+which governs term expansions for non-SEO surfaces and is synced from `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx`.
 
 ## Scope
 

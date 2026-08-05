@@ -1,7 +1,7 @@
 # MH Construction Documentation
 
 **Category:** Documentation - Master Index  
-**Last Updated:** July 29, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -18,7 +18,7 @@ This is the main entry point for MH Construction documentation. Use it to find t
 - [Main README](../README.md) — project workflow, contributor guidance, and release context
 - [Branding Quick Reference](./branding/quick-reference.md) — condensed branding entry point
 - [Branding Documentation](./branding/index.md) — full branding system and governance docs
-- [Manual Family Hub](./manuals/index.md) — shared handbook/manual/guide change-control path
+- [MH Ecosystem Documentation Hub](./manuals/index.md) — shared numbered 01-10 ecosystem change-control path
 
 All documentation categories should remain congruent with the canonical brand language, trust content, and SEO naming rules documented in the Branding and Development standards.
 
@@ -61,10 +61,17 @@ Use this path to find canonical docs quickly and avoid duplicate guidance:
 - **[Page Slogans](./branding/strategy/page-specific-slogans.md)** — Governance guide for the runtime canonical page-level hero slogan matrix
 - **[Dual Terminology Standard](./branding/strategy/dual-terminology-standard.md)** — Canonical enterprise dual-label naming rules
 - **[Safety Terminology Glossary](./technical/safety-terminology-glossary.md)** — Canonical MISH/APP/SSSP plus MSDS/SDS and daily Toolbox Talk freshness definitions
-- **[MHC Terms Library Source](./branding/standards/mhc-terms.docx)** — Upstream terminology source (Version 2.0) for enterprise term additions and protected-term guardrails
+- **[MHC Terms Library Source](../documents/content/terminology-library.json)** — Canonical structured terminology source (Version 2.1) for enterprise term additions and protected-term guardrails; synced from `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx`
 - **[Brand Congruency Master Checklist](./branding/governance/brand-congruency-master-checklist.md)** — Canonical branding merge gate
 - **[Website Guardrails Coverage Map](./branding/governance/website-guardrails-coverage.md)** — Website-wide branding guardrail coverage requirements
-- **[Manual Family Hub](./manuals/index.md)** — Canonical change-control hub for the handbook, safety manual, operations manual, marketing guide, and sales / estimating guide
+- **[MH Ecosystem Documentation Hub](./manuals/index.md)** — Canonical change-control hub for the numbered 01-10 ecosystem families
+- **[Core Doctrine Canonical Map](./manuals/core-doctrine-canonical-map.md)** — Canonical 01-core-doctrine source-to-destination mapping for doctrine parity updates
+- **[Strategy and Branding Canonical Map](./manuals/strategy-branding-canonical-map.md)** — Canonical 02-strategy-and-business-dev source-to-destination mapping for branding and campaign parity updates
+- **[Ecosystem Destination Matrix](./manuals/ecosystem-destination-matrix.md)** — Canonical folder-to-destination routing for all numbered intake families
+- **[Project Delivery Canonical Map](./manuals/project-delivery-canonical-map.md)** — Canonical 03-project-delivery source-to-destination mapping for execution parity updates
+- **[Safety and Field Operations Canonical Map](./manuals/safety-field-ops-canonical-map.md)** — Canonical 04-safety-and-field-ops source-to-destination mapping for safety and field-control parity updates
+- **[IT and Infrastructure Canonical Map](./manuals/it-infrastructure-canonical-map.md)** — Canonical 05-it-and-infrastructure source-to-destination mapping for systems and onboarding parity updates
+- **[Operations Forms Canonical Map](./manuals/operations-forms-canonical-map.md)** — Canonical 09-forms-operations source-to-destination mapping for forms parity updates
 - **[Canonical Contracts Matrix](./branding/governance/website-guardrails-coverage.md#canonical-contracts-matrix-development-routing)** — Component-level routing table for development congruency
 - **[Unified Component Standards](./branding/standards/unified-component-standards.md)** — UI
   component patterns

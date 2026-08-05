@@ -1,12 +1,12 @@
 {
   "library": {
     "name": "MH Construction Brand Terms Library",
-    "version": "2.0",
+    "version": "2.1",
     "effectiveDate": "2026-04-07",
-    "lastUpdated": "2026-07-29",
-    "status": "canonical-upstream-source",
+    "lastUpdated": "2026-08-05",
+    "status": "canonical-upstream-source-with-input-sync",
     "source": {
-      "docx": "docs/branding/standards/mhc-terms.docx",
+      "docx": "documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx",
       "governingStandards": [
         "docs/branding/strategy/dual-terminology-standard.md",
         "docs/branding/strategy/universal-terminology-guide.md",
@@ -31,6 +31,7 @@
   },
   "hierarchy": {
     "precedenceOrder": [
+      "documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx",
       "docs/branding/standards/mhc-terms.docx",
       "docs/branding/strategy/dual-terminology-standard.md",
       "docs/branding/standards/seo-terminology-standard.md",
@@ -42,45 +43,45 @@
       {
         "brandTerm": "Command Center",
         "standardTerm": "Headquarters / Main Office",
-        "scope": ["Handbook", "Website"],
-        "notes": "Central hub for administrative and executive operations."
+        "scope": ["Website", "Dashboard", "Handbook"],
+        "notes": "Primary home, leadership, or operational coordination point."
       },
       {
         "brandTerm": "Command Staff",
         "standardTerm": "Executive Leadership",
-        "scope": ["Handbook", "Website"],
+        "scope": ["Website", "Handbook"],
         "notes": "Preferred replacement for management-team phrasing."
       },
       {
         "brandTerm": "Safety Command",
-        "standardTerm": "Safety Department / Safety Officer",
-        "scope": ["MISH 3.0", "Handbook"],
-        "notes": "Document owner on MISH documents; may issue CAOs."
+        "standardTerm": "Safety Program Leadership",
+        "scope": ["Safety Page", "MISH 3.0", "Handbook"],
+        "notes": "Accountable safety program and leadership structure."
       },
       {
         "brandTerm": "Site Safety Commander",
-        "standardTerm": "Superintendent",
-        "scope": ["MISH 3.0", "Handbook"]
+        "standardTerm": "Superintendent / Site Safety Leadership",
+        "scope": ["MISH 3.0", "Internal Safety"]
       },
       {
-        "brandTerm": "Field Safety Lead",
-        "standardTerm": "Foreman",
-        "scope": ["MISH 3.0", "Handbook"]
+        "brandTerm": "Field Command Center",
+        "standardTerm": "Internal Operations Portal",
+        "scope": ["Dashboard", "Internal Ops", "Authenticated Website"]
       },
       {
-        "brandTerm": "Task Operator",
-        "standardTerm": "Worker / Tradesperson",
-        "scope": ["MISH 3.0", "Handbook"]
+        "brandTerm": "BidPilot",
+        "standardTerm": "Sales, Estimating, and Preconstruction Portal",
+        "scope": ["Internal", "Recruiting/Technology References"]
       },
       {
-        "brandTerm": "Sub-Operator",
-        "standardTerm": "Subcontractor",
-        "scope": ["MISH 3.0", "Marketing"]
+        "brandTerm": "Marketing Flight",
+        "standardTerm": "Marketing Campaign and Relationship Portal",
+        "scope": ["Internal", "Approved Marketing References"]
       },
       {
-        "brandTerm": "Chief of Operations",
-        "standardTerm": "COO / Operations Manager",
-        "scope": ["Handbook", "Website"]
+        "brandTerm": "Allied Network",
+        "standardTerm": "Qualified Trade-Partner and Supplier Network",
+        "scope": ["Website", "Marketing", "Trade Partner Materials"]
       }
     ],
     "operationsHierarchy": [
@@ -108,22 +109,33 @@
         "notes": "Field-side authority for schedule, coordination, and closeout discipline."
       },
       {
-        "brandTerm": "Task Operator",
-        "standardTerm": "Worker / Tradesperson",
-        "scope": ["Operations Manual", "Handbook", "Website"],
-        "notes": "Execution-level role for direct field production."
+        "brandTerm": "Command Loop",
+        "standardTerm": "Monitor, Control, Communicate, Escalate, and Close",
+        "scope": ["Operations Manual", "MISH 3.0", "Handbook"],
+        "notes": "Maintain a decision trail and evidence-backed closeout."
+      },
+      {
+        "brandTerm": "Mission-Ready Handoff",
+        "standardTerm": "Preconstruction-to-Operations Handoff",
+        "scope": ["Preconstruction", "Operations", "Closeout"],
+        "notes": "Requires acceptance criteria and accountable receiver."
       }
     ],
     "programAndProcess": [
       {
-        "brandTerm": "Mission Brief",
-        "standardTerm": "Pre-Task Meeting / Tailgate Talk",
-        "scope": ["MISH 3.0", "Handbook"]
+        "brandTerm": "Operations Brief",
+        "standardTerm": "Project Brief / Scope Narrative / Execution Approach",
+        "scope": ["Services", "Project Intake", "Preconstruction"]
       },
       {
-        "brandTerm": "Operations Brief",
-        "standardTerm": "Pre-Construction Meeting",
-        "scope": ["Marketing", "Website"]
+        "brandTerm": "Mission Intake",
+        "standardTerm": "Initiating and Opportunity Intake",
+        "scope": ["Sales", "Estimating", "Preconstruction"]
+      },
+      {
+        "brandTerm": "Mission Parameters",
+        "standardTerm": "Scope, Budget, Schedule, Risks, and Constraints",
+        "scope": ["Preconstruction", "BidPilot", "Project Controls"]
       },
       {
         "brandTerm": "Deployment",
@@ -131,34 +143,19 @@
         "scope": ["All Documents"]
       },
       {
-        "brandTerm": "Command Loop",
-        "standardTerm": "Two-Way Feedback System",
-        "scope": ["MISH 3.0", "Handbook"]
+        "brandTerm": "Deployment Plan",
+        "standardTerm": "Mobilization and Site-Logistics Plan",
+        "scope": ["Preconstruction", "Operations", "Field Mobilization"]
       },
       {
-        "brandTerm": "Corrective Action Order (CAO)",
-        "standardTerm": "Safety Write-Up",
-        "scope": ["MISH 3.0", "Handbook"]
+        "brandTerm": "Mission Brief",
+        "standardTerm": "Pre-Task Meeting / Daily Safety and Production Briefing",
+        "scope": ["MISH 3.0", "Handbook", "Field Operations"]
       },
       {
-        "brandTerm": "After-Action Review (AAR)",
-        "standardTerm": "Post-Project Debrief",
-        "scope": ["Marketing", "MISH 3.0"]
-      },
-      {
-        "brandTerm": "Operational Pause",
-        "standardTerm": "Stop Work Authority",
-        "scope": ["MISH 3.0", "Handbook"]
-      },
-      {
-        "brandTerm": "Stand Down",
-        "standardTerm": "All-Hands Safety Stop",
-        "scope": ["MISH 3.0"]
-      },
-      {
-        "brandTerm": "Pre-Deployment Checklist",
-        "standardTerm": "Pre-Task Inspection / JHA",
-        "scope": ["MISH 3.0", "Website"]
+        "brandTerm": "After-Action Review",
+        "standardTerm": "Lessons Learned / Closeout Review",
+        "scope": ["Closeout", "Continuous Improvement", "MISH 3.0"]
       },
       {
         "brandTerm": "Handshake to Handoff",
@@ -169,18 +166,18 @@
     "qualityAndAccountability": [
       {
         "brandTerm": "Zero-Gap Accountability",
-        "standardTerm": "Full Compliance",
-        "scope": ["MISH 3.0", "Handbook"]
+        "standardTerm": "Every Required Control Has an Owner and Evidence",
+        "scope": ["Governance", "MISH 3.0", "Handbook"]
       },
       {
         "brandTerm": "Mission-Ready",
-        "standardTerm": "Fully Prepared",
-        "scope": ["All Documents"]
+        "standardTerm": "Fully Prepared and Authorized",
+        "scope": ["All Documents", "People", "Equipment", "Handoffs"]
       },
       {
-        "brandTerm": "Field-First",
-        "standardTerm": "Practical / Usable",
-        "scope": ["MISH 3.0", "Website"]
+        "brandTerm": "Field-Proven",
+        "standardTerm": "Demonstrated Through Completed Work",
+        "scope": ["Marketing", "Website", "Case Studies"]
       },
       {
         "brandTerm": "Audit-Ready Handoff",
@@ -194,18 +191,18 @@
       },
       {
         "brandTerm": "Verified Performance",
-        "standardTerm": "Documented Track Record",
-        "scope": ["Marketing", "Website"]
+        "standardTerm": "Verified Performance Statement with Source",
+        "scope": ["Marketing", "Website", "Sales Collateral"]
       },
       {
         "brandTerm": "Operational Integrity",
         "standardTerm": "Quality Assurance",
-        "scope": ["MISH 3.0", "Marketing"]
+        "scope": ["MISH 3.0", "Marketing", "Operations"]
       },
       {
-        "brandTerm": "Accurate Firmness",
-        "standardTerm": "Realistic Enforcement",
-        "scope": ["MISH 3.0", "Handbook"]
+        "brandTerm": "Relationship-First",
+        "standardTerm": "Client-Focused",
+        "scope": ["Website", "Marketing", "Client Communications"]
       }
     ],
     "safetyAndTechnicalExecution": [
@@ -215,19 +212,24 @@
         "scope": ["Website", "Marketing"]
       },
       {
-        "brandTerm": "Every Operator Goes Home Safe",
-        "standardTerm": "Zero Incident Goal",
-        "scope": ["MISH 3.0", "Handbook"]
-      },
-      {
         "brandTerm": "Hazard Recon",
         "standardTerm": "Hazard Identification",
         "scope": ["MISH 3.0", "Website"]
       },
       {
         "brandTerm": "Protective Posture",
-        "standardTerm": "PPE Requirements",
+        "standardTerm": "Personal Protective Equipment (PPE) Requirements",
+        "scope": ["MISH 3.0", "Website", "Safety Forms"]
+      },
+      {
+        "brandTerm": "Operational Pause",
+        "standardTerm": "Stop Work Authority",
         "scope": ["MISH 3.0", "Website"]
+      },
+      {
+        "brandTerm": "Every Operator Goes Home Safe",
+        "standardTerm": "Zero Incident Goal",
+        "scope": ["MISH 3.0", "Handbook"]
       },
       {
         "brandTerm": "Spatial Capture",
@@ -240,98 +242,266 @@
         "scope": ["Marketing", "Website"]
       },
       {
-        "brandTerm": "Vertical Integration",
-        "standardTerm": "Self-Performing Capability",
-        "scope": ["Marketing", "Website"]
+        "brandTerm": "Field Team",
+        "standardTerm": "Site Leadership / Field Presence",
+        "scope": ["Website", "Marketing"]
       }
     ],
     "leadershipAndCulture": [
       {
-        "brandTerm": "Words from the General",
+        "brandTerm": "Word From the General",
         "standardTerm": "Owner's Message",
         "scope": ["Website", "Handbook"]
       },
       {
-        "brandTerm": "Got Your Six",
-        "standardTerm": "We have your back",
-        "scope": ["Website", "Marketing"]
-      },
-      {
         "brandTerm": "Service-Earned Discipline",
         "standardTerm": "Experience-Based Standards",
-        "scope": ["Website", "About Page"]
+        "scope": ["Website", "About Page", "Leadership Messaging"]
       },
       {
-        "brandTerm": "Relationship-First",
-        "standardTerm": "Client-Focused",
-        "scope": ["Website", "Marketing"]
-      },
-      {
-        "brandTerm": "Built on Quality, Backed by Trust",
+        "brandTerm": "Built on Quality, Backed by Trust.",
         "standardTerm": "Company Tagline",
         "scope": ["All External Media"]
       },
       {
-        "brandTerm": "Handshake Pride",
-        "standardTerm": "Integrity / Word is Bond",
-        "scope": ["Website", "Handbook"]
+        "brandTerm": "From Handshake to Handoff.",
+        "standardTerm": "Relationship Tagline",
+        "scope": ["Website", "Client Journey", "Project Delivery"]
       },
       {
-        "brandTerm": "The General",
-        "standardTerm": "Owner / CEO",
-        "scope": ["Informal Copy"]
+        "brandTerm": "Squared Away from Start to Finish.",
+        "standardTerm": "Execution Tagline",
+        "scope": ["Services", "Operations", "Field Delivery"]
+      },
+      {
+        "brandTerm": "Your Word Is Your Bond. So Is Ours.",
+        "standardTerm": "Leadership Accountability Line",
+        "scope": ["About Page", "Leadership", "Client Commitments"]
       }
     ],
     "enterpriseAdditionsV2": [
       {
         "brandTerm": "Operational Theater",
         "standardTerm": "Project Site / Jobsite",
-        "scope": ["Handbook", "Marketing"]
+        "scope": ["Internal Safety", "Handbook", "Marketing"]
       },
       {
         "brandTerm": "Mission Parameters",
         "standardTerm": "Project Scope",
         "scope": ["Marketing", "Pre-Con"]
+      }
+    ]
+  },
+  "inputDraftV1": {
+    "sourceDocx": "documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx",
+    "version": "1.0-draft",
+    "syncDate": "2026-08-05",
+    "primaryBrandLines": [
+      {
+        "level": "Master",
+        "approvedLine": "Built on Quality, Backed by Trust.",
+        "primaryUse": "Homepage, corporate identity, pitch deck, major campaigns"
       },
       {
-        "brandTerm": "Force Multiplier",
-        "standardTerm": "Efficiency Gain",
-        "scope": ["Marketing", "Website"]
+        "level": "Relationship",
+        "approvedLine": "From Handshake to Handoff.",
+        "primaryUse": "Client journey, project delivery, closeout"
       },
       {
-        "brandTerm": "Boots on the Ground",
-        "standardTerm": "Field Crew",
-        "scope": ["Marketing", "Recruitment"]
+        "level": "Execution",
+        "approvedLine": "Squared Away from Start to Finish.",
+        "primaryUse": "Services, field delivery, operations"
       },
       {
-        "brandTerm": "Rules of Engagement (ROE)",
-        "standardTerm": "Project Contract",
-        "scope": ["Marketing", "Handbook"]
+        "level": "Accountability",
+        "approvedLine": "Your Word Is Your Bond. So Is Ours.",
+        "primaryUse": "Leadership, client commitments, about page"
       },
       {
-        "brandTerm": "Situation Report (SITREP)",
-        "standardTerm": "Project Status Update",
-        "scope": ["Marketing", "Client Comms"]
+        "level": "Control",
+        "approvedLine": "No Gaps. No Guesswork. Accountable Follow-Through.",
+        "primaryUse": "BidPilot, Field Command Center, project controls"
+      }
+    ],
+    "controlledTerminology": [
+      {
+        "brandTerm": "Command Center",
+        "controlledMeaning": "Primary home, leadership, or operational coordination point",
+        "useBoundary": "Website homepage; internal dashboard"
       },
       {
-        "brandTerm": "Ground Truth",
-        "standardTerm": "Verified Field Conditions",
-        "scope": ["Marketing", "Pre-Con"]
+        "brandTerm": "Operations Brief",
+        "controlledMeaning": "Clear summary of scope, constraints, approach, and next steps",
+        "useBoundary": "Services and project intake"
       },
       {
-        "brandTerm": "Mission Accomplished",
-        "standardTerm": "Project Closeout",
-        "scope": ["Marketing", "Case Studies"]
+        "brandTerm": "Mission",
+        "controlledMeaning": "Defined objective with success criteria",
+        "useBoundary": "Campaign or project objective; never a substitute for contract scope"
       },
       {
-        "brandTerm": "Operational Tempo",
-        "standardTerm": "Project Schedule / Pace",
-        "scope": ["Handbook", "Marketing"]
+        "brandTerm": "Mission Parameters",
+        "controlledMeaning": "Scope, budget, schedule, risks, and constraints",
+        "useBoundary": "Preconstruction and BidPilot"
       },
       {
-        "brandTerm": "Standby to Standby",
-        "standardTerm": "On Call / Ready to Mobilize",
-        "scope": ["Marketing", "Services"]
+        "brandTerm": "Mission-Ready",
+        "controlledMeaning": "Verified prepared, qualified, resourced, and authorized",
+        "useBoundary": "People, equipment, and handoffs"
+      },
+      {
+        "brandTerm": "Deployment",
+        "controlledMeaning": "Controlled mobilization of people or assets",
+        "useBoundary": "Field mobilization; use standard term beside it on first reference"
+      },
+      {
+        "brandTerm": "Command Loop",
+        "controlledMeaning": "Documented feedback, escalation, decision, and closeout cycle",
+        "useBoundary": "Internal operations and safety"
+      },
+      {
+        "brandTerm": "Field Command Center",
+        "controlledMeaning": "Internal job-aligned operations portal",
+        "useBoundary": "Internal and authenticated pages"
+      },
+      {
+        "brandTerm": "BidPilot",
+        "controlledMeaning": "Sales, Estimating, and Preconstruction portal",
+        "useBoundary": "Internal and approved recruiting/technology references"
+      },
+      {
+        "brandTerm": "Marketing Flight",
+        "controlledMeaning": "Marketing campaign and relationship portal",
+        "useBoundary": "Internal and approved marketing references"
+      },
+      {
+        "brandTerm": "Operational Theater",
+        "controlledMeaning": "Active work area or jobsite",
+        "useBoundary": "Internal safety language only; use jobsite publicly"
+      },
+      {
+        "brandTerm": "Site Safety Commander",
+        "controlledMeaning": "Qualified site-level safety authority",
+        "useBoundary": "Internal MISH use; public copy uses Superintendent or safety leadership"
+      },
+      {
+        "brandTerm": "Safety Command",
+        "controlledMeaning": "Safety program and accountable leadership structure",
+        "useBoundary": "Safety page and internal program"
+      },
+      {
+        "brandTerm": "Mission Brief",
+        "controlledMeaning": "Pre-task or daily safety and production briefing",
+        "useBoundary": "Internal field use; explain publicly"
+      },
+      {
+        "brandTerm": "After-Action Review",
+        "controlledMeaning": "Structured lessons-learned review",
+        "useBoundary": "Closeout and continuous improvement"
+      },
+      {
+        "brandTerm": "Allied Network",
+        "controlledMeaning": "Qualified trade-partner and supplier network",
+        "useBoundary": "Trade partner page"
+      },
+      {
+        "brandTerm": "Client Partner",
+        "controlledMeaning": "Relationship term for a client or project owner",
+        "useBoundary": "Marketing only; contracts retain Owner or Client"
+      },
+      {
+        "brandTerm": "Trade Partner",
+        "controlledMeaning": "Relationship term for subcontractors and suppliers",
+        "useBoundary": "Marketing only; contracts retain legal party names"
+      },
+      {
+        "brandTerm": "Field-Proven",
+        "controlledMeaning": "Demonstrated through completed work or verified performance",
+        "useBoundary": "Marketing only when evidence exists"
+      },
+      {
+        "brandTerm": "Service-Earned Discipline",
+        "controlledMeaning": "Veteran-led preparation, responsibility, and follow-through",
+        "useBoundary": "Veteran, leadership, and culture messaging"
+      },
+      {
+        "brandTerm": "Zero-Gap Accountability",
+        "controlledMeaning": "Every required control has an owner and evidence",
+        "useBoundary": "Internal governance; use sparingly in public copy"
+      }
+    ],
+    "constructionAndPmbokTranslation": [
+      {
+        "brandTerm": "Mission Intake",
+        "standardTerm": "Initiating and opportunity intake",
+        "requiredRule": "Do not replace formal solicitation or contract terminology"
+      },
+      {
+        "brandTerm": "Operations Brief",
+        "standardTerm": "Project brief, scope narrative, and execution approach",
+        "requiredRule": "Identify assumptions and constraints"
+      },
+      {
+        "brandTerm": "Mission Parameters",
+        "standardTerm": "Scope, schedule, cost, quality, resources, and risk baselines",
+        "requiredRule": "Baseline changes require change control"
+      },
+      {
+        "brandTerm": "Deployment Plan",
+        "standardTerm": "Mobilization and site-logistics plan",
+        "requiredRule": "Include responsible parties and readiness criteria"
+      },
+      {
+        "brandTerm": "Command Loop",
+        "standardTerm": "Monitor, control, communicate, escalate, and close",
+        "requiredRule": "Maintain decision and evidence trail"
+      },
+      {
+        "brandTerm": "After-Action Review",
+        "standardTerm": "Lessons learned and closeout review",
+        "requiredRule": "Assign improvements to controlled documents or systems"
+      },
+      {
+        "brandTerm": "Mission-Ready Handoff",
+        "standardTerm": "Formal Preconstruction-to-Operations transfer",
+        "requiredRule": "Requires acceptance criteria and accountable receiver"
+      }
+    ],
+    "prohibitedAndRestrictedLanguage": [
+      {
+        "doNotUsePublicly": "Infiltrate, capture, conquer, dominate",
+        "reason": "Aggressive and inconsistent with community partnership",
+        "useInstead": "Engage, enter, build relationships, earn trust"
+      },
+      {
+        "doNotUsePublicly": "Enemy, target, kill chain, weapons-grade",
+        "reason": "Combat framing creates reputational and legal risk",
+        "useInstead": "Competitor, audience, decision path, disciplined"
+      },
+      {
+        "doNotUsePublicly": "Boots on the ground",
+        "reason": "Cliche and may minimize military service",
+        "useInstead": "Field team, site leadership, field presence"
+      },
+      {
+        "doNotUsePublicly": "War room",
+        "reason": "Can sound theatrical outside emergencies",
+        "useInstead": "Command Center, coordination room, control meeting"
+      },
+      {
+        "doNotUsePublicly": "Sub-Operator in contracts",
+        "reason": "Does not replace the legal subcontractor relationship",
+        "useInstead": "Subcontractor; Trade Partner in marketing"
+      },
+      {
+        "doNotUsePublicly": "Guaranteed schedule or zero risk",
+        "reason": "Unverifiable absolute claim",
+        "useInstead": "Controlled schedule; risk-managed delivery"
+      },
+      {
+        "doNotUsePublicly": "Best, safest, unmatched",
+        "reason": "Requires defensible comparative evidence",
+        "useInstead": "Verified performance statement with source"
       }
     ]
   },
@@ -381,7 +551,9 @@
       "Authorized Person": ["Cleared Operator"],
       "Hazard Communication": ["Hazard Intel"],
       "Personal Protective Equipment (PPE)": ["Protective Posture"],
-      "Stop Work Authority": ["Operational Pause"]
+      "Stop Work Authority": ["Operational Pause"],
+      "Subcontractor": ["Sub-Operator in contracts"],
+      "Field Team": ["Boots on the ground"]
     }
   },
   "guardrails": {

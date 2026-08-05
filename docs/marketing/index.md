@@ -1,7 +1,7 @@
 # Marketing Documentation
 
 **Category:** Marketing - Overview  
-**Last Updated:** July 31, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -16,6 +16,19 @@ Use this section for external-facing marketing playbooks covering Google Busines
 All marketing copy must remain congruent with MH branding standards: relationship-first voice, factual veteran-owned framing, preserved trust signals, and approved SEO naming.
 
 **Brand Congruency:** Marketing assets and page treatments must keep typography and color usage aligned with canonical MH standards.
+
+## Numbered Ecosystem Source Lineage
+
+Marketing documentation should align to the numbered intake families that govern campaign strategy, public messaging, and delivery-aware continuity:
+
+- `documents/input/02-strategy-and-business-dev/mh-marketing-strategy-guide-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-marketing-flight-program-standard-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx`
+- `documents/input/02-strategy-and-business-dev/mh-event-and-community-outreach-program-v1-0-draft.docx`
+- `documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx`
+- `documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx`
+
+Use [Strategy and Branding Canonical Map](../manuals/strategy-branding-canonical-map.md) and [Project Delivery Canonical Map](../manuals/project-delivery-canonical-map.md) to keep campaign language, proof discipline, and handoff-aware public messaging aligned with the source model.
 
 ### Start Here
 
@@ -64,10 +77,10 @@ Before publishing any marketing asset, confirm that terminology, trust reference
 
 ## Related References
 
-Use these references when marketing work needs to connect back to the broader docs system, manual-family guidance, or canonical MH messaging standards.
+Use these references when marketing work needs to connect back to the broader docs system, numbered ecosystem guidance, or canonical MH messaging standards.
 
 - [Documentation Index](../index.md)
 - [Main README](../../README.md)
-- [Manual Family Hub](../manuals/index.md)
+- [MH Ecosystem Documentation Hub](../manuals/index.md)
 - [Brand Messaging](../branding/strategy/messaging.md)
 - [SEO Complete Guide](../technical/seo/seo-complete-guide.md)

@@ -66,7 +66,7 @@ Any change that fails one of the checks below is non-compliant.
 
 1. **Accessibility preserved**: Maintain semantic structure, keyboard access, labels, alt text, and contrast standards.
 
-1. **SEO naming alignment preserved**: Keep page names, headings, slugs, metadata, and labels aligned with approved brand terminology. For the Jeremy authority profile, preserve the approved name trio `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert` alongside the shared `Words from the General` ribbon strategy. Avoid unapproved aliases, militarized names, or keyword stuffing.
+1. **SEO naming alignment preserved**: Keep page names, headings, slugs, metadata, and labels aligned with approved brand terminology. For the Jeremy authority profile, preserve the approved name trio `Jeremy Gale Thamert`, `Jeremy G. Thamert`, and `Jeremy Thamert` alongside the shared `Word From the General` ribbon strategy. Avoid unapproved aliases, militarized names, or keyword stuffing.
 
 1. **Approved exception scope preserved**: Patriotic red-to-blue border is allowed only in `WaVobBadge` and nowhere else.
 

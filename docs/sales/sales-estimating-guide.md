@@ -1,7 +1,7 @@
 # Sales & Estimating Guide
 
 **Category:** Sales / Estimating - Strategy
-**Last Updated:** July 31, 2026
+**Last Updated:** August 5, 2026
 **Version:** 2.0.3
 **Status:** ✅ Active
 
@@ -64,6 +64,31 @@ When proposal follow-up, stakeholder recap language, or post-award communication
 | [Universal Page Flow Standard](../technical/patterns/universal-page-flow-standard.md)           | Lead-path page structure                             | Proposal and sales-page sequencing that moves from trust to action                    |
 
 Treat the marketing parameters directory as the shared baseline cluster whenever sales or estimating communication crosses into marketing, public narrative, or reusable stakeholder-facing recap content.
+
+Current numbered ecosystem sources for this guide:
+
+- [MH Sales Estimating Guide Source](../../documents/input/02-strategy-and-business-dev/mh-sales-estimating-guide-v1-0-draft.docx)
+- [MH BidPilot Preconstruction Standard Source](../../documents/input/02-strategy-and-business-dev/mh-bidpilot-sales-estimating-preconstruction-standard-v1-0-draft.docx)
+
+Companion project-delivery sources that govern execution parity:
+
+- [MH Estimating Bid Package Guide Source](../../documents/input/03-project-delivery/mh-estimating-bid-package-guide-v1-0-draft.docx)
+- [MH Financial Controls Guide Source](../../documents/input/03-project-delivery/mh-financial-controls-guide-v1-0-draft.docx)
+- [MH Subcontractor Management Manual Source](../../documents/input/03-project-delivery/mh-subcontractor-management-manual-v1-0-draft.docx)
+- [MH Project Execution Playbook Source](../../documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx)
+- [MH Sales-to-Operations Handoff Source](../../documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx)
+
+## Project Delivery Commitments
+
+The current 03 Project Delivery source set frames estimating and handoff work as controlled execution inputs, not just proposal tasks.
+
+- **Go/no-go discipline**: preserve client-fit, capacity, assumptions, addenda, quotes, exclusions, and delegated approval evidence before submission.
+- **Independent review before release**: proposal authorization is expected to follow documented review rather than estimator-only judgment.
+- **Lifecycle-gate continuity**: awarded work should enter project execution through defined gate evidence, not informal verbal transfer.
+- **Baseline preservation**: budget baselines, mapped cost codes, schedule constraints, value-engineering changes, and high-risk items must transfer with the job.
+- **Closeout-forward thinking**: project execution doctrine expects closeout, warranty, and client-acceptance evidence to be considered from the start, not only at the end.
+
+These commitments are the operating layer beneath the sales workflow below and should shape how estimates, proposals, and handoffs are documented.
 
 ## Chapter 2: Core Doctrine and Operating Model
 
@@ -138,6 +163,8 @@ These six steps define how MH moves from a real opportunity to a proposal that c
 - Transfer Mission Parameters, Ground Truth intelligence, and approved assumptions to the XO and the project management teams.
 - Coordinate the handoff with marketing so public narrative and stakeholder communications remain aligned.
 - Treat the handoff as a continuity event, not an administrative file transfer.
+- Complete the handoff checklist before project-system setup begins.
+- Transfer the executed prime contract, final budget baseline, target margin, accepted Trade Partner and buyout notes, scope exclusions, schedule constraints, accepted value engineering, and identified high-risk items.
 
 ## Chapter 5: Trade Partner Relations
 

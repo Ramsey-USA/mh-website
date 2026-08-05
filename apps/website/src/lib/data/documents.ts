@@ -1085,6 +1085,14 @@ const currentSafetySections: DocumentSection[] = (
   };
 });
 
+const SAFETY_MANUAL_MAX_SECTION = currentSafetySections.reduce(
+  (max, section) => {
+    const numeric = Number.parseInt(section.number, 10);
+    return Number.isFinite(numeric) ? Math.max(max, numeric) : max;
+  },
+  0,
+);
+
 const currentEmployeeHandbookSections: DocumentSection[] = (
   employeeHandbook.sections ?? []
 ).map((section) => {
@@ -1152,7 +1160,9 @@ export const safetyForms: DocumentEntry[] = (formsManifest.forms ?? [])
   .filter((entry) => {
     const mishNumbers = mishSectionNumbers(entry);
     return mishNumbers.some(
-      (sectionNumber) => sectionNumber >= 1 && sectionNumber <= 50,
+      (sectionNumber) =>
+        sectionNumber >= 1 &&
+        sectionNumber <= (SAFETY_MANUAL_MAX_SECTION || 59),
     );
   })
   .map((entry) => {

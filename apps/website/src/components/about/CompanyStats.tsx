@@ -55,7 +55,7 @@ export const companyStats: StatItem[] = [
   {
     iconName: "verified",
     value: 3,
-    label: "States Licensed & Insured",
+    label: "States Licensed",
     animated: false,
     isPublic: true,
   },

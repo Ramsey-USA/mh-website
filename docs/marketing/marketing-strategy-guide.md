@@ -1,7 +1,7 @@
 # Marketing Strategy Guide
 
 **Category:** Marketing - Strategy
-**Last Updated:** July 31, 2026
+**Last Updated:** August 5, 2026
 **Version:** 2.0.8
 **Status:** ✅ Active
 
@@ -49,18 +49,40 @@ Use this guide when planning a project marketing runway, assigning weekly conten
 
 ## Chapter 1: Canonical Strategy Sources
 
-| Source                                                                                                                                  | What It Controls                                                       | Use It For                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| [Service Routes](../../apps/website/src/lib/data/service-routes.ts)                                                                     | Canonical project marketing service summary                            | Public service copy and route-level strategy framing                                                   |
-| [Social Media Branding Parameters](./parameters/social-media-branding-parameters.md)                                                    | Shared campaign parameters baseline for marketing and sales congruency | Approved tone, cadence, proof rules, lifecycle naming, and content-length decisions                    |
-| [Lifecycle Campaign Parameters](./parameters/lifecycle-campaign-parameters.md)                                                          | Shared phase naming and timing baseline                                | Keeping project-phase language, slogans, and timing consistent across campaign planning and recap work |
-| [Proof and Approval Parameters](./parameters/proof-and-approval-parameters.md)                                                          | Shared evidence and release baseline                                   | Deciding what can be published, when to hold content, and how approval discipline is applied           |
-| [Google Business Profile Optimization Guide](./google-business-profile/google-business-profile-guide.md)                                | GBP operating workflow and optimization discipline                     | Managing posting rhythm, profile upkeep, review handling, and local-search execution                   |
-| [GBP Post Templates](./google-business-profile/gbp-post-templates.md)                                                                   | Google Business Profile execution templates                            | Applying approved local-post structure, service-area wording, and relationship-first GBP messaging     |
-| [Media Strategy & Photo/Video Roadmap](../media/media-strategy.md)                                                                      | Photo/video roadmap and repurposing structure                          | Asset planning, capture lists, and visual proof workflow                                               |
-| [Website Layout Enhancement Plan](../../documents/input/marketing%20strategy/MH_Construction_Website_Page_Layout_Enhancement_Plan.docx) | Original strategy planning source                                      | Historical intent, layout assumptions, and narrative direction                                         |
+| Source                                                                                                   | What It Controls                                                       | Use It For                                                                                             |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| [Service Routes](../../apps/website/src/lib/data/service-routes.ts)                                      | Canonical project marketing service summary                            | Public service copy and route-level strategy framing                                                   |
+| [Social Media Branding Parameters](./parameters/social-media-branding-parameters.md)                     | Shared campaign parameters baseline for marketing and sales congruency | Approved tone, cadence, proof rules, lifecycle naming, and content-length decisions                    |
+| [Lifecycle Campaign Parameters](./parameters/lifecycle-campaign-parameters.md)                           | Shared phase naming and timing baseline                                | Keeping project-phase language, slogans, and timing consistent across campaign planning and recap work |
+| [Proof and Approval Parameters](./parameters/proof-and-approval-parameters.md)                           | Shared evidence and release baseline                                   | Deciding what can be published, when to hold content, and how approval discipline is applied           |
+| [Google Business Profile Optimization Guide](./google-business-profile/google-business-profile-guide.md) | GBP operating workflow and optimization discipline                     | Managing posting rhythm, profile upkeep, review handling, and local-search execution                   |
+| [GBP Post Templates](./google-business-profile/gbp-post-templates.md)                                    | Google Business Profile execution templates                            | Applying approved local-post structure, service-area wording, and relationship-first GBP messaging     |
+| [Media Strategy & Photo/Video Roadmap](../media/media-strategy.md)                                       | Photo/video roadmap and repurposing structure                          | Asset planning, capture lists, and visual proof workflow                                               |
 
 Treat the parameters directory as the shared baseline cluster for this guide and the Sales/Estimating Guide. When cadence, proof, lifecycle, or handoff rules change there, update both guides in the same change.
+
+Current numbered ecosystem sources for this guide:
+
+- [MH Marketing Strategy Guide Source](../../documents/input/02-strategy-and-business-dev/mh-marketing-strategy-guide-v1-0-draft.docx)
+- [MH Marketing Flight Program Standard Source](../../documents/input/02-strategy-and-business-dev/mh-marketing-flight-program-standard-v1-0-draft.docx)
+- [MH Branding Terminology Library Source](../../documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx)
+- [MH Event and Community Outreach Program Source](../../documents/input/02-strategy-and-business-dev/mh-event-and-community-outreach-program-v1-0-draft.docx)
+
+Companion ecosystem sources that affect cross-functional marketing execution:
+
+- [MH Project Execution Playbook Source](../../documents/input/03-project-delivery/mh-project-execution-playbook-v1-0-draft.docx)
+- [MH Sales-to-Operations Handoff Source](../../documents/input/03-project-delivery/pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx)
+
+## Project Delivery Alignment Commitments
+
+The current 03 Project Delivery source set frames marketing continuity as part of controlled project execution rather than a separate storytelling layer.
+
+- **Gate-aware messaging**: public updates should track actual lifecycle-gate progress from pursuit through closeout rather than inferred momentum.
+- **Baseline alignment**: published project narrative should stay consistent with approved schedule, procurement, RFI, submittal, change, and meeting realities.
+- **Approved handoff continuity**: once a project moves from sales to operations, marketing should reflect the same accepted scope boundaries, schedule constraints, value-engineering decisions, and high-risk items already documented in the handoff package.
+- **Closeout evidence discipline**: ribbon-cutting, recap, and legacy content should follow actual closeout, warranty, and client-acceptance evidence rather than cosmetic completion alone.
+
+These commitments are the operating layer beneath the campaign phases and proof rules below.
 
 For Google Business Profile work, this guide uses the dedicated [Google Business Profile documentation folder](./google-business-profile/index.md), the Google Business Profile Optimization Guide, and GBP Post Templates as the channel-specific execution companions to the broader marketing operating model.
 

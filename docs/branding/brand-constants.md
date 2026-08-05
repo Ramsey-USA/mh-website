@@ -267,8 +267,8 @@ Use this section as the canonical licensing reference for docs and agent workflo
 MH's terminology system is military-themed construction language that can be expanded and optimized to support
 enterprise communication while keeping the brand factual, disciplined, and trust-first.
 
-Upstream source for enterprise term additions and mappings: `docs/branding/standards/mhc-terms.docx`
-(Brand Terms Library v2.0, effective 04/07/2026).
+Upstream source for enterprise term additions and mappings: `documents/content/terminology-library.json`
+(Brand Terms Library v2.1, last updated 08/05/2026).
 
 Surface-aware precedence rule:
 

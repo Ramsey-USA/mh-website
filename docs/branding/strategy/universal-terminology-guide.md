@@ -1,6 +1,6 @@
 # Universal Terminology & Language Standards
 
-**Last Updated:** July 28, 2026 | **Version:** 1.3.0 | **Status:** Official Brand Standard
+**Last Updated:** August 5, 2026 | **Version:** 1.4.0 | **Status:** Official Brand Standard
 
 > **Canonical Reference:** For exact brand values, see [Brand Constants](../brand-constants.md).
 
@@ -27,8 +27,8 @@ These standards ensure brand coherence and professional consistency company-wide
 The language model is military-themed construction language and may be expanded or optimized for enterprise use
 when the change improves clarity without weakening brand congruency.
 
-Primary source for the current terminology model: `docs/branding/standards/mhc-terms.docx`
-("MH Construction Brand Terms Library", Version 2.0, effective 04/07/2026).
+Primary source for the current terminology model: `documents/content/terminology-library.json`
+("MH Construction Brand Terms Library", Version 2.1, last updated 08/05/2026).
 
 For PMBOK 6 alignment and construction vocabulary mapping, use
 [Construction Terminology Glossary](./construction-terminology-glossary.md) as the companion reference.
@@ -47,10 +47,11 @@ dual-terminology rules.
 
 If terminology guidance conflicts, resolve in this order:
 
-1. `docs/branding/standards/mhc-terms.docx` (Brand Terms Library v2.0)
-2. [Dual Terminology Standard](./dual-terminology-standard.md)
-3. [SEO Terminology Standard](../standards/seo-terminology-standard.md) for search-facing surfaces
-4. This universal guide
+1. `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx` (upstream source)
+2. `documents/content/terminology-library.json` (canonical structured library, v2.1)
+3. [Dual Terminology Standard](./dual-terminology-standard.md)
+4. [SEO Terminology Standard](../standards/seo-terminology-standard.md) for search-facing surfaces
+5. This universal guide
 
 ### Core Principle
 
@@ -66,17 +67,17 @@ Use surface-aware order so terminology remains clear and congruent across enterp
 
 Use veteran framing to reinforce execution standards, not to replace construction clarity.
 
-### Terms Library v2.0 Required Adoptions
+### Terms Library v2.1 Required Adoptions
 
 Adopt these families across new and revised content:
 
-- Command structure: `Command Center`, `Command Staff`, `Safety Command`, `Site Safety Commander`, `Field Safety Lead`, `Task Operator`, `Sub-Operator`, `Chief of Operations`
-- Operations hierarchy: `Command Doctrine`, `Operations Hierarchy`, `Operations Leadership`, `Field Execution Lead`
-- Program/process: `Mission Brief`, `Operations Brief`, `Deployment`, `Command Loop`, `Corrective Action Order (CAO)`, `After-Action Review (AAR)`, `Operational Pause`, `Stand Down`, `Pre-Deployment Checklist`, `Handshake to Handoff`
-- Quality/accountability: `Zero-Gap Accountability`, `Mission-Ready`, `Field-First`, `Audit-Ready Handoff`, `Proof of Delivery`, `Verified Performance`, `Operational Integrity`, `Accurate Firmness`
-- Safety/technical execution: `Safety Command Standards`, `Every Operator Goes Home Safe`, `Hazard Recon`, `Protective Posture`, `Spatial Capture`, `Digital Twin`, `Vertical Integration`
-- Leadership/culture: `Words from the General`, `Got Your Six`, `Service-Earned Discipline`, `Relationship-First`, `Built on Quality, Backed by Trust`, `Handshake Pride`, `The General`
-- Enterprise additions: `Operational Theater`, `Mission Parameters`, `Force Multiplier`, `Boots on the Ground`, `Rules of Engagement (ROE)`, `Situation Report (SITREP)`, `Ground Truth`, `Mission Accomplished`, `Operational Tempo`, `Standby to Standby`, `Mission-Ready Handoff`
+- Command structure: `Command Center`, `Command Staff`, `Safety Command`, `Site Safety Commander`, `Field Command Center`, `BidPilot`, `Marketing Flight`, `Allied Network`
+- Operations hierarchy: `Command Doctrine`, `Operations Leadership`, `Field Execution Lead`, `Command Loop`, `Mission-Ready Handoff`
+- Program/process: `Operations Brief`, `Mission Intake`, `Mission Parameters`, `Deployment`, `Deployment Plan`, `Mission Brief`, `After-Action Review`, `Handshake to Handoff`
+- Quality/accountability: `Zero-Gap Accountability`, `Mission-Ready`, `Field-Proven`, `Audit-Ready Handoff`, `Proof of Delivery`, `Verified Performance`, `Operational Integrity`, `Relationship-First`
+- Safety/technical execution: `Safety Command Standards`, `Hazard Recon`, `Protective Posture`, `Operational Pause`, `Every Operator Goes Home Safe`, `Spatial Capture`, `Digital Twin`, `Field Team`
+- Leadership/culture: `Word From the General`, `Service-Earned Discipline`, `Built on Quality, Backed by Trust.`, `From Handshake to Handoff.`, `Squared Away from Start to Finish.`, `Your Word Is Your Bond. So Is Ours.`
+- Enterprise additions: `Operational Theater`, `Mission Parameters`
 
 ### Regulatory Protection Rules (Do Not Replace)
 

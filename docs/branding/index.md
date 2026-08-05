@@ -1,7 +1,7 @@
 # Branding Documentation
 
 **Category:** Branding - Overview  
-**Last Updated:** July 28, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -13,7 +13,8 @@ Use it when you need the approved brand language, visual standards, terminology 
 
 This directory contains the MH branding system in a single, connected structure covering strategy, standards, governance, and implementation guidance.
 
-Use the branding set as one system rather than as isolated documents. Enterprise dual terminology is governed across website, dashboard, MISH, handbook, and document assets, and the official term-library source for the current model remains `docs/branding/standards/mhc-terms.docx` (Version 2.0, effective 04/07/2026).
+Use the branding set as one system rather than as isolated documents. Enterprise dual terminology is governed across website, dashboard, MISH, handbook, and document assets, and the official structured term-library source for the current model is `documents/content/terminology-library.json` (Version 2.1, last updated 08/05/2026), synced from `documents/input/02-strategy-and-business-dev/mh-branding-terminology-library-v1-0-draft.docx`.
+For numbered-intake routing and cross-family parity, use [Strategy and Branding Canonical Map](../manuals/strategy-branding-canonical-map.md).
 
 ## 📌 Single Source of Truth
 

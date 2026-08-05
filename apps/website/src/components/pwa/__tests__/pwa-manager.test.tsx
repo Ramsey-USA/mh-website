@@ -317,6 +317,9 @@ describe("PWAInstallCTA", () => {
     expect(
       screen.getByRole("button", { name: /Install the App/i }),
     ).toBeTruthy();
+    expect(
+      screen.getByRole("heading", { name: /MH Construction team experience/i }),
+    ).toBeTruthy();
   });
 
   it("button variant: renders when installable", async () => {

@@ -208,10 +208,18 @@ function parseFormOrder(source) {
     };
   }
 
-  const fileMatch = /^form-mish-(\d{1,2})(?:-|$)/i.exec(trimmed);
-  if (fileMatch) {
+  const plainFormMatch = /^FORM\s+(\d+)$/i.exec(trimmed);
+  if (plainFormMatch) {
     return {
-      num: Number.parseInt(fileMatch[1], 10),
+      num: Number.parseInt(plainFormMatch[1], 10),
+      letter: "A",
+    };
+  }
+
+  const genericFileMatch = /^form-(\d+)(?:-|$)/i.exec(trimmed);
+  if (genericFileMatch) {
+    return {
+      num: Number.parseInt(genericFileMatch[1], 10),
       letter: "A",
     };
   }
@@ -231,9 +239,9 @@ function parseFormOrder(source) {
 }
 
 function fallbackFormIdFromFilename(fileName) {
-  const mishMatch = /form-mish-(\d{1,2})/i.exec(fileName);
-  if (mishMatch) {
-    return `MISH ${String(Number.parseInt(mishMatch[1], 10)).padStart(2, "0")}`;
+  const genericMatch = /^form-(\d+)(?:-|$)/i.exec(fileName);
+  if (genericMatch) {
+    return `FORM ${String(Number.parseInt(genericMatch[1], 10)).padStart(2, "0")}`;
   }
 
   const match = /^form-(\d+)-([a-z])(?:-|$)/i.exec(fileName);
@@ -247,7 +255,7 @@ function fallbackFormIdFromFilename(fileName) {
 function fallbackFormTitleFromFilename(fileName) {
   const base = fileName.replace(/\.pdf$/i, "");
   const trimmed = base
-    .replace(/^form-mish-\d+-/i, "")
+    .replace(/^form-\d+-/i, "")
     .replace(/^form-\d+-[a-z]-/i, "");
   return trimmed
     .split("-")
@@ -267,14 +275,18 @@ function normalizeManualSection(manualSection) {
 }
 
 const HANDBOOK_FORM_CONTENT_CODES = Object.freeze({
-  "HANDBOOK-FORM-01": "CV",
-  "HANDBOOK-FORM-02": "RA",
-  "HANDBOOK-FORM-03": "SP",
-  "HANDBOOK-FORM-04": "WH",
-  "HANDBOOK-FORM-05": "CE",
-  "HANDBOOK-FORM-06": "EP",
-  "HANDBOOK-FORM-07": "CP",
-  "HANDBOOK-FORM-08": "GE",
+  "HANDBOOK-FORM-09": "EHB-F-01.1",
+  "HANDBOOK-FORM-10": "EHB-F-02.1",
+  "HANDBOOK-FORM-11": "EHB-F-05.1",
+  "HANDBOOK-FORM-12": "EHB-F-05.2",
+  "HANDBOOK-FORM-13": "EHB-F-07.1",
+  "HANDBOOK-FORM-14": "EHB-F-07.2",
+  "HANDBOOK-FORM-15": "EHB-F-08.1",
+  "HANDBOOK-FORM-16": "EHB-F-08.2",
+  "HANDBOOK-FORM-17": "EHB-F-08.3",
+  "HANDBOOK-FORM-18": "EHB-F-09.1",
+  "HANDBOOK-FORM-19": "EHB-F-10.1",
+  "HANDBOOK-FORM-20": "EHB-F-10.2",
 });
 
 function buildFormsAppendixDisplayId(rawId) {
@@ -773,7 +785,9 @@ async function merge({ includeTabs, includeForms, outFile, title }) {
         ? formPackages.filter((pkg) => /^HANDBOOK-FORM-\d+$/i.test(pkg.id))
         : isOperationsManual
           ? formPackages.filter((pkg) => /^OPERATIONS-FORM-\d+$/i.test(pkg.id))
-          : formPackages.filter((pkg) => /^MISH\s+\d{1,2}$/i.test(pkg.id));
+          : formPackages.filter((pkg) =>
+              /MISH\s+\d{1,2}/i.test(String(pkg.manualSection || "")),
+            );
 
       if (filtered.length === 0) {
         console.log(

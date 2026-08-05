@@ -27,7 +27,7 @@ const mockGenerateBreadcrumbSchema = jest.fn((items) => ({
   items,
 }));
 const mockGetJeremyRibbon = jest.fn((routeKey: string) => ({
-  eyebrow: "Words from the General",
+  eyebrow: "Word From the General",
   quote: `Quote for ${routeKey} route proving leadership continuity`,
   attribution: "Jeremy Thamert, Owner & President",
 }));

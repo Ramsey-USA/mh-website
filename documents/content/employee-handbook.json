@@ -5,20 +5,20 @@
     "subtitle": "MH Construction Employee Policies and Procedures",
     "revisionYear": 2026,
     "revisionDate": "2026-07-01",
-    "revisionVersion": "4.0",
+    "revisionVersion": "3.0",
     "company": "MH Construction, Inc.",
     "address": "3111 N. Capitol Ave., Pasco, WA 99301",
     "phone": "(509) 308-6489",
     "website": "https://www.mhc-gc.com",
-    "totalPages": 44,
-    "source": "combined-pdf-html-fragments",
-    "sourceDirectory": "documents/content/mhc-employee-handbook-2026",
+    "totalPages": 56,
+    "source": "combined-docx-html-fragments",
+    "sourceDirectory": "documents/input/08-forms-ehb",
     "manualFamily": "employee",
     "separateFrom": "safety-manual",
     "formsManifest": "documents/forms/forms-manifest.json",
     "formsPolicy": "handbook-owned",
-    "extractedAt": "2026-07-28T02:32:42.544Z",
-    "sourcePdf": "documents/content/mhc-employee-handbook-2026/sections/MHC_Employee_Handbook_Rev4.pdf"
+    "extractedAt": "2026-08-05T01:48:35.477Z",
+    "sourceFile": "documents/input/08-forms-ehb/mh-employee-handbook-v3-0-draft.docx"
   },
   "sections": [
     {
@@ -30,16 +30,16 @@
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/01-introduction-company-overview.html",
       "forms": [
         {
-          "id": "HANDBOOK-FORM-02",
-          "slug": "form-handbook-ra-handbook-receipt-acknowledgment",
-          "title": "Employee Handbook Receipt Acknowledgment",
-          "purpose": "Confirms employee has received and understood handbook"
+          "id": "HANDBOOK-FORM-09",
+          "slug": "form-handbook-ehb-f-01-1-handbook-acknowledgment",
+          "title": "Employee Handbook Acknowledgment",
+          "purpose": "Confirms receipt and acknowledgment of the employee handbook"
         },
         {
-          "id": "HANDBOOK-LETTERHEAD",
-          "slug": "form-handbook-company-letterhead",
-          "title": "MH Construction Company Letterhead",
-          "purpose": "Blank company letterhead for official handbook-aligned correspondence"
+          "id": "HANDBOOK-FORM-19",
+          "slug": "form-handbook-ehb-f-10-1-first-day-onboarding-checklist",
+          "title": "First-Day Onboarding Checklist",
+          "purpose": "Tracks initial onboarding completion against handbook expectations"
         }
       ]
     },
@@ -50,7 +50,20 @@
       "subtitle": "Categories, Schedules, Attendance, Reviews, Outside Employment",
       "pages": "5-6",
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/02-employment-classifications-schedules.html",
-      "forms": []
+      "forms": [
+        {
+          "id": "HANDBOOK-FORM-10",
+          "slug": "form-handbook-ehb-f-02-1-personal-information-update-form",
+          "title": "Personal Information Update Form",
+          "purpose": "Updates employee contact and employment record details"
+        },
+        {
+          "id": "HANDBOOK-FORM-20",
+          "slug": "form-handbook-ehb-f-10-2-employee-performance-review",
+          "title": "Employee Performance Review",
+          "purpose": "Documents formal employee performance review and follow-up"
+        }
+      ]
     },
     {
       "number": 3,
@@ -59,14 +72,7 @@
       "subtitle": "Timekeeping, Pay, Overtime, Insurance, Leave Funds, Retirement",
       "pages": "7-11",
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/03-compensation-benefits.html",
-      "forms": [
-        {
-          "id": "HANDBOOK-FORM-08",
-          "slug": "form-handbook-ge-purchase-approval-general-expense",
-          "title": "Purchase Approval General Expense",
-          "purpose": "Routes employee handbook-related purchases and expense approvals"
-        }
-      ]
+      "forms": []
     },
     {
       "number": 4,
@@ -84,7 +90,20 @@
       "subtitle": "Holidays, PTO, Bereavement, Sick Leave, Leave, Travel",
       "pages": "15-18",
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/05-leave-time-off.html",
-      "forms": []
+      "forms": [
+        {
+          "id": "HANDBOOK-FORM-11",
+          "slug": "form-handbook-ehb-f-05-1-paid-time-off-pto-request-form",
+          "title": "Paid Time Off (PTO) Request Form",
+          "purpose": "Requests planned paid time off under handbook leave policies"
+        },
+        {
+          "id": "HANDBOOK-FORM-12",
+          "slug": "form-handbook-ehb-f-05-2-leave-of-absence-request-form",
+          "title": "Leave of Absence Request Form",
+          "purpose": "Requests a formal leave of absence under handbook leave policies"
+        }
+      ]
     },
     {
       "number": 6,
@@ -93,14 +112,7 @@
       "subtitle": "Safety Commitment, OSHA/JHA, Incident Reporting, Non-Violence",
       "pages": "19-20",
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/06-health-safety-security.html",
-      "forms": [
-        {
-          "id": "HANDBOOK-FORM-03",
-          "slug": "form-handbook-sp-safety-policy-acknowledgement",
-          "title": "Employee Safety Policy Acknowledgment",
-          "purpose": "Confirms understanding of safety policies and requirements"
-        }
-      ]
+      "forms": []
     },
     {
       "number": 7,
@@ -111,34 +123,16 @@
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/07-technology-data-use.html",
       "forms": [
         {
-          "id": "HANDBOOK-FORM-01",
-          "slug": "form-handbook-cv-company-vehicle-acknowledgement",
-          "title": "Company Vehicle Policies and Procedures Acknowledgment",
-          "purpose": "Acknowledges understanding of vehicle use policies"
+          "id": "HANDBOOK-FORM-13",
+          "slug": "form-handbook-ehb-f-07-1-company-vehicle-policy-acknowledgment",
+          "title": "Company Vehicle Policy Acknowledgment",
+          "purpose": "Acknowledges vehicle-use requirements under handbook technology and asset policies"
         },
         {
-          "id": "HANDBOOK-FORM-04",
-          "slug": "form-handbook-wh-work-from-home-agreement",
-          "title": "Temporary Remote Work Application/Agreement",
-          "purpose": "Application and agreement for remote work arrangements"
-        },
-        {
-          "id": "HANDBOOK-FORM-05",
-          "slug": "form-handbook-ce-computer-electronics-use-agreement",
-          "title": "Computer and Electronics Use Agreement",
-          "purpose": "Confirms understanding of computer and electronics use policies"
-        },
-        {
-          "id": "HANDBOOK-FORM-06",
-          "slug": "form-handbook-ep-employee-photo-release-form",
-          "title": "Employee Photo Release Form",
-          "purpose": "Captures employee authorization for company photo and media use"
-        },
-        {
-          "id": "HANDBOOK-FORM-07",
-          "slug": "form-handbook-cp-client-photo-release-form",
-          "title": "Client Photo Release Form",
-          "purpose": "Captures client authorization for project photo and media use"
+          "id": "HANDBOOK-FORM-14",
+          "slug": "form-handbook-ehb-f-07-2-technology-ai-use-agreement",
+          "title": "Technology & AI Use Agreement",
+          "purpose": "Confirms employee agreement to current technology, electronics, and AI-use policies"
         }
       ]
     },
@@ -149,7 +143,26 @@
       "subtitle": "Performance Improvement, Discipline, Termination, Property Return",
       "pages": "25-26",
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/08-disciplinary-action-separation.html",
-      "forms": []
+      "forms": [
+        {
+          "id": "HANDBOOK-FORM-15",
+          "slug": "form-handbook-ehb-f-08-1-performance-improvement-plan-pip",
+          "title": "Performance Improvement Plan (PIP)",
+          "purpose": "Documents corrective action and performance-improvement expectations"
+        },
+        {
+          "id": "HANDBOOK-FORM-16",
+          "slug": "form-handbook-ehb-f-08-2-grievance-and-appeal-form",
+          "title": "Grievance and Appeal Form",
+          "purpose": "Records employee grievance or appeal submissions"
+        },
+        {
+          "id": "HANDBOOK-FORM-17",
+          "slug": "form-handbook-ehb-f-08-3-exit-interview-offboarding-record",
+          "title": "Exit Interview & Offboarding Record",
+          "purpose": "Captures exit and property-return information during separation"
+        }
+      ]
     },
     {
       "number": 9,
@@ -158,7 +171,14 @@
       "subtitle": "Respect Culture, Equal Opportunity, Anti-Harassment, Reporting",
       "pages": "27-28",
       "bodyFile": "documents/content/mhc-employee-handbook-2026/sections/09-workplace-respect-anti-harassment.html",
-      "forms": []
+      "forms": [
+        {
+          "id": "HANDBOOK-FORM-18",
+          "slug": "form-handbook-ehb-f-09-1-workplace-harassment-discrimination-complaint",
+          "title": "Workplace Harassment/Discrimination Complaint",
+          "purpose": "Records formal workplace harassment or discrimination complaints"
+        }
+      ]
     }
   ]
 }

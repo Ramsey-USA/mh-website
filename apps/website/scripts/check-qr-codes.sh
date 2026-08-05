@@ -7,7 +7,9 @@ echo "🔍 MH Construction - QR Code Health Check"
 echo "=========================================="
 echo ""
 
-QR_DIR="public/images/qr-codes"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+QR_DIR="$APP_ROOT/public/images/qr-codes"
 MANIFEST="$QR_DIR/qr-codes-manifest.json"
 TOTAL=0
 FOUND=0

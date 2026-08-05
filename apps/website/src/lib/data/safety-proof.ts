@@ -59,6 +59,7 @@ export interface SafetyProofTranslations {
 
 export function getSafetyProofContent(
   mishProgramLabel: string,
+  sectionCount = 50,
   tx?: SafetyProofTranslations,
 ) {
   return {
@@ -102,7 +103,7 @@ export function getSafetyProofContent(
         icon: FORM_MANUAL_ICONS.source,
         title:
           tx?.credentials.items.program.title ??
-          "59-Section MISH Safety & Health Program (Safety Manual)",
+          `${sectionCount}-Section MISH Safety & Health Program (Safety Manual)`,
         body:
           tx?.credentials.items.program.body ??
           "MH Construction maintains a comprehensive written safety program (Revision 3.0, effective July 1, 2026) covering all OSHA-required topics. Aligned with 29 CFR 1926, AGC CSEA, WISHA, Oregon OSHA, and Idaho requirements.",
@@ -249,7 +250,7 @@ export function getSafetyProofContent(
         icon: "history",
       },
       {
-        value: "50",
+        value: String(sectionCount),
         label: tx?.performance.stats.sections.label ?? "Program Sections",
         sub: mishProgramLabel,
         icon: FORM_MANUAL_ICONS.source,

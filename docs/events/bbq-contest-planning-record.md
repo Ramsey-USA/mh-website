@@ -15,7 +15,7 @@
 ## Content and Branding Notes
 
 - Messaging follows construction-first and relationship-first framing.
-- Route-specific **Words from the General** quote is configured in:
+- Route-specific **Word From the General** quote is configured in:
   - `apps/website/src/content/jeremy-page-ribbons.md` (`events/bbq-contest`)
 - The page now uses the approved event name consistently across route content and metadata.
 

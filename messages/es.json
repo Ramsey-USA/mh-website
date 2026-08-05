@@ -527,7 +527,7 @@
     "credentials": {
       "subtitle": "Reconocido por la Industria",
       "title": "Credenciales de Seguridad",
-      "description": "Designación VPP Estrella de OSHA, Premios EMR de AGC-WA, el marco Dean Gold Standards y un {mishLabel} de 59 secciones — prueba verificable de que nuestros estándares superan los requisitos.",
+      "description": "Designación VPP Estrella de OSHA, Premios EMR de AGC-WA, el marco Dean Gold Standards y un {mishLabel} de {sectionCount} secciones — prueba verificable de que nuestros estándares superan los requisitos.",
       "items": {
         "oshaVpp": {
           "title": "Designación VPP Estrella de OSHA",
@@ -550,9 +550,9 @@
           "tag": "Política -> Procedimiento -> Tarea"
         },
         "program": {
-          "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de 59 Secciones",
-          "body": "MH Construction mantiene un programa de seguridad escrito integral (Revisión 3.0, efectivo 1 de julio de 2026) que cubre todos los temas requeridos por OSHA. Alineado con 29 CFR 1926, AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho.",
-          "tag": "Rev 3.0 · Julio 2026"
+          "title": "Programa de Seguridad y Salud MISH (Manual de Seguridad) de {sectionCount} Secciones",
+          "body": "MH Construction mantiene un programa de seguridad escrito integral (Revisión {revisionNumber}, vigente desde {revisionDate}) que cubre todos los temas requeridos por OSHA. Alineado con 29 CFR 1926, AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho.",
+          "tag": "Rev {revisionNumber} · {revisionDate}"
         }
       }
     },
@@ -592,12 +592,12 @@
       }
     },
     "program": {
-      "revLabel": "Rev 3.0 · Vigente desde el 1 de julio de 2026",
+      "revLabel": "Rev {revisionNumber} · Vigente desde {revisionDate}",
       "subtitle": "MH Construction",
       "title": "Programa de Seguridad y Salud MISH",
-      "para1": "Nuestro programa de seguridad escrito de 59 secciones cubre cada tema de seguridad en construcción requerido por OSHA y se entrega en campo como nuestro Manual de Seguridad. Desde protección contra caídas y excavación hasta seguridad eléctrica y materiales peligrosos, es la base operativa de cada sitio que dirigimos.",
+      "para1": "Nuestro programa de seguridad escrito de {sectionCount} secciones cubre cada tema de seguridad en construcción requerido por OSHA y se entrega en campo como nuestro Manual de Seguridad. Desde protección contra caídas y excavación hasta seguridad eléctrica y materiales peligrosos, es la base operativa de cada sitio que dirigimos.",
       "para2": "Alineado con OSHA federal 29 CFR 1926, estándares de precalificación AGC CSEA, WISHA, OSHA de Oregón y requisitos de Idaho. Los Dean Gold Standards se aplican en nuestro modelo de autoría MISH, con Dean como uno de los principales defensores de seguridad de MHC. Disponible en su totalidad para bancos de fianzas, aseguradoras, arquitectos y socios de proyecto a través de nuestro Dashboard (Staff Hub) seguro. Las referencias históricas al APP permanecen en el material fuente para continuidad.",
-      "imageCaption1": "59 Secciones",
+      "imageCaption1": "{sectionCount} Secciones",
       "imageCaption2": "~350 páginas · Todos los temas OSHA cubiertos",
       "commitments": {
         "safeHome": {
