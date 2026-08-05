@@ -6,7 +6,10 @@ const authorityPath = join(
   root,
   "documents/content/mh-ecosystem/enterprise-platform.json",
 );
-const terminologyPath = join(root, "documents/content/terminology-library.json");
+const terminologyPath = join(
+  root,
+  "documents/content/terminology-library.json",
+);
 const ribbonsPath = join(
   root,
   "apps/website/src/content/jeremy-page-ribbons.md",
@@ -24,11 +27,15 @@ if (authority.baseline?.status !== "draft") {
 
 const baseline = authority.baseline ?? {};
 if (baseline.docxCount !== 193 || baseline.pdfCount !== 193) {
-  errors.push("Complete Master Draft baseline must contain 193 DOCX/PDF pairs.");
+  errors.push(
+    "Complete Master Draft baseline must contain 193 DOCX/PDF pairs.",
+  );
 }
 
 if (baseline.packageCount !== 10 || baseline.companyBibleSeparate !== true) {
-  errors.push("Release structure must retain ten ZIP packages and a separately controlled Company Bible.");
+  errors.push(
+    "Release structure must retain ten ZIP packages and a separately controlled Company Bible.",
+  );
 }
 
 if (baseline.releaseArtifact !== "mh-ecosystem-draft-2026-08-04.zip") {
@@ -36,17 +43,25 @@ if (baseline.releaseArtifact !== "mh-ecosystem-draft-2026-08-04.zip") {
 }
 
 if (authority.publicDownloadPolicy?.draftDownloadsAllowed !== false) {
-  errors.push("Draft Ecosystem downloads must remain blocked from public release.");
+  errors.push(
+    "Draft Ecosystem downloads must remain blocked from public release.",
+  );
 }
 
-if (terminology.library?.source?.ecosystemAuthority !==
-  "documents/content/mh-ecosystem/enterprise-platform.json") {
-  errors.push("Terminology library must point to the MH Ecosystem authority file.");
+if (
+  terminology.library?.source?.ecosystemAuthority !==
+  "documents/content/mh-ecosystem/enterprise-platform.json"
+) {
+  errors.push(
+    "Terminology library must point to the MH Ecosystem authority file.",
+  );
 }
 
 const ribbonCount = (ribbons.match(/^##\s+/gm) ?? []).length;
 if (ribbonCount < 48) {
-  errors.push(`Words from the General requires at least 48 entries; found ${ribbonCount}.`);
+  errors.push(
+    `Words from the General requires at least 48 entries; found ${ribbonCount}.`,
+  );
 }
 
 if (!ribbons.includes("Status: Approved for publication")) {

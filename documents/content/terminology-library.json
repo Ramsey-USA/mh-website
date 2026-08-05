@@ -552,7 +552,11 @@
       "standardTerm": "Field, fleet, equipment, warehouse, and WMS system",
       "publicStatus": "in-development",
       "publicLabelUntilLaunch": "Secure Internal Systems",
-      "developmentOwners": ["Chief Engineer (CHENG)", "Chief Navigation Officer (CHNAV)", "IT Specialist"]
+      "developmentOwners": [
+        "Chief Engineer (CHENG)",
+        "Chief Navigation Officer (CHNAV)",
+        "IT Specialist"
+      ]
     }
   ],
   "regulatoryProtectionRules": {

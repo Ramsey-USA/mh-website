@@ -12,8 +12,7 @@ const SITE_URL = "https://www.mhc-gc.com";
 
 export const metadata: Metadata = withGeoMetadata({
   title: {
-    absolute:
-      "Enterprise Construction Planning and Delivery | MH Construction",
+    absolute: "Enterprise Construction Planning and Delivery | MH Construction",
   },
   description:
     "Veteran-owned general contractor providing preconstruction, project controls, safety-led field execution, and audit-ready closeout across Washington, Oregon, and Idaho.",
@@ -55,39 +54,85 @@ const copy = {
     systemIntro:
       "We connect estimating, risk, safety, schedule, field coordination, quality, and turnover under one chain of accountability.",
     phases: [
-      ["01", "Preconstruction", "Scope intelligence, constructability, bid leveling, risk planning, and a decision-ready baseline."],
-      ["02", "Mobilization", "Contract controls, procurement, submittals, site logistics, safety planning, and team alignment."],
-      ["03", "Field execution", "Daily production control, quality verification, change management, and stakeholder communication."],
-      ["04", "Closeout", "Punch control, commissioning records, warranties, turnover, and an audit-ready project file."],
+      [
+        "01",
+        "Preconstruction",
+        "Scope intelligence, constructability, bid leveling, risk planning, and a decision-ready baseline.",
+      ],
+      [
+        "02",
+        "Mobilization",
+        "Contract controls, procurement, submittals, site logistics, safety planning, and team alignment.",
+      ],
+      [
+        "03",
+        "Field execution",
+        "Daily production control, quality verification, change management, and stakeholder communication.",
+      ],
+      [
+        "04",
+        "Closeout",
+        "Punch control, commissioning records, warranties, turnover, and an audit-ready project file.",
+      ],
     ],
     expertiseEyebrow: "Where we deploy",
     expertiseTitle: "Built for operationally demanding work.",
     expertise: [
-      ["Commercial + occupied space", "Tenant improvements, renovations, additions, and phased work where business continuity matters."],
-      ["Public + municipal", "Compliance-forward delivery, transparent controls, and documentation structured for public accountability."],
-      ["Agricultural + winery", "Technical sequencing and practical field planning around operating facilities and seasonal constraints."],
-      ["Light industrial", "Facility upgrades, specialty scopes, equipment interfaces, and disciplined coordination across trades."],
+      [
+        "Commercial + occupied space",
+        "Tenant improvements, renovations, additions, and phased work where business continuity matters.",
+      ],
+      [
+        "Public + municipal",
+        "Compliance-forward delivery, transparent controls, and documentation structured for public accountability.",
+      ],
+      [
+        "Agricultural + winery",
+        "Technical sequencing and practical field planning around operating facilities and seasonal constraints.",
+      ],
+      [
+        "Light industrial",
+        "Facility upgrades, specialty scopes, equipment interfaces, and disciplined coordination across trades.",
+      ],
     ],
     proofEyebrow: "Project proof",
     proofTitle: "Work that carries the record.",
     proofIntro:
       "Our portfolio documents the conditions, decisions, and delivered result, not just the finished photograph.",
     projects: [
-      ["Darigold Processing Facility", "Pasco, Washington", "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp"],
-      ["Franklin County Coroner's Office", "Pasco, Washington", "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp"],
-      ["Volm Companies Remodel", "Pasco, Washington", "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp"],
+      [
+        "Darigold Processing Facility",
+        "Pasco, Washington",
+        "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp",
+      ],
+      [
+        "Franklin County Coroner's Office",
+        "Pasco, Washington",
+        "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp",
+      ],
+      [
+        "Volm Companies Remodel",
+        "Pasco, Washington",
+        "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp",
+      ],
     ],
     platformEyebrow: "Secure internal systems",
     platformTitle: "The field and the file stay aligned.",
     platformBody:
       "Our evolving operational platform connects controlled documents, project intelligence, field status, fleet and warehouse readiness, and executive reporting. Public pages show approved capabilities; controlled records remain inside governed systems.",
-    platformItems: ["BidPilot", "Field Command Center", "Marketing Flight", "MH Ecosystem"],
+    platformItems: [
+      "BidPilot",
+      "Field Command Center",
+      "Marketing Flight",
+      "MH Ecosystem",
+    ],
     finalTitle: "Bring us the mission, the constraints, and the standard.",
     finalBody:
       "We will bring the plan, the controls, and the accountable team to execute it.",
   },
   es: {
-    eyebrow: "Propiedad de veterano | Licencias en tres estados | Pasco, Washington",
+    eyebrow:
+      "Propiedad de veterano | Licencias en tres estados | Pasco, Washington",
     title: "Controle el plan. Dirija la obra.",
     intro:
       "MH Construction aporta controles de proyecto de nivel empresarial a obras comerciales, públicas, agrícolas e industriales ligeras en Washington, Oregon e Idaho.",
@@ -104,33 +149,78 @@ const copy = {
     systemIntro:
       "Conectamos estimación, riesgo, seguridad, programa, campo, calidad y entrega bajo una sola cadena de responsabilidad.",
     phases: [
-      ["01", "Preconstrucción", "Alcance, constructibilidad, comparación de ofertas, riesgos y una línea base lista para decidir."],
-      ["02", "Movilización", "Contratos, compras, submittals, logística, seguridad y alineación del equipo."],
-      ["03", "Ejecución", "Control diario, verificación de calidad, cambios y comunicación con interesados."],
-      ["04", "Cierre", "Punch list, registros, garantías, entrega y archivo auditable."],
+      [
+        "01",
+        "Preconstrucción",
+        "Alcance, constructibilidad, comparación de ofertas, riesgos y una línea base lista para decidir.",
+      ],
+      [
+        "02",
+        "Movilización",
+        "Contratos, compras, submittals, logística, seguridad y alineación del equipo.",
+      ],
+      [
+        "03",
+        "Ejecución",
+        "Control diario, verificación de calidad, cambios y comunicación con interesados.",
+      ],
+      [
+        "04",
+        "Cierre",
+        "Punch list, registros, garantías, entrega y archivo auditable.",
+      ],
     ],
     expertiseEyebrow: "Dónde operamos",
     expertiseTitle: "Preparados para trabajo operacionalmente exigente.",
     expertise: [
-      ["Comercial + espacios ocupados", "Mejoras, renovaciones, adiciones y fases donde la continuidad del negocio importa."],
-      ["Público + municipal", "Cumplimiento, controles transparentes y documentación para responsabilidad pública."],
-      ["Agrícola + bodegas", "Secuenciación técnica alrededor de instalaciones activas y restricciones estacionales."],
-      ["Industrial ligero", "Mejoras de planta, alcances especiales, interfaces de equipo y coordinación de oficios."],
+      [
+        "Comercial + espacios ocupados",
+        "Mejoras, renovaciones, adiciones y fases donde la continuidad del negocio importa.",
+      ],
+      [
+        "Público + municipal",
+        "Cumplimiento, controles transparentes y documentación para responsabilidad pública.",
+      ],
+      [
+        "Agrícola + bodegas",
+        "Secuenciación técnica alrededor de instalaciones activas y restricciones estacionales.",
+      ],
+      [
+        "Industrial ligero",
+        "Mejoras de planta, alcances especiales, interfaces de equipo y coordinación de oficios.",
+      ],
     ],
     proofEyebrow: "Prueba de proyecto",
     proofTitle: "Trabajo respaldado por el registro.",
     proofIntro:
       "Nuestro portafolio documenta condiciones, decisiones y resultados, no solo la fotografía final.",
     projects: [
-      ["Planta de procesamiento Darigold", "Pasco, Washington", "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp"],
-      ["Oficina del forense de Franklin County", "Pasco, Washington", "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp"],
-      ["Remodelación de Volm Companies", "Pasco, Washington", "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp"],
+      [
+        "Planta de procesamiento Darigold",
+        "Pasco, Washington",
+        "/images/projects/darigold-processing-plant/23-34-darigold-2025-10-22-main-entrance-p003-photo.webp",
+      ],
+      [
+        "Oficina del forense de Franklin County",
+        "Pasco, Washington",
+        "/images/projects/franklin-county-morgue/franklin-county-morgue-2025-10-30-building-frontage-p006-photo.webp",
+      ],
+      [
+        "Remodelación de Volm Companies",
+        "Pasco, Washington",
+        "/images/projects/volm-companies/volm-companies-remodel-2020-02-05-office-and-warehouse-facade-p004-photo.webp",
+      ],
     ],
     platformEyebrow: "Sistemas internos seguros",
     platformTitle: "El campo y el archivo permanecen alineados.",
     platformBody:
       "Nuestra plataforma conecta documentos controlados, inteligencia de proyecto, estado de campo, flota, almacén e informes ejecutivos. El sitio público muestra capacidades aprobadas; los registros controlados permanecen en sistemas gobernados.",
-    platformItems: ["BidPilot", "Field Command Center", "Marketing Flight", "MH Ecosystem"],
+    platformItems: [
+      "BidPilot",
+      "Field Command Center",
+      "Marketing Flight",
+      "MH Ecosystem",
+    ],
     finalTitle: "Tráiganos la misión, las restricciones y el estándar.",
     finalBody:
       "Aportaremos el plan, los controles y el equipo responsable para ejecutarlo.",
@@ -164,25 +254,39 @@ export default async function Home() {
         />
         <div className="enterprise-hero__scrim" />
         <div className="enterprise-shell enterprise-hero__content">
-          <p className="enterprise-kicker enterprise-kicker--light">{t.eyebrow}</p>
-          <h1 id="home-heading" className="enterprise-hero__title">{t.title}</h1>
+          <p className="enterprise-kicker enterprise-kicker--light">
+            {t.eyebrow}
+          </p>
+          <h1 id="home-heading" className="enterprise-hero__title">
+            {t.title}
+          </h1>
           <p className="enterprise-hero__intro">{t.intro}</p>
           <div className="enterprise-actions">
-            <Link className="enterprise-button enterprise-button--tan" href="/contact?intent=project-discussion">
+            <Link
+              className="enterprise-button enterprise-button--tan"
+              href="/contact?intent=project-discussion"
+            >
               {t.primary} <ArrowIcon />
             </Link>
-            <Link className="enterprise-button enterprise-button--ghost" href="/services">
+            <Link
+              className="enterprise-button enterprise-button--ghost"
+              href="/services"
+            >
               {t.secondary}
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="enterprise-proof-bar" aria-label="Company credentials">
+      <section
+        className="enterprise-proof-bar"
+        aria-label="Company credentials"
+      >
         <div className="enterprise-shell enterprise-proof-grid">
           {t.proof.map(([value, label]) => (
             <div key={value} className="enterprise-proof-item">
-              <strong>{value}</strong><span>{label}</span>
+              <strong>{value}</strong>
+              <span>{label}</span>
             </div>
           ))}
         </div>
@@ -192,7 +296,9 @@ export default async function Home() {
         <div className="enterprise-shell">
           <div className="enterprise-heading-grid">
             <div>
-              <p className="enterprise-kicker enterprise-kicker--tan">{t.systemEyebrow}</p>
+              <p className="enterprise-kicker enterprise-kicker--tan">
+                {t.systemEyebrow}
+              </p>
               <h2>{t.systemTitle}</h2>
             </div>
             <p>{t.systemIntro}</p>
@@ -200,7 +306,9 @@ export default async function Home() {
           <div className="enterprise-phase-grid">
             {t.phases.map(([number, title, body]) => (
               <article key={number} className="enterprise-phase-card">
-                <span>{number}</span><h3>{title}</h3><p>{body}</p>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
               </article>
             ))}
           </div>
@@ -212,12 +320,16 @@ export default async function Home() {
           <p className="enterprise-kicker">{t.expertiseEyebrow}</p>
           <div className="enterprise-heading-grid enterprise-heading-grid--dark">
             <h2>{t.expertiseTitle}</h2>
-            <Link className="enterprise-text-link" href="/services">{t.secondary} <ArrowIcon /></Link>
+            <Link className="enterprise-text-link" href="/services">
+              {t.secondary} <ArrowIcon />
+            </Link>
           </div>
           <div className="enterprise-expertise-grid">
             {t.expertise.map(([title, body], index) => (
               <article key={title} className="enterprise-expertise-card">
-                <span>0{index + 1}</span><h3>{title}</h3><p>{body}</p>
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
               </article>
             ))}
           </div>
@@ -227,30 +339,60 @@ export default async function Home() {
       <section className="enterprise-section enterprise-section--white">
         <div className="enterprise-shell">
           <div className="enterprise-heading-grid enterprise-heading-grid--dark">
-            <div><p className="enterprise-kicker">{t.proofEyebrow}</p><h2>{t.proofTitle}</h2></div>
+            <div>
+              <p className="enterprise-kicker">{t.proofEyebrow}</p>
+              <h2>{t.proofTitle}</h2>
+            </div>
             <p>{t.proofIntro}</p>
           </div>
           <div className="enterprise-project-grid">
             {t.projects.map(([title, location, image], index) => (
-              <Link key={title} href="/projects" className="enterprise-project-card">
-                <Image src={image} alt="" fill className="enterprise-project-card__image" sizes="(max-width: 768px) 100vw, 33vw" />
+              <Link
+                key={title}
+                href="/projects"
+                className="enterprise-project-card"
+              >
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  className="enterprise-project-card__image"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <div className="enterprise-project-card__overlay" />
-                <div><span>Case file 0{index + 1}</span><h3>{title}</h3><p>{location}</p></div>
+                <div>
+                  <span>Case file 0{index + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{location}</p>
+                </div>
               </Link>
             ))}
           </div>
-          <Link className="enterprise-text-link enterprise-text-link--center" href="/projects">View all project records <ArrowIcon /></Link>
+          <Link
+            className="enterprise-text-link enterprise-text-link--center"
+            href="/projects"
+          >
+            View all project records <ArrowIcon />
+          </Link>
         </div>
       </section>
 
       <section className="enterprise-section enterprise-section--green">
         <div className="enterprise-shell enterprise-platform-grid">
           <div>
-            <p className="enterprise-kicker enterprise-kicker--tan">{t.platformEyebrow}</p>
-            <h2>{t.platformTitle}</h2><p>{t.platformBody}</p>
+            <p className="enterprise-kicker enterprise-kicker--tan">
+              {t.platformEyebrow}
+            </p>
+            <h2>{t.platformTitle}</h2>
+            <p>{t.platformBody}</p>
           </div>
           <ul>
-            {t.platformItems.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}
+            {t.platformItems.map((item, index) => (
+              <li key={item}>
+                <span>0{index + 1}</span>
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -258,8 +400,14 @@ export default async function Home() {
       <section className="enterprise-final-cta">
         <div className="enterprise-shell">
           <p className="enterprise-kicker">Project briefing</p>
-          <h2>{t.finalTitle}</h2><p>{t.finalBody}</p>
-          <Link className="enterprise-button enterprise-button--green" href="/contact?intent=project-discussion">{t.primary} <ArrowIcon /></Link>
+          <h2>{t.finalTitle}</h2>
+          <p>{t.finalBody}</p>
+          <Link
+            className="enterprise-button enterprise-button--green"
+            href="/contact?intent=project-discussion"
+          >
+            {t.primary} <ArrowIcon />
+          </Link>
         </div>
       </section>
     </>
