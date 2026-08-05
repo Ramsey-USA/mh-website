@@ -83,7 +83,8 @@ export function VeteranBenefitsBanner() {
                       Certified & Trusted
                     </h3>
                     <p className="font-body text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
-                      Licensed, contract-ready, and committed to accountable quality construction
+                      Licensed, contract-ready, and committed to accountable
+                      quality construction
                     </p>
                   </div>
                 </div>
