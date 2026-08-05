@@ -311,11 +311,11 @@ For PMBOK-style construction language and military-themed term mappings, see
 
 | Avoid                                                                   | Use Instead                    |
 | ----------------------------------------------------------------------- | ------------------------------ |
-| ❌ "retail-buyer labels"                                                 | ✅ "Project Stakeholders"       |
-| ❌ "clients" (alone)                                                     | ✅ "Project Stakeholders"       |
-| ❌ "subcontractor shorthand"                                             | ✅ "Trade Partners"             |
-| ❌ "vendors" (alone where partner context matters)                       | ✅ "Trade Partners" or "Allies" |
-| ❌ "Staff Hub" or public claims that Field Command Center is operational | ✅ "Secure Internal Systems"    |
+| ❌ "retail-buyer labels"                                                | ✅ "Project Stakeholders"      |
+| ❌ "clients" (alone)                                                    | ✅ "Project Stakeholders"      |
+| ❌ "subcontractor shorthand"                                            | ✅ "Trade Partners"            |
+| ❌ "vendors" (alone where partner context matters)                      | ✅ "Trade Partners" or "Allies"|
+| ❌ "Staff Hub" or public claims that Field Command Center is operational| ✅ "Secure Internal Systems"   |
 
 ---
 
@@ -356,7 +356,7 @@ in the construction market.
 
 | Tier | Level               | Certification | Certifying Body                               | Status               |
 | ---- | ------------------- | ------------- | --------------------------------------------- | -------------------- |
-| 1    | State               | WA DVA VOB    | Washington State Dept. of Veterans Affairs    | ✅ Certified (2026)   |
+| 1    | State               | WA DVA VOB    | Washington State Dept. of Veterans Affairs    | ✅ Certified (2026)  |
 | 2    | Federal             | SBA VetCert   | U.S. Small Business Administration            | 🔄 Actively Pursuing |
 | 3    | Private / Corporate | NaVOBA        | National Veteran-Owned Business Association   | 🔄 Actively Pursuing |
 | 4    | Private / Corporate | NVBDC         | National Veteran Business Development Council | 🔄 Actively Pursuing |
@@ -499,7 +499,7 @@ in the construction market.
 
 | Status     | Format          |
 | ---------- | --------------- |
-| Active     | `✅ Active`      |
+| Active     | `✅ Active`     |
 | Draft      | `📝 Draft`      |
 | Deprecated | `⚠️ Deprecated` |
 | Archived   | `📦 Archived`   |
