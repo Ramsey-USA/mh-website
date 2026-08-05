@@ -113,7 +113,7 @@ To protect the enterprise from financial exposure, all estimates, proposals, and
 | $25,000 to $50,000 | Chief Operating Officer (XO)                    |
 | Over $50,000       | President and CEO (CO)                          |
 
-The estimate lead and CPCO remain responsible for estimate accuracy and documentation quality, while final financial execution authority sits with the operations and command chain. The approval path exists to protect scope clarity, margin discipline, and owner trust at the same time.
+The estimate lead and Chief Navigation Officer (CHNAV) remain responsible for estimate accuracy and documentation quality, while final financial execution authority sits with the COO and CEO approval chain. The approval path protects scope clarity, margin discipline, and owner trust.
 
 ## Chapter 4: The 6-Step Preconstruction Workflow
 
