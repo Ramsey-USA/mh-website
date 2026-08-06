@@ -120,9 +120,12 @@ function routeFromAppFile(filePath) {
 }
 
 function collectRouteTemplates() {
-  const files = listFilesRecursive(APP_DIR).filter((filePath) =>
-    /(\/page\.tsx|\/route\.ts|\/(sitemap|robots|manifest)\.ts)$/.test(filePath),
-  );
+  const files = listFilesRecursive(APP_DIR).filter((filePath) => {
+    const portablePath = filePath.split(path.sep).join("/");
+    return /(\/page\.tsx|\/route\.ts|\/(sitemap|robots|manifest)\.ts)$/.test(
+      portablePath,
+    );
+  });
 
   const templates = [];
   for (const filePath of files) {
