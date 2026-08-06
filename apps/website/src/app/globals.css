@@ -41,6 +41,62 @@
   background: #12231b;
 }
 
+.enterprise-route-hero {
+  position: relative;
+  display: grid;
+  min-height: min(44rem, calc(100svh - var(--mh-nav-offset, 6.5rem)));
+  align-items: end;
+  overflow: hidden;
+  background: #12231b;
+}
+
+.enterprise-route-hero__grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(217, 189, 147, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 189, 147, 0.28) 1px, transparent 1px);
+  background-size: 5rem 5rem;
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.35) 65%, transparent 100%);
+}
+
+.enterprise-route-hero__content {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(5rem, 11vw, 8rem) clamp(4rem, 8vw, 6rem);
+}
+
+.enterprise-route-intro {
+  border-bottom: 1px solid rgba(18, 35, 27, 0.15);
+  background: #fff;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.enterprise-route-intro__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+}
+
+.enterprise-route-intro__layout h2 {
+  max-width: 24ch;
+  color: #12231b;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.enterprise-route-intro__layout p:not(.enterprise-kicker) {
+  max-width: 50rem;
+  margin-top: 1.25rem;
+  color: #536159;
+  line-height: 1.75;
+}
+
 .enterprise-hero__image {
   object-fit: cover;
   object-position: center;
@@ -440,6 +496,12 @@
   .enterprise-hero {
     min-height: 44rem;
   }
+  .enterprise-route-hero {
+    min-height: 40rem;
+  }
+  .enterprise-route-intro__layout {
+    grid-template-columns: 1fr;
+  }
   .enterprise-hero__scrim {
     background: linear-gradient(
       0deg,
@@ -579,7 +641,7 @@
     display: none;
   }
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
     .mh-logo-parallax-layer {
       background-size: clamp(260px, 80vw, 560px) auto;
     }
