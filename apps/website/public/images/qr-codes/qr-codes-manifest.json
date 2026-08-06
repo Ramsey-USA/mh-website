@@ -56,7 +56,8 @@
       "url": "https://www.mhc-gc.com",
       "description": "MH Construction Homepage",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4f673498962e2d732e0f8258a91f8545dd2cb6983539387830be1c3e068e6808"
     },
     {
       "name": "homepage",
@@ -67,7 +68,8 @@
       "url": "https://www.mhc-gc.com",
       "description": "MH Construction Homepage",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "679627f27229ce71a12ce38599895e3b24f12535289a0b14d84b81eb675855da"
     },
     {
       "name": "about",
@@ -78,7 +80,8 @@
       "url": "https://www.mhc-gc.com/about",
       "description": "About Us",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "38e5c19e801bca1067d37da38ae648ab37e0d851c3c2cd5cecfce0b5483d1fb2"
     },
     {
       "name": "about",
@@ -89,7 +92,8 @@
       "url": "https://www.mhc-gc.com/about",
       "description": "About Us",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "692d8eb2d0a3c55e8689e8f3181999ca7f46101af9d1bbd2add3cc4938611853"
     },
     {
       "name": "services",
@@ -100,7 +104,8 @@
       "url": "https://www.mhc-gc.com/#services",
       "description": "Our Services",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a0b3559f36747f061c3d22362839c0832c0787de81af2a7cc2fbfe545be56bcb"
     },
     {
       "name": "services",
@@ -111,7 +116,8 @@
       "url": "https://www.mhc-gc.com/#services",
       "description": "Our Services",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3e121fed9159c91933c97422853765ed574e491a8ffcec25cdcb747ad351a9c2"
     },
     {
       "name": "projects",
@@ -122,7 +128,8 @@
       "url": "https://www.mhc-gc.com/projects",
       "description": "Our Projects",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "239fc051e8adf09b17fa07bd4006f2398787df845bba3792f80191655cfa507e"
     },
     {
       "name": "projects",
@@ -133,7 +140,8 @@
       "url": "https://www.mhc-gc.com/projects",
       "description": "Our Projects",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ecc494bb344ac7f2f240f7c20843133bdcbbd1b9f1eb4d6887bc943544f2b26c"
     },
     {
       "name": "team",
@@ -144,7 +152,8 @@
       "url": "https://www.mhc-gc.com/team",
       "description": "Our Team",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9c5cf79ce0693bd9b905889b0b22894f3ae3dedd865b89e2ae6abed8b1eaaa7a"
     },
     {
       "name": "team",
@@ -155,7 +164,8 @@
       "url": "https://www.mhc-gc.com/team",
       "description": "Our Team",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4d6dbcd6e23208d629c05760d8538ae7b697983d3b38da665035a0319a8e630e"
     },
     {
       "name": "careers",
@@ -166,7 +176,8 @@
       "url": "https://www.mhc-gc.com/careers",
       "description": "Careers",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "945f305d36a6ca2a67876c1ae04ec332446124c3c8116ab390c8c1c76b469456"
     },
     {
       "name": "careers",
@@ -177,7 +188,8 @@
       "url": "https://www.mhc-gc.com/careers",
       "description": "Careers",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "901dd8bbe579dfc218c1923df4ffb23b49d34ffc7b187da577a67c29ef1df447"
     },
     {
       "name": "contact",
@@ -188,7 +200,8 @@
       "url": "https://www.mhc-gc.com/contact",
       "description": "Contact Us",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "73c229df20484d048c4762e28e2a01994c8da1d3de1a8661ab9b15a4d4f8536d"
     },
     {
       "name": "contact",
@@ -199,7 +212,8 @@
       "url": "https://www.mhc-gc.com/contact",
       "description": "Contact Us",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4b06a8176666e8e218488e6829793b14156f7efa3bf08b3d7e0ee366951f60fc"
     },
     {
       "name": "allies",
@@ -210,7 +224,8 @@
       "url": "https://www.mhc-gc.com/allies",
       "description": "Allies",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "03bd2d7ebc2428b738c74513e07ea7e9d7b54d4e4da874319f5cece37d11d1c5"
     },
     {
       "name": "allies",
@@ -221,7 +236,8 @@
       "url": "https://www.mhc-gc.com/allies",
       "description": "Allies",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4525d64921b746fe955fb16d8f9202105cd8460484bfe9cc4b7e3d8904791b3c"
     },
     {
       "name": "veterans",
@@ -232,7 +248,8 @@
       "url": "https://www.mhc-gc.com/veterans",
       "description": "Veteran-Owned Construction",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8a2452f23c5e03c3dc0c7afa5d00a4f3812ea113d3ee932299950c436cb433a7"
     },
     {
       "name": "veterans",
@@ -243,7 +260,8 @@
       "url": "https://www.mhc-gc.com/veterans",
       "description": "Veteran-Owned Construction",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "31b7fefeccba0667b9d01a63e189bdf91d464211cb8aa43eb89d66c123278fe1"
     },
     {
       "name": "faq",
@@ -254,7 +272,8 @@
       "url": "https://www.mhc-gc.com/faq",
       "description": "FAQ",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "05077b55b1bb134be5fdcefd61a8a7e3e6482eebd60383045c89c86f7b202983"
     },
     {
       "name": "faq",
@@ -265,7 +284,8 @@
       "url": "https://www.mhc-gc.com/faq",
       "description": "FAQ",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0285e787a87810a00b5646d31369644a5b7f47e535b0c89d5c7d61c911b0a721"
     },
     {
       "name": "testimonials",
@@ -276,7 +296,8 @@
       "url": "https://www.mhc-gc.com/testimonials",
       "description": "Testimonials",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0cebc38cdf42d89116f1b9ea3ade4ccae43c6ef48ffb65b5898341229567cd66"
     },
     {
       "name": "testimonials",
@@ -287,7 +308,8 @@
       "url": "https://www.mhc-gc.com/testimonials",
       "description": "Testimonials",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f805115a0a3cd75ad6495121eedf23231b9189a49b4df0d15ec6b6506e888464"
     },
     {
       "name": "public-sector",
@@ -298,7 +320,8 @@
       "url": "https://www.mhc-gc.com/public-sector",
       "description": "Public Sector Services",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e2b5330dd327627563cd0cb5c58b260bfbdf3194707772bf3b06c7ceb93c6b75"
     },
     {
       "name": "public-sector",
@@ -309,7 +332,8 @@
       "url": "https://www.mhc-gc.com/public-sector",
       "description": "Public Sector Services",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "97044e520e890d5c24e6c6701f8728dce1922d9ae6d17a56b94f127058bf6b1a"
     },
     {
       "name": "resources",
@@ -320,7 +344,8 @@
       "url": "https://www.mhc-gc.com/resources",
       "description": "Resources",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "247294dfb877bb90c15dd836a34b318e1e494bdc922ce45ba3155175d433f1e0"
     },
     {
       "name": "resources",
@@ -331,7 +356,8 @@
       "url": "https://www.mhc-gc.com/resources",
       "description": "Resources",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "6d0d9b884c036847661bcee2b99a009f9407181245fa4626beb160b82e555fc3"
     },
     {
       "name": "safety-manual",
@@ -342,7 +368,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "235a52e3a24dce19c0e86d37bd11df0abe4da6c8e891069188c53410ac7f5fb2"
     },
     {
       "name": "safety-manual",
@@ -353,7 +380,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "40ab956c8442c2de4c3697973c0783e28d30c3aa087454da39d07ea580cc5785"
     },
     {
       "name": "accessibility",
@@ -364,7 +392,8 @@
       "url": "https://www.mhc-gc.com/accessibility",
       "description": "Accessibility Statement",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "fa6f368649e47f53491a11122461315eb42b579425f5cf8f83587253633ddb6d"
     },
     {
       "name": "accessibility",
@@ -375,7 +404,8 @@
       "url": "https://www.mhc-gc.com/accessibility",
       "description": "Accessibility Statement",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "bbf62d78061b1a16e1878094758d2ac44a3466262df9efcabfc91080a84535c1"
     },
     {
       "name": "safety-program",
@@ -386,7 +416,8 @@
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "6233a28b28c5d524715f4d371631ab666421a81695a45d4adf4ed6fc86924c93"
     },
     {
       "name": "safety-program",
@@ -397,7 +428,8 @@
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4b1494d5112e77ca15ebb4443062a90f562e44c293d50b9e8b68becc131b19c8"
     },
     {
       "name": "safety-incident-report",
@@ -408,7 +440,8 @@
       "url": "https://www.mhc-gc.com/safety/incident-report",
       "description": "Safety Incident Report Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9bd3a59fee001a8296ba540f7fbc420365a2eb78c5302dcae5a6ba2f0729a23c"
     },
     {
       "name": "safety-incident-report",
@@ -419,7 +452,8 @@
       "url": "https://www.mhc-gc.com/safety/incident-report",
       "description": "Safety Incident Report Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "58dc6577976abcf1366ddadb9b19a1f2ff5a8c7e49509731dda9bd8864ca9172"
     },
     {
       "name": "safety-intake",
@@ -430,7 +464,8 @@
       "url": "https://www.mhc-gc.com/safety/intake",
       "description": "Safety Intake Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7907dc708591776a9b920c848ca6233132d8c4ed3d4249c88967190039c3c61a"
     },
     {
       "name": "safety-intake",
@@ -441,7 +476,8 @@
       "url": "https://www.mhc-gc.com/safety/intake",
       "description": "Safety Intake Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e8a511ae373237ecfa525e26e675400acb03c621b00f0cee579c554521483faf"
     },
     {
       "name": "safety-manual-access",
@@ -452,7 +488,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual Access",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "235a52e3a24dce19c0e86d37bd11df0abe4da6c8e891069188c53410ac7f5fb2"
     },
     {
       "name": "safety-manual-access",
@@ -463,7 +500,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/contents",
       "description": "Safety Manual Access",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "40ab956c8442c2de4c3697973c0783e28d30c3aa087454da39d07ea580cc5785"
     },
     {
       "name": "employee-handbook",
@@ -474,7 +512,8 @@
       "url": "https://www.mhc-gc.com/employee-handbook",
       "description": "Employee Handbook",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e0a2625414326797da14907dc667e2d3a3901815e3105c3ecc0ac77f231c9b17"
     },
     {
       "name": "employee-handbook",
@@ -485,7 +524,8 @@
       "url": "https://www.mhc-gc.com/employee-handbook",
       "description": "Employee Handbook",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "72bf312e7d376e4bdaf4c573ab97bfc14d2cd8587568e5e0cc0753cedeca5d3e"
     },
     {
       "name": "operations-manual",
@@ -496,7 +536,8 @@
       "url": "https://www.mhc-gc.com/docs/operations/operations-manual-toc.pdf",
       "description": "Operations Manual",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f4b31af41e7b8c5e00a43adb78baceb0a2e92c33b601c8b37466b9b46bc28206"
     },
     {
       "name": "operations-manual",
@@ -507,7 +548,8 @@
       "url": "https://www.mhc-gc.com/docs/operations/operations-manual-toc.pdf",
       "description": "Operations Manual",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0626dc559aadb90a45b024317d98d87e3a40bad884d8e513e1857945cc959a02"
     },
     {
       "name": "marketing-strategy-guide",
@@ -518,7 +560,8 @@
       "url": "https://www.mhc-gc.com/docs/marketing/marketing-strategy-guide-toc.pdf",
       "description": "Marketing Strategy Guide",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7579475d78acad002459e06f3f99d6a86628b635fee4317d254c6c18006a37d6"
     },
     {
       "name": "marketing-strategy-guide",
@@ -529,7 +572,8 @@
       "url": "https://www.mhc-gc.com/docs/marketing/marketing-strategy-guide-toc.pdf",
       "description": "Marketing Strategy Guide",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9cd5c29b64683a213a5592027fc3ee03379a2a96d55b9cd3d307ca50ab28d59c"
     },
     {
       "name": "sales-estimating-guide",
@@ -540,7 +584,8 @@
       "url": "https://www.mhc-gc.com/docs/sales/sales-estimating-guide-toc.pdf",
       "description": "Sales Estimating Guide",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "52aa637ed5d75769dbef13709fe46fce07900300a4c7f18a0e8b78d59e625ae2"
     },
     {
       "name": "sales-estimating-guide",
@@ -551,7 +596,8 @@
       "url": "https://www.mhc-gc.com/docs/sales/sales-estimating-guide-toc.pdf",
       "description": "Sales Estimating Guide",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "24fe81a9031f928fa582df6582c5fcef6775aa2aa9853757919aba48cc3fdd0e"
     },
     {
       "name": "phone",
@@ -562,7 +608,8 @@
       "url": "tel:+15093086489",
       "description": "Call Us: (509) 308-6489",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "fc05b7e9186951188d240aca8cc20475c399edaf3704a08d84a59283ef4860af"
     },
     {
       "name": "phone",
@@ -573,7 +620,8 @@
       "url": "tel:+15093086489",
       "description": "Call Us: (509) 308-6489",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "cd4b028118829282ce0703b6e29717a8192daf7f920bec089a0f4f56c24fdefd"
     },
     {
       "name": "email",
@@ -584,7 +632,8 @@
       "url": "mailto:office@mhc-gc.com",
       "description": "Email: office@mhc-gc.com",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b3afbe95d5f7e5db11ea8b359ef14a49eade2f40656a4e518230e07ed6119075"
     },
     {
       "name": "email",
@@ -595,7 +644,8 @@
       "url": "mailto:office@mhc-gc.com",
       "description": "Email: office@mhc-gc.com",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "842e3f2cd12c27f9246c6e5faa5bae93ee7f118e76ebf2dca153d48faaaf3895"
     },
     {
       "name": "linkedin",
@@ -606,7 +656,8 @@
       "url": "https://www.linkedin.com/company/mh-construction-general-contractor/",
       "description": "LinkedIn Profile",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8b1b6e95d0f2c5eb3f0094e889b64975f09175781f537a267bfc0bdab3c1a4b5"
     },
     {
       "name": "linkedin",
@@ -617,7 +668,8 @@
       "url": "https://www.linkedin.com/company/mh-construction-general-contractor/",
       "description": "LinkedIn Profile",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0b0c3b7c87a0de82d65b1a70e46962fd251d7e4f9e2644da5645ad277486e27a"
     },
     {
       "name": "facebook",
@@ -628,7 +680,8 @@
       "url": "https://www.facebook.com/profile.php?id=61575511773974",
       "description": "Facebook Page",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8830dccd626d8c09a6a900211d622d7b96b04d2138ce12593fc860525956b64c"
     },
     {
       "name": "facebook",
@@ -639,7 +692,8 @@
       "url": "https://www.facebook.com/profile.php?id=61575511773974",
       "description": "Facebook Page",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "def96bf8f47c4222c0dada3b55bceb5c01d87f6a40f53554413ff939bb1637df"
     },
     {
       "name": "instagram",
@@ -650,7 +704,8 @@
       "url": "https://www.instagram.com/mh_construction_inc/reels/",
       "description": "Instagram Profile",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "090cc8000a791539845a09e523c1b7dd08fff8d191ac5ee7108c14cba707cc8e"
     },
     {
       "name": "instagram",
@@ -661,7 +716,8 @@
       "url": "https://www.instagram.com/mh_construction_inc/reels/",
       "description": "Instagram Profile",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e5c15f276ac99bae35301dc8ef82538a1010d349702e003a69e9f683993919a7"
     },
     {
       "name": "youtube",
@@ -672,7 +728,8 @@
       "url": "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
       "description": "YouTube Channel",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ffdd34545c893dcbfd571c77e53fb3dc84537af838cc29a47baaf15f2a330e59"
     },
     {
       "name": "youtube",
@@ -683,7 +740,8 @@
       "url": "https://youtube.com/@mhc-gc?si=RGnloxP4NgV4Dm_j",
       "description": "YouTube Channel",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7d27658953ca3b694c9a3f62e34accf7455d7496ec8df0a70da99140eda7c89e"
     },
     {
       "name": "twitter",
@@ -694,7 +752,8 @@
       "url": "https://x.com/mhc_gc",
       "description": "X (Twitter) Profile",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0c4ef6d2b189a1a2048b1bbde1003de9370f352d57adb63f574115b28dbbbe10"
     },
     {
       "name": "twitter",
@@ -705,7 +764,8 @@
       "url": "https://x.com/mhc_gc",
       "description": "X (Twitter) Profile",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "5492645091ecdb86cf0875cdc54bd5d2b455152ba71869178d4a21063dfef09c"
     },
     {
       "name": "location",
@@ -716,7 +776,8 @@
       "url": "https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301",
       "description": "Our Location",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "353668a4454ec3ac2732722f301f6818805724ef8d6094853c42179f6e9baa25"
     },
     {
       "name": "location",
@@ -727,7 +788,8 @@
       "url": "https://maps.google.com/?q=3111+N.+Capitol+Ave.,+Pasco,+WA+99301",
       "description": "Our Location",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4c6a658ee681a58060b4683c91dffea35a7ef7da20a3fa9d5d0f6ffbd9189f87"
     },
     {
       "name": "safety-dashboard",
@@ -738,7 +800,8 @@
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Hub (Employee Operations)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8de960ce1ed08a4c81f55d97ff2ba418934a176f423af389c63299efcc18b25e"
     },
     {
       "name": "safety-dashboard",
@@ -749,7 +812,8 @@
       "url": "https://www.mhc-gc.com/safety",
       "description": "Safety Hub (Employee Operations)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e5a2e133b12bac20ed71a5db78ba4d68aaabacb3a2e6218ef0f9c6c4d46df6c1"
     },
     {
       "name": "cdn-booth-entry",
@@ -760,7 +824,8 @@
       "url": "https://www.mhc-gc.com/cool-desert-nights#booth-entry",
       "description": "Cool Desert Nights 2026 — Booth Entry Wizard",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7ed26eff9d362617b8654231dece15a3b7d6cc361f60d76b2da741116a1b5f28"
     },
     {
       "name": "cdn-booth-entry",
@@ -771,7 +836,8 @@
       "url": "https://www.mhc-gc.com/cool-desert-nights#booth-entry",
       "description": "Cool Desert Nights 2026 — Booth Entry Wizard",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0a4f83c3ae86abddaecd96b6a62cb545e418555f725528a434faba1a0b7a7919"
     },
     {
       "name": "safety-section-01",
@@ -782,7 +848,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01",
       "description": "Safety Manual Section 01: Safety & Health Program Overview",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "617e23708203561e0f4151ee437c2bba50445326c81f0247f41740092d4317d1"
     },
     {
       "name": "safety-section-01",
@@ -793,7 +860,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-01",
       "description": "Safety Manual Section 01: Safety & Health Program Overview",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "2c54899bea2da8076d26e37e05fc6834f15f399397add80d534df3b374ae2df7"
     },
     {
       "name": "safety-section-02",
@@ -804,7 +872,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02",
       "description": "Safety Manual Section 02: Injury-free Workplace Commitment",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b90a709bad43fd03a3a09c7a5d1b92257040928caf569d74e64ced225021ca5e"
     },
     {
       "name": "safety-section-02",
@@ -815,7 +884,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-02",
       "description": "Safety Manual Section 02: Injury-free Workplace Commitment",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a92f2f63d4756752cf329f64131a4e1db768988128455e1346eef7ca49574f9b"
     },
     {
       "name": "safety-section-03",
@@ -826,7 +896,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03",
       "description": "Safety Manual Section 03: Safety Roles & Responsibilities",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "1a7215e09c2c0c7bc617e489a6b553da2c87e237add6cb6012cd84eba57d19e0"
     },
     {
       "name": "safety-section-03",
@@ -837,7 +908,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-foundation#mish-03",
       "description": "Safety Manual Section 03: Safety Roles & Responsibilities",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "96e08de85f5ea236f8abe320429813c7cfb345c5e28f44a008621bba9206a73b"
     },
     {
       "name": "safety-section-04",
@@ -848,7 +920,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04",
       "description": "Safety Manual Section 04: Safety & Health Orientation",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "698de5d2a0445747cc6d08b934112524ea56c3436995cbea987f462411d0f706"
     },
     {
       "name": "safety-section-04",
@@ -859,7 +932,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-04",
       "description": "Safety Manual Section 04: Safety & Health Orientation",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9900e4a089df1dc40bbce406d78149b92813a29e5f361ce4ea5451e44966fd7c"
     },
     {
       "name": "safety-section-05",
@@ -870,7 +944,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05",
       "description": "Safety Manual Section 05: Safety Bulletin Boards & Communication",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "63d3695ab7e1da4deec11c10d8b0a7b58e2cb3bcefa4fbde4a227955b417fbde"
     },
     {
       "name": "safety-section-05",
@@ -881,7 +956,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-05",
       "description": "Safety Manual Section 05: Safety Bulletin Boards & Communication",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4502d33c634feb5c8d1c24c054b7cec5ace12cdba2d4a66e4b97bbf2efece67c"
     },
     {
       "name": "safety-section-06",
@@ -892,7 +968,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06",
       "description": "Safety Manual Section 06: Drug & Alcohol Policy & Testing",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "481b6df5ea5279aff9cf59f56167a392873db5c3c474cab8ef8f3aad35be1005"
     },
     {
       "name": "safety-section-06",
@@ -903,7 +980,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-06",
       "description": "Safety Manual Section 06: Drug & Alcohol Policy & Testing",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "49fb6ddbff2ed221a25967174ff0cc35c743c746f2842ac40635374a086a2d0e"
     },
     {
       "name": "safety-section-07",
@@ -914,7 +992,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07",
       "description": "Safety Manual Section 07: Drug & Alcohol Field Operations",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3d11b2a93d705d4e071a438794b75cdc33afd3aa198a260f45c9d5ada36168a2"
     },
     {
       "name": "safety-section-07",
@@ -925,7 +1004,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-07",
       "description": "Safety Manual Section 07: Drug & Alcohol Field Operations",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "967303716c3f13f495d6c0d5c7ddced2e312418a29e4da0eab1b8f15ec2b88cd"
     },
     {
       "name": "safety-section-08",
@@ -936,7 +1016,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08",
       "description": "Safety Manual Section 08: Short Service Employee Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e8b78d77ecc9197027b6986a523c2bcabef110cbf4c0a03cb6973ee93efd7a34"
     },
     {
       "name": "safety-section-08",
@@ -947,7 +1028,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-08",
       "description": "Safety Manual Section 08: Short Service Employee Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "54ee6c4707b22602c0e5d6d9d02df0da556ea1fb4030d1bc0fc157e696e8c2c1"
     },
     {
       "name": "safety-section-09",
@@ -958,7 +1040,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09",
       "description": "Safety Manual Section 09: Pre-job Safety Plan (Forms: Pre Job Safety Plan & Job Hazard Analysis)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e9cc6a6e669b7c50b2e68d196d5822f2812ec630f0090b60de49968e8169e986"
     },
     {
       "name": "safety-section-09",
@@ -969,7 +1052,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/field-onboarding-and-communication#mish-09",
       "description": "Safety Manual Section 09: Pre-job Safety Plan (Forms: Pre Job Safety Plan & Job Hazard Analysis)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "44b97bbcadd4fead1c7342b09aed804716f7bebaa601db02dc62d2707c5e4613"
     },
     {
       "name": "safety-section-10",
@@ -980,7 +1064,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10",
       "description": "Safety Manual Section 10: Safety & Health Meetings, AGC Workflow & Travelers Training (Forms: Toolbox Talk Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "eef6fefb81a7fbd4b9407a1780e8be6550d8ebff7e70476c759fea4488881d44"
     },
     {
       "name": "safety-section-10",
@@ -991,7 +1076,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-10",
       "description": "Safety Manual Section 10: Safety & Health Meetings, AGC Workflow & Travelers Training (Forms: Toolbox Talk Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "565fb9e074fe815c39e344851eafb20c678bda194730e8755642d8bf089b11bb"
     },
     {
       "name": "safety-section-11",
@@ -1002,7 +1088,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
       "description": "Safety Manual Section 11: Accident Reporting & Investigation (Forms: Incident Report)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b1cd99a875e0487d9cdc3093eafccc1307973b2893adc74a5ed41b3c60901433"
     },
     {
       "name": "safety-section-11",
@@ -1013,7 +1100,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-11",
       "description": "Safety Manual Section 11: Accident Reporting & Investigation (Forms: Incident Report)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0e19180d8cfdf6e5b94b5f9c1ab41fcf6d2a1629ad389acc91180bcf95ae9160"
     },
     {
       "name": "safety-section-12",
@@ -1024,7 +1112,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12",
       "description": "Safety Manual Section 12: Personal Protective Equipment (Forms: Corrective Action Order)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "bdac91859182b52106d883c9734406dc8953bc97850f18a1515a6896208bdf57"
     },
     {
       "name": "safety-section-12",
@@ -1035,7 +1124,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-12",
       "description": "Safety Manual Section 12: Personal Protective Equipment (Forms: Corrective Action Order)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3453f56ce95883286fdd1e67b2500a518ecfa44978a89055abb344aca74edd1c"
     },
     {
       "name": "safety-section-13",
@@ -1046,7 +1136,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13",
       "description": "Safety Manual Section 13: Hazcom Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "358f6c2147a5be58b6725b1896cf9f7194be5bfc7978bff38242c6312b339590"
     },
     {
       "name": "safety-section-13",
@@ -1057,7 +1148,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-13",
       "description": "Safety Manual Section 13: Hazcom Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "777910bc014557be9037e997266f1b816860a72b1380c9b46db9010d9a95faec"
     },
     {
       "name": "safety-section-14",
@@ -1068,7 +1160,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14",
       "description": "Safety Manual Section 14: Industrial Hygiene Program (Forms: Chemical Inventory Log & Spill Report)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "46e797d086a48fc7e6e4ef60f38ba67baee67466acf6be0d2fb0d341be6b34e2"
     },
     {
       "name": "safety-section-14",
@@ -1079,7 +1172,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-14",
       "description": "Safety Manual Section 14: Industrial Hygiene Program (Forms: Chemical Inventory Log & Spill Report)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7df066aec1e5ec3a1a8e54d7285379bbaad1646562ea767c6876d8dc7b5e15cd"
     },
     {
       "name": "safety-section-15",
@@ -1090,7 +1184,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15",
       "description": "Safety Manual Section 15: Heat Stress",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7e9405eda7d2ff75e8551b499b089273ed858ef25663f6bf2b26e0c9e7cfe1b6"
     },
     {
       "name": "safety-section-15",
@@ -1101,7 +1196,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-15",
       "description": "Safety Manual Section 15: Heat Stress",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b94b107d399c7b8b73614f10c29ea407059a11502467132a2a27a3160e551028"
     },
     {
       "name": "safety-section-16",
@@ -1112,7 +1208,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16",
       "description": "Safety Manual Section 16: Respiratory Protection (Forms: Respirator Fit Test)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "611f81316bcc8b2ce2b8c39ac007d9978e261f0e191586c7384f7dbc77f42e8a"
     },
     {
       "name": "safety-section-16",
@@ -1123,7 +1220,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-16",
       "description": "Safety Manual Section 16: Respiratory Protection (Forms: Respirator Fit Test)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "75b47babb004a90761a03efe4dffacf1c008fade9e6444b663fdb1c1eb4a8ced"
     },
     {
       "name": "safety-section-17",
@@ -1134,7 +1232,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17",
       "description": "Safety Manual Section 17: Silica Safety Program (Forms: Silica Exposure Control)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b8c9055b72834a87312ad5f986841cfee6f013a17f87921d18c86dd1cc866f1f"
     },
     {
       "name": "safety-section-17",
@@ -1145,7 +1244,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-17",
       "description": "Safety Manual Section 17: Silica Safety Program (Forms: Silica Exposure Control)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "68690ba0dc7b942ebe46b97e3e9cc2c1825a9edcf4675a45368f338de707e82b"
     },
     {
       "name": "safety-section-18",
@@ -1156,7 +1256,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18",
       "description": "Safety Manual Section 18: Bloodborne Pathogens",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "73b790ded0954f1e5cf51a03c65631c0d2cf75a2f080390ca665d93aa64c1547"
     },
     {
       "name": "safety-section-18",
@@ -1167,7 +1268,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-18",
       "description": "Safety Manual Section 18: Bloodborne Pathogens",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4fcdacefe745d56d7e154d50d02cb39aaf1ba09697bc81b5e8aa2c17a3e938bf"
     },
     {
       "name": "safety-section-19",
@@ -1178,7 +1280,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19",
       "description": "Safety Manual Section 19: Housekeeping",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4514d2ae21c52c0ad9a3d2b3d20eac734d21620f039afe80ff8263b108714dd6"
     },
     {
       "name": "safety-section-19",
@@ -1189,7 +1292,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/safety-oversight-and-industrial-hygiene#mish-19",
       "description": "Safety Manual Section 19: Housekeeping",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "6e1efa8c2659ee20bf46916e6c7dc6415c3c168ada91b09600a7a17b1745bdd3"
     },
     {
       "name": "safety-section-20",
@@ -1200,7 +1304,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20",
       "description": "Safety Manual Section 20: Signs, Signals & Barricades",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4096c0f69f4645eefe9b78e86d39913e203fa2e28d1595e92e4316b92304c115"
     },
     {
       "name": "safety-section-20",
@@ -1211,7 +1316,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-20",
       "description": "Safety Manual Section 20: Signs, Signals & Barricades",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "cd1f2e96ed1af365e6ac8fd496e5252dc4241b331574879e9f6a0ca03b8199ba"
     },
     {
       "name": "safety-section-21",
@@ -1222,7 +1328,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21",
       "description": "Safety Manual Section 21: Fall Protection (Forms: Fall Protection Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "29e15e4a994a9cc22ca96d4ea7e5ed0000f51e06ade3b1029e2cec9e344f72b9"
     },
     {
       "name": "safety-section-21",
@@ -1233,7 +1340,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-21",
       "description": "Safety Manual Section 21: Fall Protection (Forms: Fall Protection Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "967b34f058ff8088ec0c0b9ed9ab8230970b36b5b9c4d64a5f5a9017992f73ef"
     },
     {
       "name": "safety-section-22",
@@ -1244,7 +1352,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22",
       "description": "Safety Manual Section 22: Scaffolding Use & Handling (Forms: Scaffold Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0f07ec4b3de68674e5d6d4f1f2dfca6c62c8f608287bd4bce6e0a22cc4a2b71b"
     },
     {
       "name": "safety-section-22",
@@ -1255,7 +1364,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-22",
       "description": "Safety Manual Section 22: Scaffolding Use & Handling (Forms: Scaffold Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b649b885f56ce49c3ce77f4d007cd8530fadfcfeffe58419d2716282be0b3357"
     },
     {
       "name": "safety-section-23",
@@ -1266,7 +1376,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23",
       "description": "Safety Manual Section 23: Ladder Use & Care",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "20d13564b7b0752357688fab815ac797a23007cda86cb97d1c31a830c1c82ab3"
     },
     {
       "name": "safety-section-23",
@@ -1277,7 +1388,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-23",
       "description": "Safety Manual Section 23: Ladder Use & Care",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b4d475757898ac53057452e5ec50f2b73453103208bb7da707d3318a6881e08a"
     },
     {
       "name": "safety-section-24",
@@ -1288,7 +1400,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24",
       "description": "Safety Manual Section 24: Open Floors & Holes",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d4d8db3473ea0355d3976a44a606fe0a1cab12248b61e723ce64b53fda313988"
     },
     {
       "name": "safety-section-24",
@@ -1299,7 +1412,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/fall-and-access-safety#mish-24",
       "description": "Safety Manual Section 24: Open Floors & Holes",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "fc4326cde7fb257525004519dbfd1df72fc59f1224fc9b5def5390e0bcc811bd"
     },
     {
       "name": "safety-section-25",
@@ -1310,7 +1424,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25",
       "description": "Safety Manual Section 25: Excavation, Trenching & Shoring (Forms: Trenching Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f8ba51f1868311897091befba72555fe5ac0fceb884fde40911bfb088b2d203b"
     },
     {
       "name": "safety-section-25",
@@ -1321,7 +1436,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-25",
       "description": "Safety Manual Section 25: Excavation, Trenching & Shoring (Forms: Trenching Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "38e3fb7a2ffc59a18d11fc0af2d598dfc8db035d5a7e7326167a5cd07b165531"
     },
     {
       "name": "safety-section-26",
@@ -1332,7 +1448,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26",
       "description": "Safety Manual Section 26: Confined Space Entry",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "72a980fdabf3b85ded41df9b1877ec78ec58b58ab229e35608cf4cca9432e7fb"
     },
     {
       "name": "safety-section-26",
@@ -1343,7 +1460,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-26",
       "description": "Safety Manual Section 26: Confined Space Entry",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7217612d61d7fa484d7f3f375e6ad2e2ee0a9487ebcfe79bf4230861dd93dc6f"
     },
     {
       "name": "safety-section-27",
@@ -1354,7 +1472,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27",
       "description": "Safety Manual Section 27: Lockout / Tagout (Forms: LOTO Permit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d94d1d851671387a8a5b11271434ece8794ee819200fc23e6b4939cf1a0bb762"
     },
     {
       "name": "safety-section-27",
@@ -1365,7 +1484,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/excavation-confined-spaces-and-energy-control#mish-27",
       "description": "Safety Manual Section 27: Lockout / Tagout (Forms: LOTO Permit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "901c8cb032a599fd330ec15a8b9a49f98cef49b42861942a28e7f59a5b77fafc"
     },
     {
       "name": "safety-section-28",
@@ -1376,7 +1496,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28",
       "description": "Safety Manual Section 28: Electrical Safety",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e76b9ead426ef2451a2667ead74b2d60cf5651b2772249322045ad4d0d5114da"
     },
     {
       "name": "safety-section-28",
@@ -1387,7 +1508,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-28",
       "description": "Safety Manual Section 28: Electrical Safety",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "2cadc32d349ed94e6aba069605b4dd3671145ee44f357a4df0b508828d9aa49d"
     },
     {
       "name": "safety-section-29",
@@ -1398,7 +1520,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29",
       "description": "Safety Manual Section 29: Welding, Cutting & Heating",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d68c0414598611409d1fe9db209876bd5b052a72a664d3d700ecc28658c2c76d"
     },
     {
       "name": "safety-section-29",
@@ -1409,7 +1532,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-29",
       "description": "Safety Manual Section 29: Welding, Cutting & Heating",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "1a4484a0b749f3a748c572fa16a49d73ed333adc6b126948451b4569dac700da"
     },
     {
       "name": "safety-section-30",
@@ -1420,7 +1544,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30",
       "description": "Safety Manual Section 30: Flammable & Combustible Liquids (Forms: Hot Work Permit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8d2691c651e88fa820b3338bc5405c494389f97c601b80a7a7861ddd06f50598"
     },
     {
       "name": "safety-section-30",
@@ -1431,7 +1556,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-30",
       "description": "Safety Manual Section 30: Flammable & Combustible Liquids (Forms: Hot Work Permit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8cab81850e1488eec47bd2d6de0ea6a96b109a094ae285f6348ba0a439adf9e2"
     },
     {
       "name": "safety-section-31",
@@ -1442,7 +1568,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31",
       "description": "Safety Manual Section 31: Fire Prevention",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3ca3b2069eea86a23f6fb5ecfecb0ec58d6bd38745cf781d9dfc59caab5d175d"
     },
     {
       "name": "safety-section-31",
@@ -1453,7 +1580,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-31",
       "description": "Safety Manual Section 31: Fire Prevention",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "1ef4d1245e905bc9a11429cbe8bffa5f6bb0bef9b7a7d0c0918bd5d28f8ce649"
     },
     {
       "name": "safety-section-32",
@@ -1464,7 +1592,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32",
       "description": "Safety Manual Section 32: Compressed Gas & Air (Forms: Confined Space Permit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f6792578d6beb7a122427e3d8288c657b13297bc98b67c417f4dd03863ed8602"
     },
     {
       "name": "safety-section-32",
@@ -1475,7 +1604,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/energy-and-fire-hazards#mish-32",
       "description": "Safety Manual Section 32: Compressed Gas & Air (Forms: Confined Space Permit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "24df7cd9dd6580b2f5605fa4e799e89ad7f0a770d19f352ce3654be1cc0211b9"
     },
     {
       "name": "safety-section-33",
@@ -1486,7 +1616,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33",
       "description": "Safety Manual Section 33: Motor Vehicle Safety Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "52455d14c57ea1aacdae313fed2cc3989d759f560b935794ce57ba78b678b6ea"
     },
     {
       "name": "safety-section-33",
@@ -1497,7 +1628,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-33",
       "description": "Safety Manual Section 33: Motor Vehicle Safety Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f803cf97fe58136559d2bddfce3b28c72a27a86404a8bfb9f71a7197ce1343f2"
     },
     {
       "name": "safety-section-34",
@@ -1508,7 +1640,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34",
       "description": "Safety Manual Section 34: Distracted Driving & Mobile Device Policy",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "28af36767b186a3ba731b43ee4889a96a0d923f15b20f1230603b5af06f1e1ac"
     },
     {
       "name": "safety-section-34",
@@ -1519,7 +1652,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-34",
       "description": "Safety Manual Section 34: Distracted Driving & Mobile Device Policy",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "998a22ac24ac5adbcea1b377161d7fa8a649a34cf2d7a91a112af4460fac6c89"
     },
     {
       "name": "safety-section-35",
@@ -1530,7 +1664,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35",
       "description": "Safety Manual Section 35: Motor Vehicle Records (MVR) Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7e26c4225bf20af56dfc41b595e2fb611f9499d3836706659c3c3683aa704af9"
     },
     {
       "name": "safety-section-35",
@@ -1541,7 +1676,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-35",
       "description": "Safety Manual Section 35: Motor Vehicle Records (MVR) Program",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "c6bfddb4296f76b31357227197792ccc9ce49a6fce44b66c71755babbeb2b42e"
     },
     {
       "name": "safety-section-36",
@@ -1552,7 +1688,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36",
       "description": "Safety Manual Section 36: Equipment Maintenance & Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ddcf7614c7122ff84ef71cda3b4165b876f581271fdd59142056e6ac2fa1d6f9"
     },
     {
       "name": "safety-section-36",
@@ -1563,7 +1700,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-36",
       "description": "Safety Manual Section 36: Equipment Maintenance & Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "748ec8c7db0a0282b28631f21fb275b5f2469731a976176a37693f97c348b2dd"
     },
     {
       "name": "safety-section-37",
@@ -1574,7 +1712,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37",
       "description": "Safety Manual Section 37: Aerial Lifts & Elevated Work Platforms",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a18485ce68e00975ce5c81137706bb7b845c866c9d4445e9a6a64f914661fe80"
     },
     {
       "name": "safety-section-37",
@@ -1585,7 +1724,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-37",
       "description": "Safety Manual Section 37: Aerial Lifts & Elevated Work Platforms",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d254300c6d4a375a349defc9fcd2f2e9d10b300eab7b51a2acb9a0dc16202fd8"
     },
     {
       "name": "safety-section-38",
@@ -1596,7 +1736,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38",
       "description": "Safety Manual Section 38: Crane Suspended Work Platforms (Forms: Crane Lift Plan)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "85b0bd6e7286941cbc846322ebd41de2d23a07ff97cc9441196307c0f381c776"
     },
     {
       "name": "safety-section-38",
@@ -1607,7 +1748,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-38",
       "description": "Safety Manual Section 38: Crane Suspended Work Platforms (Forms: Crane Lift Plan)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "5e0ddb447d99947eeba24de8bd3495266d71efd9188ff8ac134595c66ba950eb"
     },
     {
       "name": "safety-section-39",
@@ -1618,7 +1760,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39",
       "description": "Safety Manual Section 39: Rigging Procedures",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9f4152d9bb21e6a70c2aa7775400fd158a77d3d39c458111140c95f639b4169f"
     },
     {
       "name": "safety-section-39",
@@ -1629,7 +1772,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-39",
       "description": "Safety Manual Section 39: Rigging Procedures",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "454af20fa323288b3ac9b00529da8f28bca6244edb262403dba26c3f182da309"
     },
     {
       "name": "safety-section-40",
@@ -1640,7 +1784,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40",
       "description": "Safety Manual Section 40: Forklift & Power Industrial Truck Safety (Forms: Daily Equipment Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "5cdd717fe68724e939bdee0addc94973b8f42b8eab01e57e933535265d77c19a"
     },
     {
       "name": "safety-section-40",
@@ -1651,7 +1796,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-40",
       "description": "Safety Manual Section 40: Forklift & Power Industrial Truck Safety (Forms: Daily Equipment Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3e8dad46ec3533704aadf812a2464992fe45d708b908fa9c756b1d47c92be7b2"
     },
     {
       "name": "safety-section-41",
@@ -1662,7 +1808,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41",
       "description": "Safety Manual Section 41: Construction Equipment Modification & Fabrication (Forms: Vehicle Pre Trip Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "69dc70e5c827b1b16195f78aa18d05176b7c2639145963972db715a76a479299"
     },
     {
       "name": "safety-section-41",
@@ -1673,7 +1820,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/motor-vehicles-and-heavy-equipment#mish-41",
       "description": "Safety Manual Section 41: Construction Equipment Modification & Fabrication (Forms: Vehicle Pre Trip Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "246374c541ff8a758e6eb533280360c835a745a33e88f891273a5a9463f482a3"
     },
     {
       "name": "safety-section-42",
@@ -1684,7 +1832,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42",
       "description": "Safety Manual Section 42: Hand & Power Tools",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "02713fe8f49efd2abf3814674e2a9e76f724277e782ba7da458ffaf497a24af3"
     },
     {
       "name": "safety-section-42",
@@ -1695,7 +1844,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-42",
       "description": "Safety Manual Section 42: Hand & Power Tools",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "da341358235af21cbd5e493cec03e3c8a67f3e6feae2f1673325b82025fa5e94"
     },
     {
       "name": "safety-section-43",
@@ -1706,7 +1856,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43",
       "description": "Safety Manual Section 43: General Waste Management",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "6f287ef275002b0727b3f587ff7bed46176e11955605941ded8e975c125c97d3"
     },
     {
       "name": "safety-section-43",
@@ -1717,7 +1868,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-43",
       "description": "Safety Manual Section 43: General Waste Management",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9603f8a6f34ea779e7bb42a54e3dbad2efbc1c32530e7559ba993a0d3cddd02c"
     },
     {
       "name": "safety-section-44",
@@ -1728,7 +1880,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44",
       "description": "Safety Manual Section 44: Concrete & Masonry",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "5027a120365bdcc50551dc4f88f8b0094daa1e01d0e4e9362b77f96db8863093"
     },
     {
       "name": "safety-section-44",
@@ -1739,7 +1892,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-44",
       "description": "Safety Manual Section 44: Concrete & Masonry",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "062b185251e38ba871efe8d8084f3b6a5fc0bc6d46e77fcd828f7e259580809d"
     },
     {
       "name": "safety-section-45",
@@ -1750,7 +1904,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45",
       "description": "Safety Manual Section 45: Miscellaneous Safety Requirements",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "aff660ddbd8e36a2865e0d8946ceeed5a984364710fa15f5ecbebdc1f255557e"
     },
     {
       "name": "safety-section-45",
@@ -1761,7 +1916,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/tools-and-materials#mish-45",
       "description": "Safety Manual Section 45: Miscellaneous Safety Requirements",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8f4312e2f55739489ec986bd003ab2c1655e922ee6ac7968330c063cdeaa42d8"
     },
     {
       "name": "safety-section-46",
@@ -1772,7 +1928,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46",
       "description": "Safety Manual Section 46: Subcontractor Management Plan (Forms: First Aid Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "29b185da428843ebc9d66c1d43ee221c790a3107c9be681fee44aeb09c8ad1d9"
     },
     {
       "name": "safety-section-46",
@@ -1783,7 +1940,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-46",
       "description": "Safety Manual Section 46: Subcontractor Management Plan (Forms: First Aid Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d9d0dc81b12417c20578566899d9706b3882a3ea55b4b6fc1f9b4220c040a043"
     },
     {
       "name": "safety-section-47",
@@ -1794,7 +1952,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47",
       "description": "Safety Manual Section 47: Insurance Requirements & Contractual Risk Transfer (Forms: Fire Extinguisher Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e604055353239f143a1f6e0c807471aee24b4de824ffa4491d7b7acb244a1a82"
     },
     {
       "name": "safety-section-47",
@@ -1805,7 +1964,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-47",
       "description": "Safety Manual Section 47: Insurance Requirements & Contractual Risk Transfer (Forms: Fire Extinguisher Inspection)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7ea5b5e6f5f6df570c827ea48bbba01daadd3f219a6ed7273bc3bb1b5d56e8b8"
     },
     {
       "name": "safety-section-48",
@@ -1816,7 +1976,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48",
       "description": "Safety Manual Section 48: Emergency Response Plan (Forms: Emergency Drill Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f4fe0e45f15a583c1679692e3d9337a3e0c5d2533fc044e9983f4e8c7cfb79d6"
     },
     {
       "name": "safety-section-48",
@@ -1827,7 +1988,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-48",
       "description": "Safety Manual Section 48: Emergency Response Plan (Forms: Emergency Drill Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f76c879faeb083ff2faa16b7eefc1ceb66978e56a44fe1604b5a2ef42bad4227"
     },
     {
       "name": "safety-section-49",
@@ -1838,7 +2000,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49",
       "description": "Safety Manual Section 49: Incident Investigation & Root Cause Analysis",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "5affc7a19f71863e32f8010c44be98e249f9f699d2fbe2aa134fbed1452ee4c7"
     },
     {
       "name": "safety-section-49",
@@ -1849,7 +2012,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-49",
       "description": "Safety Manual Section 49: Incident Investigation & Root Cause Analysis",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "15bf9b927fb28a1f5329836c09b23067cc53fe242e325d112ec04aedcb1781f5"
     },
     {
       "name": "safety-section-50",
@@ -1860,7 +2024,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50",
       "description": "Safety Manual Section 50: Return-to-Work Program (Forms: Modified Duty Agreement)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "c735920174ce97103e7f0df2d77b04b26d01226466e20b6aa6cfbfad211893ae"
     },
     {
       "name": "safety-section-50",
@@ -1871,7 +2036,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-50",
       "description": "Safety Manual Section 50: Return-to-Work Program (Forms: Modified Duty Agreement)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4d5face8a36f122da0a78baa61855c4dea4a9f825fe26d56833f0d6459c0a675"
     },
     {
       "name": "safety-section-51",
@@ -1882,7 +2048,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-51",
       "description": "Safety Manual Section 51: Safety Governance & Audit Program (Forms: Site Safety Audit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f18ae63eb3bfa22414bf7e38a0abfb187e900c3b9bde4673eb71d83eb4754375"
     },
     {
       "name": "safety-section-51",
@@ -1893,7 +2060,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-51",
       "description": "Safety Manual Section 51: Safety Governance & Audit Program (Forms: Site Safety Audit)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "69fa8417392cd42793b462c7812de8413872c68c1c6136469b8eec68d375a5f1"
     },
     {
       "name": "safety-section-52",
@@ -1904,7 +2072,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-52",
       "description": "Safety Manual Section 52: Document Control & Records Retention",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d3586ba6b085903af1b6c6fae159629c3d43491e302407d36599690320daa17e"
     },
     {
       "name": "safety-section-52",
@@ -1915,7 +2084,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-52",
       "description": "Safety Manual Section 52: Document Control & Records Retention",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4e04be2b46fe51b292ab06660e1158ceefcae72416d771efa1369d289ae6113a"
     },
     {
       "name": "safety-section-53",
@@ -1926,7 +2096,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-53",
       "description": "Safety Manual Section 53: Safety Prequalification & Compliance Reporting (Forms: Subcontractor Safety Prequal)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "127b06661002b32d2031c1da07b76160b1949dc9086e2a4652984bbf65535139"
     },
     {
       "name": "safety-section-53",
@@ -1937,7 +2108,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-53",
       "description": "Safety Manual Section 53: Safety Prequalification & Compliance Reporting (Forms: Subcontractor Safety Prequal)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "75b38c0a9783361153143908c3944f1d54856561c29d203101ee1df7da62e7ea"
     },
     {
       "name": "safety-section-54",
@@ -1948,7 +2120,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-54",
       "description": "Safety Manual Section 54: Safety Technology & Digital Tools",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4466054896eccfb31811e0d79163be1b80ba1996e5fbcde263c5a58f9dd7f22f"
     },
     {
       "name": "safety-section-54",
@@ -1959,7 +2132,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-54",
       "description": "Safety Manual Section 54: Safety Technology & Digital Tools",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ba8cadf98fe1c2acc3be25d2f515f1ed3c6223d75a1a125faec9ffc2b0427519"
     },
     {
       "name": "safety-section-55",
@@ -1970,7 +2144,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-55",
       "description": "Safety Manual Section 55: Stop Work Authority (SWA) Program (Forms: Stop Work Authority Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "c305769b7156bde28e078ee36bdf6f8d5df882e81f71dd1c74e265014e5effb3"
     },
     {
       "name": "safety-section-55",
@@ -1981,7 +2156,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-55",
       "description": "Safety Manual Section 55: Stop Work Authority (SWA) Program (Forms: Stop Work Authority Log)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a825b054584ce94c4699574d06356ccc2170afc20320b05a3232235b9ef697ba"
     },
     {
       "name": "safety-section-56",
@@ -1992,7 +2168,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-56",
       "description": "Safety Manual Section 56: Companion Safety Programs",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7fbe77dc6a5d2b6516671f9b5472f4757ef5d9f72ad8a3d0710b446f82e46b8d"
     },
     {
       "name": "safety-section-56",
@@ -2003,7 +2180,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/program-compliance-and-continuity#mish-56",
       "description": "Safety Manual Section 56: Companion Safety Programs",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "71e52e66f92f896f5d869bc7db44d6293f929c47c58ea797ef3fd96fc2e77482"
     },
     {
       "name": "safety-form-01-pre-job-safety-plan",
@@ -2014,7 +2192,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-01-pre-job-safety-plan",
       "description": "Safety Form: Pre-Job Safety Plan",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "db72a4d78c10e8af0cecb61c81d7e95296d363e642fa8dd0f50f3a896bd97dd0"
     },
     {
       "name": "safety-form-01-pre-job-safety-plan",
@@ -2025,7 +2204,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-01-pre-job-safety-plan",
       "description": "Safety Form: Pre-Job Safety Plan",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f5c0e13d1e2abfb3026ad53513821e4d6b91fb40ec475f11e905df216249c14a"
     },
     {
       "name": "safety-form-02-job-hazard-analysis-jha",
@@ -2036,7 +2216,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-02-job-hazard-analysis-jha",
       "description": "Safety Form: Job Hazard Analysis (JHA)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3bf6e0b9fa55648246e175a56b8406d23f721df6b3465db5fb023092ff0e6140"
     },
     {
       "name": "safety-form-02-job-hazard-analysis-jha",
@@ -2047,7 +2228,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-02-job-hazard-analysis-jha",
       "description": "Safety Form: Job Hazard Analysis (JHA)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "48bbc8937d3cd475e4abdccee433b557aeb26669845c10ae2a623a251db34cf5"
     },
     {
       "name": "safety-form-03-toolbox-talk-attendance-log",
@@ -2058,7 +2240,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-03-toolbox-talk-attendance-log",
       "description": "Safety Form: Toolbox Talk Attendance Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "bcff090908662c27e627a8a694ce25468c40365cbb686b56cdfb51dc446d3805"
     },
     {
       "name": "safety-form-03-toolbox-talk-attendance-log",
@@ -2069,7 +2252,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-03-toolbox-talk-attendance-log",
       "description": "Safety Form: Toolbox Talk Attendance Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "6f7a5aa0fcf33e313a68b6bc4599fad24d33a1cd6febdaacd1faf6eb4faa1e57"
     },
     {
       "name": "safety-form-04-incident-near-miss-report",
@@ -2080,7 +2264,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-04-incident-near-miss-report",
       "description": "Safety Form: Incident / Near-Miss Report",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a3b1855688b3b90c597f144c844123418f7f6e9863fc4836dc22ce0126e3c0bc"
     },
     {
       "name": "safety-form-04-incident-near-miss-report",
@@ -2091,7 +2276,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-04-incident-near-miss-report",
       "description": "Safety Form: Incident / Near-Miss Report",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7f867be61256c2d841b71d71422f09fef1e212f0e8c41274284c2fa70310b36b"
     },
     {
       "name": "safety-form-05-corrective-action-order-cao",
@@ -2102,7 +2288,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-05-corrective-action-order-cao",
       "description": "Safety Form: Corrective Action Order (CAO)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e0a20a7c01556560b9819991718d630a9e3dbd5af15d24c639ac2968bb8525cb"
     },
     {
       "name": "safety-form-05-corrective-action-order-cao",
@@ -2113,7 +2300,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-05-corrective-action-order-cao",
       "description": "Safety Form: Corrective Action Order (CAO)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "cc5ad53c52d6e16f908f2faf50c3396b57dfce27c173fccab9fc7bcdf9ec04db"
     },
     {
       "name": "safety-form-06-stop-work-authority-swa-log",
@@ -2124,7 +2312,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-06-stop-work-authority-swa-log",
       "description": "Safety Form: Stop Work Authority (SWA) Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "c54637b79b01d0335741b3130a5089ad92cb22765e26af6060768f3cd6cee444"
     },
     {
       "name": "safety-form-06-stop-work-authority-swa-log",
@@ -2135,7 +2324,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-06-stop-work-authority-swa-log",
       "description": "Safety Form: Stop Work Authority (SWA) Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "faaa3cc41a046bab53d3fd298a1130ceac7c8e7350f5c6efecfdbab07cc5dd8c"
     },
     {
       "name": "safety-form-07-lockout-tagout-loto-permit",
@@ -2146,7 +2336,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-07-lockout-tagout-loto-permit",
       "description": "Safety Form: Lockout / Tagout (LOTO) Permit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b174ab85f0a396694b806ee1609093929f18f59bb5dee51966172dfa5e6127dc"
     },
     {
       "name": "safety-form-07-lockout-tagout-loto-permit",
@@ -2157,7 +2348,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-07-lockout-tagout-loto-permit",
       "description": "Safety Form: Lockout / Tagout (LOTO) Permit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ac3b5cc280d345926d304029c084ce94cbe9b2539f2e8df54820e0fc0754e8a8"
     },
     {
       "name": "safety-form-08-hot-work-permit",
@@ -2168,7 +2360,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-08-hot-work-permit",
       "description": "Safety Form: Hot Work Permit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8539061535e9290f9ca98ad935b10a5b86bef485b8b7d0873012ddc0432a897e"
     },
     {
       "name": "safety-form-08-hot-work-permit",
@@ -2179,7 +2372,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-08-hot-work-permit",
       "description": "Safety Form: Hot Work Permit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b9ea921e2ba32901319f3413805ba6c6155fd619af67ff43d4cab8049e26ccc6"
     },
     {
       "name": "safety-form-09-confined-space-entry-permit",
@@ -2190,7 +2384,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-09-confined-space-entry-permit",
       "description": "Safety Form: Confined Space Entry Permit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8757028748db96d9452445d98fc2112fdfda4fdcb9e9e966b7256a46be4b1e29"
     },
     {
       "name": "safety-form-09-confined-space-entry-permit",
@@ -2201,7 +2396,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-09-confined-space-entry-permit",
       "description": "Safety Form: Confined Space Entry Permit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "59385013231c8ab3e0770a6e6f2a71a21cfc50c4be2888a80e63f30b54a270fe"
     },
     {
       "name": "safety-form-10-crane-lift-plan",
@@ -2212,7 +2408,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-10-crane-lift-plan",
       "description": "Safety Form: Crane Lift Plan",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9200a041f99b92ea725261948cc3e500bd99448a193441dced988412019afe4e"
     },
     {
       "name": "safety-form-10-crane-lift-plan",
@@ -2223,7 +2420,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-10-crane-lift-plan",
       "description": "Safety Form: Crane Lift Plan",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "af1827b1d06f760ffd908b88d179ef31fefb3ae58566181ca8622c010400cf99"
     },
     {
       "name": "safety-form-11-daily-equipment-inspection",
@@ -2234,7 +2432,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-11-daily-equipment-inspection",
       "description": "Safety Form: Daily Equipment Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d383d49bc3d7c08d3ab2c7dafde1df2cf4dde62ec9ff5c8f6465c81d3982d05a"
     },
     {
       "name": "safety-form-11-daily-equipment-inspection",
@@ -2245,7 +2444,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-11-daily-equipment-inspection",
       "description": "Safety Form: Daily Equipment Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d9b02433492cd158a122ff827d7a9e12447798f3ea4f0c501328e189287763dc"
     },
     {
       "name": "safety-form-12-vehicle-pre-trip-inspection-dot",
@@ -2256,7 +2456,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-12-vehicle-pre-trip-inspection-dot",
       "description": "Safety Form: Vehicle Pre-Trip Inspection (DOT)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d9fcd6db442826c013b6d45770578d744315e81ca0f377aac8f6737d851334f9"
     },
     {
       "name": "safety-form-12-vehicle-pre-trip-inspection-dot",
@@ -2267,7 +2468,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-12-vehicle-pre-trip-inspection-dot",
       "description": "Safety Form: Vehicle Pre-Trip Inspection (DOT)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "2d97bf7e1ef52e319a7a3487b1dd99e9bee4a5951937e19fde3e12dd350df4bd"
     },
     {
       "name": "safety-form-13-fall-protection-equipment-inspection",
@@ -2278,7 +2480,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-13-fall-protection-equipment-inspection",
       "description": "Safety Form: Fall Protection Equipment Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "932916ff6afceef65f38cc9f919a5071f67fc4287dd083959b194db81d755cb5"
     },
     {
       "name": "safety-form-13-fall-protection-equipment-inspection",
@@ -2289,7 +2492,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-13-fall-protection-equipment-inspection",
       "description": "Safety Form: Fall Protection Equipment Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "72cc3f4440e8af8f05f58fa71afcb4e6882c0b1e38475781131d41e349644a81"
     },
     {
       "name": "safety-form-14-daily-scaffold-inspection",
@@ -2300,7 +2504,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-14-daily-scaffold-inspection",
       "description": "Safety Form: Daily Scaffold Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "02c5083cee9200213ed99ff62b8fe9a4e42959b2c801e154ed7c222e62e5bc10"
     },
     {
       "name": "safety-form-14-daily-scaffold-inspection",
@@ -2311,7 +2516,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-14-daily-scaffold-inspection",
       "description": "Safety Form: Daily Scaffold Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "492e48cbe54fbd6202bb5a132dd8ab7f11d57414609916b108672c70dca8b3f9"
     },
     {
       "name": "safety-form-15-chemical-inventory-log",
@@ -2322,7 +2528,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-15-chemical-inventory-log",
       "description": "Safety Form: Chemical Inventory Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "2e8e6b9d3cbb1bb153fa1616de101a7ab51243c56bc2cf018dbeea7bc8248e0d"
     },
     {
       "name": "safety-form-15-chemical-inventory-log",
@@ -2333,7 +2540,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-15-chemical-inventory-log",
       "description": "Safety Form: Chemical Inventory Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "9abfe3e23677a3bdb29897a879491593438b2f7739c0163fc9e8a0d29d1a1a86"
     },
     {
       "name": "safety-form-16-hazardous-material-spill-report",
@@ -2344,7 +2552,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-16-hazardous-material-spill-report",
       "description": "Safety Form: Hazardous Material Spill Report",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4ca0872ba45dc5c173aca31d40f7015d5ab475e50e151d6552b497ebd1f198f4"
     },
     {
       "name": "safety-form-16-hazardous-material-spill-report",
@@ -2355,7 +2564,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-16-hazardous-material-spill-report",
       "description": "Safety Form: Hazardous Material Spill Report",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d24ad97339391dc47f49b013d3499317f390b8cd7745d2f9ec327539f8b4115a"
     },
     {
       "name": "safety-form-17-first-aid-treatment-log",
@@ -2366,7 +2576,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-17-first-aid-treatment-log",
       "description": "Safety Form: First Aid Treatment Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "cc21b3fd434c6e87744e533712c620a14dcc23d48cbccc02b6a7ce470eda5c3b"
     },
     {
       "name": "safety-form-17-first-aid-treatment-log",
@@ -2377,7 +2588,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-17-first-aid-treatment-log",
       "description": "Safety Form: First Aid Treatment Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "289cd2438ab5248d5696fe49d5a6889551c4d1d1d03d8916fc4dbf85ffd6f95a"
     },
     {
       "name": "safety-form-18-monthly-fire-extinguisher-inspection",
@@ -2388,7 +2600,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-18-monthly-fire-extinguisher-inspection",
       "description": "Safety Form: Monthly Fire Extinguisher Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d4dd38962efff1fd5619523e5fa31dbf29a17b57a9e4dc44697f03a40043bfea"
     },
     {
       "name": "safety-form-18-monthly-fire-extinguisher-inspection",
@@ -2399,7 +2612,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-18-monthly-fire-extinguisher-inspection",
       "description": "Safety Form: Monthly Fire Extinguisher Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "501a3452bb98b3b9c7378f0c49c9b67e4a3256d5c2eecd446b0f3760a7d5cc92"
     },
     {
       "name": "safety-form-19-emergency-drill-log",
@@ -2410,7 +2624,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-19-emergency-drill-log",
       "description": "Safety Form: Emergency Drill Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "659d3b4c3b79d07dd43eac431c26dd3b731631bd6335a1434a56a8378f665cd5"
     },
     {
       "name": "safety-form-19-emergency-drill-log",
@@ -2421,7 +2636,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-19-emergency-drill-log",
       "description": "Safety Form: Emergency Drill Log",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ca8e386085ee0fe48e38fb996e1a996f55484905a0e1e28a46d20f8b69c6c306"
     },
     {
       "name": "safety-form-20-weekly-site-safety-audit",
@@ -2432,7 +2648,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-20-weekly-site-safety-audit",
       "description": "Safety Form: Weekly Site Safety Audit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ce65679fafa7b52a1a6cf5f830c871d3c28913141b58f70b5ed14644d3d3e755"
     },
     {
       "name": "safety-form-20-weekly-site-safety-audit",
@@ -2443,7 +2660,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-20-weekly-site-safety-audit",
       "description": "Safety Form: Weekly Site Safety Audit",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "b9232621996eb2b8520580fd6de4c453ab8837b0de3fa042c4a995a5ac6f96ca"
     },
     {
       "name": "safety-form-21-daily-trenching-excavation-inspection",
@@ -2454,7 +2672,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-21-daily-trenching-excavation-inspection",
       "description": "Safety Form: Daily Trenching / Excavation Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4076ef02dc442056456b989f71ac69d6f63192572bf023a0bca75625d107a617"
     },
     {
       "name": "safety-form-21-daily-trenching-excavation-inspection",
@@ -2465,7 +2684,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-21-daily-trenching-excavation-inspection",
       "description": "Safety Form: Daily Trenching / Excavation Inspection",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f028f3edb19d46492bee8c75ad7a1445324a975c236bf9c7b7140c6c3004122e"
     },
     {
       "name": "safety-form-22-silica-exposure-control-plan",
@@ -2476,7 +2696,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-22-silica-exposure-control-plan",
       "description": "Safety Form: Silica Exposure Control Plan",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "333fb6426095d6619d46a91cd25a08d68c455e4591e4852e97540db188c4ef3f"
     },
     {
       "name": "safety-form-22-silica-exposure-control-plan",
@@ -2487,7 +2708,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-22-silica-exposure-control-plan",
       "description": "Safety Form: Silica Exposure Control Plan",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "920705389e1a6caeed867a169494d4bf26b1030dd08012937a33291b14c47f66"
     },
     {
       "name": "safety-form-23-respirator-fit-test-record",
@@ -2498,7 +2720,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-23-respirator-fit-test-record",
       "description": "Safety Form: Respirator Fit Test Record",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3fd0df4a162cfad3efd4def05e3ae6a2754f09829c1ebe6cf1c9e177e04f221d"
     },
     {
       "name": "safety-form-23-respirator-fit-test-record",
@@ -2509,7 +2732,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-23-respirator-fit-test-record",
       "description": "Safety Form: Respirator Fit Test Record",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ef722f573cda640da040fa497a1e5fac6536e7ab3659e07748e7c45a0576b009"
     },
     {
       "name": "safety-form-24-modified-duty-stay-at-work-agreement",
@@ -2520,7 +2744,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-24-modified-duty-stay-at-work-agreement",
       "description": "Safety Form: Modified Duty / Stay-at-Work Agreement",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "bf6d25c19c5e24b76f3a47593ab3bc89e1082b1b45e4e6407cd722495cbcecc4"
     },
     {
       "name": "safety-form-24-modified-duty-stay-at-work-agreement",
@@ -2531,7 +2756,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-24-modified-duty-stay-at-work-agreement",
       "description": "Safety Form: Modified Duty / Stay-at-Work Agreement",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3c03fa16f1a16861e70d86ebfcec0aba4cc36da28e7ef04ac77c7f84b124f637"
     },
     {
       "name": "safety-form-25-subcontractor-safety-prequalification",
@@ -2542,7 +2768,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-25-subcontractor-safety-prequalification",
       "description": "Safety Form: Subcontractor Safety Prequalification",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "21b047769538d12643e70698ad9f1f835ffea799a2486eef925b8152d3ce311e"
     },
     {
       "name": "safety-form-25-subcontractor-safety-prequalification",
@@ -2553,7 +2780,8 @@
       "url": "https://www.mhc-gc.com/resources/safety-manual/forms#form-25-subcontractor-safety-prequalification",
       "description": "Safety Form: Subcontractor Safety Prequalification",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "16048111ae16b84d55686878cf14249eb84b26b5bafee6e2436179af6b09ea30"
     },
     {
       "name": "handbook-form-handbook-ehb-f-01-1-handbook-acknowledgment",
@@ -2564,7 +2792,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-01-1-handbook-acknowledgment.pdf",
       "description": "Employee Handbook Form: Employee Handbook Acknowledgment",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4c0d53ba2d41a735b2386101c143f27200c4c5e6890f1fab364bcd87a32b4d92"
     },
     {
       "name": "handbook-form-handbook-ehb-f-01-1-handbook-acknowledgment",
@@ -2575,7 +2804,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-01-1-handbook-acknowledgment.pdf",
       "description": "Employee Handbook Form: Employee Handbook Acknowledgment",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "dbc0c751752e0f0c8f6ae823e04bb13c4eba9493fdeb68338fd25adda3d84b87"
     },
     {
       "name": "handbook-form-handbook-ehb-f-02-1-personal-information-update-form",
@@ -2586,7 +2816,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-02-1-personal-information-update-form.pdf",
       "description": "Employee Handbook Form: Personal Information Update Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7cc03fec963753b099e01b8521d9f9f0bf7a109e44fc0fa45641d8e9712621ad"
     },
     {
       "name": "handbook-form-handbook-ehb-f-02-1-personal-information-update-form",
@@ -2597,7 +2828,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-02-1-personal-information-update-form.pdf",
       "description": "Employee Handbook Form: Personal Information Update Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "145286b729533b9e9676248e26de70906c17a7b54aa585d98b0b6a195ef87ed1"
     },
     {
       "name": "handbook-form-handbook-ehb-f-05-1-paid-time-off-pto-request-form",
@@ -2608,7 +2840,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-05-1-paid-time-off-pto-request-form.pdf",
       "description": "Employee Handbook Form: Paid Time Off (PTO) Request Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f7f1d25544efe4466743c49e9a9ec332a3305a4c87679953d790747efd4f837d"
     },
     {
       "name": "handbook-form-handbook-ehb-f-05-1-paid-time-off-pto-request-form",
@@ -2619,7 +2852,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-05-1-paid-time-off-pto-request-form.pdf",
       "description": "Employee Handbook Form: Paid Time Off (PTO) Request Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "24b1d223951a831dfe7ad8881e3ad84a0b2f52a5bef5bd250a9608df2075d726"
     },
     {
       "name": "handbook-form-handbook-ehb-f-05-2-leave-of-absence-request-form",
@@ -2630,7 +2864,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-05-2-leave-of-absence-request-form.pdf",
       "description": "Employee Handbook Form: Leave of Absence Request Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "bd07dc61ddc31d1f8a9f025cc5cefe35a535a7331a0e401d6d73ecfb2691bea6"
     },
     {
       "name": "handbook-form-handbook-ehb-f-05-2-leave-of-absence-request-form",
@@ -2641,7 +2876,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-05-2-leave-of-absence-request-form.pdf",
       "description": "Employee Handbook Form: Leave of Absence Request Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "98551a2a10c55443076884c72cbd31f3d5f406f7f40ff32d6a11278244ec3d79"
     },
     {
       "name": "handbook-form-handbook-ehb-f-07-1-company-vehicle-policy-acknowledgment",
@@ -2652,7 +2888,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-07-1-company-vehicle-policy-acknowledgment.pdf",
       "description": "Employee Handbook Form: Company Vehicle Policy Acknowledgment",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "23d6f17804cda6ef22057663ec8a4d42a5c44c526760c4336414d033e0ad45b9"
     },
     {
       "name": "handbook-form-handbook-ehb-f-07-1-company-vehicle-policy-acknowledgment",
@@ -2663,7 +2900,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-07-1-company-vehicle-policy-acknowledgment.pdf",
       "description": "Employee Handbook Form: Company Vehicle Policy Acknowledgment",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "663604d18ee3a2bebb8cd22ae98512a958b9fea0f5db0d5fed954879a0c0f76c"
     },
     {
       "name": "handbook-form-handbook-ehb-f-07-2-technology-ai-use-agreement",
@@ -2674,7 +2912,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-07-2-technology-ai-use-agreement.pdf",
       "description": "Employee Handbook Form: Technology & AI Use Agreement",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "66c9df0c612756dfccdb77c98c385e6d93d5020a5ac4c10d08501352f392ee20"
     },
     {
       "name": "handbook-form-handbook-ehb-f-07-2-technology-ai-use-agreement",
@@ -2685,7 +2924,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-07-2-technology-ai-use-agreement.pdf",
       "description": "Employee Handbook Form: Technology & AI Use Agreement",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "fb8ee75285327e33d50bb7171d03b8238446aa47781362be422558bef26c7307"
     },
     {
       "name": "handbook-form-handbook-ehb-f-08-1-performance-improvement-plan-pip",
@@ -2696,7 +2936,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-08-1-performance-improvement-plan-pip.pdf",
       "description": "Employee Handbook Form: Performance Improvement Plan (PIP)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "146b79fba7a57752fb7b1edde57518b64b6b06612b0b36235fbd3ba2f30f260f"
     },
     {
       "name": "handbook-form-handbook-ehb-f-08-1-performance-improvement-plan-pip",
@@ -2707,7 +2948,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-08-1-performance-improvement-plan-pip.pdf",
       "description": "Employee Handbook Form: Performance Improvement Plan (PIP)",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a79f1cbee3cab4c5697df920c16029b1fabf50941ef8887baa99a7f5da659294"
     },
     {
       "name": "handbook-form-handbook-ehb-f-08-2-grievance-and-appeal-form",
@@ -2718,7 +2960,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-08-2-grievance-and-appeal-form.pdf",
       "description": "Employee Handbook Form: Grievance and Appeal Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4bcc89ff281c44113a6e56dceda3823de771cf24648f348c95ad891763274336"
     },
     {
       "name": "handbook-form-handbook-ehb-f-08-2-grievance-and-appeal-form",
@@ -2729,7 +2972,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-08-2-grievance-and-appeal-form.pdf",
       "description": "Employee Handbook Form: Grievance and Appeal Form",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "2a745046f5c36a285176f90a1cf5c44d2ef0e49d69c39e76464f5013a35ee518"
     },
     {
       "name": "handbook-form-handbook-ehb-f-08-3-exit-interview-offboarding-record",
@@ -2740,7 +2984,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-08-3-exit-interview-offboarding-record.pdf",
       "description": "Employee Handbook Form: Exit Interview & Offboarding Record",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "8f81e453687138e0dd86a487ac285946b83526370ff7b6441ca5ccb331dddb4e"
     },
     {
       "name": "handbook-form-handbook-ehb-f-08-3-exit-interview-offboarding-record",
@@ -2751,7 +2996,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-08-3-exit-interview-offboarding-record.pdf",
       "description": "Employee Handbook Form: Exit Interview & Offboarding Record",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ceb5d8a4f1906f11540faf52a34e0928fd3c0ef48e37455972e09c5376e1f2ef"
     },
     {
       "name": "handbook-form-handbook-ehb-f-09-1-workplace-harassment-discrimination-complaint",
@@ -2762,7 +3008,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-09-1-workplace-harassment-discrimination-complaint.pdf",
       "description": "Employee Handbook Form: Workplace Harassment/Discrimination Complaint",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "67102260b51a3426bb55c718eecbb19491bdc56a3c983b2f113b12611d48e953"
     },
     {
       "name": "handbook-form-handbook-ehb-f-09-1-workplace-harassment-discrimination-complaint",
@@ -2773,7 +3020,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-09-1-workplace-harassment-discrimination-complaint.pdf",
       "description": "Employee Handbook Form: Workplace Harassment/Discrimination Complaint",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0aa655cec44ce96b231f9899149fcb944ce65b81886c0f411e0beae9847eb980"
     },
     {
       "name": "handbook-form-handbook-ehb-f-10-1-first-day-onboarding-checklist",
@@ -2784,7 +3032,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-10-1-first-day-onboarding-checklist.pdf",
       "description": "Employee Handbook Form: First-Day Onboarding Checklist",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "55ba77ffece35b207127a6865d160288a793c1ff2790fb212fee594131736ed1"
     },
     {
       "name": "handbook-form-handbook-ehb-f-10-1-first-day-onboarding-checklist",
@@ -2795,7 +3044,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-10-1-first-day-onboarding-checklist.pdf",
       "description": "Employee Handbook Form: First-Day Onboarding Checklist",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "ffb4fb66a3c884104b00c1bd2626c082a72bd9ac40e50c5fa0878559061a6a6c"
     },
     {
       "name": "handbook-form-handbook-ehb-f-10-2-employee-performance-review",
@@ -2806,7 +3056,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-10-2-employee-performance-review.pdf",
       "description": "Employee Handbook Form: Employee Performance Review",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "d857cf61e0bf78ffeb5537bc44d0c1e870dfc186990a5cd5b284ae02f76b6c25"
     },
     {
       "name": "handbook-form-handbook-ehb-f-10-2-employee-performance-review",
@@ -2817,7 +3068,8 @@
       "url": "https://www.mhc-gc.com/docs/employee/forms/form-handbook-ehb-f-10-2-employee-performance-review.pdf",
       "description": "Employee Handbook Form: Employee Performance Review",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4a47b795ea8f9dc1ced635a5b432d6b1e7d50f21b29f5d4c9dd9a462ced20dcf"
     },
     {
       "name": "team-gator",
@@ -2828,7 +3080,8 @@
       "url": "https://www.mhc-gc.com/team#gator",
       "description": "GATOR - Chief Moral Officer",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "593fe3fd22c706cb08b3d19f35a608fd6f4762d9a743a6e09a74d0ad37642c6f"
     },
     {
       "name": "team-gator",
@@ -2839,7 +3092,8 @@
       "url": "https://www.mhc-gc.com/team#gator",
       "description": "GATOR - Chief Moral Officer",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0693eaa91603f3d8ac40444ec37028161b5529c495888bdb85a032dccc79ffc8"
     },
     {
       "name": "team-arnold-garcia",
@@ -2850,7 +3104,8 @@
       "url": "https://www.mhc-gc.com/team#arnold-garcia",
       "description": "Arnold Garcia - Chief Operations Officer",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7c349ab686834c96f0fea6599537ecb6f41ea46f34d7c929f6beb80c4824d726"
     },
     {
       "name": "team-arnold-garcia",
@@ -2861,7 +3116,8 @@
       "url": "https://www.mhc-gc.com/team#arnold-garcia",
       "description": "Arnold Garcia - Chief Operations Officer",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0fc345d607a144302e7867a8fc270b09ff64aa450e829c739dde87a5a096b51c"
     },
     {
       "name": "team-ben-woodall",
@@ -2872,7 +3128,8 @@
       "url": "https://www.mhc-gc.com/team#ben-woodall",
       "description": "Ben Woodall - Project Manager",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f1219ec0fe6da39f7bdf4301ea7ce623aab748d53f708ae504f86871ae2ba0fa"
     },
     {
       "name": "team-ben-woodall",
@@ -2883,7 +3140,8 @@
       "url": "https://www.mhc-gc.com/team#ben-woodall",
       "description": "Ben Woodall - Project Manager",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "a41281da1d3ec4c5a5aa7bea31c803d52809144afdc2fa73a1adcdab46df839a"
     },
     {
       "name": "team-beth",
@@ -2894,7 +3152,8 @@
       "url": "https://www.mhc-gc.com/team#beth",
       "description": "Beth - Administrative Coordinator",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "96778499d8e9e3a0ab02b96b4a315f5f57e5e74ea6d2f045bec9189a5ceb05a7"
     },
     {
       "name": "team-beth",
@@ -2905,7 +3164,8 @@
       "url": "https://www.mhc-gc.com/team#beth",
       "description": "Beth - Administrative Coordinator",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "1a64f8b779ec4ad8b323000fb741e35ebaaea6b095589b82b1c33cf2e2462b8d"
     },
     {
       "name": "team-derek-parks",
@@ -2916,7 +3176,8 @@
       "url": "https://www.mhc-gc.com/team#derek-parks",
       "description": "Derek Parks - Superintendent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "dac21837548645491118bb27d3c77104f2da67a90084a5cf28a93afe54b42a88"
     },
     {
       "name": "team-derek-parks",
@@ -2927,7 +3188,8 @@
       "url": "https://www.mhc-gc.com/team#derek-parks",
       "description": "Derek Parks - Superintendent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "f112f2d297dbbca1afe3cb9b1feff0723de82a4821ef342f42e59791fa2cea43"
     },
     {
       "name": "team-jennifer-tene",
@@ -2938,7 +3200,8 @@
       "url": "https://www.mhc-gc.com/team#jennifer-tene",
       "description": "Jennifer Tene - Project Engineer / Admin Assistant",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "6868ef60852e1057d7882224b9635d50e8d00d92272b4acc79f4166febcc957e"
     },
     {
       "name": "team-jennifer-tene",
@@ -2949,7 +3212,8 @@
       "url": "https://www.mhc-gc.com/team#jennifer-tene",
       "description": "Jennifer Tene - Project Engineer / Admin Assistant",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "315a3cbeb3e45d15bc93a69776ce856f1f4e2a25b8a7e9e795da2e3a1b549f35"
     },
     {
       "name": "team-jeremy-thamert",
@@ -2960,7 +3224,8 @@
       "url": "https://www.mhc-gc.com/team#jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "77ae303cad96469200db9e7b04052b576c3a1dc350a20a3a4b7756649579ae45"
     },
     {
       "name": "team-jeremy-thamert",
@@ -2971,7 +3236,8 @@
       "url": "https://www.mhc-gc.com/team#jeremy-thamert",
       "description": "Jeremy Thamert - Owner & President",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "16dd00d60227eb7cd73291f10cc63e2f69d03c7fdada7f3e39af28ed41cfc534"
     },
     {
       "name": "team-kim-thamert",
@@ -2982,7 +3248,8 @@
       "url": "https://www.mhc-gc.com/team#kim-thamert",
       "description": "Kim Thamert - HR Director",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "7211a72851666583fad683c9fc15380fdc9bf8c9ad19cc01d52251d6317995c6"
     },
     {
       "name": "team-kim-thamert",
@@ -2993,7 +3260,8 @@
       "url": "https://www.mhc-gc.com/team#kim-thamert",
       "description": "Kim Thamert - HR Director",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "0ce191d7e19d0897ad5eb248b70f7691bdbf81a5cfbcd8cb5230913c740ab5f8"
     },
     {
       "name": "team-lisa-kandle",
@@ -3004,7 +3272,8 @@
       "url": "https://www.mhc-gc.com/team#lisa-kandle",
       "description": "Lisa Kandle - Project Engineer / Marketing Agent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "dd6e77947b5377a161d41455fd9e15c298a990a4492a2b534245c0d540c55c1e"
     },
     {
       "name": "team-lisa-kandle",
@@ -3015,7 +3284,8 @@
       "url": "https://www.mhc-gc.com/team#lisa-kandle",
       "description": "Lisa Kandle - Project Engineer / Marketing Agent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "eb661daa2d93990bf1a7234b603248ae34e2bfdae45498360b51005d0c559e57"
     },
     {
       "name": "team-matt-ramsey",
@@ -3026,7 +3296,8 @@
       "url": "https://www.mhc-gc.com/team#matt-ramsey",
       "description": "Matt Ramsey - Chief Marketing Officer & Safety Officer",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "3c2473bd23bf83c6e0a64da0b121c2c88cf7e3017018f40dce55d24a47790d75"
     },
     {
       "name": "team-matt-ramsey",
@@ -3037,7 +3308,8 @@
       "url": "https://www.mhc-gc.com/team#matt-ramsey",
       "description": "Matt Ramsey - Chief Marketing Officer & Safety Officer",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4c66942a48add0d77aa4df065359c85d00ec56d6a143e2f4c7c155943aaa08c9"
     },
     {
       "name": "team-porter-cline",
@@ -3048,7 +3320,8 @@
       "url": "https://www.mhc-gc.com/team#porter-cline",
       "description": "Porter Cline - Superintendent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "03225ab5286a7c8bc4fba9cdbf48a28048b999c99a04144d04944de5ad8ba9e6"
     },
     {
       "name": "team-porter-cline",
@@ -3059,7 +3332,8 @@
       "url": "https://www.mhc-gc.com/team#porter-cline",
       "description": "Porter Cline - Superintendent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "115da7d67e0c28f4d6d444154869bd358b1ae8f9535be59becf4ce59f0a2c770"
     },
     {
       "name": "team-reagan-massey",
@@ -3070,7 +3344,8 @@
       "url": "https://www.mhc-gc.com/team#reagan-massey",
       "description": "Reagan Massey - Chief Superintendent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "80c0979da08163ffd81825b679455fb742adf653c07a0f1d902d13b62ca2da9c"
     },
     {
       "name": "team-reagan-massey",
@@ -3081,7 +3356,8 @@
       "url": "https://www.mhc-gc.com/team#reagan-massey",
       "description": "Reagan Massey - Chief Superintendent",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "e1c21c0e2227bb5a66d0553ab1067ab3d84d93d1690bea364675cb99d4de7e2d"
     },
     {
       "name": "team-todd-schoeff",
@@ -3092,7 +3368,8 @@
       "url": "https://www.mhc-gc.com/team#todd-schoeff",
       "description": "Todd Schoeff - Lead Estimator",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "4e4f092d0c1e2348c9b60ab9b595f342fe64e7426b44bb5e941d8e74f90b16ff"
     },
     {
       "name": "team-todd-schoeff",
@@ -3103,7 +3380,10 @@
       "url": "https://www.mhc-gc.com/team#todd-schoeff",
       "description": "Todd Schoeff - Lead Estimator",
       "success": true,
-      "error": null
+      "error": null,
+      "sha256": "de83c611deaa38b49b3eacc1a2b4888d97e990f978bbbc0585a3ac2fd13238de"
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "hashAlgorithm": "sha256"
 }

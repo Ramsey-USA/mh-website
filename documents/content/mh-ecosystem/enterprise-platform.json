@@ -4,18 +4,62 @@
     "name": "MH Ecosystem",
     "version": "1.0/3.0",
     "status": "draft",
-    "publishedDate": "2026-08-04",
-    "sourceIndexLastUpdated": "2026-08-05",
-    "releaseArtifact": "mh-ecosystem-draft-2026-08-04.zip",
-    "releaseAudit": "MH-Ecosystem-Draft-2026-08-04/mh-ecosystem-draft-release-audit-2026-08-04.md",
+    "publishedDate": "2026-08-06",
+    "sourceIndexLastUpdated": "2026-08-06",
+    "releaseArtifact": "mh-ecosystem-draft-native-rebuild-master-governance-corrected-2026-08-06.zip",
+    "releaseSha256": "f6b9a39d944ba12cdeed7146be4b412f04dd5010752b694f1294b680d84d89b1",
+    "releaseAudit": "mh-ecosystem-governance-correction-2026-08-06.md",
     "packageCount": 10,
     "companyBibleSeparate": true,
     "docxCount": 193,
     "pdfCount": 193,
-    "renderedPageCount": 527,
+    "renderedPageCount": 1008,
     "authorAndChiefEditor": "Matt Ramsey",
     "coEditor": "Todd Shoeff",
-    "finalApprover": "Jeremy Thamert"
+    "finalApprover": "Jeremy Thamert",
+    "approvalState": "pending COO concurrence and CEO final approval",
+    "fieldEffective": false
+  },
+  "websiteIntegration": {
+    "plan": "docs/development/enterprise-website-overhaul-phase-1.md",
+    "currentGate": "phase-1-authority-pipeline-foundation",
+    "phase0Status": "complete",
+    "phase0Register": "documents/content/mh-ecosystem/phase-0-reconciliation.json",
+    "sealedBaselinePairCount": 193,
+    "repositoryIntakeDocxCount": 191,
+    "repositoryReservedFamilies": [],
+    "controlledLibraryIngestion": {
+      "status": "complete",
+      "tbtDocxCount": 82,
+      "tbtPdfCount": 82,
+      "sdsDocxCount": 11,
+      "sdsPdfCount": 11,
+      "pdfPipelineStatus": "release-candidate",
+      "qrPipelineStatus": "queued-until-publication-approval",
+      "publicReleaseStatus": "blocked-while-draft"
+    },
+    "binderPipeline": {
+      "status": "release-candidate",
+      "controlledSourcePdfCount": 193,
+      "packageBinderCount": 10,
+      "masterNotebookRecordCount": 191,
+      "masterNotebookSourcePageCount": 708,
+      "masterNotebookRenderedPageCount": 726,
+      "printReadyFormCount": 64,
+      "printReadyTbtCount": 82,
+      "printReadySdsCount": 11,
+      "treatment": "Covers and TOCs for publications; covers, TOCs, tabs, and spines for binders; source control covers removed from print-ready forms, TBTs, and SDS references."
+    },
+    "phaseOrder": [
+      "baseline reconciliation and release control",
+      "authority, pipeline, and public foundation",
+      "controlled document and resource integration",
+      "revenue, procurement, and project proof",
+      "community, workforce, and trust routes",
+      "verification and production promotion"
+    ],
+    "phasePromotionRule": "No phase is complete until its reconciliation, governance, CI, and approval gates pass.",
+    "repositoryBoundary": "The repository contains 98 governed working copies plus 93 exact sealed TBT/SDS DOCX/PDF pairs; neither generated output nor repository state supersedes controlled metadata."
   },
   "enterprisePosition": [
     "Safety and compliance command",
@@ -114,7 +158,15 @@
       "final approver",
       "public/internal classification",
       "release record"
-    ]
+    ],
+    "releaseControls": {
+      "generateOnDocumentChange": true,
+      "publishOnDocumentChange": false,
+      "productionApprovalRequired": true,
+      "sourceOfVersionTruth": "controlled document metadata",
+      "gitCommitCountIsRevision": false,
+      "directProductionUploadFromBuildJob": false
+    }
   },
   "wordsFromTheGeneral": {
     "publicationApprovedBy": "Chief Engineer (CHENG)",

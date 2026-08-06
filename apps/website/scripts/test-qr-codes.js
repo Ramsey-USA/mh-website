@@ -14,12 +14,15 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("node:crypto");
 const { PNG } = require("pngjs");
 const jsQR = require("jsqr");
 
 // Paths
 const QR_DIR = path.join(__dirname, "../public/images/qr-codes");
 const MANIFEST_PATH = path.join(QR_DIR, "qr-codes-manifest.json");
+const ALLOWED_WEB_HOSTS = new Set(["mhc-gc.com", "www.mhc-gc.com"]);
+const ALLOWED_PROTOCOLS = new Set(["https:", "tel:", "mailto:"]);
 
 function listQrFilesRecursive(dir, baseDir = dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -114,6 +117,12 @@ async function verifyQRCodes() {
   }
 
   const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
+  if (manifest.schemaVersion !== 2 || manifest.hashAlgorithm !== "sha256") {
+    console.error(
+      `${RED}✗ QR manifest must use schemaVersion 2 with SHA-256 identities.${RESET}`,
+    );
+    process.exit(1);
+  }
   console.log(`${GREEN}✓ Loaded manifest${RESET}`);
   console.log(`  Generated: ${manifest.generatedAt}`);
   console.log(`  Base URL: ${manifest.baseUrl}`);
@@ -126,6 +135,8 @@ async function verifyQRCodes() {
 
   const errors = [];
   const warningsList = [];
+  const manifestKeys = new Set();
+  const filePaths = new Set();
 
   // Test each QR code from manifest
   console.log(`${BLUE}Testing QR Codes:${RESET}\n`);
@@ -135,6 +146,47 @@ async function verifyQRCodes() {
     const relativePath = qrCode.relativePath || qrCode.filename;
     const filePath = path.join(QR_DIR, relativePath);
     const testName = `${qrCode.name} (${qrCode.variant})`;
+
+    const manifestKey = `${qrCode.name}:${qrCode.variant}`;
+    if (manifestKeys.has(manifestKey)) {
+      failed++;
+      errors.push(`${testName}: Duplicate manifest identity`);
+      continue;
+    }
+    manifestKeys.add(manifestKey);
+
+    if (filePaths.has(relativePath)) {
+      failed++;
+      errors.push(`${testName}: Duplicate file path - ${relativePath}`);
+      continue;
+    }
+    filePaths.add(relativePath);
+
+    if (
+      path.isAbsolute(relativePath) ||
+      relativePath.split(/[\\/]+/).includes("..")
+    ) {
+      failed++;
+      errors.push(`${testName}: Unsafe manifest path - ${relativePath}`);
+      continue;
+    }
+
+    try {
+      const target = new URL(qrCode.url);
+      if (!ALLOWED_PROTOCOLS.has(target.protocol)) {
+        throw new Error(`disallowed protocol ${target.protocol}`);
+      }
+      if (
+        target.protocol === "https:" &&
+        !ALLOWED_WEB_HOSTS.has(target.hostname.toLowerCase())
+      ) {
+        throw new Error(`disallowed web host ${target.hostname}`);
+      }
+    } catch (error) {
+      failed++;
+      errors.push(`${testName}: Invalid target - ${error.message}`);
+      continue;
+    }
 
     process.stdout.write(`  Testing ${testName}... `);
 
@@ -149,6 +201,23 @@ async function verifyQRCodes() {
 
       // Get file size
       const fileSize = getFileSize(filePath);
+
+      const sha256 = crypto
+        .createHash("sha256")
+        .update(fs.readFileSync(filePath))
+        .digest("hex");
+      if (!/^[a-f0-9]{64}$/.test(qrCode.sha256 || "")) {
+        failed++;
+        errors.push(`${testName}: Missing SHA-256 identity in manifest`);
+        console.log(`${RED}✗ MISSING HASH${RESET}`);
+        continue;
+      }
+      if (sha256 !== qrCode.sha256) {
+        failed++;
+        errors.push(`${testName}: SHA-256 mismatch`);
+        console.log(`${RED}✗ HASH MISMATCH${RESET}`);
+        continue;
+      }
 
       // Decode QR code
       const decodedUrl = await decodeQRCode(filePath);

@@ -66,6 +66,9 @@ apps/website/documents/
 documents/generated-pdfs/
 documents/output/
 tmp/pdf-debug/
+tmp/pdfs/
+tmp/publication-gate-test.txt
+tmp/git-exec/
 documents/downloads/**/*.pdf
 documents/content/safety-manual.json
 documents/_tmp_*

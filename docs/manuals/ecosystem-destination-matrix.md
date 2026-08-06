@@ -1,16 +1,16 @@
 # MH Ecosystem Destination Matrix
 
 **Category:** Manuals - Ecosystem Mapping  
-**Last Updated:** August 5, 2026  
-**Status:** Active
+**Last Updated:** August 6, 2026
+**Status:** Governed working-copy routing
 
 ## Quick Summary
 
-This matrix maps each numbered intake folder (`01` through `10`) to its canonical markdown and manifest destinations.
+This matrix maps each numbered repository working-copy folder (`01` through `10`) to its markdown and manifest destinations. The sealed 193-record baseline remains the controlling document authority.
 
 Use this before updating docs from source uploads so guide changes, manifest references, and pipeline language stay synchronized.
 
-## Canonical Intake Families
+## Repository Working-Copy Families
 
 - `documents/input/01-core-doctrine`
 - `documents/input/02-strategy-and-business-dev`
@@ -32,8 +32,8 @@ Use this before updating docs from source uploads so guide changes, manifest ref
 | `03-project-delivery`          |            7 | `docs/sales/sales-estimating-guide.md`, `docs/marketing/parameters/pursuit-and-handoff-parameters.md`, `docs/manuals/mh-ecosystem-source-index.md` | `documents/content/operations-manual.json`                                                                                                       | Medium    |
 | `04-safety-and-field-ops`      |            7 | `docs/technical/safety-program-guide.md`, `docs/technical/safety-terminology-glossary.md`                                                          | `documents/content/safety-manual-public.json`, `documents/content/manuals-index.json`                                                            | High      |
 | `05-it-and-infrastructure`     |            4 | `docs/technical/index.md`, `docs/development/index.md`, `docs/technical/services-integration-guide.md`                                             | `documents/content/operations-manual.json`                                                                                                       | Medium    |
-| `06-tbt-library`               |            0 | `docs/technical/safety-program-guide.md`, `docs/manuals/mh-ecosystem-source-index.md`                                                              | Reserved for future safety library ingestion                                                                                                     | Low       |
-| `07-sds-library`               |            0 | `docs/technical/safety-program-guide.md`, `docs/manuals/mh-ecosystem-source-index.md`                                                              | Reserved for future safety library ingestion                                                                                                     | Low       |
+| `06-tbt-library`               |           82 | `docs/technical/safety-program-guide.md`, `docs/manuals/mh-ecosystem-source-index.md`                                                              | Controlled pairs ingested; PDF release candidates enabled; QR/public routing blocked while Draft                                                 | Medium    |
+| `07-sds-library`               |           11 | `docs/technical/safety-program-guide.md`, `docs/manuals/mh-ecosystem-source-index.md`                                                              | Controlled pairs ingested; PDF release candidates enabled; SDS currency and QR/public routing blocked while Draft                                | Medium    |
 | `08-forms-ehb`                 |           13 | `docs/manuals/mh-ecosystem-source-index.md`, `docs/technical/safety-program-guide.md`                                                              | `documents/content/employee-handbook.json`, `documents/content/manuals-index.json`                                                               | High      |
 | `09-forms-operations`          |           26 | `docs/manuals/mh-ecosystem-source-index.md`, `docs/sales/sales-estimating-guide.md`                                                                | `documents/content/operations-manual.json`, `documents/content/manuals-index.json`                                                               | Medium    |
 | `10-forms-mish`                |           25 | `docs/technical/safety-program-guide.md`, `docs/manuals/mh-ecosystem-source-index.md`                                                              | `documents/content/safety-manual-public.json`, `documents/content/manuals-index.json`                                                            | High      |

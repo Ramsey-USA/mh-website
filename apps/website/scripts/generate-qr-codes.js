@@ -13,6 +13,7 @@ const QRCode = require("qrcode");
 const sharp = require("sharp");
 const fs = require("node:fs");
 const path = require("node:path");
+const crypto = require("node:crypto");
 
 // Base URL for production
 const BASE_URL = "https://www.mhc-gc.com";
@@ -300,6 +301,32 @@ const SAFETY_FORMS_MANIFEST_PATHS = [
   path.join(__dirname, "../../../documents/forms/forms-manifest.json"),
 ];
 
+const ECOSYSTEM_PDF_MANIFEST_PATHS = [
+  path.join(__dirname, "../documents/content/mh-ecosystem/ecosystem-pdf-manifest.json"),
+  path.join(__dirname, "../../../documents/content/mh-ecosystem/ecosystem-pdf-manifest.json"),
+];
+
+function loadApprovedEcosystemDocumentQRCodes() {
+  const manifestPath = ECOSYSTEM_PDF_MANIFEST_PATHS.find((candidate) =>
+    fs.existsSync(candidate),
+  );
+  if (!manifestPath) {
+    console.warn("âš  Ecosystem PDF manifest unavailable; skipping controlled document QR entries.");
+    return [];
+  }
+
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  return (manifest.entries || [])
+    .filter((entry) => entry.publicationEligible === true)
+    .map((entry) => ({
+      name: entry.qrName,
+      url: entry.futurePublicUrl,
+      description: `Controlled Document: ${entry.documentId}`,
+      label: entry.documentId.toUpperCase(),
+      folder: entry.qrFolder,
+    }));
+}
+
 function loadSafetyManualJson() {
   const manifestPath = SAFETY_MANUAL_PATHS.find((candidate) =>
     fs.existsSync(candidate),
@@ -494,6 +521,9 @@ function getFolderForQR(name) {
   if (name.startsWith("safety-section-")) return "safety-sections";
   if (name.startsWith("safety-form-")) return "safety-forms";
   if (name.startsWith("handbook-form-")) return "handbook-forms";
+  if (name.startsWith("tbt-document-")) return "tbt-documents";
+  if (name.startsWith("sds-document-")) return "sds-documents";
+  if (name.startsWith("ecosystem-document-")) return "ecosystem-documents";
   if (
     name.startsWith("operations-") ||
     name.startsWith("marketing-") ||
@@ -632,6 +662,7 @@ function buildFinalQRCodeList() {
     ...safetySectionCodes,
     ...safetyFormCodes,
     ...handbookFormCodes,
+    ...loadApprovedEcosystemDocumentQRCodes(),
     ...loadTeamQRCodes(),
   ].map((qr) => ({
     ...qr,
@@ -955,6 +986,10 @@ async function generateQRCode(qrData, variant = "color") {
       relativePath,
       folder,
       variant,
+      sha256: crypto
+        .createHash("sha256")
+        .update(fs.readFileSync(filepath))
+        .digest("hex"),
       ...qrData,
     };
   } catch (error) {
@@ -985,6 +1020,8 @@ function generateManifest(results) {
   const folders = [...new Set(results.map((r) => r.folder).filter(Boolean))];
 
   const manifest = {
+    schemaVersion: 2,
+    hashAlgorithm: "sha256",
     generatedAt: new Date().toISOString(),
     baseUrl: BASE_URL,
     outputDirectory: "apps/website/public/images/qr-codes",
@@ -1010,6 +1047,7 @@ function generateManifest(results) {
       url: r.url,
       description: r.description,
       success: r.success,
+      sha256: r.sha256 || null,
       error: r.error || null,
     })),
   };

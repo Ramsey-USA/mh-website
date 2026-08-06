@@ -1,16 +1,16 @@
 # MH Ecosystem Source Index
 
 **Category:** Manuals - Source Registry  
-**Last Updated:** August 5, 2026  
-**Status:** Active
+**Last Updated:** August 6, 2026
+**Status:** Governed working-copy inventory
 
 ## Quick Summary
 
-This index is the canonical source inventory for the numbered MH Ecosystem input folders under `documents/input/01-*` through `documents/input/10-*`.
+This index inventories the governed website working copies under `documents/input/01-*` through `documents/input/10-*`. It is not the sealed MH Ecosystem master index and does not supersede the governance-corrected 193-record baseline.
 
-Use this page when updating website knowledge-base markdown so legacy source paths are retired and current source families remain synchronized.
+Use this page when updating website knowledge-base markdown so repository paths remain synchronized. Use `documents/content/mh-ecosystem/phase-0-reconciliation.json` for the controlling relationship between these 98 working copies and the sealed baseline.
 
-## Canonical Intake Root
+## Repository Working-Copy Intake Root
 
 - `documents/input/01-core-doctrine`
 - `documents/input/02-strategy-and-business-dev`
@@ -72,15 +72,17 @@ Use this page when updating website knowledge-base markdown so legacy source pat
 - `mh-it-digital-infrastructure-guide-v1-0-draft.docx`
 - `mh-new-employee-orientation-guide-v1-0-draft.docx`
 
-## 06 TBT Library (0)
+## 06 TBT Library (82)
 
-- No source files currently present in `documents/input/06-tbt-library`.
-- Keep this folder reserved for toolbox talk library ingestion.
+- Eighty-two controlled Toolbox Talk DOCX/PDF pairs are present in `documents/input/06-tbt-library`.
+- Each pair is byte-identical to its sealed governance-corrected record and remains `not-public-draft`.
+- Use `documents/content/mh-ecosystem/phase-0-reconciliation.json` for the complete member list and SHA-256 values.
 
-## 07 SDS Library (0)
+## 07 SDS Library (11)
 
-- No source files currently present in `documents/input/07-sds-library`.
-- Keep this folder reserved for SDS/MSDS library ingestion.
+- Eleven controlled SDS reference DOCX/PDF pairs are present in `documents/input/07-sds-library`.
+- Each pair is byte-identical to its sealed governance-corrected record and remains `not-public-draft`.
+- Use `documents/content/mh-ecosystem/phase-0-reconciliation.json` for the complete member list and SHA-256 values.
 
 ## 08 Forms EHB (13)
 
@@ -157,7 +159,7 @@ Use this page when updating website knowledge-base markdown so legacy source pat
 
 ## Integration Rules
 
-- Treat folders 01-10 as the canonical intake model for ecosystem governance.
+- Treat folders 01-10 as website working-copy intake; the sealed governance-corrected package remains the document authority.
 - Retire legacy, non-numbered intake path references in markdown unless they are clearly labeled as historical archive context.
 - When file lists change in any numbered folder, update this page and all impacted guide/index pages in the same change.
 - Keep names construction-first, trust-safe, and aligned with Brand Constants and dual-terminology governance.

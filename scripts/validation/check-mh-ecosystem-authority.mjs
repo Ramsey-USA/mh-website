@@ -38,8 +38,35 @@ if (baseline.packageCount !== 10 || baseline.companyBibleSeparate !== true) {
   );
 }
 
-if (baseline.releaseArtifact !== "mh-ecosystem-draft-2026-08-04.zip") {
+if (
+  baseline.releaseArtifact !==
+  "mh-ecosystem-draft-native-rebuild-master-governance-corrected-2026-08-06.zip"
+) {
   errors.push("Complete Master Draft release artifact identity is incorrect.");
+}
+
+if (!/^[a-f0-9]{64}$/.test(baseline.releaseSha256 ?? "")) {
+  errors.push("Complete Master Draft must carry its SHA-256 release identity.");
+}
+
+if (baseline.renderedPageCount !== 1008) {
+  errors.push("Native rebuild baseline must reconcile to 1,008 PDF pages.");
+}
+
+if (baseline.fieldEffective !== false) {
+  errors.push("Draft Ecosystem must not be represented as field-effective policy.");
+}
+
+const releaseControls = authority.pdfGenerator?.releaseControls ?? {};
+if (
+  releaseControls.publishOnDocumentChange !== false ||
+  releaseControls.productionApprovalRequired !== true ||
+  releaseControls.gitCommitCountIsRevision !== false ||
+  releaseControls.directProductionUploadFromBuildJob !== false
+) {
+  errors.push(
+    "PDF release controls must separate generation from approved production publication.",
+  );
 }
 
 if (authority.publicDownloadPolicy?.draftDownloadsAllowed !== false) {
@@ -106,5 +133,5 @@ if (errors.length) {
 }
 
 console.log(
-  `MH Ecosystem authority gate passed: ${ribbonCount} approved Words from the General entries; Draft publication boundary enforced.`,
+  `MH Ecosystem authority gate passed: ${baseline.docxCount} controlled pairs, ${baseline.renderedPageCount} rendered pages, ${ribbonCount} approved Words from the General entries; Draft publication boundary enforced.`,
 );

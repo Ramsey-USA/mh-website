@@ -1,0 +1,63 @@
+name: Document Governance Monitor
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "documents/content/mh-ecosystem/**"
+      - "scripts/validation/check-mh-ecosystem-authority.mjs"
+      - "scripts/validation/check-ecosystem-phase0-reconciliation.mjs"
+      - "scripts/validation/check-ecosystem-pdf-pipeline.mjs"
+      - "scripts/validation/check-ecosystem-binder-output.mjs"
+      - "scripts/validation/check-ecosystem-publication-approval.mjs"
+      - "scripts/maintenance/build-ecosystem-pdf-manifest.mjs"
+      - "scripts/maintenance/build-ecosystem-binders.mjs"
+      - "apps/website/scripts/generate-qr-codes.js"
+      - "scripts/validation/check-controlled-pdf-workflow.mjs"
+      - ".github/workflows/generate-pdfs.yml"
+      - ".github/workflows/document-governance-monitor.yml"
+  push:
+    branches: [main]
+    paths:
+      - "documents/content/mh-ecosystem/**"
+      - "documents/input/**"
+      - "scripts/validation/check-mh-ecosystem-authority.mjs"
+      - "scripts/validation/check-ecosystem-phase0-reconciliation.mjs"
+      - "scripts/validation/check-ecosystem-pdf-pipeline.mjs"
+      - "scripts/validation/check-ecosystem-binder-output.mjs"
+      - "scripts/validation/check-ecosystem-publication-approval.mjs"
+      - "scripts/maintenance/build-ecosystem-pdf-manifest.mjs"
+      - "scripts/maintenance/build-ecosystem-binders.mjs"
+      - "apps/website/scripts/generate-qr-codes.js"
+      - "scripts/validation/check-controlled-pdf-workflow.mjs"
+      - ".github/workflows/generate-pdfs.yml"
+      - ".github/workflows/document-governance-monitor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: document-governance-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    name: Verify document authority and release controls
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - name: Verify Ecosystem authority
+        run: node scripts/validation/check-mh-ecosystem-authority.mjs
+      - name: Verify Phase 0 reconciliation
+        run: node scripts/validation/check-ecosystem-phase0-reconciliation.mjs
+      - name: Verify complete Ecosystem PDF and QR pipeline
+        run: node scripts/validation/check-ecosystem-pdf-pipeline.mjs
+      - name: Verify controlled PDF workflow
+        run: node scripts/validation/check-controlled-pdf-workflow.mjs
