@@ -61,5 +61,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add --all
-          git commit -m "Normalize enterprise release files"
+          git commit -m "chore: normalize enterprise release files"
           git push origin HEAD:agent/enterprise-phase-2-revenue-proof
