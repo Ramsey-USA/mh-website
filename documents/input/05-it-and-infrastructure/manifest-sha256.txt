@@ -1,0 +1,15 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 05-it-and-infrastructure
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+fc0f06b01d41ba61c5955bfe274f86375f6647b3b75c5b08119bb9662fe2934c  mh-field-command-center-system-standard-v1-0-draft.docx
+6e4902463569caab9375ae8f5632f54dc2b24767af44273d0b75759d673e61f8  mh-field-command-center-system-standard-v1-0-draft.pdf
+ab2a6736957e35277b9b18158be57e16da47770d58e73a075d6c4a53eccc063b  mh-it-data-governance-addendum-v1-0-draft.docx
+1f20bc084719bac9889c83099ed9a6f9aa43e54f2a590dd3afef5f6c94598527  mh-it-data-governance-addendum-v1-0-draft.pdf
+c6164d6a10273fb5152ce60a4868c9e15b29bd9e21f5be947fbf8b862f059326  mh-it-digital-infrastructure-guide-v1-0-draft.docx
+5bb5f783d13a5839a118d6e2e8963d4f48cad5c30a25b10a75b529d470538663  mh-it-digital-infrastructure-guide-v1-0-draft.pdf
+190986eaa61352cb746356f8316f39e655eae95c4ac61ef699de1f9e2df3eb3a  mh-new-employee-orientation-guide-v1-0-draft.docx
+793dd285701084270ce7ac2523c7d3228c728832c573dd13a48bd619438f39d5  mh-new-employee-orientation-guide-v1-0-draft.pdf

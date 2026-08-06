@@ -114,3 +114,18 @@ Resolved issue:
 1. Continue chapter-level content parity updates for doctrine topics (risk, quality, bonding, workforce) using the new canonical maps.
 2. Add dedicated forms-family narrative indexes if deeper discoverability is needed for 08/09/10 operations.
 3. Continue expanding chapter-level content parity now that 01, 02, 03, 04, 05, and 09 canonical maps are in place.
+
+## Follow-Up Addendum - 2026-08-06
+
+### Intake Filing Normalization
+
+- Confirmed `mh-company-bible-v1-0-draft.docx` is physically filed in `documents/input/01-core-doctrine` and indexed in `docs/manuals/mh-ecosystem-source-index.md`.
+- Removed duplicate `mish-manual-v3-0-draft.docx` placement from 09 operations forms so MISH manual ownership remains anchored to 04 safety and field operations.
+- Updated `documents/input/README.md` so intake root guidance reflects numbered-family filing and no longer references a non-existent `all-states.pdf` source file.
+
+### Source Index and Matrix Synchronization
+
+- Updated `docs/manuals/mh-ecosystem-source-index.md` metadata date to August 6, 2026.
+- Updated 08 Forms EHB entries to current uploaded filenames (`v1-0-draft` forms with handbook source at `v3-0-draft`).
+- Updated 10 Forms MISH entries to current uploaded filenames (`v1-0-draft` forms with MISH manual source retained at `v3-0-draft`).
+- Updated `docs/manuals/ecosystem-destination-matrix.md` metadata date to August 6, 2026 to keep ecosystem routing docs date-aligned.

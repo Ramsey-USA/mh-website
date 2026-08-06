@@ -1,7 +1,7 @@
 # MH Ecosystem Documentation Hub
 
 **Category:** Manuals - Overview  
-**Last Updated:** August 5, 2026
+**Last Updated:** August 6, 2026
 
 ## Quick Summary
 
@@ -31,9 +31,9 @@ The ecosystem is organized as a numbered, controlled document family so updates 
 - **05 IT and Infrastructure** - digital infrastructure, field command center standards, data governance, and orientation guides
 - **06 TBT Library** - toolbox talk library family (reserved; source files pending)
 - **07 SDS Library** - SDS/MSDS library family (reserved; source files pending)
-- **08 Forms EHB** - employee handbook form package set (v3.0)
+- **08 Forms EHB** - employee handbook package with handbook source (v3.0) and form set (v1.0)
 - **09 Forms Operations** - operations form package set (v1.0)
-- **10 Forms MISH** - safety program form package set (v3.0)
+- **10 Forms MISH** - safety program package with manual source (v3.0) and form set (v1.0)
 
 ## Governance and Change Authority
 

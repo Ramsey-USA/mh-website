@@ -14,6 +14,7 @@ PUBLIC_URL_PATHS=(
   "/docs/safety/forms/form-mish-01-injury-free-workplace-plan-acknowledgment.pdf"
   "/docs/safety/forms/form-mish-50-return-to-work-program-agreement-ack.pdf"
   "/docs/employee/forms/form-handbook-cv-company-vehicle-acknowledgement.pdf"
+  "/docs/series/01-core-doctrine/mh-company-bible-v1-0-draft.pdf"
 )
 
 RESTRICTED_URL_PATHS=(
@@ -104,14 +105,14 @@ for path in "${PUBLIC_URL_PATHS[@]}"; do
     continue
   fi
 
-  if [[ "$code" == "403" ]] && check_r2_object "$path"; then
-    echo "  NOTE $url returned 403, but object exists in R2"
+  if [[ "$code" =~ ^401|^403$ ]] && check_r2_object "$path"; then
+    echo "  NOTE $url returned $code, but object exists in R2"
     continue
   fi
 
   if ! check_url "$url"; then
-    if [[ "$code" == "403" ]] && check_r2_object "$path"; then
-      echo "  NOTE $url remained 403, but object exists in R2"
+    if [[ "$code" =~ ^401|^403$ ]] && check_r2_object "$path"; then
+      echo "  NOTE $url remained $code, but object exists in R2"
       continue
     fi
     failures=$((failures + 1))

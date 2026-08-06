@@ -17,7 +17,7 @@ Use this section when you are implementing, refactoring, or validating website f
 
 ### Start Here
 
-- [Enterprise Website Overhaul Phased Control Plan](./enterprise-website-overhaul-phase-1.md) - sealed-baseline reconciliation, governance-first implementation sequence, validation gates, and production release boundary
+- [Enterprise Website Overhaul Phase 1](./enterprise-website-overhaul-phase-1.md) - governance-first mission scope, authority baseline, validation gates, and release boundary
 
 - [Standards Index](./standards/index.md) — the main entry point for implementation rules
 - [Quick Reference Index](./quick-reference/index.md) — compact references for common implementation work

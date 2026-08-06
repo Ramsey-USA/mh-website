@@ -2,8 +2,8 @@
 
 This folder is the download-friendly mirror of the generated QR code assets.
 
-- **Total PNGs:** 228
-- **Unique QR names:** 114
+- **Total PNGs:** 474
+- **Unique QR names:** 237
 - **Source:** [../qr-codes/](../qr-codes/)
 
 Browse the mirrored folders below:
@@ -11,11 +11,12 @@ Browse the mirrored folders below:
 - [contact/](./contact/) - 8 PNGs
 - [core/](./core/) - 26 PNGs
 - [events/](./events/) - 2 PNGs
-- [handbook-forms/](./handbook-forms/) - 16 PNGs
+- [handbook-forms/](./handbook-forms/) - 24 PNGs
 - [manuals/](./manuals/) - 6 PNGs
 - [safety/](./safety/) - 14 PNGs
-- [safety-forms/](./safety-forms/) - 2 PNGs
-- [safety-sections/](./safety-sections/) - 118 PNGs
+- [safety-forms/](./safety-forms/) - 50 PNGs
+- [safety-sections/](./safety-sections/) - 112 PNGs
+- [series-docs/](./series-docs/) - 196 PNGs
 - [social/](./social/) - 10 PNGs
 - [team/](./team/) - 26 PNGs
 

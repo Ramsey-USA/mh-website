@@ -1,0 +1,33 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 08-forms-ehb
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+7295aefa8f68f574664b5f16b818e31eaeeba12383205649876e062c71381697  ehb-f-01-1-handbook-acknowledgment-v1-0-draft.docx
+85bfa1700969947ad4cccb14b1abe1cfa00b8869a15aeafabd490c8d4be2f8ab  ehb-f-01-1-handbook-acknowledgment-v1-0-draft.pdf
+1ab40db625be5658bdf789f0f85bb1820dcd501a7746705f65ffb0197174f0e3  ehb-f-02-1-personal-info-update-v1-0-draft.docx
+402e9cbf62c83ee0386998bf73a88fe553f053a3b69461ba43904c847c00f2c2  ehb-f-02-1-personal-info-update-v1-0-draft.pdf
+9ab51260e8f7b6ebde859e89ff6e0584ab76793e561e6953e0ee5e140f8cc158  ehb-f-05-1-pto-request-v1-0-draft.docx
+2b6ddae5d6630a4605caf3a09605acfe53e4645fdb6e81f7614fe2efc938adbe  ehb-f-05-1-pto-request-v1-0-draft.pdf
+f83993ae58e2600ecc19a345a52c73672b201380410504b78548059cfe89a7e1  ehb-f-05-2-leave-of-absence-request-v1-0-draft.docx
+75cf34511de0720790103a3fc4b28ddf404ac137ae50a0dffaa372b6003a1784  ehb-f-05-2-leave-of-absence-request-v1-0-draft.pdf
+768e5079b6b565ec5f6bd4ef0cfa3fef17f768d451a19df6496bc4dbf2642b83  ehb-f-07-1-vehicle-policy-acknowledgment-v1-0-draft.docx
+f8bb817b2aee1939fb80d4fefd8edc4e7a9ed0c3e3d18232df5dee98a3443c58  ehb-f-07-1-vehicle-policy-acknowledgment-v1-0-draft.pdf
+9d75dc536e82cae95e050a910c61384301ba2f857d07fbf6b4c8bd6a6f3a1426  ehb-f-07-2-tech-ai-use-agreement-v1-0-draft.docx
+cc38b7ec449609303b22398580fa5c9a5c39f7789877a356ce6eab29729b66d6  ehb-f-07-2-tech-ai-use-agreement-v1-0-draft.pdf
+0556bb19c24c0769f035e738a5051e5816e5ba36d4ad868df20251e85b166898  ehb-f-08-1-performance-improvement-plan-v1-0-draft.docx
+ff9859786d29288074de68426725100a4a8a17ddf04187a8fdaca989123d2143  ehb-f-08-1-performance-improvement-plan-v1-0-draft.pdf
+1abd0b69272e3612ffd01cefec529bf6c71b57a7c9982d692c43ef58ad26fccc  ehb-f-08-2-grievance-appeal-v1-0-draft.docx
+962af31a9345ddf7159fb4b886e0aa88f571842b5cd05655355912fc640eb919  ehb-f-08-2-grievance-appeal-v1-0-draft.pdf
+09b510b0edbd893fcf089face58c1ec0f4bb0771045b16a512e34c02442da5ee  ehb-f-08-3-exit-interview-v1-0-draft.docx
+768585bcefeeecfbd26321222047fdb2446db20e477a5fb50cd2c993bd741064  ehb-f-08-3-exit-interview-v1-0-draft.pdf
+ae3e795dbfcd5bae5490be8fef88223cd6425d5492ec9cb1678383ed7fcea516  ehb-f-09-1-harassment-complaint-v1-0-draft.docx
+ebec1a61954f1291b7627a92bb572e664cc42c402c5c0be747bea0a0af8d7674  ehb-f-09-1-harassment-complaint-v1-0-draft.pdf
+b7780113f00040836d82fd3adb03bd55358f126a46394ce3b6d683d31b3bbb86  ehb-f-10-1-first-day-onboarding-v1-0-draft.docx
+a66ab5bc4ac55805ffc20042ec4da8c8250a4e0f38d216e09e4091e0f93b3f0d  ehb-f-10-1-first-day-onboarding-v1-0-draft.pdf
+15f074b8f8711b134a699dc42a3bbd56d45ed51fd7a2b686fffbadbc0f31eac1  ehb-f-10-2-performance-review-v1-0-draft.docx
+4d9bc8947cf7dfba35c55fecf57de5b4d27cfcd445de781415e702236a71b5ab  ehb-f-10-2-performance-review-v1-0-draft.pdf
+6f58688ca2d17455ce000732a64782b4d92282bf33ebc762e61968bc6f8f8892  mh-employee-handbook-v3-0-draft.docx
+074c19fda1711f5c97e03f21d876f46ce22869580bb20f975ace5fd62b4ac84e  mh-employee-handbook-v3-0-draft.pdf

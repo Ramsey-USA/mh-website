@@ -1,0 +1,25 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 01-core-doctrine
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+efb8515c25e475c03556717a7558b76ae4ca58251b6fb26bf382b47b6b8ad035  mh-corporate-risk-management-playbook-v1-0-draft.docx
+bff3cc420f16b8d60d378a3ea03b93faef292be9bd457572944590dbabf32d9f  mh-corporate-risk-management-playbook-v1-0-draft.pdf
+3fb7dcbbd292f598036a31f368c3c9cf21a449e47d98ed78c551f1b5927f035f  mh-ecosystem-governance-and-document-control-standard-v1-0-draft.docx
+7686aa923d001527f67c642ab9ee995cf045de114e9746ba9514539b8834a95c  mh-ecosystem-governance-and-document-control-standard-v1-0-draft.pdf
+d746541ac6d006cee85648f053776a1fd7b02ae1022982d5bf6330db1d0e016f  mh-enterprise-master-document-index-v1-0-draft.docx
+f27bb27d4b6a7f0dae956178a1da1e1739d2f2b94365d15e304c47b9fb8a1ef8  mh-enterprise-master-document-index-v1-0-draft.pdf
+8fe4f421e59835035bc6763e85fa88274f5571c5c4af599d1433d992cfccea7b  mh-operations-manual-raci-appendix-v1-0-draft.docx
+13597be8d2fd56df5f7d7835b8730b5852bac117745bb83bbd66f5cd6dff2eae  mh-operations-manual-raci-appendix-v1-0-draft.pdf
+0c6f83119ec3ffce139e6916e0be5e01ef8f5a4cda1b02c9f892fe21b9cd327c  mh-operations-manual-v1-0-draft.docx
+3c9af34e2ed482ab740a1f2ddbb3437f39bc084460d6fef510ecff0d94f18813  mh-operations-manual-v1-0-draft.pdf
+8625aaee3ed4f8347e50ac4265ab7155868ace6d3b57d0c373d5c84d65dabba7  mh-quality-management-plan-v1-0-draft.docx
+0ab2ac805e9c77738db642972084462cd2d4d1aeb0580d5458a34a4f0e88ea96  mh-quality-management-plan-v1-0-draft.pdf
+780533c570c343e7d11a9de3effc0894fe45b1940b02ff18b2dab78b138d8ba3  mh-revision-history-block-template-v1-0-draft.docx
+4500122248aaf0945eed296b824db4aae62243044951f60365cc903584dcae82  mh-revision-history-block-template-v1-0-draft.pdf
+b4cfdae5014008c5b9ff9b2ab99594d43d8f086523058930f292817d118bd68f  mh-rm01-bonding-addendum-v1-0-draft.docx
+60bf6a66442647689b06c68e36230dc93fe19b938a255ba3cba7e64bbe829403  mh-rm01-bonding-addendum-v1-0-draft.pdf
+b8eab230a19ec19641f77f91bb2055ad7da919ab109db5f8826ec99d7e167888  mh-workforce-development-matrix-v1-0-draft.docx
+461b1719b1ff50c17f2023904aa5e68014e3c8a1e16fd280f5b7443c1c1c1315  mh-workforce-development-matrix-v1-0-draft.pdf

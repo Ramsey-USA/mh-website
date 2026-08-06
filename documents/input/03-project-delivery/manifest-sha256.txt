@@ -1,0 +1,21 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 03-project-delivery
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+123192599fc68a0928c9c34d8c4154ac84f7ab9b25debb3832ad326986491941  mh-estimating-bid-package-guide-v1-0-draft.docx
+0b7b3e8ab396d7eda9974ed14886b7525eff0272495242e53e0dc1298f6e7db9  mh-estimating-bid-package-guide-v1-0-draft.pdf
+ebff763543ed43b5269c517de15c564fe32075bb5cfe6c0bddf2ec76febf967d  mh-financial-controls-guide-v1-0-draft.docx
+f804573314668ed40098c972fea64d4b2a948c533bd0c413e4cd5f80b58e4f72  mh-financial-controls-guide-v1-0-draft.pdf
+1e403869dc95a08922b99b30bbeef7dc79be9d51bf04a5dd489c918523887992  mh-pep-ccp-and-warranty-addendum-v1-0-draft.docx
+b90eb7fedb533a3cb36930b1ce194cad0a32c2e5a958984d7e966563c817cd7d  mh-pep-ccp-and-warranty-addendum-v1-0-draft.pdf
+2c6b2ff7817878028f22f8dd8e441f89a925b34f7ae50fe140e4e15079910124  mh-project-execution-playbook-v1-0-draft.docx
+19e184eb61894edf6983629716695f23f909c5a56efa2ff23562d2ca01f98d2b  mh-project-execution-playbook-v1-0-draft.pdf
+871f0141b441bdc234f990bc98868ca3821ce2806d03721531bd698cfeaaf834  mh-sssp-preconstruction-handoff-addendum-v1-0-draft.docx
+882277d639dd65c3aeb879fd055bb426b84bfc61f4dbf3715114d8e2c4306d5a  mh-sssp-preconstruction-handoff-addendum-v1-0-draft.pdf
+09c557be36ac9f793b4f9fdab2e7d22d6800a4c04dd362766f9cdaea331d23cd  mh-subcontractor-management-manual-v1-0-draft.docx
+173c8c2aef888c7b33b726ade530a444b50b3f9bbf7c2e7f59642da948c2fb20  mh-subcontractor-management-manual-v1-0-draft.pdf
+71dbe859da9df36e47ab3ae0987aaaa55c9f9430b74a9dd6cbb39e90f4fa3536  pep-f-01-5-sales-to-ops-handoff-v1-0-draft.docx
+387042633eee5a7ab56c2c044b5b88b15c6edd303d6d5d69fa8defe313be9d22  pep-f-01-5-sales-to-ops-handoff-v1-0-draft.pdf
