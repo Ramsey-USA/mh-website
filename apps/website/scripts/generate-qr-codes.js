@@ -300,6 +300,9 @@ const SAFETY_FORMS_MANIFEST_PATHS = [
   path.join(__dirname, "../../../documents/forms/forms-manifest.json"),
 ];
 
+const INPUT_SERIES_ROOT = path.join(__dirname, "../../../documents/input");
+const INPUT_SERIES_FAMILY_PATTERN = /^\d{2}-/;
+
 function loadSafetyManualJson() {
   const manifestPath = SAFETY_MANUAL_PATHS.find((candidate) =>
     fs.existsSync(candidate),
@@ -463,6 +466,89 @@ function loadHandbookForms() {
   }
 }
 
+function toSeriesFamilyLabel(family) {
+  const parts = String(family).split("-");
+  if (parts.length <= 1) return family;
+  const number = parts.shift();
+  const title = parts
+    .map((part) => {
+      if (["ehb", "mish", "sds", "tbt", "it"].includes(part)) {
+        return part.toUpperCase();
+      }
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    })
+    .join(" ");
+  return `${number} ${title}`;
+}
+
+function sanitizeSeriesToken(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function compactSeriesLabel(fileStem) {
+  const tokens = String(fileStem)
+    .replace(/-v\d+-\d+-draft$/i, "")
+    .split("-")
+    .filter(Boolean)
+    .slice(0, 4)
+    .map((token) => token.toUpperCase());
+
+  return tokens.length > 0 ? tokens.join(" ") : "SERIES DOC";
+}
+
+function loadInputSeriesDocumentQRCodes() {
+  if (!fs.existsSync(INPUT_SERIES_ROOT)) {
+    console.warn(
+      `⚠ Input series root not found at ${INPUT_SERIES_ROOT}; skipping series document QR entries.`,
+    );
+    return [];
+  }
+
+  const familyEntries = fs
+    .readdirSync(INPUT_SERIES_ROOT, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.isDirectory() && INPUT_SERIES_FAMILY_PATTERN.test(entry.name),
+    )
+    .map((entry) => entry.name)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  const results = [];
+
+  for (const family of familyEntries) {
+    const familyDir = path.join(INPUT_SERIES_ROOT, family);
+    const docxFiles = fs
+      .readdirSync(familyDir, { withFileTypes: true })
+      .filter(
+        (entry) =>
+          entry.isFile() && path.extname(entry.name).toLowerCase() === ".docx",
+      )
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+    const familyLabel = toSeriesFamilyLabel(family);
+
+    for (const fileName of docxFiles) {
+      const stem = path.basename(fileName, ".docx");
+      const qrName = `series-${sanitizeSeriesToken(family)}-${sanitizeSeriesToken(stem)}`;
+      const pdfPath = `${BASE_URL}/docs/series/${family}/${stem}.pdf`;
+
+      results.push({
+        name: qrName,
+        url: pdfPath,
+        description: `${familyLabel}: ${stem}`,
+        label: compactSeriesLabel(stem),
+        folder: "series-docs",
+      });
+    }
+  }
+
+  return results;
+}
+
 const SAFETY_MANUAL_FORMS = loadSafetyManualForms();
 const HANDBOOK_FORMS = loadHandbookForms();
 
@@ -484,12 +570,43 @@ function normalizeManifestFormQrName(entry, prefix) {
 
 module.exports = {
   normalizeManifestFormQrName,
+  ensureUniqueQRCodeNames,
   buildFinalQRCodeList,
   getFolderForQR,
 };
 
+function ensureUniqueQRCodeNames(qrCodes) {
+  const byName = new Map();
+
+  for (const qr of qrCodes) {
+    const existing = byName.get(qr.name);
+    if (existing) {
+      existing.push(qr);
+    } else {
+      byName.set(qr.name, [qr]);
+    }
+  }
+
+  const duplicates = Array.from(byName.entries())
+    .filter(([, entries]) => entries.length > 1)
+    .map(([name, entries]) => {
+      const urls = entries.map((entry) => entry.url).join(" | ");
+      return `${name} -> ${urls}`;
+    });
+
+  if (duplicates.length > 0) {
+    const details = duplicates.join("\n");
+    throw new Error(
+      `Duplicate QR names detected. Resolve naming collisions to preserve one-to-one routing:\n${details}`,
+    );
+  }
+
+  return qrCodes;
+}
+
 function getFolderForQR(name) {
   if (name.startsWith("team-")) return "team";
+  if (name.startsWith("series-")) return "series-docs";
   if (SOCIAL_QR_NAMES.has(name)) return "social";
   if (name.startsWith("safety-section-")) return "safety-sections";
   if (name.startsWith("safety-form-")) return "safety-forms";
@@ -627,24 +744,22 @@ function buildFinalQRCodeList() {
     folder: "handbook-forms",
   }));
 
+  const inputSeriesDocumentCodes = loadInputSeriesDocumentQRCodes();
+
   const merged = [
     ...baseCodes,
     ...safetySectionCodes,
     ...safetyFormCodes,
     ...handbookFormCodes,
+    ...inputSeriesDocumentCodes,
     ...loadTeamQRCodes(),
   ].map((qr) => ({
     ...qr,
     folder: qr.folder || getFolderForQR(qr.name),
   }));
 
-  // De-dupe by name while preserving first occurrence.
-  const seen = new Set();
-  return merged.filter((qr) => {
-    if (seen.has(qr.name)) return false;
-    seen.add(qr.name);
-    return true;
-  });
+  // Fail fast on collisions so one-to-one input-series parity cannot silently regress.
+  return ensureUniqueQRCodeNames(merged);
 }
 
 /**

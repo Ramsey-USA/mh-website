@@ -1,5 +1,6 @@
 const {
   buildFinalQRCodeList,
+  ensureUniqueQRCodeNames,
   getFolderForQR,
   normalizeManifestFormQrName,
 } = require("../generate-qr-codes");
@@ -65,6 +66,35 @@ describe("generate-qr-codes form QR naming", () => {
     expect(getFolderForQR("operations-manual")).toBe("manuals");
     expect(getFolderForQR("marketing-strategy-guide")).toBe("manuals");
     expect(getFolderForQR("sales-estimating-guide")).toBe("manuals");
+  });
+
+  it("routes series QR assets into the series-docs folder", () => {
+    expect(getFolderForQR("series-01-core-doctrine-mh-company-bible")).toBe(
+      "series-docs",
+    );
+  });
+
+  it("includes a canonical company bible series QR target", () => {
+    const qrCodes = buildFinalQRCodeList();
+
+    expect(qrCodes).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "series-01-core-doctrine-mh-company-bible-v1-0-draft",
+          url: "https://www.mhc-gc.com/docs/series/01-core-doctrine/mh-company-bible-v1-0-draft.pdf",
+          folder: "series-docs",
+        }),
+      ]),
+    );
+  });
+
+  it("fails fast when duplicate QR names are present", () => {
+    expect(() =>
+      ensureUniqueQRCodeNames([
+        { name: "same", url: "https://example.com/a" },
+        { name: "same", url: "https://example.com/b" },
+      ]),
+    ).toThrow(/Duplicate QR names detected/);
   });
 
   it("enforces dedicated Team section QR targets for every active team member", () => {

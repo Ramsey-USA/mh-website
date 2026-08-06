@@ -72,6 +72,7 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 - `fix-code-issues.js` - Fix common code issues
 - `lighthouse-guide.js` - Lighthouse workflow guide (use PageSpeed/DevTools for authoritative scores)
 - `r2-publish-forms.sh` - Publish forms PDFs to Cloudflare R2
+- `r2-publish-input-series.sh` - Publish one-to-one numbered series PDFs to Cloudflare R2
 - `r2-publish-qr-codes.sh` - Publish QR code assets to Cloudflare R2
 - `r2-publish-safety-pdfs.sh` - Publish safety PDFs to Cloudflare R2
 - `r2-seed-pdfs.sh` - Seed PDF assets into Cloudflare R2

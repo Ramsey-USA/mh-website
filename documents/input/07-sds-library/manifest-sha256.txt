@@ -1,0 +1,29 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 07-sds-library
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+c77d85b747325d7da3b2e03df4ddf240d11f1c4217f5eba7c877171ec0f1b70e  sds-qr-01-portland-cement-v1-0-draft.docx
+87c63aab0f9bfa07c3b8e2d3a1f3813c7f7ac77287a986479239d577f5b740a3  sds-qr-01-portland-cement-v1-0-draft.pdf
+a24294589592215101840553ec74cc999070bbb97a2e083528c22cb2abee0624  sds-qr-02-pvc-solvent-cement-v1-0-draft.docx
+6e57a43e9732e613dc6306b2709f50a0679c99087eee5d4792689c227e657efe  sds-qr-02-pvc-solvent-cement-v1-0-draft.pdf
+62446a1e4fef4b4a3a31ec4c8723786faec704818f997f62be3bef086de9f4c5  sds-qr-03-spray-polyurethane-foam-v1-0-draft.docx
+237a02fd41e701010dad63d7e1f12c0e135fbc977fb690ea8c980d9ab550c4a3  sds-qr-03-spray-polyurethane-foam-v1-0-draft.pdf
+0febf3caa805fead8ae69a6a4fada48c02dae09f6cf31488df01746406ecd2ff  sds-qr-04-diesel-fuel-v1-0-draft.docx
+ddffc08721dc2c8d42107890ab3935ea53803e21a5a566cb97e2a404381deea5  sds-qr-04-diesel-fuel-v1-0-draft.pdf
+1bd3221b507a71b1d8c3a5f3211d313171b1f22af938ce04243403f80f7095c3  sds-qr-05-silica-dust-v1-0-draft.docx
+5271a24749c503367380bff4f9ac22c21512ba9450766f0609006e01fa2e2f18  sds-qr-05-silica-dust-v1-0-draft.pdf
+07a510b6afa4a0c38b8d509bd89b37a50359797e7132f678aa2b6d26031c5034  sds-qr-06-lead-paint-v1-0-draft.docx
+b4cc4ec0a4c27cd78ea670a760adc3325919207a0777f01b2e62e5c9598676e2  sds-qr-06-lead-paint-v1-0-draft.pdf
+1b2d1544cc2304534b983b89b5e2ffa7f75a1f593470e7d86bbce3f09dc27677  sds-qr-07-acetylene-gas-v1-0-draft.docx
+b47a743d18c911d33f66b6d8b2e90e5cd7a974f86120bbe14ebeea3d0b2edf04  sds-qr-07-acetylene-gas-v1-0-draft.pdf
+10ac1ed0dabd3c240b2193403d792772f79d85b65e3bcecb40a9834789b92768  sds-qr-08-asbestos-acm-v1-0-draft.docx
+dad7912f09e025c98c5bdc614b67dbb37edb879c61e9a953d426ea068cd2ff8e  sds-qr-08-asbestos-acm-v1-0-draft.pdf
+36f65950118137f512fc0179c1dc2381327851441460c6932eeac548c210b526  sds-qr-09-hydraulic-fluid-v1-0-draft.docx
+02694a89ac4f85c46fc50b775ede2185a13b0f132e8c715e34d766d83e2b717d  sds-qr-09-hydraulic-fluid-v1-0-draft.pdf
+20927b93a58a0562156f345d6a82f000b10c4d7094c2e26f7ffbe01fc5d2083f  sds-qr-10-propane-lpg-v1-0-draft.docx
+d14c5774648cc1b5c098ca86165c83af4efc2a5a75f8f31844a46372b045e12d  sds-qr-10-propane-lpg-v1-0-draft.pdf
+06a61655812b0127647f4eb7067cc7835ac2d56b170870a88fdf2c1e4d9b906a  sds-qr-11-lead-acid-batteries-v1-0-draft.docx
+4aa682733d7d7ef746b5a6a0facf593fb163763ab00c8a573d3e1b084164156b  sds-qr-11-lead-acid-batteries-v1-0-draft.pdf

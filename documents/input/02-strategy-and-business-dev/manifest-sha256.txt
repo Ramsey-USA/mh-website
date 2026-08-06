@@ -1,0 +1,19 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 02-strategy-and-business-dev
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+45340f62bc64e73eab606b7169378c753ed3145cc57362d7279a1da5773f7bd6  mh-bidpilot-sales-estimating-preconstruction-standard-v1-0-draft.docx
+011a54cd786453104f07c7b83307542526917a969e1f293197b478bd40535ef2  mh-bidpilot-sales-estimating-preconstruction-standard-v1-0-draft.pdf
+1034182eb8a33dd3bc0346cb33621650180ecd47bab6061b2925a9e80f74e1f7  mh-branding-terminology-library-v1-0-draft.docx
+6a54066c13e417e54d63e91fac6ea496cd79ac71fce12d78cd50e79bbeeb2af1  mh-branding-terminology-library-v1-0-draft.pdf
+9bc449ce7f0d62cd4735b87116ad40b54c84904bb19fbe619ae70f6b29c20b0b  mh-event-and-community-outreach-program-v1-0-draft.docx
+d3c102b722ad4c1cf93b13b940b3cf828555870540fd78b0352648b2a401a8f0  mh-event-and-community-outreach-program-v1-0-draft.pdf
+3d9bbaec6fccfde4ae7f78dc710e79666c14e7cce38d510f7ae99ac19c64c45d  mh-marketing-flight-program-standard-v1-0-draft.docx
+05ee8b68ab1528509c4851b325badf6124d0d0e469678740fc1bccc98f55b023  mh-marketing-flight-program-standard-v1-0-draft.pdf
+dd2eff4ae1dbaa582c48aebeb6bafbebcd873d338afa31b25c7fc570cb98fff2  mh-marketing-strategy-guide-v1-0-draft.docx
+c29f9f4d236a2f4860e400877cdc922f2b888eadd602e793c1a195519c6b8ad7  mh-marketing-strategy-guide-v1-0-draft.pdf
+c85825f43c16f7c4a9ae2163c78f864e404874f07153a217b16f9d45d3961e5e  mh-sales-estimating-guide-v1-0-draft.docx
+ffd033401bbb20c705f2daf7fd1c1d7d5537d14f6ccd9da4e8ee929dcf45131f  mh-sales-estimating-guide-v1-0-draft.pdf

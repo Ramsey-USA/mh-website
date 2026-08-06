@@ -1,0 +1,21 @@
+MH CONSTRUCTION CONTROLLED DRAFT PACKAGE MANIFEST
+Package: 04-safety-and-field-ops
+Lifecycle: Rough Draft
+Author and Chief Editor: Matt Ramsey
+Co-Editor: Todd Shoeff
+Final Approver: Jeremy Thamert, Owner/CEO
+
+a08a006354f19dccb4c157ecbbc1f6441e6f85a1a2627c168416928671986e59  mh-emergency-response-plan-v1-0-draft.docx
+1ebb5267737d11db604330fc7c211b9df98edaa3502c9abf834b27647c7a72ac  mh-emergency-response-plan-v1-0-draft.pdf
+75efbe05b99aaf22af9b060256b1a5159d126299d4d9e51def62e4980fbb13d9  mh-equipment-fleet-management-manual-v1-0-draft.docx
+fc12513b53fe3319770bc137122a45093d89fea821dd1bb339936f4c9b242542  mh-equipment-fleet-management-manual-v1-0-draft.pdf
+4a0576226f69993717324ad4d75057b369a4b0c86ebb495f6b43932acdd7eebb  mh-equipment-operators-manual-v1-0-draft.docx
+f725fc39a5b8d74955badfd19aa3bab25a46dc11d843013ad5e1a65de98ae4e2  mh-equipment-operators-manual-v1-0-draft.pdf
+38c8f652d338f5c52c5f8f01a95a8dbaeb7bdd72a911065896c1e35107f297b5  mh-federal-motor-carrier-compliance-manual-v1-0-draft.docx
+df8ec357754e6d4f03f15e663d44be70c8666f1ab257055ae8c84eb810b4968e  mh-federal-motor-carrier-compliance-manual-v1-0-draft.pdf
+2fddfa62c188dd2352b7318bf788aa3c9bf6f25a26d2cbed8ad8a50569bab23d  mh-warehouse-management-guide-v1-0-draft.docx
+4c91b51527041f68649ece0be3ef93ea6b9438d8fb94333dd80cbba8c23fefbf  mh-warehouse-management-guide-v1-0-draft.pdf
+52870d7af60f35c4371f485be5b094126e774aeafe165e26fed1850a4113794b  mh-warehouse-management-system-standard-v1-0-draft.docx
+126fb67f5006e481b9705bb382733bedb8762083e0b4d863297916e49bdd9c8a  mh-warehouse-management-system-standard-v1-0-draft.pdf
+2cf6ed537fdc1e61d5d9ff20befc6a8fe3b8653fb4ae827a2b077ec9de2e6448  mish-manual-v3-0-draft.docx
+a7d07b37b225c37e04fac43201ba169898e04cdc6f5c26357bc3e0f8f764c55f  mish-manual-v3-0-draft.pdf

@@ -603,6 +603,15 @@ const getArg = (flag) => {
   return args[i + 1];
 };
 const hasFlag = (flag) => args.includes(flag);
+const SERIES_MANUAL_ALIASES = Object.freeze({
+  "01-core-doctrine": "operations-manual",
+  "02-strategy-and-business-dev": "marketing-strategy-guide",
+  "03-project-delivery": "sales-estimating-guide",
+  "04-safety-and-field-ops": "safety",
+  "08-forms-ehb": "employee-handbook",
+  "09-forms-operations": "operations-manual",
+  "10-forms-mish": "safety",
+});
 const positionalTemplate = args.find((arg) => !arg.startsWith("-")) || null;
 const template = getArg("--template") || positionalTemplate || "all";
 const sectionNo = getArg("--section");
@@ -612,8 +621,27 @@ const incrementalSectionsEnabled =
 const reportCacheStats = hasFlag("--report-cache");
 const revDateArg = getArg("--rev-date"); // e.g. "7/1/2026"
 const revNumArg = getArg("--rev-number"); // e.g. "3.0"
+const seriesArg = (getArg("--series") || "").trim().toLowerCase();
+const manualCliArg = (getArg("--manual") || "").trim().toLowerCase();
+
+if (seriesArg && manualCliArg) {
+  console.error(
+    "❌  Use either --manual or --series, not both in the same command.",
+  );
+  process.exit(1);
+}
+
+if (seriesArg && !SERIES_MANUAL_ALIASES[seriesArg]) {
+  const supportedSeries = Object.keys(SERIES_MANUAL_ALIASES).join(", ");
+  console.error(
+    `❌  Unsupported series '${seriesArg}'. Use one of: ${supportedSeries}`,
+  );
+  process.exit(1);
+}
+
 const manualArg = (
-  getArg("--manual") ||
+  manualCliArg ||
+  (seriesArg ? SERIES_MANUAL_ALIASES[seriesArg] : null) ||
   (hasFlag("--handbook") ? "employee-handbook" : null) ||
   (hasFlag("--safety") ? "safety" : null) ||
   "safety"
@@ -643,7 +671,7 @@ const isManualFamily = isHandbookFamily || isMarketingStrategyGuide;
 
 if (!isManualFamily && manualArg !== "safety") {
   console.error(
-    `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide`,
+    `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide. You can also use --series for numbered phase-1 aliases.`,
   );
   process.exit(1);
 }

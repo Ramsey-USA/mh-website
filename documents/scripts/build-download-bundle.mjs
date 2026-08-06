@@ -9,51 +9,24 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "../..");
 const SOURCE_DIR = join(ROOT, "documents/generated-pdfs");
+const INPUT_SERIES_SOURCE_DIR = join(SOURCE_DIR, "input-series");
 const DOWNLOADS_DIR = join(ROOT, "documents/downloads");
 
-const SAFETY_MANUAL_FILES = [
-  "safety-manual-complete.pdf",
-  "safety-manual-digital.pdf",
-  "safety-manual-cover.pdf",
-  "safety-manual-spine.pdf",
-  "safety-manual-tabs.pdf",
-  "safety-manual-toc.pdf",
+const MANUAL_PDF_SUFFIXES = [
+  "complete.pdf",
+  "digital.pdf",
+  "cover.pdf",
+  "spine.pdf",
+  "tabs.pdf",
+  "toc.pdf",
 ];
 
-const EMPLOYEE_HANDBOOK_FILES = [
-  "employee-handbook-complete.pdf",
-  "employee-handbook-digital.pdf",
-  "employee-handbook-cover.pdf",
-  "employee-handbook-spine.pdf",
-  "employee-handbook-tabs.pdf",
-  "employee-handbook-toc.pdf",
-];
-
-const OPERATIONS_MANUAL_FILES = [
-  "operations-manual-complete.pdf",
-  "operations-manual-digital.pdf",
-  "operations-manual-cover.pdf",
-  "operations-manual-spine.pdf",
-  "operations-manual-tabs.pdf",
-  "operations-manual-toc.pdf",
-];
-
-const MARKETING_STRATEGY_GUIDE_FILES = [
-  "marketing-strategy-guide-complete.pdf",
-  "marketing-strategy-guide-digital.pdf",
-  "marketing-strategy-guide-cover.pdf",
-  "marketing-strategy-guide-spine.pdf",
-  "marketing-strategy-guide-tabs.pdf",
-  "marketing-strategy-guide-toc.pdf",
-];
-
-const SALES_ESTIMATING_GUIDE_FILES = [
-  "sales-estimating-guide-complete.pdf",
-  "sales-estimating-guide-digital.pdf",
-  "sales-estimating-guide-cover.pdf",
-  "sales-estimating-guide-spine.pdf",
-  "sales-estimating-guide-tabs.pdf",
-  "sales-estimating-guide-toc.pdf",
+const MANUAL_FAMILIES = [
+  { id: "safety-manual", label: "Safety Manual" },
+  { id: "employee-handbook", label: "Employee Handbook" },
+  { id: "operations-manual", label: "Operations Manual" },
+  { id: "marketing-strategy-guide", label: "Marketing Strategy Guide" },
+  { id: "sales-estimating-guide", label: "Sales and Estimating Guide" },
 ];
 
 const SHARED_FILES = ["MHC-company-letterhead.pdf", "website-image-needs.pdf"];
@@ -61,6 +34,37 @@ const FORM_SET_FILES = [
   "employee-handbook-forms-package.pdf",
   "safety-manual-forms-package.pdf",
 ];
+
+function manualFilesFor(manualId) {
+  return MANUAL_PDF_SUFFIXES.map((suffix) => `${manualId}-${suffix}`);
+}
+
+function buildManualFamilyEntries() {
+  return MANUAL_FAMILIES.map((family) => ({
+    ...family,
+    files: manualFilesFor(family.id),
+  }));
+}
+
+function toSeriesLabel(seriesId) {
+  const parts = String(seriesId).split("-");
+  if (parts.length <= 1) return seriesId;
+  const numeric = parts.shift();
+  const title = parts
+    .map((part) => {
+      if (
+        part === "ehb" ||
+        part === "mish" ||
+        part === "sds" ||
+        part === "tbt"
+      ) {
+        return part.toUpperCase();
+      }
+      return part.charAt(0).toUpperCase() + part.slice(1);
+    })
+    .join(" ");
+  return `${numeric} ${title}`;
+}
 
 async function removePdfFiles(dirPath) {
   if (!existsSync(dirPath)) {
@@ -124,6 +128,45 @@ async function copyDirectoryPdfs(sourceDir, targetDir) {
   return pdfFiles;
 }
 
+async function copyInputSeriesBundles() {
+  if (!existsSync(INPUT_SERIES_SOURCE_DIR)) {
+    throw new Error(
+      `Missing input-series PDF source folder: ${INPUT_SERIES_SOURCE_DIR}. Run docs:generate:input-series first.`,
+    );
+  }
+
+  const entries = await readdir(INPUT_SERIES_SOURCE_DIR, {
+    withFileTypes: true,
+  });
+  const seriesEntries = [];
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const seriesId = entry.name;
+    const sourceFamilyDir = join(INPUT_SERIES_SOURCE_DIR, seriesId);
+    const targetFamilyDir = join(DOWNLOADS_DIR, "series", seriesId);
+    const files = await copyDirectoryPdfs(sourceFamilyDir, targetFamilyDir);
+    if (files.length === 0) continue;
+    seriesEntries.push({
+      id: seriesId,
+      label: toSeriesLabel(seriesId),
+      files,
+    });
+  }
+
+  seriesEntries.sort((a, b) =>
+    a.id.localeCompare(b.id, undefined, { numeric: true }),
+  );
+
+  if (seriesEntries.length === 0) {
+    throw new Error(
+      "No one-to-one series PDFs were found under documents/generated-pdfs/input-series/.",
+    );
+  }
+
+  return seriesEntries;
+}
+
 function formatPathList(folderName, fileNames) {
   return fileNames
     .map(
@@ -133,8 +176,44 @@ function formatPathList(folderName, fileNames) {
     .join("\n");
 }
 
-async function writeDownloadIndex(formFiles) {
-  const content = `# Download Bundle\n\nThis folder is the download-friendly view of the generated PDFs.\n\n- [safety-manual/](./safety-manual/) - final Safety Manual PDFs for download\n- [employee-handbook/](./employee-handbook/) - final Employee Handbook PDFs for download\n- [operations-manual/](./operations-manual/) - final Operations Manual PDFs for download\n- [marketing-strategy-guide/](./marketing-strategy-guide/) - final Marketing Strategy Guide PDFs for download\n- [sales-estimating-guide/](./sales-estimating-guide/) - final Sales and Estimating Guide PDFs for download\n- [shared/](./shared/) - common print assets like the company letterhead\n- [forms/](./forms/) - final form package PDFs for download\n\nExact download locations:\n\n## Safety Manual\n\n${formatPathList("safety-manual", SAFETY_MANUAL_FILES)}\n\n## Employee Handbook\n\n${formatPathList("employee-handbook", EMPLOYEE_HANDBOOK_FILES)}\n\n## Operations Manual\n\n${formatPathList("operations-manual", OPERATIONS_MANUAL_FILES)}\n\n## Marketing Strategy Guide\n\n${formatPathList("marketing-strategy-guide", MARKETING_STRATEGY_GUIDE_FILES)}\n\n## Sales and Estimating Guide\n\n${formatPathList("sales-estimating-guide", SALES_ESTIMATING_GUIDE_FILES)}\n\n## Shared\n\n${formatPathList("shared", SHARED_FILES)}\n\n## Form Sets\n\n${formatPathList("forms", FORM_SET_FILES)}\n\n## Forms\n\n${formatPathList("forms", formFiles)}\n\nRefresh it with:\n\n\`\`\`bash\npnpm --filter @mhc/website run docs:bundle:downloads\n\`\`\`\n`;
+function buildManualOverviewList(manualFamilies) {
+  return manualFamilies
+    .map(
+      (family) =>
+        `- [${family.id}/](./${family.id}/) - final ${family.label} PDFs for download`,
+    )
+    .join("\n");
+}
+
+function buildManualSectionBlocks(manualFamilies) {
+  return manualFamilies
+    .map(
+      (family) =>
+        `## ${family.label}\n\n${formatPathList(family.id, family.files)}`,
+    )
+    .join("\n\n");
+}
+
+function buildSeriesOverviewList(seriesEntries) {
+  return seriesEntries
+    .map(
+      (entry) =>
+        `- [series/${entry.id}/](./series/${entry.id}/) - ${entry.label} one-to-one bundle (input DOCX filename parity)`,
+    )
+    .join("\n");
+}
+
+function buildSeriesSectionBlocks(seriesEntries) {
+  return seriesEntries
+    .map(
+      (entry) =>
+        `## ${entry.label}\n\n${formatPathList(`series/${entry.id}`, entry.files)}`,
+    )
+    .join("\n\n");
+}
+
+async function writeDownloadIndex(formFiles, manualFamilies, seriesEntries) {
+  const content = `# Download Bundle\n\nThis folder is the download-friendly view of the generated PDFs.\n\n${buildManualOverviewList(manualFamilies)}\n- [shared/](./shared/) - common print assets like the company letterhead\n- [forms/](./forms/) - final form package PDFs for download\n- [series/](./series/) - numbered input-series bundles generated one-to-one from input DOCX files\n\nExact download locations:\n\n${buildManualSectionBlocks(manualFamilies)}\n\n## Shared\n\n${formatPathList("shared", SHARED_FILES)}\n\n## Form Sets\n\n${formatPathList("forms", FORM_SET_FILES)}\n\n## Forms\n\n${formatPathList("forms", formFiles)}\n\n## Numbered Ecosystem Series (One-to-One Input Parity)\n\n${buildSeriesOverviewList(seriesEntries)}\n\n${buildSeriesSectionBlocks(seriesEntries)}\n\nRefresh it with:\n\n\`\`\`bash\npnpm --filter @mhc/website run docs:bundle:downloads\n\`\`\`\n`;
 
   const targetPath = join(DOWNLOADS_DIR, "README.md");
   await mkdir(DOWNLOADS_DIR, { recursive: true });
@@ -151,36 +230,19 @@ async function main() {
   console.log("📦 Building download bundle…");
   await removePdfFiles(DOWNLOADS_DIR);
 
-  await copyFiles(
-    SAFETY_MANUAL_FILES,
-    SOURCE_DIR,
-    join(DOWNLOADS_DIR, "safety-manual"),
-  );
-  await copyFiles(
-    EMPLOYEE_HANDBOOK_FILES,
-    SOURCE_DIR,
-    join(DOWNLOADS_DIR, "employee-handbook"),
-  );
-  await copyFiles(
-    OPERATIONS_MANUAL_FILES,
-    SOURCE_DIR,
-    join(DOWNLOADS_DIR, "operations-manual"),
-  );
-  await copyFiles(
-    MARKETING_STRATEGY_GUIDE_FILES,
-    SOURCE_DIR,
-    join(DOWNLOADS_DIR, "marketing-strategy-guide"),
-  );
-  await copyFiles(
-    SALES_ESTIMATING_GUIDE_FILES,
-    SOURCE_DIR,
-    join(DOWNLOADS_DIR, "sales-estimating-guide"),
-  );
+  const manualFamilies = buildManualFamilyEntries();
+  for (const family of manualFamilies) {
+    await copyFiles(family.files, SOURCE_DIR, join(DOWNLOADS_DIR, family.id));
+  }
+
+  const seriesEntries = await copyInputSeriesBundles();
+
   await copyFiles(SHARED_FILES, SOURCE_DIR, join(DOWNLOADS_DIR, "shared"));
   const formFiles = await copyDirectoryPdfs(
     join(SOURCE_DIR, "form-packages"),
     join(DOWNLOADS_DIR, "forms"),
   );
+
   const missingFormSets = FORM_SET_FILES.filter(
     (fileName) => !formFiles.includes(fileName),
   );
@@ -189,7 +251,8 @@ async function main() {
       `Missing aggregate form-set PDFs in documents/generated-pdfs/form-packages/: ${missingFormSets.join(", ")}. Run docs:generate:forms and docs:generate:forms:handbook first.`,
     );
   }
-  await writeDownloadIndex(formFiles);
+
+  await writeDownloadIndex(formFiles, manualFamilies, seriesEntries);
 
   console.log("✅  Download bundle written to: documents/downloads/");
 }

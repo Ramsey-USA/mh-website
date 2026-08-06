@@ -37,14 +37,53 @@ const OPERATIONS_MANUAL_MANIFEST_PATH = join(
   ROOT,
   "documents/content/operations-manual.json",
 );
+const SERIES_MANUAL_ALIASES = Object.freeze({
+  "01-core-doctrine": "operations-manual",
+  "02-strategy-and-business-dev": "marketing-strategy-guide",
+  "03-project-delivery": "sales-estimating-guide",
+  "04-safety-and-field-ops": "safety",
+  "08-forms-ehb": "employee-handbook",
+  "09-forms-operations": "operations-manual",
+  "10-forms-mish": "safety",
+});
 
 // ── CLI flags ─────────────────────────────────────────────────────────────
 const manualIndex = process.argv.indexOf("--manual");
-const manualArg =
+const seriesIndex = process.argv.indexOf("--series");
+const manualCliArg =
   manualIndex !== -1 && manualIndex + 1 < process.argv.length
     ? process.argv[manualIndex + 1]
     : process.argv.find((arg) => arg.startsWith("--manual="))?.split("=")[1] ||
-      "safety";
+      "";
+const seriesArg =
+  seriesIndex !== -1 && seriesIndex + 1 < process.argv.length
+    ? process.argv[seriesIndex + 1]
+    : process.argv.find((arg) => arg.startsWith("--series="))?.split("=")[1] ||
+      "";
+
+if (manualCliArg && seriesArg) {
+  console.error(
+    "❌  Use either --manual or --series, not both in the same command.",
+  );
+  process.exit(1);
+}
+
+const normalizedSeriesArg = seriesArg.trim().toLowerCase();
+if (normalizedSeriesArg && !SERIES_MANUAL_ALIASES[normalizedSeriesArg]) {
+  const supportedSeries = Object.keys(SERIES_MANUAL_ALIASES).join(", ");
+  console.error(
+    `❌  Unsupported series '${normalizedSeriesArg}'. Use one of: ${supportedSeries}`,
+  );
+  process.exit(1);
+}
+
+const manualArg = (
+  manualCliArg ||
+  (normalizedSeriesArg ? SERIES_MANUAL_ALIASES[normalizedSeriesArg] : null) ||
+  "safety"
+)
+  .trim()
+  .toLowerCase();
 const isEmployeeHandbook =
   manualArg === "employee" ||
   manualArg === "employee-handbook" ||
@@ -67,7 +106,7 @@ const isHandbookFamily = isEmployeeHandbook || isOperationsManual;
 const isManualFamily = isHandbookFamily || isGuideFamily;
 if (!isManualFamily && manualArg !== "safety") {
   console.error(
-    `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide`,
+    `❌  Unsupported manual '${manualArg}'. Use --manual safety, --manual employee-handbook, --manual operations-manual, --manual marketing-strategy-guide, or --manual sales-estimating-guide. You can also use --series for numbered phase-1 aliases.`,
   );
   process.exit(1);
 }
