@@ -65,8 +65,13 @@ apps/website/documents/
 # === Documents pipeline (PDFs served from R2, generated locally) ===
 documents/generated-pdfs/
 documents/output/
+documents/staging/
+documents/input/**/*.docx
+documents/input/**/*.pdf
+outputs/
 tmp/pdf-debug/
 tmp/pdfs/
+tmp/mh-visual-parity/
 tmp/publication-gate-test.txt
 tmp/git-exec/
 documents/downloads/**/*.pdf
@@ -75,6 +80,10 @@ documents/_tmp_*
 documents/**/_tmp_*
 public/docs/
 apps/website/public/docs/
+
+# The private document factory is maintained in Ramsey-USA/mh-document-factory.
+# Do not duplicate factory code or brand-source assets in the website repository.
+tools/mh-document-factory/
 
 # === Test files in wrong locations ===
 /public/test-*.html

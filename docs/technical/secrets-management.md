@@ -1,5 +1,7 @@
 # Secrets Management Guide
 
+> **Private factory control:** R2 publication credentials belong only in the authorized offline publishing environment. They may not be exposed to website PDF generation, QR generation, pull-request workflows, or broad rebuild jobs.
+
 **Brand Congruency:** Secrets handling guidance should keep project naming, environment labels, and operational references aligned with MH Construction terminology.
 
 ## Secure Handling of API Keys and Credentials

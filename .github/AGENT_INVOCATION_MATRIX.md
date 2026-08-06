@@ -1,6 +1,6 @@
 # Agent Invocation Matrix
 
-Last Updated: July 11, 2026
+Last Updated: August 6, 2026
 Status: Canonical
 
 This document is the canonical invocation policy for Copilot agents in this repository.
@@ -52,8 +52,7 @@ Use `master-at-arms` as the default umbrella command surface for:
 | SQL migrations and data-integrity risk                     | `migration-data-integrity-officer`               | Domain agent for affected runtime surface (`dashboard-congruency-officer`, `safety-hub-liaison`, or `team-roster-officer`) as needed                                       |
 | UI patterns and design-system fidelity                     | `design-quartermaster`                           | `accessibility-watch-officer` for interaction/access checks                                                                                                                |
 | Documentation drift and artifact placement hygiene         | `documentation-drift-officer`                    | `release-command` when drift spans deployment, CI, or policy docs                                                                                                          |
-| Document/PDF/QR alignment and publish parity               | `document-pipeline-alignment-officer`            | `safety-pdf-editor` and `manual-development-standards-officer` for print-pipeline changes; `qr-code-officer` for QR validation; `release-command` for final readiness      |
-| Forms/manual PDFs and generation                           | `forms-logistics-officer` or `safety-pdf-editor` | `manual-development-standards-officer`, `manual-structure-officer`                                                                                                         |
+| Controlled-document delivery and stable redirects         | `forms-logistics-officer` or `safety-pdf-editor` | `manual-development-standards-officer`, `manual-structure-officer`, then private `Ramsey-USA/mh-document-factory` production review                                       |
 | Pre-merge final go/no-go                                   | `release-command`                                | Domain specialists as required by changed files                                                                                                                            |
 
 ## Required Pre-Merge Invocation Sequence

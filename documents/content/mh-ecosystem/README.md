@@ -24,6 +24,14 @@ The repository contains 191 controlled DOCX intake files. Packages 01-05 and 08-
 
 The one-to-one disposition of all 193 records is recorded in `phase-0-reconciliation.json`. CI rejects unexplained omissions, unmatched repository files, TBT/SDS hash drift, public Draft classifications, or any change to the sealed counts and control boundary.
 
+The August 6, 2026 Employee Resource Hub batch is held under `documents/staging/employee-resource-hub/`. It dispositions eight server records, stages five cover-free one-page DOCX/PDF form pairs, preserves government and carrier forms as external authorities, and prohibits public QR publication for restricted employee records. The batch does not alter the sealed 193-record baseline until its activation gates and complete release rebuild are executed.
+
+The August 6, 2026 Superintendent batch is held under `documents/staging/superintendent-forms/`. It dispositions eight server records and stages six cover-free one-page DOCX/PDF pairs for project startup, daily field reporting, six-week planning, equipment rental, fuel control, and expense/invoice capture. Broken external-link calculations, obsolete hierarchy, duplicate blank sheets, blank PDF pages, and paper-only maintenance history are excluded; live asset, maintenance, and rate controls route through WMS and the Field Command Center.
+
+The August 6, 2026 Quality Assurance Guide v2.0 is held under `documents/staging/quality-assurance-guide/` as controlled ID `PEP-G-02` for the Project Delivery Tier. It rebuilds founder Mike Holstien's archived 2016 QA Program Manual v1.0 into a scope-tailorable enterprise guide for construction sites, software and technical products, and internal processes. The staged guide creates no Quality Manager position or QA department; existing accountable positions assign qualified verification work by mission. It remains outside the sealed 193-record baseline and public QR surface until construction, technical, COO, CEO, register, Package 03, binder, metadata, manifest, and QR activation gates close.
+
+The August 6, 2026 gap-closure batch is held under `documents/staging/gap-closure-forms/`. It supplies seven missing operating-evidence records already required by existing doctrine: project quality/inspection planning, nonconformance and corrective action, warranty service, contract risk and obligation review, system access lifecycle, backup/restore testing, and record disposition. The seven cover-free DOCX/PDF pairs total ten rendered pages and each remains within the one-to-two-page print limit. Existing finance, subcontractor, and closeout forms are crosswalked instead of duplicated. When the Quality Assurance Guide v2.0 activates, it absorbs and retires the parallel `mh-quality-management-plan-v1-0-draft` doctrine while preserving the two QMP evidence identifiers as controlled forms.
+
 The PDF pipeline verifies all 193 sealed PDFs, builds ten package binders with covers, TOCs, tabs, and spines, and builds one 191-record master notebook with the Company Bible first. Sixty-four forms remain cover-free and limited to one or two printable pages. The QR pipeline registers every controlled record but emits no Draft document QR code until document-level publication approval.
 
 ## Precedence
@@ -70,8 +78,14 @@ Field Command Center is being developed through the CHENG, CHNAV, and IT Special
 
 Public language uses conventional titles first and may follow with the approved abbreviation. Responsibilities belong to positions, not incumbents. Matt Ramsey and Todd Shoeff may be named on editorial records; Jeremy Thamert may be named as owner, author of approved public quotes, and final approver.
 
-## Document Generator Rule
+## Private Document Factory Rule
 
-The website PDF generator is the production mechanism for applying the approved MH brand system across public Ecosystem documents. Canonical content remains separate from generated PDF output. Generated files must carry source version, lifecycle status, author, editor, approver, public/internal classification, and a reproducible release record.
+The website does not generate, merge, restyle, or automatically rebuild controlled PDFs. The private offline MH Document Factory applies approved branding to selected native sources under an incremental work order; canonical content, brand assets, review renders, and approval evidence remain off the public website and return to the in-house archive server.
 
-Generation and publication are separate control gates. Pull requests and document changes may generate a retained release candidate, but only a manually dispatched job using the protected `production-documents` environment may publish validated PDFs. Git commit counts and commit dates never establish a controlled-document revision or effective date.
+Only approved, hash-verified outputs may publish to immutable Cloudflare R2 keys. Stable `/go/docs/<stable-id>` redirects provide durable QR destinations and may point only to registered approved outputs. QR images are not regenerated when a controlled target advances. Git activity, website deployments, and generated timestamps never establish a document revision, approval, or effective date.
+
+## Legacy Training Integration Rule
+
+Legacy office-training PDFs are evidence sources, not additional controlled manuals. The August 6, 2026 legacy audit identified 75 physical PDFs representing 44 unique contents and 31 duplicate role-folder copies. Useful requirements are absorbed into existing Ecosystem records as Directives, General Orders, Field Instructions, forms, or internal portal knowledge cards after hierarchy, approval, system-of-record, legal, confidentiality, and sister-company controls are reconciled.
+
+The controlling crosswalk is `docs/manuals/legacy-training-integration-audit-2026-08-06.md`. Legacy PDFs remain in the locked in-house archive and are excluded from the website PDF and QR publication pipeline.

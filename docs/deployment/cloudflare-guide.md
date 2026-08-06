@@ -1,5 +1,7 @@
 # Cloudflare Workers Deployment Guide
 
+> **Controlled-document boundary, August 6, 2026:** Website deployment never generates documents. Only CEO-approved, hash-verified incremental outputs from the private factory may upload to immutable R2 keys; `/go/docs/<stable-id>` controls durable QR destinations.
+
 **Category:** Deployment - Cloudflare
 **Last Updated:** April 14, 2026
 **Version:** 3.2.1

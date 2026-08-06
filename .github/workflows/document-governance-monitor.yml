@@ -7,30 +7,19 @@ on:
       - "documents/content/mh-ecosystem/**"
       - "scripts/validation/check-mh-ecosystem-authority.mjs"
       - "scripts/validation/check-ecosystem-phase0-reconciliation.mjs"
-      - "scripts/validation/check-ecosystem-pdf-pipeline.mjs"
-      - "scripts/validation/check-ecosystem-binder-output.mjs"
-      - "scripts/validation/check-ecosystem-publication-approval.mjs"
-      - "scripts/maintenance/build-ecosystem-pdf-manifest.mjs"
-      - "scripts/maintenance/build-ecosystem-binders.mjs"
-      - "apps/website/scripts/generate-qr-codes.js"
-      - "scripts/validation/check-controlled-pdf-workflow.mjs"
-      - ".github/workflows/generate-pdfs.yml"
+      - "apps/website/src/lib/data/controlled-document-redirects.json"
+      - "apps/website/src/app/go/docs/**"
+      - "apps/website/scripts/validation/check-controlled-document-architecture.mjs"
       - ".github/workflows/document-governance-monitor.yml"
   push:
     branches: [main]
     paths:
       - "documents/content/mh-ecosystem/**"
-      - "documents/input/**"
       - "scripts/validation/check-mh-ecosystem-authority.mjs"
       - "scripts/validation/check-ecosystem-phase0-reconciliation.mjs"
-      - "scripts/validation/check-ecosystem-pdf-pipeline.mjs"
-      - "scripts/validation/check-ecosystem-binder-output.mjs"
-      - "scripts/validation/check-ecosystem-publication-approval.mjs"
-      - "scripts/maintenance/build-ecosystem-pdf-manifest.mjs"
-      - "scripts/maintenance/build-ecosystem-binders.mjs"
-      - "apps/website/scripts/generate-qr-codes.js"
-      - "scripts/validation/check-controlled-pdf-workflow.mjs"
-      - ".github/workflows/generate-pdfs.yml"
+      - "apps/website/src/lib/data/controlled-document-redirects.json"
+      - "apps/website/src/app/go/docs/**"
+      - "apps/website/scripts/validation/check-controlled-document-architecture.mjs"
       - ".github/workflows/document-governance-monitor.yml"
   workflow_dispatch:
 
@@ -57,7 +46,5 @@ jobs:
         run: node scripts/validation/check-mh-ecosystem-authority.mjs
       - name: Verify Phase 0 reconciliation
         run: node scripts/validation/check-ecosystem-phase0-reconciliation.mjs
-      - name: Verify complete Ecosystem PDF and QR pipeline
-        run: node scripts/validation/check-ecosystem-pdf-pipeline.mjs
-      - name: Verify controlled PDF workflow
-        run: node scripts/validation/check-controlled-pdf-workflow.mjs
+      - name: Verify private factory and stable redirects
+        run: node apps/website/scripts/validation/check-controlled-document-architecture.mjs

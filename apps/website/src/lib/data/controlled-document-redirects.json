@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "defaultCacheControl": "public, max-age=300, must-revalidate",
+  "redirects": [
+    {"stableId":"safety-manual-contents","status":"active","classification":"public","target":"/docs/safety/safety-manual-contents.pdf"},
+    {"stableId":"employee-handbook-contents","status":"active","classification":"public","target":"/docs/employee/employee-handbook-toc.pdf"},
+    {"stableId":"safety-manual","status":"restricted","classification":"employee","target":"/docs/safety/safety-manual-complete.pdf"},
+    {"stableId":"employee-handbook","status":"restricted","classification":"employee","target":"/docs/employee/employee-handbook-2026.pdf"}
+  ]
+}

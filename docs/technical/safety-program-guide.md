@@ -1,5 +1,7 @@
 # MH Construction Safety Program Guide
 
+> **Document pipeline supersession, August 6, 2026:** Website PDF generation, automatic full rebuilds, and QR asset publication are retired. The controlling process is the private incremental factory and stable redirect architecture in `docs/technical/controlled-document-factory.md`. Generator commands retained below are historical reference only and must not be executed.
+
 **Path:** `docs/technical/safety-program-guide.md`
 **Last Updated:** August 5, 2026
 **Version:** 1.4.0

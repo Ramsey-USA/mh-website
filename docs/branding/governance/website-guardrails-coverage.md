@@ -1,5 +1,7 @@
 # Website Guardrails Coverage Map
 
+> **Document branding boundary:** The website validates redirect and access controls only. PDF branding and visual QA occur in the private incremental factory under the MH controlled-document approval chain.
+
 **Category:** Branding - Governance  
 **Last Updated:** July 19, 2026  
 **Status:** Active - Website-Wide Requirement

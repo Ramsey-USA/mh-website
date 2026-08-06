@@ -215,6 +215,37 @@ function markdownToHtml(markdown) {
   return parts.join("\n");
 }
 
+export function splitDocxSections(rawText) {
+  const lines = String(rawText || "")
+    .replaceAll("\r\n", "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const headingIndexes = lines
+    .map((line, index) => (/^OPS-\d+/i.test(line) ? index : -1))
+    .filter((index) => index >= 0);
+
+  if (headingIndexes.length === 0) return [];
+
+  return headingIndexes.map((headingIndex, sectionIndex) => {
+    const heading = lines[headingIndex];
+    const title = heading.replace(/^OPS-\d+\s*\|\s*/i, "").trim();
+    const nextHeadingIndex = headingIndexes[sectionIndex + 1] ?? lines.length;
+    const bodyLines = lines.slice(headingIndex + 1, nextHeadingIndex);
+
+    // Preserve the manual control block and enterprise preamble in the first
+    // generated section instead of silently dropping all content before OPS-01.
+    if (sectionIndex === 0 && headingIndex > 0) {
+      bodyLines.unshift(...lines.slice(0, headingIndex));
+    }
+
+    return {
+      fileName: `${String(sectionIndex + 1).padStart(2, "0")}-${slugify(title)}.md`,
+      markdown: [`# ${title}`, "", ...bodyLines].join("\n").trim(),
+    };
+  });
+}
+
 async function main() {
   const sourcePath = resolveOperationsManualSourcePath();
   if (!sourcePath) {
@@ -233,21 +264,7 @@ async function main() {
     }
 
     const result = await extractRawText({ path: sourcePath });
-    const lines = String(result?.value || "")
-      .replaceAll("\r\n", "\n")
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean);
-
-    const sectionTitles = lines
-      .filter((line) => /^OPS-\d+/i.test(line))
-      .map((line) => line.replace(/^OPS-\d+\s*\|\s*/i, "").trim())
-      .filter(Boolean);
-
-    sectionEntries = sectionTitles.map((title, index) => ({
-      fileName: `${String(index + 1).padStart(2, "0")}-${slugify(title)}.md`,
-      markdown: `# ${title}`,
-    }));
+    sectionEntries = splitDocxSections(result?.value);
 
     if (sectionEntries.length === 0) {
       sectionEntries = [

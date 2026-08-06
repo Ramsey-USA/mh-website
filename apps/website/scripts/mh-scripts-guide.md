@@ -1,5 +1,7 @@
 # MH Website Scripts Organization
 
+> **Document automation retired:** The website no longer generates PDFs or QR assets. Controlled documents are built incrementally in the private MH Document Factory, uploaded only after approval, and resolved through stable `/go/docs/<stable-id>` redirects.
+
 **Last Updated:** April 15, 2026  
 **Status:** ✅ Active
 
