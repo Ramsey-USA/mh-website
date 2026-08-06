@@ -7,6 +7,7 @@ import {
   BrandColorBlobs,
 } from "@/components/ui/backgrounds";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 // StaggeredFadeIn is a client animation component. Dynamic import keeps its
 // JS out of the critical bundle; all 3 uses in this page are below the fold.
 const StaggeredFadeIn = dynamic(
@@ -20,7 +21,6 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { gridPresets } from "@/lib/styles/layout-variants";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
-import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getApprovedClaimOrFallback } from "@/lib/content/claims";
 
 const veteranOwnedClaim = getApprovedClaimOrFallback({
@@ -286,40 +286,19 @@ export default function PublicSectorFullPage() {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
-      {/* Hero Section - Group 4: Professional & Patriotic */}
-      <section
-        className="hero-section relative flex items-end justify-end text-white overflow-hidden"
-        style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
-      >
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-gray-700 to-gray-900"></div>
-        <div className="absolute inset-0 bg-linear-to-br from-gray-700/30 via-gray-900/80 to-gray-600/20"></div>
-
-        {/* Content - Bottom Right */}
-        <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
-          <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
-            <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
-              <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                Government -&gt; Public Sector Construction
-              </span>
-              <span className="block text-brand-primary">
-                Construction-Ready, Compliance-Driven
-              </span>
-              <span className="block text-white/90">
-                Built for agency requirements, schedule discipline, and clear
-                reporting with accountable delivery and confidentiality-first
-                communication controls
-              </span>
-              <span className="block text-white/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                {COMPANY_INFO.slogan.primary}
-              </span>
-              <span className="block text-brand-secondary/90 text-xs xs:text-sm sm:text-base mt-2">
-                {getHeroPageSlogan("publicSector").slogan}
-              </span>
-            </h1>
-          </div>
-        </div>
-      </section>
+      <EnterpriseRouteHero
+        eyebrow="Public sector | Compliance-forward delivery"
+        title="Agency requirements become field controls."
+        intro="MH Construction connects procurement requirements, project controls, safety planning, field execution, and audit-ready closeout for public work across Washington, Oregon, and Idaho."
+        primary={{ href: "/contact", label: "Start a public-project briefing" }}
+        secondary={{ href: "/projects", label: "Review project proof" }}
+        proof={[
+          ["WA VOB", veteranOwnedClaim],
+          ["WA, OR, ID", triStateLicenseClaim],
+          ["Controlled", "Cost, schedule, and documentation"],
+          ["Audit-ready", "Closeout and retained evidence"],
+        ]}
+      />
       {/* Breadcrumb Navigation */}
       <Breadcrumb
         items={[{ label: "Home", href: "/" }, { label: "Government" }]}
