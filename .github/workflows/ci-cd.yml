@@ -293,7 +293,7 @@ jobs:
 
       - name: Verify SSSP factory fail-closed controls
         working-directory: apps/dashboard
-        run: npm run test:ci -- safety-sssp-generate.test.ts
+        run: npm run test:ci -- safety-sssp-generate.test.ts sssp-factory.test.ts
 
       - name: Build dashboard
         working-directory: apps/dashboard
