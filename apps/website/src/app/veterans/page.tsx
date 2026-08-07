@@ -167,10 +167,7 @@ export default async function VeteransPage() {
               : "Public-Sector Capability",
         }}
         proof={[
-          [
-            "51%",
-            locale === "es" ? "Propiedad veterana" : "Veteran ownership",
-          ],
+          ["51%", locale === "es" ? "Propiedad veterana" : "Veteran ownership"],
           [
             "WA · OR · ID",
             locale === "es" ? "Alcance con licencia" : "Licensed reach",

@@ -380,8 +380,7 @@ export default function ContactPageClient({
           }}
           secondary={{
             href: `tel:${COMPANY_INFO.phone.tel}`,
-            label:
-              locale === "es" ? "Llamar a operaciones" : "Call Operations",
+            label: locale === "es" ? "Llamar a operaciones" : "Call Operations",
           }}
           proof={[
             [
@@ -394,7 +393,9 @@ export default function ContactPageClient({
             ],
             [
               "Secure intake",
-              locale === "es" ? "Enrutamiento controlado" : "Controlled routing",
+              locale === "es"
+                ? "Enrutamiento controlado"
+                : "Controlled routing",
             ],
           ]}
         />
