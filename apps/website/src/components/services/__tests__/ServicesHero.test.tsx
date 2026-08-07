@@ -8,7 +8,9 @@ describe("ServicesHero", () => {
     expect(
       container.querySelector(".enterprise-route-hero"),
     ).toBeInTheDocument();
-    expect(container.querySelector(".enterprise-proof-bar")).toBeInTheDocument();
+    expect(
+      container.querySelector(".enterprise-proof-bar"),
+    ).toBeInTheDocument();
   });
 
   it("renders the enterprise services heading", () => {
