@@ -1,48 +1,49 @@
-/**
- * Projects Hero Section
- * Hero header for the projects page
- */
-
-import { COMPANY_INFO } from "@/lib/constants/company";
-import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 import type { SupportedLocale } from "@/lib/i18n/locale";
 
 export function ProjectsHero({
   locale = "en",
 }: Readonly<{ locale?: SupportedLocale }>) {
   const isEs = locale === "es";
-  return (
-    <section
-      className="hero-section relative flex items-end justify-end text-white overflow-hidden"
-      style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
-    >
-      {/* Background - Ready for photo or video */}
-      <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
-      </div>
 
-      {/* Header Text - Bottom Right */}
-      <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
-        <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
-          <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
-            <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-              {isEs ? "Proyectos → Resultados" : "Projects → Outcomes"}
-            </span>
-            <span className="block text-brand-secondary">
-              {isEs
-                ? "Portafolio de Proyectos en Washington, Oregon e Idaho"
-                : "Project Portfolio Across Washington, Oregon, and Idaho"}
-            </span>
-            <span className="block text-brand-primary">
-              {getHeroPageSlogan("projects").slogan}
-            </span>
-            <span className="block text-white/90">
-              {COMPANY_INFO.slogan.primary}
-            </span>
-          </h1>
-        </div>
-      </div>
-    </section>
+  return (
+    <EnterpriseRouteHero
+      eyebrow={
+        isEs
+          ? "Prueba del proyecto | Washington, Oregon, Idaho"
+          : "Project proof | Washington, Oregon, Idaho"
+      }
+      title={
+        isEs ? "El trabajo lleva el registro." : "The work carries the record."
+      }
+      intro={
+        isEs
+          ? "Casos publicos organizados por condiciones, alcance, controles de entrega y resultados documentados."
+          : "Public case files organized around project conditions, executed scope, delivery controls, and documented results."
+      }
+      primary={{
+        href: "#portfolio",
+        label: isEs ? "Revisar casos" : "Review case files",
+      }}
+      secondary={{
+        href: "/contact",
+        label: isEs ? "Presentar un proyecto" : "Brief a project",
+      }}
+      proof={
+        isEs
+          ? [
+              ["Alcance", "Trabajo ejecutado"],
+              ["Control", "Decisiones trazables"],
+              ["Seguridad", "Planificacion documentada"],
+              ["Resultado", "Entrega verificable"],
+            ]
+          : [
+              ["Scope", "Work actually executed"],
+              ["Control", "Traceable decisions"],
+              ["Safety", "Documented planning"],
+              ["Outcome", "Verifiable delivery"],
+            ]
+      }
+    />
   );
 }

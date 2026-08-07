@@ -216,7 +216,7 @@ jobs:
         with:
           skip-checkout: "true"
           node-version: ${{ env.NODE_VERSION }}
-          install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
+          install-command: pnpm install --frozen-lockfile --filter @mhc/website... --filter @mhc/shared... --loglevel error
 
       - name: Restore Next.js build cache (website)
         uses: actions/cache@v6
@@ -274,7 +274,7 @@ jobs:
         with:
           skip-checkout: "true"
           node-version: ${{ env.NODE_VERSION }}
-          install-command: pnpm install --frozen-lockfile --filter @mhc/website... --loglevel error
+          install-command: pnpm install --frozen-lockfile --filter @mhc/website... --filter @mhc/shared... --loglevel error
 
       - name: Restore Next.js build cache (website)
         uses: actions/cache@v6

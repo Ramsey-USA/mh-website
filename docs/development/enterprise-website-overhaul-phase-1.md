@@ -1,6 +1,6 @@
 # Enterprise Website Overhaul: Phase 1 Control Plan
 
-Status: Draft  
+Status: Draft, Phase 2 in progress
 Authority: MH Ecosystem  
 Editorial control: Matt Ramsey, Chief Editor  
 Final approval: Jeremy Thamert, Owner and CEO
@@ -48,6 +48,19 @@ Internal fleet, warehouse, IT, authority, financial control, personnel, and dash
 - Rebuild Services, Public Sector, Projects, project detail, About, Jeremy Thamert, Veterans, and Contact.
 - Convert project pages into evidence-based case files with constraints, controls, delivery facts, and results.
 - Add capability statements by market and procurement path.
+
+Phase 2 controlled slice 1:
+
+- Services, Projects, and Public Sector now use one enterprise route hero, proof strip, square geometry, ruled grid, and evidence-first action hierarchy.
+- The shared treatment preserves the existing route, filtering, case-study, public-sector, analytics, and localization contracts.
+- `enterprise:phase2:check` prevents these revenue-route entry points from drifting away from the shared controlled component.
+- Remaining Phase 2 work: project-detail case-file parity, About, Jeremy Thamert, Veterans, Contact, and full below-the-fold visual consolidation.
+
+Phase 2 controlled slice 2:
+
+- Project detail routes now open as governed case files with location, completion year, evidence status, and controlled delivery proof before the gallery and technical record.
+- About now uses the enterprise route system and removes the rounded promotional entry treatment while preserving its translated company narrative.
+- Remaining Phase 2 work: Jeremy Thamert, Veterans, Contact, and full below-the-fold consolidation across inherited components.
 
 ### Phase 3: resource and community routes
 

@@ -105,6 +105,7 @@ For language, title, or relationship changes that touch more than one ecosystem 
 - [IT and Infrastructure Canonical Map](./it-infrastructure-canonical-map.md)
 - [Operations Forms Canonical Map](./operations-forms-canonical-map.md)
 - [Ecosystem Update Log - 2026-08-05](./ecosystem-update-log-2026-08-05.md)
+- [Ecosystem Phase 0 Reconciliation - 2026-08-06](./ecosystem-phase-0-reconciliation-2026-08-06.md)
 - [Markdown Document Template](../development/quick-reference/markdown-doc-template.md)
 
 ---

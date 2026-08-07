@@ -7,6 +7,7 @@ import { PageTrackingClient } from "@/components/analytics";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 import {
   DiagonalStripePattern,
   BrandColorBlobs,
@@ -160,34 +161,41 @@ export default function AboutDetailsPage() {
         }}
       />
 
-      <div className="bg-linear-to-b from-white dark:from-gray-900 to-gray-50 dark:to-gray-800 min-h-screen">
-        <section className="hero-section relative flex items-end justify-end text-white overflow-hidden">
-          <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
-            <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
-          </div>
-
-          <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
-            <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
-              <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
-                <span className="block text-brand-secondary text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl mb-1">
-                  {copy.heroEyebrow}
-                </span>
-                <span className="block text-brand-secondary">
-                  {copy.heroTitle}
-                </span>
-                <span className="block text-brand-primary">
-                  {copy.heroSubtitle}
-                </span>
-                <span className="block text-white/90 text-sm sm:text-base lg:text-lg">
-                  {COMPANY_INFO.slogan.primary}
-                </span>
-                <span className="block text-white/85 text-xs xs:text-sm sm:text-base mt-1">
-                  {getHeroPageSlogan("about").slogan}
-                </span>
-              </h1>
-            </div>
-          </div>
-        </section>
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <EnterpriseRouteHero
+          eyebrow={copy.heroEyebrow}
+          title={copy.heroTitle}
+          intro={copy.heroSubtitle}
+          primary={{
+            href: "#core-capabilities",
+            label: isSpanish ? "Revisar capacidades" : "Review capabilities",
+          }}
+          secondary={{
+            href: "/contact",
+            label: isSpanish ? "Presentar un proyecto" : "Brief a project",
+          }}
+          proof={[
+            [
+              "Precon",
+              isSpanish
+                ? "Alcance y constructabilidad"
+                : "Scope and constructability",
+            ],
+            [
+              "Campo",
+              isSpanish
+                ? "Coordinacion y seguridad"
+                : "Coordination and safety",
+            ],
+            [
+              "Control",
+              isSpanish
+                ? "RFI, submittals y cambios"
+                : "RFIs, submittals, and change",
+            ],
+            [COMPANY_INFO.slogan.primary, getHeroPageSlogan("about").slogan],
+          ]}
+        />
 
         <section className="bg-white dark:bg-gray-900 pt-8 sm:pt-10 pb-6 sm:pb-8">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -199,7 +207,7 @@ export default function AboutDetailsPage() {
               ]}
             />
 
-            <div className="mt-5 rounded-xl border border-brand-primary/20 bg-brand-light/50 dark:bg-gray-800/70 p-4 sm:p-5 shadow-sm">
+            <div className="mt-5 border border-brand-primary/20 bg-brand-light/50 p-4 dark:bg-gray-800/70 sm:p-5">
               <h2 className="mh-heading-display-tight font-heading text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
                 {copy.pagePurposeTitle}
               </h2>

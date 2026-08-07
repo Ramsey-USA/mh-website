@@ -23,13 +23,13 @@ Establish a one-to-one controlled disposition for every record in the governance
 
 ## Reconciliation Result
 
-| Disposition | Records | Control decision |
-| --- | ---: | --- |
-| Repository working copy diverged from sealed baseline | 98 | May inform website development; cannot supersede controlled source or supply document metadata. |
-| Repository exact sealed TBT/SDS source | 93 | Controlled pairs ingested; retain Draft publication block until Phase 2 release controls close. |
-| Sealed authorized distribution copy | 2 | Retain in Package 09; governing records remain in Packages 01 and 04. |
-| Unexplained omission | 0 | Phase 0 gate passes. |
-| Unmatched repository DOCX | 0 | Phase 0 gate passes. |
+| Disposition                                           | Records | Control decision                                                                                |
+| ----------------------------------------------------- | ------: | ----------------------------------------------------------------------------------------------- |
+| Repository working copy diverged from sealed baseline |      98 | May inform website development; cannot supersede controlled source or supply document metadata. |
+| Repository exact sealed TBT/SDS source                |      93 | Controlled pairs ingested; retain Draft publication block until Phase 2 release controls close. |
+| Sealed authorized distribution copy                   |       2 | Retain in Package 09; governing records remain in Packages 01 and 04.                           |
+| Unexplained omission                                  |       0 | Phase 0 gate passes.                                                                            |
+| Unmatched repository DOCX                             |       0 | Phase 0 gate passes.                                                                            |
 
 All 193 records remain `not-public-draft` and are not field-effective. Generation, validation, approval, and production publication remain separate gates.
 

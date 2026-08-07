@@ -104,7 +104,7 @@ export default function AboutPage() {
           className="py-10 sm:py-14 border-b border-gray-200 dark:border-gray-800"
         >
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-8 rounded-3xl border border-gray-200 bg-gray-50/80 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-800/60 sm:p-8">
+            <div className="mb-8 border border-gray-200 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-800 sm:p-8">
               <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-primary dark:text-brand-primary-light">
                 {locale.startsWith("es")
                   ? "Contexto de confianza"
@@ -120,10 +120,10 @@ export default function AboutPage() {
                   ? "Esta página reúne la visión, el alcance regional y los puntos de entrada para ver trabajos recientes, servicios y la siguiente conversación de evaluación."
                   : "This page brings together the company’s view, regional reach, and clear entry points to recent work, services, and the next evaluation conversation."}
               </p>
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="enterprise-actions">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary hover:text-brand-primary dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                  className="enterprise-button enterprise-button--green"
                 >
                   {locale.startsWith("es")
                     ? "Ver portafolio"
@@ -131,7 +131,7 @@ export default function AboutPage() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+                  className="enterprise-button enterprise-button--green"
                 >
                   {locale.startsWith("es")
                     ? "Hablar con el equipo"

@@ -95,7 +95,7 @@ export default function ProjectsPageClient() {
       {/* SEO Meta Tags */}
       {/* Structured Data is injected via layout.tsx to avoid duplication */}
 
-      <div className="relative min-h-screen w-full overflow-x-hidden bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="relative min-h-screen w-full overflow-x-hidden bg-white dark:bg-gray-900">
         <span className="sr-only">{t("languageActive")}</span>
         {/* Hero Section */}
         <ProjectsHero locale={isEs ? "es" : "en"} />
@@ -112,9 +112,9 @@ export default function ProjectsPageClient() {
           <JeremyAuthorityLinksStrip isEs={isEs} />
         </div>
 
-        <section className="mx-auto max-w-7xl px-4 pb-6 pt-2 sm:px-6 lg:px-8 lg:pb-8">
-          <div className="rounded-3xl border border-gray-200 bg-white/95 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/95 sm:p-8">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <section className="enterprise-route-intro">
+          <div className="enterprise-shell enterprise-route-intro__layout">
+            <div className="contents">
               <div className="max-w-3xl">
                 <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-primary dark:text-brand-primary-light">
                   {isEs
@@ -132,16 +132,16 @@ export default function ProjectsPageClient() {
                     : "Explore commercial, industrial, municipal, and renovation delivery across Washington, Oregon, and Idaho, with direct links to scope, location, and the next consultation conversation."}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="enterprise-actions lg:justify-end">
                 <a
                   href="/services"
-                  className="inline-flex items-center rounded-full border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-semibold text-gray-900 transition-colors hover:border-brand-primary hover:text-brand-primary dark:border-gray-700 dark:bg-gray-950 dark:text-gray-100"
+                  className="enterprise-button enterprise-button--green"
                 >
                   {isEs ? "Ver servicios" : "View services"}
                 </a>
                 <a
                   href="/contact"
-                  className="inline-flex items-center rounded-full bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-primary-dark"
+                  className="enterprise-button enterprise-button--green"
                 >
                   {isEs ? "Iniciar conversación" : "Start a conversation"}
                 </a>

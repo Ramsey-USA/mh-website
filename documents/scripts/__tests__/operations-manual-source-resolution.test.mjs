@@ -15,7 +15,9 @@ test("operations extractor prefers the numbered ecosystem DOCX", async () => {
 test("operations extractor preserves body text and the manual preamble", async () => {
   const { splitDocxSections } =
     await import("../extract-operations-manual.mjs");
-  const sections = splitDocxSections(`Control block\nEnterprise preamble\nOPS-01 | AUTHORITY\nPurpose text\nOPS-01.1 COMMAND OWNER\nOwner text`);
+  const sections = splitDocxSections(
+    `Control block\nEnterprise preamble\nOPS-01 | AUTHORITY\nPurpose text\nOPS-01.1 COMMAND OWNER\nOwner text`,
+  );
 
   assert.equal(sections.length, 2);
   assert.match(sections[0].markdown, /Control block/);

@@ -8,6 +8,7 @@ import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { FollowProjectForm } from "@/components/project-marketing/FollowProjectForm";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { createProjectOgImageUrl } from "@/lib/seo/og-image";
@@ -22,7 +23,6 @@ import {
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { PortfolioService } from "@/lib/services/portfolio-service";
 import { getUniversalCtaSet } from "@/lib/content/universal-ctas";
-import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import {
   formatDualPageName,
@@ -30,7 +30,6 @@ import {
 } from "@/lib/branding/page-names";
 
 const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
-const PROJECT_DETAIL_HERO_SLOGAN = getHeroPageSlogan("projectDetail").slogan;
 
 type RelatedRoute = {
   href: string;
@@ -372,31 +371,23 @@ export default async function ProjectCaseStudyPage({
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={[projectSchema, localBusinessSchema]} />
 
-      <main className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <section
-          className="hero-section relative flex items-end justify-end text-white hero-safe-top-lg border-b border-gray-200 bg-linear-to-br from-gray-950 via-brand-primary to-gray-950 px-4 pb-14 sm:px-6 lg:px-8 overflow-hidden"
-          style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
-        >
-          <div className="mx-auto max-w-6xl w-full ml-auto">
-            <div className="max-w-3xl">
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-brand-secondary">
-                Case Study → Project Detail
-              </p>
-              <h1 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight">
-                {title}
-              </h1>
-              <p className="mt-5 text-lg leading-8 text-white/85">
-                {description}
-              </p>
-              <p className="mt-4 text-sm font-semibold text-brand-secondary/90 sm:text-base">
-                {COMPANY_INFO.slogan.primary}
-              </p>
-              <p className="mt-2 text-sm font-semibold text-brand-secondary/80 sm:text-base">
-                {PROJECT_DETAIL_HERO_SLOGAN}
-              </p>
-            </div>
-          </div>
-        </section>
+      <main className="relative min-h-screen bg-white dark:bg-gray-900">
+        <EnterpriseRouteHero
+          eyebrow={`Case file | ${caseStudy.category}`}
+          title={title}
+          intro={description}
+          primary={{
+            href: "#delivery-record",
+            label: "Review delivery record",
+          }}
+          secondary={{ href: "/contact", label: "Brief a similar project" }}
+          proof={[
+            [`${location.city}, ${location.state}`, "Project location"],
+            [String(yearCompleted), "Completion year"],
+            [caseStudy.reviewStatus ?? "Published", "Evidence status"],
+            ["Controlled", "Scope, safety, and outcomes"],
+          ]}
+        />
 
         <Breadcrumbs
           items={[
@@ -428,7 +419,7 @@ export default async function ProjectCaseStudyPage({
               <div
                 className={`grid gap-4 ${supportingGalleryImages.length > 0 ? "lg:grid-cols-[minmax(0,1.55fr)_minmax(18rem,0.75fr)]" : ""}`}
               >
-                <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900 lg:sticky lg:top-8">
+                <div className="overflow-hidden border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900 lg:sticky lg:top-8">
                   <div className="relative aspect-16/10 bg-gray-100 dark:bg-gray-950">
                     <Image
                       src={featuredProjectImage.url}
@@ -452,7 +443,7 @@ export default async function ProjectCaseStudyPage({
                     {supportingGalleryImages.map((image) => (
                       <figure
                         key={image.id}
-                        className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900"
+                        className="overflow-hidden border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
                       >
                         <div className="relative aspect-4/3 bg-gray-100 dark:bg-gray-950">
                           <Image
@@ -478,11 +469,14 @@ export default async function ProjectCaseStudyPage({
           </section>
         )}
 
-        <section className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <section
+          id="delivery-record"
+          className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+        >
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
-            <Card className="border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+            <Card className="rounded-none border border-gray-200 bg-white p-6 shadow-none dark:border-gray-800 dark:bg-gray-900">
               <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl bg-gray-50 p-4 dark:bg-gray-950">
+                <div className="border-l-2 border-brand-secondary bg-gray-50 p-4 dark:bg-gray-950">
                   <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                     Location
                   </p>
@@ -490,7 +484,7 @@ export default async function ProjectCaseStudyPage({
                     {location.city}, {location.state}
                   </p>
                 </div>
-                <div className="rounded-2xl bg-gray-50 p-4 dark:bg-gray-950">
+                <div className="border-l-2 border-brand-secondary bg-gray-50 p-4 dark:bg-gray-950">
                   <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                     Year Completed
                   </p>
@@ -498,7 +492,7 @@ export default async function ProjectCaseStudyPage({
                     {yearCompleted}
                   </p>
                 </div>
-                <div className="rounded-2xl bg-gray-50 p-4 dark:bg-gray-950">
+                <div className="border-l-2 border-brand-secondary bg-gray-50 p-4 dark:bg-gray-950">
                   <p className="text-xs font-bold uppercase tracking-[0.24em] text-gray-500 dark:text-gray-400">
                     Category
                   </p>

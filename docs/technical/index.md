@@ -120,6 +120,8 @@ See **[Patterns Index](./patterns/index.md)** for reusable section patterns, inc
 
 ## Quick Links
 
+- [Controlled Document Factory](./controlled-document-factory.md)
+
 - [← Documentation Index](../index.md)
 - [← Back to Main README](../../README.md)
 - [Branding Documentation](../branding/index.md)

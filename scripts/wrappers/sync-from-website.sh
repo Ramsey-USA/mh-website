@@ -29,7 +29,6 @@ MANAGED_FILES=(
   "test-lighthouse.js"
   "test-lighthouse-quick.js"
   "test-pwa.js"
-  "test-qr-codes.js"
 )
 
 WITH_SHEBANG=(
