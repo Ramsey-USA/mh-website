@@ -1,7 +1,7 @@
 # Branding Governance
 
 **Category:** Branding - Governance  
-**Last Updated:** July 19, 2026
+**Last Updated:** August 7, 2026
 
 ## Quick Summary
 
@@ -18,6 +18,8 @@ Use it to decide where new files belong and which checklist governs merge readin
 ## Canonical Governance Files
 
 - **[Brand Documentation IA Guide](./information-architecture.md)** - Folder placement and consolidation rules.
+- **[IP and Public Disclosure Control](./ip-and-public-disclosure-control.md)** - Draft control standard for slogans, MISH, executive quotes, and affiliated-system ownership boundaries.
+- **[MHC IP Register](./mhc-ip-register.json)** - Machine-enforced decision register for protected language and public disclosure controls.
 - **[Brand Congruency Master Checklist](./brand-congruency-master-checklist.md)** - Primary pre-merge gate for branding-sensitive work.
 - **[Website Guardrails Coverage Map](./website-guardrails-coverage.md)** - Website-wide guardrail coverage requirements by surface.
 - **[Public Claims Register (Phase 10.2)](../../archive/2026-08/public-claims-register-phase10-2.md)** - Archived historical record of the phased public-claims register work.
