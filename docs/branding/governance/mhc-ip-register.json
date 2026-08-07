@@ -88,8 +88,45 @@
       "fontPolicy": "Adobe Fonts web use must use an Adobe-hosted Web Project embed. Do not self-host Adobe web-font files without a separate foundry license.",
       "stockPolicy": "Exclude Editorial Use Only assets from MHC commercial marketing. Record the asset ID, contributor, license type, license date, permitted channels, and transfer record where applicable.",
       "accountContinuityPolicy": "Maintain approved fallback fonts and replacement assets because Adobe-hosted web fonts depend on an active qualifying subscription.",
-      "nextAction": "Create the MHC licensed-asset ledger before selecting any Adobe font, icon, Stock asset, or template for production."
+      "nextAction": "Maintain quarterly entitlement review, preserve fallback typography, and migrate offline PDF font files to a separately licensed private factory source."
     }
   ],
-  "licensedAssets": []
+  "licensedAssets": [
+    {
+      "id": "adobe-fonts-mendl-sans-dusk-web",
+      "provider": "Adobe Fonts",
+      "asset": "Mendl Sans Dusk",
+      "foundry": "Dalton Maag",
+      "assetType": "web-font-family",
+      "projectName": "MH Construction Production Website",
+      "projectId": "xqd0lnq",
+      "stylesheet": "https://use.typekit.net/xqd0lnq.css",
+      "styles": [
+        {
+          "name": "Mendl Sans Dusk Regular",
+          "weight": 400,
+          "style": "normal"
+        },
+        {
+          "name": "Mendl Sans Dusk Bold",
+          "weight": 700,
+          "style": "normal"
+        }
+      ],
+      "fontDisplay": "swap",
+      "licenseClass": "Adobe Fonts commercial web use through active Creative Cloud subscription",
+      "licensedAccountCustodian": "Matt Ramsey, CHENG",
+      "licenseDate": "2026-08-07",
+      "permittedChannels": [
+        "mhc-gc.com",
+        "www.mhc-gc.com",
+        "staging.mhc-gc.com",
+        "approved preview deployments"
+      ],
+      "evidenceLocation": "Adobe Fonts > Web Projects > MH Construction Production Website",
+      "fallback": "sans-serif",
+      "distributionRestriction": "Do not self-host, redistribute, or commit Adobe web-font binaries.",
+      "status": "active-draft"
+    }
+  ]
 }
