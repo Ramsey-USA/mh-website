@@ -1,6 +1,6 @@
 # Enterprise Website Overhaul: Phase 1 Control Plan
 
-Status: Draft, Phase 3 complete; Phase 4 in progress
+Status: Draft, Phase 4 technical controls complete; governance review required
 Authority: MH Ecosystem  
 Editorial control: Matt Ramsey, Chief Editor  
 Final approval: Jeremy Thamert, Owner and CEO
@@ -106,6 +106,13 @@ Phase 3 controlled surface closeout:
 - Complete Spanish parity, structured data, accessibility, performance, analytics, redirects, and route-level conversion measurement.
 - Run desktop and mobile visual regression, link integrity, security, type, lint, test, and production build gates.
 - Promote only after CHENG review and COO/CEO approval under the MH Ecosystem governance path.
+
+Phase 4 technical closeout:
+
+- One fail-closed enterprise release command now verifies Spanish coverage, locale congruency, structured route policy, route integrity, visual regression capability, performance thresholds, controlled-document architecture, QR redirects, dependency security, tests, and production build capability.
+- The primary CI workflow executes that release command before SEO validation, formatting, brand lint, tests, asset budgets, terminology guardrails, strict Spanish coverage, security audit, and production build.
+- Deployment remains dependent on successful build and security jobs and remains limited to authenticated pushes to `main`.
+- The overhaul remains Draft until the recorded MH Ecosystem governance review and COO/CEO approval are complete; technical completion does not impersonate final approval.
 
 ## Acceptance conditions
 
