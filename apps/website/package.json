@@ -30,7 +30,7 @@
     "test:ci": "jest --ci --runInBand --detectOpenHandles --openHandlesTimeout=5000 --forceExit",
     "test:ci:coverage": "jest --ci --coverage --runInBand",
     "cloudflare:phase1:check": "bash scripts/validation/check-cloudflare-phase1.sh",
-    "enterprise:phase2:check": "node scripts/validation/check-enterprise-phase2-routes.mjs",
+    "enterprise:phase2:check": "node scripts/validation/check-enterprise-phase2-routes.mjs",\n    "enterprise:release:check": "node scripts/validation/check-enterprise-phase4-release.mjs",
     "security:check": "npm audit --audit-level=high",
     "security:check:prod": "pnpm audit --prod --audit-level high",
     "audit:ci": "npm run security:check:prod",
