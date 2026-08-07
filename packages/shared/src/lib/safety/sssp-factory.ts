@@ -41,12 +41,14 @@ interface FactoryMessage {
 }
 
 function readFactoryConfiguration(): FactoryConfiguration | null {
+  const activated =
+    process.env["SSSP_FACTORY_ACTIVATED"]?.trim().toLowerCase() === "true";
   const callbackSecret = process.env["SSSP_CALLBACK_SECRET"]?.trim();
   const callbackBaseUrl =
     process.env["SSSP_CALLBACK_BASE_URL"]?.trim() ??
     process.env["NEXT_PUBLIC_SITE_URL"]?.trim();
 
-  if (!callbackSecret || !callbackBaseUrl) {
+  if (!activated || !callbackSecret || !callbackBaseUrl) {
     return null;
   }
 
@@ -82,7 +84,7 @@ export async function dispatchSsspFactoryWorkOrder(
   if (!configuration) {
     return {
       success: false,
-      error: "Private SSSP factory queue is not configured",
+      error: "Private SSSP factory queue is not activated",
     };
   }
 
