@@ -7,10 +7,7 @@ const registerPath = resolve(
   repositoryRoot,
   "docs/branding/governance/mhc-ip-register.json",
 );
-const quoteLibraryPath = resolve(
-  appRoot,
-  "src/content/jeremy-page-ribbons.md",
-);
+const quoteLibraryPath = resolve(appRoot, "src/content/jeremy-page-ribbons.md");
 const failures = [];
 
 const register = JSON.parse(readFileSync(registerPath, "utf8"));
