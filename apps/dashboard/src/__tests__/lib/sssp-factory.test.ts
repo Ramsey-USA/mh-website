@@ -43,7 +43,7 @@ describe("private SSSP factory queue", () => {
   it("fails closed while the operational activation gate is disabled", async () => {
     process.env["SSSP_FACTORY_ACTIVATED"] = "false";
     const { isSsspFactoryConfigured } = await import(
-      "@/lib/safety/sssp-factory"
+      "@/lib/safety/sssp-factory",
     );
 
     expect(isSsspFactoryConfigured()).toBe(false);
@@ -52,7 +52,7 @@ describe("private SSSP factory queue", () => {
   it("fails closed when the queue binding is missing", async () => {
     mockGetCloudflareContext.mockReturnValue({ env: {} });
     const { isSsspFactoryConfigured } = await import(
-      "@/lib/safety/sssp-factory"
+      "@/lib/safety/sssp-factory",
     );
 
     expect(isSsspFactoryConfigured()).toBe(false);
@@ -101,7 +101,7 @@ describe("private SSSP factory queue", () => {
   it("reports queue write failures", async () => {
     mockSend.mockRejectedValueOnce(new Error("queue unavailable"));
     const { dispatchSsspFactoryWorkOrder } = await import(
-      "@/lib/safety/sssp-factory"
+      "@/lib/safety/sssp-factory",
     );
 
     const result = await dispatchSsspFactoryWorkOrder({
