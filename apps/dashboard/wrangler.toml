@@ -1,6 +1,6 @@
 name = "mhc-v2-dashboard"
 main = ".open-next/worker.js"
-compatibility_date = "2026-03-25"
+compatibility_date = "2026-08-07"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = false
 preview_urls = false
@@ -56,6 +56,12 @@ bucket_name = "mh-construction-sssp-plans"
 [[r2_buckets]]
 binding = "SSSP_OUTPUT"
 bucket_name = "mh-construction-sssp-output"
+
+# Private document factory work orders. The offline factory consumes through
+# Cloudflare's authenticated HTTP Pull API; no public webhook is exposed.
+[[queues.producers]]
+binding = "SSSP_FACTORY_WORK_ORDERS"
+queue = "mhc-sssp-factory-work-orders"
 
 # D1 Database (shared with website worker — same database)
 [[d1_databases]]
