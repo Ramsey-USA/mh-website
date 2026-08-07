@@ -25,7 +25,7 @@ The machine-readable register is `mhc-ip-register.json`. Public website content,
 
 ## Current command decisions
 
-### Built on Quality, Backed by Trust.
+### Built on Quality, Backed by Trust
 
 - Existing use may remain while clearance is performed.
 - Do not create variants, add `SM`, or use `®` without a recorded CHENG decision.
