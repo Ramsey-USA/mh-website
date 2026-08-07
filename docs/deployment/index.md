@@ -31,6 +31,8 @@ maintaining safety-critical CI gates.
   email authentication records.
 - **[Cloudflare Dashboard Fast Path](./cloudflare-dashboard-fast-path.md)** — Search-term-driven
   checklist for completing hardening when dashboard navigation changes.
+- **[Cloudflare Dashboard and SSSP Production Control](./cloudflare-dashboard-sssp-production-control.md)** —
+  Controlled Worker routing, private R2 bindings, deployment gates, and publication boundaries.
 
 ### CI/CD
 
