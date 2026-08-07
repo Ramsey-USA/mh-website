@@ -51,6 +51,18 @@ BidPilot, Build Pilot, Marketing Flight, and Field Command Center are developed 
 
 Public MHC routes must use the descriptor `secure affiliated systems` unless a written cross-company license and naming approval authorize a specific platform reference. Technical architecture, source code, operating logic, and commercial positioning remain outside the public MHC website.
 
+### Adobe licensed production assets
+
+Adobe Creative Cloud Pro is an approved production source, subject to the active account and each asset's specific license.
+
+- Use Adobe Fonts on the website only through an Adobe-hosted Web Project embed unless MHC obtains a separate self-hosting license from the foundry.
+- Keep approved fallback fonts in the website font stack and document a replacement route for subscription continuity.
+- Record every production font, icon, Stock asset, and template in the licensed-asset ledger before publication.
+- The record must include the Adobe asset or project ID, source creator or foundry, license class, license date, permitted channels, MHC project, custodian, and evidence location.
+- Exclude assets marked `Editorial Use Only` from commercial MHC marketing.
+- Do not claim copyright, trademark ownership, or exclusivity in the underlying Adobe asset.
+- Keep raw licensed files out of public repositories unless the recorded license expressly permits distribution.
+
 ## Publication rule
 
 Publish capability, verified evidence, and business outcomes. Do not publish the underlying operating recipe.
