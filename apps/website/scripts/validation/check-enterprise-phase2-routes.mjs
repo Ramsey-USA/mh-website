@@ -9,6 +9,8 @@ const routes = [
   "src/app/projects/[slug]/page.tsx",
   "src/components/about/AboutHero.tsx",
   "src/app/about/details/page.tsx",
+  "src/app/veterans/page.tsx",
+  "src/app/contact/ContactPageClient.tsx",
 ];
 const failures = [];
 
