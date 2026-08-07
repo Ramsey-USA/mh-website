@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "documents/content/mh-ecosystem/**"
+      - "scripts/documents/build-factory-intake-manifest.mjs"
       - "scripts/validation/check-mh-ecosystem-authority.mjs"
       - "scripts/validation/check-ecosystem-phase0-reconciliation.mjs"
       - "apps/website/src/lib/data/controlled-document-redirects.json"
@@ -15,6 +16,7 @@ on:
     branches: [main]
     paths:
       - "documents/content/mh-ecosystem/**"
+      - "scripts/documents/build-factory-intake-manifest.mjs"
       - "scripts/validation/check-mh-ecosystem-authority.mjs"
       - "scripts/validation/check-ecosystem-phase0-reconciliation.mjs"
       - "apps/website/src/lib/data/controlled-document-redirects.json"
@@ -46,5 +48,21 @@ jobs:
         run: node scripts/validation/check-mh-ecosystem-authority.mjs
       - name: Verify Phase 0 reconciliation
         run: node scripts/validation/check-ecosystem-phase0-reconciliation.mjs
+      - name: Verify factory intake manifest
+        run: node scripts/documents/build-factory-intake-manifest.mjs --check
       - name: Verify private factory and stable redirects
         run: node apps/website/scripts/validation/check-controlled-document-architecture.mjs
+
+      - name: Signal private factory when Ecosystem authority changes
+        if: github.event_name == 'push' && secrets.MH_DOCUMENT_FACTORY_TOKEN != ''
+        env:
+          GH_TOKEN: ${{ secrets.MH_DOCUMENT_FACTORY_TOKEN }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          curl --fail-with-body --request POST \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GH_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/Ramsey-USA/mh-document-factory/dispatches \
+            --data "{\"event_type\":\"mh-ecosystem-source-updated\",\"client_payload\":{\"source_repository\":\"${GITHUB_REPOSITORY}\",\"source_sha\":\"${SOURCE_SHA}\"}}"
+
