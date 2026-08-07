@@ -68,6 +68,13 @@ Phase 2 controlled slice 3:
 - The Phase 2 route gate now prevents both routes from returning to inherited full-viewport promotional hero treatments.
 - Remaining Phase 2 work: Jeremy Thamert and full below-the-fold consolidation across inherited leadership, veteran, and contact components.
 
+Phase 2 controlled slice 4:
+
+- Jeremy Thamert now opens with the governed enterprise leadership record, controlled proof, direct project-intake action, and verified-source path.
+- The full leadership route now uses square construction-document geometry and restrained solid fields in place of inherited rounded promotional cards and decorative gradients.
+- The Phase 2 route gate now governs nine revenue, proof, company, veteran, contact, and leadership entry points.
+- Remaining Phase 2 work: route-level below-the-fold consolidation audit and closure of inherited visual exceptions across Services, Projects, Public Sector, About, Veterans, and Contact.
+
 ### Phase 3: resource and community routes
 
 - Rebuild Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ.

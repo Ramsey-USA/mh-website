@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { Button } from "@/components/ui";
 import { MaterialIcon } from "@/components/icons/MaterialIcon";
 import { IndividualBrandingStamp } from "@/components/shared-sections";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 import { buildDualSeoTitle, MH_SLOGANS } from "@/lib/branding/page-names";
@@ -310,94 +311,109 @@ export default async function JeremyThamertPage() {
         }}
       />
 
-      <main className="min-h-screen bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-        <section className="relative overflow-hidden border-b border-brand-primary/15 bg-linear-to-br from-brand-primary/10 via-white to-brand-secondary/10 py-12 sm:py-16 dark:from-brand-primary/20 dark:via-gray-900 dark:to-brand-secondary/20">
-          <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:gap-12 lg:px-8">
-            <div>
-              <p className="font-subheading mb-3 text-sm font-semibold tracking-[0.2em] text-brand-primary uppercase">
-                {isEs ? "Perfil de Liderazgo" : "Leadership Profile"}
+      <main className="min-h-screen bg-gray-50 dark:bg-gray-950">
+        <EnterpriseRouteHero
+          eyebrow={isEs ? "Perfil de liderazgo" : "Leadership Profile"}
+          title={jeremySeoName}
+          intro={jeremyProfile.bio}
+          primarySlogan={COMPANY_INFO.slogan.primary}
+          supportingSlogan={jeremyPageSlogan}
+          primary={{
+            href: "/contact#project-inquiry-form",
+            label: isEs
+              ? "Contactar al equipo de Jeremy"
+              : "Contact Jeremy's Team",
+          }}
+          secondary={{
+            href: "#verified-sources",
+            label: verifiedSourceCopy.heroButton,
+          }}
+          proof={[
+            ["51%", isEs ? "Propiedad veterana" : "Veteran ownership"],
+            ["U.S. Army", isEs ? "Liderazgo veterano" : "Veteran leadership"],
+            ["WA · OR · ID", isEs ? "Región de entrega" : "Delivery region"],
+          ]}
+        />
+
+        <section
+          className="border-b border-brand-primary/20 bg-white py-10 dark:bg-gray-950 sm:py-14"
+          aria-labelledby="leadership-record-heading"
+        >
+          <div className="enterprise-shell grid items-start gap-8 lg:grid-cols-[22rem_1fr] lg:gap-12">
+            <div className="border border-brand-secondary/50 bg-gray-100 dark:bg-gray-900">
+              <Image
+                src={jeremyProfile.avatar}
+                alt={`${jeremySeoName}, Owner and President at MH Construction`}
+                width={800}
+                height={1000}
+                className="h-auto w-full object-cover"
+                priority
+              />
+            </div>
+            <div className="border-l-4 border-brand-secondary pl-6">
+              <p className="enterprise-kicker">
+                {isEs ? "Registro ejecutivo" : "Executive Record"}
               </p>
-              <h1 className="text-3xl font-black leading-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">
-                {jeremySeoName}
-              </h1>
-              {jeremyStamp ? (
-                <div className="mt-3">
-                  <IndividualBrandingStamp stamp={jeremyStamp} />
-                </div>
-              ) : null}
-              <p className="mt-2 text-lg font-semibold text-brand-secondary sm:text-xl">
+              <h2
+                id="leadership-record-heading"
+                className="mt-3 text-3xl font-black text-gray-900 dark:text-white"
+              >
+                {isEs
+                  ? "Responsabilidad visible. Ejecución disciplinada."
+                  : "Visible Accountability. Disciplined Execution."}
+              </h2>
+              <p className="mt-3 text-lg font-semibold text-brand-primary">
                 {isEs
                   ? "Propietario y Presidente, MH Construction"
                   : "Owner & President, MH Construction"}
               </p>
-              <p className="font-subheading mt-4 max-w-3xl text-sm font-semibold tracking-wide text-brand-primary uppercase sm:text-base">
-                {COMPANY_INFO.slogan.primary}
-              </p>
-              <p className="font-subheading mt-2 max-w-3xl text-sm font-semibold tracking-wide text-brand-secondary uppercase sm:text-base">
-                {jeremyPageSlogan}
-              </p>
-              <p className="font-body mt-5 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg dark:text-gray-200">
-                {jeremyProfile.bio}
-              </p>
-              <p className="font-body mt-5 max-w-3xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              {jeremyStamp ? (
+                <div className="mt-5">
+                  <IndividualBrandingStamp stamp={jeremyStamp} />
+                </div>
+              ) : null}
+              <p className="font-body mt-6 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
                 Veteran-owned since {COMPANY_INFO.details.veteranOwnedSince} in
-                Pasco, WA, this leadership profile documents {jeremySeoName}
-                &apos;s role in maintaining clear communication, disciplined
-                execution, and long-term client trust across Washington, Oregon,
+                Pasco, Washington, this record documents {jeremySeoName}
+                &apos;s responsibility for clear communication, controlled
+                execution, and durable client trust across Washington, Oregon,
                 and Idaho.
               </p>
-
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Button asChild variant="secondary" size="lg">
-                  <Link href="/contact">
-                    <MaterialIcon icon="phone" size="sm" className="mr-2" />
-                    {isEs
-                      ? "Contactar al Equipo de Jeremy"
-                      : "Contact Jeremy's Team"}
-                  </Link>
-                </Button>
+              <dl className="mt-6 grid gap-4 border-t border-gray-200 pt-6 sm:grid-cols-3 dark:border-gray-800">
+                <div>
+                  <dt className="font-subheading text-xs font-bold tracking-widest text-brand-primary uppercase">
+                    {isEs ? "Servicio" : "Service"}
+                  </dt>
+                  <dd className="mt-1 font-semibold text-gray-900 dark:text-white">
+                    {jeremyProfile.veteranStatus}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-subheading text-xs font-bold tracking-widest text-brand-primary uppercase">
+                    {isEs ? "Base" : "Home Base"}
+                  </dt>
+                  <dd className="mt-1 font-semibold text-gray-900 dark:text-white">
+                    {jeremyProfile.hometown}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-subheading text-xs font-bold tracking-widest text-brand-primary uppercase">
+                    {isEs ? "Formación" : "Education"}
+                  </dt>
+                  <dd className="mt-1 font-semibold text-gray-900 dark:text-white">
+                    {jeremyProfile.education}
+                  </dd>
+                </div>
+              </dl>
+              <div className="mt-7">
                 <Button asChild variant="outline" size="lg">
                   <Link href="/team">
                     <MaterialIcon icon="groups" size="sm" className="mr-2" />
-                    View Full Leadership Team
+                    {isEs
+                      ? "Ver el equipo de liderazgo"
+                      : "View Full Leadership Team"}
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="#verified-sources">
-                    <MaterialIcon icon="verified" size="sm" className="mr-2" />
-                    {verifiedSourceCopy.heroButton}
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="#jeremy-faq">
-                    <MaterialIcon icon="quiz" size="sm" className="mr-2" />
-                    {isEs ? "FAQ de Jeremy" : "Jeremy FAQ"}
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-md">
-              <div className="overflow-hidden rounded-2xl border border-brand-secondary/40 bg-white shadow-2xl dark:bg-gray-900">
-                <Image
-                  src={jeremyProfile.avatar}
-                  alt={`${jeremySeoName}, Owner and President at MH Construction`}
-                  width={800}
-                  height={1000}
-                  className="h-auto w-full object-cover"
-                  priority
-                />
-                <div className="space-y-2 p-5">
-                  <p className="font-subheading text-sm font-semibold tracking-widest text-brand-primary uppercase">
-                    {jeremyProfile.veteranStatus}
-                  </p>
-                  <p className="text-base font-semibold text-gray-800 dark:text-gray-100">
-                    {jeremyProfile.hometown}
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    {jeremyProfile.education}
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -413,7 +429,7 @@ export default async function JeremyThamertPage() {
 
         <section className="py-12 sm:py-16">
           <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-6 lg:px-8">
-            <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
+            <div className="rounded-none border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
               <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Years Experience
               </p>
@@ -421,7 +437,7 @@ export default async function JeremyThamertPage() {
                 {jeremyProfile.careerStats.yearsExperience}+
               </p>
             </div>
-            <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
+            <div className="rounded-none border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
               <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Total Projects
               </p>
@@ -429,7 +445,7 @@ export default async function JeremyThamertPage() {
                 {jeremyProfile.careerStats.totalProjects}+
               </p>
             </div>
-            <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
+            <div className="rounded-none border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
               <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Client Satisfaction
               </p>
@@ -437,7 +453,7 @@ export default async function JeremyThamertPage() {
                 {jeremyProfile.currentYearStats.clientSatisfaction}%
               </p>
             </div>
-            <div className="rounded-xl border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
+            <div className="rounded-none border border-brand-primary/15 bg-white p-6 shadow-sm dark:bg-gray-900">
               <p className="font-subheading text-sm font-semibold tracking-wide text-brand-primary uppercase">
                 Safety Record
               </p>
@@ -451,7 +467,7 @@ export default async function JeremyThamertPage() {
         <section className="pb-14 sm:pb-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr]">
-              <article className="rounded-2xl border border-brand-primary/15 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+              <article className="rounded-none border border-brand-primary/15 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
                 <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                   Leadership Focus
                 </h2>
@@ -476,25 +492,25 @@ export default async function JeremyThamertPage() {
                 </ul>
               </article>
 
-              <aside className="rounded-2xl border border-brand-secondary/20 bg-linear-to-br from-brand-secondary/10 to-white p-7 shadow-sm dark:from-brand-secondary/20 dark:to-gray-900 sm:p-9">
+              <aside className="rounded-none border border-brand-secondary/20 bg-brand-secondary/10 p-7 shadow-sm dark:bg-gray-900 sm:p-9">
                 <h2 className="text-xl font-black text-gray-900 dark:text-white sm:text-2xl">
                   Related MH Construction Resources
                 </h2>
                 <div className="mt-5 space-y-3">
                   <Link
-                    className="block rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                    className="block rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                     href="/about"
                   >
                     About MH Construction
                   </Link>
                   <Link
-                    className="block rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                    className="block rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                     href="/veterans"
                   >
                     Veteran-Owned Commitment
                   </Link>
                   <Link
-                    className="block rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                    className="block rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                     href="/public-sector"
                   >
                     Public-Sector Delivery
@@ -507,7 +523,7 @@ export default async function JeremyThamertPage() {
 
         <section className="pb-14 sm:pb-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+            <div className="rounded-none border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                 {timelineCopy.sectionTitle}
               </h2>
@@ -516,7 +532,7 @@ export default async function JeremyThamertPage() {
               </p>
 
               <div className="mt-8 grid gap-6 lg:grid-cols-3">
-                <article className="rounded-xl border border-brand-primary/15 bg-brand-primary/5 p-5 dark:bg-brand-primary/10">
+                <article className="rounded-none border border-brand-primary/15 bg-brand-primary/5 p-5 dark:bg-brand-primary/10">
                   <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
                     {timelineCopy.serviceTitle}
                   </h3>
@@ -529,7 +545,7 @@ export default async function JeremyThamertPage() {
                         href={lniRecordLink.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-none border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
                       >
                         <span>{lniRecordLink.label}</span>
                         <MaterialIcon icon="open_in_new" size="sm" />
@@ -540,7 +556,7 @@ export default async function JeremyThamertPage() {
                         href={armyStoryLink.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-none border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
                       >
                         <span>{armyStoryLink.label}</span>
                         <MaterialIcon icon="open_in_new" size="sm" />
@@ -549,7 +565,7 @@ export default async function JeremyThamertPage() {
                   </div>
                 </article>
 
-                <article className="rounded-xl border border-brand-secondary/20 bg-brand-secondary/5 p-5 dark:bg-brand-secondary/10">
+                <article className="rounded-none border border-brand-secondary/20 bg-brand-secondary/5 p-5 dark:bg-brand-secondary/10">
                   <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
                     {timelineCopy.businessTitle}
                   </h3>
@@ -562,7 +578,7 @@ export default async function JeremyThamertPage() {
                         href={renewableStoryLink.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-secondary/25 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-secondary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-none border border-brand-secondary/25 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-secondary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
                       >
                         <span>{renewableStoryLink.label}</span>
                         <MaterialIcon icon="open_in_new" size="sm" />
@@ -573,7 +589,7 @@ export default async function JeremyThamertPage() {
                         href={communityEventLink.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-secondary/25 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-secondary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-none border border-brand-secondary/25 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-secondary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
                       >
                         <span>{communityEventLink.label}</span>
                         <MaterialIcon icon="open_in_new" size="sm" />
@@ -582,7 +598,7 @@ export default async function JeremyThamertPage() {
                   </div>
                 </article>
 
-                <article className="rounded-xl border border-brand-primary/15 bg-gray-50 p-5 dark:bg-gray-800/60">
+                <article className="rounded-none border border-brand-primary/15 bg-gray-50 p-5 dark:bg-gray-800/60">
                   <h3 className="text-base font-extrabold text-gray-900 dark:text-white sm:text-lg">
                     {timelineCopy.membershipTitle}
                   </h3>
@@ -595,7 +611,7 @@ export default async function JeremyThamertPage() {
                         href={chamberMembershipLink.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-none border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
                       >
                         <span>{chamberMembershipLink.label}</span>
                         <MaterialIcon icon="open_in_new" size="sm" />
@@ -606,7 +622,7 @@ export default async function JeremyThamertPage() {
                         href={agcMembershipLink.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-between gap-2 rounded-lg border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
+                        className="inline-flex w-full items-center justify-between gap-2 rounded-none border border-brand-primary/20 bg-white px-3 py-2 text-xs font-semibold text-gray-800 hover:bg-brand-primary/10 dark:bg-gray-900 dark:text-gray-100 sm:text-sm"
                       >
                         <span>{agcMembershipLink.label}</span>
                         <MaterialIcon icon="open_in_new" size="sm" />
@@ -621,7 +637,7 @@ export default async function JeremyThamertPage() {
 
         <section className="pb-14 sm:pb-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-brand-secondary/20 bg-linear-to-r from-brand-secondary/8 to-brand-primary/8 p-7 shadow-sm dark:from-brand-secondary/15 dark:to-brand-primary/15 sm:p-9">
+            <div className="rounded-none border border-brand-secondary/20 bg-gray-50 p-7 shadow-sm dark:bg-gray-900 sm:p-9">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                 {internalLinksCopy.sectionTitle}
               </h2>
@@ -632,35 +648,35 @@ export default async function JeremyThamertPage() {
               <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 <Link
                   href="/services"
-                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                 >
                   <span>{internalLinksCopy.services}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
                 <Link
                   href="/projects"
-                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                 >
                   <span>{internalLinksCopy.projects}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
                 <Link
                   href="/veterans"
-                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                 >
                   <span>{internalLinksCopy.veterans}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
                 <Link
                   href="/about"
-                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
+                  className="flex items-center justify-between rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100"
                 >
                   <span>{internalLinksCopy.about}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="flex items-center justify-between rounded-lg border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100 sm:col-span-2 lg:col-span-1"
+                  className="flex items-center justify-between rounded-none border border-brand-primary/20 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100 sm:col-span-2 lg:col-span-1"
                 >
                   <span>{internalLinksCopy.contact}</span>
                   <MaterialIcon icon="arrow_forward" size="sm" />
@@ -672,7 +688,7 @@ export default async function JeremyThamertPage() {
 
         <section id="jeremy-faq" className="pb-14 sm:pb-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+            <div className="rounded-none border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                 {faqCopy.sectionTitle}
               </h2>
@@ -684,7 +700,7 @@ export default async function JeremyThamertPage() {
                 {faqEntries.map((entry) => (
                   <article
                     key={entry.question}
-                    className="rounded-lg border border-brand-primary/15 bg-gray-50 p-4 dark:bg-gray-800/60"
+                    className="rounded-none border border-brand-primary/15 bg-gray-50 p-4 dark:bg-gray-800/60"
                   >
                     <h3 className="text-sm font-extrabold text-gray-900 dark:text-white sm:text-base">
                       {entry.question}
@@ -701,7 +717,7 @@ export default async function JeremyThamertPage() {
 
         <section id="verified-sources" className="pb-16 sm:pb-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
+            <div className="rounded-none border border-brand-primary/20 bg-white p-7 shadow-sm dark:bg-gray-900 sm:p-9">
               <h2 className="text-2xl font-black text-gray-900 dark:text-white sm:text-3xl">
                 {verifiedSourceCopy.sectionTitle}
               </h2>
@@ -721,7 +737,7 @@ export default async function JeremyThamertPage() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-start justify-between gap-3 rounded-lg border border-brand-primary/15 bg-brand-primary/5 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/10 dark:bg-brand-primary/10 dark:text-gray-100 dark:hover:bg-brand-primary/20"
+                          className="flex items-start justify-between gap-3 rounded-none border border-brand-primary/15 bg-brand-primary/5 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/10 dark:bg-brand-primary/10 dark:text-gray-100 dark:hover:bg-brand-primary/20"
                         >
                           <span>{link.label}</span>
                           <MaterialIcon icon="open_in_new" size="sm" />
@@ -742,7 +758,7 @@ export default async function JeremyThamertPage() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-start justify-between gap-3 rounded-lg border border-brand-secondary/20 bg-brand-secondary/5 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-secondary/10 dark:bg-brand-secondary/10 dark:text-gray-100 dark:hover:bg-brand-secondary/20"
+                          className="flex items-start justify-between gap-3 rounded-none border border-brand-secondary/20 bg-brand-secondary/5 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-secondary/10 dark:bg-brand-secondary/10 dark:text-gray-100 dark:hover:bg-brand-secondary/20"
                         >
                           <span>{link.label}</span>
                           <MaterialIcon icon="open_in_new" size="sm" />
@@ -751,7 +767,7 @@ export default async function JeremyThamertPage() {
                     ))}
                   </ul>
 
-                  <div className="mt-6 rounded-xl border border-brand-primary/20 bg-gray-50 p-4 dark:bg-gray-800/50">
+                  <div className="mt-6 rounded-none border border-brand-primary/20 bg-gray-50 p-4 dark:bg-gray-800/50">
                     <p className="text-sm text-gray-700 dark:text-gray-200">
                       {verifiedSourceCopy.connectBody}
                     </p>
@@ -772,7 +788,7 @@ export default async function JeremyThamertPage() {
               </div>
 
               {referenceLinks.length > 0 ? (
-                <article className="mt-8 rounded-xl border border-brand-primary/20 bg-gray-50 p-5 dark:bg-gray-800/50 sm:p-6">
+                <article className="mt-8 rounded-none border border-brand-primary/20 bg-gray-50 p-5 dark:bg-gray-800/50 sm:p-6">
                   <h3 className="text-lg font-extrabold text-gray-900 dark:text-white sm:text-xl">
                     {isEs
                       ? "Mapa de Referencias (DOCX)"
@@ -790,7 +806,7 @@ export default async function JeremyThamertPage() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-start justify-between gap-3 rounded-lg border border-brand-primary/15 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-brand-primary/15"
+                          className="flex items-start justify-between gap-3 rounded-none border border-brand-primary/15 bg-white px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-brand-primary/5 dark:bg-gray-900 dark:text-gray-100 dark:hover:bg-brand-primary/15"
                         >
                           <span className="flex min-w-0 items-start gap-2">
                             <span className="mt-0.5 shrink-0 font-black text-brand-primary">

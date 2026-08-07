@@ -11,6 +11,7 @@ const routes = [
   "src/app/about/details/page.tsx",
   "src/app/veterans/page.tsx",
   "src/app/contact/ContactPageClient.tsx",
+  "src/app/jeremy-thamert/page.tsx",
 ];
 const failures = [];
 
