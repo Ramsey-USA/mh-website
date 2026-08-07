@@ -54,11 +54,15 @@ jobs:
         run: node apps/website/scripts/validation/check-controlled-document-architecture.mjs
 
       - name: Signal private factory when Ecosystem authority changes
-        if: github.event_name == 'push' && secrets.MH_DOCUMENT_FACTORY_TOKEN != ''
+        if: github.event_name == 'push'
         env:
           GH_TOKEN: ${{ secrets.MH_DOCUMENT_FACTORY_TOKEN }}
           SOURCE_SHA: ${{ github.sha }}
         run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "MH_DOCUMENT_FACTORY_TOKEN is not configured; private factory dispatch remains disabled."
+            exit 0
+          fi
           curl --fail-with-body --request POST \
             --header "Accept: application/vnd.github+json" \
             --header "Authorization: Bearer $GH_TOKEN" \
