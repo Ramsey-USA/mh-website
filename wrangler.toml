@@ -1,6 +1,6 @@
 name = "mhc-v2-website"
 main = "apps/website/worker-entry.ts"
-compatibility_date = "2026-03-25"
+compatibility_date = "2026-08-07"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = false
 preview_urls = false
