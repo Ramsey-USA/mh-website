@@ -93,4 +93,9 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Enterprise route gate passed (${routes.length} heroes, ${controlledBelowFoldSurfaces.length + controlledResourceAndCommunitySurfaces.length} controlled surfaces).`);
+console.log(
+  `Enterprise route gate passed (${routes.length} heroes, ${
+    controlledBelowFoldSurfaces.length +
+    controlledResourceAndCommunitySurfaces.length
+  } controlled surfaces).`,
+);
