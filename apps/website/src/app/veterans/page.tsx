@@ -141,13 +141,23 @@ export default async function VeteransPage() {
       <StructuredData data={breadcrumbSchema} />
       <EnterpriseRouteHero
         eyebrow={`${t("veteransPage.hero.kicker")} · Veterans`}
-        title={`${t("veteransPage.hero.titleLine1")} ${t("veteransPage.hero.titleLine2")}`}
-        intro={`${t("veteransPage.foundation.description.prefix")} ${t("veteransPage.foundation.description.highlight1")} ${t("veteransPage.foundation.description.middle")} ${t("veteransPage.foundation.description.highlight2")} ${t("veteransPage.foundation.description.suffix")}`}
+        title={[
+          t("veteransPage.hero.titleLine1"),
+          t("veteransPage.hero.titleLine2"),
+        ].join(" ")}
+        intro={[
+          t("veteransPage.foundation.description.prefix"),
+          t("veteransPage.foundation.description.highlight1"),
+          t("veteransPage.foundation.description.middle"),
+          t("veteransPage.foundation.description.highlight2"),
+          t("veteransPage.foundation.description.suffix"),
+        ].join(" ")}
         primarySlogan={COMPANY_INFO.slogan.primary}
         supportingSlogan={getHeroPageSlogan("veterans").slogan}
         primary={{
           href: "/contact#project-inquiry-form",
-          label: locale === "es" ? "Hablar de un proyecto" : "Discuss a Project",
+          label:
+            locale === "es" ? "Hablar de un proyecto" : "Discuss a Project",
         }}
         secondary={{
           href: "/public-sector/veteran-led-construction",
@@ -157,8 +167,14 @@ export default async function VeteransPage() {
               : "Public-Sector Capability",
         }}
         proof={[
-          ["51%", locale === "es" ? "Propiedad veterana" : "Veteran ownership"],
-          ["WA · OR · ID", locale === "es" ? "Alcance con licencia" : "Licensed reach"],
+          [
+            "51%",
+            locale === "es" ? "Propiedad veterana" : "Veteran ownership",
+          ],
+          [
+            "WA · OR · ID",
+            locale === "es" ? "Alcance con licencia" : "Licensed reach",
+          ],
           [
             "Federal + multi-state",
             locale === "es" ? "Preparación contractual" : "Contract readiness",
