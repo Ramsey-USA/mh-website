@@ -262,6 +262,39 @@ jobs:
         working-directory: apps/website
         run: npm run bundle:report
 
+  # Build Verification — Dashboard
+  build-dashboard:
+    name: Build Next.js (Dashboard)
+    runs-on: ubuntu-latest
+    needs: [quality-checks]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
+        with:
+          skip-checkout: "true"
+          node-version: ${{ env.NODE_VERSION }}
+          install-command: pnpm install --frozen-lockfile --filter @mhc/dashboard... --filter @mhc/shared... --loglevel error
+
+      - name: Restore Next.js build cache (dashboard)
+        uses: actions/cache@v6
+        with:
+          path: |
+            apps/dashboard/.next/cache
+            apps/dashboard/.open-next/cache
+          key: nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-${{
+            hashFiles('apps/dashboard/src/**', 'packages/shared/src/**', 'apps/dashboard/next.config.js', 'apps/dashboard/open-next.config.ts') }}
+          restore-keys: |
+            nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
+            nextjs-dashboard-cache-
+
+      - name: Build dashboard
+        working-directory: apps/dashboard
+        run: npm run build
+
   # Deploy to Cloudflare Workers — runs only on pushes to main
   deploy-website:
     name: Deploy to Cloudflare Workers
@@ -403,3 +436,47 @@ jobs:
             echo "⚠️  Cache purge response: $response"
             exit 1
           fi
+
+  # Deploy dashboard API routes to their dedicated Cloudflare Worker.
+  deploy-dashboard:
+    name: Deploy Dashboard API Worker
+    runs-on: ubuntu-latest
+    needs: [build-dashboard, security-audit]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup workspace
+        uses: ./.github/actions/setup-workspace
+        with:
+          skip-checkout: "true"
+          node-version: ${{ env.NODE_VERSION }}
+          install-command: pnpm install --frozen-lockfile --filter @mhc/dashboard... --filter @mhc/shared... --loglevel error
+
+      - name: Build dashboard
+        working-directory: apps/dashboard
+        run: npm run build
+
+      - name: Deploy dashboard Worker
+        working-directory: apps/dashboard
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: "false"
+        run: npm run deploy
+
+      - name: Verify protected SSSP route ownership
+        shell: bash
+        run: |
+          status="$(curl --silent --show-error --output /dev/null --write-out '%{http_code}'             https://www.mhc-gc.com/api/safety/sssp/deployment-probe)"
+          if [ "$status" = "404" ] || [ "$status" -ge 500 ]; then
+            echo "Dashboard SSSP route is not operational. HTTP $status"
+            exit 1
+          fi
+          echo "Dashboard SSSP route is owned by the deployed Worker. HTTP $status"
