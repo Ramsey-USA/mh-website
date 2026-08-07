@@ -20,6 +20,7 @@ for (const id of [
   "mhc-mish",
   "words-from-the-general",
   "affiliated-platforms",
+  "adobe-licensed-creative-assets",
 ]) {
   const entry = entries.get(id);
   if (!entry) {
@@ -63,6 +64,23 @@ if (
 
 if (affiliated?.publicationDecision !== "do-not-name-on-public-mhc-routes") {
   failures.push("IP register: affiliated platform public-use boundary changed");
+}
+
+const adobeAssets = entries.get("adobe-licensed-creative-assets");
+if (
+  adobeAssets?.publicationDecision !== "asset-by-asset-license-record-required"
+) {
+  failures.push("IP register: Adobe asset license-record boundary changed");
+}
+
+if (
+  !adobeAssets?.fontPolicy?.includes("Do not self-host Adobe web-font files")
+) {
+  failures.push("IP register: Adobe Fonts self-hosting safeguard changed");
+}
+
+if (!Array.isArray(register.licensedAssets)) {
+  failures.push("IP register: licensedAssets ledger must be an array");
 }
 
 const quoteLibrary = readFileSync(quoteLibraryPath, "utf8");
