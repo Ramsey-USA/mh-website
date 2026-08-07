@@ -13,12 +13,36 @@ const routes = [
   "src/app/contact/ContactPageClient.tsx",
   "src/app/jeremy-thamert/page.tsx",
 ];
+const controlledBelowFoldSurfaces = [
+  "src/app/public-sector/PublicSectorFullPage.tsx",
+];
 const failures = [];
 
 for (const route of routes) {
   const source = readFileSync(resolve(root, route), "utf8");
   if (!source.includes("EnterpriseRouteHero")) {
     failures.push(`${route}: missing EnterpriseRouteHero`);
+  }
+}
+
+for (const route of controlledBelowFoldSurfaces) {
+  const source = readFileSync(resolve(root, route), "utf8");
+  if (!source.includes("enterprise-controlled-surface")) {
+    failures.push(`${route}: missing enterprise-controlled-surface`);
+  }
+}
+
+const globalStyles = readFileSync(resolve(root, "src/app/globals.css"), "utf8");
+for (const contract of [
+  ".enterprise-controlled-surface",
+  "border-radius: 0 !important",
+  "background-image: none !important",
+  "-webkit-text-fill-color: currentColor !important",
+]) {
+  if (!globalStyles.includes(contract)) {
+    failures.push(
+      `globals.css: missing controlled surface contract ${contract}`,
+    );
   }
 }
 

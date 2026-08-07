@@ -283,7 +283,7 @@ const hanfordCapabilities = [
 
 export default function PublicSectorFullPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="enterprise-controlled-surface min-h-screen bg-white dark:bg-gray-900">
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
       <EnterpriseRouteHero

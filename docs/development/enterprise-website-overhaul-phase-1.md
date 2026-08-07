@@ -75,6 +75,13 @@ Phase 2 controlled slice 4:
 - The Phase 2 route gate now governs nine revenue, proof, company, veteran, contact, and leadership entry points.
 - Remaining Phase 2 work: route-level below-the-fold consolidation audit and closure of inherited visual exceptions across Services, Projects, Public Sector, About, Veterans, and Contact.
 
+Phase 2 controlled slice 5:
+
+- Public Sector below-the-fold content now operates inside a reusable controlled surface contract that neutralizes inherited rounded promotional geometry, decorative box shadows, and uncontrolled gradients while preserving component behavior.
+- The shared contract retains approved MH green, tan, and slate fields, preserves text legibility, and allows circular status or icon treatments to remain intentional exceptions.
+- The Phase 2 route gate now verifies both the Public Sector surface assignment and the global square-geometry, solid-field, and text-fill safeguards.
+- Remaining Phase 2 work: apply and verify the controlled surface contract across Services, Projects, About, Veterans, and Contact, then close the route-level visual exception register.
+
 ### Phase 3: resource and community routes
 
 - Rebuild Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ.
