@@ -2,9 +2,9 @@
  * SSSP Generation Trigger
  * POST /api/safety/sssp/[jobId]/generate
  *
- * Creates (or resets) the sssp record to status='generating' and fires an
- * n8n webhook with the job metadata and source file keys. The n8n workflow
- * calls the AI and POSTs the result back to /api/safety/sssp/[jobId]/result.
+ * Creates or resets the SSSP record only after the private document factory
+ * transport is fully configured. Dispatch is awaited and failures are recorded
+ * instead of leaving an orphaned "generating" record.
  */
 
 import { type NextRequest } from "next/server";
@@ -21,7 +21,10 @@ import {
   internalServerError,
   serviceUnavailable,
 } from "@/lib/api/responses";
-import { sendToN8nAsync } from "@/lib/notifications/n8n-webhook";
+import {
+  dispatchSsspFactoryWorkOrder,
+  isSsspFactoryConfigured,
+} from "@/lib/safety/sssp-factory";
 import type { SsspRecord, SsspSourceFile, Job } from "@/lib/dashboard/safety";
 
 export const dynamic = "force-dynamic";
@@ -37,6 +40,12 @@ async function handlePOST(
 ) {
   try {
     const { jobId } = await (context as RouteParams).params;
+
+    if (!isSsspFactoryConfigured()) {
+      return serviceUnavailable(
+        "Private SSSP factory transport is not configured",
+      );
+    }
 
     const DB = getD1Database();
     if (!DB) {
@@ -87,35 +96,44 @@ async function handlePOST(
       });
     }
 
-    // Link all un-linked source files to this sssp record
     for (const file of sourceFiles) {
       if (!file.sssp_id) {
         await db.update("sssp_source_files", file.id, { sssp_id: ssspId });
       }
     }
 
-    logger.info("SSSP generation triggered", { ssspId, jobId });
+    const dispatch = await dispatchSsspFactoryWorkOrder({
+      ssspId,
+      jobId,
+      jobNumber: job.job_number,
+      jobName: job.job_name,
+      location: job.location,
+      pmName: job.pm_name,
+      superName: job.super_name,
+      sourceFiles: sourceFiles.map((file) => ({
+        id: file.id,
+        fileKey: file.file_key,
+        originalFilename: file.original_filename,
+        contentType: file.content_type,
+      })),
+      triggeredBy: user.name ?? user.uid,
+    });
 
-    sendToN8nAsync({
-      type: "sssp-generate",
-      data: {
+    if (!dispatch.success) {
+      await db.update("sssp", ssspId, {
+        status: "draft",
+      });
+      logger.error("SSSP generation dispatch rejected", {
         ssspId,
         jobId,
-        jobNumber: job.job_number,
-        jobName: job.job_name,
-        location: job.location,
-        pmName: job.pm_name,
-        superName: job.super_name,
-        sourceFiles: sourceFiles.map((f) => ({
-          id: f.id,
-          fileKey: f.file_key,
-          originalFilename: f.original_filename,
-          contentType: f.content_type,
-        })),
-        triggeredBy: user.name ?? user.uid,
-        callbackUrl: `/api/safety/sssp/${encodeURIComponent(jobId)}/result`,
-      },
-    });
+        error: dispatch.error,
+      });
+      return serviceUnavailable(
+        "Private SSSP factory did not accept the work order",
+      );
+    }
+
+    logger.info("SSSP generation triggered", { ssspId, jobId });
 
     return createSuccessResponse(
       { ssspId, status: "generating" },
