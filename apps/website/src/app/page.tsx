@@ -119,11 +119,11 @@ const copy = {
     platformEyebrow: "Secure internal systems",
     platformTitle: "The field and the file stay aligned.",
     platformBody:
-      "Our evolving operational platform connects controlled documents, project intelligence, field status, fleet and warehouse readiness, and executive reporting. Public pages show approved capabilities; controlled records remain inside governed systems.",
+      "Secure affiliated systems are being evaluated to support disciplined preconstruction, marketing coordination, field visibility, and accountable project handoffs. Platform development occurs outside MH Construction; this site describes intended capabilities only.",
     platformItems: [
-      "BidPilot",
-      "Field Command Center",
-      "Marketing Flight",
+      "Preconstruction coordination",
+      "Marketing coordination",
+      "Field visibility",
       "MH Ecosystem",
     ],
     finalTitle: "Bring us the mission, the constraints, and the standard.",
@@ -214,12 +214,12 @@ const copy = {
     platformEyebrow: "Sistemas internos seguros",
     platformTitle: "El campo y el archivo permanecen alineados.",
     platformBody:
-      "Nuestra plataforma conecta documentos controlados, inteligencia de proyecto, estado de campo, flota, almacén e informes ejecutivos. El sitio público muestra capacidades aprobadas; los registros controlados permanecen en sistemas gobernados.",
+      "Se están evaluando sistemas afiliados seguros para respaldar la preconstrucción disciplinada, la coordinación de mercadeo, la visibilidad de campo y las transferencias responsables del proyecto. El desarrollo de las plataformas ocurre fuera de MH Construction; este sitio describe únicamente las capacidades previstas.",
     platformItems: [
-      "BidPilot",
-      "Field Command Center",
-      "Marketing Flight",
-      "MH Ecosystem",
+      "Coordinación de preconstrucción",
+      "Coordinación de mercadeo",
+      "Visibilidad de campo",
+      "Ecosistema MH",
     ],
     finalTitle: "Tráiganos la misión, las restricciones y el estándar.",
     finalBody:
