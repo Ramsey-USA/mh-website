@@ -41,6 +41,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 const breadcrumbSchema = generateBreadcrumbSchema(
   breadcrumbPatterns.publicSector,
@@ -290,6 +291,8 @@ export default function PublicSectorFullPage() {
         eyebrow="Public sector | Compliance-forward delivery"
         title="Agency requirements become field controls."
         intro="MH Construction connects procurement requirements, project controls, safety planning, field execution, and audit-ready closeout for public work across Washington, Oregon, and Idaho."
+        primarySlogan={COMPANY_INFO.slogan.primary}
+        supportingSlogan={COMPANY_INFO.slogan.tertiary}
         primary={{ href: "/contact", label: "Start a public-project briefing" }}
         secondary={{ href: "/projects", label: "Review project proof" }}
         proof={[
