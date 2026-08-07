@@ -92,6 +92,7 @@ export interface TeamProfileMember {
   slug: string;
   email?: string; // Public team contact email; routed through the office inbox
   linkedinUrl?: string; // Public LinkedIn profile URL for direct professional connection
+  websiteUrl?: string; // Verified external professional profile or executive authority page
   governance?: ContentGovernanceRecord;
 }
 

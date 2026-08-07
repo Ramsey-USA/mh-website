@@ -1,10 +1,10 @@
 {
   "name": "Matt Ramsey",
-  "role": "Chief Marketing Officer & Safety Officer",
+  "role": "Chief Engineer (CHENG)",
   "department": "Special Operations",
   "cardNumber": 21,
-  "position": "Chief Marketing Officer & Safety Officer",
-  "nickname": "Communications and Safety Lead",
+  "position": "Chief Engineer (CHENG)",
+  "nickname": "Construction Systems & Digital Governance",
   "yearsWithCompany": 1,
   "hometown": "Richland, WA",
   "education": "Arizona State University - BAS in Operations Management, Minor in Project Management, 3.91 GPA; AAS Business Administration",
@@ -21,22 +21,22 @@
     "mentorships": 15
   },
   "awards": "Two Navy Achievement Medals",
-  "bio": "Matt integrates digital marketing and safety leadership to strengthen both client communication and internal execution standards. As a U.S. Navy veteran, he brings mission focus, operational structure, and service-minded accountability to brand strategy, compliance, and field support.",
+  "bio": "Matt serves as Chief Engineer (CHENG), the technical and editorial control point for MH Construction's construction systems, public digital infrastructure, brand governance, website development, and release readiness. His assigned responsibilities in marketing, safety, and project support connect field reality, operational controls, stakeholder communication, and public trust under one accountable standard. A U.S. Navy veteran and Arizona State University Operations Management graduate, he brings mission focus, technical discipline, and service-minded accountability to every release.",
   "careerHighlights": [
-    "Integrates digital communication and safety systems to support execution.",
-    "Built and maintains MH web and messaging infrastructure for client trust.",
-    "Applies veteran discipline to compliance, process consistency, and follow-through.",
-    "Aligns marketing visibility with operational realities and field standards."
+    "Governs construction-facing digital systems, public releases, and technical quality.",
+    "Maintains brand standards and factual consistency across MH public channels.",
+    "Connects safety, marketing, project support, and stakeholder communication to field reality.",
+    "Builds durable website and operational systems that support decision readiness."
   ],
   "funFact": "Matt brings the same disciplined mindset from military service and coaching into digital and safety execution.",
   "certifications": "Global Accelerator Web Development & AI Design, OSHA 30, CPR, Google Ads, HubSpot, Procore Certified",
   "hobbies": "Camping, Hunting, Fishing",
-  "specialInterests": "Project Support and Digital Asset Management",
+  "specialInterests": "Construction Systems, Brand Governance, and Digital Asset Control",
   "specialties": [
-    "Digital Strategy",
-    "Safety Leadership",
-    "Brand Communications",
-    "Operational Support"
+    "Construction Systems",
+    "Brand Governance",
+    "Digital Delivery",
+    "Safety & Project Support"
   ],
   "avatar": "/images/team/matt-ramsey.jpg",
   "veteranStatus": "Navy Veteran",
@@ -44,6 +44,7 @@
   "slug": "matt-ramsey",
   "email": "office@mhc-gc.com",
   "linkedinUrl": "https://www.linkedin.com/in/matthew-ramsey-581bb523/",
+  "websiteUrl": "https://matthew-jon-ramsey.com/?utm_source=mhc-gc.com&utm_medium=referral&utm_campaign=executive-authority&utm_content=team-profile",
   "skills": {
     "leadership": 73,
     "technical": 88,
