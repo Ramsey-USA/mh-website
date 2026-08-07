@@ -43,7 +43,9 @@ for (const id of [
 }
 
 if (register.lifecycleStatus !== "Draft") {
-  failures.push("IP register: lifecycleStatus must remain Draft until approval");
+  failures.push(
+    "IP register: lifecycleStatus must remain Draft until approval",
+  );
 }
 
 if (register.authority?.chiefEditor !== "Matt Ramsey") {
