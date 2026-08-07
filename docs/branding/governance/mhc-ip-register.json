@@ -74,6 +74,22 @@
       "publicationDecision": "do-not-name-on-public-mhc-routes",
       "publicDescriptor": "secure affiliated systems",
       "nextAction": "Create a separate ownership, license, and cross-company usage agreement before any named MHC website reference."
+    },
+    {
+      "id": "adobe-licensed-creative-assets",
+      "displayName": "Adobe licensed fonts, icons, Stock assets, and templates",
+      "assetType": "third-party-licensed-creative-assets",
+      "claimedOwner": "Adobe and the applicable font foundry, contributor, or licensor; ownership is not claimed by MH Construction",
+      "licenseAuthority": "Matt Ramsey Adobe Creative Cloud Pro school account, subject to the active subscription and asset-specific terms",
+      "riskFlag": "CHENG-IP-BLACK",
+      "registrationCandidate": false,
+      "clearanceRequired": true,
+      "publicationDecision": "asset-by-asset-license-record-required",
+      "fontPolicy": "Adobe Fonts web use must use an Adobe-hosted Web Project embed. Do not self-host Adobe web-font files without a separate foundry license.",
+      "stockPolicy": "Exclude Editorial Use Only assets from MHC commercial marketing. Record the asset ID, contributor, license type, license date, permitted channels, and transfer record where applicable.",
+      "accountContinuityPolicy": "Maintain approved fallback fonts and replacement assets because Adobe-hosted web fonts depend on an active qualifying subscription.",
+      "nextAction": "Create the MHC licensed-asset ledger before selecting any Adobe font, icon, Stock asset, or template for production."
     }
-  ]
+  ],
+  "licensedAssets": []
 }
