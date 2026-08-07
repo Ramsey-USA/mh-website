@@ -14,7 +14,12 @@ const routes = [
   "src/app/jeremy-thamert/page.tsx",
 ];
 const controlledBelowFoldSurfaces = [
+  "src/app/services/page.tsx",
+  "src/app/projects/ProjectsPageClient.tsx",
   "src/app/public-sector/PublicSectorFullPage.tsx",
+  "src/app/about/details/page.tsx",
+  "src/app/veterans/page.tsx",
+  "src/app/contact/ContactPageClient.tsx",
 ];
 const failures = [];
 
