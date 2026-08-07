@@ -97,6 +97,7 @@ const baseMember: TeamProfileMember = {
   slug: "alex-builder",
   email: "alex@mhc-gc.com",
   linkedinUrl: "https://www.linkedin.com/in/alex-builder/",
+  websiteUrl: "https://matthew-jon-ramsey.com/",
 };
 
 describe("TeamProfileSection", () => {
@@ -133,6 +134,9 @@ describe("TeamProfileSection", () => {
         name: /connect with alex builder on linkedin/i,
       })[0],
     ).toHaveAttribute("href", "https://www.linkedin.com/in/alex-builder/");
+    expect(
+      screen.getByRole("link", { name: /view alex builder executive profile/i }),
+    ).toHaveAttribute("href", "https://matthew-jon-ramsey.com/");
 
     await user.click(
       screen.getByRole("button", { name: /personal insights/i }),
@@ -356,3 +360,4 @@ describe("TeamProfileSection", () => {
     });
   });
 });
+
