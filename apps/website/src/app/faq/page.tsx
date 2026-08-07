@@ -140,7 +140,7 @@ export default async function FAQPage() {
   const isEs = (await getServerLocale()) === "es";
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName={isEs ? "Preguntas Frecuentes" : "FAQ"} />
       <StructuredData data={breadcrumbSchema} />
       <StructuredData data={howToSchema} />
@@ -424,6 +424,6 @@ export default async function FAQPage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
