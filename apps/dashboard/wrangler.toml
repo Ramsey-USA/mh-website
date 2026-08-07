@@ -11,6 +11,10 @@ binding = "ASSETS"
 
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
+SSSP_CALLBACK_BASE_URL = "https://www.mhc-gc.com"
+# Transport remains provisioned but disabled until project-profile intake captures
+# hazards, competent persons, emergency controls, attachments, and approval gates.
+SSSP_FACTORY_ACTIVATED = "false"
 
 # ========================================================================
 # Route Ownership
