@@ -55,4 +55,3 @@ Cloudflare R2 objects use explicit content type, content disposition, and cache-
 ## Transition Controls
 
 The retired generator source may remain in Git history for audit purposes, but no package command, workflow, prebuild, deployment, or QR task may call it. The former `generate-pdfs.yml`, automatic `docs:all`, release chains that combine generation with upload, and QR PNG publication path are removed from active operation.
-
