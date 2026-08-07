@@ -22,7 +22,8 @@ import { COMPANY_INFO } from "@/lib/constants/company";
 import { getApprovedClaimOrFallback } from "@/lib/content/claims";
 import { saveOfflineSubmission } from "@/lib/pwa/offline-queue";
 import { PWAOnly } from "@/components/pwa";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 
 const DeferredMapFacade = dynamic(
   () => import("./MapFacade").then((mod) => ({ default: mod.MapFacade })),
@@ -158,6 +159,7 @@ export default function ContactPageClient({
   heroSlogan = COMPANY_INFO.slogan.tertiary,
 }: Readonly<{ enableTelemetry?: boolean; heroSlogan?: string }>) {
   const t = useTranslations();
+  const locale = useLocale();
   const officeEmail = COMPANY_INFO.email.main;
   const quickContact = buildQuickContact(t);
   const mainCTAs = buildMainCTAs(t);
@@ -365,47 +367,36 @@ export default function ContactPageClient({
     <>
       {enableTelemetry ? <PageTrackingClient pageName="Contact" /> : null}
       <div className="bg-white dark:bg-gray-900 min-h-screen">
-        {/* Hero Section */}
-        <section
-          className="hero-section relative flex items-end justify-end text-white overflow-hidden"
-          aria-labelledby="hero-heading"
-          style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
-        >
-          {/* Background - Ready for photo or video */}
-          <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
-            {/* Overlay for text readability */}
-            <div
-              className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"
-              aria-hidden="true"
-            ></div>
-          </div>
+        <EnterpriseRouteHero
+          eyebrow={`${t("contact.hero.kicker")} · Contact`}
+          title={`${t("contact.hero.titleLine1")} ${t("contact.hero.titleLine2")}`}
+          intro={t("contact.quickContact.description")}
+          primarySlogan={COMPANY_INFO.slogan.primary}
+          supportingSlogan={heroSlogan}
+          primary={{
+            href: "#project-inquiry-form",
+            label: locale === "es" ? "Iniciar consulta" : "Start a Project Inquiry",
+          }}
+          secondary={{
+            href: `tel:${COMPANY_INFO.phone.tel}`,
+            label: locale === "es" ? "Llamar a operaciones" : "Call Operations",
+          }}
+          proof={[
+            [
+              COMPANY_INFO.phone.display,
+              locale === "es" ? "Respuesta directa" : "Direct response",
+            ],
+            [
+              "WA · OR · ID",
+              locale === "es" ? "Cobertura regional" : "Regional coverage",
+            ],
+            [
+              "Secure intake",
+              locale === "es" ? "Enrutamiento controlado" : "Controlled routing",
+            ],
+          ]}
+        />
 
-          {/* Header Text - Bottom Right */}
-          <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
-            <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
-              <h1
-                id="hero-heading"
-                className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight"
-              >
-                <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("contact.hero.kicker")} -&gt; Contact
-                </span>
-                <span className="block text-brand-secondary">
-                  {t("contact.hero.titleLine1")}
-                </span>
-                <span className="block text-brand-primary">
-                  {t("contact.hero.titleLine2")}
-                </span>
-                <span className="block text-white/90">
-                  {COMPANY_INFO.slogan.primary}
-                </span>
-                <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {heroSlogan}
-                </span>
-              </h1>
-            </div>
-          </div>
-        </section>
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
