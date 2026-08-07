@@ -40,21 +40,49 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: "22"
+
+      - name: Detect governed content changes
+        id: governed
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -z "$BASE_SHA" ] || [ "$BASE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          changed_files="$(git diff --name-only "$BASE_SHA" "$GITHUB_SHA")"
+          if printf '%s\n' "$changed_files" | grep -Eq '^(documents/content/mh-ecosystem/|scripts/documents/build-factory-intake-manifest\.mjs$|scripts/validation/check-mh-ecosystem-authority\.mjs$|scripts/validation/check-ecosystem-phase0-reconciliation\.mjs$|apps/website/src/lib/data/controlled-document-redirects\.json$|apps/website/src/app/go/docs/|apps/website/scripts/validation/check-controlled-document-architecture\.mjs$)'; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Verify Ecosystem authority
+        if: steps.governed.outputs.changed == 'true'
         run: node scripts/validation/check-mh-ecosystem-authority.mjs
       - name: Verify Phase 0 reconciliation
+        if: steps.governed.outputs.changed == 'true'
         run: node scripts/validation/check-ecosystem-phase0-reconciliation.mjs
       - name: Verify factory intake manifest
+        if: steps.governed.outputs.changed == 'true'
         run: node scripts/documents/build-factory-intake-manifest.mjs --check
       - name: Verify private factory and stable redirects
         run: node apps/website/scripts/validation/check-controlled-document-architecture.mjs
 
       - name: Signal private factory when Ecosystem authority changes
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.governed.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.MH_DOCUMENT_FACTORY_TOKEN }}
           SOURCE_SHA: ${{ github.sha }}
