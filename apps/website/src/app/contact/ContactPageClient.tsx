@@ -375,11 +375,13 @@ export default function ContactPageClient({
           supportingSlogan={heroSlogan}
           primary={{
             href: "#project-inquiry-form",
-            label: locale === "es" ? "Iniciar consulta" : "Start a Project Inquiry",
+            label:
+              locale === "es" ? "Iniciar consulta" : "Start a Project Inquiry",
           }}
           secondary={{
             href: `tel:${COMPANY_INFO.phone.tel}`,
-            label: locale === "es" ? "Llamar a operaciones" : "Call Operations",
+            label:
+              locale === "es" ? "Llamar a operaciones" : "Call Operations",
           }}
           proof={[
             [
@@ -396,7 +398,6 @@ export default function ContactPageClient({
             ],
           ]}
         />
-
 
         {/* Breadcrumb Navigation */}
         <Breadcrumb
