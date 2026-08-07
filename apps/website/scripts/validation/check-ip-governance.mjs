@@ -109,7 +109,11 @@ for (const contract of [
 }
 
 const rootLayout = readFileSync(resolve(appRoot, "src/app/layout.tsx"), "utf8");
-if (!rootLayout.includes("<link rel=\"stylesheet\" href={ADOBE_FONTS_PROJECT.stylesheet}")) {
+if (
+  !rootLayout.includes(
+    '<link rel="stylesheet" href={ADOBE_FONTS_PROJECT.stylesheet}',
+  )
+) {
   failures.push("Root layout: Adobe Fonts stylesheet is not integrated");
 }
 
