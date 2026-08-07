@@ -329,18 +329,9 @@ export default async function JeremyThamertPage() {
             label: verifiedSourceCopy.heroButton,
           }}
           proof={[
-            [
-              "51%",
-              isEs ? "Propiedad veterana" : "Veteran ownership",
-            ],
-            [
-              "U.S. Army",
-              isEs ? "Liderazgo veterano" : "Veteran leadership",
-            ],
-            [
-              "WA · OR · ID",
-              isEs ? "Región de entrega" : "Delivery region",
-            ],
+            ["51%", isEs ? "Propiedad veterana" : "Veteran ownership"],
+            ["U.S. Army", isEs ? "Liderazgo veterano" : "Veteran leadership"],
+            ["WA · OR · ID", isEs ? "Región de entrega" : "Delivery region"],
           ]}
         />
 
