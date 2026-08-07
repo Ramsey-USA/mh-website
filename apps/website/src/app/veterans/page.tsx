@@ -17,6 +17,7 @@ import { getHeroPageSlogan } from "@/lib/content/hero-page-slogans";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getTranslations } from "next-intl/server";
 import { DiagonalStripePattern } from "@/components/ui/backgrounds";
+import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 
 const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbPatterns.veterans);
 
@@ -138,48 +139,45 @@ export default async function VeteransPage() {
     <div className="relative min-h-screen">
       <PageTrackingClient pageName="Veterans" />
       <StructuredData data={breadcrumbSchema} />
-
-      {/* Hero Section - No parallax (will be video later) */}
-      <div className="relative z-10">
-        <section
-          className="hero-section relative flex items-end justify-end text-white overflow-hidden"
-          style={{ height: "calc(100vh - var(--mh-nav-offset, 6.5rem))" }}
-        >
-          {/* Background - Ready for photo or video */}
-          <div className="absolute inset-0 bg-linear-to-br from-gray-900 via-brand-primary to-gray-900">
-            <div className="absolute inset-0 bg-linear-to-br from-brand-primary/30 via-gray-900/60 to-gray-900/80"></div>
-          </div>
-
-          {/* Header Text - Bottom Right */}
-          <div className="hero-safe-top hero-safe-bottom relative z-30 mx-3 sm:ml-auto sm:mr-5 lg:mr-7 xl:mr-10 mb-4 pointer-events-none transition-opacity duration-300 sm:w-[min(88vw,44rem)] sm:max-w-176">
-            <div className="rounded-2xl border border-white/15 bg-gray-900/60 px-4 py-3 shadow-2xl backdrop-blur-md sm:px-6 sm:py-4 lg:px-8 lg:py-5">
-              <h1 className="text-right text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight tracking-tight">
-                <span className="block text-brand-secondary text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-1">
-                  {t("veteransPage.hero.kicker")} → Veterans
-                </span>
-                <span className="block text-brand-secondary text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-4">
-                  {t("veteransPage.hero.titleLine1")}
-                </span>
-                <span className="block text-brand-secondary">
-                  {t("veteransPage.hero.titleLine2")}
-                </span>
-                <span className="block text-white/95">
-                  {t("veteransPage.hero.titleLine3")}
-                </span>
-                <span className="block text-brand-primary">
-                  {t("veteransPage.hero.titleLine4")}
-                </span>
-                <span className="block text-white/90">
-                  {COMPANY_INFO.slogan.primary}
-                </span>
-                <span className="block text-brand-secondary/90 text-sm xs:text-base sm:text-lg md:text-xl mt-2">
-                  {getHeroPageSlogan("veterans").slogan}
-                </span>
-              </h1>
-            </div>
-          </div>
-        </section>
-      </div>
+      <EnterpriseRouteHero
+        eyebrow={`${t("veteransPage.hero.kicker")} · Veterans`}
+        title={[
+          t("veteransPage.hero.titleLine1"),
+          t("veteransPage.hero.titleLine2"),
+        ].join(" ")}
+        intro={[
+          t("veteransPage.foundation.description.prefix"),
+          t("veteransPage.foundation.description.highlight1"),
+          t("veteransPage.foundation.description.middle"),
+          t("veteransPage.foundation.description.highlight2"),
+          t("veteransPage.foundation.description.suffix"),
+        ].join(" ")}
+        primarySlogan={COMPANY_INFO.slogan.primary}
+        supportingSlogan={getHeroPageSlogan("veterans").slogan}
+        primary={{
+          href: "/contact#project-inquiry-form",
+          label:
+            locale === "es" ? "Hablar de un proyecto" : "Discuss a Project",
+        }}
+        secondary={{
+          href: "/public-sector/veteran-led-construction",
+          label:
+            locale === "es"
+              ? "Capacidad para el sector público"
+              : "Public-Sector Capability",
+        }}
+        proof={[
+          ["51%", locale === "es" ? "Propiedad veterana" : "Veteran ownership"],
+          [
+            "WA · OR · ID",
+            locale === "es" ? "Alcance con licencia" : "Licensed reach",
+          ],
+          [
+            "Federal + multi-state",
+            locale === "es" ? "Preparación contractual" : "Contract readiness",
+          ],
+        ]}
+      />
 
       {/* All sections below Hero - WITH parallax background */}
       <div className="relative min-h-screen">

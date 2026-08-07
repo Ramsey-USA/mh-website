@@ -62,6 +62,12 @@ Phase 2 controlled slice 2:
 - About now uses the enterprise route system and removes the rounded promotional entry treatment while preserving its translated company narrative.
 - Remaining Phase 2 work: Jeremy Thamert, Veterans, Contact, and full below-the-fold consolidation across inherited components.
 
+Phase 2 controlled slice 3:
+
+- Veterans and Contact now open with the governed enterprise route hero, conventional construction-first messaging, approved brand slogans, controlled proof, and one primary conversion path.
+- The Phase 2 route gate now prevents both routes from returning to inherited full-viewport promotional hero treatments.
+- Remaining Phase 2 work: Jeremy Thamert and full below-the-fold consolidation across inherited leadership, veteran, and contact components.
+
 ### Phase 3: resource and community routes
 
 - Rebuild Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ.
