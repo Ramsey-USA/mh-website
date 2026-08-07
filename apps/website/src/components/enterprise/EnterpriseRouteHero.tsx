@@ -4,6 +4,8 @@ interface EnterpriseRouteHeroProps {
   eyebrow: string;
   title: string;
   intro: string;
+  primarySlogan?: string;
+  supportingSlogan?: string;
   primary: { href: string; label: string };
   secondary?: { href: string; label: string };
   proof: readonly [string, string][];
@@ -13,6 +15,8 @@ export function EnterpriseRouteHero({
   eyebrow,
   title,
   intro,
+  primarySlogan,
+  supportingSlogan,
   primary,
   secondary,
   proof,
@@ -30,6 +34,12 @@ export function EnterpriseRouteHero({
             {title}
           </h1>
           <p className="enterprise-hero__intro">{intro}</p>
+          {primarySlogan || supportingSlogan ? (
+            <div className="enterprise-route-hero__slogans">
+              {primarySlogan ? <strong>{primarySlogan}</strong> : null}
+              {supportingSlogan ? <span>{supportingSlogan}</span> : null}
+            </div>
+          ) : null}
           <div className="enterprise-actions">
             <Link
               href={primary.href}
