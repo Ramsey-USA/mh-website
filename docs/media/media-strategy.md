@@ -422,7 +422,17 @@ public/images/safety/
 Automation is useful only when the underlying media and copy are already approved. Never let automation outrun proof review.
 
 The site already uses `n8n` (via `N8N_WEBHOOK_URL`) for form notifications.
-Any social workflow must remain an approval-controlled release system. LinkedIn publication is disabled until MH has a registered LinkedIn Developer application, approved product access and scopes, verified organization authorization, an OAuth token issued through the official flow, and a successful supported-API test. A signed-in browser session or Company Page administrator view does not satisfy those controls.\n\n### LinkedIn release gate\n\n- Use only LinkedIn's supported OAuth authorization-code flow and Posts API.\n- Publish Company Page content only as the verified organization URN for organization ID `106711194`.\n- Require an explicit human approval record for the final copy, visual, destination, and timing before each release.\n- Keep Matthew's personal account human-controlled. Do not automate personal posts, comments, reactions, connections, messages, or browser actions.\n- Never scrape cookies, manipulate the LinkedIn DOM, use unofficial endpoints, or place administrative URLs in public content.\n- Record the returned post URN, final URL, approver, UTC publication time, deterministic content ID, and exact UTM values.\n- If any permission, authorization, token, asset-upload, or API test fails, stop the LinkedIn branch and return the item to manual approval.
+Any social workflow must remain an approval-controlled release system. LinkedIn publication is disabled until MH has a registered LinkedIn Developer application, approved product access and scopes, verified organization authorization, an OAuth token issued through the official flow, and a successful supported-API test. A signed-in browser session or Company Page administrator view does not satisfy those controls.
+
+### LinkedIn release gate
+
+- Use only LinkedIn's supported OAuth authorization-code flow and Posts API.
+- Publish Company Page content only as the verified organization URN for organization ID `106711194`.
+- Require an explicit human approval record for the final copy, visual, destination, and timing before each release.
+- Keep Matthew's personal account human-controlled. Do not automate personal posts, comments, reactions, connections, messages, or browser actions.
+- Never scrape cookies, manipulate the LinkedIn DOM, use unofficial endpoints, or place administrative URLs in public content.
+- Record the returned post URN, final URL, approver, UTC publication time, deterministic content ID, and exact UTM values.
+- If any permission, authorization, token, asset-upload, or API test fails, stop the LinkedIn branch and return the item to manual approval.
 
 ### 7a. Approval-controlled API endpoint
 
@@ -435,7 +445,10 @@ Create `src/app/api/testimonials/publish/route.ts`:
 // Action: sends an immutable, approved payload to N8N_TESTIMONIAL_WEBHOOK_URL
 ```
 
-The endpoint validates the session, approval record, content ID, destination,\nand asset URL; looks up the testimonial in `testimonials.ts`; and fires an\nimmutable payload to n8n. The endpoint must reject unapproved records and must\nnever accept arbitrary post copy from the client request.
+The endpoint validates the session, approval record, content ID, destination,
+and asset URL; looks up the testimonial in `testimonials.ts`; and fires an
+immutable payload to n8n. The endpoint must reject unapproved records and must
+never accept arbitrary post copy from the client request.
 
 ```json
 {
