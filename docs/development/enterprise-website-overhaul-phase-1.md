@@ -1,6 +1,6 @@
 # Enterprise Website Overhaul: Phase 1 Control Plan
 
-Status: Draft, Phase 2 in progress
+Status: Draft, Phase 2 complete; Phase 3 in progress
 Authority: MH Ecosystem  
 Editorial control: Matt Ramsey, Chief Editor  
 Final approval: Jeremy Thamert, Owner and CEO
@@ -81,6 +81,12 @@ Phase 2 controlled slice 5:
 - The shared contract retains approved MH green, tan, and slate fields, preserves text legibility, and allows circular status or icon treatments to remain intentional exceptions.
 - The Phase 2 route gate now verifies both the Public Sector surface assignment and the global square-geometry, solid-field, and text-fill safeguards.
 - Remaining Phase 2 work: apply and verify the controlled surface contract across Services, Projects, About, Veterans, and Contact, then close the route-level visual exception register.
+
+Phase 2 controlled slice 6 and closeout:
+
+- Services, Projects, About, Veterans, and Contact now use the same controlled below-the-fold surface contract as Public Sector.
+- The Phase 2 route gate verifies nine enterprise hero routes, six controlled route surfaces, and the global solid-field, square-geometry, shadow, and text-fill contracts.
+- Phase 2 revenue, proof, company, leadership, veteran, and contact entry-point work is complete under repository CI.
 
 ### Phase 3: resource and community routes
 
