@@ -286,11 +286,7 @@ export default async function RootLayout({
   const enableRuntimeEnhancements = isProduction && !isLighthouseAudit;
 
   return (
-    <html
-      lang={locale}
-      className="dark"
-      suppressHydrationWarning
-    >
+    <html lang={locale} className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />
         <link rel="preconnect" href="https://p.typekit.net" crossOrigin="" />
