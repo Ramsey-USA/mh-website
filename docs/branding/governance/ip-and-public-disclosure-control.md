@@ -15,13 +15,13 @@ The machine-readable register is `mhc-ip-register.json`. Public website content,
 
 ## CHENG flags
 
-| Flag | Release effect |
-| --- | --- |
-| `CHENG-IP-RED` | Stop expansion or new publication until clearance and ownership are recorded. |
+| Flag             | Release effect                                                                               |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| `CHENG-IP-RED`   | Stop expansion or new publication until clearance and ownership are recorded.                |
 | `CHENG-IP-AMBER` | Freeze legacy use; assemble first-use, authorship, assignment, license, and source evidence. |
-| `CHENG-IP-BLUE` | Present the asset to CHENG as a registration candidate after clearance. |
-| `CHENG-IP-BLACK` | Keep internal, restricted, or attributed to its external owner. |
-| `CHENG-IP-GREEN` | Permit only the uses, symbols, pages, and media recorded in the register. |
+| `CHENG-IP-BLUE`  | Present the asset to CHENG as a registration candidate after clearance.                      |
+| `CHENG-IP-BLACK` | Keep internal, restricted, or attributed to its external owner.                              |
+| `CHENG-IP-GREEN` | Permit only the uses, symbols, pages, and media recorded in the register.                    |
 
 ## Current command decisions
 
