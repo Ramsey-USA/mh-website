@@ -633,7 +633,12 @@ if (buildCurrent) {
   });
 }
 
-const appPackage = JSON.parse(\n  readFileSync(join(appRoot, "package.json"), "utf8"),\n);\nif (appPackage.scripts?.["check:hero-commercials"]) {\n  run("npm", ["run", "check:hero-commercials"]);\n}
+const appPackage = JSON.parse(
+  readFileSync(join(appRoot, "package.json"), "utf8"),
+);
+if (appPackage.scripts?.["check:hero-commercials"]) {
+  run("npm", ["run", "check:hero-commercials"]);
+}
 
 validateHeadersConfig();
 runPreflightChecks();
