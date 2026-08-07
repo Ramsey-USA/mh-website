@@ -2,6 +2,15 @@ name = "mhc-v2-dashboard"
 main = ".open-next/worker.js"
 compatibility_date = "2026-03-25"
 compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+preview_urls = false
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[vars]
+NEXT_PUBLIC_SITE_URL = "https://www.mhc-gc.com"
 
 # ========================================================================
 # Route Ownership
@@ -39,6 +48,14 @@ id = "969e74f0815b47ce9e75ae5acfe2a70d"
 [[r2_buckets]]
 binding = "SAFETY_INTAKE"
 bucket_name = "mh-construction-safety-intake"
+
+[[r2_buckets]]
+binding = "SSSP_PLANS"
+bucket_name = "mh-construction-sssp-plans"
+
+[[r2_buckets]]
+binding = "SSSP_OUTPUT"
+bucket_name = "mh-construction-sssp-output"
 
 # D1 Database (shared with website worker — same database)
 [[d1_databases]]
@@ -85,3 +102,19 @@ zone_name = "mhc-gc.com"
 [[routes]]
 pattern = "www.mhc-gc.com/api/security/*"
 zone_name = "mhc-gc.com"
+
+# Workers Logs and Traces for production incident response.
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 1
