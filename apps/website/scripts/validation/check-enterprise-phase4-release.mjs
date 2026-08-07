@@ -77,9 +77,7 @@ for (const contract of [
 
 if (failures.length) {
   console.error(
-    "Enterprise Phase 4 release command failed:
-" + failures.join("
-"),
+    "Enterprise Phase 4 release command failed:\\n" + failures.join("\\n"),
   );
   process.exit(1);
 }
