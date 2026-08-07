@@ -9,7 +9,6 @@ import { FollowProjectForm } from "@/components/project-marketing/FollowProjectF
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
-import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { createProjectOgImageUrl } from "@/lib/seo/og-image";
