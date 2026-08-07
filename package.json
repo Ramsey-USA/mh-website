@@ -1,7 +1,7 @@
 {
   "name": "mh-monorepo",
   "version": "7.1.0",
-  "description": "MH Construction monorepo â€” public website",
+  "description": "MH Construction monorepo — public website",
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @mhc/website dev",
