@@ -15,7 +15,7 @@ export default async function TerminologyResourcesPage() {
   const isEs = locale === "es";
 
   return (
-    <main className="bg-brand-white text-brand-charcoal">
+    <main className="enterprise-controlled-surface bg-brand-white text-brand-charcoal">
       <section className="mx-auto max-w-4xl px-6 py-20">
         <p className="font-heading text-xs uppercase tracking-widest text-brand-hunter">
           {isEs ? "Recursos de Campo" : "Field Resources"}
