@@ -51,9 +51,12 @@ jest.mock("@/lib/db/client", () => ({
   })),
 }));
 
-const mockSendToN8nAsync = jest.fn();
-jest.mock("@/lib/notifications/n8n-webhook", () => ({
-  sendToN8nAsync: (...args: unknown[]) => mockSendToN8nAsync(...args),
+const mockIsSsspFactoryConfigured = jest.fn();
+const mockDispatchSsspFactoryWorkOrder = jest.fn();
+jest.mock("@/lib/safety/sssp-factory", () => ({
+  isSsspFactoryConfigured: () => mockIsSsspFactoryConfigured(),
+  dispatchSsspFactoryWorkOrder: (...args: unknown[]) =>
+    mockDispatchSsspFactoryWorkOrder(...args),
 }));
 
 let POST: (req: NextRequest, ctx: unknown) => Promise<Response>;
@@ -101,7 +104,8 @@ beforeEach(() => {
 
   mockUpdate.mockResolvedValue(true);
   mockInsert.mockResolvedValue("sssp-new");
-  mockSendToN8nAsync.mockResolvedValue({ success: true });
+  mockIsSsspFactoryConfigured.mockReturnValue(true);
+  mockDispatchSsspFactoryWorkOrder.mockResolvedValue({ success: true });
 });
 
 function makeContext(jobId: string) {
@@ -118,6 +122,22 @@ describe("POST /api/safety/sssp/[jobId]/generate", () => {
     );
 
     expect(res.status).toBe(401);
+  });
+
+  it("returns 503 before database mutation when factory transport is unavailable", async () => {
+    mockIsSsspFactoryConfigured.mockReturnValueOnce(false);
+
+    const res = await POST(
+      makeRequest("http://localhost/api/safety/sssp/job-1/generate", {
+        method: "POST",
+        headers: authedHeaders,
+      }),
+      makeContext("job-1"),
+    );
+
+    expect(res.status).toBe(503);
+    expect(mockUpdate).not.toHaveBeenCalled();
+    expect(mockInsert).not.toHaveBeenCalled();
   });
 
   it("returns 503 when DB binding is unavailable", async () => {
@@ -167,7 +187,7 @@ describe("POST /api/safety/sssp/[jobId]/generate", () => {
     expect(res.status).toBe(400);
   });
 
-  it("resets existing SSSP to generating and triggers n8n", async () => {
+  it("resets an existing SSSP and dispatches the private factory", async () => {
     const res = await POST(
       makeRequest("http://localhost/api/safety/sssp/job-1/generate", {
         method: "POST",
@@ -190,16 +210,32 @@ describe("POST /api/safety/sssp/[jobId]/generate", () => {
       approved_by: null,
       approved_at: null,
     });
-    expect(mockSendToN8nAsync).toHaveBeenCalledWith(
+    expect(mockDispatchSsspFactoryWorkOrder).toHaveBeenCalledWith(
       expect.objectContaining({
-        type: "sssp-generate",
-        data: expect.objectContaining({
-          ssspId: "sssp-1",
-          jobId: "job-1",
-          callbackUrl: "/api/safety/sssp/job-1/result",
-        }),
+        ssspId: "sssp-1",
+        jobId: "job-1",
       }),
     );
+  });
+
+  it("returns 503 and restores draft status when dispatch fails", async () => {
+    mockDispatchSsspFactoryWorkOrder.mockResolvedValueOnce({
+      success: false,
+      error: "factory unavailable",
+    });
+
+    const res = await POST(
+      makeRequest("http://localhost/api/safety/sssp/job-1/generate", {
+        method: "POST",
+        headers: authedHeaders,
+      }),
+      makeContext("job-1"),
+    );
+
+    expect(res.status).toBe(503);
+    expect(mockUpdate).toHaveBeenLastCalledWith("sssp", "sssp-1", {
+      status: "draft",
+    });
   });
 
   it("creates a new SSSP when none exists", async () => {
