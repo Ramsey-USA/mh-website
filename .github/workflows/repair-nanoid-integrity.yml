@@ -1,0 +1,45 @@
+name: One-shot Nano ID integrity repair
+
+on:
+  push:
+    branches:
+      - codex/cache-purge-credential-correction
+    paths:
+      - .github/workflows/repair-nanoid-integrity.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v7
+        with:
+          ref: codex/cache-purge-credential-correction
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.16.0
+      - name: Resolve and record registry integrity
+        shell: bash
+        run: |
+          integrity="$(pnpm view nanoid@3.3.17 dist.integrity)"
+          NANOID_INTEGRITY="$integrity" node <<'NODE'
+          const fs = require("node:fs");
+          const path = "pnpm-lock.yaml";
+          let content = fs.readFileSync(path, "utf8");
+          const marker = "  nanoid@3.3.17:\n    engines:";
+          const replacement = "  nanoid@3.3.17:\n    resolution: {integrity: " + process.env.NANOID_INTEGRITY + "}\n    engines:";
+          if (!content.includes(marker)) throw new Error("Nano ID lock marker not found");
+          content = content.replace(marker, replacement);
+          fs.writeFileSync(path, content);
+          NODE
+          rm .github/workflows/repair-nanoid-integrity.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pnpm-lock.yaml .github/workflows/repair-nanoid-integrity.yml
+          git commit -m "security: record nanoid registry integrity"
+          git push origin HEAD:codex/cache-purge-credential-correction
