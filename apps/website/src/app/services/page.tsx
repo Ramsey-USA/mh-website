@@ -158,7 +158,7 @@ export default async function ServicesPage() {
   const localizedProcessSteps = isEs ? processStepsEs : processSteps;
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <ServicesHero
         heroSlogan={getHeroPageSlogan("services").slogan}
         locale={locale}
@@ -377,6 +377,6 @@ export default async function ServicesPage() {
       />
 
       <NextStepsSection locale={locale} includePublicSectorLink />
-    </>
+    </div>
   );
 }

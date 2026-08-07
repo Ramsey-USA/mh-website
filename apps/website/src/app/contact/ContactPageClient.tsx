@@ -366,7 +366,7 @@ export default function ContactPageClient({
   return (
     <>
       {enableTelemetry ? <PageTrackingClient pageName="Contact" /> : null}
-      <div className="bg-white dark:bg-gray-900 min-h-screen">
+      <div className="enterprise-controlled-surface bg-white dark:bg-gray-900 min-h-screen">
         <EnterpriseRouteHero
           eyebrow={`${t("contact.hero.kicker")} · Contact`}
           title={`${t("contact.hero.titleLine1")} ${t("contact.hero.titleLine2")}`}
