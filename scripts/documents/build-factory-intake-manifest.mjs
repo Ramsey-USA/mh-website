@@ -3,9 +3,18 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
-const authorityPath = path.join(root, "documents/content/mh-ecosystem/phase-0-reconciliation.json");
-const contractPath = path.join(root, "documents/content/mh-ecosystem/factory-sync-contract.json");
-const outputPath = path.join(root, "documents/content/mh-ecosystem/factory-intake-manifest.json");
+const authorityPath = path.join(
+  root,
+  "documents/content/mh-ecosystem/phase-0-reconciliation.json",
+);
+const contractPath = path.join(
+  root,
+  "documents/content/mh-ecosystem/factory-sync-contract.json",
+);
+const outputPath = path.join(
+  root,
+  "documents/content/mh-ecosystem/factory-intake-manifest.json",
+);
 const check = process.argv.includes("--check");
 
 const authority = JSON.parse(await readFile(authorityPath, "utf8"));
@@ -46,12 +55,17 @@ const serialized = `${JSON.stringify(manifest, null, 2)}\n`;
 if (check) {
   const current = await readFile(outputPath, "utf8").catch(() => "");
   if (current !== serialized) {
-    console.error("Factory intake manifest is stale. Run: pnpm ecosystem:factory-manifest");
+    console.error(
+      "Factory intake manifest is stale. Run: pnpm ecosystem:factory-manifest",
+    );
     process.exit(1);
   }
-  console.log(`Factory intake manifest current: ${records.length} records; ${inventorySha256}.`);
+  console.log(
+    `Factory intake manifest current: ${records.length} records; ${inventorySha256}.`,
+  );
 } else {
   await writeFile(outputPath, serialized, "utf8");
-  console.log(`Wrote factory intake manifest: ${records.length} records; ${inventorySha256}.`);
+  console.log(
+    `Wrote factory intake manifest: ${records.length} records; ${inventorySha256}.`,
+  );
 }
-
