@@ -85,8 +85,7 @@ describe("private SSSP factory queue", () => {
         type: "sssp-generate",
         idempotencyKey: "sssp-1",
         workOrder: expect.objectContaining({
-          callbackUrl:
-            "https://www.mhc-gc.com/api/safety/sssp/job-1/result",
+          callbackUrl: "https://www.mhc-gc.com/api/safety/sssp/job-1/result",
         }),
       }),
       { contentType: "json" },
