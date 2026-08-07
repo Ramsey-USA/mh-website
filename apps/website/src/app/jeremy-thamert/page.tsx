@@ -372,7 +372,7 @@ export default async function JeremyThamertPage() {
                   <IndividualBrandingStamp stamp={jeremyStamp} />
                 </div>
               ) : null}
-              <p className="mt-6 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
+              <p className="font-body mt-6 max-w-3xl text-base leading-relaxed text-gray-700 dark:text-gray-200">
                 Veteran-owned since {COMPANY_INFO.details.veteranOwnedSince} in
                 Pasco, Washington, this record documents {jeremySeoName}
                 &apos;s responsibility for clear communication, controlled
@@ -381,7 +381,7 @@ export default async function JeremyThamertPage() {
               </p>
               <dl className="mt-6 grid gap-4 border-t border-gray-200 pt-6 sm:grid-cols-3 dark:border-gray-800">
                 <div>
-                  <dt className="text-xs font-bold tracking-widest text-brand-primary uppercase">
+                  <dt className="font-subheading text-xs font-bold tracking-widest text-brand-primary uppercase">
                     {isEs ? "Servicio" : "Service"}
                   </dt>
                   <dd className="mt-1 font-semibold text-gray-900 dark:text-white">
@@ -389,7 +389,7 @@ export default async function JeremyThamertPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-bold tracking-widest text-brand-primary uppercase">
+                  <dt className="font-subheading text-xs font-bold tracking-widest text-brand-primary uppercase">
                     {isEs ? "Base" : "Home Base"}
                   </dt>
                   <dd className="mt-1 font-semibold text-gray-900 dark:text-white">
@@ -397,7 +397,7 @@ export default async function JeremyThamertPage() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-bold tracking-widest text-brand-primary uppercase">
+                  <dt className="font-subheading text-xs font-bold tracking-widest text-brand-primary uppercase">
                     {isEs ? "Formación" : "Education"}
                   </dt>
                   <dd className="mt-1 font-semibold text-gray-900 dark:text-white">
