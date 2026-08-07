@@ -1,12 +1,16 @@
 # Jeremy Page Ribbons
 
-Status: Approved for publication
+Status: Legacy-use freeze; written speaker approval and ownership record pending
 
-Approval authority: Chief Engineer (CHENG)
+Speaker: Jeremy Thamert
 
-Approved: August 5, 2026
+Chief Editor and CHENG review: Matt Ramsey
 
-Revision control: Quotes may be corrected through the standard content-review workflow.
+Final approval authority: Jeremy Thamert, Owner and CEO
+
+IP register: words-from-the-general
+
+Revision control: Existing quotations may remain during review. No new quotation may be added until Jeremy's written approval record is established.
 
 ## home
 
