@@ -25,6 +25,14 @@ The website performs only three document functions: resolve stable document IDs,
 9. A separate redirect registry changes the stable URL `/go/docs/<stable-id>` to the approved object. Existing QR codes never change.
 10. The release manifest, native source, approved PDF, and evidence package return to the in-house archive server.
 
+## Cross-Repository Control Plane
+
+The website publishes `factory-sync-contract.json` and a deterministic `factory-intake-manifest.json`. The manifest identifies every governed repository source by controlled record ID, source path, version, lifecycle state, and SHA-256 without exposing document bytes through an automation payload.
+
+On a governed `main` update, the website validates the tracked manifest and sends the private factory a `mh-ecosystem-source-updated` repository event when `MH_DOCUMENT_FACTORY_TOKEN` is configured. The factory then checks out the exact website commit, verifies every requested source hash, and stages only the controlled IDs listed in an operator-approved work order. A factory release sends `mh-document-release-updated` back to the website so redirect and release metadata drift is flagged for review.
+
+Neither signal authorizes publication. Missing credentials leave the build in validation-only mode, source hash mismatches fail closed, and no workflow overwrites native sources or public redirects automatically.
+
 ## Fail-Safe Rules
 
 - No public or CI command may invoke the retired website PDF generator.
@@ -47,3 +55,4 @@ Cloudflare R2 objects use explicit content type, content disposition, and cache-
 ## Transition Controls
 
 The retired generator source may remain in Git history for audit purposes, but no package command, workflow, prebuild, deployment, or QR task may call it. The former `generate-pdfs.yml`, automatic `docs:all`, release chains that combine generation with upload, and QR PNG publication path are removed from active operation.
+
