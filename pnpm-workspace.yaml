@@ -3,6 +3,9 @@ packages:
   - "apps/dashboard"
   - "packages/*"
 overrides:
+  # Preserve CommonJS v3 compatibility and enforce the current patched v5 floor.
+  "nanoid@<4": 3.3.17
+  "nanoid@>=4 <5.1.16": 5.1.16
   postcss: 8.5.25
   sharp: 0.35.3
   "@opentelemetry/core": 2.9.0
