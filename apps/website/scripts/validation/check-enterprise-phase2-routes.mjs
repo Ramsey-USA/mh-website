@@ -40,7 +40,9 @@ for (const contract of [
   "-webkit-text-fill-color: currentColor !important",
 ]) {
   if (!globalStyles.includes(contract)) {
-    failures.push(`globals.css: missing controlled surface contract ${contract}`);
+    failures.push(
+      `globals.css: missing controlled surface contract ${contract}`,
+    );
   }
 }
 
