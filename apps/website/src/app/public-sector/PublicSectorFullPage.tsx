@@ -41,7 +41,6 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
-import { COMPANY_INFO } from "@/lib/constants/company";
 
 const breadcrumbSchema = generateBreadcrumbSchema(
   breadcrumbPatterns.publicSector,
