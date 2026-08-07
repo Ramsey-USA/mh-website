@@ -291,6 +291,10 @@ jobs:
             nextjs-dashboard-cache-${{ hashFiles('pnpm-lock.yaml') }}-
             nextjs-dashboard-cache-
 
+      - name: Verify SSSP factory fail-closed controls
+        working-directory: apps/dashboard
+        run: npm run test:ci -- safety-sssp-generate.test.ts
+
       - name: Build dashboard
         working-directory: apps/dashboard
         run: npm run build
