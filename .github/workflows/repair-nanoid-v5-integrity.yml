@@ -1,0 +1,44 @@
+name: One-shot Nano ID v5 integrity repair
+
+on:
+  push:
+    branches:
+      - codex/cache-purge-credential-correction
+    paths:
+      - .github/workflows/repair-nanoid-v5-integrity.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repair branch
+        uses: actions/checkout@v7
+        with:
+          ref: codex/cache-purge-credential-correction
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.16.0
+      - name: Resolve and record registry integrity
+        shell: bash
+        run: |
+          integrity="$(pnpm view nanoid@5.1.16 dist.integrity)"
+          NANOID_INTEGRITY="$integrity" node <<'NODE'
+          const fs = require("node:fs");
+          const path = "pnpm-lock.yaml";
+          let content = fs.readFileSync(path, "utf8");
+          const pattern = /(  nanoid@5\.1\.16:\n    resolution: \{integrity: )[^}]+(\}\n)/;
+          if (!pattern.test(content)) throw new Error("Nano ID v5 lock marker not found");
+          content = content.replace(pattern, "$1" + process.env.NANOID_INTEGRITY + "$2");
+          fs.writeFileSync(path, content);
+          NODE
+          rm .github/workflows/repair-nanoid-v5-integrity.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pnpm-lock.yaml .github/workflows/repair-nanoid-v5-integrity.yml
+          git commit -m "security: record nanoid v5 registry integrity"
+          git push origin HEAD:codex/cache-purge-credential-correction
