@@ -25,7 +25,7 @@ Secrets belong in Cloudflare secret storage and the factory's local credential s
 
 The dashboard sends schema version 1, type `sssp-generate`, and a work order containing the SSSP ID, job ID and metadata, private R2 source object keys, initiating user, and absolute callback URL. The `Idempotency-Key` header equals the SSSP ID. The factory must treat repeat delivery of the same key as the same work order.
 
-The factory must authenticate the dispatch bearer token, reject unknown schema versions, retrieve source files through least-privilege private R2 credentials, preserve source hashes, and produce a review candidate. GitHub Actions may validate code and contracts, but project files cannot transit through GitHub.
+The factory must authenticate to Cloudflare's HTTP Pull API, reject unknown schema versions, retrieve source files through least-privilege private R2 credentials, preserve source hashes, and produce a review candidate. It acknowledges a queue lease only after the result callback succeeds; transient failures are explicitly retried. GitHub Actions may validate code and contracts, but project files cannot transit through GitHub.
 
 ## Result Contract
 
@@ -35,6 +35,6 @@ Generation does not grant approval. Superintendent review, Project Manager appro
 
 ## Failure and Recovery
 
-Missing or invalid configuration returns HTTP 503 before database mutation. A rejected, timed-out, or failed factory dispatch restores the SSSP to `draft` and returns HTTP 503. Operators may retry after correcting the transport; the stable SSSP ID prevents duplicate work orders.
+Missing or invalid configuration returns HTTP 503 before database mutation. A failed queue write restores the SSSP to `draft` and returns HTTP 503. Operators may retry after correcting the transport; the stable SSSP ID prevents duplicate work orders.
 
 Approved publication uses immutable, hash-addressed R2 keys. Stable QR redirects point to approved records and never directly to mutable draft storage.
