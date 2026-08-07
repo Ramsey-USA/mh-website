@@ -3,7 +3,7 @@
 **Control date:** 2026-08-07  
 **Owner:** Chief Engineer  
 **Final approval:** CEO  
-**Lifecycle:** Draft
+**Lifecycle:** Operational Draft
 
 ## Production Topology
 
@@ -21,10 +21,24 @@ The private `Ramsey-USA/mh-document-factory` repository remains the governed off
 
 Both Workers disable public `workers.dev` and preview URLs. GitHub Actions builds the website and dashboard independently, deploys each Worker only after quality and security gates pass on `main`, and rejects a dashboard deployment when the protected SSSP route returns `404` or a server error.
 
-Cloudflare bindings are declared in the applicable Wrangler file. Dashboard deployment must include D1, shared KV namespaces, `SAFETY_INTAKE`, `SSSP_PLANS`, `SSSP_OUTPUT`, static assets, production routes, and observability.
+Cloudflare bindings are declared in the applicable Wrangler file. Dashboard deployment includes D1, shared KV namespaces, `SAFETY_INTAKE`, `SSSP_PLANS`, `SSSP_OUTPUT`, static assets, production routes, and observability. Route-free deployments preserve the manually controlled production route inventory.
+
+## Activation Record
+
+Production activation completed on 2026-08-07.
+
+- Website integration merged through PR 168 at commit `2095bff32d1d2765972cec0ec9776fab2580129d`.
+- Deployment and governance repairs merged through PR 169 at commit `d765ef55b737777cc1dca6e59807c27658d133ac`.
+- GitHub Actions run `31206159108` passed quality, security, website build, dashboard build, website deployment, dashboard deployment, and protected-route verification.
+- Cloudflare Worker `mhc-v2-dashboard` has Assets, D1 `DB`, three KV bindings, and the three controlled R2 bindings.
+- Nine specific dashboard API routes are attached to `www.mhc-gc.com`; the broad public website route remains owned by `mhc-v2-website`.
+- The live SSSP probe returns `401 Authentication required`, proving protected Worker ownership without exposing data.
+- D1 tables `sssp` and `sssp_source_files`, plus their controlled indexes, are active.
 
 ## Fail-Safe Boundary
 
 An SSSP remains a review candidate until the required project profile, hazard controls, competent-person assignments, attachments, Superintendent review, Project Manager approval, Safety approval, and CEO-authorized release gates are complete. Generated content cannot change controlled MISH doctrine, create an approval, or overwrite an immutable R2 object.
 
 Project files and approved PDFs remain private unless a separately approved stable redirect explicitly authorizes public access. QR codes resolve through controlled redirects and never point directly to mutable storage keys.
+
+The result callback remains fail-closed until the private factory transport and its shared `SSSP_CALLBACK_SECRET` are provisioned through an approved local credential store. The “Words from the General” publication gate also remains closed until Owner approval is recorded; neither hold affects the protected dashboard route, storage, or schema activation completed above.
