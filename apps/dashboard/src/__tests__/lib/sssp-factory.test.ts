@@ -1,5 +1,10 @@
 /** @jest-environment node */
 
+import {
+  dispatchSsspFactoryWorkOrder,
+  isSsspFactoryConfigured,
+} from "@/lib/safety/sssp-factory";
+
 const mockSend = jest.fn();
 const mockGetCloudflareContext = jest.fn();
 
@@ -18,7 +23,6 @@ describe("private SSSP factory queue", () => {
   const originalEnvironment = process.env;
 
   beforeEach(() => {
-    jest.resetModules();
     jest.clearAllMocks();
     process.env = {
       ...originalEnvironment,
@@ -40,28 +44,19 @@ describe("private SSSP factory queue", () => {
     process.env = originalEnvironment;
   });
 
-  it("fails closed when activation is disabled", async () => {
+  it("fails closed when activation is disabled", () => {
     process.env["SSSP_FACTORY_ACTIVATED"] = "false";
-    const { isSsspFactoryConfigured } = await import(
-      "@/lib/safety/sssp-factory",
-    );
 
     expect(isSsspFactoryConfigured()).toBe(false);
   });
 
-  it("fails closed when the queue binding is missing", async () => {
+  it("fails closed when the queue binding is missing", () => {
     mockGetCloudflareContext.mockReturnValue({ env: {} });
-    const { isSsspFactoryConfigured } = await import(
-      "@/lib/safety/sssp-factory",
-    );
 
     expect(isSsspFactoryConfigured()).toBe(false);
   });
 
   it("queues a JSON work order with an idempotency key", async () => {
-    const { dispatchSsspFactoryWorkOrder, isSsspFactoryConfigured } =
-      await import("@/lib/safety/sssp-factory");
-
     expect(isSsspFactoryConfigured()).toBe(true);
 
     const result = await dispatchSsspFactoryWorkOrder({
@@ -100,9 +95,6 @@ describe("private SSSP factory queue", () => {
 
   it("reports queue write failures", async () => {
     mockSend.mockRejectedValueOnce(new Error("queue unavailable"));
-    const { dispatchSsspFactoryWorkOrder } = await import(
-      "@/lib/safety/sssp-factory",
-    );
 
     const result = await dispatchSsspFactoryWorkOrder({
       ssspId: "sssp-2",
