@@ -22,6 +22,7 @@ describe("private SSSP factory queue", () => {
     jest.clearAllMocks();
     process.env = {
       ...originalEnvironment,
+      SSSP_FACTORY_ACTIVATED: "true",
       SSSP_CALLBACK_SECRET: "callback-test-secret",
       SSSP_CALLBACK_BASE_URL: "https://www.mhc-gc.com",
     };
@@ -37,6 +38,15 @@ describe("private SSSP factory queue", () => {
 
   afterAll(() => {
     process.env = originalEnvironment;
+  });
+
+  it("fails closed while the operational activation gate is disabled", async () => {
+    process.env["SSSP_FACTORY_ACTIVATED"] = "false";
+    const { isSsspFactoryConfigured } = await import(
+      "@/lib/safety/sssp-factory"
+    );
+
+    expect(isSsspFactoryConfigured()).toBe(false);
   });
 
   it("fails closed when the queue binding is missing", async () => {
