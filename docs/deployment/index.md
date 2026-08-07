@@ -1,7 +1,7 @@
 # Deployment Documentation
 
 **Category:** Deployment - Overview  
-**Last Updated:** July 19, 2026
+**Last Updated:** August 7, 2026
 
 ## Quick Summary
 
@@ -33,6 +33,8 @@ maintaining safety-critical CI gates.
   checklist for completing hardening when dashboard navigation changes.
 - **[Cloudflare Dashboard and SSSP Production Control](./cloudflare-dashboard-sssp-production-control.md)** —
   Controlled Worker routing, private R2 bindings, deployment gates, and publication boundaries.
+- **[Private SSSP Factory Handoff Contract](./private-sssp-factory-contract.md)** —
+  Fail-closed transport, callback, idempotency, approval, R2, and QR controls.
 
 ### CI/CD
 
