@@ -92,12 +92,13 @@ export interface TeamProfileMember {
   slug: string;
   email?: string; // Public team contact email; routed through the office inbox
   linkedinUrl?: string; // Public LinkedIn profile URL for direct professional connection
+  websiteUrl?: string; // Verified external professional profile or executive authority page
   governance?: ContentGovernanceRecord;
 }
 
 /**
  * Fields that a team member can update via the PWA questionnaire.
- * All fields are optional — only provided fields overwrite the static JSON.
+ * All fields are optional �?" only provided fields overwrite the static JSON.
  */
 export interface TeamProfileOverride {
   slug: string;
@@ -204,7 +205,7 @@ function getTeamMemberGovernance(
   };
 }
 
-// Assembled team roster — order determines display sequence on the team page.
+// Assembled team roster �?" order determines display sequence on the team page.
 // To reorder members, rearrange the entries in this array.
 export const teamProfileMembers: TeamProfileMember[] = [
   jeremyThamert,
@@ -234,3 +235,4 @@ export function getPublicTeamProfileMembers(): TeamProfileMember[] {
       (member.governance ? isPubliclyVisibleContent(member.governance) : true),
   );
 }
+
