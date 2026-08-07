@@ -3,6 +3,7 @@ packages:
   - "apps/dashboard"
   - "packages/*"
 overrides:
+  # Preserve the CommonJS v3 line while enforcing patched Nano ID releases.
   "nanoid@<4": 3.3.17
   "nanoid@>=4 <5.1.6": 5.1.6
   postcss: 8.5.25
