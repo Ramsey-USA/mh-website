@@ -11,6 +11,7 @@ import { buildCertificationShowcase } from "@/lib/safety/certification-showcase"
 import { useState } from "react";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { useTheme } from "@/contexts/theme-context";
+import { trackClick } from "@/lib/analytics/tracking";
 function getSkillLevel(score: number): {
   level: string;
   color: string;
@@ -120,6 +121,31 @@ function getLinkedInHref(linkedinUrl?: string): string | null {
       parsedUrl.username.length > 0 || parsedUrl.password.length > 0;
 
     if (!isLinkedInHost || !isHttpProtocol || hasEmbeddedCredentials) {
+      return null;
+    }
+
+    return parsedUrl.toString();
+  } catch {
+    return null;
+  }
+}
+
+function getExecutiveProfileHref(websiteUrl?: string): string | null {
+  if (!websiteUrl) {
+    return null;
+  }
+
+  try {
+    const parsedUrl = new URL(websiteUrl);
+    const hostname = parsedUrl.hostname.toLowerCase().replace(/\.+$/u, "");
+    const hasEmbeddedCredentials =
+      parsedUrl.username.length > 0 || parsedUrl.password.length > 0;
+
+    if (
+      parsedUrl.protocol !== "https:" ||
+      hostname !== "matthew-jon-ramsey.com" ||
+      hasEmbeddedCredentials
+    ) {
       return null;
     }
 
@@ -562,11 +588,12 @@ export function TeamProfileSection({
   brandingStamp,
 }: Readonly<TeamProfileSectionProps>) {
   // Use ThemeContext instead of a MutationObserver on document.documentElement.
-  // The context already tracks isDarkMode reactively — no DOM watcher needed.
+  // The context already tracks isDarkMode reactively �?" no DOM watcher needed.
   const { isDarkMode: isDark } = useTheme();
   const [showPersonal, setShowPersonal] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const linkedinHref = getLinkedInHref(member.linkedinUrl);
+  const executiveProfileHref = getExecutiveProfileHref(member.websiteUrl);
 
   const achievementBadges = buildAchievementBadges(member);
   const calibratedSkills = buildRoleCalibratedSkills(member);
@@ -876,6 +903,25 @@ export function TeamProfileSection({
               >
                 <MaterialIcon icon="language" size="sm" className="" />
                 Connect on LinkedIn
+              </a>
+            )}
+            {executiveProfileHref && (
+              <a
+                href={executiveProfileHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackClick("team_executive_profile_outbound", {
+                    event_category: "navigation",
+                    destination: "matthew-jon-ramsey.com",
+                    team_member: member.slug,
+                  })
+                }
+                className="mt-2 ml-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary hover:text-brand-primary-dark dark:text-brand-secondary dark:hover:text-brand-secondary-light transition-colors"
+                aria-label={`View ${member.name} executive profile`}
+              >
+                <MaterialIcon icon="open_in_new" size="sm" className="" />
+                Executive Profile
               </a>
             )}
           </div>
@@ -1414,7 +1460,7 @@ export function TeamProfileSection({
               <div className="relative w-40 h-40 border-2 border-brand-primary/20 dark:border-brand-primary/30 rounded-xl overflow-hidden shadow-md bg-white dark:bg-white">
                 <Image
                   src={member.qrCode}
-                  alt={`QR code for ${member.name} — scan to connect`}
+                  alt={`QR code for ${member.name} �?" scan to connect`}
                   fill
                   className="object-contain p-2"
                   sizes="160px"
@@ -1446,3 +1492,4 @@ export function TeamProfileSection({
     </div>
   );
 }
+
