@@ -67,7 +67,9 @@ for (const contract of [
   "npm run seo:sitemaps:submit",
 ]) {
   if (!ciWorkflow.includes(contract)) {
-    failures.push(`ci-cd.yml: missing fail-closed release contract ${contract}`);
+    failures.push(
+      `ci-cd.yml: missing fail-closed release contract ${contract}`,
+    );
   }
 }
 
