@@ -161,7 +161,7 @@ export default function AboutDetailsPage() {
         }}
       />
 
-      <div className="min-h-screen bg-white dark:bg-gray-900">
+      <div className="enterprise-controlled-surface min-h-screen bg-white dark:bg-gray-900">
         <EnterpriseRouteHero
           eyebrow={copy.heroEyebrow}
           title={copy.heroTitle}
