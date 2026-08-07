@@ -135,7 +135,7 @@ describe("TeamProfileSection", () => {
       })[0],
     ).toHaveAttribute("href", "https://www.linkedin.com/in/alex-builder/");
     expect(
-      screen.getByRole("link", { name: /view alex builder executive profile/i }),
+      screen.getByRole("link", {\n        name: /view alex builder executive profile/i,\n      }),
     ).toHaveAttribute("href", "https://matthew-jon-ramsey.com/");
 
     await user.click(
