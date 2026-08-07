@@ -117,6 +117,10 @@ jobs:
         working-directory: apps/website
         run: npm run lint
 
+      - name: Enforce enterprise release command
+        working-directory: apps/website
+        run: npm run enterprise:release:check
+
       - name: Verify SEO route policy sync — website
         working-directory: apps/website
         run: npm run seo:routes:sync:check
