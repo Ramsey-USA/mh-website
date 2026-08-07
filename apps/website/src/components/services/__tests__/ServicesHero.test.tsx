@@ -1,71 +1,63 @@
 import { render, screen } from "@testing-library/react";
 import { ServicesHero } from "../ServicesHero";
 
-jest.mock("next-intl", () => ({
-  useTranslations: () => {
-    const messages: Record<string, string> = {
-      "services.hero.sectionSubtitle": "Services -> Operations",
-      "services.hero.sectionTitle": "Construction Services Built on Trust",
-      "services.hero.sectionTagline":
-        "Transparent planning. Disciplined execution. Trusted results.",
-      "services.hero.sectionDescription":
-        "Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho from our Tri-Cities headquarters.",
-    };
-
-    return (key: string) => messages[key] ?? key;
-  },
-}));
-
-jest.mock("@/components/icons/MaterialIcon", () => ({
-  MaterialIcon: ({ ariaLabel }: { ariaLabel?: string }) => (
-    <span aria-label={ariaLabel} />
-  ),
-}));
-
 describe("ServicesHero", () => {
-  it("renders the section element", () => {
+  it("renders the governed enterprise hero and capability proof", () => {
     const { container } = render(<ServicesHero />);
-    expect(container.querySelector("section")).toBeInTheDocument();
-  });
 
-  it("renders construction services heading", () => {
-    render(<ServicesHero />);
     expect(
-      screen.getByText("Construction Services Built on Trust"),
+      container.querySelector(".enterprise-route-hero"),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector(".enterprise-proof-bar"),
     ).toBeInTheDocument();
   });
 
-  it("renders the strategic excellence heading", () => {
+  it("renders the enterprise services heading", () => {
     render(<ServicesHero />);
+
     expect(
-      screen.getByText(
-        "Transparent planning. Disciplined execution. Trusted results.",
-      ),
+      screen.getByRole("heading", {
+        level: 1,
+        name: "One delivery system. Full accountability.",
+      }),
     ).toBeInTheDocument();
   });
 
-  it("renders the Operations breadcrumb text", () => {
-    render(<ServicesHero />);
+  it("renders the approved primary and supporting slogans", () => {
+    render(<ServicesHero heroSlogan="Controlled supporting slogan." />);
+
     expect(
-      screen.getByText(/Services\s*->\s*Operations\s*->\s*Services/i),
+      screen.getByText("Built on Quality, Backed by Trust."),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Controlled supporting slogan."),
     ).toBeInTheDocument();
   });
 
-  it("renders the mission statement", () => {
+  it("renders the project briefing and proof actions", () => {
     render(<ServicesHero />);
+
     expect(
-      screen.getByText(
-        /Commercial, industrial, and public-sector delivery across Washington, Oregon, and Idaho/i,
-      ),
-    ).toBeInTheDocument();
+      screen.getByRole("link", { name: "Start a scope briefing" }),
+    ).toHaveAttribute("href", "/contact");
+    expect(
+      screen.getByRole("link", { name: "Review project proof" }),
+    ).toHaveAttribute("href", "/projects");
   });
 
-  it("renders a branded follow-through line", () => {
+  it("renders the controlled delivery proof labels", () => {
     render(<ServicesHero />);
+
     expect(
-      screen.getByText(
-        /Clear planning\. Responsible follow-through\. Reliable delivery\./i,
-      ),
+      screen.getByText("Scope, risk, and constructability"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Production, safety, and quality"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Cost, schedule, and change")).toBeInTheDocument();
+    expect(
+      screen.getByText("Turnover and audit-ready record"),
     ).toBeInTheDocument();
   });
 });

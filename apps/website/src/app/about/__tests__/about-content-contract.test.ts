@@ -13,6 +13,13 @@ describe("about content contract", () => {
     "about",
     "AboutHero.tsx",
   );
+  const enterpriseHeroPath = path.join(
+    appRoot,
+    "src",
+    "components",
+    "enterprise",
+    "EnterpriseRouteHero.tsx",
+  );
   const enMessagesPath = path.join(repoRoot, "messages", "en.json");
 
   it("keeps required section flow order for Prompt 3.4", () => {
@@ -36,12 +43,15 @@ describe("about content contract", () => {
     }
   });
 
-  it("keeps one-H1 ownership in AboutHero and not in page sections", () => {
+  it("keeps one-H1 ownership in the governed About hero chain", () => {
     const pageSource = fs.readFileSync(aboutPagePath, "utf8");
     const heroSource = fs.readFileSync(aboutHeroPath, "utf8");
+    const enterpriseHeroSource = fs.readFileSync(enterpriseHeroPath, "utf8");
 
     expect(pageSource).not.toContain("<h1");
-    expect((heroSource.match(/<h1/g) ?? []).length).toBe(1);
+    expect(heroSource).toContain("<EnterpriseRouteHero");
+    expect((heroSource.match(/<h1/g) ?? []).length).toBe(0);
+    expect((enterpriseHeroSource.match(/<h1/g) ?? []).length).toBe(1);
   });
 
   it("withholds unsupported snapshot figures from About page", () => {

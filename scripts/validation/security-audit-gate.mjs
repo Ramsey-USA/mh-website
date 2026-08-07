@@ -61,6 +61,19 @@ function countAtOrAboveLevel(counts, level) {
   );
 }
 
+function listAdvisoriesAtOrAboveLevel(report, level) {
+  const threshold = LEVELS.indexOf(level);
+  const advisories = Object.values(report?.advisories ?? {});
+  return advisories
+    .filter((advisory) => LEVELS.indexOf(advisory?.severity) >= threshold)
+    .map((advisory) => ({
+      module: advisory.module_name || "unknown-package",
+      severity: advisory.severity || "unknown",
+      title: advisory.title || "Untitled advisory",
+      url: advisory.url || "No advisory URL supplied",
+    }));
+}
+
 const levelArg = parseArg(
   "--level",
   process.env.SECURITY_AUDIT_LEVEL || "high",
@@ -114,6 +127,12 @@ console.log(
 );
 
 if (violations > 0) {
+  const advisories = listAdvisoriesAtOrAboveLevel(report, level);
+  for (const advisory of advisories) {
+    console.error(
+      `- ${advisory.module} | ${advisory.severity} | ${advisory.title} | ${advisory.url}`,
+    );
+  }
   console.error(
     `Security gate failed: found ${violations} vulnerabilities at or above ${level} severity (${total} total).`,
   );

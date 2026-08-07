@@ -376,6 +376,8 @@ export default async function ProjectCaseStudyPage({
           eyebrow={`Case file | ${caseStudy.category}`}
           title={title}
           intro={description}
+          primarySlogan={COMPANY_INFO.slogan.primary}
+          supportingSlogan={COMPANY_INFO.slogan.tertiary}
           primary={{
             href: "#delivery-record",
             label: "Review delivery record",

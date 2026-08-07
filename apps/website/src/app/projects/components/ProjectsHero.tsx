@@ -1,5 +1,6 @@
 import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
 import type { SupportedLocale } from "@/lib/i18n/locale";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 export function ProjectsHero({
   locale = "en",
@@ -21,6 +22,8 @@ export function ProjectsHero({
           ? "Casos publicos organizados por condiciones, alcance, controles de entrega y resultados documentados."
           : "Public case files organized around project conditions, executed scope, delivery controls, and documented results."
       }
+      primarySlogan={COMPANY_INFO.slogan.primary}
+      supportingSlogan={COMPANY_INFO.slogan.tertiary}
       primary={{
         href: "#portfolio",
         label: isEs ? "Revisar casos" : "Review case files",

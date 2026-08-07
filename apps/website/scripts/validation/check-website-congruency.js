@@ -423,7 +423,7 @@ function checkHeroVisualContracts(errors) {
   // section. Heroes own visual presentation only; wayfinding lives in the
   // heading area that follows the hero.
   const heroContainerSignal =
-    /hero-section|hero-safe-top|hero-safe-bottom|min-h-screen|h-screen|calc\(100vh - var\(--mh-nav-offset|HeroSectionClient|useVideoHero/;
+    /hero-section|hero-safe-top|hero-safe-bottom|min-h-screen|h-screen|calc\(100vh - var\(--mh-nav-offset|HeroSectionClient|EnterpriseRouteHero|useVideoHero/;
 
   // Detect PageNavigation placed inside a hero section. A hero section is
   // delimited by the opening hero-section tag and the closing </section> that
