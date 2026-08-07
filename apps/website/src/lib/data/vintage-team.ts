@@ -98,7 +98,7 @@ export interface TeamProfileMember {
 
 /**
  * Fields that a team member can update via the PWA questionnaire.
- * All fields are optional �?" only provided fields overwrite the static JSON.
+ * All fields are optional — only provided fields overwrite the static JSON.
  */
 export interface TeamProfileOverride {
   slug: string;
@@ -205,7 +205,7 @@ function getTeamMemberGovernance(
   };
 }
 
-// Assembled team roster �?" order determines display sequence on the team page.
+// Assembled team roster — order determines display sequence on the team page.
 // To reorder members, rearrange the entries in this array.
 export const teamProfileMembers: TeamProfileMember[] = [
   jeremyThamert,
@@ -235,4 +235,3 @@ export function getPublicTeamProfileMembers(): TeamProfileMember[] {
       (member.governance ? isPubliclyVisibleContent(member.governance) : true),
   );
 }
-
