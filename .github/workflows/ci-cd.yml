@@ -121,6 +121,10 @@ jobs:
         working-directory: apps/website
         run: npm run enterprise:release:check
 
+      - name: Enforce MHC intellectual property governance
+        working-directory: apps/website
+        run: npm run ip:governance:check
+
       - name: Verify SEO route policy sync — website
         working-directory: apps/website
         run: npm run seo:routes:sync:check

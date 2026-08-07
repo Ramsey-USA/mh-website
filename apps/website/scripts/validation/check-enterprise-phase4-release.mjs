@@ -14,6 +14,7 @@ const failures = [];
 
 const requiredScripts = [
   "enterprise:phase2:check",
+  "ip:governance:check",
   "report:spanish:coverage",
   "congruency:locale:check",
   "verify:route-integrity",
@@ -39,6 +40,7 @@ for (const script of requiredScripts) {
 
 const requiredWorkflowCommands = [
   "npm run enterprise:release:check",
+  "npm run ip:governance:check",
   "npm run type-check",
   "npm run lint",
   "npm run seo:routes:sync:check",
@@ -75,7 +77,7 @@ for (const contract of [
 
 if (failures.length) {
   console.error(
-    "Enterprise Phase 4 release command failed:\n" + failures.join("\n"),
+    "Enterprise Phase 4 release command failed:\\n" + failures.join("\\n"),
   );
   process.exit(1);
 }
