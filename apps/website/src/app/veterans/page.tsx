@@ -165,7 +165,6 @@ export default async function VeteransPage() {
           ],
         ]}
       />
-      </div>
 
       {/* All sections below Hero - WITH parallax background */}
       <div className="relative min-h-screen">
