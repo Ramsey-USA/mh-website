@@ -271,7 +271,10 @@ function checkTypographyContracts(errors) {
     );
   }
 
-  if (globalsSource.includes("@font-face") || globalsSource.includes("fonnts.com-")) {
+  if (
+    globalsSource.includes("@font-face") ||
+    globalsSource.includes("fonnts.com-")
+  ) {
     errors.push(
       `Typography contract violation in ${rel(GLOBALS_CSS_FILE)}: public self-hosted Mendl sources are prohibited.`,
     );
