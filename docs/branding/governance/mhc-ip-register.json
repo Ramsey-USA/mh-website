@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0",
+  "lifecycleStatus": "Draft",
+  "authority": {
+    "chiefEditor": "Matt Ramsey",
+    "chengReview": "Matt Ramsey",
+    "finalApprovalRole": "Owner and CEO",
+    "finalApprover": "Jeremy Thamert"
+  },
+  "flags": {
+    "CHENG-IP-RED": "Stop expansion or new publication pending clearance and ownership confirmation.",
+    "CHENG-IP-AMBER": "Legacy use may continue without expansion while evidence is assembled.",
+    "CHENG-IP-BLUE": "Candidate for formal registration after clearance and executive approval.",
+    "CHENG-IP-BLACK": "Internal, confidential, external-owner, or restricted material that cannot be presented as MHC intellectual property.",
+    "CHENG-IP-GREEN": "Cleared, documented, and approved for the listed public use."
+  },
+  "entries": [
+    {
+      "id": "mhc-primary-slogan",
+      "displayName": "Built on Quality, Backed by Trust.",
+      "assetType": "service-mark-candidate",
+      "claimedOwner": "MH Construction, Inc.",
+      "authorRecord": "Pending historical authorship confirmation",
+      "riskFlag": "CHENG-IP-AMBER",
+      "registrationCandidate": true,
+      "clearanceRequired": true,
+      "publicationDecision": "legacy-use-freeze",
+      "symbolPolicy": "No registration symbol. Do not add SM until CHENG records a clearance decision.",
+      "nextAction": "Complete federal, state, common-law, domain, and construction-market clearance; establish first-use evidence."
+    },
+    {
+      "id": "mhc-mish",
+      "displayName": "MISH Safety & Health Program",
+      "canonicalExpansion": "MH Construction Industrial Safety & Health Program",
+      "assetType": "service-mark-and-program-name-candidate",
+      "claimedOwner": "MH Construction, Inc.",
+      "authorRecord": "Program lineage requires reconciliation across Mike Holstein, later revisions, Matt Ramsey, and approved contributors.",
+      "riskFlag": "CHENG-IP-AMBER",
+      "registrationCandidate": true,
+      "clearanceRequired": true,
+      "publicationDecision": "legacy-use-freeze",
+      "symbolPolicy": "No registration symbol. Preserve OSHA and WISHA regulatory terminology.",
+      "nextAction": "Clear the acronym and expanded name, reconcile authorship and assignment evidence, then select registration scope."
+    },
+    {
+      "id": "words-from-the-general",
+      "displayName": "Words From the General",
+      "assetType": "editorial-series-and-service-mark-candidate",
+      "claimedOwner": "Undetermined pending written ownership and assignment record",
+      "speaker": "Jeremy Thamert",
+      "chiefEditor": "Matt Ramsey",
+      "riskFlag": "CHENG-IP-RED",
+      "registrationCandidate": true,
+      "clearanceRequired": true,
+      "publicationDecision": "legacy-use-freeze",
+      "symbolPolicy": "No trademark or registration symbol.",
+      "nextAction": "Obtain Jeremy Thamert's written approval for the series title, attribution standard, existing quote library, and ownership assignment before adding quotes."
+    },
+    {
+      "id": "affiliated-platforms",
+      "displayName": "Affiliated software platforms",
+      "coveredNames": [
+        "BidPilot",
+        "Build Pilot",
+        "Marketing Flight",
+        "Field Command Center"
+      ],
+      "assetType": "external-sister-company-intellectual-property",
+      "claimedOwner": "Unnamed sister company; ownership is not claimed by MH Construction",
+      "developmentAuthority": "Chief Navigation Officer with CHENG operational influence",
+      "riskFlag": "CHENG-IP-BLACK",
+      "registrationCandidate": false,
+      "clearanceRequired": false,
+      "publicationDecision": "do-not-name-on-public-mhc-routes",
+      "publicDescriptor": "secure affiliated systems",
+      "nextAction": "Create a separate ownership, license, and cross-company usage agreement before any named MHC website reference."
+    }
+  ]
+}
