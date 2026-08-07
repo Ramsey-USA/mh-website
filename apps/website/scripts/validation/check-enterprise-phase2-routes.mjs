@@ -35,7 +35,9 @@ for (const contract of [
 }
 
 if (failures.length) {
-  console.error("Phase 2 enterprise route gate failed:\n" + failures.join("\n"));
+  console.error(
+    "Phase 2 enterprise route gate failed:\n" + failures.join("\n"),
+  );
   process.exit(1);
 }
 

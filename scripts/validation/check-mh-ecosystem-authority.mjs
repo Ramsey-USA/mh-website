@@ -54,7 +54,9 @@ if (baseline.renderedPageCount !== 1008) {
 }
 
 if (baseline.fieldEffective !== false) {
-  errors.push("Draft Ecosystem must not be represented as field-effective policy.");
+  errors.push(
+    "Draft Ecosystem must not be represented as field-effective policy.",
+  );
 }
 
 const releaseControls = authority.pdfGenerator?.releaseControls ?? {};

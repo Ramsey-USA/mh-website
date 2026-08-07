@@ -13,7 +13,9 @@ export function ProjectsHero({
           ? "Prueba del proyecto | Washington, Oregon, Idaho"
           : "Project proof | Washington, Oregon, Idaho"
       }
-      title={isEs ? "El trabajo lleva el registro." : "The work carries the record."}
+      title={
+        isEs ? "El trabajo lleva el registro." : "The work carries the record."
+      }
       intro={
         isEs
           ? "Casos publicos organizados por condiciones, alcance, controles de entrega y resultados documentados."

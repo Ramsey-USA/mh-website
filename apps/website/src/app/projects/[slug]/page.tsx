@@ -376,7 +376,10 @@ export default async function ProjectCaseStudyPage({
           eyebrow={`Case file | ${caseStudy.category}`}
           title={title}
           intro={description}
-          primary={{ href: "#delivery-record", label: "Review delivery record" }}
+          primary={{
+            href: "#delivery-record",
+            label: "Review delivery record",
+          }}
           secondary={{ href: "/contact", label: "Brief a similar project" }}
           proof={[
             [`${location.city}, ${location.state}`, "Project location"],
@@ -466,7 +469,10 @@ export default async function ProjectCaseStudyPage({
           </section>
         )}
 
-        <section id="delivery-record" className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <section
+          id="delivery-record"
+          className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+        >
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
             <Card className="rounded-none border border-gray-200 bg-white p-6 shadow-none dark:border-gray-800 dark:bg-gray-900">
               <div className="grid gap-4 sm:grid-cols-3">
