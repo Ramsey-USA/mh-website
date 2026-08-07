@@ -96,7 +96,7 @@ export default async function LocationsPage() {
   const isEs = (await getServerLocale()) === "es";
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName="Locations" />
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={locationsSchema} />
@@ -194,6 +194,6 @@ export default async function LocationsPage() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }
