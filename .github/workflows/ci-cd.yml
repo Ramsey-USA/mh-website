@@ -24,33 +24,6 @@ env:
   PUPPETEER_SKIP_DOWNLOAD: "true"
 
 jobs:
-  format-repair:
-    name: One-time Prettier Repair
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout pull request branch
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Setup workspace
-        uses: ./.github/actions/setup-workspace
-        with:
-          skip-checkout: "true"
-          fetch-depth: "0"
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Format controlled Phase 2 surface
-        run: pnpm exec prettier --write apps/website/src/app/globals.css apps/website/src/app/public-sector/PublicSectorFullPage.tsx apps/website/scripts/validation/check-enterprise-phase2-routes.mjs
-      - name: Commit formatter output
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add apps/website/src/app/globals.css apps/website/src/app/public-sector/PublicSectorFullPage.tsx apps/website/scripts/validation/check-enterprise-phase2-routes.mjs
-          git diff --cached --quiet || git commit -m "style(phase2): apply repository formatter"
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
-
   # ──────────────────────────────────────────────────────────────
   # Workspace-level quality checks (run once for whole monorepo)
   # ──────────────────────────────────────────────────────────────
