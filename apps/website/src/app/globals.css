@@ -1893,3 +1893,28 @@ main {
     display: none !important;
   }
 }
+
+.enterprise-route-hero__slogans {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  max-width: 44rem;
+}
+
+.enterprise-route-hero__slogans strong,
+.enterprise-route-hero__slogans span {
+  display: block;
+  font-family: var(--font-mendl-sans), sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.enterprise-route-hero__slogans strong {
+  color: var(--mh-tan, #c39a6b);
+  font-size: 0.9rem;
+}
+
+.enterprise-route-hero__slogans span {
+  color: rgb(255 255 255 / 78%);
+  font-size: 0.75rem;
+}
