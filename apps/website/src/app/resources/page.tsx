@@ -87,7 +87,7 @@ export default async function ResourcesPage() {
   const publicManuals = manuals.filter((doc) => publicManualIds.has(doc.id));
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName="resources" />
       <StructuredData data={breadcrumbSchema} />
 
@@ -552,6 +552,6 @@ export default async function ResourcesPage() {
           <NextStepsSection />
         </div>
       </div>
-    </>
+    </div>
   );
 }
