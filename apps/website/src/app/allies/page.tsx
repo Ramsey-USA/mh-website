@@ -555,7 +555,7 @@ export default async function AlliesPage() {
   const t = await getTranslations({ locale });
 
   return (
-    <div className="relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="enterprise-controlled-surface relative min-h-screen bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <PageTrackingClient pageName="Allies" />
       <StructuredData data={breadcrumbSchema} />
 
