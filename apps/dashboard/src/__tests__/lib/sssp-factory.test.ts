@@ -40,7 +40,7 @@ describe("private SSSP factory queue", () => {
     process.env = originalEnvironment;
   });
 
-  it("fails closed while the operational activation gate is disabled", async () => {
+  it("fails closed when activation is disabled", async () => {
     process.env["SSSP_FACTORY_ACTIVATED"] = "false";
     const { isSsspFactoryConfigured } = await import(
       "@/lib/safety/sssp-factory",
