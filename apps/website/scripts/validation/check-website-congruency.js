@@ -260,17 +260,23 @@ function checkTypographyContracts(errors) {
   const layoutSource = fs.readFileSync(ROOT_LAYOUT_FILE, "utf8");
   const globalsSource = fs.readFileSync(GLOBALS_CSS_FILE, "utf8");
 
-  const hasLegacyTypekit = layoutSource.includes(
-    "https://use.typekit.net/jqs8bjh.css",
-  );
-  const hasSelfHostedMendlContract =
-    globalsSource.includes("@font-face") &&
-    globalsSource.includes("mendl-sans-dusk") &&
+  const hasAdobeHostedMendlContract =
+    layoutSource.includes("ADOBE_FONTS_PROJECT.stylesheet") &&
+    layoutSource.includes('rel="stylesheet"') &&
     globalsSource.includes("mendl-sans-dusk");
 
-  if (!hasLegacyTypekit && !hasSelfHostedMendlContract) {
+  if (!hasAdobeHostedMendlContract) {
     errors.push(
-      `Typography contract missing in ${rel(ROOT_LAYOUT_FILE)} / ${rel(GLOBALS_CSS_FILE)}: expected legacy Typekit link or self-hosted Mendl @font-face stack.`,
+      `Typography contract missing in ${rel(ROOT_LAYOUT_FILE)} / ${rel(GLOBALS_CSS_FILE)}: expected governed Adobe Fonts Mendl Sans Dusk stylesheet integration.`,
+    );
+  }
+
+  if (
+    globalsSource.includes("@font-face") ||
+    globalsSource.includes("fonnts.com-")
+  ) {
+    errors.push(
+      `Typography contract violation in ${rel(GLOBALS_CSS_FILE)}: public self-hosted Mendl sources are prohibited.`,
     );
   }
 

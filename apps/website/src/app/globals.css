@@ -1,7 +1,8 @@
 /* ============================================
    MH BRAND FONTS
-  Heading / Subheading: Mendl Sans Dusk (self-hosted)
-  Body: Mendl Sans Dusk (self-hosted)
+   Website typography: Mendl Sans Dusk via Adobe Fonts project xqd0lnq
+   CSS family contract: "mendl-sans-dusk"
+   Offline document typography remains under the private factory license path.
    ============================================ */
 
 /* Import CSS variables from shared design system */
@@ -13,17 +14,6 @@
 /* Tailwind CSS v4 — point to legacy JS config for theme/plugins */
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
-
-/* Mendl Sans Dusk OTF variants are loaded via next/font/local in src/lib/fonts.ts.
-   Keep a minimal self-hosted @font-face contract for fallback and validation guards. */
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Light.otf")
-    format("opentype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Enterprise public-site system. The visual language uses construction-document
    precision, controlled contrast, and the MH Bible palette. */
@@ -585,60 +575,6 @@
   .enterprise-project-card__image {
     transition: none;
   }
-}
-
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
-    format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Medium.otf")
-    format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
-    format("opentype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_XBold.otf")
-    format("opentype");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Black.otf")
-    format("opentype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "mendl-sans-dusk";
-  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf")
-    format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
 }
 
 /* Material Icons font setup */

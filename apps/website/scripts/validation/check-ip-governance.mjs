@@ -85,6 +85,43 @@ if (!Array.isArray(register.licensedAssets)) {
   failures.push("IP register: licensedAssets ledger must be an array");
 }
 
+const adobeWebFont = register.licensedAssets?.find(
+  (asset) => asset.id === "adobe-fonts-mendl-sans-dusk-web",
+);
+if (
+  adobeWebFont?.projectId !== "xqd0lnq" ||
+  adobeWebFont?.stylesheet !== "https://use.typekit.net/xqd0lnq.css" ||
+  adobeWebFont?.fontDisplay !== "swap"
+) {
+  failures.push("IP register: Adobe Mendl web project record is incomplete");
+}
+
+const fontConfig = readFileSync(resolve(appRoot, "src/lib/fonts.ts"), "utf8");
+for (const contract of [
+  'id: "xqd0lnq"',
+  'stylesheet: "https://use.typekit.net/xqd0lnq.css"',
+  'family: "mendl-sans-dusk"',
+  'fontDisplay: "swap"',
+]) {
+  if (!fontConfig.includes(contract)) {
+    failures.push(`Font config: missing Adobe contract ${contract}`);
+  }
+}
+
+const rootLayout = readFileSync(resolve(appRoot, "src/app/layout.tsx"), "utf8");
+if (
+  !rootLayout.includes(
+    '<link rel="stylesheet" href={ADOBE_FONTS_PROJECT.stylesheet}',
+  )
+) {
+  failures.push("Root layout: Adobe Fonts stylesheet is not integrated");
+}
+
+const globalCss = readFileSync(resolve(appRoot, "src/app/globals.css"), "utf8");
+if (globalCss.includes("fonnts.com-") || globalCss.includes("@font-face")) {
+  failures.push("Global CSS: public self-hosted Mendl source is prohibited");
+}
+
 const quoteLibrary = readFileSync(quoteLibraryPath, "utf8");
 for (const contract of [
   "Status: Legacy-use freeze; written speaker approval and ownership record pending",

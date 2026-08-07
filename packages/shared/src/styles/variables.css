@@ -62,19 +62,13 @@
 
   /* ============================================
      MH BRAND TYPOGRAPHY - Font Families
-     Heading / Subheading: Mendl Sans Dusk (self-hosted)
-     Body: Mendl Sans Dusk (self-hosted)
-     Fallbacks: Mendl family variants, then generic sans-serif
+     Website: Mendl Sans Dusk via Adobe Fonts project xqd0lnq
+     Offline documents: licensed local Mendl source managed separately
+     Fallback: generic sans-serif when Adobe hosting is unavailable
      ============================================ */
-  --font-heading:
-    var(--font-mendl-bold, "Mendl Sans Dusk Bold"), "mendl-sans-dusk",
-    "Mendl Sans Dusk", sans-serif;
-  --font-subheading:
-    var(--font-mendl-medium, "Mendl Sans Dusk Medium"), "mendl-sans-dusk",
-    "Mendl Sans Dusk", sans-serif;
-  --font-body:
-    var(--font-mendl-regular, "Mendl Sans Dusk Regular"), "mendl-sans-dusk",
-    "Mendl Sans Dusk", sans-serif;
+  --font-heading: "mendl-sans-dusk", sans-serif;
+  --font-subheading: "mendl-sans-dusk", sans-serif;
+  --font-body: "mendl-sans-dusk", sans-serif;
   --line-height-mh-heading: 1.08;
   --line-height-mh-subheading: 1.2;
   --tracking-mh-heading: 0.0125em;

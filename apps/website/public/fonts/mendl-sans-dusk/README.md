@@ -1,19 +1,17 @@
 # Mendl Sans Dusk Font Loading
 
-Website typography currently loads directly from OTF files in:
+The public website loads Mendl Sans Dusk from Adobe Fonts Web Project `xqd0lnq`, named **MH Construction Production Website**.
 
-- `/public/fonts/Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf`
-- `/public/fonts/Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Medium.otf`
-- `/public/fonts/Mendl Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf`
+Production web contract:
 
-These are wired through `next/font/local` in `apps/website/src/lib/fonts.ts`.
+- stylesheet: `https://use.typekit.net/xqd0lnq.css`
+- family: `mendl-sans-dusk`
+- active styles: Regular 400 and Bold 700
+- font display: `swap`
+- foundry: Dalton Maag
+- custodian: Matt Ramsey, CHENG
+- fallback: generic `sans-serif`
 
-Variant mapping:
+The OTF files under `/public/fonts/Mendl Fonts/` are not a website source and must not be referenced by public CSS, Next.js font loaders, or browser assets. They remain temporarily isolated for the offline PDF factory until the document-font license and private storage path are reconciled.
 
-- Light (300): supporting/descriptive copy
-- Regular (400): body
-- Medium (500): subheadings
-- SemiBold (600): UI labels, compact nav text
-- Bold (700): headings
-- XBold (800): display emphasis
-- Black (900): hero-impact headlines
+Do not upload Adobe-hosted web-font files, copy Typekit font binaries, or replace the Adobe stylesheet with self-hosting unless MHC obtains a separate license from Dalton Maag.
