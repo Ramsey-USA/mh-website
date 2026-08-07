@@ -237,6 +237,41 @@
   border-left: 1px solid rgba(18, 35, 27, 0.15);
 }
 
+/* Controlled Phase 2 route surfaces neutralize inherited promotional
+   geometry without disturbing route behavior or content contracts. */
+.enterprise-controlled-surface
+  :where(.rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl) {
+  border-radius: 0 !important;
+}
+
+.enterprise-controlled-surface :where([class*="shadow-"]) {
+  box-shadow: none !important;
+}
+
+.enterprise-controlled-surface
+  :where([class*="bg-linear-to"]:not(.bg-clip-text)) {
+  background-color: var(--color-brand-primary) !important;
+  background-image: none !important;
+}
+
+.enterprise-controlled-surface
+  :where([class*="bg-linear-to"][class*="from-brand-secondary"]) {
+  background-color: var(--color-brand-secondary) !important;
+}
+
+.enterprise-controlled-surface
+  :where([class*="bg-linear-to"][class*="from-slate"]) {
+  background-color: #475569 !important;
+}
+
+.enterprise-controlled-surface .bg-clip-text {
+  background-image: none !important;
+  background-clip: initial !important;
+  color: inherit !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
 .enterprise-proof-item:last-child {
   border-right: 1px solid rgba(18, 35, 27, 0.15);
 }
