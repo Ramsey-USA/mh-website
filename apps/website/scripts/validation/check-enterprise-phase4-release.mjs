@@ -13,7 +13,7 @@ const ciWorkflow = readFileSync(
 const failures = [];
 
 const requiredScripts = [
-  "enterprise:phase2:check",
+  "enterprise:phase2:check",\n  "ip:governance:check",
   "report:spanish:coverage",
   "congruency:locale:check",
   "verify:route-integrity",
@@ -38,7 +38,7 @@ for (const script of requiredScripts) {
 }
 
 const requiredWorkflowCommands = [
-  "npm run enterprise:release:check",
+  "npm run enterprise:release:check",\n  "npm run ip:governance:check",
   "npm run type-check",
   "npm run lint",
   "npm run seo:routes:sync:check",
