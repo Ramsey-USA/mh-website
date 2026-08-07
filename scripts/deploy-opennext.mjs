@@ -633,7 +633,12 @@ if (buildCurrent) {
   });
 }
 
-run("npm", ["run", "check:hero-commercials"]);
+const appPackage = JSON.parse(
+  readFileSync(join(appRoot, "package.json"), "utf8"),
+);
+if (appPackage.scripts?.["check:hero-commercials"]) {
+  run("npm", ["run", "check:hero-commercials"]);
+}
 
 validateHeadersConfig();
 runPreflightChecks();
