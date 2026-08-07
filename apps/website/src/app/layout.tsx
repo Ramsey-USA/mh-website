@@ -29,7 +29,7 @@ import { getServerLocale } from "@/lib/i18n/locale.server";
 import { getMessages } from "next-intl/server";
 import { getAllJeremyRibbons } from "@/lib/content/jeremy-ribbons";
 import { getIndividualBrandingStamp } from "@/lib/content/individual-branding-stamps";
-import { mendlFontVariableClasses } from "@/lib/fonts";
+import { ADOBE_FONTS_PROJECT } from "@/lib/fonts";
 import { getApprovedClaimOrFallback } from "@/lib/content/claims";
 
 const veteranOwnedClaim = getApprovedClaimOrFallback({
@@ -288,10 +288,13 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={["dark", mendlFontVariableClasses].filter(Boolean).join(" ")}
+      className="dark"
       suppressHydrationWarning
     >
       <head>
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />
+        <link rel="preconnect" href="https://p.typekit.net" crossOrigin="" />
+        <link rel="stylesheet" href={ADOBE_FONTS_PROJECT.stylesheet} />
         <FaviconLinks />
         <Script
           id="set-theme-before-hydration"
