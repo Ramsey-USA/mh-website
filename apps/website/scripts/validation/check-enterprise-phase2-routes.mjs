@@ -21,6 +21,19 @@ const controlledBelowFoldSurfaces = [
   "src/app/veterans/page.tsx",
   "src/app/contact/ContactPageClient.tsx",
 ];
+const controlledResourceAndCommunitySurfaces = [
+  "src/app/safety/page.tsx",
+  "src/app/resources/page.tsx",
+  "src/app/employee-handbook/page.tsx",
+  "src/app/resources/terminology/page.tsx",
+  "src/app/events/page.tsx",
+  "src/app/careers/CareersPageClient.tsx",
+  "src/app/allies/page.tsx",
+  "src/app/news/page.tsx",
+  "src/app/testimonials/page.tsx",
+  "src/app/locations/page.tsx",
+  "src/app/faq/page.tsx",
+];
 const failures = [];
 
 for (const route of routes) {
@@ -34,6 +47,13 @@ for (const route of controlledBelowFoldSurfaces) {
   const source = readFileSync(resolve(root, route), "utf8");
   if (!source.includes("enterprise-controlled-surface")) {
     failures.push(`${route}: missing enterprise-controlled-surface`);
+  }
+}
+
+for (const route of controlledResourceAndCommunitySurfaces) {
+  const source = readFileSync(resolve(root, route), "utf8");
+  if (!source.includes("enterprise-controlled-surface")) {
+    failures.push(`${route}: missing Phase 3 controlled surface`);
   }
 }
 
@@ -73,4 +93,9 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Phase 2 enterprise route gate passed (${routes.length} routes).`);
+console.log(
+  `Enterprise route gate passed (${routes.length} heroes, ${
+    controlledBelowFoldSurfaces.length +
+    controlledResourceAndCommunitySurfaces.length
+  } controlled surfaces).`,
+);

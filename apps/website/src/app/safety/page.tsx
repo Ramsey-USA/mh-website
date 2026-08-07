@@ -406,7 +406,7 @@ export default async function SafetyPage() {
     },
   );
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName="Safety Program" />
       <StructuredData
         data={[breadcrumbSchema, safetySchema, safetyFaqSchema]}
@@ -874,6 +874,6 @@ export default async function SafetyPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

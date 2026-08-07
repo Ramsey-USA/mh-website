@@ -126,12 +126,12 @@ export default async function EventsPage() {
   };
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <StructuredData
         data={generateBreadcrumbSchema(breadcrumbPatterns.events)}
       />
       <StructuredData data={localizedCollectionSchema} />
       <EventsLandingPageClient locale={isEs ? "es" : "en"} />
-    </>
+    </div>
   );
 }

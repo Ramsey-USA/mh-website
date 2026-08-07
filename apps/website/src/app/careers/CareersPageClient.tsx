@@ -136,7 +136,7 @@ export default function CareersPageClient({
   );
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       {/* SEO Meta Tags */}
 
       <div className="relative min-h-screen overflow-hidden bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -1379,6 +1379,6 @@ export default function CareersPageClient({
           entryPoint={applicationEntryPoint}
         />
       </div>
-    </>
+    </div>
   );
 }

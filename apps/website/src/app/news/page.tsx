@@ -57,7 +57,7 @@ export default async function NewsPage() {
   const newsSchemas = generateNewsInsightsSchemas(content.cards, SITE_URL);
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName="News and Insights" />
       <StructuredData
         data={generateBreadcrumbSchema([
@@ -137,6 +137,6 @@ export default async function NewsPage() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }

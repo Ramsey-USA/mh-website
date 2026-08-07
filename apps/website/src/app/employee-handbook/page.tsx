@@ -57,7 +57,7 @@ export default async function EmployeeHandbookPage() {
   const siteUrl = COMPANY_INFO.urls.getSiteUrl();
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName="employee-handbook" />
       <StructuredData
         data={generateBreadcrumbSchema(
@@ -329,6 +329,6 @@ export default async function EmployeeHandbookPage() {
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 # Enterprise Website Overhaul: Phase 1 Control Plan
 
-Status: Draft, Phase 2 complete; Phase 3 in progress
+Status: Draft, Phase 3 complete; Phase 4 in progress
 Authority: MH Ecosystem  
 Editorial control: Matt Ramsey, Chief Editor  
 Final approval: Jeremy Thamert, Owner and CEO
@@ -93,6 +93,13 @@ Phase 2 controlled slice 6 and closeout:
 - Rebuild Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ.
 - Apply one controlled-document status pattern to every public download.
 - Consolidate duplicate event and safety entry routes without breaking existing URLs.
+
+Phase 3 controlled surface closeout:
+
+- Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ now operate inside the governed square-geometry and solid-field surface contract.
+- Existing route behavior, localization, analytics, structured data, public-document access controls, event records, and conversion paths remain intact.
+- The enterprise route gate now prevents all eleven public resource and community routes from returning to uncontrolled promotional geometry.
+- Public downloads remain subject to the existing controlled-document architecture, publication-class, revision, and redirect safeguards.
 
 ### Phase 4: optimization and release
 

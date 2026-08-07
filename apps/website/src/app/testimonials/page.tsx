@@ -492,7 +492,7 @@ export default async function TestimonialsPage(props?: {
   }
 
   return (
-    <>
+    <div className="enterprise-controlled-surface">
       <PageTrackingClient pageName="Testimonials" />
       <StructuredData data={breadcrumbSchema} />
       {verifiedReviewSchemas.map((schema, index) => (
@@ -575,6 +575,6 @@ export default async function TestimonialsPage(props?: {
           </div>
         </StripedBackground>
       </main>
-    </>
+    </div>
   );
 }
