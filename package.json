@@ -1,7 +1,7 @@
 {
   "name": "mh-monorepo",
   "version": "7.1.0",
-  "description": "MH Construction monorepo — public website",
+  "description": "MH Construction monorepo â€” public website",
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @mhc/website dev",
@@ -60,6 +60,8 @@
     "terminology:guardrails:check": "pnpm --filter @mhc/website terminology:guardrails:check",
     "ecosystem:authority:check": "node scripts/validation/check-mh-ecosystem-authority.mjs",
     "ecosystem:phase0:check": "node scripts/validation/check-ecosystem-phase0-reconciliation.mjs",
+    "ecosystem:factory-manifest": "node scripts/documents/build-factory-intake-manifest.mjs",
+    "ecosystem:factory-manifest:check": "node scripts/documents/build-factory-intake-manifest.mjs --check",
     "docs:audit:mish-overrun": "pnpm --filter @mhc/website docs:audit:mish-overrun",
     "docs:extract-word": "node documents/scripts/extract-word.mjs",
     "reviews:outreach:generate": "node scripts/marketing/generate-review-outreach.mjs",
@@ -147,3 +149,4 @@
     ]
   }
 }
+
