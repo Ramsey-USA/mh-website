@@ -1,5 +1,6 @@
 packages:
   - "apps/website"
+  - "apps/dashboard"
   - "packages/*"
 overrides:
   postcss: 8.5.25
@@ -75,18 +76,18 @@ minimumReleaseAgeExclude:
   - "@next/swc-linux-x64-musl@16.2.11"
   - "@next/swc-win32-arm64-msvc@16.2.11"
   - "@next/swc-win32-x64-msvc@16.2.11"
-  - "baseline-browser-mapping@2.11.0"
-  - "browserslist@4.28.7"
-  - "electron-to-chromium@1.5.394"
-  - "eslint-config-next@16.2.11"
-  - "icu-minify@4.13.3"
-  - "next-intl-swc-plugin-extractor@4.13.3"
-  - "next-intl@4.13.3"
-  - "next@16.2.11"
-  - "prettier@3.9.6"
-  - "react-dom@19.2.8"
-  - "react-is@19.2.8"
-  - "react@19.2.8"
-  - "resend@6.18.0"
-  - "update-browserslist-db@1.2.3"
-  - "use-intl@4.13.3"
+  - baseline-browser-mapping@2.11.0
+  - browserslist@4.28.7
+  - electron-to-chromium@1.5.394
+  - eslint-config-next@16.2.11
+  - icu-minify@4.13.3
+  - next-intl-swc-plugin-extractor@4.13.3
+  - next-intl@4.13.3
+  - next@16.2.11
+  - prettier@3.9.6
+  - react-dom@19.2.8
+  - react-is@19.2.8
+  - react@19.2.8
+  - resend@6.18.0
+  - update-browserslist-db@1.2.3
+  - use-intl@4.13.3
