@@ -166,10 +166,12 @@ The four-value foundation system, in hierarchical order:
 
 ### Font System
 
-Web brand fonts use a self-hosted Mendl Sans Dusk model for both heading/display and body/running text, loaded from `/public/fonts/Mendl Fonts/`.
+Web brand typography uses Adobe-hosted Mendl Sans Dusk through Web Project `xqd0lnq` (**MH Construction Production Website**). The approved website family is `mendl-sans-dusk`; the required fallback is generic `sans-serif`.
 
-- **Heading / Subheading**: Mendl Sans Dusk (fallback `Mendl Sans Dusk, Roboto, sans-serif`)
-- **Body**: Mendl Sans Dusk (fallback `Mendl Sans Dusk, Roboto, sans-serif`)
+- **Heading / Subheading**: Mendl Sans Dusk Bold 700
+- **Body**: Mendl Sans Dusk Regular 400
+- **Hosting**: Adobe Fonts at `https://use.typekit.net/xqd0lnq.css`
+- **Continuity**: retain readable generic fallbacks if Adobe hosting is unavailable
 
 ### Usage Rules
 
@@ -181,20 +183,16 @@ Web brand fonts use a self-hosted Mendl Sans Dusk model for both heading/display
 ### CSS Variables
 
 ```css
---font-heading: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
---font-body: "mendl-sans-dusk", "Mendl Sans Dusk", Roboto, sans-serif;
+--font-heading: "mendl-sans-dusk", sans-serif;
+--font-body: "mendl-sans-dusk", sans-serif;
 ```
 
 ### Dusk Weight Utilization
 
-- **300 (Light):** supporting descriptions and low-emphasis helper copy
-- **400 (Regular):** default body copy and long-form readability
-- **500 (Medium):** UI labels, metadata, and secondary emphasis
-- **600 (SemiBold):** subheadings, section labels, and navigation emphasis
-- **700 (Bold):** card titles, strong calls-to-action, and highlight lines
-- **900 (Black):** hero headlines and primary section anchors
+- **400 (Regular):** body copy, supporting descriptions, metadata, captions, and form labels
+- **700 (Bold):** headings, navigation emphasis, card titles, calls to action, and hero headlines
 
-This weight map keeps one family while preserving clear visual hierarchy and scanability.
+Only the licensed 400 and 700 web styles are loaded. Components may request intermediate or heavier numeric weights, but the browser will resolve them to the nearest available licensed style. Add another weight to the Adobe project and the licensed-asset register before depending on it for a distinct visual role.
 
 ### Tailwind Utilities
 
