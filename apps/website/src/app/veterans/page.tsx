@@ -136,7 +136,7 @@ export default async function VeteransPage() {
   ];
 
   return (
-    <div className="relative min-h-screen">
+    <div className="enterprise-controlled-surface relative min-h-screen">
       <PageTrackingClient pageName="Veterans" />
       <StructuredData data={breadcrumbSchema} />
       <EnterpriseRouteHero
