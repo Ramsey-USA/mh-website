@@ -7,3 +7,5 @@ apps/website/public/images/qr-codes/README.md
 .github/agents/**
 documents/content/mh-ecosystem/governance/build-architecture-decoupling-2026-08-08/MH-*
 documents/content/mh-ecosystem/governance/build-architecture-decoupling-2026-08-08/SHA256SUMS.txt
+documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08/MH-*.md
+documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08/mh-ecosystem-*.md
