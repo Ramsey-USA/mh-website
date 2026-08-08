@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "packageName": "MH Ecosystem Native Rebuild Schema 2.2 TBT Integrated",
+  "receivedDate": "2026-08-08",
+  "sourceArchive": "mh-ecosystem-native-rebuild-schema-2-2-tbt-integrated-2026-08-08.zip",
+  "sourceArchiveSha256": "7d2fc0656603853ae17b7dae6f4c92c6aa5282691d71ff70a18bd8dacda8985d",
+  "sourceArchiveBytes": 104551880,
+  "repositoryPath": "documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08",
+  "lifecycleStatus": "DRAFT",
+  "controlStatus": "NOT_CONTROLLED",
+  "implementationStatus": "metadata-and-validation-authority",
+  "schemaVersionReceived": "2.2-development",
+  "totals": {
+    "baselinePairs": 205,
+    "totalPairs": 346,
+    "tbtPairs": 223,
+    "newOriginalTbtPairs": 141,
+    "binderPages": 1271,
+    "numberedPackages": 10
+  },
+  "binaries": {
+    "repositoryStorage": "excluded-private-factory-custody",
+    "archiveStoredOnInHouseServer": true,
+    "packageZips": 10,
+    "binderPdfs": 2
+  },
+  "safeguards": {
+    "sourceTaxonomyChanged": false,
+    "permanentIdsFabricated": 0,
+    "resolverRoutesDeployed": 0,
+    "documentsIssued": 0,
+    "documentsSuperseded": 0,
+    "publisherTextCopied": false,
+    "signatureBlocksInNewTbts": 0
+  },
+  "publication": {
+    "publicReleaseAllowed": false,
+    "reason": "The complete package remains Draft and includes internal controlled content. Website integration is metadata and validation only."
+  },
+  "authority": {
+    "authorAndChiefEditor": "Matt Ramsey",
+    "coEditor": "Todd Shoeff",
+    "finalApprover": "Jeremy Thamert",
+    "approvalState": "pending COO concurrence and CEO final approval"
+  }
+}
