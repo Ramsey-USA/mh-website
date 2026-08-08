@@ -73,6 +73,36 @@
         "R2 document authorization",
         "document-factory PDF and QR custody boundary"
       ]
+    },
+    "documentBuildArchitecture": {
+      "status": "integrated-draft-validation-only",
+      "receivedDate": "2026-08-08",
+      "sourceArchive": "mh-build-architecture-decoupling-hardening-2026-08-08.zip",
+      "sourceArchiveSha256": "d4c235e97c5d80aa42f0a621e908461bf4ffd5c0c4e4b813c75effac5d6819a3",
+      "integrationManifest": "documents/content/mh-ecosystem/governance/build-architecture-decoupling-2026-08-08/integration-manifest.json",
+      "schemaVersion": "2.2-development",
+      "previousSchemaVersion": "2.1-development",
+      "compatibilityImpact": "additive-with-deprecated-alias",
+      "implementationStatus": "validation-only",
+      "fixedBatchCount": false,
+      "identityIndependentFromBuildTopology": true,
+      "packageMembershipIndependentFromCanonicalSource": true,
+      "currentBuildReferenceAuthority": "Enterprise Document Register",
+      "executionHistoryAuthority": "Build Manifests and audit history",
+      "qrControlMode": "ENFORCED_FAIL_CLOSED",
+      "productionResolverRoutesApproved": false,
+      "productionResolverRoutesDeployed": false,
+      "managementDecision": "A-QR-001",
+      "managementDecisionStatus": "pending-management-approval",
+      "publicReleaseStatus": "blocked-while-draft",
+      "inventory": {
+        "governedRecords": 193,
+        "establishedDocumentIds": 64,
+        "notEstablishedDocumentIds": 129,
+        "qrTargetsReady": 0,
+        "resolversReady": 0,
+        "qrHardBlockers": 159
+      }
     }
   },
   "enterprisePosition": [
@@ -97,17 +127,27 @@
     "CHNAV": {
       "title": "Chief Navigation Officer",
       "publicLabel": "Chief Navigation Officer (CHNAV)",
-      "accountability": ["Sales", "Estimating", "Preconstruction", "BidPilot"]
+      "accountability": [
+        "Sales",
+        "Estimating",
+        "Preconstruction",
+        "BidPilot"
+      ]
     },
     "COO": {
       "title": "Chief Operating Officer",
       "publicLabel": "Chief Operating Officer (COO)",
-      "accountability": ["Operations", "Executive direction of CHENG and CHNAV"]
+      "accountability": [
+        "Operations",
+        "Executive direction of CHENG and CHNAV"
+      ]
     },
     "CEO": {
       "title": "Chief Executive Officer",
       "publicLabel": "Chief Executive Officer (CEO)",
-      "accountability": ["Final executive authority"]
+      "accountability": [
+        "Final executive authority"
+      ]
     }
   },
   "systems": {
@@ -127,7 +167,10 @@
       "scope": "Project execution and construction records",
       "publicStatus": "operational"
     },
-    "sage100": { "scope": "Financial records", "publicStatus": "operational" },
+    "sage100": {
+      "scope": "Financial records",
+      "publicStatus": "operational"
+    },
     "inHouseServer": {
       "scope": "Approved digital archive",
       "publicStatus": "operational"
