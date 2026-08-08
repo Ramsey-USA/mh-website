@@ -11,15 +11,15 @@ The governed source taxonomy, enterprise document identity, build topology, publ
 
 ## Authoritative Boundaries
 
-| Control subject | Authoritative record |
-| ------------------------------ | --------------------------------------- |
-| Current document control state | Enterprise Document Register |
-| Governed editable content | Canonical governed source |
-| Current build reference | Enterprise Document Register |
-| Full execution history | Build Manifests and audit history |
-| Approved generated artifact | Release manifest and immutable R2 object |
-| Stable destination | Approved resolver registry |
-| QR rendering and proof | Private Document Factory QA evidence |
+| Control subject                | Authoritative record                     |
+| ------------------------------ | ---------------------------------------- |
+| Current document control state | Enterprise Document Register             |
+| Governed editable content      | Canonical governed source                |
+| Current build reference        | Enterprise Document Register             |
+| Full execution history         | Build Manifests and audit history        |
+| Approved generated artifact    | Release manifest and immutable R2 object |
+| Stable destination             | Approved resolver registry               |
+| QR rendering and proof         | Private Document Factory QA evidence     |
 
 The Enterprise Document Register records only the current or last verified build ID, build unit, build date, generator version, generated-artifact hash, Build Manifest reference, and QA status. Build Manifests define the processing units used for that execution and retain full build history.
 
@@ -56,3 +56,4 @@ Those issues are recorded in the integration manifest and require controlled edi
 ## CI Enforcement
 
 The repository guard verifies package checksums, the 193-record inventory, topology-neutral schema controls, deprecated aliases, Draft lifecycle state, QR readiness counts, the pending management decision, and the absence of retired website QR generation routes. Any drift blocks the website pipeline.
+
