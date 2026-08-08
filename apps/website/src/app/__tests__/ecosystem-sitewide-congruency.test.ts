@@ -34,14 +34,10 @@ function collectFiles(root: string, fileName: string): string[] {
 
 describe("MH Ecosystem sitewide congruency", () => {
   const ecosystem = JSON.parse(fs.readFileSync(ecosystemPath, "utf8"));
-  const documentsRegistry = read(
-    "apps/website/src/lib/data/documents.ts",
-  );
+  const documentsRegistry = read("apps/website/src/lib/data/documents.ts");
   const docsRoute = read("apps/website/src/app/docs/[...path]/route.ts");
   const resourcesPage = read("apps/website/src/app/resources/page.tsx");
-  const handbookPage = read(
-    "apps/website/src/app/employee-handbook/page.tsx",
-  );
+  const handbookPage = read("apps/website/src/app/employee-handbook/page.tsx");
   const mishContentsPage = read(
     "apps/website/src/app/resources/safety-manual/contents/page.tsx",
   );
@@ -69,9 +65,7 @@ describe("MH Ecosystem sitewide congruency", () => {
     expect(handbookPage).toContain(
       "isEcosystemPublicReleaseEnabled && manual?.pdfPath",
     );
-    expect(mishContentsPage).toContain(
-      "isEcosystemPublicReleaseEnabled &&",
-    );
+    expect(mishContentsPage).toContain("isEcosystemPublicReleaseEnabled &&");
   });
 
   it("keeps internal manuals out of the public-manual route set", () => {
