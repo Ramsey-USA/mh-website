@@ -14,9 +14,9 @@ import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { ResourcesHero } from "@/components/resources/ResourcesHero";
 import {
-  manuals,
   forms,
   isEcosystemPublicReleaseEnabled,
+  manuals,
 } from "@/lib/data/documents";
 import {
   formatDualPageName,
