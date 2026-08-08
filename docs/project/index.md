@@ -58,6 +58,7 @@ Use [Core Doctrine Canonical Map](../manuals/core-doctrine-canonical-map.md) and
 ### Active Sitewide Phases
 
 - **[Sitewide Accessibility Phase (August 2026)](./sitewide-accessibility-phase-2026-08.md)** — Shared-shell keyboard bypass control, route-wide coverage, and release gates.
+- **[Ecosystem Sitewide Congruency Phase (August 2026)](./ecosystem-sitewide-congruency-phase-2026-08.md)** — Draft lifecycle enforcement, controlled public indexes, R2 authorization, and document-factory boundaries.
 
 ### Audits
 
