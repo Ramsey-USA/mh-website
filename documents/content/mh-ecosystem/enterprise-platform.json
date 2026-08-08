@@ -22,7 +22,7 @@
   },
   "websiteIntegration": {
     "plan": "docs/development/enterprise-website-overhaul-phase-1.md",
-    "currentGate": "phase-2-controlled-document-and-resource-integration",
+    "currentGate": "phase-1-authority-pipeline-foundation",
     "phase0Status": "complete",
     "phase0Register": "documents/content/mh-ecosystem/phase-0-reconciliation.json",
     "sealedBaselinePairCount": 193,
