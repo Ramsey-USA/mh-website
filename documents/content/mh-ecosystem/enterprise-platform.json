@@ -103,6 +103,35 @@
         "resolversReady": 0,
         "qrHardBlockers": 159
       }
+    },
+    "nativeRebuildSchema22TbtIntegrated": {
+      "status": "integrated-draft-validation-only",
+      "receivedDate": "2026-08-08",
+      "sourceArchive": "mh-ecosystem-native-rebuild-schema-2-2-tbt-integrated-2026-08-08.zip",
+      "sourceArchiveSha256": "7d2fc0656603853ae17b7dae6f4c92c6aa5282691d71ff70a18bd8dacda8985d",
+      "integrationManifest": "documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08/integration-manifest.json",
+      "schemaVersion": "2.2-development",
+      "lifecycleStatus": "DRAFT",
+      "controlStatus": "NOT_CONTROLLED",
+      "binaryCustody": "private-document-factory-and-in-house-server",
+      "repositoryIntegration": "metadata-and-validation-authority",
+      "inventory": {
+        "baselinePairs": 205,
+        "totalPairs": 346,
+        "tbtPairs": 223,
+        "newOriginalTbtPairs": 141,
+        "binderPages": 1271,
+        "numberedPackages": 10
+      },
+      "safeguards": {
+        "sourceTaxonomyChanged": false,
+        "permanentIdsFabricated": 0,
+        "resolverRoutesDeployed": 0,
+        "documentsIssued": 0,
+        "documentsSuperseded": 0,
+        "publisherTextCopied": false,
+        "signatureBlocksInNewTbts": 0
+      }
     }
   },
   "enterprisePosition": [
@@ -127,17 +156,27 @@
     "CHNAV": {
       "title": "Chief Navigation Officer",
       "publicLabel": "Chief Navigation Officer (CHNAV)",
-      "accountability": ["Sales", "Estimating", "Preconstruction", "BidPilot"]
+      "accountability": [
+        "Sales",
+        "Estimating",
+        "Preconstruction",
+        "BidPilot"
+      ]
     },
     "COO": {
       "title": "Chief Operating Officer",
       "publicLabel": "Chief Operating Officer (COO)",
-      "accountability": ["Operations", "Executive direction of CHENG and CHNAV"]
+      "accountability": [
+        "Operations",
+        "Executive direction of CHENG and CHNAV"
+      ]
     },
     "CEO": {
       "title": "Chief Executive Officer",
       "publicLabel": "Chief Executive Officer (CEO)",
-      "accountability": ["Final executive authority"]
+      "accountability": [
+        "Final executive authority"
+      ]
     }
   },
   "systems": {
