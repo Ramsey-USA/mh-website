@@ -65,11 +65,12 @@ Do not scrape member data or create personal dossiers.
 
 ## Four-Week Operating Framework
 
-| Week | Matthew personal posts | MHC companion | Primary destination |
-| --- | --- | --- | --- |
-| 1 | Active-site sequencing; scope handoff discipline | Volm active-site case study | Volm project case study |
-| 2 | Change visibility before field impact; leadership decision thresholds | No forced companion unless supporting proof is approved | Matthew site or MHC FAQ/resource |
-| 3 | Pre-task planning as a production control; superintendent feedback loop | Verified safety-system evidence | MHC safety resource |
-| 4 | Subcontractor coordination and long-lead risk; monthly lessons learned | Procurement and trade partnership capability | MHC procurement service |
+| Week | Matthew personal posts                                                  | MHC companion                                           | Primary destination              |
+| ---- | ----------------------------------------------------------------------- | ------------------------------------------------------- | -------------------------------- |
+| 1    | Active-site sequencing; scope handoff discipline                        | Volm active-site case study                             | Volm project case study          |
+| 2    | Change visibility before field impact; leadership decision thresholds   | No forced companion unless supporting proof is approved | Matthew site or MHC FAQ/resource |
+| 3    | Pre-task planning as a production control; superintendent feedback loop | Verified safety-system evidence                         | MHC safety resource              |
+| 4    | Subcontractor coordination and long-lead risk; monthly lessons learned  | Procurement and trade partnership capability            | MHC procurement service          |
 
 Target two personal posts and one MHC post per week only when the content meets the proof and approval gate. HD content remains selective and topic-driven.
+
