@@ -297,4 +297,3 @@ export default async function SafetyManualContentsPage() {
     </>
   );
 }
-
