@@ -1,296 +1,93 @@
-# Automatic Media Optimization
+# Controlled Media Optimization
 
-**Brand Congruency:** Media filenames, captions, and optimization outputs should preserve MH construction-first naming and approved brand language where visible to users.
+**Status:** Active production control  
+**Authority:** CHENG brand control with repository review and CI validation  
+**Applies to:** `apps/website/public/images/` and `apps/website/public/videos/`
 
-This project automatically optimizes images and videos when they're added to the repository.
+## Control Position
 
-## How It Works
+Media optimization is a reviewed build activity, not a production-side mutation. GitHub Actions must not generate files, commit files, bypass checks, or push directly to `main`.
 
-### GitHub Actions Workflow
+Every optimized asset enters the repository through a pull request and passes the same branding, security, route, build, and deployment gates as source code.
 
-When you push images or videos to `public/images/` or `public/videos/`, a GitHub Action automatically:
+## Asset Classes
 
-1. **Detects** new/modified media files
-2. **Optimizes** them using industry-standard tools
-3. **Commits** the optimized versions back to your branch
-4. **Reports** savings and optimization stats
+### Public Website Media
 
-### Image Optimization
+Photographs, project images, team portraits, social graphics, and videos may be converted or compressed before review. The source owner must verify cropping, legibility, color, licensing, and brand treatment.
 
-**Automatic conversions:**
+### Controlled QR Assets
 
-- PNG/JPG → WebP (40-84% smaller)
-- Progressive JPEGs
-- Metadata stripping
-- Quality optimization (80% default)
+Files under `apps/website/public/images/qr-codes/` are controlled operational artifacts.
 
-**Runtime optimization (Next.js):**
+- Keep the approved PNG or SVG source format.
+- Do not create WebP or AVIF QR derivatives.
+- Do not resize, blur, recolor, or recompress a QR code through the general media optimizer.
+- Validate the encoded redirect, visual quiet zone, contrast, print size, and scan result before release.
+- Route changes belong in the stable redirect pipeline, not inside a regenerated image batch.
 
-- WebP/AVIF format conversion
-- Responsive srcset generation
-- Lazy loading
-- Automatic resizing
+### Document Factory Outputs
 
-### Video Optimization
+Branded PDFs, project SSSPs, binder components, and their QR assets remain under the private incremental document factory. Approved public outputs may be published to R2, but the website repository must not rebuild or rewrite those controlled artifacts.
 
-**Automatic processing:**
+## Repository Workflow
 
-- Converts to WebM (VP9) and MP4 (H.264)
-- Applies category presets by folder (`culture`, `projects`, `testimonials`, `default`)
-- Generates poster images (`poster-{name}.jpg`)
-- Optimizes for web streaming
+The `Validate Images & Videos` workflow runs on media pull requests and by manual dispatch.
 
-**Category presets (current):**
+It enforces:
 
-- **culture**: `1920:-2`, WebM CRF 30, MP4 CRF 23, no audio
-- **projects**: `1920:-2`, WebM CRF 28, MP4 CRF 22, 160k audio (48 kHz stereo)
-- **testimonials**: `1920:-2`, WebM CRF 27, MP4 CRF 21, 160k audio (48 kHz stereo)
-- **hero-commercials**: `1920:-2`, WebM CRF 24, MP4 CRF 20, 160k audio (48 kHz stereo), 25 MB hero budget
-- **default**: `1280:-2`, WebM CRF 29, MP4 CRF 23, 128k audio (48 kHz stereo)
+1. Read-only repository permissions.
+2. No direct commits or pushes to `main`.
+3. No WebP or AVIF files within the controlled QR directory.
+4. A 500 KB budget for ordinary production images.
+5. A 10 MB WebM and 15 MB MP4 budget outside approved hero-commercial exceptions.
+6. Reviewed pull-request entry for every optimization output.
 
-**Hard size budgets:**
+The workflow does not convert assets. Conversion happens before the pull request so reviewers can inspect the exact bytes intended for production.
 
-- WebM <= 10 MB
-- MP4 <= 15 MB
-- Hero commercials are validated separately and may exceed the generic WebM/MP4 budgets as long as they stay within the dedicated hero-commercial guardrails.
+## Local Image Preparation
 
-When existing converted files exceed budget, the optimizer re-packs them automatically.
-
-## Usage
-
-### Adding Media Files
-
-Simply add your files to the appropriate directory:
+Use the website optimizer only for ordinary public media:
 
 ```bash
-# Add images
-cp my-photo.jpg public/images/
-
-# Add videos
-cp my-video.mp4 public/videos/
-
-# Commit and push
-git add public/
-git commit -m "Add new media"
-git push
-```
-
-The GitHub Action will automatically optimize them within minutes.
-
-### Manual Optimization (Optional)
-
-You can also run optimization locally:
-
-```bash
-# Optimize all images
 pnpm --filter @mhc/website run optimize:images
+```
 
-# Optimize all videos
+The optimizer excludes the complete `qr-codes/` directory. Do not remove or weaken that exclusion.
+
+Before opening a pull request:
+
+- confirm the page actually references the optimized format;
+- compare source and output dimensions;
+- verify visual quality at mobile and desktop sizes;
+- remove unused derivatives;
+- preserve copyright, trademark, photographer, and project-use authority;
+- record material asset changes in the pull-request description.
+
+## Local Video Preparation
+
+Use the video optimizer only for approved public video sources:
+
+```bash
 pnpm --filter @mhc/website run optimize:videos
-
-# Force re-process all videos (after preset changes or source replacements)
-pnpm --filter @mhc/website run optimize:videos -- --force
-
-# Audit images for opportunities
-pnpm --filter @mhc/website run audit:images
 ```
 
-### Using Optimized Images
+Verify poster frames, captions where required, duration, audio rights, encoding compatibility, and the production size budget before review.
 
-**With Next.js Image component (recommended):**
+## Fail-Closed Release Rules
 
-```tsx
-import Image from "next/image";
+A media change must stop when:
 
-<Image
-  src="/images/my-photo.jpg" // Automatically optimized
-  alt="Description"
-  width={800}
-  height={600}
-/>;
-```
+- the source or usage rights are unclear;
+- a QR redirect is unverified;
+- the asset exceeds its production budget;
+- the optimized file is not referenced;
+- visual review identifies brand or legibility loss;
+- the change attempts to write around the pull-request pipeline;
+- CI, security, branding, or deployment checks fail.
 
-**With custom ResponsiveImage components:**
+## Operational Record
 
-```tsx
-import { HeroImage } from "@/components/images";
+On 2026-08-07, the former automation produced 469 derivative files and committed them directly to `main` with CI skipped. The release safeguard correction removed that uncontrolled batch, prohibited direct-write optimization, excluded QR assets from general conversion, and restored pull-request authority.
 
-<HeroImage
-  src="/images/hero.jpg"
-  alt="Hero image"
-  priority // LCP optimization
-/>;
-```
-
-### Using Optimized Videos
-
-The workflow creates multiple formats for browser compatibility:
-
-```tsx
-<video controls poster="/videos/poster-my-video.jpg">
-  <source src="/videos/my-video.webm" type="video/webm" />
-  <source src="/videos/my-video.mp4" type="video/mp4" />
-  Your browser doesn't support video playback.
-</video>
-```
-
-## Workflow Triggers
-
-The optimization workflow runs when:
-
-- **Push** to `main` or `develop` branches
-- **Pull Request** with media changes
-- Only triggers for these paths:
-  - `public/images/**`
-  - `public/videos/**`
-
-## Output Locations
-
-Optimized files are saved alongside originals:
-
-```text
-public/
-├── images/
-│   ├── my-photo.jpg          # Original
-│   └── my-photo.webp         # Optimized WebP version
-├── videos/
-│   ├── my-video.mp4          # Optimized MP4
-│   ├── my-video.webm         # WebM version
-│   └── poster-my-video.jpg   # Poster image
-```
-
-## Optimization Reports
-
-After each optimization, the workflow provides:
-
-- **File count**: How many files were optimized
-- **Size savings**: Total bytes saved
-- **Formats created**: WebP, WebM, MP4, posters
-- **GitHub Summary**: Detailed report in Actions tab
-
-## Requirements
-
-### GitHub Actions (automatic)
-
-- ✅ Runs automatically on GitHub
-- ✅ No local setup required
-- ✅ Works for all contributors
-
-### Local Development (optional)
-
-- **Node.js**: 22+ (already required)
-- **sharp**: Installed via npm (images)
-- **FFmpeg**: Required for videos
-
-Install FFmpeg locally:
-
-```bash
-# macOS
-brew install ffmpeg
-
-# Ubuntu/Debian
-sudo apt install ffmpeg
-
-# Windows
-# Download from https://ffmpeg.org/download.html
-```
-
-## Performance Impact
-
-### Images
-
-- **Size reduction**: 40-84% smaller
-- **LCP improvement**: 30-40% faster
-- **Format support**: WebP (96%+ browsers)
-- **Fallback**: Automatic PNG/JPG for old browsers
-
-### Videos
-
-- **Size reduction**: 30-60% smaller
-- **Formats**: WebM + MP4 (100% browser coverage)
-- **Streaming**: Optimized for progressive download
-- **Quality**: Maintains visual fidelity
-
-## Troubleshooting
-
-### Workflow Not Running
-
-Check:
-
-1. Files are in `public/images/` or `public/videos/`
-2. Push is to `main` or `develop` branch
-3. File extensions are supported (png, jpg, mp4, mov, avi, mkv, etc.)
-
-### Optimization Failed
-
-The workflow will:
-
-- Continue on errors (won't block your push)
-- Report failures in GitHub Actions log
-- Skip files that can't be optimized
-
-### Large File Sizes
-
-For very large videos (>100MB):
-
-- Consider hosting on video platforms (YouTube, Vimeo)
-- Use Cloudflare Stream for enterprise video
-- Pre-compress before committing
-
-## CI Configuration
-
-The workflow supports CI flags for silent operation:
-
-```bash
-# Silent mode (no color output)
-pnpm --filter @mhc/website run optimize:images -- --ci
-pnpm --filter @mhc/website run optimize:videos -- --ci
-```
-
-## Skipping Optimization
-
-To skip the workflow for a specific commit:
-
-```bash
-git commit -m "Add media [skip ci]"
-```
-
-## Best Practices
-
-- **Image Sizes**: Keep originals under 5MB when possible.
-- **Video Length**: Keep clips under 2 minutes for best performance.
-- **Format Choice**: Use PNG for logos/icons with transparency.
-- **Format Choice**: Use JPG/JPEG only as source captures when needed, then publish WebP for site delivery.
-- **Format Choice**: For videos, keep source uploads in category folders and run optimizer to produce MP4 + WebM + poster set.
-- **Naming**: Use lowercase kebab-case descriptive names: `hero-homepage.webp` not `img1.jpg`.
-- **Alt Text**: Always provide meaningful alt text for accessibility.
-- **Video Intake**: Use `optimize:videos -- --force` when replacing existing converted files to avoid stale legacy encodes.
-
-### Filename Enforcement
-
-- Pre-commit blocks added/renamed image files that are not lowercase kebab-case.
-- The Copilot branding gate also validates image filename format during agent-assisted edits.
-
-## Monitoring
-
-Track optimization in:
-
-- **GitHub Actions**: Actions tab → "Optimize Images & Videos"
-- **Commit History**: Auto-commits show optimization stats
-- **Build Logs**: pnpm run build shows image optimization
-
-## Future Enhancements
-
-Potential improvements:
-
-- [ ] AVIF format support (even smaller than WebP)
-- [ ] Cloudflare Images integration
-- [ ] AI-powered image compression
-- [ ] Video thumbnail generation with multiple frames
-- [ ] Automatic responsive image variants
-
----
-
-**Status**: ✅ Active  
-**Maintained By**: GitHub Actions (automated)  
-**Last Updated**: 2026-07-16
+That incident remains the control basis for this standard.

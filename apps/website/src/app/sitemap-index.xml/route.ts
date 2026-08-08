@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCanonicalSiteOrigin } from "@/lib/site-config";
 
-export async function GET() {
+export function GET() {
   const origin = getCanonicalSiteOrigin();
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

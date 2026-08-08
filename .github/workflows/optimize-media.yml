@@ -1,172 +1,74 @@
-name: Optimize Images & Videos
+name: Validate Images & Videos
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "apps/website/public/images/**"
-      - "apps/website/public/videos/**"
-    branches:
-      - main
-      - develop
   pull_request:
     paths:
       - "apps/website/public/images/**"
       - "apps/website/public/videos/**"
+      - ".github/workflows/optimize-media.yml"
+      - "apps/website/scripts/optimization/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: media-validation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  optimize:
-    name: Optimize Media Assets
+  validate:
+    name: Validate Controlled Media Assets
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Setup workspace
-        uses: ./.github/actions/setup-workspace
-        with:
-          skip-checkout: "true"
-          fetch-depth: "0"
-          checkout-token: ${{ secrets.GITHUB_TOKEN }}
-          node-version: "22"
-
-      - name: Ensure FFmpeg is available
+      - name: Reject derived QR assets
+        shell: bash
         run: |
-          if ! command -v ffmpeg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y ffmpeg
-          fi
-          ffmpeg -version | head -n 1
-
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v47.0.6
-        with:
-          files: |
-            apps/website/public/images/**/*.{png,jpg,jpeg}
-            apps/website/public/videos/**/*.{mp4,mov,avi,webm}
-
-      - name: Optimize Images
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          echo "🖼️ Optimizing images..."
-          pnpm --filter @mhc/website run optimize:images -- --ci
-          echo "✅ Image optimization complete"
-
-      - name: Optimize Videos
-        if: steps.changed-files.outputs.any_changed == 'true'
-        run: |
-          echo "🎥 Optimizing videos..."
-          pnpm --filter @mhc/website run optimize:videos -- --ci
-          echo "✅ Video optimization complete"
-
-      - name: Check for changes
-        id: verify-changes
-        run: |
-          if [[ -n $(git status --porcelain) ]]; then
-            echo "changes=true" >> $GITHUB_OUTPUT
-            echo "📊 Optimization resulted in changes"
-          else
-            echo "changes=false" >> $GITHUB_OUTPUT
-            echo "ℹ️ No optimization changes needed"
+          DERIVED_QR_ASSETS="$(find apps/website/public/images/qr-codes -type f \
+            \( -name "*.webp" -o -name "*.avif" \) -print 2>/dev/null || true)"
+          if [ -n "$DERIVED_QR_ASSETS" ]; then
+            echo "Derived QR assets are prohibited. QR codes remain controlled PNG/SVG artifacts."
+            echo "$DERIVED_QR_ASSETS"
+            exit 1
           fi
 
-      - name: Commit optimized media
-        if: steps.verify-changes.outputs.changes == 'true' && github.event_name == 'push'
+      - name: Enforce image size budget
+        shell: bash
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-          # Reliably stage generated media files without relying on globstar.
-          find apps/website/public/images apps/website/public/videos \
-            -type f \( -name "*.webp" -o -name "*.avif" -o -name "*.webm" -o -name "*.mp4" -o -name "poster-*.jpg" \) \
-            -print0 | xargs -0r git add --
-
-          # If nothing was staged, avoid failing this step.
-          if git diff --cached --quiet; then
-            echo "ℹ️ No staged optimization artifacts to commit"
-            exit 0
+          OVERSIZED="$(find apps/website/public/images -type f \
+            \( -name "*.webp" -o -name "*.avif" -o -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) \
+            ! -path "apps/website/public/images/qr-codes/*" -size +500k -print 2>/dev/null || true)"
+          if [ -n "$OVERSIZED" ]; then
+            echo "Media assets exceeding the 500 KB production budget:"
+            echo "$OVERSIZED"
+            exit 1
           fi
-
-          # Create detailed commit message
-          OPTIMIZED_COUNT=$(git diff --cached --numstat | wc -l)
-          SAVED_BYTES=$(git diff --cached --stat | tail -1 | grep -oP '\d+ insertion' | grep -oP '\d+' || echo "0")
-
-          git commit --no-verify -m "🤖 Auto-optimize media assets
-
-          Optimized $OPTIMIZED_COUNT files
-          - Images converted to WebP/AVIF
-          - Videos converted to WebM/MP4
-          - Poster images generated
-          - Sizes optimized for web delivery
-
-          Automated by GitHub Actions
-          [skip ci]"
-
-      - name: Push changes
-        if: steps.verify-changes.outputs.changes == 'true' && github.event_name == 'push'
-        uses: ad-m/github-push-action@v1.3.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
 
       - name: Enforce video size budget
+        shell: bash
         run: |
-          echo "📏 Checking video file size budgets (WebM ≤ 10 MB, MP4 ≤ 15 MB)..."
-          OVERSIZED_WEBM=$(find apps/website/public/videos -name "*.webm" ! -path "apps/website/public/videos/hero-commercials/*" -size +10M 2>/dev/null)
-          OVERSIZED_MP4=$(find apps/website/public/videos -name "*.mp4" ! -path "apps/website/public/videos/hero-commercials/*" -size +15M 2>/dev/null)
-          FAIL=false
-          if [ -n "$OVERSIZED_WEBM" ]; then
-            echo "❌ WebM files exceeding the 10 MB limit:"
-            echo "$OVERSIZED_WEBM" | while read f; do
-              SIZE=$(du -sh "$f" | cut -f1)
-              echo "  $SIZE  $f"
-            done
-            FAIL=true
-          fi
-          if [ -n "$OVERSIZED_MP4" ]; then
-            echo "❌ MP4 files exceeding the 15 MB limit:"
-            echo "$OVERSIZED_MP4" | while read f; do
-              SIZE=$(du -sh "$f" | cut -f1)
-              echo "  $SIZE  $f"
-            done
-            FAIL=true
-          fi
-          if [ "$FAIL" = "true" ]; then
-            echo ""
-            echo "Run 'npm run optimize:videos -- --force' locally to re-pack these files."
+          OVERSIZED_WEBM="$(find apps/website/public/videos -name "*.webm" \
+            ! -path "apps/website/public/videos/hero-commercials/*" -size +10M -print 2>/dev/null || true)"
+          OVERSIZED_MP4="$(find apps/website/public/videos -name "*.mp4" \
+            ! -path "apps/website/public/videos/hero-commercials/*" -size +15M -print 2>/dev/null || true)"
+          if [ -n "$OVERSIZED_WEBM$OVERSIZED_MP4" ]; then
+            echo "Video assets exceed the production budget."
+            [ -n "$OVERSIZED_WEBM" ] && echo "$OVERSIZED_WEBM"
+            [ -n "$OVERSIZED_MP4" ] && echo "$OVERSIZED_MP4"
             exit 1
           fi
-          echo "✅ All video files are within the size budget"
 
-      - name: Enforce 500 KB image size budget
+      - name: Record validation result
         run: |
-          echo "📏 Checking WebP file size budget (max 500 KB per file)..."
-          OVERSIZED=$(find apps/website/public/images -name "*.webp" -size +500k 2>/dev/null)
-          if [ -n "$OVERSIZED" ]; then
-            echo "❌ The following WebP files exceed the 500 KB limit:"
-            echo "$OVERSIZED" | while read f; do
-              SIZE=$(du -sh "$f" | cut -f1)
-              echo "  $SIZE  $f"
-            done
+          {
+            echo "## Controlled Media Validation"
             echo ""
-            echo "Run 'npm run optimize:images -- --force' locally to re-pack these files."
-            exit 1
-          fi
-          echo "✅ All WebP files are within the 500 KB budget"
-
-      - name: Generate optimization report
-        if: steps.verify-changes.outputs.changes == 'true'
-        run: |
-          echo "## 📊 Media Optimization Report" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Images Optimized" >> $GITHUB_STEP_SUMMARY
-          find apps/website/public/images -type f -name "*.webp" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Videos Optimized" >> $GITHUB_STEP_SUMMARY
-          find apps/website/public/videos -type f -name "*.webm" 2>/dev/null | wc -l >> $GITHUB_STEP_SUMMARY || echo "0" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ All media assets optimized for web delivery" >> $GITHUB_STEP_SUMMARY
+            echo "- No direct writes to main"
+            echo "- No derived QR-code formats"
+            echo "- Image and video budgets passed"
+            echo "- Optimization outputs must enter through a reviewed pull request"
+          } >> "$GITHUB_STEP_SUMMARY"
