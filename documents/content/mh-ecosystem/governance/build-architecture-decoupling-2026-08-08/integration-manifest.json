@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "packageName": "MH Build Architecture Decoupling Hardening",
+  "receivedDate": "2026-08-08",
+  "sourceArchive": "mh-build-architecture-decoupling-hardening-2026-08-08.zip",
+  "sourceArchiveSha256": "d4c235e97c5d80aa42f0a621e908461bf4ffd5c0c4e4b813c75effac5d6819a3",
+  "repositoryPath": "documents/content/mh-ecosystem/governance/build-architecture-decoupling-2026-08-08",
+  "controlStatus": "draft-not-controlled",
+  "implementationStatus": "validation-only",
+  "schemaVersionReceived": "2.2-development",
+  "predecessorSchemaVersion": "2.1-development",
+  "compatibilityImpact": "additive-with-deprecated-alias",
+  "documentInventoryCount": 193,
+  "permanentIdsChanged": 0,
+  "resolverRoutesChanged": 0,
+  "documentsRegenerated": 0,
+  "documentsIssued": 0,
+  "documentsSuperseded": 0,
+  "buildTopologyPolicy": {
+    "fixedBatchCount": false,
+    "authoritativeExecutionHistory": "Build Manifests and audit history",
+    "registerScope": "current or last verified build reference",
+    "canonicalBuildUnitField": "lastBuildUnit",
+    "deprecatedAliases": ["lastBuildBatch", "lastBuildId", "lastBuildDate"],
+    "identityIndependentFromBuildTopology": true,
+    "packageMembershipIndependentFromCanonicalSource": true
+  },
+  "qrPolicy": {
+    "controlMode": "ENFORCED_FAIL_CLOSED",
+    "productionRoutesApproved": false,
+    "productionRoutesDeployed": false,
+    "managementDecision": "A-QR-001",
+    "managementDecisionStatus": "pending-management-approval",
+    "websiteResolverImplementationAllowed": false,
+    "publicQrAssetGenerationAllowed": false
+  },
+  "publicRelease": {
+    "allowed": false,
+    "reason": "Package remains Draft and establishes no field-effective document or approved resolver route."
+  },
+  "readiness": {
+    "establishedDocumentIds": 64,
+    "notEstablishedDocumentIds": 129,
+    "qrTargetsReady": 0,
+    "resolversReady": 0,
+    "hardBlockedQrRecords": 159
+  },
+  "knownDraftReconciliation": [
+    "The received Document Control Standard repeats section numbers 15 through 18.",
+    "The received Document Control Standard schema-lineage paragraph names schema 2.1-development although the sealed schema and QA report identify 2.2-development.",
+    "These source defects remain preserved for intake traceability and must be corrected through controlled editorial review before promotion."
+  ],
+  "authority": {
+    "authorAndChiefEditor": "Matt Ramsey",
+    "coEditor": "Todd Shoeff",
+    "finalApprover": "Jeremy Thamert",
+    "approvalState": "pending COO concurrence and CEO final approval"
+  }
+}

@@ -39,7 +39,7 @@ while IFS= read -r -d '' file; do
 done < <(
   find . -path "./.git" -prune -o -path "./node_modules" -prune -o -type f -name '*.md' -print0 | while IFS= read -r -d '' file; do
     case "$file" in
-      ./.github/agents/*|./apps/website/public/images/qr-codes/README.md) continue ;;
+      ./.github/agents/*|./apps/website/public/images/qr-codes/README.md|./documents/content/mh-ecosystem/governance/build-architecture-decoupling-2026-08-08/MH-*.md|./documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08/MH-*.md|./documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08/mh-ecosystem-*.md) continue ;;
     esac
     printf '%s\0' "$file"
   done

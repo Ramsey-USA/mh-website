@@ -60,6 +60,9 @@ jobs:
       - name: Enforce generated artifact guard
         run: npm run guard:generated-artifacts
 
+      - name: Enforce document build-architecture guard
+        run: npm run ecosystem:build-architecture:check
+
       - name: Enforce Cloudflare deployment source guard
         run: npm run cloudflare:deploy:source-check
 

@@ -1,0 +1,2 @@
+Decision ID,Title,Question,Recommended Default,Status,Review Positions,Decision Scope,Implemented
+A-QR-001,Permanent Document QR Resolver Policy,Should MH use stable document-specific resolver routes for enterprise QR document control?,YES,PENDING MANAGEMENT APPROVAL,Document Control; Web / Infrastructure; COO; CEO,Approve policy direction and authorize technical design only. Production route and publication require separate gates.,No

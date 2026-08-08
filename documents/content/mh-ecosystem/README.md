@@ -14,6 +14,16 @@
 
 ## Purpose
 
+## Current Draft Native Rebuild Authority
+
+The August 8, 2026 schema 2.2 TBT-integrated native rebuild is the current complete Draft package for document-factory and website validation. Its sealed archive is `mh-ecosystem-native-rebuild-schema-2-2-tbt-integrated-2026-08-08.zip`, SHA-256 `7d2fc0656603853ae17b7dae6f4c92c6aa5282691d71ff70a18bd8dacda8985d`.
+
+The package contains 346 DOCX/PDF pairs across the ten numbered packages: 205 baseline pairs plus 141 newly authored MH Toolbox Talks. Package 06 now contains 223 TBT pairs, the field binder contains 1,271 pages, and all ten nested package ZIP files pass archive integrity checks.
+
+The archive, ten package ZIP files, native documents, and binder PDFs remain in private Document Factory and in-house server custody. The website repository stores only the schema, registers, checksums, provenance, binder index, QA evidence, and integration manifest required to validate the package without exposing Draft internal documents.
+
+No record is issued, superseded, published, assigned a fabricated permanent ID, or assigned a resolver route by this intake. The website and QR controls remain fail closed.
+
 The MH Ecosystem is the controlling informational source for website language, document generation, operating-system terminology, and public descriptions of MH Construction's enterprise capabilities. The August 5, 2026 native rebuild contains 193 controlled DOCX/PDF pairs across ten numbered ZIP packages, including the separately controlled MH Company Bible at the master-archive level.
 
 The controlled release artifact is `mh-ecosystem-draft-native-rebuild-master-governance-corrected-2026-08-06.zip`, SHA-256 `f6b9a39d944ba12cdeed7146be4b412f04dd5010752b694f1294b680d84d89b1`. Independent reconciliation confirms 193 readable DOCX files, 193 paired PDFs, 1,008 native PDF pages, ten valid ZIP packages, and the Employee Handbook in Package 08. The earlier native-render failure report is retained only as superseded corrective-action evidence.
@@ -32,7 +42,7 @@ The August 6, 2026 Quality Assurance Guide v2.0 is held under `documents/staging
 
 The August 6, 2026 gap-closure batch is held under `documents/staging/gap-closure-forms/`. It supplies seven missing operating-evidence records already required by existing doctrine: project quality/inspection planning, nonconformance and corrective action, warranty service, contract risk and obligation review, system access lifecycle, backup/restore testing, and record disposition. The seven cover-free DOCX/PDF pairs total ten rendered pages and each remains within the one-to-two-page print limit. Existing finance, subcontractor, and closeout forms are crosswalked instead of duplicated. When the Quality Assurance Guide v2.0 activates, it absorbs and retires the parallel `mh-quality-management-plan-v1-0-draft` doctrine while preserving the two QMP evidence identifiers as controlled forms.
 
-The PDF pipeline verifies all 193 sealed PDFs, builds ten package binders with covers, TOCs, tabs, and spines, and builds one 191-record master notebook with the Company Bible first. Sixty-four forms remain cover-free and limited to one or two printable pages. The QR pipeline registers every controlled record but emits no Draft document QR code until document-level publication approval.
+The private PDF pipeline validates the current 346-pair Draft package, its ten numbered ZIP files, package-level controls, and the 1,271-page complete field binder. Forms remain cover-free and limited to one or two printable pages where their controlled form class requires that treatment. The QR pipeline records readiness metadata but emits no Draft document QR code until identity, resolver, access, verification, and approval gates close.
 
 ## Precedence
 
@@ -82,10 +92,16 @@ Public language uses conventional titles first and may follow with the approved 
 
 The website does not generate, merge, restyle, or automatically rebuild controlled PDFs. The private offline MH Document Factory applies approved branding to selected native sources under an incremental work order; canonical content, brand assets, review renders, and approval evidence remain off the public website and return to the in-house archive server.
 
-Only approved, hash-verified outputs may publish to immutable Cloudflare R2 keys. Stable `/go/docs/<stable-id>` redirects provide durable QR destinations and may point only to registered approved outputs. QR images are not regenerated when a controlled target advances. Git activity, website deployments, and generated timestamps never establish a document revision, approval, or effective date.
+Only approved, hash-verified outputs may publish to immutable Cloudflare R2 keys. Stable `/go/docs/<stable-id>` redirects remain a pending architecture under decision `A-QR-001`; no production document resolver or QR asset is authorized while that decision remains unapproved. If activated, redirects may point only to registered approved outputs and QR images will not be regenerated when a controlled target advances. Git activity, website deployments, and generated timestamps never establish a document revision, approval, or effective date.
 
 ## Legacy Training Integration Rule
 
 Legacy office-training PDFs are evidence sources, not additional controlled manuals. The August 6, 2026 legacy audit identified 75 physical PDFs representing 44 unique contents and 31 duplicate role-folder copies. Useful requirements are absorbed into existing Ecosystem records as Directives, General Orders, Field Instructions, forms, or internal portal knowledge cards after hierarchy, approval, system-of-record, legal, confidentiality, and sister-company controls are reconciled.
 
 The controlling crosswalk is `docs/manuals/legacy-training-integration-audit-2026-08-06.md`. Legacy PDFs remain in the locked in-house archive and are excluded from the website PDF and QR publication pipeline.
+
+## Build Architecture Decoupling Rule
+
+The August 8, 2026 governance intake advances the Enterprise Document Register schema to `2.2-development` for validation only. Governed identity and the 01-10 taxonomy remain independent from build batches, workers, parallel-processing units, and package memberships. The register retains the current or last verified build reference while Build Manifests and audit history retain complete execution history.
+
+The received package remains Draft and preserves two editorial reconciliation items in its integration manifest. It regenerated no documents, changed no permanent IDs or resolver routes, issued no documents, and superseded no documents.
