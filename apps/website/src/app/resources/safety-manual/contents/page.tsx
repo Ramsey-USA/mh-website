@@ -6,7 +6,10 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import { manuals } from "@/lib/data/documents";
+import {
+  manuals,
+  isEcosystemPublicReleaseEnabled,
+} from "@/lib/data/documents";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
@@ -102,7 +105,7 @@ export default async function SafetyManualContentsPage() {
                   size="sm"
                   className="text-brand-secondary"
                 />
-                Public Index
+                Controlled Draft Index
               </div>
               <h1 className="text-2xl font-black text-white sm:text-3xl md:text-4xl leading-tight">
                 {isEs
@@ -125,7 +128,8 @@ export default async function SafetyManualContentsPage() {
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">
-              <Button asChild variant="secondary" size="lg">
+              {isEcosystemPublicReleaseEnabled && (
+                <Button asChild variant="secondary" size="lg">
                 <a
                   href={
                     manual?.contentsPdfPath ??
@@ -142,6 +146,7 @@ export default async function SafetyManualContentsPage() {
                   Download TOC PDF
                 </a>
               </Button>
+              )}
               <Button asChild variant="outline" size="lg">
                 <Link href="/safety">
                   <MaterialIcon
@@ -181,10 +186,10 @@ export default async function SafetyManualContentsPage() {
             >
               the MISH Safety &amp; Health Program page
             </Link>
-            . Public visitors, architects, subcontractors, vendors, and future
-            employees can use this index, the TOC PDF, and blank safety forms.
-            Current employees should use the MH Construction team access
-            experience.
+            . Public visitors and Project Stakeholders may use this controlled
+            draft index. PDF and blank-form downloads remain disabled until
+            executive approval and field-effective release. Current employees
+            should use Secure Internal Systems.
           </span>
         </div>
       </div>
