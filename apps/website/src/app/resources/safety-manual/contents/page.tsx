@@ -6,10 +6,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { COMPANY_INFO } from "@/lib/constants/company";
-import {
-  manuals,
-  isEcosystemPublicReleaseEnabled,
-} from "@/lib/data/documents";
+import { manuals, isEcosystemPublicReleaseEnabled } from "@/lib/data/documents";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
@@ -64,11 +61,11 @@ const breadcrumbs = [
   },
 ];
 
-// Cluster groupings — single source of truth in
+// Cluster groupings �?" single source of truth in
 // src/lib/data/safety-manual-clusters.ts.
 const CLUSTERS = SAFETY_MANUAL_CLUSTERS;
 
-// Callout items (critical safety — mirroring TOC_CALLOUT_ITEMS in generate.mjs)
+// Callout items (critical safety �?" mirroring TOC_CALLOUT_ITEMS in generate.mjs)
 const CALLOUT_ITEMS = new Set([21, 48]);
 
 export default async function SafetyManualContentsPage() {
@@ -88,7 +85,7 @@ export default async function SafetyManualContentsPage() {
         )}
       />
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
+      {/* �"?�"? Hero �"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"? */}
       <section className="bg-linear-to-br from-brand-primary-darker via-brand-primary-dark to-brand-primary px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl">
           <div className="mb-5">
@@ -97,7 +94,7 @@ export default async function SafetyManualContentsPage() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <p className="font-heading mb-1 text-xs font-semibold uppercase tracking-wider text-brand-secondary/80">
-                Safety Program <span aria-hidden>→</span> Safety Manual
+                Safety Program <span aria-hidden>�+'</span> Safety Manual
               </p>
               <div className="font-heading mb-3 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-brand-secondary">
                 <MaterialIcon
@@ -172,7 +169,7 @@ export default async function SafetyManualContentsPage() {
         </div>
       </section>
 
-      {/* ── Auth notice ───────────────────────────────────────────── */}
+      {/* �"?�"? Auth notice �"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"? */}
       <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-800/40 dark:bg-amber-900/20">
         <div className="mx-auto flex max-w-5xl items-center gap-3 text-sm text-amber-800 dark:text-amber-300">
           <MaterialIcon icon="lock" size="sm" className="shrink-0" />
@@ -208,7 +205,7 @@ export default async function SafetyManualContentsPage() {
         </div>
       </div>
 
-      {/* ── Section clusters ──────────────────────────────────────── */}
+      {/* �"?�"? Section clusters �"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"? */}
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {CLUSTERS.map((cluster) => {
@@ -264,7 +261,7 @@ export default async function SafetyManualContentsPage() {
           })}
         </div>
 
-        {/* ── Full manual CTA ───────────────────────────────────── */}
+        {/* �"?�"? Full manual CTA �"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"? */}
         <div className="mt-12 rounded-2xl border border-brand-primary/20 bg-brand-primary/5 p-6 text-center dark:border-brand-primary/30 dark:bg-brand-primary/10">
           <MaterialIcon
             icon="lock"
@@ -272,7 +269,7 @@ export default async function SafetyManualContentsPage() {
             className="mx-auto mb-3 text-brand-primary"
           />
           <h2 className="mb-2 text-lg font-bold text-brand-primary dark:text-white">
-            Full Safety Manual Access — Restricted
+            Full Safety Manual Access �?" Restricted
           </h2>
           <p className="font-body mb-4 text-sm text-gray-600 dark:text-gray-400 max-w-md mx-auto">
             The complete {manual?.totalSections ?? 50}-section MISH Safety &amp;
@@ -300,3 +297,4 @@ export default async function SafetyManualContentsPage() {
     </>
   );
 }
+
