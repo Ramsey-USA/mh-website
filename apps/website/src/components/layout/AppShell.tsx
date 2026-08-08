@@ -229,6 +229,17 @@ function SemiquincentennialAfterHeroSlot() {
   );
 }
 
+function SkipToContentLink() {
+  return (
+    <a
+      href="#main-content"
+      className="font-subheading fixed left-4 top-4 z-[100] inline-flex min-h-11 -translate-y-24 items-center rounded-md bg-brand-primary px-4 py-3 text-sm font-bold text-white shadow-xl transition-transform focus:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2"
+    >
+      Skip to main content
+    </a>
+  );
+}
+
 export function AppShell({
   children,
   footer,
@@ -324,10 +335,15 @@ export function AppShell({
   if (!isStandalone) {
     return (
       <>
+        <SkipToContentLink />
         {pageBackground}
         <Navigation />
         <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-          <main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">
+          <main
+            id="main-content"
+            tabIndex={-1}
+            className="grow pt-(--mh-nav-offset,6.5rem)"
+          >
             {children}
             <SemiquincentennialAfterHeroSlot />
           </main>
@@ -353,6 +369,7 @@ export function AppShell({
 
   return (
     <>
+      <SkipToContentLink />
       {pageBackground}
       <Navigation />
       <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -391,6 +408,7 @@ export function AppShell({
 
         <main
           id="main-content"
+          tabIndex={-1}
           className="grow pt-[calc(var(--mh-nav-offset,6.5rem)+var(--mh-pwa-nav-offset,0px)+1rem)]"
         >
           {children}
