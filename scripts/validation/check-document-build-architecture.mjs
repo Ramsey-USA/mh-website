@@ -85,9 +85,7 @@ if (!existsSync(packageRoot)) {
   fail("Build-architecture decoupling package is missing.");
 }
 
-const checksumLines = read("SHA256SUMS.txt")
-  .split(/\r?\n/)
-  .filter(Boolean);
+const checksumLines = read("SHA256SUMS.txt").split(/\r?\n/).filter(Boolean);
 
 for (const line of checksumLines) {
   const match = line.match(/^([a-f0-9]{64})\s{2}(.+)$/);
@@ -104,7 +102,9 @@ for (const line of checksumLines) {
 
   const actual = sha256(filename);
   if (actual !== expected) {
-    fail(`Checksum mismatch for ${filename}: expected ${expected}, got ${actual}`);
+    fail(
+      `Checksum mismatch for ${filename}: expected ${expected}, got ${actual}`,
+    );
   }
 }
 
@@ -126,13 +126,17 @@ for (const [field, expected] of Object.entries({
 }
 
 const schema = readJson("MH-ENTERPRISE-DOCUMENT-REGISTER-SCHEMA.json");
-if (schema.$id !== "urn:mh:enterprise-document-register-schema:2.2-development") {
+if (
+  schema.$id !== "urn:mh:enterprise-document-register-schema:2.2-development"
+) {
   fail("Enterprise Document Register schema ID drifted from 2.2-development.");
 }
 
 const buildMetadata = schema.properties?.buildMetadata?.properties ?? {};
 if (!buildMetadata.lastBuildUnit || buildMetadata.lastBuildUnit.enum) {
-  fail("lastBuildUnit must remain topology-neutral and must not enumerate build units.");
+  fail(
+    "lastBuildUnit must remain topology-neutral and must not enumerate build units.",
+  );
 }
 if (buildMetadata.lastBuildBatch?.deprecated !== true) {
   fail("lastBuildBatch must remain a deprecated compatibility alias.");
@@ -142,7 +146,9 @@ const scorecard = parseCsv(
   read("MH-DOCUMENT-GOVERNANCE-READINESS-SCORECARD.csv"),
 );
 if (scorecard.length !== 193) {
-  fail(`Readiness scorecard must contain 193 records; found ${scorecard.length}.`);
+  fail(
+    `Readiness scorecard must contain 193 records; found ${scorecard.length}.`,
+  );
 }
 
 const count = (field, value) =>
@@ -187,7 +193,9 @@ if (
   integration.qrPolicy?.productionRoutesApproved !== false ||
   integration.qrPolicy?.productionRoutesDeployed !== false
 ) {
-  fail("Integration manifest must keep the received package Draft and fail closed.");
+  fail(
+    "Integration manifest must keep the received package Draft and fail closed.",
+  );
 }
 
 const enterprisePlatform = JSON.parse(
@@ -207,7 +215,9 @@ if (
   architecture?.implementationStatus !== "validation-only" ||
   architecture?.productionResolverRoutesApproved !== false
 ) {
-  fail("Enterprise platform metadata is not aligned with the decoupled Draft architecture.");
+  fail(
+    "Enterprise platform metadata is not aligned with the decoupled Draft architecture.",
+  );
 }
 
 for (const forbidden of [
@@ -230,3 +240,4 @@ if (failures.length > 0) {
 console.log(
   "Document build-architecture integration check passed: 193 Draft records, schema 2.2-development, zero approved resolvers.",
 );
+
