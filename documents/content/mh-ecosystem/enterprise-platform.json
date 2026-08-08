@@ -63,6 +63,7 @@
     "sitewideCongruency": {
       "status": "implemented-pending-release-gates",
       "verifiedDate": "2026-08-07",
+      "projectArchiveContract": "documents/content/project-archive/archive-contract.json",
       "routePolicy": "Public pages expose controlled indexes and approved summaries only while the Ecosystem remains Draft.",
       "downloadPolicy": "Fail closed until approved, field-effective release.",
       "sharedControls": [
