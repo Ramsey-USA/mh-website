@@ -195,8 +195,13 @@
     }
   },
   "wordsFromTheGeneral": {
-    "publicationApprovedBy": "Chief Engineer (CHENG)",
-    "publishNow": true,
-    "revisionAllowed": true
+    "publicationStatus": "legacy-use-freeze",
+    "existingQuoteUseAllowed": true,
+    "newQuotePublicationAllowed": false,
+    "writtenSpeakerApprovalRequired": true,
+    "speaker": "Jeremy Thamert",
+    "chiefEditorReview": "Matt Ramsey",
+    "finalApprovalAuthority": "Jeremy Thamert, Owner and CEO",
+    "revisionAllowed": false
   }
 }
