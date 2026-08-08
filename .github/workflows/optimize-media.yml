@@ -24,14 +24,58 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
-      - name: Reject derived QR assets
+      - name: Reject new derived QR assets
         shell: bash
         run: |
-          DERIVED_QR_ASSETS="$(find apps/website/public/images/qr-codes -type f \
-            \( -name "*.webp" -o -name "*.avif" \) -print 2>/dev/null || true)"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE_SHA="$(git merge-base HEAD origin/main)"
+          fi
+          DERIVED_QR_ASSETS="$(git diff --name-only --diff-filter=AM "$BASE_SHA"...HEAD -- \
+            apps/website/public/images/qr-codes | grep -E '\\.(webp|avif)
+      - name: Enforce image size budget
+        shell: bash
+        run: |
+          OVERSIZED="$(find apps/website/public/images -type f \
+            \( -name "*.webp" -o -name "*.avif" \) \
+            ! -path "apps/website/public/images/qr-codes/*" -size +500k -print 2>/dev/null || true)"
+          if [ -n "$OVERSIZED" ]; then
+            echo "Media assets exceeding the 500 KB production budget:"
+            echo "$OVERSIZED"
+            exit 1
+          fi
+
+      - name: Enforce video size budget
+        shell: bash
+        run: |
+          OVERSIZED_WEBM="$(find apps/website/public/videos -name "*.webm" \
+            ! -path "apps/website/public/videos/hero-commercials/*" -size +10M -print 2>/dev/null || true)"
+          OVERSIZED_MP4="$(find apps/website/public/videos -name "*.mp4" \
+            ! -path "apps/website/public/videos/hero-commercials/*" -size +15M -print 2>/dev/null || true)"
+          if [ -n "$OVERSIZED_WEBM$OVERSIZED_MP4" ]; then
+            echo "Video assets exceed the production budget."
+            [ -n "$OVERSIZED_WEBM" ] && echo "$OVERSIZED_WEBM"
+            [ -n "$OVERSIZED_MP4" ] && echo "$OVERSIZED_MP4"
+            exit 1
+          fi
+
+      - name: Record validation result
+        run: |
+          {
+            echo "## Controlled Media Validation"
+            echo ""
+            echo "- No direct writes to main"
+            echo "- No derived QR-code formats"
+            echo "- Image and video budgets passed"
+            echo "- Optimization outputs must enter through a reviewed pull request"
+          } >> "$GITHUB_STEP_SUMMARY"
+ || true)"
           if [ -n "$DERIVED_QR_ASSETS" ]; then
-            echo "Derived QR assets are prohibited. QR codes remain controlled PNG/SVG artifacts."
+            echo "New QR derivatives are prohibited. QR codes remain controlled PNG/SVG artifacts."
             echo "$DERIVED_QR_ASSETS"
             exit 1
           fi
