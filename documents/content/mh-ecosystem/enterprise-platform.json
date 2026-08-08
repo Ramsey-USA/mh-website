@@ -22,7 +22,7 @@
   },
   "websiteIntegration": {
     "plan": "docs/development/enterprise-website-overhaul-phase-1.md",
-    "currentGate": "phase-1-authority-pipeline-foundation",
+    "currentGate": "phase-2-controlled-document-and-resource-integration",
     "phase0Status": "complete",
     "phase0Register": "documents/content/mh-ecosystem/phase-0-reconciliation.json",
     "sealedBaselinePairCount": 193,
@@ -59,7 +59,20 @@
       "verification and production promotion"
     ],
     "phasePromotionRule": "No phase is complete until its reconciliation, governance, CI, and approval gates pass.",
-    "repositoryBoundary": "The repository contains 98 governed working copies plus 93 exact sealed TBT/SDS DOCX/PDF pairs; neither generated output nor repository state supersedes controlled metadata."
+    "repositoryBoundary": "The repository contains 98 governed working copies plus 93 exact sealed TBT/SDS DOCX/PDF pairs; neither generated output nor repository state supersedes controlled metadata.",
+    "sitewideCongruency": {
+      "status": "implemented-pending-release-gates",
+      "verifiedDate": "2026-08-07",
+      "routePolicy": "Public pages expose controlled indexes and approved summaries only while the Ecosystem remains Draft.",
+      "downloadPolicy": "Fail closed until approved, field-effective release.",
+      "sharedControls": [
+        "application-shell branding and accessibility",
+        "Ecosystem terminology and role language",
+        "controlled document lifecycle state",
+        "R2 document authorization",
+        "document-factory PDF and QR custody boundary"
+      ]
+    }
   },
   "enterprisePosition": [
     "Safety and compliance command",
@@ -83,17 +96,27 @@
     "CHNAV": {
       "title": "Chief Navigation Officer",
       "publicLabel": "Chief Navigation Officer (CHNAV)",
-      "accountability": ["Sales", "Estimating", "Preconstruction", "BidPilot"]
+      "accountability": [
+        "Sales",
+        "Estimating",
+        "Preconstruction",
+        "BidPilot"
+      ]
     },
     "COO": {
       "title": "Chief Operating Officer",
       "publicLabel": "Chief Operating Officer (COO)",
-      "accountability": ["Operations", "Executive direction of CHENG and CHNAV"]
+      "accountability": [
+        "Operations",
+        "Executive direction of CHENG and CHNAV"
+      ]
     },
     "CEO": {
       "title": "Chief Executive Officer",
       "publicLabel": "Chief Executive Officer (CEO)",
-      "accountability": ["Final executive authority"]
+      "accountability": [
+        "Final executive authority"
+      ]
     }
   },
   "systems": {
@@ -113,7 +136,10 @@
       "scope": "Project execution and construction records",
       "publicStatus": "operational"
     },
-    "sage100": { "scope": "Financial records", "publicStatus": "operational" },
+    "sage100": {
+      "scope": "Financial records",
+      "publicStatus": "operational"
+    },
     "inHouseServer": {
       "scope": "Approved digital archive",
       "publicStatus": "operational"
