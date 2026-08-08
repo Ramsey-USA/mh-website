@@ -12,7 +12,11 @@ import {
   PAGE_TERMINOLOGY,
 } from "@/lib/branding/page-names";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
-import { getDocumentById, handbookForms } from "@/lib/data/documents";
+import {
+  getDocumentById,
+  handbookForms,
+  isEcosystemPublicReleaseEnabled,
+} from "@/lib/data/documents";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
@@ -76,7 +80,7 @@ export default async function EmployeeHandbookPage() {
               size="sm"
               className="text-brand-secondary"
             />
-            Public Handbook Index
+            Controlled Handbook Index
           </div>
 
           <h1 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl">
@@ -94,10 +98,10 @@ export default async function EmployeeHandbookPage() {
           <p className="mt-4 max-w-3xl text-base text-slate-100 sm:text-lg">
             {isEs
               ? "Indice publico de capitulos del manual del empleado de MH Construction y formularios de politica asociados. Use esta pagina para verificar la estructura vigente y abrir el PDF publico de tabla de contenido. Esta vista esta dirigida a arquitectos, aseguradoras, revisores de fianzas, subcontratistas, proveedores y futuros empleados."
-              : "Public index of MH Construction's employee handbook chapters and handbook-owned policy forms. Use this page to verify the current chapter structure, then open the public handbook table of contents PDF. This view is designed for architects, insurers, bonding reviewers, subcontractors, vendors, and future employees."}
+              : "Public index of MH Construction's employee handbook chapters and handbook-owned policy forms. Use this page to review the controlled draft chapter structure. Public downloads remain disabled until executive approval and field-effective release. This view supports architects, insurers, bonding reviewers, Trade Partners, and future employees without exposing controlled workflow records."}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            {manual?.pdfPath && (
+            {isEcosystemPublicReleaseEnabled && manual?.pdfPath && (
               <Button asChild variant="secondary" size="lg">
                 <a
                   href={manual.pdfPath}
@@ -155,12 +159,12 @@ export default async function EmployeeHandbookPage() {
             BBB Accredited A+
           </span>
           <span className="rounded-full border border-brand-primary/25 bg-white px-3 py-1">
-            Public TOC + Blank Forms
+            Draft Index + Controlled Forms
           </span>
         </div>
       </div>
 
-      <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-4 sm:grid-cols-3 mb-10">
           <div className="rounded-2xl border border-brand-primary/20 bg-brand-primary/5 p-5">
             <p className="font-subheading text-xs font-bold uppercase tracking-wider text-brand-primary">
@@ -328,7 +332,7 @@ export default async function EmployeeHandbookPage() {
             </Button>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
