@@ -56,4 +56,3 @@ Those issues are recorded in the integration manifest and require controlled edi
 ## CI Enforcement
 
 The repository guard verifies package checksums, the 193-record inventory, topology-neutral schema controls, deprecated aliases, Draft lifecycle state, QR readiness counts, the pending management decision, and the absence of retired website QR generation routes. Any drift blocks the website pipeline.
-
