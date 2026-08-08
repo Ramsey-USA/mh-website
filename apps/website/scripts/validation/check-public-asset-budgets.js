@@ -4,9 +4,10 @@ const fs = require("fs");
 const path = require("path");
 
 const PUBLIC_DIR = path.join(__dirname, "../../public");
-const TOTAL_LIMIT_MB = Number(process.env.PUBLIC_TOTAL_BUDGET_MB || 75);
-const FILE_LIMIT_MB = Number(process.env.PUBLIC_MAX_FILE_MB || 8);
+const TOTAL_LIMIT_MB = Number(process.env.PUBLIC_TOTAL_BUDGET_MB || 45);
+const FILE_LIMIT_MB = Number(process.env.PUBLIC_MAX_FILE_MB || 1);
 const HERO_MEDIA_PREFIX = "videos/hero-commercials/";
+const PROHIBITED_QR_MIRROR_PREFIX = "images/qr-downloads/";
 const EXCLUDE_HERO_FROM_PUBLIC_BUDGET =
   process.env.PUBLIC_BUDGET_EXCLUDE_HERO !== "0";
 
@@ -89,6 +90,20 @@ function run() {
   }
 
   let hasError = false;
+
+  const prohibitedQrMirrorFiles = files.filter((file) =>
+    file.relativePath.startsWith(PROHIBITED_QR_MIRROR_PREFIX),
+  );
+
+  if (prohibitedQrMirrorFiles.length > 0) {
+    hasError = true;
+    console.error(
+      `\nFAIL: ${prohibitedQrMirrorFiles.length} generated QR mirror file(s) remain under ${PROHIBITED_QR_MIRROR_PREFIX}.`,
+    );
+    console.error(
+      "QR generation and downloadable production assets belong in Ramsey-USA/mh-document-factory.",
+    );
+  }
 
   if (totalBytes > TOTAL_LIMIT_BYTES) {
     hasError = true;
