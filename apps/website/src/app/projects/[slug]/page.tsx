@@ -371,7 +371,7 @@ export default async function ProjectCaseStudyPage({
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={[projectSchema, localBusinessSchema]} />
 
-      <main className="relative min-h-screen bg-white dark:bg-gray-900">
+      <div className="relative min-h-screen bg-white dark:bg-gray-900">
         <EnterpriseRouteHero
           eyebrow={`Case file | ${caseStudy.category}`}
           title={title}
@@ -683,7 +683,7 @@ export default async function ProjectCaseStudyPage({
             </aside>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 }

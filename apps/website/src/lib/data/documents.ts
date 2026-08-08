@@ -12,6 +12,7 @@ import mhcBrand from "../../../../../documents/brands/mhc.json";
 import employeeHandbookJson from "../../../../../documents/content/employee-handbook.json";
 import safetyManualPublicJson from "../../../../../documents/content/safety-manual-public.json";
 import formsManifestJson from "../../../../../documents/forms/forms-manifest.json";
+import enterprisePlatformJson from "../../../../../documents/content/mh-ecosystem/enterprise-platform.json";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { FORM_MANUAL_ICONS } from "@/lib/constants/navigation-icons";
@@ -33,7 +34,7 @@ const EMPLOYEE_HANDBOOK_TITLE = "Employee Handbook";
 const EMPLOYEE_HANDBOOK_SUBTITLE =
   "MH Construction Employee Policies and Procedures";
 const EMPLOYEE_HANDBOOK_REVISION_YEAR = 2026;
-const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "4.0";
+const EMPLOYEE_HANDBOOK_REVISION_NUMBER = "3.0";
 const EMPLOYEE_HANDBOOK_REVISION_DATE = "7/1/2026";
 
 export type SectionCategory =
@@ -920,6 +921,12 @@ type FormsManifestShape = {
 const safetyManualPublic = safetyManualPublicJson as SafetyManualPublicShape;
 const employeeHandbook = employeeHandbookJson as EmployeeHandbookShape;
 const formsManifest = formsManifestJson as FormsManifestShape;
+const enterprisePlatform = enterprisePlatformJson;
+
+export const isEcosystemPublicReleaseEnabled =
+  enterprisePlatform.baseline.status === "approved" &&
+  enterprisePlatform.baseline.fieldEffective === true &&
+  enterprisePlatform.publicDownloadPolicy.draftDownloadsAllowed === true;
 
 const legacySafetyManual = legacyManuals.find(
   (doc) => doc.id === "safety-manual",
@@ -983,6 +990,8 @@ function mishSectionNumbers(entry: FormManifestEntry): number[] {
 function publicPdfDetails(
   relativePath: string,
 ): { pdfPath: string; r2Key: string } | null {
+  if (!isEcosystemPublicReleaseEnabled) return null;
+
   const normalized = relativePath.replace(/^\/+/, "");
   const absolute = join(
     process.cwd(),

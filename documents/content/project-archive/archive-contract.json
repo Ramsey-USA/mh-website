@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "name": "MH Project Archive Contract",
+  "status": "foundation-active",
+  "migrationStatus": "incremental",
+  "purpose": "Support verified publication of more than ten years of legacy projects and all future project records without route-level code changes.",
+  "ownership": {
+    "executiveAccountability": "Chief Engineer (CHENG)",
+    "contentControl": "Marketing",
+    "technicalControl": "IT Specialist",
+    "finalPublicationApproval": "CEO"
+  },
+  "sourceModel": {
+    "target": "one-record-per-project",
+    "stableIdFormat": "project:<immutable-id>",
+    "slugPolicy": "Human-readable kebab-case slug with permanent redirect retained after any approved rename.",
+    "currentAdapter": "PortfolioService",
+    "migrationRule": "New and legacy records enter the canonical project intake contract before public publication."
+  },
+  "storage": {
+    "originalMedia": "Approved in-house server archive",
+    "repository": "Metadata, schemas, manifests, rights records, and stable redirects only",
+    "publicMedia": "Approved responsive derivatives in Cloudflare R2",
+    "forbidden": "Unapproved originals, private project records, credentials, and uncontrolled generated media"
+  },
+  "lifecycle": [
+    "intake",
+    "draft",
+    "review",
+    "approved",
+    "published",
+    "archived"
+  ],
+  "requiredProjectFields": [
+    "stableId",
+    "slug",
+    "title",
+    "projectType",
+    "location",
+    "completionStatus",
+    "completionYear",
+    "scopeSummary",
+    "governance",
+    "sourceReferences",
+    "mediaManifest"
+  ],
+  "requiredMediaFields": [
+    "assetId",
+    "sourceReference",
+    "rightsStatus",
+    "publicationApproval",
+    "checksum",
+    "alt",
+    "sortOrder"
+  ],
+  "rightsStatuses": [
+    "company-owned",
+    "licensed",
+    "client-approved",
+    "restricted",
+    "unknown"
+  ],
+  "publicationRules": {
+    "defaultState": "internal",
+    "unknownRightsPublic": false,
+    "unverifiedScopePublic": false,
+    "personallyIdentifiableInformationPublic": false,
+    "approvalEvidenceRequired": true,
+    "stableRedirectRequiredOnSlugChange": true
+  },
+  "discovery": {
+    "defaultPageSize": 24,
+    "maximumPageSize": 60,
+    "sortOptions": ["completion-desc", "completion-asc", "title-asc"],
+    "filterDimensions": [
+      "projectType",
+      "market",
+      "location",
+      "completionYear",
+      "deliveryMethod",
+      "status"
+    ],
+    "searchFields": [
+      "title",
+      "scopeSummary",
+      "projectType",
+      "market",
+      "city",
+      "state",
+      "tags"
+    ]
+  },
+  "mediaDerivatives": {
+    "formats": ["avif", "webp"],
+    "requiredWidths": [480, 768, 1200, 1920],
+    "preserveOriginal": false,
+    "responsiveLoading": true,
+    "lazyLoadBelowFold": true,
+    "featuredImagePriorityOnly": true
+  },
+  "intakeControls": [
+    "duplicate stable ID check",
+    "duplicate checksum check",
+    "slug collision check",
+    "rights and release review",
+    "scope attribution verification",
+    "location and date normalization",
+    "alt-text review",
+    "responsive derivative generation",
+    "preview review",
+    "publication approval"
+  ]
+}

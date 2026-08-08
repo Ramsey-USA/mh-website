@@ -59,7 +59,21 @@
       "verification and production promotion"
     ],
     "phasePromotionRule": "No phase is complete until its reconciliation, governance, CI, and approval gates pass.",
-    "repositoryBoundary": "The repository contains 98 governed working copies plus 93 exact sealed TBT/SDS DOCX/PDF pairs; neither generated output nor repository state supersedes controlled metadata."
+    "repositoryBoundary": "The repository contains 98 governed working copies plus 93 exact sealed TBT/SDS DOCX/PDF pairs; neither generated output nor repository state supersedes controlled metadata.",
+    "sitewideCongruency": {
+      "status": "implemented-pending-release-gates",
+      "verifiedDate": "2026-08-07",
+      "projectArchiveContract": "documents/content/project-archive/archive-contract.json",
+      "routePolicy": "Public pages expose controlled indexes and approved summaries only while the Ecosystem remains Draft.",
+      "downloadPolicy": "Fail closed until approved, field-effective release.",
+      "sharedControls": [
+        "application-shell branding and accessibility",
+        "Ecosystem terminology and role language",
+        "controlled document lifecycle state",
+        "R2 document authorization",
+        "document-factory PDF and QR custody boundary"
+      ]
+    }
   },
   "enterprisePosition": [
     "Safety and compliance command",
@@ -169,8 +183,13 @@
     }
   },
   "wordsFromTheGeneral": {
-    "publicationApprovedBy": "Chief Engineer (CHENG)",
-    "publishNow": true,
-    "revisionAllowed": true
+    "publicationStatus": "legacy-use-freeze",
+    "existingQuoteUseAllowed": true,
+    "newQuotePublicationAllowed": false,
+    "writtenSpeakerApprovalRequired": true,
+    "speaker": "Jeremy Thamert",
+    "chiefEditorReview": "Matt Ramsey",
+    "finalApprovalAuthority": "Jeremy Thamert, Owner and CEO",
+    "revisionAllowed": false
   }
 }

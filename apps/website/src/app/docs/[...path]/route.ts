@@ -14,6 +14,7 @@ import {
   verifyToken,
 } from "@/lib/auth/jwt";
 import { logger } from "@/lib/utils/logger";
+import enterprisePlatform from "../../../../../../documents/content/mh-ecosystem/enterprise-platform.json";
 
 export const dynamic = "force-dynamic";
 
@@ -35,8 +36,19 @@ const PUBLIC_DOC_KEY_PATTERNS = [
 
 const EMPLOYEE_UID_PREFIXES = ["admin-", "field-", "worker-", "traveler-"];
 
+function isEcosystemPublicReleaseEnabled(): boolean {
+  return (
+    enterprisePlatform.baseline.status === "approved" &&
+    enterprisePlatform.baseline.fieldEffective === true &&
+    enterprisePlatform.publicDownloadPolicy.draftDownloadsAllowed === true
+  );
+}
+
 function isPublicDocKey(key: string): boolean {
-  return PUBLIC_DOC_KEY_PATTERNS.some((pattern) => pattern.test(key));
+  return (
+    isEcosystemPublicReleaseEnabled() &&
+    PUBLIC_DOC_KEY_PATTERNS.some((pattern) => pattern.test(key))
+  );
 }
 
 function isEmployeeRefreshUid(uid: string | null): boolean {
@@ -109,7 +121,7 @@ export async function GET(
         {
           error: "Authentication required",
           detail:
-            "This document is restricted to authenticated employees. Use the Hub sign-in flow for full manual access.",
+            "This controlled document is not approved for public release. Authorized personnel must use Secure Internal Systems.",
         },
         { status: 401 },
       );

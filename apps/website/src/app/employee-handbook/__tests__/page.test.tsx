@@ -57,13 +57,16 @@ describe("EmployeeHandbookPage", () => {
     ).toBeInTheDocument();
   });
 
-  it("links to handbook PDF and back to resources", async () => {
+  it("locks the Draft PDF and keeps the resources return path", async () => {
     await renderPage();
     expect(
-      screen.getByRole("link", {
+      screen.queryByRole("link", {
         name: /download handbook toc pdf/i,
       }),
-    ).toHaveAttribute("href", "/docs/employee/employee-handbook-toc.pdf");
+    ).not.toBeInTheDocument();
+    expect(
+      screen.getByText(/public downloads remain disabled/i),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
         name: /back to resources/i,

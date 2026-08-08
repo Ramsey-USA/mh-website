@@ -93,8 +93,19 @@ if (ribbonCount < 48) {
   );
 }
 
-if (!ribbons.includes("Status: Approved for publication")) {
-  errors.push("Words from the General publication approval is missing.");
+const wordsFromTheGeneral = authority.wordsFromTheGeneral ?? {};
+if (
+  !ribbons.includes(
+    "Status: Legacy-use freeze; written speaker approval and ownership record pending",
+  ) ||
+  wordsFromTheGeneral.publicationStatus !== "legacy-use-freeze" ||
+  wordsFromTheGeneral.existingQuoteUseAllowed !== true ||
+  wordsFromTheGeneral.newQuotePublicationAllowed !== false ||
+  wordsFromTheGeneral.writtenSpeakerApprovalRequired !== true
+) {
+  errors.push(
+    "Words from the General must remain under the controlled legacy-use freeze until written speaker approval is recorded.",
+  );
 }
 
 const activePublicFiles = [
@@ -135,5 +146,5 @@ if (errors.length) {
 }
 
 console.log(
-  `MH Ecosystem authority gate passed: ${baseline.docxCount} controlled pairs, ${baseline.renderedPageCount} rendered pages, ${ribbonCount} approved Words from the General entries; Draft publication boundary enforced.`,
+  `MH Ecosystem authority gate passed: ${baseline.docxCount} controlled pairs, ${baseline.renderedPageCount} rendered pages, ${ribbonCount} controlled Words from the General entries; Draft publication boundary enforced.`,
 );
