@@ -13,7 +13,11 @@ import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { ResourcesHero } from "@/components/resources/ResourcesHero";
-import { manuals, forms } from "@/lib/data/documents";
+import {
+  manuals,
+  forms,
+  isEcosystemPublicReleaseEnabled,
+} from "@/lib/data/documents";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
@@ -27,7 +31,7 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
   description:
-    "Download MH Construction safety manuals, toolbox talk forms, JHA templates, and field documentation for crews, partners, and prequalification workflows, with public resources aligned to our operational strategy across the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.",
+    "Review MH Construction controlled resource indexes, safety-program structure, handbook structure, and release status without exposing draft manuals, forms, or internal workflow records.",
   keywords: [
     "construction resources",
     "operations manual construction",
@@ -50,7 +54,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Safety manuals, toolbox talks, and field forms from MH Construction, organized for fast field use and agency review, and aligned with our operational strategy across operations, marketing, sales/estimating, and MISH safety standards.",
+      "Controlled MH Construction resource indexes for safety, employment, project delivery, and enterprise governance, aligned to the current draft Ecosystem release.",
     url: "https://www.mhc-gc.com/resources",
     type: "website",
   },
@@ -58,7 +62,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders, aligned with our operational strategy across operations, marketing, sales/estimating, and MISH safety standards.",
+      "Controlled MH Construction resource indexes aligned to the current draft Ecosystem release and public-access safeguards.",
   },
 });
 
@@ -72,13 +76,7 @@ const resourcesSupportingLine = MH_SLOGANS.supporting[1];
 
 export default async function ResourcesPage() {
   const isEs = (await getServerLocale()) === "es";
-  const publicManualIds = new Set([
-    "safety-manual",
-    "employee-handbook",
-    "operations-manual",
-    "marketing-strategy-guide",
-    "sales-estimating-guide",
-  ]);
+  const publicManualIds = new Set(["safety-manual", "employee-handbook"]);
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
   const employeeHandbook = manuals.find(
     (doc) => doc.id === "employee-handbook",
@@ -106,7 +104,7 @@ export default async function ResourcesPage() {
           <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300">
             {isEs
               ? "Descargue manuales, formatos y documentos de cumplimiento listos para campo desde una sola biblioteca organizada. Las páginas públicas están estructuradas para apoyar una planificación clara, una entrega responsable y un seguimiento confiable para bancos de fianzas, aseguradoras, arquitectos, subcontratistas, proveedores y futuros empleados, mientras que los registros completos permanecen con acceso controlado."
-              : "Download field-ready manuals, forms, and compliance documents from one organized library. Public pages are structured to support clear planning, accountable delivery, and dependable follow-through for bonding banks, insurers, architects, subcontractors, vendors, and future employees, while full workflow records remain access-controlled."}
+              : "Review controlled draft indexes, release status, and approved public summaries from one organized library. Draft manuals, forms, and workflow records remain access-controlled until executive approval and field-effective release."}
           </p>
           <span className="sr-only">
             {resourcesMissionLine} {resourcesSupportingLine}
@@ -214,7 +212,7 @@ export default async function ResourcesPage() {
               </h2>
             </div>
 
-            {safetyManual?.contentsPdfPath && (
+            {isEcosystemPublicReleaseEnabled && safetyManual?.contentsPdfPath && (
               <Card className="mb-5 border-brand-primary/20 bg-brand-primary/5">
                 <div className="flex flex-wrap items-center gap-3 px-4 py-3">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -255,7 +253,7 @@ export default async function ResourcesPage() {
               </Card>
             )}
 
-            {employeeHandbook?.pdfPath && (
+            {isEcosystemPublicReleaseEnabled && employeeHandbook?.pdfPath && (
               <Card className="mb-5 border-brand-secondary/20 bg-brand-secondary/5">
                 <div className="flex flex-wrap items-center gap-3 px-4 py-3">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
