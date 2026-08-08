@@ -39,4 +39,3 @@
 ## Adobe Production Notes
 
 Open the SVG in Adobe Illustrator with the `source` folder kept beside it. Preserve the 1200 x 627 artboard, linked project photography, Mendl Sans Dusk typography, Hunter Green `#386851`, and Leather Tan `#BD9264`. Export the approved production asset as PNG at the artboard dimensions without generative fill, synthetic workers, altered project conditions, or replacement construction imagery.
-
