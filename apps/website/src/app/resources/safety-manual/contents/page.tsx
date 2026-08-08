@@ -130,22 +130,22 @@ export default async function SafetyManualContentsPage() {
             <div className="flex gap-3 flex-wrap">
               {isEcosystemPublicReleaseEnabled && (
                 <Button asChild variant="secondary" size="lg">
-                <a
-                  href={
-                    manual?.contentsPdfPath ??
-                    "/docs/safety/safety-manual-contents.pdf"
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MaterialIcon
-                    icon="download"
-                    size="sm"
-                    className="text-white"
-                  />
-                  Download TOC PDF
-                </a>
-              </Button>
+                  <a
+                    href={
+                      manual?.contentsPdfPath ??
+                      "/docs/safety/safety-manual-contents.pdf"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MaterialIcon
+                      icon="download"
+                      size="sm"
+                      className="text-white"
+                    />
+                    Download TOC PDF
+                  </a>
+                </Button>
               )}
               <Button asChild variant="outline" size="lg">
                 <Link href="/safety">
