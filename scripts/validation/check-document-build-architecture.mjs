@@ -240,4 +240,3 @@ if (failures.length > 0) {
 console.log(
   "Document build-architecture integration check passed: 193 Draft records, schema 2.2-development, zero approved resolvers.",
 );
-
