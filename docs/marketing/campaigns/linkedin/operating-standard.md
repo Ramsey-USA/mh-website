@@ -73,4 +73,3 @@ Do not scrape member data or create personal dossiers.
 | 4    | Subcontractor coordination and long-lead risk; monthly lessons learned  | Procurement and trade partnership capability            | MHC procurement service          |
 
 Target two personal posts and one MHC post per week only when the content meets the proof and approval gate. HD content remains selective and topic-driven.
-
