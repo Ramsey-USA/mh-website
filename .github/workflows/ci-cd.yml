@@ -60,6 +60,9 @@ jobs:
       - name: Enforce generated artifact guard
         run: npm run guard:generated-artifacts
 
+      - name: Enforce Cloudflare deployment source guard
+        run: npm run cloudflare:deploy:source-check
+
       - name: Enforce branding docs contracts guard
         run: npm run docs:guardrails:contracts
 
@@ -337,6 +340,12 @@ jobs:
         working-directory: apps/website
         run: npm run build
 
+      - name: Validate website Wrangler deployment bundle
+        working-directory: apps/website
+        env:
+          WRANGLER_SEND_METRICS: "false"
+        run: pnpm exec wrangler deploy --dry-run --config wrangler.toml --outdir .wrangler/deploy-check
+
       - name: Deploy to Cloudflare Workers
         working-directory: apps/website
         env:
@@ -403,6 +412,12 @@ jobs:
       - name: Build dashboard
         working-directory: apps/dashboard
         run: npm run build
+
+      - name: Validate dashboard Wrangler deployment bundle
+        working-directory: apps/dashboard
+        env:
+          WRANGLER_SEND_METRICS: "false"
+        run: pnpm exec wrangler deploy --dry-run --config wrangler.toml --outdir .wrangler/deploy-check
 
       - name: Deploy dashboard Worker
         working-directory: apps/dashboard

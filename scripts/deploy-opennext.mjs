@@ -64,9 +64,7 @@ const EXCLUDED_ASSET_PATTERNS = [
 
 const WORKERS_MAX_ASSET_BYTES = 25 * 1024 * 1024;
 
-const wranglerConfigPath = existsSync(join(appRoot, "wrangler.toml"))
-  ? join(appRoot, "wrangler.toml")
-  : join(repoRoot, "wrangler.toml");
+const wranglerConfigPath = join(appRoot, "wrangler.toml");
 
 const DEPLOY_ENV_FILES = [
   join(repoRoot, ".env.r2.local"),
@@ -215,7 +213,9 @@ function runPreflightChecks() {
   }
 
   if (!existsSync(wranglerConfigPath)) {
-    fail(`Missing wrangler config at ${wranglerConfigPath}.`);
+    fail(
+      `Missing app-local wrangler config at ${wranglerConfigPath}. Root-level fallback is intentionally disabled.`,
+    );
   }
 
   const wranglerToml = readFileSync(wranglerConfigPath, "utf8");

@@ -2,7 +2,7 @@
 
 **Brand Congruency:** Compatibility and upgrade guidance should keep MH naming, trust-safe messaging, and release language aligned with canonical standards.
 
-**Date:** July 11, 2026  
+**Date:** August 8, 2026  
 **Status:** ✅ **CURRENT STACK IS CLOUDFLARE-COMPATIBLE**
 
 ---
@@ -21,16 +21,16 @@ Current deployed stack: Next.js 16.2.11, @opennextjs/cloudflare 1.20.2, wrangler
 
 | Component                  | Current | Target  | Compatibility       | Risk |
 | -------------------------- | ------- | ------- | ------------------- | ---- |
-| **Next.js**                | 16.2.10 | 16.2.10 | ✅ Supported        | NONE |
+| **Next.js**                | 16.2.11 | 16.2.11 | ✅ Supported        | NONE |
 | **@opennextjs/cloudflare** | 1.20.2  | 1.20.2  | ✅ Supports ≥16.2.6 | NONE |
-| **wrangler**               | 4.111.0 | 4.111.0 | ✅ Requires ^4.86.0 | NONE |
+| **wrangler**               | 4.114.0 | 4.114.0 | ✅ Requires ^4.86.0 | NONE |
 
 **Peer Dependency Check (from npm):**
 
 ```
 @opennextjs/cloudflare@1.20.2 requires:
-  • next: '>=15.5.18 <16 || >=16.2.6'  ✅ Your current 16.2.10 is explicitly supported
-  • wrangler: '^4.86.0'                 ✅ Your current 4.111.0 is within range
+  • next: '>=15.5.18 <16 || >=16.2.6'  ✅ Your current 16.2.11 is explicitly supported
+  • wrangler: '^4.86.0'                 ✅ Your current 4.114.0 is within range
 ```
 
 ---
@@ -45,7 +45,7 @@ Current deployed stack: Next.js 16.2.11, @opennextjs/cloudflare 1.20.2, wrangler
 
 ### Upgrade Impact Analysis
 
-**Next.js 16.2.10 changes:**
+**Next.js 16.2.11 changes:**
 
 - Bundle size: Minimal impact (~0-5 KB difference vs 15.x)
 - Removed packages: None that would reduce bundle
@@ -113,7 +113,7 @@ compatibility_date = "2026-03-25"
 
 **All upgrades support this flag:**
 
-- Next.js 16.2.10: ✅ Full nodejs_compat support
+- Next.js 16.2.11: ✅ Full nodejs_compat support
 - TypeScript 6: ✅ (dev-only)
 - Jose 6: ✅ Tested with Workers
 - All others: ✅ No changes needed
@@ -196,7 +196,7 @@ images: {
 
 ### After Upgrades
 
-- Next.js 16.2.10: Enhanced streaming performance, better s-maxage support ✓
+- Next.js 16.2.11: Enhanced streaming performance, better s-maxage support ✓
 - Cache directives remain identical ✓
 - Stale-while-revalidate still supported ✓
 
@@ -278,7 +278,7 @@ All the following remain working:
 
 This exact upgrade path is tested by the Next.js core team:
 
-- Next.js 16.2.10 + @opennextjs/cloudflare 1.20.1 = **officially supported**
+- Next.js 16.2.11 + @opennextjs/cloudflare 1.20.1 = **officially supported**
 - TypeScript 6 + Next.js 16 = **no known issues**
 - Tailwind CSS 4 with modern Node.js = **commonly deployed**
 
@@ -317,8 +317,8 @@ If any Cloudflare-specific issues surface:
 ```bash
 # 1. Identify the problematic dependency (usually Next.js or @opennextjs/cloudflare)
 # 2. Revert just that package while keeping safe updates:
-pnpm add next@16.2.10
-pnpm add -D eslint-config-next@16.2.10 @next/bundle-analyzer@16.2.10 @next/swc-linux-x64-gnu@16.2.10
+pnpm add next@16.2.11
+pnpm add -D eslint-config-next@16.2.11 @next/bundle-analyzer@16.2.11 @next/swc-linux-x64-gnu@16.2.11
 
 # 3. Rebuild
 pnpm --filter @mhc/website run build:lowmem
@@ -332,7 +332,7 @@ npx wrangler deploy
 ## FAQ
 
 **Q: Will Next.js 16 work with my Cloudflare Worker?**
-A: Yes. @opennextjs/cloudflare 1.20.1 explicitly supports `next: >=16.2.6`. Your 16.2.10 is within range.
+A: Yes. @opennextjs/cloudflare 1.20.1 explicitly supports `next: >=16.2.6`. Your 16.2.11 is within range.
 
 **Q: Does Tailwind CSS 4 change CSS output?**
 A: Yes, it uses CSS v4 syntax internally, but output is backward compatible with your Cloudflare cache headers.
@@ -371,7 +371,7 @@ A: Yes, but run `npx wrangler deploy --dry-run` first to verify asset/script siz
 - [@opennextjs/cloudflare Documentation](https://open-next.js.org/frameworks/cloudflare)
 - [Cloudflare Workers Limitations](https://developers.cloudflare.com/workers/platform/limits/)
 - [Next.js 16 Release Notes](https://nextjs.org/blog/next-16)
-- [Your wrangler.toml](../wrangler.toml)
+- [Website Wrangler configuration](../../apps/website/wrangler.toml)
 - [Your open-next.config.ts](../open-next.config.ts)
 
 ---
