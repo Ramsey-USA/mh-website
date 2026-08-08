@@ -59,13 +59,13 @@ describe("MH Ecosystem sitewide congruency", () => {
     expect(docsRoute).toContain(
       "enterprisePlatform.publicDownloadPolicy.draftDownloadsAllowed === true",
     );
-    expect(resourcesPage).toContain(
-      "isEcosystemPublicReleaseEnabled && safetyManual?.contentsPdfPath",
+    expect(resourcesPage).toMatch(
+      /isEcosystemPublicReleaseEnabled\s*&&\s*safetyManual\?\.contentsPdfPath/,
     );
-    expect(handbookPage).toContain(
-      "isEcosystemPublicReleaseEnabled && manual?.pdfPath",
+    expect(handbookPage).toMatch(
+      /isEcosystemPublicReleaseEnabled\s*&&\s*manual\?\.pdfPath/,
     );
-    expect(mishContentsPage).toContain("isEcosystemPublicReleaseEnabled &&");
+    expect(mishContentsPage).toMatch(/isEcosystemPublicReleaseEnabled\s*&&/);
   });
 
   it("keeps internal manuals out of the public-manual route set", () => {
