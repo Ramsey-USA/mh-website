@@ -82,4 +82,3 @@ Record the personal and company post URLs when published. Capture LinkedIn-nativ
 | 7 days     | Total reach, CTR, profile and Page discovery where available | Return visits, contact completions, attributed conversions | Qualified leads and project conversations       |
 
 Decision rule: retain or expand the topic only when it produces professional discussion, relevant network growth, qualified website behavior, or a legitimate project signal. Do not optimize solely for impressions.
-
