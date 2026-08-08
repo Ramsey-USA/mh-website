@@ -1,0 +1,29 @@
+Field,Purpose,Authority,Required,Allowed Null State,Validation,Update Role,Change Requires Approval
+documentId,Permanent governed identity,Enterprise Document Register,Conditional,Yes,Required for APPROVED/ISSUED; never fabricated,Document Control,Yes
+documentIdStatus,Identity maturity,Enterprise Document Register,Yes,No,ESTABLISHED/NOT_ESTABLISHED/MANAGEMENT_REVIEW,Document Control,Yes
+enterpriseUid,Optional canonical identity,Enterprise Document Register,No,Yes,No generation until policy approval,Document Control,Yes
+lifecycleStatus,Approval and issuance lifecycle,Approval record,Yes,No,Separate lifecycle enum,Document Control,Yes
+supersessionStatus,Supersession dimension,Register record,Yes,No,Separate status enum,Document Control,Yes
+operationalValidity,Operational currency,Control review,Yes,No,Separate validity enum,Document Control,Yes
+archiveStatus,Archive dimension,Archive authority,Yes,No,Separate archive enum,Document Control,Yes
+relationships; applicability; publicationLocations,Mature governance structures,Enterprise Document Register,Yes,Structure-specific,Retained from 2.0,Document Control,Yes
+externalRequirements; retention; approvalEvidence,Compliance and evidence structures,Enterprise Document Register,Yes,Structure-specific,Retained from 2.0,Document Control,Yes
+ownershipControl; packageMemberships; riskAssessment,Authority and assessment structures,Enterprise Document Register,Yes,Structure-specific,Retained from 2.0,Document Control,Yes
+buildMetadata.buildId / lastBuildId,Last production event,Build manifest,No,Yes,Manifest lookup,QR Generator,No
+buildMetadata.lastBuildUnit / lastBuildBatch,Topology-neutral processing assignment; lastBuildBatch is deprecated alias,Build Manifest / verified Generator output,No,Yes,Identifier must match applicable Build Manifest; schema does not enumerate topology,Automated build process; Document Control verifies evidence,No
+buildMetadata.buildDate,Current or last verified build timestamp,Build Manifest / verified Generator output,No,Yes,ISO 8601 timestamp,Automated build process,No
+buildMetadata.generatorVersion,Generator version used for current or last verified artifact,Build Manifest / verified Generator output,No,Yes,Must reconcile to Build Manifest,Automated build process,No
+buildMetadata.generatedArtifactHash,Generated-output evidence,Build process,No,Yes,SHA-256 after generation,QR Generator,No
+buildMetadata.buildManifest,Manifest reference,Build process,No,Yes,Resolvable internal evidence reference,QR Generator,No
+buildMetadata.buildQAStatus,Build gate result,Automated QA,No,Yes,NOT_RUN/PASSED/FAILED,QR Generator,No
+qrControl.required,Class applicability,Document Control Standard,Yes,No,Class rule or approved exception,Document Control,Yes
+qrControl.resolverId,Stable resolver identity,Approved resolver configuration,No,Yes,Unique; no batch identity,Web / Infrastructure,Yes
+qrControl.target,Approved destination,Approved resolver configuration,No,Yes,MH-controlled; no secret/expiring URL,Web / Infrastructure,Yes
+qrControl.targetStatus,Target readiness,Resolver validation,Yes,No,Allowed target-state enum,Web / Infrastructure,No
+qrControl.verificationStatus,Decode and identity result,Automated QR validation,Yes,No,Allowed verification enum,QR Generator,No
+qrControl.lastVerifiedDate,Last successful or failed validation,Automated QR validation,No,Yes,ISO 8601 timestamp,QR Generator,No
+qrControl.exceptionId,Approved omission/variance,Controlled exception register,No,Yes,Required when a required class omits QR,Document Control,Yes
+hashLineage.baselineHash,Historical baseline evidence,Original master manifest,No,Yes,Immutable SHA-256,Document Control,Yes
+hashLineage.sourceHash,Governed source evidence,Source manifest,No,Yes,SHA-256 of governed source,Document Control,Yes
+hashLineage.generatedPdfHash,Generated PDF evidence,Build process,No,Yes,Separate SHA-256,QR Generator,No
+hashLineage.buildManifestHash,Build evidence integrity,Build process,No,Yes,SHA-256 of build manifest,QR Generator,No
