@@ -21,11 +21,7 @@
     "authoritativeExecutionHistory": "Build Manifests and audit history",
     "registerScope": "current or last verified build reference",
     "canonicalBuildUnitField": "lastBuildUnit",
-    "deprecatedAliases": [
-      "lastBuildBatch",
-      "lastBuildId",
-      "lastBuildDate"
-    ],
+    "deprecatedAliases": ["lastBuildBatch", "lastBuildId", "lastBuildDate"],
     "identityIndependentFromBuildTopology": true,
     "packageMembershipIndependentFromCanonicalSource": true
   },
@@ -61,3 +57,4 @@
     "approvalState": "pending COO concurrence and CEO final approval"
   }
 }
+
