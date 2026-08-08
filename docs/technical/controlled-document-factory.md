@@ -33,6 +33,8 @@ On a governed `main` update, the website validates the tracked manifest and send
 
 Neither signal authorizes publication. Missing credentials leave the build in validation-only mode, source hash mismatches fail closed, and no workflow overwrites native sources or public redirects automatically.
 
+The private factory may read the website source repository, intake manifest, QR access contract, and controlled redirect registry to obtain current stable destinations. QR images and generator source remain under private factory custody. The public website owns only destination resolution; `/qr-codes` is retained solely as a permanent redirect to Resources and does not expose a QR asset catalog or generate QR files.
+
 ## Fail-Safe Rules
 
 - No public or CI command may invoke the retired website PDF generator.

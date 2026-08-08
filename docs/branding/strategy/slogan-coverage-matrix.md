@@ -107,7 +107,6 @@ Use these links when updating or reviewing hero copy and layout for each surface
 - Privacy: [apps/website/src/app/privacy/page.tsx](../../../apps/website/src/app/privacy/page.tsx)
 - Terms: [apps/website/src/app/terms/page.tsx](../../../apps/website/src/app/terms/page.tsx)
 - Offline: [apps/website/src/app/offline/page.tsx](../../../apps/website/src/app/offline/page.tsx)
-- QR Codes: [apps/website/src/app/qr-codes/page.tsx](../../../apps/website/src/app/qr-codes/page.tsx)
 - Events: [apps/website/src/app/events/page.tsx](../../../apps/website/src/app/events/page.tsx)
 - Cool Desert Nights: [apps/website/src/app/events/cool-desert-nights/page.tsx](../../../apps/website/src/app/events/cool-desert-nights/page.tsx)
 - Incident Report: [apps/website/src/app/safety/incident-report/page.tsx](../../../apps/website/src/app/safety/incident-report/page.tsx)

@@ -1056,10 +1056,6 @@ describe("Expanded public page locale render coverage", () => {
         load: async () => (await import("../offline/page")).default,
       },
       {
-        route: "/qr-codes",
-        load: async () => (await import("../qr-codes/page")).default,
-      },
-      {
         route: "/resources/safety-manual/contents",
         load: async () =>
           (await import("../resources/safety-manual/contents/page")).default,

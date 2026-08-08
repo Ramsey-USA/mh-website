@@ -6,7 +6,7 @@
  * Validates key public route behavior:
  * - /sitemap returns HTML sitemap page
  * - /sitemap.xml returns XML
- * - /qr-codes returns 200
+ * - /qr-codes permanently redirects to /resources
  * - unknown locale path returns 404
  * - unknown slug path returns 404
  *
@@ -137,7 +137,10 @@ async function runChecks() {
   );
 
   const qrCodes = await request("/qr-codes");
-  expectStatus(qrCodes.status, 200, "/qr-codes");
+  expectStatus(qrCodes.status, 308, "/qr-codes");
+  if (qrCodes.headers.get("location") !== "/resources") {
+    fail(`/qr-codes: expected location /resources, received ${qrCodes.headers.get("location")}`);
+  }
 
   const unknownLocale = await request("/fr/services");
   expectStatus(unknownLocale.status, 404, "/fr/services");
