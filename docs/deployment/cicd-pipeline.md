@@ -418,7 +418,7 @@ Generates optimized build for Cloudflare Workers.
 npx wrangler deploy
 ```
 
-**Wrangler Configuration:** [wrangler.toml](../../wrangler.toml)
+**Wrangler Configuration:** [website wrangler.toml](../../apps/website/wrangler.toml)
 
 **What deploys:**
 
