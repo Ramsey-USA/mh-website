@@ -75,10 +75,11 @@ MHC ties logistics, access, and trade sequencing into preconstruction and daily 
 
 Record the personal and company post URLs when published. Capture LinkedIn-native metrics manually until official API authorization exists.
 
-| Checkpoint | LinkedIn measures | Website measures | Commercial measure |
-| --- | --- | --- | --- |
-| 24 hours | Impressions, reactions, comments, reposts, clicks | Sessions by exact UTM pair, engaged sessions | Direct questions or capability requests |
-| 72 hours | Comment quality, follower change, company discovery | Project-page engagement, CTA clicks, phone clicks | Contact starts and qualified stakeholder visits |
-| 7 days | Total reach, CTR, profile and Page discovery where available | Return visits, contact completions, attributed conversions | Qualified leads and project conversations |
+| Checkpoint | LinkedIn measures                                            | Website measures                                           | Commercial measure                              |
+| ---------- | ------------------------------------------------------------ | ---------------------------------------------------------- | ----------------------------------------------- |
+| 24 hours   | Impressions, reactions, comments, reposts, clicks            | Sessions by exact UTM pair, engaged sessions               | Direct questions or capability requests         |
+| 72 hours   | Comment quality, follower change, company discovery          | Project-page engagement, CTA clicks, phone clicks          | Contact starts and qualified stakeholder visits |
+| 7 days     | Total reach, CTR, profile and Page discovery where available | Return visits, contact completions, attributed conversions | Qualified leads and project conversations       |
 
 Decision rule: retain or expand the topic only when it produces professional discussion, relevant network growth, qualified website behavior, or a legitimate project signal. Do not optimize solely for impressions.
+
