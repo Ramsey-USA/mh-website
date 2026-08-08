@@ -39,19 +39,19 @@ See [Main README](../README.md) for full documentation.
 
 Framework configurations remain close to their owning application. Shared repository controls remain in the project root:
 
-| File                                 | Purpose                         | Location          |
-| ------------------------------------ | ------------------------------- | ----------------- |
-| `apps/website/wrangler.toml`         | Public Worker deployment        | Website app       |
-| `apps/dashboard/wrangler.toml`       | Dashboard Worker deployment     | Dashboard app     |
-| `apps/*/open-next.config.ts`         | OpenNext adapter for Cloudflare | Owning app        |
-| `eslint.config.mjs`   | ESLint 9 flat config            | Root     |
-| `tsconfig.json`       | TypeScript 6 strict mode        | Root     |
-| `next.config.js`      | Next.js 16.2.x framework        | Root     |
-| `tailwind.config.ts`  | Tailwind CSS 4 design system    | Root     |
-| `jest.config.js`      | Jest testing framework          | Root     |
-| `postcss.config.js`   | PostCSS CSS processing          | Root     |
-| `cspell.json`         | CSpell spell checking           | Root     |
-| `package.json`        | Dependencies & scripts          | Root     |
+| File                           | Purpose                         | Location      |
+| ------------------------------ | ------------------------------- | ------------- |
+| `apps/website/wrangler.toml`   | Public Worker deployment        | Website app   |
+| `apps/dashboard/wrangler.toml` | Dashboard Worker deployment     | Dashboard app |
+| `apps/*/open-next.config.ts`   | OpenNext adapter for Cloudflare | Owning app    |
+| `eslint.config.mjs`            | ESLint 9 flat config            | Root          |
+| `tsconfig.json`                | TypeScript 6 strict mode        | Root          |
+| `next.config.js`               | Next.js 16.2.x framework        | Root          |
+| `tailwind.config.ts`           | Tailwind CSS 4 design system    | Root          |
+| `jest.config.js`               | Jest testing framework          | Root          |
+| `postcss.config.js`            | PostCSS CSS processing          | Root          |
+| `cspell.json`                  | CSpell spell checking           | Root          |
+| `package.json`                 | Dependencies & scripts          | Root          |
 
 ---
 
