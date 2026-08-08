@@ -21,13 +21,13 @@ const SITE_URL = COMPANY_INFO.urls.getSiteUrl();
 export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
   description:
-    "Index of MH Construction's Safety Forms for the Safety Program (MISH Safety & Health Program / Safety Manual). Aligned with OSHA 29 CFR 1926 and AGC CSEA expectations. Authorized personnel may download blank forms; completed forms are restricted.",
+    "Controlled draft index of MH Construction Safety Forms aligned to the MISH Safety & Health Program. Public downloads remain disabled until executive approval and field-effective release.",
   alternates: { canonical: `${SITE_URL}/resources/safety-manual/forms` },
   robots: { index: true, follow: true },
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.safetyForms.seoName, PAGE_TERMINOLOGY.safetyForms.mhBrandName)} | MH Construction`,
     description:
-      "Index of Safety Program (MISH Safety & Health Program / Safety Manual) forms with downloadable blank templates and restricted completion records.",
+      "Controlled index of MISH Safety Program forms with draft-release safeguards and restricted completion records.",
     type: "website",
     url: `${SITE_URL}/resources/safety-manual/forms`,
   },
@@ -100,10 +100,10 @@ export default async function SafetyManualFormsPage() {
           <p className="mt-3 max-w-3xl text-sm text-white/80 sm:text-base">
             {isEs
               ? "Formularios de seguridad listos para campo para cuadrillas de MH Construction, subcontratistas, proveedores y revisores externos. Cada formulario se alinea con una seccion MISH y forma parte de nuestro Programa de Seguridad escrito."
-              : "Field-ready safety forms for MH Construction crews, subcontractors, vendors, and external reviewers. Each form aligns with a MISH section and is part of our written Safety Program delivered as the Safety Manual."}
+              : "Controlled draft safety-form index for MH Construction teams, Trade Partners, and external reviewers. Each form aligns with a MISH section; downloads remain disabled until executive approval and field-effective release."}
           </p>
           <p className="mt-3 text-xs font-semibold text-brand-secondary">
-            Blank templates for field use and documentation control
+            Controlled templates pending field-effective release
           </p>
         </div>
       </section>
@@ -113,8 +113,9 @@ export default async function SafetyManualFormsPage() {
         <div className="mx-auto flex max-w-5xl items-start gap-3 text-sm text-amber-800 dark:text-amber-300">
           <MaterialIcon icon="lock" size="sm" className="mt-0.5 shrink-0" />
           <span>
-            <strong>Blank templates only.</strong> Completed forms,
-            project-specific JHAs, and incident records are restricted —{" "}
+            <strong>Controlled draft index.</strong> Blank downloads, completed
+            forms, project-specific JHAs, and incident records remain restricted
+            until approved release.{" "}
             <Link
               href="/contact?topic=safety-manual"
               className="underline hover:text-amber-900 dark:hover:text-amber-200"
@@ -127,7 +128,7 @@ export default async function SafetyManualFormsPage() {
       </div>
 
       {/* ── Form cards ────────────────────────────────────────────── */}
-      <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-5 sm:grid-cols-2">
           {safetyForms.map((form) => (
             <article
@@ -195,7 +196,7 @@ export default async function SafetyManualFormsPage() {
             </article>
           ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }
