@@ -82,9 +82,7 @@ describe("Sitewide breadcrumb placement contract", () => {
     expect(portalBannerFlag).toBeGreaterThan(portalFallback);
     expect(portalBanner).toBeGreaterThan(portalBannerFlag);
 
-    const mainStart = appShellSource.indexOf(
-      '<main id="main-content" className="grow pt-(--mh-nav-offset,6.5rem)">',
-    );
+    const mainStart = appShellSource.indexOf('<main\n            id="main-content"');
     const mainChildren = appShellSource.indexOf("{children}", mainStart);
     const mainAfterHeroSlot = appShellSource.indexOf(
       "<SemiquincentennialAfterHeroSlot />",
