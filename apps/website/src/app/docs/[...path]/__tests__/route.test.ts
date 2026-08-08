@@ -55,7 +55,12 @@ describe("docs catch-all route", () => {
     expect(invalidSegmentRes.status).toBe(400);
   });
 
-  it("returns 503 when FILE_ASSETS bucket is unavailable", async () => {
+  it("returns 503 for an authorized request when FILE_ASSETS is unavailable", async () => {
+    (extractTokenFromHeader as jest.Mock).mockReturnValue("valid-token");
+    (verifyToken as jest.Mock).mockResolvedValue({
+      uid: "worker-123",
+      role: "worker",
+    });
     (getR2Bucket as jest.Mock).mockImplementation(() => {
       throw new Error("missing env");
     });
@@ -75,7 +80,12 @@ describe("docs catch-all route", () => {
     );
   });
 
-  it("returns 404 when file does not exist", async () => {
+  it("returns 404 for an authorized request when a file does not exist", async () => {
+    (extractTokenFromHeader as jest.Mock).mockReturnValue("valid-token");
+    (verifyToken as jest.Mock).mockResolvedValue({
+      uid: "worker-123",
+      role: "worker",
+    });
     const bucket: BucketMock = {
       get: jest.fn().mockResolvedValue(null),
     };
@@ -139,7 +149,12 @@ describe("docs catch-all route", () => {
     expect(await res.text()).toBe("restricted-file");
   });
 
-  it("streams file and sets response headers for known content types", async () => {
+  it("streams an authorized file and sets known response headers", async () => {
+    (extractTokenFromHeader as jest.Mock).mockReturnValue("valid-token");
+    (verifyToken as jest.Mock).mockResolvedValue({
+      uid: "worker-123",
+      role: "worker",
+    });
     const encoder = new TextEncoder();
     const stream = new ReadableStream({
       start(controller) {
@@ -170,11 +185,9 @@ describe("docs catch-all route", () => {
     expect(await res.text()).toBe("file-content");
   });
 
-  it("keeps public-partial docs accessible without auth", async () => {
+  it("keeps draft public-partial docs behind authentication", async () => {
     const bucket: BucketMock = {
-      get: jest.fn().mockResolvedValue({
-        body: new ReadableStream({ start: (c) => c.close() }),
-      }),
+      get: jest.fn(),
     };
     (getR2Bucket as jest.Mock).mockReturnValue(bucket);
 
@@ -186,7 +199,11 @@ describe("docs catch-all route", () => {
       makeContext(["safety", "safety-manual-contents.pdf"]),
     );
 
-    expect(res.status).toBe(200);
+    expect(res.status).toBe(401);
+    expect(await res.json()).toMatchObject({
+      error: "Authentication required",
+    });
+    expect(bucket.get).not.toHaveBeenCalled();
   });
 
   it("falls back to octet-stream for unknown extensions", async () => {
