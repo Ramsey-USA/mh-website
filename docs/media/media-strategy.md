@@ -26,7 +26,7 @@ Use this guide when planning capture needs, organizing files, replacing placehol
 4. [Optimization Rules](#4-optimization-rules)
 5. [SEO Requirements for Every Image](#5-seo-requirements-for-every-image)
 6. [Testimonials — Photo + Distribution Workflow](#6-testimonials--photo--distribution-workflow)
-7. [Social Media Auto-Post (n8n)](#7-social-media-auto-post-n8n)
+7. [Controlled Social Distribution](#7-controlled-social-distribution)
 8. [Email Blast Automation (n8n + Resend)](#8-email-blast-automation-n8n--resend)
 9. [Open Graph Images per Page](#9-open-graph-images-per-page)
 10. [Video Workflow](#10-video-workflow)
@@ -417,14 +417,24 @@ public/images/safety/
 
 ---
 
-## 7. Social Media Auto-Post (n8n)
+## 7. Controlled Social Distribution
 
 Automation is useful only when the underlying media and copy are already approved. Never let automation outrun proof review.
 
 The site already uses `n8n` (via `N8N_WEBHOOK_URL`) for form notifications.
-Extend that workflow to auto-post testimonials to social media.
+Any social workflow must remain an approval-controlled release system. LinkedIn publication is disabled until MH has a registered LinkedIn Developer application, approved product access and scopes, verified organization authorization, an OAuth token issued through the official flow, and a successful supported-API test. A signed-in browser session or Company Page administrator view does not satisfy those controls.
 
-### 7a. New API endpoint
+### LinkedIn release gate
+
+- Use only LinkedIn's supported OAuth authorization-code flow and Posts API.
+- Publish Company Page content only as the verified organization URN for organization ID `106711194`.
+- Require an explicit human approval record for the final copy, visual, destination, and timing before each release.
+- Keep Matthew's personal account human-controlled. Do not automate personal posts, comments, reactions, connections, messages, or browser actions.
+- Never scrape cookies, manipulate the LinkedIn DOM, use unofficial endpoints, or place administrative URLs in public content.
+- Record the returned post URN, final URL, approver, UTC publication time, deterministic content ID, and exact UTM values.
+- If any permission, authorization, token, asset-upload, or API test fails, stop the LinkedIn branch and return the item to manual approval.
+
+### 7a. Approval-controlled API endpoint
 
 Create `src/app/api/testimonials/publish/route.ts`:
 
@@ -432,11 +442,13 @@ Create `src/app/api/testimonials/publish/route.ts`:
 // POST /api/testimonials/publish
 // Body: { testimonialId: string, platforms: string[] }
 // Protected: admin session required
-// Action: sends payload to N8N_TESTIMONIAL_WEBHOOK_URL
+// Action: sends an immutable, approved payload to N8N_TESTIMONIAL_WEBHOOK_URL
 ```
 
-The endpoint validates the session, looks up the testimonial in
-`testimonials.ts`, and fires a webhook to n8n with:
+The endpoint validates the session, approval record, content ID, destination,
+and asset URL; looks up the testimonial in `testimonials.ts`; and fires an
+immutable payload to n8n. The endpoint must reject unapproved records and must
+never accept arbitrary post copy from the client request.
 
 ```json
 {
@@ -480,10 +492,10 @@ Webhook trigger (POST from site)
 
 - Facebook Page access token (long-lived)
 - Instagram Business account linked via Facebook
-- LinkedIn OAuth2 company page token
+- LinkedIn Developer application with approved Community Management access, required organization scopes, verified organization authorization, and an OAuth token issued through the official authorization-code flow
 - Twitter API v2 bearer token
 
-### 7c. Schedule vs. immediate
+### 7c. Schedule and release control
 
 - **Featured testimonials** → post immediately when `featured: true` is set.
 - **Non-featured** → queue with a delay (48 h gap between posts) to avoid

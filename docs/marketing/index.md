@@ -39,6 +39,13 @@ Use [Strategy and Branding Canonical Map](../manuals/strategy-branding-canonical
 
 ## Available Resources
 
+### LinkedIn Engagement Funnel
+
+- **[LinkedIn Campaign Package](./campaigns/linkedin/README.md)** - control position, release boundary, and package index.
+- **[LinkedIn Engagement Operating Standard](./campaigns/linkedin/operating-standard.md)** - deterministic identifiers, UTM contract, approval gates, and measurement rules.
+- **[Campaign 001: Active-Site Sequencing](./campaigns/linkedin/campaign-001-active-site-sequencing.md)** - approved personal and Company Page copy, release sequence, responses, and measurement plan.
+- **[Campaign 001 Asset Manifest](./campaigns/linkedin/creative/asset-manifest.md)** - approved source, export, dimensions, brand values, and integrity hashes.
+
 ### Strategy Baseline
 
 - **[Marketing Parameters Directory](./parameters/index.md)** — Shared entry point for reusable marketing and sales baselines covering lifecycle, proof, approvals, and cross-functional handoff rules.
