@@ -96,27 +96,17 @@
     "CHNAV": {
       "title": "Chief Navigation Officer",
       "publicLabel": "Chief Navigation Officer (CHNAV)",
-      "accountability": [
-        "Sales",
-        "Estimating",
-        "Preconstruction",
-        "BidPilot"
-      ]
+      "accountability": ["Sales", "Estimating", "Preconstruction", "BidPilot"]
     },
     "COO": {
       "title": "Chief Operating Officer",
       "publicLabel": "Chief Operating Officer (COO)",
-      "accountability": [
-        "Operations",
-        "Executive direction of CHENG and CHNAV"
-      ]
+      "accountability": ["Operations", "Executive direction of CHENG and CHNAV"]
     },
     "CEO": {
       "title": "Chief Executive Officer",
       "publicLabel": "Chief Executive Officer (CEO)",
-      "accountability": [
-        "Final executive authority"
-      ]
+      "accountability": ["Final executive authority"]
     }
   },
   "systems": {
@@ -136,10 +126,7 @@
       "scope": "Project execution and construction records",
       "publicStatus": "operational"
     },
-    "sage100": {
-      "scope": "Financial records",
-      "publicStatus": "operational"
-    },
+    "sage100": { "scope": "Financial records", "publicStatus": "operational" },
     "inHouseServer": {
       "scope": "Approved digital archive",
       "publicStatus": "operational"
