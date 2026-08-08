@@ -38,13 +38,14 @@ function log(message, color = "reset") {
 }
 
 const imageDir = path.join(__dirname, "../../public/images");
+const CONTROLLED_DIRECTORIES = new Set(["qr-codes"]);
 const optimizedCount = { success: 0, skipped: 0, failed: 0 };
 const savings = { before: 0, after: 0 };
 
 /**
  * Max width per directory category.
  * With unoptimized:true the browser gets the exact file — so we pre-size here.
- * QR codes are excluded from resizing (must stay sharp for scanning).
+ * QR codes are excluded from this process entirely and remain controlled artifacts.
  */
 const MAX_WIDTH_BY_CATEGORY = {
   "qr-codes": null, // never resize — QR codes must be full-res
@@ -249,6 +250,11 @@ async function processDirectory(dir, outputDir, relativePath = "") {
     const relPath = path.join(relativePath, entry.name);
 
     if (entry.isDirectory()) {
+      if (!relativePath && CONTROLLED_DIRECTORIES.has(entry.name)) {
+        log(`  - ${entry.name}/ excluded from derivative generation`, "yellow");
+        continue;
+      }
+
       const newOutputDir = path.join(outputDir, entry.name);
       if (!fs.existsSync(newOutputDir)) {
         fs.mkdirSync(newOutputDir, { recursive: true });

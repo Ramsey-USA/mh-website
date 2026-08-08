@@ -9,7 +9,7 @@ import {
 import { getServerLocale } from "@/lib/i18n/locale.server";
 import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 
-export async function generateMetadata(): Promise<Metadata> {
+export function generateMetadata(): Metadata {
   return withGeoMetadata({
     title: `${formatDualPageName(PAGE_TERMINOLOGY.sitemap.seoName, PAGE_TERMINOLOGY.sitemap.mhBrandName)} | MH Construction`,
     description:
