@@ -17,6 +17,7 @@ Align every website route with the current MH Ecosystem lifecycle, terminology, 
 - Employee Handbook version fallback is restored to the controlled 3.0 family.
 - PDF and QR generation custody remains with `Ramsey-USA/mh-document-factory`; the website retains stable public destinations and approved summaries.
 - A sitewide regression contract prevents release-state drift and false operational claims for in-development systems.
+- The project archive contract establishes one-record-per-project intake, R2 derivative storage, immutable identifiers, stable redirects, rights review, duplicate detection, pagination, filters, and search fields for legacy and future work.
 
 ## Release Gates
 
