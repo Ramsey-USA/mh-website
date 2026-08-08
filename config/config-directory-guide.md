@@ -1,6 +1,6 @@
 # Configuration Directory
 
-**Last Updated:** April 15, 2026  
+**Last Updated:** August 8, 2026  
 **Status:** ✅ Active — Deployment-Specific Configs Only
 
 ## ⚠️ Important Notice
@@ -18,10 +18,8 @@ See [Main README](../README.md) for full documentation.
 ### Cloudflare Configuration
 
 - **`cloudflare/edge-optimization.md`** - Cloudflare edge caching and optimization reference
-- **`cloudflare/wrangler-example.toml`** - Legacy reference template (Pages model)
-- **`cloudflare/wrangler-workers-example.toml`** - Reference template showing all Workers bindings
 
-> **Note:** The production `wrangler.toml` is in the **project root** (not in this directory).
+> **Control:** Production Worker configurations are app-local at `apps/website/wrangler.toml` and `apps/dashboard/wrangler.toml`. Root and example Wrangler files are prohibited to prevent target ambiguity.
 
 ### Deployment Configuration
 
@@ -37,14 +35,15 @@ See [Main README](../README.md) for full documentation.
 
 ---
 
-## 🔧 Primary Configurations (Project Root)
+## 🔧 Primary Configurations
 
-All framework and build tool configurations are in the **project root** for better discoverability:
+Framework configurations remain close to their owning application. Shared repository controls remain in the project root:
 
-| File                  | Purpose                         | Location |
-| --------------------- | ------------------------------- | -------- |
-| `wrangler.toml`       | Cloudflare Workers deployment   | Root     |
-| `open-next.config.ts` | OpenNext adapter for Cloudflare | Root     |
+| File                                 | Purpose                         | Location          |
+| ------------------------------------ | ------------------------------- | ----------------- |
+| `apps/website/wrangler.toml`         | Public Worker deployment        | Website app       |
+| `apps/dashboard/wrangler.toml`       | Dashboard Worker deployment     | Dashboard app     |
+| `apps/*/open-next.config.ts`         | OpenNext adapter for Cloudflare | Owning app        |
 | `eslint.config.mjs`   | ESLint 9 flat config            | Root     |
 | `tsconfig.json`       | TypeScript 6 strict mode        | Root     |
 | `next.config.js`      | Next.js 16.2.x framework        | Root     |
@@ -62,10 +61,8 @@ All framework and build tool configurations are in the **project root** for bett
 
 ```text
 config/
-├── cloudflare/         # Cloudflare edge optimization & reference templates
-│   ├── edge-optimization.md
-│   ├── wrangler-example.toml
-│   └── wrangler-workers-example.toml
+├── cloudflare/         # Cloudflare edge optimization guidance
+│   └── edge-optimization.md
 ├── deployment/         # Docker deployment configs
 │   ├── Dockerfile
 │   └── docker-compose.yml
