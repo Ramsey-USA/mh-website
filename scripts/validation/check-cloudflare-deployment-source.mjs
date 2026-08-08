@@ -53,12 +53,13 @@ const dashboardOpenNext =
   dashboardPackage.devDependencies?.["@opennextjs/cloudflare"];
 
 if (!/^\^?4\./.test(websiteWrangler ?? "")) {
-  fail(`Website must use Wrangler v4.x; found ${websiteWrangler ?? "missing"}.`);
+  fail(
+    `Website must use Wrangler v4.x; found ${websiteWrangler ?? "missing"}.`,
+  );
 }
 
 if (
-  websiteWrangler?.replace(/^\^/, "") !==
-  dashboardWrangler?.replace(/^\^/, "")
+  websiteWrangler?.replace(/^\^/, "") !== dashboardWrangler?.replace(/^\^/, "")
 ) {
   fail(
     `Wrangler versions must match across apps; website=${websiteWrangler}, dashboard=${dashboardWrangler}.`,
