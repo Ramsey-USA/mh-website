@@ -58,7 +58,6 @@ Cloudflare R2 objects use explicit content type, content disposition, and cache-
 
 The retired generator source may remain in Git history for audit purposes, but no package command, workflow, prebuild, deployment, or QR task may call it. The former `generate-pdfs.yml`, automatic `docs:all`, release chains that combine generation with upload, and QR PNG publication path are removed from active operation.
 
-
 ## Build Topology Boundary
 
 Build batches and workers are replaceable processing units defined by each Build Manifest. The Enterprise Document Register records only the current or last verified build reference; Build Manifests and audit history retain complete execution history. A build-unit change cannot alter governed identity, source taxonomy, package membership, revision, or future resolver identity.
