@@ -81,7 +81,7 @@ describe("middleware locale seeding", () => {
     expect(response.headers.get("x-middleware-rewrite")).toBeNull();
   });
 
-  it("keeps /qr-codes as a direct route without redirect hops", async () => {
+  it("does not locale-rewrite the retired /qr-codes path before app-level 404 handling", async () => {
     const response = await middleware(makeRequest("/qr-codes"));
 
     expect(response.status).toBe(200);
