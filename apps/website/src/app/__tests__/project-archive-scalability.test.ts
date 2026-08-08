@@ -93,4 +93,3 @@ describe("Project archive scalability contract", () => {
     expect(violations).toEqual([]);
   });
 });
-
