@@ -65,7 +65,6 @@ Use `package.json` as the canonical source for `pnpm run ...` entry points. This
 - `generate-qr-codes.js` - Generate QR codes (color & B&W variants with labels)
 - `build-qr-download-bundle.js` - Mirror QR codes into a download-friendly bundle
 - `r2-publish-qr-codes.sh` - Publish QR PNGs and manifest to Cloudflare R2
-- `add-team-qr-codes.js` - Add QR code references to team data
 - `add-team-skills.js` - Add skills to team data
 - `analyze-components.js` - Component analysis
 - `check-qr-codes.sh` - Verify QR code presence
@@ -133,7 +132,6 @@ Access these scripts via pnpm:
 
 Scripts without npm aliases (run directly):
 
-- `node scripts/add-team-qr-codes.js` - Add QR code references to team data
 - `bash scripts/analysis/analyze-content-quality.sh` - Content quality analysis
 - `bash scripts/utilities/check-domain-setup.sh` - Check domain setup
 - `bash scripts/markdown/validate-markdown-links.sh` - Validate markdown links
