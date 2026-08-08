@@ -1,0 +1,522 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mh:enterprise-document-register-schema:2.2-development",
+  "title": "MH Enterprise Document Register Schema",
+  "description": "Schema 2.2-development decouples enterprise governance from build topology while retaining 2.1 compatibility.",
+  "type": "object",
+  "required": [
+    "documentId",
+    "documentIdStatus",
+    "baselinePackages",
+    "source",
+    "lifecycleStatus",
+    "supersessionStatus",
+    "operationalValidity",
+    "archiveStatus",
+    "relationships",
+    "applicability",
+    "publicationLocations",
+    "externalRequirements",
+    "retention",
+    "approvalEvidence",
+    "ownershipControl",
+    "packageMemberships",
+    "riskAssessment",
+    "buildMetadata",
+    "qrControl",
+    "hashLineage"
+  ],
+  "properties": {
+    "schemaLineage": {
+      "type": "object",
+      "properties": {
+        "previousVersion": {
+          "const": "2.1-development"
+        },
+        "currentVersion": {
+          "const": "2.2-development"
+        },
+        "compatibilityImpact": {
+          "const": "ADDITIVE_WITH_DEPRECATED_ALIAS"
+        }
+      }
+    },
+    "documentId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "documentIdStatus": {
+      "enum": [
+        "ESTABLISHED",
+        "NOT_ESTABLISHED",
+        "MANAGEMENT_REVIEW"
+      ]
+    },
+    "enterpriseUid": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "documentFamily": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "baselinePackages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "01-core-doctrine",
+          "02-strategy-and-business-dev",
+          "03-project-delivery",
+          "04-safety-and-field-ops",
+          "05-it-and-infrastructure",
+          "06-tbt-library",
+          "07-sds-library",
+          "08-forms-ehb",
+          "09-forms-operations",
+          "10-forms-mish"
+        ]
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "governedPath",
+        "authority"
+      ],
+      "properties": {
+        "governedPath": {
+          "type": "string"
+        },
+        "authority": {
+          "enum": [
+            "MH_GOVERNED_SOURCE",
+            "EXTERNAL_PUBLISHER"
+          ]
+        }
+      }
+    },
+    "lifecycleStatus": {
+      "enum": [
+        "DRAFT",
+        "IN_REVIEW",
+        "APPROVED",
+        "ISSUED",
+        "WITHDRAWN"
+      ]
+    },
+    "supersessionStatus": {
+      "enum": [
+        "NOT_SUPERSEDED",
+        "SUPERSEDED"
+      ]
+    },
+    "operationalValidity": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "CURRENT",
+        "OBSOLETE"
+      ]
+    },
+    "archiveStatus": {
+      "enum": [
+        "ACTIVE",
+        "ARCHIVED"
+      ]
+    },
+    "revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effectiveDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "publicationLocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "externalRequirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "approvalEvidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "ownershipControl": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "packageMemberships": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "riskAssessment": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "buildMetadata": {
+      "type": "object",
+      "required": [
+        "generatorVersion",
+        "generatedArtifactHash",
+        "buildManifest",
+        "buildQAStatus",
+        "qrControlStatus"
+      ],
+      "properties": {
+        "lastBuildId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "deprecated": true,
+          "description": "Compatibility alias for buildId."
+        },
+        "lastBuildBatch": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 3,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z][A-Za-z0-9 ._-]*$",
+          "deprecated": true,
+          "description": "Compatibility alias. Migrate to lastBuildUnit; topology is validated by the applicable Build Manifest."
+        },
+        "lastBuildDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "deprecated": true,
+          "description": "Compatibility alias for buildDate."
+        },
+        "generatorVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "generatedArtifactHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "buildManifest": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "buildQAStatus": {
+          "enum": [
+            null,
+            "NOT_RUN",
+            "PASSED",
+            "FAILED"
+          ]
+        },
+        "qrControlStatus": {
+          "enum": [
+            null,
+            "NOT_REQUIRED",
+            "NOT_READY",
+            "READY",
+            "FAILED"
+          ]
+        },
+        "lastBuildUnit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 3,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z][A-Za-z0-9 ._-]*$",
+          "description": "Topology-neutral processing unit recorded from verified Build Manifest output."
+        },
+        "buildId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Current or last verified Build Manifest build identifier."
+        },
+        "buildDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "description": "Current or last verified Build Manifest timestamp."
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "required": [
+                "lastBuildUnit"
+              ]
+            },
+            {
+              "required": [
+                "lastBuildBatch"
+              ]
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "buildId"
+              ]
+            },
+            {
+              "required": [
+                "lastBuildId"
+              ]
+            }
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "buildDate"
+              ]
+            },
+            {
+              "required": [
+                "lastBuildDate"
+              ]
+            }
+          ]
+        }
+      ],
+      "description": "Current or last verified build reference only. Full execution history belongs to Build Manifests and audit history."
+    },
+    "qrControl": {
+      "type": "object",
+      "required": [
+        "required",
+        "resolverId",
+        "target",
+        "targetStatus",
+        "verificationStatus",
+        "lastVerifiedDate",
+        "controlPurpose",
+        "exceptionId"
+      ],
+      "properties": {
+        "required": {
+          "type": "boolean"
+        },
+        "resolverId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "targetStatus": {
+          "enum": [
+            "NOT_ESTABLISHED",
+            "ESTABLISHED",
+            "INVALID",
+            "WITHDRAWN"
+          ]
+        },
+        "verificationStatus": {
+          "enum": [
+            "NOT_VERIFIED",
+            "VERIFIED",
+            "FAILED"
+          ]
+        },
+        "lastVerifiedDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "controlPurpose": {
+          "const": "CURRENT_DOCUMENT_VERIFICATION"
+        },
+        "exceptionId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "hashLineage": {
+      "type": "object",
+      "required": [
+        "baselineHash",
+        "sourceHash",
+        "generatedPdfHash",
+        "buildArtifactHash",
+        "buildManifestHash"
+      ],
+      "properties": {
+        "baselineHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "sourceHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "generatedPdfHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "buildArtifactHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "buildManifestHash": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "recordTraceability": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "originatingDocumentId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "originatingTemplateRevision": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "completionDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "projectJobId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "recordId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "lifecycleStatus": {
+            "enum": [
+              "APPROVED",
+              "ISSUED"
+            ]
+          }
+        },
+        "required": [
+          "lifecycleStatus"
+        ]
+      },
+      "then": {
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "documentIdStatus": {
+            "const": "ESTABLISHED"
+          }
+        }
+      }
+    }
+  ]
+}
