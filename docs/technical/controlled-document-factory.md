@@ -10,7 +10,7 @@
 
 The public website does not generate, merge, restyle, or automatically rebuild controlled PDFs. Native DOCX sources, brand assets, working renders, review evidence, and release work orders remain inside the private MH document factory on an authorized workstation and the in-house archive server.
 
-The website performs only three document functions: resolve stable document IDs, enforce access classification, and serve approved immutable objects from Cloudflare R2. A website deployment cannot create a document revision or make a Rough Draft effective.
+The website enforces access classification and serves approved immutable objects from Cloudflare R2. Stable document-ID resolution is a planned function that remains disabled until management approves decision `A-QR-001` and the separate route, verification, and publication gates close. A website deployment cannot create a document revision or make a Rough Draft effective.
 
 ## Controlled Flow
 
@@ -22,7 +22,7 @@ The website performs only three document functions: resolve stable document IDs,
 6. CHENG and the functional owner complete review. COO concurs. CEO grants final publication approval.
 7. The factory writes a signed-off release manifest containing the controlled ID, revision, classification, SHA-256, immutable R2 key, stable redirect ID, and approval evidence.
 8. The publisher uploads only approved changed outputs to an immutable R2 key such as `controlled-documents/<controlled-id>/<version>/<sha256>.pdf`.
-9. A separate redirect registry changes the stable URL `/go/docs/<stable-id>` to the approved object. Existing QR codes never change.
+9. After resolver policy approval, a separate redirect registry may change the stable URL `/go/docs/<stable-id>` to the approved object. Until approval, no production resolver route or document QR is created.
 10. The release manifest, native source, approved PDF, and evidence package return to the in-house archive server.
 
 ## Cross-Repository Control Plane
@@ -33,7 +33,7 @@ On a governed `main` update, the website validates the tracked manifest and send
 
 Neither signal authorizes publication. Missing credentials leave the build in validation-only mode, source hash mismatches fail closed, and no workflow overwrites native sources or public redirects automatically.
 
-The private factory may read the website source repository, intake manifest, QR access contract, and controlled redirect registry to obtain current stable destinations. QR images and generator source remain under private factory custody. The public website owns only destination resolution; the retired `/qr-codes` catalog is not a public route and the website does not generate QR files.
+The private factory may read the website source repository, intake manifest, QR access contract, and controlled redirect registry to obtain current stable destinations. QR images and generator source remain under private factory custody. The public website would own destination resolution only after resolver policy approval; the retired `/qr-codes` catalog is not a public route and the website does not generate QR files.
 
 ## Fail-Safe Rules
 
@@ -52,8 +52,13 @@ The private factory is maintained in the restricted `Ramsey-USA/mh-document-fact
 
 ## Cloudflare Publication Contract
 
-Cloudflare R2 objects use explicit content type, content disposition, and cache-control metadata. Approved PDFs use immutable content-addressed keys with long-lived caching; stable redirect responses use short caching so an approved target change propagates without replacing the QR code. Production routing remains on the existing Workers/custom-domain path, consistent with Cloudflare's current R2 and Workers routing model.
+Cloudflare R2 objects use explicit content type, content disposition, and cache-control metadata. Approved PDFs use immutable content-addressed keys with long-lived caching. If resolver policy is approved, stable redirect responses will use short caching so an approved target change propagates without replacing the QR code. Production routing remains on the existing Workers/custom-domain path, consistent with Cloudflare's current R2 and Workers routing model.
 
 ## Transition Controls
 
 The retired generator source may remain in Git history for audit purposes, but no package command, workflow, prebuild, deployment, or QR task may call it. The former `generate-pdfs.yml`, automatic `docs:all`, release chains that combine generation with upload, and QR PNG publication path are removed from active operation.
+
+
+## Build Topology Boundary
+
+Build batches and workers are replaceable processing units defined by each Build Manifest. The Enterprise Document Register records only the current or last verified build reference; Build Manifests and audit history retain complete execution history. A build-unit change cannot alter governed identity, source taxonomy, package membership, revision, or future resolver identity.
