@@ -229,7 +229,6 @@ for (const forbidden of [
   }
 }
 
-
 const nativeReleaseRoot = resolve(
   repoRoot,
   "documents/content/mh-ecosystem/releases/native-rebuild-schema-2-2-tbt-integrated-2026-08-08",
@@ -251,7 +250,9 @@ if (
   nativeManifest.controlStatus !== "NOT_CONTROLLED" ||
   nativeManifest.publication?.publicReleaseAllowed !== false
 ) {
-  fail("Native schema 2.2 TBT rebuild manifest must remain Draft, private, and fail closed.");
+  fail(
+    "Native schema 2.2 TBT rebuild manifest must remain Draft, private, and fail closed.",
+  );
 }
 
 const nativeQa = readNativeJson("mh-ecosystem-tbt-integration-final-qa.json");
@@ -292,7 +293,9 @@ if (
       record.schema_version !== "2.2-development",
   )
 ) {
-  fail("Native rebuild metadata must retain 346 paired Draft schema 2.2 records.");
+  fail(
+    "Native rebuild metadata must retain 346 paired Draft schema 2.2 records.",
+  );
 }
 
 const tbtRegister = parseCsv(readNative("tbt-integration-register.csv"));
@@ -306,7 +309,9 @@ if (
       record.schemaVersion !== "2.2-development",
   )
 ) {
-  fail("TBT integration register must retain 141 original, uncontrolled, unresolved Draft records.");
+  fail(
+    "TBT integration register must retain 141 original, uncontrolled, unresolved Draft records.",
+  );
 }
 
 const binaryReleaseMembers = [
@@ -325,7 +330,9 @@ const binaryReleaseMembers = [
 ];
 for (const member of binaryReleaseMembers) {
   if (existsSync(resolve(nativeReleaseRoot, member))) {
-    fail(`Private native release binary must not enter website repository: ${member}`);
+    fail(
+      `Private native release binary must not enter website repository: ${member}`,
+    );
   }
 }
 
@@ -338,7 +345,9 @@ if (
   nativePlatform?.inventory?.tbtPairs !== 223 ||
   nativePlatform?.repositoryIntegration !== "metadata-and-validation-authority"
 ) {
-  fail("Enterprise platform metadata is not aligned with the current native rebuild.");
+  fail(
+    "Enterprise platform metadata is not aligned with the current native rebuild.",
+  );
 }
 
 if (failures.length > 0) {
