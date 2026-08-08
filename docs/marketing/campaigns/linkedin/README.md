@@ -28,4 +28,3 @@ The administrative URL supplied for organization ID `106711194` is an internal m
 Matthew approved the campaign copy, visual, destination, and controlled release plan on 2026-08-07. MHC must still confirm at release that the Volm project image and public case-study facts remain approved for social distribution.
 
 No LinkedIn content has been published from this package. Publication remains blocked until an official LinkedIn Developer application, approved access and scopes, organization authorization, OAuth token, and supported-API test exist.
-
