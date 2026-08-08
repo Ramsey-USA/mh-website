@@ -1,14 +1,648 @@
-Cannot invoke method. Method invocation is supported only on core types in this language mode.
-At line:2 char:22058
-+ ... RoUmV0cnkoKTsK'; $bytes=[Convert]::FromBase64String($encoded); $text= ...
-+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
-    + FullyQualifiedErrorId : MethodInvocationNotSupportedInConstrainedLanguage
- 
-Cannot invoke method. Method invocation is supported only on core types in this language mode.
-At line:2 char:22104
-+ ... ring($encoded); $text=[Text.Encoding]::UTF8.GetString($bytes); $text  ...
-+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
-    + FullyQualifiedErrorId : MethodInvocationNotSupportedInConstrainedLanguage
- 
+#!/usr/bin/env node
+
+import {
+  existsSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
+
+const appRoot = process.cwd();
+const repoRoot = resolve(appRoot, "../..");
+const openNextRoot = join(appRoot, ".open-next");
+const openNextWorker = join(openNextRoot, "worker.js");
+const openNextAssets = join(openNextRoot, "assets");
+const wranglerTmpRoot = join(appRoot, ".wrangler", "tmp");
+const headersConfigPath = join(appRoot, "public", "_headers");
+
+const SOURCE_PATHS = [
+  "package.json",
+  "pnpm-lock.yaml",
+  "tsconfig.json",
+  "next.config.js",
+  "tailwind.config.ts",
+  "postcss.config.js",
+  "open-next.config.ts",
+  "middleware.ts",
+  "src",
+  "app",
+  "components",
+  "lib",
+  "config",
+  "documents",
+  "messages",
+  "public",
+  "packages/shared/src",
+];
+
+const EXCLUDED_DIRS = new Set([
+  ".git",
+  ".next",
+  ".open-next",
+  "coverage",
+  "dist",
+  "build",
+  "out",
+  "node_modules",
+]);
+
+const TEMP_ASSET_BASENAMES = new Set([
+  "tmp-form03d.html",
+  "tmp-form03d-pdf.png",
+  "tmp-form03d-pdf-wait.png",
+]);
+
+// Large media files that exceed Cloudflare Workers asset limits (25 MiB).
+// These are served from R2 or another CDN instead of bundled in the Worker.
+const EXCLUDED_ASSET_PATTERNS = [
+  "videos/hero-commercials/mh-construction-radio-ad-jeremy-thamert.webm",
+];
+
+const WORKERS_MAX_ASSET_BYTES = 25 * 1024 * 1024;
+
+const wranglerConfigPath = join(appRoot, "wrangler.toml");
+
+const DEPLOY_ENV_FILES = [
+  join(repoRoot, ".env.r2.local"),
+  join(repoRoot, ".env.local"),
+  join(appRoot, ".env.r2.local"),
+  join(appRoot, ".env.local"),
+];
+
+const ENV_KEYS_TO_LOAD = new Set([
+  "CLOUDFLARE_API_TOKEN",
+  "CF_API_TOKEN",
+  "CLOUDFLARE_API_KEY",
+  "CLOUDFLARE_EMAIL",
+  "CLOUDFLARE_ACCOUNT_ID",
+  "CF_ACCOUNT_ID",
+  "CLOUDFLARE_ZONE_ID",
+  "CF_ZONE_ID",
+]);
+
+function fail(message) {
+  console.error(`✖ ${message}`);
+  process.exit(1);
+}
+
+function loadDeployEnvVars() {
+  for (const envPath of DEPLOY_ENV_FILES) {
+    if (!existsSync(envPath)) continue;
+
+    const contents = readFileSync(envPath, "utf8");
+    const lines = contents.split(/\r?\n/);
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+      if (!line || line.startsWith("#")) continue;
+
+      const separatorIndex = line.indexOf("=");
+      if (separatorIndex <= 0) continue;
+
+      const key = line.slice(0, separatorIndex).trim();
+      if (!ENV_KEYS_TO_LOAD.has(key)) continue;
+      if (process.env[key]) continue;
+
+      let value = line.slice(separatorIndex + 1).trim();
+
+      // Strip surrounding quotes for simple .env values.
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1);
+      }
+
+      if (value) {
+        process.env[key] = value;
+      }
+    }
+  }
+}
+
+function validateHeadersConfig() {
+  if (!existsSync(headersConfigPath)) {
+    return;
+  }
+
+  const lines = readFileSync(headersConfigPath, "utf8").split(/\r?\n/);
+  let currentPath = null;
+  let headersForCurrentPath = 0;
+
+  const flushPath = () => {
+    if (currentPath && headersForCurrentPath === 0) {
+      fail(
+        `Invalid _headers configuration: path "${currentPath}" has no headers declared.`,
+      );
+    }
+  };
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const lineNumber = index + 1;
+    const rawLine = lines[index] ?? "";
+    const trimmed = rawLine.trim();
+
+    if (trimmed === "" || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const isIndented = /^\s/.test(rawLine);
+
+    if (!isIndented) {
+      flushPath();
+
+      if (!trimmed.startsWith("/")) {
+        fail(
+          `Invalid _headers configuration at line ${lineNumber}: expected a path starting with '/'.`,
+        );
+      }
+
+      currentPath = trimmed;
+      headersForCurrentPath = 0;
+      continue;
+    }
+
+    if (!currentPath) {
+      fail(
+        `Invalid _headers configuration at line ${lineNumber}: header declared before any path.`,
+      );
+    }
+
+    const separatorIndex = trimmed.indexOf(":");
+    if (
+      separatorIndex <= 0 ||
+      separatorIndex === trimmed.length - 1 ||
+      !trimmed.slice(0, separatorIndex).trim() ||
+      !trimmed.slice(separatorIndex + 1).trim()
+    ) {
+      fail(
+        `Invalid _headers configuration at line ${lineNumber}: expected a colon-separated header pair.`,
+      );
+    }
+
+    headersForCurrentPath += 1;
+  }
+
+  flushPath();
+}
+
+function runPreflightChecks() {
+  const hasApiToken =
+    Boolean(process.env.CLOUDFLARE_API_TOKEN) ||
+    Boolean(process.env.CF_API_TOKEN);
+  const hasLegacyAuth =
+    Boolean(process.env.CLOUDFLARE_API_KEY) &&
+    Boolean(process.env.CLOUDFLARE_EMAIL);
+  const hasWranglerSession = (() => {
+    const result = spawnSync("pnpm", ["exec", "wrangler", "whoami"], {
+      cwd: appRoot,
+      encoding: "utf8",
+      stdio: "pipe",
+    });
+    return result.status === 0;
+  })();
+
+  if (!hasApiToken && !hasLegacyAuth && !hasWranglerSession) {
+    fail(
+      "Missing Cloudflare auth. Set CLOUDFLARE_API_TOKEN (recommended), CLOUDFLARE_API_KEY + CLOUDFLARE_EMAIL, or authenticate with 'wrangler login' before deploy.",
+    );
+  }
+
+  if (!existsSync(wranglerConfigPath)) {
+    fail(
+      `Missing app-local wrangler config at ${wranglerConfigPath}. Root-level fallback is intentionally disabled.`,
+    );
+  }
+
+  const wranglerToml = readFileSync(wranglerConfigPath, "utf8");
+  const hasZoneConfig = /\bzone_name\s*=\s*"[^"]+"/.test(wranglerToml);
+  const hasZoneEnv =
+    Boolean(process.env.CLOUDFLARE_ZONE_ID) || Boolean(process.env.CF_ZONE_ID);
+
+  if (!hasZoneConfig && !hasZoneEnv) {
+    fail(
+      "Missing zone context. Define zone_name routes in wrangler.toml or set CLOUDFLARE_ZONE_ID.",
+    );
+  }
+
+  const hasAccountEnv =
+    Boolean(process.env.CLOUDFLARE_ACCOUNT_ID) ||
+    Boolean(process.env.CF_ACCOUNT_ID);
+  if (!hasAccountEnv && !hasApiToken && !hasWranglerSession) {
+    fail(
+      "Missing account context. Set CLOUDFLARE_ACCOUNT_ID or use an account-scoped CLOUDFLARE_API_TOKEN.",
+    );
+  }
+}
+
+function pruneTempAssets() {
+  if (!existsSync(openNextAssets)) {
+    return;
+  }
+
+  // Remove temporary top-level basenames
+  const entries = readdirSync(openNextAssets, { withFileTypes: true });
+  let removed = 0;
+
+  for (const entry of entries) {
+    if (!entry.isFile() || !TEMP_ASSET_BASENAMES.has(entry.name)) {
+      continue;
+    }
+
+    rmSync(join(openNextAssets, entry.name), { force: true });
+    removed += 1;
+  }
+
+  // Recursively remove excluded asset patterns
+  function removePattern(rootDir, basePattern) {
+    const fullPath = join(rootDir, basePattern);
+    if (existsSync(fullPath)) {
+      rmSync(fullPath, { force: true, recursive: true });
+      removed += 1;
+    }
+  }
+
+  for (const pattern of EXCLUDED_ASSET_PATTERNS) {
+    removePattern(openNextAssets, pattern);
+  }
+
+  if (removed > 0) {
+    const assetType = removed > 1 ? "assets" : "asset";
+    console.log(
+      `🧹 Removed ${removed} excluded ${assetType} from deploy bundle.`,
+    );
+  }
+}
+
+function listOversizedAssets(directory, root = directory, acc = []) {
+  if (!existsSync(directory)) {
+    return acc;
+  }
+
+  const entries = readdirSync(directory, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      listOversizedAssets(fullPath, root, acc);
+      continue;
+    }
+
+    if (!entry.isFile()) {
+      continue;
+    }
+
+    const size = statSync(fullPath).size;
+    if (size > WORKERS_MAX_ASSET_BYTES) {
+      acc.push({
+        fullPath,
+        relativePath: fullPath.replace(`${root}/`, ""),
+        size,
+      });
+    }
+  }
+
+  return acc;
+}
+
+function assertWorkersAssetLimit() {
+  const oversizedAssets = listOversizedAssets(openNextAssets).sort(
+    (a, b) => b.size - a.size,
+  );
+
+  if (oversizedAssets.length === 0) {
+    return;
+  }
+
+  const maxMiB = (WORKERS_MAX_ASSET_BYTES / 1024 / 1024).toFixed(0);
+  console.error(
+    `✖ Found ${oversizedAssets.length} asset(s) in .open-next/assets exceeding Cloudflare Workers ${maxMiB} MiB limit:`,
+  );
+  for (const asset of oversizedAssets) {
+    const sizeMiB = (asset.size / 1024 / 1024).toFixed(2);
+    console.error(`  - ${sizeMiB} MiB  ${asset.relativePath}`);
+  }
+  console.error(
+    "Move large media out of public assets (for example to R2 or another CDN) before deploy.",
+  );
+  process.exit(1);
+}
+
+function latestMtimeForPath(targetPath) {
+  if (!existsSync(targetPath)) {
+    return 0;
+  }
+
+  const stats = statSync(targetPath);
+  if (stats.isFile()) {
+    return stats.mtimeMs;
+  }
+
+  if (!stats.isDirectory()) {
+    return stats.mtimeMs;
+  }
+
+  let newest = stats.mtimeMs;
+  const entries = readdirSync(targetPath, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.isDirectory() && EXCLUDED_DIRS.has(entry.name)) {
+      continue;
+    }
+
+    newest = Math.max(newest, latestMtimeForPath(join(targetPath, entry.name)));
+  }
+
+  return newest;
+}
+
+function latestSourceMtime() {
+  let newest = 0;
+  for (const relativePath of SOURCE_PATHS) {
+    newest = Math.max(newest, latestMtimeForPath(join(appRoot, relativePath)));
+    newest = Math.max(newest, latestMtimeForPath(join(repoRoot, relativePath)));
+  }
+  return newest;
+}
+
+function run(command, args, extraEnv = {}) {
+  const result = spawnSync(command, args, {
+    cwd: appRoot,
+    env: {
+      ...process.env,
+      ...extraEnv,
+    },
+    stdio: "inherit",
+  });
+
+  if (result.error) {
+    console.error(`✖ Failed to run ${command}:`, result.error.message);
+    process.exit(1);
+  }
+
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
+}
+
+function runAndCapture(command, args, extraEnv = {}) {
+  return spawnSync(command, args, {
+    cwd: appRoot,
+    env: {
+      ...process.env,
+      ...extraEnv,
+    },
+    encoding: "utf8",
+  });
+}
+
+function emitCapturedOutput(result) {
+  if (result.stdout) {
+    process.stdout.write(result.stdout);
+  }
+  if (result.stderr) {
+    process.stderr.write(result.stderr);
+  }
+}
+
+function clearWranglerTmp() {
+  rmSync(wranglerTmpRoot, { recursive: true, force: true });
+}
+
+function isMiddlewareLoaderResolveFailure(result) {
+  const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`;
+  return (
+    combined.includes("Could not resolve") &&
+    combined.includes("middleware-loader.entry.ts")
+  );
+}
+
+function isWorkersRouteAuthFailure(result) {
+  const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`;
+  return (
+    combined.includes("/workers/routes") &&
+    combined.includes("Authentication error [code: 10000]")
+  );
+}
+
+function isWorkersAssetUploadSessionFailure(result) {
+  const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`;
+  return (
+    combined.includes("assets-upload-session") &&
+    combined.includes("[code: 10013]")
+  );
+}
+
+function buildRouteFreeWranglerConfig() {
+  const source = readFileSync(wranglerConfigPath, "utf8");
+  const routeBlockPattern = /\n\[\[routes\]\][\s\S]*?(?=\n\[\[|\n\[[^\[]|$)/g;
+  const routeFree = source.replace(routeBlockPattern, "\n").trimEnd() + "\n";
+
+  // Keep path resolution identical to wrangler.toml (main/assets paths remain valid).
+  const fallbackConfigPath = join(
+    dirname(wranglerConfigPath),
+    "wrangler.deploy-no-routes.toml",
+  );
+  writeFileSync(fallbackConfigPath, routeFree, "utf8");
+  return fallbackConfigPath;
+}
+
+function deployWithoutRoutes(extraEnv = {}) {
+  const fallbackConfigPath = buildRouteFreeWranglerConfig();
+  const routeFreeAttempt = runAndCapture(
+    "pnpm",
+    ["exec", "wrangler", "deploy", "--config", fallbackConfigPath],
+    {
+      WRANGLER_SEND_METRICS: "false",
+      CLOUDFLARE_API_TOKEN:
+        process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+      ...extraEnv,
+    },
+  );
+
+  emitCapturedOutput(routeFreeAttempt);
+  rmSync(fallbackConfigPath, { force: true });
+
+  if (routeFreeAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      routeFreeAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (routeFreeAttempt.status !== 0) {
+    process.exit(routeFreeAttempt.status ?? 1);
+  }
+}
+
+function deployWithRetryOnAssetUploadSessionFailure(extraEnv = {}) {
+  const firstAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(firstAttempt);
+
+  if (firstAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      firstAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (firstAttempt.status === 0) {
+    return;
+  }
+
+  if (!isWorkersAssetUploadSessionFailure(firstAttempt)) {
+    process.exit(firstAttempt.status ?? 1);
+  }
+
+  console.warn(
+    "⚠ Detected Cloudflare asset upload session failure; cleaning .wrangler/tmp and retrying deploy once...",
+  );
+
+  clearWranglerTmp();
+
+  const secondAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(secondAttempt);
+
+  if (secondAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      secondAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (secondAttempt.status !== 0) {
+    process.exit(secondAttempt.status ?? 1);
+  }
+}
+
+function deployWithRetry(extraEnv = {}) {
+  clearWranglerTmp();
+
+  const shouldSkipRouteMutation =
+    process.env.CLOUDFLARE_MANAGE_ROUTES !== "true";
+
+  if (shouldSkipRouteMutation) {
+    console.log(
+      "ℹ Route-free deploy is the default; set CLOUDFLARE_MANAGE_ROUTES=true only if you want Wrangler to manage routes.",
+    );
+    deployWithoutRoutes(extraEnv);
+    return;
+  }
+
+  const firstAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(firstAttempt);
+
+  if (firstAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      firstAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (firstAttempt.status === 0) {
+    return;
+  }
+
+  if (isWorkersAssetUploadSessionFailure(firstAttempt)) {
+    console.warn(
+      "⚠ Detected Cloudflare asset upload session failure. Retrying deploy once after clearing .wrangler/tmp...",
+    );
+    clearWranglerTmp();
+    deployWithRetryOnAssetUploadSessionFailure(extraEnv);
+    return;
+  }
+
+  if (isWorkersRouteAuthFailure(firstAttempt)) {
+    console.warn(
+      "⚠ Route API auth failed; retrying deploy once with routes omitted so dashboard-managed routes remain untouched...",
+    );
+    deployWithoutRoutes(extraEnv);
+    return;
+  }
+
+  if (!isMiddlewareLoaderResolveFailure(firstAttempt)) {
+    process.exit(firstAttempt.status ?? 1);
+  }
+
+  console.warn(
+    "⚠ Detected transient middleware-loader bundle resolution failure. Cleaning .wrangler/tmp and retrying deploy once...",
+  );
+
+  clearWranglerTmp();
+
+  const secondAttempt = runAndCapture("pnpm", ["exec", "wrangler", "deploy"], {
+    WRANGLER_SEND_METRICS: "false",
+    CLOUDFLARE_API_TOKEN:
+      process.env.CLOUDFLARE_API_TOKEN ?? process.env.CF_API_TOKEN,
+    ...extraEnv,
+  });
+
+  emitCapturedOutput(secondAttempt);
+
+  if (secondAttempt.error) {
+    console.error(
+      "✖ Failed to run wrangler deploy:",
+      secondAttempt.error.message,
+    );
+    process.exit(1);
+  }
+
+  if (secondAttempt.status !== 0) {
+    process.exit(secondAttempt.status ?? 1);
+  }
+}
+
+loadDeployEnvVars();
+
+const buildCurrent =
+  existsSync(openNextWorker) &&
+  existsSync(openNextAssets) &&
+  latestMtimeForPath(openNextRoot) >= latestSourceMtime();
+
+if (buildCurrent) {
+  console.log("♻ Reusing current OpenNext build artifacts in .open-next/");
+} else {
+  console.log("🏗️  No current OpenNext artifacts found; building first.");
+  run("npm", ["run", "build:lowmem"], {
+    LOW_MEMORY_BUILD: "true",
+    NODE_OPTIONS: "--max-old-space-size=4096",
+  });
+}
+
+const appPackage = JSON.parse(
+  readFileSync(join(appRoot, "package.json"), "utf8"),
+);
+if (appPackage.scripts?.["check:hero-commercials"]) {
+  run("npm", ["run", "check:hero-commercials"]);
+}
+
+validateHeadersConfig();
+runPreflightChecks();
+pruneTempAssets();
+assertWorkersAssetLimit();
+
+deployWithRetry();
