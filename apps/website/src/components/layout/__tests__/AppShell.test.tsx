@@ -89,11 +89,6 @@ describe("AppShell", () => {
     ).toHaveAttribute("href", "#main-content");
     expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
     expect(screen.getByRole("main")).toHaveAttribute("tabindex", "-1");
-    expect(
-      screen.getByRole("link", { name: /skip to main content/i }),
-    ).toHaveAttribute("href", "#main-content");
-    expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
-    expect(screen.getByRole("main")).toHaveAttribute("tabindex", "-1");
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
     expect(screen.getByTestId("events-hub-banner")).toBeInTheDocument();
     expect(
@@ -124,6 +119,11 @@ describe("AppShell", () => {
       </AppShell>,
     );
 
+    expect(
+      screen.getByRole("link", { name: /skip to main content/i }),
+    ).toHaveAttribute("href", "#main-content");
+    expect(screen.getByRole("main")).toHaveAttribute("id", "main-content");
+    expect(screen.getByRole("main")).toHaveAttribute("tabindex", "-1");
     expect(screen.getByTestId("site-navigation")).toBeInTheDocument();
     expect(screen.getByTestId("events-hub-banner")).toBeInTheDocument();
     expect(
