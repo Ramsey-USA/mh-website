@@ -22,7 +22,7 @@
   },
   "websiteIntegration": {
     "plan": "docs/development/enterprise-website-overhaul-phase-1.md",
-    "currentGate": "phase-1-authority-pipeline-foundation",
+    "currentGate": "phase-1-baseline-candidate-governance-validation",
     "phase0Status": "complete",
     "phase0Register": "documents/content/mh-ecosystem/phase-0-reconciliation.json",
     "sealedBaselinePairCount": 193,
@@ -131,6 +131,46 @@
         "documentsSuperseded": 0,
         "publisherTextCopied": false,
         "signatureBlocksInNewTbts": 0
+      }
+    },
+    "governancePhase1BaselineCandidate": {
+      "status": "integrated-draft-validation-only",
+      "receivedDate": "2026-08-08",
+      "sourceArchive": "mh-ecosystem-governance-phase1-baseline-candidate-2026-08-08.zip",
+      "sourceArchiveSha256": "7574e515d77a565cc6e5cbd65e47e800fe523e954d2a48106e99e2c348ef5a56",
+      "integrationManifest": "documents/content/mh-ecosystem/releases/governance-phase1-baseline-candidate-2026-08-08/integration-manifest.json",
+      "schemaVersion": "2.3-development",
+      "previousSchemaVersion": "2.2-development",
+      "lifecycleStatus": "DRAFT",
+      "controlStatus": "NOT_CONTROLLED",
+      "operationalState": "PHASE_1_BASELINE_CANDIDATE",
+      "binaryCustody": "private-document-factory-and-in-house-server",
+      "repositoryIntegration": "text-governance-evidence-only",
+      "inventory": {
+        "governedPairs": 354,
+        "enterpriseUids": 354,
+        "tbtPairs": 223,
+        "externalManufacturerSds": 7,
+        "binderIndexEntries": 361,
+        "binderPages": 1352,
+        "numberedPackages": 10,
+        "decisionsRecorded": 90
+      },
+      "controlCounts": {
+        "establishedDocumentIds": 73,
+        "managementReviewDocumentIds": 141,
+        "notEstablishedDocumentIds": 140,
+        "notReleased": 353,
+        "hold": 1,
+        "pendingEvidence": 354
+      },
+      "safeguards": {
+        "sourceTaxonomyChanged": false,
+        "permanentIdsFabricated": 0,
+        "resolverRoutesDeployed": 0,
+        "documentsActivated": 0,
+        "documentsIssued": 0,
+        "publicReleaseAllowed": false
       }
     }
   },

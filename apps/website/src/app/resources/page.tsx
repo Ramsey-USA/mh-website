@@ -13,11 +13,7 @@ import { StructuredData } from "@/components/seo/SeoMeta";
 import { generateBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { SafetyComplianceBadge } from "@/components/resources/SafetyComplianceBadge";
 import { ResourcesHero } from "@/components/resources/ResourcesHero";
-import {
-  forms,
-  isEcosystemPublicReleaseEnabled,
-  manuals,
-} from "@/lib/data/documents";
+import { manuals, forms } from "@/lib/data/documents";
 import {
   formatDualPageName,
   PAGE_TERMINOLOGY,
@@ -31,7 +27,7 @@ import { withGeoMetadata } from "@/lib/seo/geo-metadata";
 export const metadata: Metadata = withGeoMetadata({
   title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
   description:
-    "Review MH Construction controlled resource indexes, safety-program structure, handbook structure, and release status without exposing draft manuals, forms, or internal workflow records.",
+    "Download MH Construction safety manuals, toolbox talk forms, JHA templates, and field documentation for crews, partners, and prequalification workflows, with public resources aligned to our operational strategy across the Operations Manual, Marketing Strategy Guide, Sales and Estimating Guide, and MISH Safety & Health Program.",
   keywords: [
     "construction resources",
     "operations manual construction",
@@ -54,7 +50,7 @@ export const metadata: Metadata = withGeoMetadata({
   openGraph: {
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Controlled MH Construction resource indexes for safety, employment, project delivery, and enterprise governance, aligned to the current draft Ecosystem release.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction, organized for fast field use and agency review, and aligned with our operational strategy across operations, marketing, sales/estimating, and MISH safety standards.",
     url: "https://www.mhc-gc.com/resources",
     type: "website",
   },
@@ -62,7 +58,7 @@ export const metadata: Metadata = withGeoMetadata({
     card: "summary_large_image",
     title: `${formatDualPageName(PAGE_TERMINOLOGY.resources.seoName, PAGE_TERMINOLOGY.resources.mhBrandName)} | MH Construction`,
     description:
-      "Controlled MH Construction resource indexes aligned to the current draft Ecosystem release and public-access safeguards.",
+      "Safety manuals, toolbox talks, and field forms from MH Construction for field crews and project stakeholders, aligned with our operational strategy across operations, marketing, sales/estimating, and MISH safety standards.",
   },
 });
 
@@ -76,7 +72,13 @@ const resourcesSupportingLine = MH_SLOGANS.supporting[1];
 
 export default async function ResourcesPage() {
   const isEs = (await getServerLocale()) === "es";
-  const publicManualIds = new Set(["safety-manual", "employee-handbook"]);
+  const publicManualIds = new Set([
+    "safety-manual",
+    "employee-handbook",
+    "operations-manual",
+    "marketing-strategy-guide",
+    "sales-estimating-guide",
+  ]);
   const safetyManual = manuals.find((doc) => doc.id === "safety-manual");
   const employeeHandbook = manuals.find(
     (doc) => doc.id === "employee-handbook",
@@ -85,7 +87,7 @@ export default async function ResourcesPage() {
   const publicManuals = manuals.filter((doc) => publicManualIds.has(doc.id));
 
   return (
-    <div className="enterprise-controlled-surface">
+    <>
       <PageTrackingClient pageName="resources" />
       <StructuredData data={breadcrumbSchema} />
 
@@ -103,8 +105,8 @@ export default async function ResourcesPage() {
 
           <p className="mt-4 mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300">
             {isEs
-              ? "Descargue manuales, formatos y documentos de cumplimiento listos para campo desde una sola biblioteca organizada. Las pA�ginas pA�blicas estA�n estructuradas para apoyar una planificaciA3n clara, una entrega responsable y un seguimiento confiable para bancos de fianzas, aseguradoras, arquitectos, subcontratistas, proveedores y futuros empleados, mientras que los registros completos permanecen con acceso controlado."
-              : "Review controlled draft indexes, release status, and approved public summaries from one organized library. Draft manuals, forms, and workflow records remain access-controlled until executive approval and field-effective release."}
+              ? "Descargue manuales, formatos y documentos de cumplimiento listos para campo desde una sola biblioteca organizada. Las páginas públicas están estructuradas para apoyar una planificación clara, una entrega responsable y un seguimiento confiable para bancos de fianzas, aseguradoras, arquitectos, subcontratistas, proveedores y futuros empleados, mientras que los registros completos permanecen con acceso controlado."
+              : "Download field-ready manuals, forms, and compliance documents from one organized library. Public pages are structured to support clear planning, accountable delivery, and dependable follow-through for bonding banks, insurers, architects, subcontractors, vendors, and future employees, while full workflow records remain access-controlled."}
           </p>
           <span className="sr-only">
             {resourcesMissionLine} {resourcesSupportingLine}
@@ -134,7 +136,7 @@ export default async function ResourcesPage() {
                   </div>
                   <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     {isEs
-                      ? "Acceda a nuestro resumen de seguridad alineado con OSHA con credenciales, mapeo de secciones y PDFs directos para precalificaciA3n y revisiA3n de fianzas. Los enlaces pA�blicos estA�n estructurados para diligencia externa rA�pida, revisiA3n clara de alcance y verificaciA3n de versiA3n vigente."
+                      ? "Acceda a nuestro resumen de seguridad alineado con OSHA con credenciales, mapeo de secciones y PDFs directos para precalificación y revisión de fianzas. Los enlaces públicos están estructurados para diligencia externa rápida, revisión clara de alcance y verificación de versión vigente."
                       : "Access our OSHA-aligned safety overview with credentials, section mapping, and direct PDFs for pre-qualification and surety review. Public links are structured for fast external diligence, clear scope review, and current-version verification."}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-3">
@@ -191,7 +193,7 @@ export default async function ResourcesPage() {
               {isEs ? "Empleados actuales:" : "Current employees:"}
             </strong>{" "}
             {isEs
-              ? "los formatos diarios, los flujos de incidentes y los registros internos se gestionan en la experiencia de acceso del equipo de MH Construction, no en pA�ginas pA�blicas."
+              ? "los formatos diarios, los flujos de incidentes y los registros internos se gestionan en la experiencia de acceso del equipo de MH Construction, no en páginas públicas."
               : "day-to-day forms, incident workflows, and internal records are handled in the MH Construction team access experience, not on public pages."}
           </div>
 
@@ -212,49 +214,48 @@ export default async function ResourcesPage() {
               </h2>
             </div>
 
-            {isEcosystemPublicReleaseEnabled &&
-              safetyManual?.contentsPdfPath && (
-                <Card className="mb-5 border-brand-primary/20 bg-brand-primary/5">
-                  <div className="flex flex-wrap items-center gap-3 px-4 py-3">
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                      {isEs ? "Acceso rapido:" : "Quick Access:"}
-                    </span>
-                    <DownloadGate>
-                      <Button asChild variant="primary" size="sm">
-                        <a
-                          href={safetyManual.contentsPdfPath}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <MaterialIcon
-                            icon="toc"
-                            size="sm"
-                            className="text-white"
-                          />
-                          {isEs
-                            ? "PDF de tabla de contenido"
-                            : "Table of Contents PDF"}
-                        </a>
-                      </Button>
-                    </DownloadGate>
-                    <Link
-                      href="/safety"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary px-3 py-1.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
-                    >
-                      <MaterialIcon
-                        icon="visibility"
-                        size="sm"
-                        className="text-brand-primary"
-                      />
-                      {isEs
-                        ? "Explorar indice interactivo"
-                        : "Browse Interactive Index"}
-                    </Link>
-                  </div>
-                </Card>
-              )}
+            {safetyManual?.contentsPdfPath && (
+              <Card className="mb-5 border-brand-primary/20 bg-brand-primary/5">
+                <div className="flex flex-wrap items-center gap-3 px-4 py-3">
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                    {isEs ? "Acceso rapido:" : "Quick Access:"}
+                  </span>
+                  <DownloadGate>
+                    <Button asChild variant="primary" size="sm">
+                      <a
+                        href={safetyManual.contentsPdfPath}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <MaterialIcon
+                          icon="toc"
+                          size="sm"
+                          className="text-white"
+                        />
+                        {isEs
+                          ? "PDF de tabla de contenido"
+                          : "Table of Contents PDF"}
+                      </a>
+                    </Button>
+                  </DownloadGate>
+                  <Link
+                    href="/safety"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-brand-primary px-3 py-1.5 text-sm font-semibold text-brand-primary transition-colors hover:bg-brand-primary/10"
+                  >
+                    <MaterialIcon
+                      icon="visibility"
+                      size="sm"
+                      className="text-brand-primary"
+                    />
+                    {isEs
+                      ? "Explorar indice interactivo"
+                      : "Browse Interactive Index"}
+                  </Link>
+                </div>
+              </Card>
+            )}
 
-            {isEcosystemPublicReleaseEnabled && employeeHandbook?.pdfPath && (
+            {employeeHandbook?.pdfPath && (
               <Card className="mb-5 border-brand-secondary/20 bg-brand-secondary/5">
                 <div className="flex flex-wrap items-center gap-3 px-4 py-3">
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -399,7 +400,7 @@ export default async function ResourcesPage() {
                       </h3>
                       <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                         {isEs
-                          ? "El Operations Manual, la Marketing Strategy Guide y la Sales and Estimating Guide ahora se exponen como parte del ecosistema de recursos pA�blicos y se mantienen alineados con el modelo operativo v2 de MH."
+                          ? "El Operations Manual, la Marketing Strategy Guide y la Sales and Estimating Guide ahora se exponen como parte del ecosistema de recursos públicos y se mantienen alineados con el modelo operativo v2 de MH."
                           : "The Operations Manual, Marketing Strategy Guide, and Sales and Estimating Guide are now surfaced as part of the public resources ecosystem and stay aligned with MH's v2 operating model."}
                       </p>
                       <ul className="mt-3 flex flex-wrap gap-2 text-xs text-gray-700 dark:text-gray-300">
@@ -516,6 +517,6 @@ export default async function ResourcesPage() {
           <NextStepsSection />
         </div>
       </div>
-    </div>
+    </>
   );
 }

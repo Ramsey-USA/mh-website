@@ -1,0 +1,52 @@
+{
+  "integrationType": "governance-phase1-baseline-candidate",
+  "receivedDate": "2026-08-08",
+  "sourceArchive": "mh-ecosystem-governance-phase1-baseline-candidate-2026-08-08.zip",
+  "sourceArchiveSha256": "7574e515d77a565cc6e5cbd65e47e800fe523e954d2a48106e99e2c348ef5a56",
+  "schemaVersion": "2.3-development",
+  "previousSchemaVersion": "2.2-development",
+  "lifecycleStatus": "DRAFT",
+  "controlStatus": "NOT_CONTROLLED",
+  "operationalState": "PHASE_1_BASELINE_CANDIDATE",
+  "repositoryIntegration": "text-governance-evidence-only",
+  "binaryCustody": "private-document-factory-and-in-house-server",
+  "inventory": {
+    "numberedPackages": 10,
+    "governedPairs": 354,
+    "metadataRows": 354,
+    "enterpriseUids": 354,
+    "binderIndexEntries": 361,
+    "tbtPairs": 223,
+    "externalManufacturerSds": 7,
+    "binderPages": 1352,
+    "decisionsRecorded": 90
+  },
+  "publication": {
+    "publicReleaseAllowed": false,
+    "websiteDownloadsAllowed": false,
+    "productionResolverRoutesApproved": false,
+    "productionResolverRoutesDeployed": false
+  },
+  "safeguards": {
+    "permanentIdsFabricated": 0,
+    "documentsActivated": 0,
+    "documentsIssued": 0,
+    "sourceTaxonomyChanged": false,
+    "absenceOfEvidencePermitsClaim": false
+  },
+  "excludedPrivateBinaries": [
+    "01-core-doctrine.zip",
+    "02-strategy-and-business-dev.zip",
+    "03-project-delivery.zip",
+    "04-safety-and-field-ops.zip",
+    "05-it-and-infrastructure.zip",
+    "06-tbt-library.zip",
+    "07-sds-library.zip",
+    "08-forms-ehb.zip",
+    "09-forms-operations.zip",
+    "10-forms-mish.zip",
+    "mh-ecosystem-complete-field-binder-governance-phase1-v3-0-draft.pdf",
+    "mh-ecosystem-complete-field-binder-phase1-baseline-candidate-v3-0-draft.pdf"
+  ],
+  "precedenceRule": "Schema 2.3 governs the Phase 1 baseline candidate. Schema 2.2 artifacts remain immutable historical lineage and do not control current candidate metadata."
+}

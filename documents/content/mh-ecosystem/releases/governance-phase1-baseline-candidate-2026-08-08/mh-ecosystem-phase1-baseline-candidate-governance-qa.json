@@ -1,0 +1,74 @@
+{
+  "gate": "GOVERNANCE_QA",
+  "result": "PASS",
+  "governingSchema": "2.3-development",
+  "checks": {
+    "schema_json_parses": true,
+    "schema_current_2_3": true,
+    "operational_enum_exact": true,
+    "metadata_schema_conformance": true,
+    "uid_unique_354": true,
+    "lifecycle_valid": true,
+    "operational_validity_logic": true,
+    "supersession_valid": true,
+    "identity_separation": true,
+    "ownership_custody_separate_fields": true,
+    "position_based_approval": true,
+    "risk_route_separated": true,
+    "decision_18_25_reconciled": true,
+    "publication_data_qr_consistent": true,
+    "retention_authority_preserved": true,
+    "evidence_fail_closed": true,
+    "no_unauthorized_activation": true,
+    "sds_external_exception": true,
+    "tbt_lineage": true
+  },
+  "metadataValidationErrors": [],
+  "counts": {
+    "documentIdStatus": {
+      "ESTABLISHED": 73,
+      "MANAGEMENT_REVIEW": 141,
+      "NOT_ESTABLISHED": 140
+    },
+    "lifecycle": {
+      "DRAFT": 354
+    },
+    "operationalValidity": {
+      "HOLD": 1,
+      "NOT_RELEASED": 353
+    },
+    "supersession": {
+      "NOT_SUPERSEDED": 354
+    },
+    "publicationClass": {
+      "INTERNAL": 332,
+      "RESTRICTED": 22
+    },
+    "dataClassification": {
+      "HIGHLY_RESTRICTED": 22,
+      "INTERNAL_CONTROLLED": 332
+    },
+    "qrAccess": {
+      "AUTHENTICATED": 22,
+      "CONTROL_PAGE": 332
+    },
+    "riskClass": {
+      "EXECUTIVE": 9,
+      "EXECUTIVE_LEGAL": 16,
+      "FUNCTIONAL": 7,
+      "OPERATIONAL": 42,
+      "SAFETY_CRITICAL": 274,
+      "TECHNICAL_HIGH_RISK": 6
+    },
+    "approvalRoute": {
+      "DELEGATED_HR": 14,
+      "DELEGATED_OPERATIONAL": 31,
+      "DELEGATED_SAFETY": 274,
+      "EXECUTIVE": 28,
+      "FUNCTIONAL": 7
+    },
+    "evidenceStatus": {
+      "PENDING_EVIDENCE": 354
+    }
+  }
+}

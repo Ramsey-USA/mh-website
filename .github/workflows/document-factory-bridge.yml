@@ -1,0 +1,55 @@
+name: Document Factory Bridge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "documents/content/mh-ecosystem/**"
+      - "scripts/documents/build-factory-intake-manifest.mjs"
+      - "scripts/documents/dispatch-document-factory.mjs"
+      - ".github/workflows/document-factory-bridge.yml"
+  repository_dispatch:
+    types: [mh-document-release-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: document-factory-bridge-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  governance-to-factory:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm ecosystem:build-architecture:check
+      - run: pnpm ecosystem:factory-manifest:check
+      - name: Dispatch exact governed intake to private factory
+        env:
+          MH_DOCUMENT_FACTORY_TOKEN: ${{ secrets.MH_DOCUMENT_FACTORY_TOKEN }}
+        run: node scripts/documents/dispatch-document-factory.mjs
+
+  factory-release-receipt:
+    if: github.event_name == 'repository_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/documents/validate-factory-release-event.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: factory-release-receipt-${{ github.event.client_payload.releaseId }}
+          path: build/document-factory-receipts/*.json
+          retention-days: 90
+      - run: echo "Release metadata validated. Publication and redirect mutation remain separate approved operations."

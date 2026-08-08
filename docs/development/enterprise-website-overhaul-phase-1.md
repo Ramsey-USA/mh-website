@@ -1,6 +1,6 @@
 # Enterprise Website Overhaul: Phase 1 Control Plan
 
-Status: Draft, Phase 4 technical controls complete; governance review required
+Status: Draft, Phase 2 in progress
 Authority: MH Ecosystem  
 Editorial control: Matt Ramsey, Chief Editor  
 Final approval: Jeremy Thamert, Owner and CEO
@@ -11,17 +11,17 @@ Phase 1 restarts from remote `main` commit `35ef07dd8dd4bb5ea0f0087b1ab21b7cb42d
 
 ## Audit findings
 
-| ID     | Condition                                                                                                                             | Operational risk                                                                                           | Phase 1 response                                                                                                                                                     |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GOV-01 | Website content did not declare the MH Ecosystem as the highest content authority.                                                    | Public claims can drift from controlled doctrine.                                                          | Added a machine-readable authority register, migration notice, and validation gate.                                                                                  |
-| GOV-02 | Public and controlled information lacked one explicit boundary.                                                                       | Draft or internal procedures can be exposed as public policy.                                              | Defined public, conditional, and internal publication classes.                                                                                                       |
-| IA-01  | Seventy-one route and layout files compete for attention without a visible enterprise hierarchy.                                      | High-value buyers must infer capabilities from many campaign and resource routes.                          | Establish five public lanes: Capabilities, Markets, Project Proof, Company, and Resources.                                                                           |
-| UX-01  | The homepage accumulated campaign cards, proof counters, badges, event banners, video controls, chat, and multiple calls to action.   | The first viewport reads as a component stack instead of an enterprise contractor.                         | Rebuilt the homepage around one delivery thesis, four delivery phases, four operating markets, project proof, and one project briefing action.                       |
-| UX-02  | Military terminology appears as decorative copy in high-density areas.                                                                | The veteran-owned strategy can read as a theme instead of earned operating discipline.                     | Reserve military language for short navigation cues, leadership voice, and accountability concepts. Lead with conventional construction language.                    |
-| CNT-01 | Public proof mixed controlled counts with unsupported promotional metrics.                                                            | Claims can become stale or create substantiation risk.                                                     | Use approved status claims and named project records. Remove volatile homepage counters from the primary narrative.                                                  |
-| SYS-01 | Affiliated sister-company platform names were presented as MHC systems.                                                               | Public copy could imply ownership, licensing, or operational status that MH Construction does not control. | Remove named platform references from public MHC routes. Use `secure affiliated systems` until written cross-company licensing and naming approval exist.            |
-| VIS-01 | Existing brand colors and typography were present, but gradients, rounded cards, watermark layers, and mixed treatments diluted them. | The site lacks one recognizable enterprise visual system.                                                  | Introduced a construction-document visual language: square geometry, ruled grids, controlled tan/green contrast, large Mendl headings, and real project photography. |
-| QA-01  | The fresh clone has no local package installation and the restricted network cannot restore the full dependency tree.                 | Full local lint, type, build, and visual regression gates cannot yet execute.                              | Run dependency-free governance checks locally; require repository CI plus responsive browser validation before the draft PR is marked ready.                         |
+| ID     | Condition                                                                                                                             | Operational risk                                                                       | Phase 1 response                                                                                                                                                     |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GOV-01 | Website content did not declare the MH Ecosystem as the highest content authority.                                                    | Public claims can drift from controlled doctrine.                                      | Added a machine-readable authority register, migration notice, and validation gate.                                                                                  |
+| GOV-02 | Public and controlled information lacked one explicit boundary.                                                                       | Draft or internal procedures can be exposed as public policy.                          | Defined public, conditional, and internal publication classes.                                                                                                       |
+| IA-01  | Seventy-one route and layout files compete for attention without a visible enterprise hierarchy.                                      | High-value buyers must infer capabilities from many campaign and resource routes.      | Establish five public lanes: Capabilities, Markets, Project Proof, Company, and Resources.                                                                           |
+| UX-01  | The homepage accumulated campaign cards, proof counters, badges, event banners, video controls, chat, and multiple calls to action.   | The first viewport reads as a component stack instead of an enterprise contractor.     | Rebuilt the homepage around one delivery thesis, four delivery phases, four operating markets, project proof, and one project briefing action.                       |
+| UX-02  | Military terminology appears as decorative copy in high-density areas.                                                                | The veteran-owned strategy can read as a theme instead of earned operating discipline. | Reserve military language for short navigation cues, leadership voice, and accountability concepts. Lead with conventional construction language.                    |
+| CNT-01 | Public proof mixed controlled counts with unsupported promotional metrics.                                                            | Claims can become stale or create substantiation risk.                                 | Use approved status claims and named project records. Remove volatile homepage counters from the primary narrative.                                                  |
+| SYS-01 | Legacy system names competed with the approved platform architecture.                                                                 | Buyers and staff receive conflicting product names.                                    | Use BidPilot, Field Command Center, Marketing Flight, and MH Ecosystem. Describe all as secure internal systems in public copy.                                      |
+| VIS-01 | Existing brand colors and typography were present, but gradients, rounded cards, watermark layers, and mixed treatments diluted them. | The site lacks one recognizable enterprise visual system.                              | Introduced a construction-document visual language: square geometry, ruled grids, controlled tan/green contrast, large Mendl headings, and real project photography. |
+| QA-01  | The fresh clone has no local package installation and the restricted network cannot restore the full dependency tree.                 | Full local lint, type, build, and visual regression gates cannot yet execute.          | Run dependency-free governance checks locally; require repository CI plus responsive browser validation before the draft PR is marked ready.                         |
 
 ## Public information architecture
 
@@ -62,57 +62,17 @@ Phase 2 controlled slice 2:
 - About now uses the enterprise route system and removes the rounded promotional entry treatment while preserving its translated company narrative.
 - Remaining Phase 2 work: Jeremy Thamert, Veterans, Contact, and full below-the-fold consolidation across inherited components.
 
-Phase 2 controlled slice 3:
-
-- Veterans and Contact now open with the governed enterprise route hero, conventional construction-first messaging, approved brand slogans, controlled proof, and one primary conversion path.
-- The Phase 2 route gate now prevents both routes from returning to inherited full-viewport promotional hero treatments.
-- Remaining Phase 2 work: Jeremy Thamert and full below-the-fold consolidation across inherited leadership, veteran, and contact components.
-
-Phase 2 controlled slice 4:
-
-- Jeremy Thamert now opens with the governed enterprise leadership record, controlled proof, direct project-intake action, and verified-source path.
-- The full leadership route now uses square construction-document geometry and restrained solid fields in place of inherited rounded promotional cards and decorative gradients.
-- The Phase 2 route gate now governs nine revenue, proof, company, veteran, contact, and leadership entry points.
-- Remaining Phase 2 work: route-level below-the-fold consolidation audit and closure of inherited visual exceptions across Services, Projects, Public Sector, About, Veterans, and Contact.
-
-Phase 2 controlled slice 5:
-
-- Public Sector below-the-fold content now operates inside a reusable controlled surface contract that neutralizes inherited rounded promotional geometry, decorative box shadows, and uncontrolled gradients while preserving component behavior.
-- The shared contract retains approved MH green, tan, and slate fields, preserves text legibility, and allows circular status or icon treatments to remain intentional exceptions.
-- The Phase 2 route gate now verifies both the Public Sector surface assignment and the global square-geometry, solid-field, and text-fill safeguards.
-- Remaining Phase 2 work: apply and verify the controlled surface contract across Services, Projects, About, Veterans, and Contact, then close the route-level visual exception register.
-
-Phase 2 controlled slice 6 and closeout:
-
-- Services, Projects, About, Veterans, and Contact now use the same controlled below-the-fold surface contract as Public Sector.
-- The Phase 2 route gate verifies nine enterprise hero routes, six controlled route surfaces, and the global solid-field, square-geometry, shadow, and text-fill contracts.
-- Phase 2 revenue, proof, company, leadership, veteran, and contact entry-point work is complete under repository CI.
-
 ### Phase 3: resource and community routes
 
 - Rebuild Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ.
 - Apply one controlled-document status pattern to every public download.
 - Consolidate duplicate event and safety entry routes without breaking existing URLs.
 
-Phase 3 controlled surface closeout:
-
-- Safety, Resources, Employee Handbook, terminology, events, careers, allies, news, testimonials, locations, and FAQ now operate inside the governed square-geometry and solid-field surface contract.
-- Existing route behavior, localization, analytics, structured data, public-document access controls, event records, and conversion paths remain intact.
-- The enterprise route gate now prevents all eleven public resource and community routes from returning to uncontrolled promotional geometry.
-- Public downloads remain subject to the existing controlled-document architecture, publication-class, revision, and redirect safeguards.
-
 ### Phase 4: optimization and release
 
 - Complete Spanish parity, structured data, accessibility, performance, analytics, redirects, and route-level conversion measurement.
 - Run desktop and mobile visual regression, link integrity, security, type, lint, test, and production build gates.
 - Promote only after CHENG review and COO/CEO approval under the MH Ecosystem governance path.
-
-Phase 4 technical closeout:
-
-- One fail-closed enterprise release command now verifies Spanish coverage, locale congruency, structured route policy, route integrity, visual regression capability, performance thresholds, controlled-document architecture, QR redirects, dependency security, tests, and production build capability.
-- The primary CI workflow executes that release command before SEO validation, formatting, brand lint, tests, asset budgets, terminology guardrails, strict Spanish coverage, security audit, and production build.
-- Deployment remains dependent on successful build and security jobs and remains limited to authenticated pushes to `main`.
-- The overhaul remains Draft until the recorded MH Ecosystem governance review and COO/CEO approval are complete; technical completion does not impersonate final approval.
 
 ## Acceptance conditions
 

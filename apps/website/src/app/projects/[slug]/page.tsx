@@ -9,6 +9,7 @@ import { FollowProjectForm } from "@/components/project-marketing/FollowProjectF
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { StructuredData } from "@/components/seo/SeoMeta";
 import { EnterpriseRouteHero } from "@/components/enterprise/EnterpriseRouteHero";
+import { COMPANY_INFO } from "@/lib/constants/company";
 import { Button, Card } from "@/components/ui";
 import { COMPANY_INFO } from "@/lib/constants/company";
 import { createProjectOgImageUrl } from "@/lib/seo/og-image";
@@ -371,17 +372,14 @@ export default async function ProjectCaseStudyPage({
       <StructuredData data={generateBreadcrumbSchema(breadcrumbItems)} />
       <StructuredData data={[projectSchema, localBusinessSchema]} />
 
-      <div className="relative min-h-screen bg-white dark:bg-gray-900">
+      <main className="relative min-h-screen bg-white dark:bg-gray-900">
         <EnterpriseRouteHero
           eyebrow={`Case file | ${caseStudy.category}`}
           title={title}
           intro={description}
           primarySlogan={COMPANY_INFO.slogan.primary}
           supportingSlogan={COMPANY_INFO.slogan.tertiary}
-          primary={{
-            href: "#delivery-record",
-            label: "Review delivery record",
-          }}
+          primary={{ href: "#delivery-record", label: "Review delivery record" }}
           secondary={{ href: "/contact", label: "Brief a similar project" }}
           proof={[
             [`${location.city}, ${location.state}`, "Project location"],
@@ -471,10 +469,7 @@ export default async function ProjectCaseStudyPage({
           </section>
         )}
 
-        <section
-          id="delivery-record"
-          className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
-        >
+        <section id="delivery-record" className="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)]">
             <Card className="rounded-none border border-gray-200 bg-white p-6 shadow-none dark:border-gray-800 dark:bg-gray-900">
               <div className="grid gap-4 sm:grid-cols-3">
@@ -683,7 +678,7 @@ export default async function ProjectCaseStudyPage({
             </aside>
           </div>
         </section>
-      </div>
+      </main>
     </>
   );
 }

@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "date": "2026-08-08",
+  "method": "Rendered PDF page images inspected at full resolution after DOCX conversion",
+  "documentsInspected": 5,
+  "defects": [],
+  "checks": {
+    "clipping": true,
+    "overlap": true,
+    "tableOverflow": true,
+    "missingGlyphs": true,
+    "headerFooterPlacement": true,
+    "brandParity": true
+  },
+  "reportScope": "HISTORICAL_LINEAGE",
+  "currentGoverningSchema": "2.3-development"
+}

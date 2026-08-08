@@ -18,14 +18,8 @@ export function AboutHero({
       eyebrow={`${subtitle} | ${isEs ? "Empresa" : "Company"}`}
       title={title}
       intro={description}
-      primary={{
-        href: "/projects",
-        label: isEs ? "Ver proyectos" : "Review project proof",
-      }}
-      secondary={{
-        href: "/contact",
-        label: isEs ? "Hablar con MH" : "Brief the MH team",
-      }}
+      primary={{ href: "/projects", label: isEs ? "Ver proyectos" : "Review project proof" }}
+      secondary={{ href: "/contact", label: isEs ? "Hablar con MH" : "Brief the MH team" }}
       proof={[
         ["2011", isEs ? "Fundacion de la empresa" : "Company founded"],
         ["2025", isEs ? "Propiedad de veterano" : "Veteran-owned transition"],

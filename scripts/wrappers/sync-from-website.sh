@@ -19,6 +19,7 @@ if [[ "${1:-}" == "--check" ]]; then
 fi
 
 MANAGED_FILES=(
+  "add-team-qr-codes.js"
   "check-translations.js"
   "fix-code-issues.js"
   "lighthouse-guide.js"

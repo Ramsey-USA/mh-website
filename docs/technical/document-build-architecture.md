@@ -25,15 +25,15 @@ The Enterprise Document Register records only the current or last verified build
 
 ## Schema Integration
 
-Schema `2.2-development` adds topology-neutral `lastBuildUnit`, `buildId`, and `buildDate` fields while retaining `lastBuildBatch`, `lastBuildId`, and `lastBuildDate` as deprecated compatibility aliases. The schema does not enumerate a fixed batch count.
+Schema `2.3-development` is the current Phase 1 candidate schema. It retains the topology-neutral build fields and deprecated compatibility aliases established under schema 2.2, assigns immutable Enterprise UIDs, separates risk classification from approval routing, and adds controlled metadata for ownership, custody, evidence, publication, data classification, and QR access. Schema 2.2 remains historical lineage.
 
 One canonical governed source may hold multiple approved package memberships without creating a second authoritative identity. Package membership is distribution metadata and does not relocate the governed source.
 
 ## Draft Intake State
 
-The August 8, 2026 package contains 193 Rough Draft records. Sixty-four records have established Document IDs, 129 do not, no QR target is ready, no resolver is ready, and 159 records have a hard QR blocker.
+The August 8, 2026 Phase 1 candidate contains 354 Draft records and 354 unique Enterprise UIDs. Seventy-three records have established Document IDs, 141 require management review, and 140 remain not established. All evidence states remain pending, 353 records are not released, and one record is on hold.
 
-The package remains `DRAFT | NOT CONTROLLED`. It regenerated no documents, changed no permanent IDs, changed no resolver routes, issued no documents, and superseded no documents.
+The package remains `DRAFT | NOT CONTROLLED`. It changed no permanent IDs, deployed no resolver routes, activated no documents, issued no documents, and superseded no documents.
 
 ## QR Gate
 
@@ -47,12 +47,12 @@ Until approval closes:
 - missing identity, target, verification, resolver, or approval evidence fails closed;
 - external SDS content receives an MH wrapper or index rather than an altered publisher document.
 
-## Preserved Intake Defects
+## Historical Intake Defects
 
-The sealed source package is stored byte-for-byte for traceability. Its Document Control Standard repeats section numbers 15 through 18 and one schema-lineage paragraph still names schema `2.1-development` although the sealed schema and QA report identify `2.2-development`.
+The schema 2.2 source package remains stored byte-for-byte for traceability. Its Document Control Standard repeats section numbers 15 through 18 and one schema-lineage paragraph names schema `2.1-development` although the sealed schema and QA report identify `2.2-development`.
 
-Those issues are recorded in the integration manifest and require controlled editorial correction before the package can advance from Draft. The website does not silently modify the sealed intake or claim approval.
+The Phase 1 candidate resolves the governing schema conflict through schema 2.3 and five controlled Core Doctrine revisions. Historical evidence remains unchanged, and the website does not claim approval or field effectiveness.
 
 ## CI Enforcement
 
-The repository guard verifies package checksums, the 193-record inventory, topology-neutral schema controls, deprecated aliases, Draft lifecycle state, QR readiness counts, the pending management decision, and the absence of retired website QR generation routes. Any drift blocks the website pipeline.
+The repository guard verifies both layers: the immutable schema 2.2 historical intake and the current schema 2.3 candidate. It enforces the 354-record inventory, unique Enterprise UIDs, exact lifecycle and operational states, 361 binder entries, seven external SDS records, 90 decisions, private binary custody, and the absence of retired website QR generation routes. Any drift blocks the website pipeline.

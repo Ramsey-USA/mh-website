@@ -41,6 +41,7 @@ import {
   breadcrumbPatterns,
 } from "@/lib/seo/breadcrumb-schema";
 import { MH_SLOGANS } from "@/lib/branding/page-names";
+import { COMPANY_INFO } from "@/lib/constants/company";
 
 const breadcrumbSchema = generateBreadcrumbSchema(
   breadcrumbPatterns.publicSector,
@@ -283,7 +284,7 @@ const hanfordCapabilities = [
 
 export default function PublicSectorFullPage() {
   return (
-    <div className="enterprise-controlled-surface min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       <PageTrackingClient pageName="Public Sector" />
       <StructuredData data={breadcrumbSchema} />
       <EnterpriseRouteHero

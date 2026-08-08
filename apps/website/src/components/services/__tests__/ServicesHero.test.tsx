@@ -5,12 +5,8 @@ describe("ServicesHero", () => {
   it("renders the governed enterprise hero and capability proof", () => {
     const { container } = render(<ServicesHero />);
 
-    expect(
-      container.querySelector(".enterprise-route-hero"),
-    ).toBeInTheDocument();
-    expect(
-      container.querySelector(".enterprise-proof-bar"),
-    ).toBeInTheDocument();
+    expect(container.querySelector(".enterprise-route-hero")).toBeInTheDocument();
+    expect(container.querySelector(".enterprise-proof-bar")).toBeInTheDocument();
   });
 
   it("renders the enterprise services heading", () => {
@@ -49,15 +45,9 @@ describe("ServicesHero", () => {
   it("renders the controlled delivery proof labels", () => {
     render(<ServicesHero />);
 
-    expect(
-      screen.getByText("Scope, risk, and constructability"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("Production, safety, and quality"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Scope, risk, and constructability")).toBeInTheDocument();
+    expect(screen.getByText("Production, safety, and quality")).toBeInTheDocument();
     expect(screen.getByText("Cost, schedule, and change")).toBeInTheDocument();
-    expect(
-      screen.getByText("Turnover and audit-ready record"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Turnover and audit-ready record")).toBeInTheDocument();
   });
 });

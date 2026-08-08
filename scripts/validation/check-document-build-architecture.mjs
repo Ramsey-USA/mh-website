@@ -350,6 +350,173 @@ if (
   );
 }
 
+const phase1Root = resolve(
+  repoRoot,
+  "documents/content/mh-ecosystem/releases/governance-phase1-baseline-candidate-2026-08-08",
+);
+
+function readPhase1(relativePath) {
+  return readFileSync(resolve(phase1Root, relativePath), "utf8");
+}
+
+function readPhase1Json(relativePath) {
+  return JSON.parse(readPhase1(relativePath));
+}
+
+const phase1Manifest = readPhase1Json("integration-manifest.json");
+if (
+  phase1Manifest.sourceArchiveSha256 !==
+    "7574e515d77a565cc6e5cbd65e47e800fe523e954d2a48106e99e2c348ef5a56" ||
+  phase1Manifest.schemaVersion !== "2.3-development" ||
+  phase1Manifest.previousSchemaVersion !== "2.2-development" ||
+  phase1Manifest.lifecycleStatus !== "DRAFT" ||
+  phase1Manifest.controlStatus !== "NOT_CONTROLLED" ||
+  phase1Manifest.publication?.publicReleaseAllowed !== false ||
+  phase1Manifest.publication?.productionResolverRoutesDeployed !== false
+) {
+  fail(
+    "Phase 1 candidate manifest must remain Draft, private, and fail closed.",
+  );
+}
+
+const phase1Schema = readPhase1Json(
+  "MH-ENTERPRISE-DOCUMENT-REGISTER-SCHEMA.json",
+);
+if (
+  phase1Schema.$id !==
+    "https://mhc-gc.com/schemas/mh-enterprise-document-register/2.3-development" ||
+  phase1Schema.properties?.schemaLineage?.properties?.previousVersion?.const !==
+    "2.2-development" ||
+  phase1Schema.properties?.schemaLineage?.properties?.currentVersion?.const !==
+    "2.3-development"
+) {
+  fail("Phase 1 schema lineage must advance from 2.2 to 2.3-development.");
+}
+
+const operationalEnum =
+  phase1Schema.properties?.operationalValidity?.enum ?? [];
+if (
+  JSON.stringify(operationalEnum) !==
+  JSON.stringify(["NOT_RELEASED", "ACTIVE", "HOLD", "CONDITIONAL", "RETIRED"])
+) {
+  fail(
+    "Phase 1 operational-validity enum drifted from the five approved states.",
+  );
+}
+
+const phase1Metadata = parseCsv(
+  readPhase1("mh-ecosystem-document-metadata-index.csv"),
+);
+const phase1Count = (field, value) =>
+  phase1Metadata.filter((record) => record[field] === value).length;
+const enterpriseUids = new Set(
+  phase1Metadata.map((record) => record.enterprise_uid),
+);
+if (
+  phase1Metadata.length !== 354 ||
+  enterpriseUids.size !== 354 ||
+  phase1Metadata.some(
+    (record) =>
+      !/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+        record.enterprise_uid,
+      ) ||
+      record.schema_version !== "2.3-development" ||
+      record.lifecycle_status !== "DRAFT" ||
+      record.supersession_status !== "NOT_SUPERSEDED" ||
+      record.docx_present !== "YES" ||
+      record.pdf_present !== "YES" ||
+      record.evidence_status !== "PENDING_EVIDENCE",
+  )
+) {
+  fail(
+    "Phase 1 metadata must retain 354 unique paired Draft schema 2.3 records.",
+  );
+}
+
+for (const [label, actual, expected] of [
+  [
+    "established Document IDs",
+    phase1Count("document_id_status", "ESTABLISHED"),
+    73,
+  ],
+  [
+    "management-review Document IDs",
+    phase1Count("document_id_status", "MANAGEMENT_REVIEW"),
+    141,
+  ],
+  [
+    "not-established Document IDs",
+    phase1Count("document_id_status", "NOT_ESTABLISHED"),
+    140,
+  ],
+  [
+    "not-released records",
+    phase1Count("operational_validity", "NOT_RELEASED"),
+    353,
+  ],
+  ["held records", phase1Count("operational_validity", "HOLD"), 1],
+]) {
+  if (actual !== expected) {
+    fail(`Phase 1 ${label} must equal ${expected}; found ${actual}.`);
+  }
+}
+
+const phase1GovernanceQa = readPhase1Json(
+  "mh-ecosystem-phase1-baseline-candidate-governance-qa.json",
+);
+const phase1BuildQa = readPhase1Json(
+  "mh-ecosystem-phase1-baseline-candidate-build-qa.json",
+);
+if (
+  phase1GovernanceQa.result !== "PASS" ||
+  phase1GovernanceQa.governingSchema !== "2.3-development" ||
+  phase1GovernanceQa.metadataValidationErrors?.length !== 0 ||
+  phase1BuildQa.result !== "PASS" ||
+  phase1BuildQa.metadataRows !== 354 ||
+  phase1BuildQa.binderPages !== 1352
+) {
+  fail(
+    "Phase 1 candidate QA evidence must remain PASS and reconcile to 354 records.",
+  );
+}
+
+const binderIndex = readPhase1Json("mh-ecosystem-binder-index.json");
+const decisionMatrix = parseCsv(
+  readPhase1("mh-ecosystem-decision-implementation-matrix.csv"),
+);
+const sdsRegister = parseCsv(readPhase1("sds-field-library-register.csv"));
+const tbtFamilyRegister = parseCsv(
+  readPhase1("tbt-topic-family-reconciliation-register.csv"),
+);
+if (
+  binderIndex.length !== 361 ||
+  decisionMatrix.length !== 90 ||
+  sdsRegister.length !== 7 ||
+  tbtFamilyRegister.length !== 223
+) {
+  fail("Phase 1 binder, decision, SDS, or TBT register counts drifted.");
+}
+
+for (const member of phase1Manifest.excludedPrivateBinaries ?? []) {
+  if (existsSync(resolve(phase1Root, member))) {
+    fail(`Private Phase 1 binary must not enter website repository: ${member}`);
+  }
+}
+
+const phase1Platform =
+  enterprisePlatform.websiteIntegration?.governancePhase1BaselineCandidate;
+if (
+  phase1Platform?.schemaVersion !== "2.3-development" ||
+  phase1Platform?.inventory?.governedPairs !== 354 ||
+  phase1Platform?.inventory?.binderPages !== 1352 ||
+  phase1Platform?.safeguards?.publicReleaseAllowed !== false ||
+  phase1Platform?.repositoryIntegration !== "text-governance-evidence-only"
+) {
+  fail(
+    "Enterprise platform metadata is not aligned with the Phase 1 candidate.",
+  );
+}
+
 if (failures.length > 0) {
   console.error("Document build-architecture integration check failed:");
   for (const failure of failures) {
@@ -359,5 +526,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  "Document build-architecture and native rebuild checks passed: 346 Draft pairs, 223 TBT pairs, schema 2.2-development, zero approved resolvers.",
+  "Document governance checks passed: schema 2.2 historical lineage retained; schema 2.3 Phase 1 candidate has 354 Draft pairs, 354 unique Enterprise UIDs, and zero approved resolvers.",
 );

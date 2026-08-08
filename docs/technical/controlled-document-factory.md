@@ -29,7 +29,7 @@ The website enforces access classification and serves approved immutable objects
 
 The website publishes `factory-sync-contract.json` and a deterministic `factory-intake-manifest.json`. The manifest identifies every governed repository source by controlled record ID, source path, version, lifecycle state, and SHA-256 without exposing document bytes through an automation payload.
 
-On a governed `main` update, the website validates the tracked manifest and sends the private factory a `mh-ecosystem-source-updated` repository event when `MH_DOCUMENT_FACTORY_TOKEN` is configured. The factory then checks out the exact website commit, verifies every requested source hash, and stages only the controlled IDs listed in an operator-approved work order. A factory release sends `mh-document-release-updated` back to the website so redirect and release metadata drift is flagged for review.
+On a governed `main` update, the website validates the tracked manifest and sends the private factory a `mh-ecosystem-governance-updated` repository event using `MH_DOCUMENT_FACTORY_TOKEN`. The payload identifies the exact website commit, schema 2.3 manifest, archive hash, register hash, and record count without containing document bytes. The factory retrieves the manifest from that exact commit, verifies its SHA-256, records a validation receipt, and waits for an operator-approved incremental work order. A factory release sends `mh-document-release-updated` back using `MH_WEBSITE_TOKEN` so the website can validate release metadata without changing a redirect automatically.
 
 Neither signal authorizes publication. Missing credentials leave the build in validation-only mode, source hash mismatches fail closed, and no workflow overwrites native sources or public redirects automatically.
 
@@ -61,3 +61,9 @@ The retired generator source may remain in Git history for audit purposes, but n
 ## Build Topology Boundary
 
 Build batches and workers are replaceable processing units defined by each Build Manifest. The Enterprise Document Register records only the current or last verified build reference; Build Manifests and audit history retain complete execution history. A build-unit change cannot alter governed identity, source taxonomy, package membership, revision, or future resolver identity.
+
+## Phase 1 Candidate Intake
+
+The August 8, 2026 Phase 1 baseline candidate advances the validation schema to `2.3-development` and provides 354 governed DOCX/PDF pairs, 354 immutable Enterprise UIDs, 223 TBT pairs, seven external manufacturer SDS references, and a 1,352-page binder index. The website retains only text governance evidence. All native documents, package ZIPs, spreadsheets, and binder PDFs remain in private factory and in-house server custody.
+
+The package-level visual PASS covers the five revised Core Doctrine controls identified by its report. It does not certify the entire binder. Private factory normalization must inspect every document class and remove duplicated legacy headers, inconsistent control blocks, blank pages, and other visual debt before release. No normalization may silently change governed wording, permanent identity, revision, approval state, or evidence state.

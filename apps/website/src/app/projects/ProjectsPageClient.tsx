@@ -95,7 +95,7 @@ export default function ProjectsPageClient() {
       {/* SEO Meta Tags */}
       {/* Structured Data is injected via layout.tsx to avoid duplication */}
 
-      <div className="enterprise-controlled-surface relative min-h-screen w-full overflow-x-hidden bg-white dark:bg-gray-900">
+      <div className="relative min-h-screen w-full overflow-x-hidden bg-white dark:bg-gray-900">
         <span className="sr-only">{t("languageActive")}</span>
         {/* Hero Section */}
         <ProjectsHero locale={isEs ? "es" : "en"} />

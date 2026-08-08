@@ -14,9 +14,17 @@
 
 ## Purpose
 
-## Current Draft Native Rebuild Authority
+## Current Phase 1 Baseline Candidate
 
-The August 8, 2026 schema 2.2 TBT-integrated native rebuild is the current complete Draft package for document-factory and website validation. Its sealed archive is `mh-ecosystem-native-rebuild-schema-2-2-tbt-integrated-2026-08-08.zip`, SHA-256 `7d2fc0656603853ae17b7dae6f4c92c6aa5282691d71ff70a18bd8dacda8985d`.
+The August 8, 2026 governance Phase 1 baseline candidate is the current Draft authority for website and private Document Factory validation. Its sealed archive is `mh-ecosystem-governance-phase1-baseline-candidate-2026-08-08.zip`, SHA-256 `7574e515d77a565cc6e5cbd65e47e800fe523e954d2a48106e99e2c348ef5a56`.
+
+Schema `2.3-development` governs 354 DOCX/PDF pairs across the unchanged ten-package taxonomy. The package assigns 354 unique Enterprise UIDs, maps 223 Toolbox Talks, indexes seven unmodified external manufacturer SDS files, records 90 governance decisions, and reconciles a 1,352-page field binder. All 354 governed records remain `DRAFT`; 353 are `NOT_RELEASED`, one is on `HOLD`, and no document is approved, issued, effective, or publicly downloadable.
+
+The website repository stores the candidate schema, registers, reports, checksums, QA evidence, binder index, and integration manifest. The ten nested ZIPs, native documents, spreadsheet, and binder PDFs remain in private Document Factory and in-house server custody. Schema 2.2 records remain preserved below as historical lineage and do not override the current candidate.
+
+## Historical Draft Native Rebuild Authority
+
+The August 8, 2026 schema 2.2 TBT-integrated native rebuild is retained as the immediate historical Draft package. Its sealed archive is `mh-ecosystem-native-rebuild-schema-2-2-tbt-integrated-2026-08-08.zip`, SHA-256 `7d2fc0656603853ae17b7dae6f4c92c6aa5282691d71ff70a18bd8dacda8985d`.
 
 The package contains 346 DOCX/PDF pairs across the ten numbered packages: 205 baseline pairs plus 141 newly authored MH Toolbox Talks. Package 06 now contains 223 TBT pairs, the field binder contains 1,271 pages, and all ten nested package ZIP files pass archive integrity checks.
 
@@ -42,7 +50,7 @@ The August 6, 2026 Quality Assurance Guide v2.0 is held under `documents/staging
 
 The August 6, 2026 gap-closure batch is held under `documents/staging/gap-closure-forms/`. It supplies seven missing operating-evidence records already required by existing doctrine: project quality/inspection planning, nonconformance and corrective action, warranty service, contract risk and obligation review, system access lifecycle, backup/restore testing, and record disposition. The seven cover-free DOCX/PDF pairs total ten rendered pages and each remains within the one-to-two-page print limit. Existing finance, subcontractor, and closeout forms are crosswalked instead of duplicated. When the Quality Assurance Guide v2.0 activates, it absorbs and retires the parallel `mh-quality-management-plan-v1-0-draft` doctrine while preserving the two QMP evidence identifiers as controlled forms.
 
-The private PDF pipeline validates the current 346-pair Draft package, its ten numbered ZIP files, package-level controls, and the 1,271-page complete field binder. Forms remain cover-free and limited to one or two printable pages where their controlled form class requires that treatment. The QR pipeline records readiness metadata but emits no Draft document QR code until identity, resolver, access, verification, and approval gates close.
+The private PDF pipeline validates the current 354-pair Phase 1 candidate, its ten numbered ZIP files, package-level controls, and the 1,352-page complete field binder. Forms remain cover-free and limited to one or two printable pages where their controlled form class requires that treatment. The QR pipeline records readiness metadata but emits no Draft document QR code until identity, resolver, access, verification, and approval gates close.
 
 ## Precedence
 
@@ -102,6 +110,6 @@ The controlling crosswalk is `docs/manuals/legacy-training-integration-audit-202
 
 ## Build Architecture Decoupling Rule
 
-The August 8, 2026 governance intake advances the Enterprise Document Register schema to `2.2-development` for validation only. Governed identity and the 01-10 taxonomy remain independent from build batches, workers, parallel-processing units, and package memberships. The register retains the current or last verified build reference while Build Manifests and audit history retain complete execution history.
+The August 8, 2026 Phase 1 candidate advances the Enterprise Document Register schema to `2.3-development` for validation only. Governed identity and the 01-10 taxonomy remain independent from build batches, workers, parallel-processing units, and package memberships. The register retains the current or last verified build reference while Build Manifests and audit history retain complete execution history.
 
-The received package remains Draft and preserves two editorial reconciliation items in its integration manifest. It regenerated no documents, changed no permanent IDs or resolver routes, issued no documents, and superseded no documents.
+The received package remains Draft. It assigns Enterprise UIDs without fabricating permanent Document IDs, activates no document, deploys no resolver route, and preserves schema 2.2 as historical lineage.

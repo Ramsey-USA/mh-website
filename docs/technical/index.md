@@ -1,7 +1,7 @@
 # Technical Documentation
 
 **Category:** Technical - Overview  
-**Last Updated:** August 8, 2026
+**Last Updated:** August 5, 2026
 
 ## Quick Summary
 
@@ -22,7 +22,6 @@ These guides should be used alongside the branding and development standards so 
 - [Homepage Documentation](./homepage.md) — the visual and content reference for page quality
 - [Website Guardrails Coverage Map](../branding/governance/website-guardrails-coverage.md) — required coverage check for branding-sensitive changes
 - [SEO Index](./seo/index.md) — implementation entry point for SEO guidance
-- [Document Build Architecture](./document-build-architecture.md) — register, Build Manifest, QR, and publication boundaries
 
 ## Reference Standard
 

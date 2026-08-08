@@ -60,8 +60,11 @@
     "terminology:guardrails:check": "pnpm --filter @mhc/website terminology:guardrails:check",
     "ecosystem:authority:check": "node scripts/validation/check-mh-ecosystem-authority.mjs",
     "ecosystem:phase0:check": "node scripts/validation/check-ecosystem-phase0-reconciliation.mjs",
+    "ecosystem:build-architecture:check": "node scripts/validation/check-document-build-architecture.mjs",
     "ecosystem:factory-manifest": "node scripts/documents/build-factory-intake-manifest.mjs",
     "ecosystem:factory-manifest:check": "node scripts/documents/build-factory-intake-manifest.mjs --check",
+    "ecosystem:factory-dispatch": "node scripts/documents/dispatch-document-factory.mjs",
+    "ecosystem:factory-release-event:check": "node scripts/documents/validate-factory-release-event.mjs",
     "docs:audit:mish-overrun": "pnpm --filter @mhc/website docs:audit:mish-overrun",
     "docs:extract-word": "node documents/scripts/extract-word.mjs",
     "reviews:outreach:generate": "node scripts/marketing/generate-review-outreach.mjs",
@@ -73,9 +76,7 @@
     "reviews:kpi:monthly": "node scripts/marketing/review-recognition-monthly-kpi.mjs",
     "reviews:weekly:run": "node scripts/marketing/run-review-weekly-ops.mjs",
     "reviews:samples:check": "node scripts/marketing/check-review-automation-samples.mjs",
-    "prepare": "node -e \"const {spawnSync}=require('node:child_process'); const result=spawnSync('git',['rev-parse','--is-inside-work-tree'],{stdio:'ignore'}); if (process.env.CI || result.status !== 0) process.exit(0)\" && husky",
-    "cloudflare:deploy:source-check": "node scripts/validation/check-cloudflare-deployment-source.mjs",
-    "ecosystem:build-architecture:check": "node scripts/validation/check-document-build-architecture.mjs"
+    "prepare": "node -e \"const {spawnSync}=require('node:child_process'); const result=spawnSync('git',['rev-parse','--is-inside-work-tree'],{stdio:'ignore'}); if (process.env.CI || result.status !== 0) process.exit(0)\" && husky"
   },
   "keywords": [
     "construction",
@@ -111,7 +112,7 @@
     "markdownlint-cli2": "^0.23.2",
     "pdf-lib": "^1.17.1",
     "pdf-parse": "^2.4.5",
-    "pdfjs-dist": "^6.2.108",
+    "pdfjs-dist": "^6.1.200",
     "mammoth": "^1.12.0",
     "prettier": "^3.9.6",
     "puppeteer": "^25.3.0",
@@ -139,9 +140,7 @@
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "postcss": ">=8.5.25",
-    "sharp": "0.35.3",
-    "nanoid@<4": "3.3.17",
-    "nanoid@>=4 <5.1.16": "5.1.16"
+    "sharp": "0.35.3"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

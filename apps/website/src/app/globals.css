@@ -1,8 +1,7 @@
 /* ============================================
    MH BRAND FONTS
-   Website typography: Mendl Sans Dusk via Adobe Fonts project xqd0lnq
-   CSS family contract: "mendl-sans-dusk"
-   Offline document typography remains under the private factory license path.
+  Heading / Subheading: Mendl Sans Dusk (self-hosted)
+  Body: Mendl Sans Dusk (self-hosted)
    ============================================ */
 
 /* Import CSS variables from shared design system */
@@ -14,6 +13,17 @@
 /* Tailwind CSS v4 — point to legacy JS config for theme/plugins */
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
+
+/* Mendl Sans Dusk OTF variants are loaded via next/font/local in src/lib/fonts.ts.
+   Keep a minimal self-hosted @font-face contract for fallback and validation guards. */
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Enterprise public-site system. The visual language uses construction-document
    precision, controlled contrast, and the MH Bible palette. */
@@ -48,12 +58,7 @@
     linear-gradient(rgba(217, 189, 147, 0.28) 1px, transparent 1px),
     linear-gradient(90deg, rgba(217, 189, 147, 0.28) 1px, transparent 1px);
   background-size: 5rem 5rem;
-  mask-image: linear-gradient(
-    90deg,
-    #000 0%,
-    rgba(0, 0, 0, 0.35) 65%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.35) 65%, transparent 100%);
 }
 
 .enterprise-route-hero__content {
@@ -154,6 +159,31 @@
   line-height: 1.55;
 }
 
+.enterprise-route-hero__slogans {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.25rem;
+  max-width: 44rem;
+}
+
+.enterprise-route-hero__slogans strong,
+.enterprise-route-hero__slogans span {
+  display: block;
+  font-family: var(--font-mendl-sans), sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.enterprise-route-hero__slogans strong {
+  color: var(--mh-tan, #c39a6b);
+  font-size: 0.9rem;
+}
+
+.enterprise-route-hero__slogans span {
+  color: rgb(255 255 255 / 78%);
+  font-size: 0.75rem;
+}
+
 .enterprise-actions {
   display: flex;
   flex-wrap: wrap;
@@ -225,41 +255,6 @@
   justify-content: center;
   padding: 1.5rem;
   border-left: 1px solid rgba(18, 35, 27, 0.15);
-}
-
-/* Controlled Phase 2 route surfaces neutralize inherited promotional
-   geometry without disturbing route behavior or content contracts. */
-.enterprise-controlled-surface
-  :where(.rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl) {
-  border-radius: 0 !important;
-}
-
-.enterprise-controlled-surface :where([class*="shadow-"]) {
-  box-shadow: none !important;
-}
-
-.enterprise-controlled-surface
-  :where([class*="bg-linear-to"]:not(.bg-clip-text)) {
-  background-color: var(--color-brand-primary) !important;
-  background-image: none !important;
-}
-
-.enterprise-controlled-surface
-  :where([class*="bg-linear-to"][class*="from-brand-secondary"]) {
-  background-color: var(--color-brand-secondary) !important;
-}
-
-.enterprise-controlled-surface
-  :where([class*="bg-linear-to"][class*="from-slate"]) {
-  background-color: #475569 !important;
-}
-
-.enterprise-controlled-surface .bg-clip-text {
-  background-image: none !important;
-  background-clip: initial !important;
-  color: inherit !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: currentColor !important;
 }
 
 .enterprise-proof-item:last-child {
@@ -577,6 +572,60 @@
   }
 }
 
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_SemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_XBold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Black.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "mendl-sans-dusk";
+  src: url("/fonts/Mendl%20Fonts/fonnts.com-Mendl_Sans_Dusk_Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Material Icons font setup */
 .material-icons {
   font-family: "Material Icons";
@@ -617,7 +666,7 @@
     display: none;
   }
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
     .mh-logo-parallax-layer {
       background-size: clamp(260px, 80vw, 560px) auto;
     }
@@ -1863,29 +1912,4 @@ main {
   .scroll-progress {
     display: none !important;
   }
-}
-
-.enterprise-route-hero__slogans {
-  display: grid;
-  gap: 0.35rem;
-  margin-top: 1.25rem;
-  max-width: 44rem;
-}
-
-.enterprise-route-hero__slogans strong,
-.enterprise-route-hero__slogans span {
-  display: block;
-  font-family: var(--font-mendl-sans), sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.enterprise-route-hero__slogans strong {
-  color: var(--mh-tan, #c39a6b);
-  font-size: 0.9rem;
-}
-
-.enterprise-route-hero__slogans span {
-  color: rgb(255 255 255 / 78%);
-  font-size: 0.75rem;
 }

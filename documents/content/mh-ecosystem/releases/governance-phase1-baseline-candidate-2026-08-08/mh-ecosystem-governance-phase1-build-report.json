@@ -1,0 +1,27 @@
+{
+  "phase": "Governance Phase 1",
+  "result": "PASS",
+  "taxonomyChanged": false,
+  "packages": 10,
+  "governedPairs": 354,
+  "enterpriseUidsAssigned": 354,
+  "permanentIdsFabricated": 0,
+  "documentsActivated": 0,
+  "documentsIssued": 0,
+  "coreDoctrineDocumentsRevised": [
+    "mh-ecosystem-governance-and-document-control-standard-v1-0-draft.docx",
+    "mh-operations-manual-raci-appendix-v1-0-draft.docx",
+    "mh-enterprise-master-document-index-v1-0-draft.docx",
+    "mh-revision-history-block-template-v1-0-draft.docx",
+    "gov-f-04-1-record-retention-and-disposition-authorization-v1-0-draft.docx"
+  ],
+  "decisionsRecorded": 90,
+  "tbtFilesMapped": 223,
+  "sdsProductsInventoryConfirmed": 0,
+  "binderPages": 1352,
+  "structuralQa": "PASS",
+  "visualQa": "PASS",
+  "qaDate": "2026-08-08",
+  "reportScope": "HISTORICAL_LINEAGE",
+  "currentGoverningSchema": "2.3-development"
+}

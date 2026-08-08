@@ -23,10 +23,7 @@ export function EnterpriseRouteHero({
 }: Readonly<EnterpriseRouteHeroProps>) {
   return (
     <>
-      <section
-        className="enterprise-route-hero"
-        aria-labelledby="route-heading"
-      >
+      <section className="enterprise-route-hero" aria-labelledby="route-heading">
         <div className="enterprise-route-hero__grid" aria-hidden="true" />
         <div className="enterprise-shell enterprise-route-hero__content">
           <p className="enterprise-kicker enterprise-kicker--tan">{eyebrow}</p>

@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "schemaVersion": "2.2-development",
+  "lifecycleStatus": "DRAFT",
+  "governedTaxonomyChanged": false,
+  "exactManufacturerSdsAdded": 7,
+  "newMhcWrapperPairs": 7,
+  "newFieldFormPairs": 1,
+  "externalSheetsModified": false,
+  "labelMatchGate": "REQUIRED",
+  "transitionHoldProducts": 1,
+  "warehouseFleetPriorityClasses": 30,
+  "binderPages": 1365,
+  "permanentIdsFabricated": 0,
+  "documentsIssued": 0,
+  "visualQa": "PASS - all eight generated one-page files rendered and inspected",
+  "reportScope": "HISTORICAL_LINEAGE",
+  "currentGoverningSchema": "2.3-development"
+}

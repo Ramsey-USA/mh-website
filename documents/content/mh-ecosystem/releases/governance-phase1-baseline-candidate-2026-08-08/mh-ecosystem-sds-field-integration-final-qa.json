@@ -1,0 +1,76 @@
+{
+  "result": "PASS",
+  "schemaVersion": "2.2-development",
+  "lifecycleStatus": "DRAFT",
+  "governedPairCounts": {
+    "01-core-doctrine": 9,
+    "02-strategy-and-business-dev": 7,
+    "03-project-delivery": 11,
+    "04-safety-and-field-ops": 7,
+    "05-it-and-infrastructure": 6,
+    "06-tbt-library": 223,
+    "07-sds-library": 19,
+    "08-forms-ehb": 16,
+    "09-forms-operations": 31,
+    "10-forms-mish": 25
+  },
+  "totalGovernedPairs": 354,
+  "externalManufacturerSdsCount": 7,
+  "externalSdsChecks": [
+    {
+      "file": "msds_en-1003634.pdf",
+      "pages": 13,
+      "sections1to16": true,
+      "sha256": "b6030c0d897eabeb8ba53c99aefe504fcf5b57752ea062cea1dfa76e392b882b"
+    },
+    {
+      "file": "msds_en-1003640.pdf",
+      "pages": 8,
+      "sections1to16": true,
+      "sha256": "4163bc41dc589bb9a2903552b4751b9dbb34948008af7198ecca4524c1f6328d"
+    },
+    {
+      "file": "msds_en-1003672.pdf",
+      "pages": 10,
+      "sections1to16": true,
+      "sha256": "84bb1d88015256690edc5e1947d80d5c5a872e935eb9f7cb719f3bf2c5f115dc"
+    },
+    {
+      "file": "msds_en-1003719.pdf",
+      "pages": 9,
+      "sections1to16": true,
+      "sha256": "b1c51494d446629e0be0498f55b8d2bbb41d395a48fd604424b7b2783fc2de74"
+    },
+    {
+      "file": "msds_en-1003802.pdf",
+      "pages": 15,
+      "sections1to16": true,
+      "sha256": "12d1fa143c088a30fda58bdc977c44db91956d93fb3a718d6980dca14a9ee8f8"
+    },
+    {
+      "file": "pro-gaps-cracks-polyurethane-foam-sealant-pro-dispenser-gun-US-SDS-000001156764.pdf",
+      "pages": 20,
+      "sections1to16": true,
+      "sha256": "2bce7a0f6f7b33e43d86b75f7e2128ab62740fe26217edebf48af91f905e8208"
+    },
+    {
+      "file": "SDS-D1-Portland-Cements.pdf",
+      "pages": 11,
+      "sections1to16": true,
+      "sha256": "5c9c75d0fbd21c009ef80759bba0822c4bf377288b6cf5418c08ef54c865999d"
+    }
+  ],
+  "newMhcWrapperPairs": 7,
+  "newFieldFormPairs": 1,
+  "warehouseFleetPriorityClasses": 30,
+  "exactLabelMatchGateRequired": true,
+  "externalSheetsModified": false,
+  "visualQa": "PASS - all eight generated one-page files rendered and inspected",
+  "binderPages": 1365,
+  "expectedBinderPages": 1365,
+  "permanentIdsFabricated": 0,
+  "documentsIssued": 0,
+  "failures": [],
+  "reportScope": "HISTORICAL_LINEAGE",
+  "currentGoverningSchema": "2.3-development"
+}

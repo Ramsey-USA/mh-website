@@ -161,38 +161,17 @@ export default function AboutDetailsPage() {
         }}
       />
 
-      <div className="enterprise-controlled-surface min-h-screen bg-white dark:bg-gray-900">
+      <div className="min-h-screen bg-white dark:bg-gray-900">
         <EnterpriseRouteHero
           eyebrow={copy.heroEyebrow}
           title={copy.heroTitle}
           intro={copy.heroSubtitle}
-          primary={{
-            href: "#core-capabilities",
-            label: isSpanish ? "Revisar capacidades" : "Review capabilities",
-          }}
-          secondary={{
-            href: "/contact",
-            label: isSpanish ? "Presentar un proyecto" : "Brief a project",
-          }}
+          primary={{ href: "#core-capabilities", label: isSpanish ? "Revisar capacidades" : "Review capabilities" }}
+          secondary={{ href: "/contact", label: isSpanish ? "Presentar un proyecto" : "Brief a project" }}
           proof={[
-            [
-              "Precon",
-              isSpanish
-                ? "Alcance y constructabilidad"
-                : "Scope and constructability",
-            ],
-            [
-              "Campo",
-              isSpanish
-                ? "Coordinacion y seguridad"
-                : "Coordination and safety",
-            ],
-            [
-              "Control",
-              isSpanish
-                ? "RFI, submittals y cambios"
-                : "RFIs, submittals, and change",
-            ],
+            ["Precon", isSpanish ? "Alcance y constructabilidad" : "Scope and constructability"],
+            ["Campo", isSpanish ? "Coordinacion y seguridad" : "Coordination and safety"],
+            ["Control", isSpanish ? "RFI, submittals y cambios" : "RFIs, submittals, and change"],
             [COMPANY_INFO.slogan.primary, getHeroPageSlogan("about").slogan],
           ]}
         />

@@ -1,19 +1,31 @@
 {
-  "schemaVersion": 1,
-  "contractVersion": "1.0.0",
+  "schemaVersion": 2,
+  "contractVersion": "2.0.0",
   "sourceRepository": "Ramsey-USA/mh-website",
   "factoryRepository": "Ramsey-USA/mh-document-factory",
-  "sourceAuthority": "documents/content/mh-ecosystem/phase-0-reconciliation.json",
+  "sourceAuthority": "documents/content/mh-ecosystem/releases/governance-phase1-baseline-candidate-2026-08-08/mh-ecosystem-document-metadata-index.csv",
+  "candidateManifest": "documents/content/mh-ecosystem/releases/governance-phase1-baseline-candidate-2026-08-08/integration-manifest.json",
   "intakeManifest": "documents/content/mh-ecosystem/factory-intake-manifest.json",
-  "baselineSha256": "f6b9a39d944ba12cdeed7146be4b412f04dd5010752b694f1294b680d84d89b1",
-  "lifecycleStatus": "Rough Draft",
+  "baselineSha256": "7574e515d77a565cc6e5cbd65e47e800fe523e954d2a48106e99e2c348ef5a56",
+  "governanceSchema": "2.3-development",
+  "lifecycleStatus": "DRAFT",
   "publicationAllowed": false,
   "synchronization": {
     "mode": "manifest-and-signal",
-    "websiteEvent": "mh-ecosystem-source-updated",
+    "websiteEvent": "mh-ecosystem-governance-updated",
     "factoryEvent": "mh-document-release-updated",
     "automaticSourceOverwrite": false,
     "automaticPublication": false,
-    "requiredSecret": "MH_DOCUMENT_FACTORY_TOKEN"
+    "automaticRedirectMutation": false,
+    "websiteDispatchSecret": "MH_DOCUMENT_FACTORY_TOKEN",
+    "factoryDispatchSecret": "MH_WEBSITE_TOKEN",
+    "maximumDocumentsPerWorkOrder": 25,
+    "payloadContainsDocumentBytes": false
+  },
+  "authorityBoundary": {
+    "website": "governance metadata, approved public destinations, and release receipt validation",
+    "factory": "private native sources, brand assets, PDF and QR generation, visual QA, and approval evidence",
+    "r2": "approved immutable generated artifacts only",
+    "server": "authoritative archive and controlled evidence custody"
   }
 }
