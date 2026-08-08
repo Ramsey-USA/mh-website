@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "schemaVersion": "2.2-development",
+  "baselinePairs": 205,
+  "packagePairCounts": {
+    "01-core-doctrine": 9,
+    "02-strategy-and-business-dev": 7,
+    "03-project-delivery": 11,
+    "04-safety-and-field-ops": 7,
+    "05-it-and-infrastructure": 6,
+    "06-tbt-library": 223,
+    "07-sds-library": 11,
+    "08-forms-ehb": 16,
+    "09-forms-operations": 31,
+    "10-forms-mish": 25
+  },
+  "packagePdfPages": {
+    "01-core-doctrine": 79,
+    "02-strategy-and-business-dev": 87,
+    "03-project-delivery": 67,
+    "04-safety-and-field-ops": 157,
+    "05-it-and-infrastructure": 30,
+    "06-tbt-library": 469,
+    "07-sds-library": 22,
+    "08-forms-ehb": 105,
+    "09-forms-operations": 195,
+    "10-forms-mish": 50
+  },
+  "totalPairs": 346,
+  "tbtPairs": 223,
+  "newOriginalTbtPairs": 141,
+  "binderPages": 1271,
+  "sourceTaxonomyChanged": false,
+  "permanentIdsFabricated": 0,
+  "resolverRoutesDeployed": 0,
+  "documentsIssued": 0,
+  "documentsSuperseded": 0,
+  "publisherTextCopied": false,
+  "signatureBlocksInNewTbts": 0,
+  "failures": []
+}
