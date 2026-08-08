@@ -369,6 +369,7 @@ export function AppShell({
 
   return (
     <>
+      <SkipToContentLink />
       {pageBackground}
       <Navigation />
       <div className="mh-global-logo-parallax-active relative z-10 flex min-h-screen flex-col bg-linear-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
