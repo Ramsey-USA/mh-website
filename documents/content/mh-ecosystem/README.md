@@ -90,7 +90,6 @@ Legacy office-training PDFs are evidence sources, not additional controlled manu
 
 The controlling crosswalk is `docs/manuals/legacy-training-integration-audit-2026-08-06.md`. Legacy PDFs remain in the locked in-house archive and are excluded from the website PDF and QR publication pipeline.
 
-
 ## Build Architecture Decoupling Rule
 
 The August 8, 2026 governance intake advances the Enterprise Document Register schema to `2.2-development` for validation only. Governed identity and the 01-10 taxonomy remain independent from build batches, workers, parallel-processing units, and package memberships. The register retains the current or last verified build reference while Build Manifests and audit history retain complete execution history.
