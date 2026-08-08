@@ -12,7 +12,7 @@ An active facility is an operating system, not an empty construction site. The s
 
 One of the fastest ways to lose a construction schedule is to treat an active facility like an empty jobsite.
 
-On an occupied industrial or distribution site, the schedule has to account for operating traffic, employee movement, deliveries, inspections, customer access, and the construction work itself. Those constraints are not side notes. They are part of the scope.
+On an occupied industrial or distribution site, the schedule has to account for operating traffic, employee movement, deliveries, inspections, visitor access, and the construction work itself. Those constraints are not side notes. They are part of the scope.
 
 My operating test is simple: before mobilization, can every stakeholder explain what changes today, what cannot be interrupted, who owns each constraint, and how the handoff will be verified?
 
