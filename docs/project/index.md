@@ -1,7 +1,7 @@
 # Project Documentation
 
 **Category:** Project - Overview  
-**Last Updated:** August 5, 2026
+**Last Updated:** August 7, 2026
 
 ## Quick Summary
 
@@ -54,6 +54,10 @@ Use [Core Doctrine Canonical Map](../manuals/core-doctrine-canonical-map.md) and
 
 - **[Enterprise Risk Management Guide](./enterprise-risk-management-guide.md)** — Markdown-facing baseline for enterprise risk, escalation, and evidence controls.
 - **[Quality Management Guide](./quality-management-guide.md)** — Markdown-facing baseline for quality planning, nonconformance, and turnover controls.
+
+### Active Sitewide Phases
+
+- **[Sitewide Accessibility Phase (August 2026)](./sitewide-accessibility-phase-2026-08.md)** — Shared-shell keyboard bypass control, route-wide coverage, and release gates.
 
 ### Audits
 
