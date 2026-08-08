@@ -192,7 +192,7 @@ Use this manifest as the minimum route-surface inventory for branding audits.
 22. `/public-sector`
 23. `/public-sector/tri-state-government-construction`
 24. `/public-sector/veteran-led-compliance`
-25. `/qr-codes`
+25. `/qr-codes` (retired public surface; factory access moved to the machine contract)
 26. `/resources`
 27. `/resources/safety-program`
 28. `/resources/safety-manual`

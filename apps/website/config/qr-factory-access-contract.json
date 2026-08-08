@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "mode": "stable-website-redirects",
+  "redirectRegistry": "apps/website/src/lib/data/controlled-document-redirects.json",
+  "baseUrl": "https://www.mhc-gc.com/go/docs/",
+  "generatorRepository": "Ramsey-USA/mh-document-factory",
+  "assetCustodyRepository": "Ramsey-USA/mh-document-factory",
+  "websiteAssetGenerationAllowed": false,
+  "publicAssetCatalogAllowed": false
+}

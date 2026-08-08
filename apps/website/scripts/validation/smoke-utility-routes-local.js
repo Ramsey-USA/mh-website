@@ -6,7 +6,7 @@
  * Validates key public route behavior:
  * - /sitemap returns HTML sitemap page
  * - /sitemap.xml returns XML
- * - /qr-codes returns 200
+ * - retired /qr-codes returns 404
  * - unknown locale path returns 404
  * - unknown slug path returns 404
  *
@@ -137,7 +137,7 @@ async function runChecks() {
   );
 
   const qrCodes = await request("/qr-codes");
-  expectStatus(qrCodes.status, 200, "/qr-codes");
+  expectStatus(qrCodes.status, 404, "/qr-codes");
 
   const unknownLocale = await request("/fr/services");
   expectStatus(unknownLocale.status, 404, "/fr/services");

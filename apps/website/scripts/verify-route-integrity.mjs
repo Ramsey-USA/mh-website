@@ -74,6 +74,18 @@ const FORBIDDEN_STATUS_FRAGMENTS = [
   "/cancelled",
   "/private",
 ];
+const QR_FACTORY_ACCESS_CONTRACT_FILE = path.join(
+  ROOT,
+  "config",
+  "qr-factory-access-contract.json",
+);
+const RETIRED_QR_HELPERS = [
+  "scripts/generate-qr-codes.js",
+  "scripts/test-qr-codes.js",
+  "scripts/r2-publish-qr-codes.sh",
+  "scripts/build-qr-download-bundle.js",
+  "scripts/add-team-qr-codes.js",
+];
 
 function readText(filePath) {
   return fs.readFileSync(filePath, "utf8");
@@ -401,6 +413,25 @@ function getSiteOrigin() {
 
 function checkRouteIntegrity() {
   const errors = [];
+
+  const qrContract = JSON.parse(readText(QR_FACTORY_ACCESS_CONTRACT_FILE));
+  if (
+    qrContract.mode !== "stable-website-redirects" ||
+    qrContract.redirectRegistry !==
+      "apps/website/src/lib/data/controlled-document-redirects.json" ||
+    qrContract.baseUrl !== "https://www.mhc-gc.com/go/docs/" ||
+    qrContract.generatorRepository !== "Ramsey-USA/mh-document-factory" ||
+    qrContract.assetCustodyRepository !== "Ramsey-USA/mh-document-factory" ||
+    qrContract.websiteAssetGenerationAllowed !== false ||
+    qrContract.publicAssetCatalogAllowed !== false
+  ) {
+    errors.push("QR factory access and custody contract is invalid.");
+  }
+  for (const retiredPath of RETIRED_QR_HELPERS) {
+    if (fs.existsSync(path.join(ROOT, retiredPath))) {
+      errors.push(`Retired website QR helper remains active: ${retiredPath}`);
+    }
+  }
 
   const cliRequiredRoutes = parseRequireArgs(process.argv.slice(2));
   const requiredRoutes = [

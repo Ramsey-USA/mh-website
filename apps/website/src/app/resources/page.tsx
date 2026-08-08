@@ -156,41 +156,6 @@ export default async function ResourcesPage() {
             </Card>
           </FadeInWhenVisible>
 
-          <Card className="group mb-10 overflow-hidden border-brand-secondary/25 bg-linear-to-r from-brand-secondary/8 to-brand-secondary/4 dark:from-brand-secondary/20 dark:to-brand-secondary/10 transition-all duration-300 hover:border-brand-secondary hover:shadow-lg">
-            <Link
-              href="/qr-codes"
-              className="flex items-start gap-5 p-5 sm:items-center sm:p-6"
-            >
-              <div className="shrink-0 w-12 h-12 bg-brand-secondary rounded-xl flex items-center justify-center shadow-md transition-colors duration-200">
-                <MaterialIcon
-                  icon="qr_code_2"
-                  size="md"
-                  className="text-white"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 flex-wrap mb-1">
-                  <h2 className="text-base font-bold text-brand-secondary dark:text-brand-secondary-light">
-                    {isEs ? "Biblioteca de codigos QR" : "QR Code Library"}
-                  </h2>
-                  <span className="text-xs font-semibold bg-brand-secondary text-white rounded-full px-2.5 py-0.5">
-                    {isEs ? "Explorar" : "Browse"}
-                  </span>
-                </div>
-                <p className="font-body text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {isEs
-                    ? "Abra cada codigo QR en tamano completo y descargue archivos PNG desde una sola galeria. Subcontratistas y proveedores pueden revisar rapidamente estandares operativos y rutas antes de la coordinacion en campo."
-                    : "Open each QR code at full size and download PNG files from a single gallery. Subcontractors and vendors can quickly preview operating standards and routing paths before field coordination."}
-                </p>
-              </div>
-              <MaterialIcon
-                icon="arrow_forward"
-                size="md"
-                className="text-brand-secondary shrink-0 hidden sm:block"
-              />
-            </Link>
-          </Card>
-
           <Card className="group mb-10 overflow-hidden border-brand-primary/25 bg-linear-to-r from-brand-primary/8 to-brand-primary/4 dark:from-brand-primary/20 dark:to-brand-primary/10 transition-all duration-300 hover:border-brand-primary hover:shadow-lg">
             <Link
               href="/news"
